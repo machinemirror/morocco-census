@@ -88,7 +88,7 @@ def load_2024() -> pd.DataFrame:
     return com.reset_index(drop=True)
 
 
-CONTAMINATION = re.compile(r"^(Notation :.*?rural\.\s*|Vulné-\s*|bilité\s*|(communaux |de |la |développement )+)", re.I)
+CONTAMINATION = re.compile(r"^(Notation :.*?rural\.\s*|Vulné-\s*|bilité\s*|(communaux |de |la |développement )+)", re.IGNORECASE)
 
 
 def load_2004() -> pd.DataFrame:
@@ -192,7 +192,7 @@ def communes(out_path=P_CROSSWALK) -> pd.DataFrame:
     return out
 
 
-APP_PREFIX = re.compile(r"^(MU|CR|AC|AR)\s*-\s*", re.I)
+APP_PREFIX = re.compile(r"^(MU|CR|AC|AR)\s*-\s*", re.IGNORECASE)
 
 
 def norm_app(s: str) -> str:

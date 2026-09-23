@@ -149,7 +149,7 @@ def curl_fetch(url: str, dest: Path) -> tuple[bool, str]:
         str(dest),
         url,
     ]
-    proc = subprocess.run(cmd, capture_output=True, text=True)
+    proc = subprocess.run(cmd, capture_output=True, text=True, check=False)
     if proc.returncode != 0:
         return False, proc.stderr.strip()[-500:]
     return True, ""
