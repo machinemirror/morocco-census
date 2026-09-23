@@ -2,7 +2,7 @@
 
 2014: menages/individus/activite/diplome_2014.xlsx, sheet Indic.Ensemble. Commune rows have a
 dotted code14 with 4 dots (e.g. "01.051.01.01.").
-2024: indicateurs_demo_socioeco_2024.xlsx, sheets Population and Ménages (Population_Urbaine
+2024: indicateurs_demo_socioeco_2024.xlsx, sheets Population and Ménages (Population_Rurale
 for the urban flag). Commune rows are labelled "Commune de "/"Commune d'"; key code24.
 
 SPEC_2014 / SPEC_2024 name the exact 0-indexed source column of every variable; the
@@ -88,8 +88,8 @@ def extract_2014() -> tuple[pd.DataFrame, dict]:
     out = out.drop(columns=["_pct_deug_licence", "_pct_master_doct"])
     column_map["pct_higher_ed"] = "diplome_2014.xlsx col12 + col13: DEUG/Licence + Master/Doctorat (Ensemble), summed"
 
-    out["is_urban"] = out["name14"].str.contains(r"\(Mun\.\)", regex=True).astype(int)
-    column_map["is_urban"] = "menages_2014.xlsx col7 name suffix '(Mun.)' -> 1, else 0"
+    out["is_urban"] = out["name14"].str.contains(r"\((?:Mun|Arrond)\.\)", regex=True).astype(int)
+    column_map["is_urban"] = "menages_2014.xlsx col7 name suffix '(Mun.)' or '(Arrond.)' -> 1, else 0"
 
     out["pop_share"] = out["population14"] / out["population14"].sum() * 100
     column_map["pop_share"] = "population14 / sum(population14 over commune rows) * 100"
@@ -125,7 +125,7 @@ COMMUNE_LABEL_RE = re.compile(r"^Commune (de |d')")
 def extract_2024() -> tuple[pd.DataFrame, dict]:
     sheets = {
         s: pd.read_excel(RAW / "indicateurs_demo_socioeco_2024.xlsx", sheet_name=s, header=None)
-        for s in ["Population", "Ménages", "Population_Urbaine"]
+        for s in ["Population", "Ménages", "Population_Rurale"]
     }
     column_map = {}
 
@@ -154,11 +154,14 @@ def extract_2024() -> tuple[pd.DataFrame, dict]:
             out[out_name] = out["code24"].map(series)
             column_map[out_name] = f"indicateurs_demo_socioeco_2024.xlsx[{sheet}] col{col}: {header_label(df, col)}"
 
-    urb = sheets["Population_Urbaine"]
-    urb_code = pd.to_numeric(urb[CODE_COL_2024], errors="coerce")
-    urb_mask = urb[LABEL_COL_2024].astype(str).str.match(COMMUNE_LABEL_RE) & urb_code.notna()
-    out["is_urban"] = out["code24"].isin(set(urb_code[urb_mask].astype("Int64").tolist())).astype(int)
-    column_map["is_urban"] = "code24 present as a commune row in sheet Population_Urbaine -> 1, else 0"
+    # every commune appears in both milieu sheets ('-' when empty), so presence says nothing: a commune is
+    # urban (a municipality) when it has no rural population; matches 2014 '(Mun.)' status for all matched rows
+    rur = sheets["Population_Rurale"]
+    rur_code = pd.to_numeric(rur[CODE_COL_2024], errors="coerce")
+    rur_mask = rur[LABEL_COL_2024].astype(str).str.match(COMMUNE_LABEL_RE) & rur_code.notna()
+    rural = rur_code[rur_mask & (to_num(rur[POP_COL_2024]) > 0)].astype("Int64")
+    out["is_urban"] = (~out["code24"].isin(set(rural.tolist()))).astype(int)
+    column_map["is_urban"] = "no rural population in sheet Population_Rurale -> 1, else 0"
 
     out["pop_share"] = out["population24"] / out["population24"].sum() * 100
     column_map["pop_share"] = "population24 / sum(population24 over commune rows) * 100"
