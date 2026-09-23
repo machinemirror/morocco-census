@@ -63,7 +63,8 @@ def extract_2014() -> tuple[pd.DataFrame, dict]:
     column_map = {}
     base = raws["menages_2014.xlsx"]
     code = base[CODE_COL_2014].astype(str)
-    mask = code.str.count(r"\.") == 4
+    # depth 4 with COM set; the 8 Casablanca préfectures d'arrondissements (06.141.01.0. ...) have no COM
+    mask = (code.str.count(r"\.") == 4) & base[4].notna()
     out = pd.DataFrame(
         {
             "code14": code[mask],

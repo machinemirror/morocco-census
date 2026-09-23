@@ -106,7 +106,7 @@ def main() -> pd.DataFrame:
     if len(arr):
         arr["city"] = arr.code14.str.extract(r"^(\d+\.\d+\.\d+\.)")[0]
         rows = []
-        num = [c for c in p.columns if p[c].dtype.kind == "f" and c not in ("code24",)]
+        num = [c for c in p.columns if p[c].dtype.kind == "f" and c not in ("code24", "menages14", "population14")]
         for city, g in arr.groupby("city"):
             w = g.population14.fillna(0)
             r = {
