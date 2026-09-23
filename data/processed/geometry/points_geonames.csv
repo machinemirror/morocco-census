@@ -1,0 +1,153 @@
+unit,name14,prov14,lon,lat,geonameid,fcode,display
+01.051.01.09.,Ajdir (Mun.),Al Hoceima,-4.00038,34.75556,11911326,ADM4,Ajdir
+01.051.05.09.,Bni Hadifa,Al Hoceima,-4.19278,34.9986,6546356,ADM3,Bni Hadifa
+01.051.07.27.,Zarkt,Al Hoceima,-4.35156,34.89599,6545785,ADM3,Zarkt
+01.151.01.01.,Chefchaouen (Mun.),Chefchaouen,-5.08333,35.0,2553533,ADM2,Chefchaouen Province
+01.151.06.21.,Oued Malha,Chefchaouen,-5.02018,34.9151,6545997,ADM3,Oued Malha
+01.331.11.03.,Oulad Ouchih,Larache,-5.96763,35.06524,6545705,ADM3,Oulad Ouchih
+01.405.07.01.,Bni Quolla,Ouezzane,-5.52317,34.75218,11911061,ADM4,Bni Quolla
+01.405.09.09.,Moqrisset,Ouezzane,-5.39831,34.93198,11911063,ADM4,Moqrisset
+01.511.01.09.,Gueznaia (Mun.),Tanger-Assilah,-5.89044,35.70211,2537368,PPL,Gueznaia
+01.511.03.03.,Aquouass Briech,Tanger-Assilah,-5.95759,35.55422,6546250,ADM3,Aquouass Briech
+01.511.03.13.,Sidi Lyamani,Tanger-Assilah,-5.96637,35.37445,6546448,ADM3,Sidi Lyamani
+01.511.81.05.,HJAR ENNHAL,Tanger-Assilah,-5.89846,35.63556,11911095,ADM4,Hjar Ennhal
+01.571.01.07.,Oued Laou (Mun.),Tétouan,-5.12224,35.45741,11878905,ADM3,Oued Laou
+01.571.01.11.,Tétouan (Mun.),Tétouan,-5.5,35.58333,2528907,ADM2,Tetouan
+01.571.05.05.,Al Oued,Tétouan,-5.31875,35.26844,6546193,ADM3,Aloued
+01.573.01.01.,Fnideq (Mun.),M'Diq-Fnideq,-5.36939,35.8253,11878438,ADM3,Fnideq
+01.573.03.05.,Belyounech,M'Diq-Fnideq,-5.39792,35.87665,11911108,ADM4,Belyounech
+02.113.01.29.,Sidi Slimane Echcharraa (Mun.),Berkane,-2.35515,34.91123,11878991,ADM3,Sidi Slimane Echcharraa
+02.113.05.05.,Chouihia,Berkane,-2.65162,34.80899,11911227,ADM4,Chouihia
+02.251.03.13.,Ain Chair,Figuig,-2.50073,32.22402,11911196,ADM4,Ain Chair
+02.275.01.17.,Jerada (Mun.),Jerada,-2.04284,34.23662,6547288,ADM2,Jerada
+02.275.03.13.,Ras Asfour,Jerada,-1.84483,34.51897,6545918,ADM3,Ras Asfour
+02.275.05.01.,Bni Mathar,Jerada,-1.9871,34.00603,11911205,ADM4,Bni Mathar
+02.411.01.19.,Naima (Mun.),Oujda-Angad,-2.21764,34.60277,2541460,PPL,Naima
+02.411.01.23.,Oujda (Mun.),Oujda-Angad,-1.9108,34.68288,6545974,ADM3,Oujda
+02.533.03.19.,Sidi Lahsen,Taourirt,-2.67005,34.04672,11911220,ADM4,Sidi Lahsen
+02.533.09.01.,Ahl Oued Za,Taourirt,-2.81757,34.28544,6545534,ADM3,Ahl Oued Za
+03.061.01.01.,Meknès (Mun.),Meknès,-5.52496,33.97761,6547283,ADM2,Meknes
+03.061.01.03.,Al Machouar - Stinia (Mun.),Meknès,-5.55745,33.88566,6546144,ADM3,Al Machouar-Stinia
+03.061.01.09.,Moulay Driss Zerhoun (Mun.),Meknès,-5.52457,34.05425,10984355,PPL,Moulay Driss Zerhoun
+03.061.05.07.,Oued Jdida,Meknès,-5.38808,33.93874,6546969,ADM3,Oued Jdida
+03.061.07.05.,MRhassiyine,Meknès,-5.49739,34.00723,6546970,ADM3,M'Rhassiyine
+03.171.01.07.,Sabaa Aiyoun (Mun.),El  Hajeb,-5.36109,33.89689,6546956,ADM3,Sabaa Aiyoun
+03.231.01.03.,Méchouar Fès Jdid (Mun.),Fès,-4.99506,34.05102,6546342,ADM3,Mechouar Fes Jdid
+03.271.03.05.,Oued Ifrane,Ifrane,-5.485,33.292,6546220,ADM3,Oued Ifrane
+03.531.01.03.,Karia Ba Mohamed (Mun.),Taounate,-5.2138,34.37094,2544821,PPLA3,Karia Ba Mohamed
+03.531.01.05.,Taounate (Mun.),Taounate,-4.83333,34.5,2530153,ADM2,Taounate
+03.531.03.09.,Ouartzagh,Taounate,-4.94922,34.50939,11911372,ADM4,Ouartzagh
+03.531.03.13.,Sidi Haj M'hamed,Taounate,-4.9906,34.75792,6547004,ADM3,Sidi Haj M Hamed
+03.531.05.05.,Rhouazi,Taounate,-5.30235,34.47737,2538099,PPLA3,Ghouazi
+03.531.09.13.,Oued Jemaa,Taounate,-4.76871,34.23703,6547016,ADM3,Oued Jemaa
+03.531.09.21.,Ras El Oued,Taounate,-4.55582,34.33896,6546153,ADM3,Ras El Oued
+03.561.01.05.,Oued Amlil (Mun.),Taza,-4.28,34.2,2540716,PPLA3,Oued Amlil
+03.561.01.11.,Taza (Mun.),Taza,-4.03715,34.27724,2529313,ADM2,Taza
+03.561.09.09.,Smià,Taza,-4.29327,34.00228,6546322,ADM3,Smia
+03.561.11.03.,Brarha,Taza,-4.34691,34.45467,6546166,ADM3,Brarha
+03.591.05.02.,Ain Kansra,Moulay Yacoub,-4.84805,34.11269,6545722,ADM3,Ain Kansra
+04.281.01.01.,Kénitra (Mun.),Kénitra,-6.33333,34.58333,2544568,ADM2,Kenitra Province
+04.281.01.05.,Mehdya (Mun.),Kénitra,-6.66193,34.26234,6546240,ADM3,Mehdya
+04.281.01.11.,Souk El Arbaa (Mun.),Kénitra,-6.00344,34.68473,12718688,PPL,Souk El Arbaa
+04.281.03.11.,Ouled Slama,Kénitra,-5.43037,34.38365,2539194,PPL,Oulad Slama
+04.281.07.07.,Oued El Makhazine,Kénitra,-5.8571,34.92562,10992542,PPL,Oued El Makhazine
+04.281.09.01.,Bahhara Ouled Ayad,Kénitra,-6.28725,34.77942,11911433,ADM4,Bahhara Ouled Ayad
+04.291.09.02.,Ain Johra -Sidi Boukhalkhal,Khémisset,-6.37523,34.01395,11911856,ADM4,Ain Johra - Sidi Boukhalkhal
+04.291.09.09.,Khemis Sidi Yahya,Khémisset,-6.2424,33.79851,6546946,ADM3,Khemis Sidi Yahya
+04.441.01.,Bab Lamrissa (Arrond.),Salé,-6.81181,34.0516,11911950,ADM4,Arrondissement de Bab Lamrissa
+04.441.03.05.,Ameur,Salé,-6.65793,34.0849,11911945,ADM4,Ameur
+04.481.03.15.,Sidi Ameur Al Hadi,Sidi Kacem,-5.83035,34.75848,11911835,ADM4,Sidi Ameur Al Hadi
+04.481.09.11.,Zaggota,Sidi Kacem,-5.52435,34.21796,11911840,ADM4,Zaggota
+04.481.11.05.,Rmilat,Sidi Kacem,-5.32304,35.61709,13431134,PPL,Rmilat
+04.491.03.17.,Ameur Chamalia,Sidi Slimane,-6.22162,34.39055,11911852,ADM4,Ameur Chamalia
+04.491.05.13.,Ouled H'Cine,Sidi Slimane,-5.80321,34.41015,11911854,ADM4,Caïdat d’Ouled H’Cine
+05.081.09.15.,Ouaouizeght,Azilal,-6.38977,32.1567,11912475,ADM4,Ouaouizeght
+05.081.11.01.,Afourar,Azilal,-6.58692,32.19337,11881778,ADM3,Afourar
+05.091.03.05.,Ouled M'Barek,Béni Mellal,-6.44642,32.28356,11911911,ADM4,Caïdat d’Ouled M’Barek
+05.091.03.07.,Ouled Yaich,Béni Mellal,-6.33557,32.43184,11911908,ADM4,Ouled Yaich
+05.091.11.03.,Ouled Youssef,Béni Mellal,-5.39902,34.08342,2538925,PPL,Ouled Youssef
+05.091.11.05.,Ouled Said L'Oued,Béni Mellal,-6.46136,32.59935,11911901,ADM4,Caïdat d’Ouled Said L’Oued
+05.255.01.09.,Ouled Ayad (Mun.),Fquih Ben Salah,-6.86103,32.49412,2551474,PPL,Douar Oulad Ayad
+05.255.01.11.,Souk Sebt Ouled Nemma (Mun.),Fquih Ben Salah,-6.7092,32.29541,11881764,ADM3,Souk Sebt Ouled Nemma
+05.255.05.09.,Ouled Zmam,Fquih Ben Salah,-6.73631,32.3903,11911980,ADM4,Ouled Zmam
+05.255.11.07.,Ouled Nacer,Fquih Ben Salah,-6.77105,32.25947,11911983,ADM4,Ouled Nacer
+05.311.01.09.,Oued Zem (Mun.),Khouribga,-6.56605,32.8695,6545669,ADM3,Oued Zem
+05.311.03.15.,Tachraft,Khouribga,-6.474,32.83943,2532119,PPL,Tachraft
+06.111.03.11.,Moualine El Oued,Benslimane,-7.32051,33.45609,6545862,ADM3,Moualine El Oued
+06.111.05.05.,Charrate,Benslimane,-7.10327,33.7694,11912497,ADM4,Charrate
+06.117.01.09.,Had Soualem (Mun.),Berrechid,-7.85237,33.41972,12718675,PPL,Had Soualem
+06.117.05.33.,Soualem Trifiya,Berrechid,-7.90317,33.44246,11912555,ADM4,Soualem Trifiya
+06.117.08.19.,Ouled Cebbah,Berrechid,-7.32261,33.27865,6546735,ADM3,Ouled Cebbah
+06.117.08.20.,Oulad Ziyane,Berrechid,-7.462,33.394,11912520,ADM4,Oulad Ziyane
+06.117.08.21.,Ouled Zidane,Berrechid,-7.36856,33.36401,6546736,ADM3,Ouled Zidane
+06.141.01.81.,Mechouar de Casablanca (Mun.),Préfecture d’Arrondissements Moulay Rachid,-7.60615,33.57918,12718671,PPL,Méchouar de Casablanca
+06.181.05.07.,Ouled Hcine,El Jadida,-8.48686,33.04316,11912567,ADM4,Ouled Hcine
+06.181.09.13.,Ouled Frej,El Jadida,-8.21178,32.96715,11912561,ADM4,Ouled Frej
+06.371.01.01.,Mohammadia (Mun.),Mohammadia,-7.38298,33.68607,2542051,PPLA3,Mohammedia
+06.371.03.07.,Sidi Moussa Majdoub,Mohammadia,-7.36458,33.62841,11912503,ADM4,Sidi Moussa Majdoub
+06.385.03.03.,Oulad Azzouz,Nouaceur,-7.6106,33.40114,11613095,PPL,Oulad ’Azzouz
+06.461.03.03.,Bouguargouh,Settat,-7.32096,33.09074,6546111,ADM3,Bouguargouh
+06.461.03.17.,Oued Naanaa,Settat,-7.33258,33.0204,10936126,PPL,Oued Naanaa
+07.041.11.07.,Ait Hkim-Ait Yzid,Al  Haouz,-7.20407,31.48829,6546603,ADM3,Ait Hkim Ait Yzid
+07.161.07.15.,Zaouia Annahlia,Chichaoua,-8.64786,31.22011,6546645,ADM3,Zaouia Annahlia
+07.191.01.03.,El Kelaâ des Sraghna (Mun.),El Kelâa des  Sraghna,-7.39928,32.05457,11881877,ADM3,Municipalité d’El Kelaâ des Sraghna
+07.191.01.05.,Laattaouia (Mun.),El Kelâa des  Sraghna,-7.33318,31.83882,6546746,ADM3,Laattaouia
+07.191.03.19.,Oulad Bouali Loued,El Kelâa des  Sraghna,-7.20009,32.1402,6546758,ADM3,Oulad Bouali Loued
+07.191.03.31.,Oulad Yaacoub,El Kelâa des  Sraghna,-7.29568,32.0271,6545889,ADM3,Oulad Yaacoub
+07.211.03.03.,Aquermoud,Essaouira,-9.53913,31.78101,6546654,ADM3,Aquermoud
+07.351.01.01.,Méchouar-Kasba (Mun.),Marrakech,-8.04582,31.64432,6545593,ADM3,Mechouar Kasba
+07.351.03.11.,Ouled Dlim,Marrakech,-8.30237,31.90388,6546780,ADM3,Ouled Dlim
+07.427.07.19.,Sidi Ghanem,Rehamna,-7.98151,32.6986,6546212,ADM3,Sidi Ghanem
+07.427.07.23.,Skhour Rehamna,Rehamna,-7.91533,32.48244,2532646,PPL,Skhour Rehamna
+07.427.09.15.,Sidi Boubker,Rehamna,-7.74018,31.85799,6546067,ADM3,Sidi Boubker
+07.431.01.03.,Safi (Mun.),Safi,-8.83333,32.16667,2537878,ADM2,Safi
+07.431.03.02.,Chahda,Safi,-4.23,34.66,2553296,PPL,Chihda
+07.585.05.11.,Jnane Bouih,Youssoufia,-8.71505,31.96865,6546638,ADM3,Jnane Bouih
+08.201.07.09.,Oued Naam,Errachidia,-3.65488,31.92251,11912643,ADM4,Oued Naam
+08.201.13.05.,Ferkla Es-soufla,Errachidia,-5.03594,31.58738,6546292,ADM3,Ferkla Es-Soufla
+08.363.09.05.,Guers Tiaallaline,Midelt,-4.45538,32.22416,6546055,ADM3,Guers Tiaallaline
+08.401.03.05.,Iznaguen,Ouarzazate,-5.20155,32.16181,2545460,PPL,Isnaguene
+08.577.05.25.,Souk Lakhmis Dades,Tinghir,-5.98662,31.24482,6545847,ADM3,Souk Lakhmis Dades
+08.587.03.07.,Ait Ouallal,Zagora,-5.91311,30.87975,6545592,ADM3,Ait Ouallal
+08.587.03.27.,Oulad Yahia Lagraire,Zagora,-6.22587,30.53048,6545939,ADM3,Oulad Yahia Lagraire
+09.001.07.13.,Imouzzer,Agadir-Ida -Ou-Tanane,-9.56236,30.67401,6545799,ADM3,Imouzzer
+09.163.03.35.,Targua Ntouchka,Chtouka- Ait Baha,-9.17506,29.90656,6545837,ADM3,Targua Ntouchka
+09.273.01.17.,Lqliaa (Mun.),Inezgane- Ait Melloul,-9.46597,30.29759,10375044,PPL,Lqoliaa
+09.541.01.05.,Irherm (Mun.),Taroudannt,-8.46479,30.12118,11882771,ADM3,Irherm
+09.541.04.39.,Sidi Abdellah Ou Said,Taroudannt,-9.54995,31.56737,10898778,PPL,Sidi Abdellah Ou Said
+09.541.07.21.,Tizgzaouine,Taroudannt,-8.05782,30.39104,6546485,ADM3,Tizgzaouine
+09.541.09.71.,Zaouia Sidi Tahar,Taroudannt,-9.09255,30.50636,6545930,ADM3,Zaouia Sidi Tahar
+10.071.05.01.,Al Mahbass,Assa-Zag,-8.96631,27.87637,11912866,ADM4,Al Mahbass
+10.261.07.15.,Rass Oumlil,Guelmim,-10.77805,28.65213,6545897,ADM3,Rass Oumlil
+10.473.05.01.,Arbaa Ait Abdellah,Sidi Ifni,-9.87444,29.33527,6546585,ADM3,Arbaa Ait Abdellah
+11.121.01.01.,Boujdour (Mun.),Boujdour,-14.32129,26.12681,6546490,ADM3,Boujdour
+11.121.03.01.,Gueltat Zemmour,Boujdour,-12.89066,25.25419,6545648,ADM3,Gueltat Zemmour
+11.121.03.03.,Jraifia,Boujdour,-14.2341,25.26265,6545649,ADM3,Jraifia
+11.121.03.05.,Lamssid,Boujdour,-13.29071,26.00324,6545513,ADM3,Lamssid
+11.221.01.01.,Es-semara (Mun.),Es-Semara,-11.0,27.75,2595330,ADM2,Es-Semara
+11.221.03.01.,Amgala,Es-Semara,-11.69188,26.26867,6546500,ADM3,Amgala
+11.221.03.03.,Haouza,Es-Semara,-11.20923,27.1272,6545651,ADM3,Haouza
+11.221.03.05.,Jdiriya,Es-Semara,-9.77815,27.16292,6545652,ADM3,Jdiriya
+11.221.03.07.,Sidi Ahmed Laaroussi,Es-Semara,-11.99975,27.04662,6545661,ADM3,Sidi Ahmed Laaroussi
+11.221.03.09.,Tifariti,Es-Semara,-9.82045,26.33348,6545662,ADM3,Tifariti
+11.321.01.01.,El Marsa (Mun.),Laâyoune,-13.4,27.091,6545660,ADM3,Elmarsa
+11.321.01.03.,Laayoune (Mun.),Laâyoune,-12.33333,27.83333,2543878,ADM2,Laayoune
+11.321.03.01.,Boukraa,Laâyoune,-12.80895,26.65006,6546040,ADM3,Boukraa
+11.321.03.03.,Dcheira,Laâyoune,-12.61965,26.97639,6546491,ADM3,Dcheira
+11.321.03.05.,Foum El Oued,Laâyoune,-13.35796,26.92486,6546492,ADM3,Foum El Oued
+11.537.01.05.,Tarfaya (Mun.),Tarfaya,-12.36851,27.84864,11882783,ADM3,Cercle de Tarfaya
+11.537.03.03.,Daoura,Tarfaya,-12.85308,27.46033,6546494,ADM3,Daoura
+11.537.03.05.,El Hagounia,Tarfaya,-12.29061,27.6776,11912838,ADM4,El Hagounia
+12.066.01.03.,Lagouira (Mun.),Aousserd,-7.1264,33.28843,10938730,PPL,Lagouira
+12.066.03.03.,Aghouinite,Aousserd,-13.62351,22.47328,6546559,ADM3,Aghouinite
+12.066.03.05.,Aousserd,Aousserd,-14.55998,22.70937,6545582,ADM3,Aousserd
+12.066.03.07.,Tichla,Aousserd,-15.11326,21.78277,6545583,ADM3,Tichla
+12.066.03.09.,Zoug,Aousserd,-13.75618,21.8671,6545584,ADM3,Zoug
+12.066.05.03.,Bir Gandouz,Aousserd,-16.46866,21.61567,6545580,ADM3,Bir Gandouz
+12.391.01.01.,Dakhla (Mun.),Oued Ed-Dahab,-15.81519,23.67822,6546560,ADM3,Dakhla
+12.391.05.01.,Bir Anzarane,Oued Ed-Dahab,-14.66318,24.046,6545634,ADM3,Bir Anzarane
+12.391.05.03.,Gleibat El Foula,Oued Ed-Dahab,-13.78162,23.44159,6545635,ADM3,Gleibat El Foula
+12.391.05.05.,Mijik,Oued Ed-Dahab,-12.50346,23.80786,6545665,ADM3,Mijik
+12.391.05.07.,Oum Dreyga,Oued Ed-Dahab,-13.50212,24.15433,6545636,ADM3,Oum Dreyga
+12.391.09.01.,El Argoub,Oued Ed-Dahab,-15.26972,23.71008,6546233,ADM3,El Argoub
+12.391.09.03.,Imlili,Oued Ed-Dahab,-15.61007,22.65597,6546208,ADM3,Imlili

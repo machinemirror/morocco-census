@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.venv/
+.ruff_cache/
+.pytest_cache/
+.DS_Store
+
+data/raw/*
+!data/raw/manifest.json
+data/interim/
+site/data/
+dist/

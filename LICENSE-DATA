@@ -1,0 +1,19 @@
+Data licence
+
+The derived tables, crosswalks, catalogue and geometry in data/processed/, catalog/ and
+the published site are licensed under the Creative Commons Attribution 4.0 International
+licence (CC BY 4.0): https://creativecommons.org/licenses/by/4.0/legalcode
+
+Attribution: Lehnert, M. (2026). morocco-census: commune-level RGPH 2004, 2014 and 2024.
+https://github.com/machinemirror/morocco-census
+
+Underlying statistics are produced by the Haut-Commissariat au Plan (HCP), Royaume du Maroc,
+Recensement Général de la Population et de l'Habitat 2004, 2014 and 2024; cite HCP as the
+original source. Raw HCP files are not redistributed here; data/raw/manifest.json lists
+their URLs and checksums and `mc fetch` downloads them.
+
+Third-party inputs:
+- Commune seed points are derived from GADM 4.1 (https://gadm.org) level-4 polygons; GADM
+  data themselves are not redistributed.
+- Seed points for communes GADM lacks come from GeoNames (https://www.geonames.org), CC BY 4.0.
+- The national outline is Natural Earth (https://www.naturalearthdata.com), public domain.

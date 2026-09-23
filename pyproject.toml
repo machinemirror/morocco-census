@@ -1,0 +1,47 @@
+[project]
+name = "morocco-census"
+version = "2026.9.0"
+description = "Commune-level Moroccan census data (RGPH 2004, 2014, 2024): harmonized tables, crosswalks, approximate commune geometry, and a static viewer"
+readme = "README.md"
+license = "MIT"
+authors = [
+    { name = "Matt Lehnert", email = "matt.lehnert@machinemirror.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "beautifulsoup4>=4.15.0",
+    "geopandas>=1.1.4",
+    "libpysal>=4.15.0",
+    "lxml>=6.1.2",
+    "numpy>=2.5.2",
+    "openpyxl>=3.1.5",
+    "pandas>=3.0.5",
+    "pyarrow>=25.0.1",
+    "pyogrio>=0.13.0",
+    "pypdf>=6.16.2",
+    "pyyaml>=6.0.2",
+    "rapidfuzz>=3.14.6",
+    "requests>=2.34.2",
+    "shapely>=2.1.2",
+    "xlrd>=2.0.2",
+]
+
+[project.scripts]
+mc = "morocco_census.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.11.7,<0.12.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "ruff>=0.14.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = ["ignore::RuntimeWarning", "ignore::DeprecationWarning"]
+
+[tool.ruff]
+line-length = 120

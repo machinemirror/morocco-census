@@ -1,0 +1,147 @@
+{
+  "2004/carto_pauvrete_communale_2004_2014.xlsx": {
+    "description": "HCP cartographie de la pauvrete multidimensionnelle communale 2004 et 2014",
+    "fetch_date": "2026-08-30",
+    "note": "date from local file mtime (fetched outside fetch.py)",
+    "sha256": "618b9c6b433f7608fbb599949a5c474c16e74bc0754f0a698db360a9d356acdb",
+    "size_bytes": 771084,
+    "url": "https://www.hcp.ma/file/231434/"
+  },
+  "2004/pauvrete_developpement_2004.pdf": {
+    "description": "HCP (2004) Pauvrete, developpement humain et developpement social au Maroc; Annexe 2 = commune indices",
+    "fetch_date": "2026-08-30",
+    "note": "date from local file mtime (fetched outside fetch.py)",
+    "sha256": "a9922045e0b7230514c204e63bc14d2a9d99783dcea751aeda97b1e0341d8646",
+    "size_bytes": 1307900,
+    "url": "https://www.hcp.ma/file/231444/"
+  },
+  "2024/mpi_communes_2014_2024.xls": {
+    "description": "HCP (May 2025) base de donnees de la cartographie de la pauvrete multidimensionnelle, 2014 et 2024",
+    "fetch_date": "2026-08-30",
+    "note": "date from local file mtime (fetched outside fetch.py)",
+    "sha256": "b9a1a1d474ad93ef982f6e14e21ea22859f47eac1acd5d035771e23e6658c2c6",
+    "size_bytes": 6529536,
+    "url": "https://www.hcp.ma/file/245096/"
+  },
+  "activite_2014.xlsx": {
+    "description": "RGPH 2014 - La Profession et l'Activite Economique - Niveau Communal",
+    "fetch_date": "2026-08-30T07:27:19Z",
+    "sha256": "c3b94173217e306fa14ce628269bd6b1f0855ccf03eb3503e5da08340c58c644",
+    "size_bytes": 4041772,
+    "url": "https://www.hcp.ma/file/230028/"
+  },
+  "cee_etablissements_eco_2024.xlsx": {
+    "description": "RGPH 2024 - Cartographie des Etablissements Economiques (CEE), par commune",
+    "fetch_date": "2026-08-30T07:27:48Z",
+    "sha256": "33887f36154129e9fc8eceb6d5393d5b26fae0851f153cdb1ed6358e0aed38ee",
+    "size_bytes": 319898,
+    "url": "https://www.hcp.ma/file/242672/"
+  },
+  "diplome_2014.xlsx": {
+    "description": "RGPH 2014 - Le Diplome - Niveau Communal",
+    "fetch_date": "2026-08-30T07:27:25Z",
+    "sha256": "5b6e4785caa3ef42265d4af4b4e1390195d7c114bbf58a1d9867866826329ad6",
+    "size_bytes": 3272998,
+    "url": "https://www.hcp.ma/file/230031/"
+  },
+  "gadm41_MAR_shp.zip": {
+    "description": "GADM 4.1 Morocco, levels 0-4 (seed points only; not redistributed)",
+    "fetch_date": "2026-08-30T07:27:57Z",
+    "sha256": "b3a9221aa72d020a60d047f8dedf9b7259f1d09d001f3dc9deaec0f37b5f2908",
+    "size_bytes": 3049737,
+    "url": "https://geodata.ucdavis.edu/gadm/gadm4.1/shp/gadm41_MAR_shp.zip"
+  },
+  "geometry/EH.zip": {
+    "description": "GeoNames gazetteer, Western Sahara (CC BY 4.0; updated daily upstream)",
+    "fetch_date": "2026-08-30",
+    "note": "date from local file mtime (fetched outside fetch.py)",
+    "sha256": "bf27abdd344578ad59674312c8e277c9a8946fbdd580d5685e0c9a5e5c3f6072",
+    "size_bytes": 70065,
+    "url": "https://download.geonames.org/export/dump/EH.zip"
+  },
+  "geometry/MA.zip": {
+    "description": "GeoNames gazetteer, Morocco (CC BY 4.0; updated daily upstream)",
+    "fetch_date": "2026-08-30",
+    "note": "date from local file mtime (fetched outside fetch.py)",
+    "sha256": "677bf6a12d4c3e88f2b62e82a229a0f4be5eb47f4d8f9c3e5b16376abfe50630",
+    "size_bytes": 4200197,
+    "url": "https://download.geonames.org/export/dump/MA.zip"
+  },
+  "geometry/ne_10m_admin_0_countries.zip": {
+    "description": "Natural Earth 1:10m admin-0 countries (public domain); outline for clipping",
+    "fetch_date": "2026-09-23",
+    "sha256": "ce1ac7036499a0edd641fbc093cd209a98f96a49d2eca8480aaacad35138a7f6",
+    "size_bytes": 4930492,
+    "url": "https://naciscdn.org/naturalearth/10m/cultural/ne_10m_admin_0_countries.zip"
+  },
+  "indicateurs_demo_socioeco_2024.xlsx": {
+    "description": "RGPH 2024 - Indicateurs demographiques et socioeconomiques du Royaume",
+    "fetch_date": "2026-08-30T07:27:40Z",
+    "sha256": "f3d96fcae3c10a2c194b2fe97ee8352a242fb3f36b1b63d4d2a7006176dc7c3e",
+    "size_bytes": 7597863,
+    "url": "https://www.hcp.ma/file/242671/"
+  },
+  "individus_2014.xlsx": {
+    "description": "RGPH 2014 - Indicateurs communaux - Individus",
+    "fetch_date": "2026-08-30T07:27:15Z",
+    "sha256": "c20c1f7d08c1089bf4610f81a0eac89516a278fddb24b8577588284e2fc9a2d0",
+    "size_bytes": 11296286,
+    "url": "https://rgph2014.hcp.ma/file/190479/"
+  },
+  "menages_2014.xlsx": {
+    "description": "RGPH 2014 - Indicateurs communaux - Menages",
+    "fetch_date": "2026-08-30T07:27:05Z",
+    "sha256": "2fde794a15d0d98889875316666d918f1044f8055610bfb909d056a15fe878a1",
+    "size_bytes": 3227296,
+    "url": "https://rgph2014.hcp.ma/file/190480/"
+  },
+  "migration_interne_2024.xlsx": {
+    "description": "RGPH 2024 - Base de donnees de la migration interne",
+    "fetch_date": "2026-08-30T07:27:55Z",
+    "sha256": "859c27f826aef98be4c200ff8fd29c801a01ad1afe48a349bf0211957980ef0a",
+    "size_bytes": 537120,
+    "url": "https://www.hcp.ma/file/245650/"
+  },
+  "parc_logement_urbain_2024.xlsx": {
+    "description": "RGPH 2024 - Indicateurs communaux du parc logement urbain",
+    "fetch_date": "2026-08-30T07:27:46Z",
+    "sha256": "c5ca0d86eef04cac4692cc0fff691e81f77e73726515b12eb17a0d7f3a8ff421",
+    "size_bytes": 680685,
+    "url": "https://www.hcp.ma/file/246208/"
+  },
+  "poplegale_2014_12reg.xlsx": {
+    "description": "RGPH 2014 - Population legale par regions/provinces/communes (12 regions cut)",
+    "fetch_date": "2026-08-30T07:27:28Z",
+    "sha256": "e0a7e308c0c1e185e5bec0c080d10635b19e83216d0bf91656554c707bbf0709",
+    "size_bytes": 161714,
+    "url": "https://rgph2014.hcp.ma/file/166326/"
+  },
+  "poplegale_2014_16reg.xlsx": {
+    "description": "RGPH 2014 - Population legale par regions/provinces/communes (16 regions cut)",
+    "fetch_date": "2026-08-30T07:27:27Z",
+    "sha256": "502bc26c81d94bb7d23e507139e365de3c9a57aaec19af4113fff717e9e7d2bf",
+    "size_bytes": 162951,
+    "url": "https://rgph2014.hcp.ma/file/166315/"
+  },
+  "poplegale_2024.xlsx": {
+    "description": "RGPH 2024 - Population legale par regions/provinces/prefectures/communes",
+    "fetch_date": "2026-08-30T07:27:31Z",
+    "sha256": "7e9d3d402cc2fd0d9c4fc941c4f23c6a5e5ddcbefbba80b7540267f8e2728dca",
+    "size_bytes": 166693,
+    "url": "https://www.hcp.ma/file/242341/"
+  },
+  "population_menages_douars_2024.xlsx": {
+    "description": "RGPH 2024 - Population et menages par douars",
+    "fetch_date": "2026-08-30T07:27:53Z",
+    "sha256": "b04fa4f479aa77a4fbd741c50b734fc80e42be3786ea8a94e2adb085fc5ae1b6",
+    "size_bytes": 12303333,
+    "url": "https://www.hcp.ma/file/245768/"
+  },
+  "transport_domicile_travail_2024.xlsx": {
+    "description": "RGPH 2024 - Indicateurs communaux - Mode de transport domicile-lieu de travail",
+    "fetch_date": "2026-08-30T07:27:43Z",
+    "sha256": "30e8fc0047fe7ada2cb1db36e127e8d31966da2e775183b9bb0c7eeffd540027",
+    "size_bytes": 1369051,
+    "url": "https://www.hcp.ma/file/248301/"
+  }
+}

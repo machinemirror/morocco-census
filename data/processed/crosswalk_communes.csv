@@ -1,0 +1,1539 @@
+code14,name14,prov14,name_carto,code24,name24,label04,idh04,src04
+01.051.01.01.,Al Hoceima (Mun.),Al Hoceima,Al Hoceima (M),10510101,Commune d'Al Hoceima,Al Hoceima Al Hoceima (M),0.737,direct
+01.051.01.03.,Bni Bouayach (Mun.),Al Hoceima,Bni Bouayach (M),10510103,Commune de Bni Bouayach,Al Hoceima Bni Bouayach (M),0.708,direct
+01.051.01.05.,Imzouren (Mun.),Al Hoceima,Imzouren (M),10510105,Commune d'Imzouren,Al Hoceima Imzouren (M),0.68,direct
+01.051.01.07.,Targuist (Mun.),Al Hoceima,Targuist (M),10510107,Commune de Targuist,Al Hoceima Targuist (M),0.69,direct
+01.051.01.09.,Ajdir (Mun.),Al Hoceima,Ajdir  (M),10510109,Commune d'Ajdir,Al Hoceima Ajdir (AC),0.691,direct
+01.051.03.01.,Bni Boufrah,Al Hoceima,Bni Boufrah,10510301,Commune de Bni Boufrah,Al Hoceima Bni Boufrah,0.573,direct
+01.051.03.03.,Bni Gmil,Al Hoceima,Bni Gmil,10510303,Commune de Bni Gmil,Al Hoceima Bni Gmil,0.566,direct
+01.051.03.05.,Bni Gmil Maksouline,Al Hoceima,Bni Gmil Maksouline,10510305,Commune de Bni Gmil Maksouline,Al Hoceima Bni Gmil Maksouline,0.471,direct
+01.051.03.07.,Senada,Al Hoceima,Senada,10510307,Commune de Senada,Al Hoceima Senada,0.538,direct
+01.051.05.01.,Ait Kamra,Al Hoceima,Ait Kamra,10511101,Commune d'Ait Kamra,Al Hoceima Ait Kamra,0.52,direct
+01.051.05.03.,Ait Youssef Ou Ali,Al Hoceima,Ait Youssef Ou Ali,10511303,Commune d'Ait Youssef Ou Ali,Al Hoceima Ait Youssef Ou Ali,0.622,direct
+01.051.05.05.,Arbaa Taourirt,Al Hoceima,Arbaa Taourirt,10511305,Commune d'Arbaa Taourirt,Al Hoceima Arbaa Taourirt,0.501,direct
+01.051.05.07.,Bni Abdallah,Al Hoceima,,10511107,Commune de Bni Abdellah,Al Hoceima Bni Abdallah,0.518,direct
+01.051.05.09.,Bni Hadifa,Al Hoceima,Bni Hadifa,10511109,Commune de Bni Hadifa,Al Hoceima Bni Hadifa,0.6,direct
+01.051.05.11.,Chakrane,Al Hoceima,Chakrane,10511311,Commune de Chakrane,Al Hoceima Chakrane,0.461,direct
+01.051.05.13.,Imrabten,Al Hoceima,Imrabten,10511313,Commune d'Imrabten,Al Hoceima Imrabten,0.523,direct
+01.051.05.15.,Izemmouren,Al Hoceima,Izemmouren,10511115,Commune d'Izemmouren,Al Hoceima Izemmouren,0.544,direct
+01.051.05.17.,Louta,Al Hoceima,Louta,10511317,Commune de Louta,Al Hoceima Louta,0.511,direct
+01.051.05.19.,Nekkour,Al Hoceima,Nekkour,10511319,Commune de Nekkour,Al Hoceima Nekkour,0.576,direct
+01.051.05.21.,Rouadi,Al Hoceima,Rouadi,10511121,Commune de Rouadi,Al Hoceima Rouadi,0.568,direct
+01.051.05.23.,Tifarouine,Al Hoceima,Tifarouine,10511323,Commune de Tifarouine,Al Hoceima Tifarouine,0.528,direct
+01.051.05.25.,Zaouiat Sidi Abdelkader,Al Hoceima,Zaouiat Sidi Abdelkader,10511125,Commune de Zaouiat Sidi Abdelkader,Al Hoceima Zaouiat Sidi Abdelkader,0.496,direct
+01.051.07.03.,Bni Ahmed Imoukzan,Al Hoceima,Bni Ahmed Imoukzan,10510703,Commune de Bni Ahmed Imoukzan,Al Hoceima Bni Ahmed Imoukzan,0.525,direct
+01.051.07.05.,Bni Ammart,Al Hoceima,Bni Ammart,10510705,Commune de Bni Ammart,Al Hoceima Bni Ammart,0.57,direct
+01.051.07.07.,Bni Bchir,Al Hoceima,Bni Bchir,10510707,Commune de Bni Bchir,Al Hoceima Bni Bchir,0.519,direct
+01.051.07.11.,Bni Bounsar,Al Hoceima,Bni Bounsar,10510711,Commune de Bni Bounsar,Al Hoceima Bni Bounsar,0.537,direct
+01.051.07.19.,Sidi Boutmim,Al Hoceima,Sidi Boutmim,10510719,Commune de Sidi Boutmim,Al Hoceima Sidi Boutmim,0.566,direct
+01.051.07.21.,Sidi Bouzineb,Al Hoceima,Sidi Bouzineb,10510721,Commune de Sidi Bouzineb,Al Hoceima Sidi Bouzineb,0.494,direct
+01.051.07.27.,Zarkt,Al Hoceima,Zarkt,10510727,Commune de Zarkt,Al Hoceima Zarkt,0.554,direct
+01.051.09.01.,Abdelghaya Souahel,Al Hoceima,Abdelghaya Souahel,10510901,Commune d'Abdelghaya Souahel,Al Hoceima Abdelghaya Souahel,0.576,direct
+01.051.09.09.,Bni Bouchibet,Al Hoceima,Bni Bouchibet,10510909,Commune de Bni Bouchibet,Al Hoceima Bni Bouchibet,0.496,direct
+01.051.09.13.,Issaguen,Al Hoceima,Issaguen,10510913,Commune d'Issaguen,Al Hoceima Issaguen (AC),0.664,direct
+01.051.09.15.,Ketama,Al Hoceima,Ketama,10510915,Commune de Ketama,Al Hoceima Ketama,0.61,direct
+01.051.09.17.,Moulay Ahmed Cherif,Al Hoceima,Moulay Ahmed Cherif,10510917,Commune de Moulay Ahmed Cherif,Al Hoceima Moulay Ahmed Cherif,0.564,direct
+01.051.09.23.,Taghzout,Al Hoceima,Taghzout,10510923,Commune de Taghzout,Al Hoceima Taghzout,0.547,direct
+01.051.09.25.,Tamsaout,Al Hoceima,Tamsaout,10510925,Commune de Tamsaout,Al Hoceima Tamsaout,0.5,direct
+01.151.01.01.,Chefchaouen (Mun.),Chefchaouen,Chefchaouen (M),11510101,Commune de Chefchaouen,Chefchaouen Chefchaouen (M),0.705,direct
+01.151.03.03.,Bab Berred,Chefchaouen,Bab Berred,11510303,Commune de Bab Berred,Chefchaouen Bab Berred (AC),0.663,direct
+01.151.03.13.,Iounane,Chefchaouen,Iounane,11510313,Commune d'Iounane,Chefchaouen Iounane,0.526,direct
+01.151.03.23.,Tamorot,Chefchaouen,Tamorot,11510323,Commune de Tamorot,Chefchaouen Tamorot,0.538,direct
+01.151.05.01.,Bab Taza,Chefchaouen,Bab Taza,11510501,Commune de Bab Taza,Chefchaouen Bab Taza,0.564,direct
+01.151.05.03.,Bni Darkoul,Chefchaouen,Bni Darkoul,11510503,Commune de Bni Darkoul,Chefchaouen Bni Darkoul,0.607,direct
+01.151.05.05.,Bni Faghloum,Chefchaouen,Bni Faghloum,11510505,Commune de Bni Faghloum,Chefchaouen Bni Faghloum,0.556,direct
+01.151.05.07.,Bni Salah,Chefchaouen,Bni Salah,11510507,Commune de Bni Salah,Chefchaouen Bni Salah,0.434,direct
+01.151.05.09.,Derdara,Chefchaouen,Derdara,11510509,Commune de Derdara,Chefchaouen Derdara,0.511,direct
+01.151.05.11.,Fifi,Chefchaouen,Fifi,11510511,Commune de Fifi,Chefchaouen Fifi,0.551,direct
+01.151.05.13.,Laghdir,Chefchaouen,Laghdir,11510513,Commune de Laghdir,Chefchaouen Laghdir,0.546,direct
+01.151.05.15.,Tanaqoub,Chefchaouen,Tanaqoub,11510515,Commune de Tanaqoub,Chefchaouen Tanaqoub,0.546,direct
+01.151.06.05.,Bni Ahmed Cherqia,Chefchaouen,Bni Ahmed Cherqia,11510605,Commune de Bni Ahmed Cherqia,Chefchaouen Bni Ahmed Cherqia,0.523,direct
+01.151.06.07.,Bni Ahmed Gharbia,Chefchaouen,Bni Ahmed Gharbia,11510607,Commune de Bni Ahmed Gharbia,Chefchaouen Bni Ahmed Gharbia,0.51,direct
+01.151.06.15.,Mansoura,Chefchaouen,Mansoura,11510615,Commune de Mansoura,Chefchaouen Mansoura,0.49,direct
+01.151.06.21.,Oued Malha,Chefchaouen,Oued Malha,11510621,Commune d'Oued Malha,Chefchaouen Oued Malha,0.507,direct
+01.151.07.01.,Bni Bouzra,Chefchaouen,Bni Bouzra,11510701,Commune de Bni Bouzra,Chefchaouen Bni Bouzra,0.526,direct
+01.151.07.03.,Bni Mansour,Chefchaouen,Bni Mansour,11511103,Commune de Bni Mansour,Chefchaouen Bni Mansour,0.434,direct
+01.151.07.05.,Bni Selmane,Chefchaouen,Bni Selmane,11511105,Commune de Bni Selmane,Chefchaouen Bni Selmane,0.433,direct
+01.151.07.07.,Steha,Chefchaouen,Steha,11510707,Commune de Steha,Chefchaouen Steha,0.521,direct
+01.151.07.09.,Talambote,Chefchaouen,Talambote,11510709,Commune de Talambote,Chefchaouen Talambote,0.453,direct
+01.151.07.11.,Tassift,Chefchaouen,Tassift,11510711,Commune de Tassift,Chefchaouen Tassift,0.491,direct
+01.151.07.13.,Tizgane,Chefchaouen,Tizgane,11510713,Commune de Tizgane,Chefchaouen Tizgane,0.536,direct
+01.151.09.01.,Amtar,Chefchaouen,Amtar,11510901,Commune d'Amtar,Chefchaouen Amtar,0.47,direct
+01.151.09.09.,Bni Rzine,Chefchaouen,Bni Rzine,11510909,Commune de Bni Rzine,Chefchaouen Bni Rzine,0.53,direct
+01.151.09.11.,Bni Smih,Chefchaouen,Bni Smih,11510911,Commune de Bni Smih,Chefchaouen Bni Smih,0.488,direct
+01.151.09.17.,M'tioua,Chefchaouen,M'tioua,11510917,Commune de M'tioua,Chefchaouen M'tioua,0.432,direct
+01.151.09.19.,Ouaouzgane,Chefchaouen,Ouaouzgane,11510919,Commune d'Ouaouzgane,Chefchaouen Ouaouzgane,0.491,direct
+01.227.03.05.,Anjra,Fahs-Anjra,Anjra,12270305,Commune d'Anjra,Fahs-Anjra Anjra,0.561,direct
+01.227.03.11.,Jouamaa,Fahs-Anjra,Jouamaa,12270311,Commune de Jouamaa,Fahs-Anjra Jouamaa,0.544,direct
+01.227.03.13.,Ksar El Majaz,Fahs-Anjra,Ksar El Majaz,12270313,Commune de Ksar El Majaz,Fahs-Anjra Ksar El Majaz,0.495,direct
+01.227.03.21.,Taghramt,Fahs-Anjra,Taghramt,12270321,Commune de Taghramt,Fahs-Anjra Taghramt,0.595,direct
+01.227.05.01.,Al Bahraoyine,Fahs-Anjra,Al Bahraoyine,12270501,Commune d'Al Bahraoyine,Fahs-Anjra Al Bahraoyine,0.523,direct
+01.227.05.05.,Ksar Sghir,Fahs-Anjra,Ksar Sghir,12270505,Commune de Ksar Sghir,Fahs-Anjra Ksar Sghir,0.545,direct
+01.227.05.09.,Malloussa,Fahs-Anjra,Malloussa,12270509,Commune de Malloussa,Fahs-Anjra Malloussa,0.492,direct
+01.331.01.01.,Ksar El Kebir (Mun.),Larache,Ksar El Kebir (M),13310101,Commune de Ksar El Kebir,Larache Ksar El Kebir (M),0.684,direct
+01.331.01.03.,Larache (Mun.),Larache,Larache (M),13310103,Commune de Larache,Larache Larache (M),0.685,direct
+01.331.07.01.,Bou Jedyane,Larache,Boujedyane,13310701,Commune de Boujedyane,Larache Bou Jedyane,0.531,direct
+01.331.07.03.,Ksar Bjir,Larache,Ksar Bjir,13310703,Commune de Ksar Bjir,Larache Ksar Bjir,0.524,direct
+01.331.07.05.,Laouamra,Larache,Laouamra,13310705,Commune de Laouamra,Larache Laouamra,0.522,direct
+01.331.07.11.,Souk L'Qolla,Larache,Souk L'Qolla,13310711,Commune de Souk L'qolla,Larache Souk L'Qolla,0.514,direct
+01.331.07.15.,Tatoft,Larache,Tatoft,13310715,Commune de Tatoft,Larache Tatoft,0.473,direct
+01.331.07.17.,Zouada,Larache,Zouada,13310717,Commune de Zouada,Larache Zouada,0.524,direct
+01.331.09.01.,Ayacha,Larache,Ayacha,13310901,Commune d'Ayacha,Larache Ayacha,0.536,direct
+01.331.09.03.,Bni Arouss,Larache,Bni Arouss,13310903,Commune de Bni Arouss,Larache Bni Arouss,0.548,direct
+01.331.09.05.,Bni Garfett,Larache,Bni Garfett,13310905,Commune de Bni Garfett,Larache Bni Garfett,0.535,direct
+01.331.09.13.,Tazroute,Larache,Tazroute,13310913,Commune de Tazroute,Larache Tazroute,0.508,direct
+01.331.09.15.,Zaaroura,Larache,Zaaroura,13310915,Commune de Zaaroura,Larache Zaaroura,0.519,direct
+01.331.11.03.,Oulad Ouchih,Larache,Oulad Ouchih,13311103,Commune d'Oulad Ouchih,Larache Oulad Ouchih,0.573,direct
+01.331.11.07.,Rissana Chamalia,Larache,Rissana Chamalia,13311107,Commune de Rissana Chamalia,Larache Rissana Chamalia,0.54,direct
+01.331.11.09.,Rissana Janoubia,Larache,Rissana Janoubia,13311109,Commune de Rissana Janoubia,Larache Rissana Janoubia,0.457,direct
+01.331.11.11.,Sahel,Larache,Sahel,13311111,Commune de Sahel,Larache Sahel,0.505,direct
+01.331.11.12.,Souaken,Larache,Souaken,13311112,Commune de Souaken,Larache Souaken,0.475,direct
+01.331.11.13.,Souk Tolba,Larache,Souk Tolba,13311113,Commune de Souk Tolba,Larache Souk Tolba,0.501,direct
+01.405.01.09.,Ouezzane (Mun.),Ouezzane,Ouezzane (M),14050109,Commune d'Ouezzane,Sidi Kacem Ouezzane (M),0.661,direct
+01.405.07.01.,Bni Quolla,Ouezzane,Bni Quolla,14050701,Commune de Bni Quolla,Sidi Kacem Bni Quolla,0.539,direct
+01.405.07.03.,Lamjaara,Ouezzane,Lamjaara,14051303,Commune de Lamjaara,Sidi Kacem Lamjaara,0.55,direct
+01.405.07.05.,Masmouda,Ouezzane,Masmouda,14050705,Commune de Masmouda,Sidi Kacem Masmouda,0.544,direct
+01.405.07.07.,Mzefroune,Ouezzane,Mzefroune,14050707,Commune de Mzefroune,Sidi Kacem Mzefroune,0.501,direct
+01.405.07.09.,Ounnana,Ouezzane,,14051309,Commune d'Ouannana,Sidi Kacem Ounnana,0.5,direct
+01.405.07.11.,Sidi Ahmed Cherif,Ouezzane,Sidi Ahmed Cherif,14051311,Commune de Sidi Ahmed Cherif,Sidi Kacem Sidi Ahmed Cherif,0.488,direct
+01.405.07.13.,Sidi Bousber,Ouezzane,Sidi Bousber,14051313,Commune de Sidi Bousber,Sidi Kacem Sidi Bousber,0.62,direct
+01.405.07.15.,Sidi Redouane,Ouezzane,Sidi Redouane,14050715,Commune de Sidi Redouane,Sidi Kacem Sidi Redouane,0.552,direct
+01.405.07.17.,Teroual,Ouezzane,Teroual,14051317,Commune de Teroual,Sidi Kacem Teroual,0.564,direct
+01.405.07.19.,Zghira,Ouezzane,Zghira,14051319,Commune de Zghira,Sidi Kacem Zghira,0.517,direct
+01.405.09.01.,Ain Beida,Ouezzane,Ain Beida,14050901,Commune d'Ain Beida,Chefchaouen Ain Beida,0.568,direct
+01.405.09.03.,Asjen,Ouezzane,Asjen,14050903,Commune d'Asjen,Chefchaouen Asjen,0.511,direct
+01.405.09.05.,Brikcha,Ouezzane,Brikcha,14050905,Commune de Brikcha,Chefchaouen Brikcha,0.533,direct
+01.405.09.09.,Moqrisset,Ouezzane,,14050909,Commune de Moqrissat,Chefchaouen Moqrisset,0.581,direct
+01.405.11.07.,Kalaat Bouqorra,Ouezzane,Kalaat Bouqorra,14051107,Commune de Kalaat Bouqorra,Chefchaouen Kalaat Bouqorra,0.551,direct
+01.405.11.11.,Zoumi,Ouezzane,Zoumi,14051111,Commune de Zoumi,Chefchaouen Zoumi,0.563,direct
+01.511.01.01.,Assilah (Mun.),Tanger-Assilah,Assilah (M),15110101,Commune d'Assilah,Tanger-Assilah Assilah (M),0.702,direct
+01.511.01.03.,Bni Makada (Arrond.),Tanger-Assilah,,15110103,Arrondissement de Bni Makada,Tanger-Assilah Bni Makada (AR),0.656,fuzzy
+01.511.01.05.,Charf-Mghogha (Arrond.),Tanger-Assilah,,,,Tanger-Assilah Charf-Mghogha (AR),0.709,fuzzy
+01.511.01.06.,Charf-Souani (Arrond.),Tanger-Assilah,,,,Tanger-Assilah Charf-Souani (AR),0.745,fuzzy
+01.511.01.07.,Tanger-Médina (Arrond.),Tanger-Assilah,,,,Tanger-Assilah Tanger-Médina (AR),0.74,fuzzy
+01.511.01.09.,Gueznaia (Mun.),Tanger-Assilah,Gueznaia (M),15110109,Commune de Gueznaia,Tanger – Assilah Gueznaia (AC),0.712,direct
+01.511.03.01.,Al Manzla,Tanger-Assilah,Al Manzla,15110501,Commune d'Al Manzla,Tanger-Assilah Al Manzla,0.508,direct
+01.511.03.03.,Aquouass Briech,Tanger-Assilah,Aquouass Briech,15110303,Commune d'Aquouass Briech,Tanger-Assilah Aquouass Briech,0.587,direct
+01.511.03.05.,Sebt Azzinate,Tanger-Assilah,Sebt  Azzinate,15110505,Commune de Sebt Azzinate,Tanger-Assilah Azzinate,0.537,fuzzy
+01.511.03.07.,Dar Chaoui,Tanger-Assilah,Dar Chaoui,15110507,Commune de Dar Chaoui,Tanger-Assilah Dar Chaoui,0.509,direct
+01.511.03.11.,Sahel Chamali,Tanger-Assilah,Sahel Chamali,15110311,Commune de Sahel Chamali,Tanger-Assilah Sahel Chamali,0.483,direct
+01.511.03.13.,Sidi Lyamani,Tanger-Assilah,Sidi Lyamani,15110313,Commune de Sidi Lyamani,Tanger-Assilah Sidi Lyamani,0.55,direct
+01.511.03.15.,Had Al Gharbia,Tanger-Assilah,Had Al Gharbia,15110315,Commune de Had Al Gharbia,,,
+01.511.03.17.,Laaouama,Tanger-Assilah,Laaouama,15110517,Commune de Laaouama,Fahs-Anjra Laaouama,0.621,direct
+01.511.81.05.,HJAR ENNHAL,Tanger-Assilah,Hjar Ennhal,15110519,Commune de Hjar Ennhal,,,
+01.571.01.07.,Oued Laou (Mun.),Tétouan,Oued Laou (M),15710107,Commune d'Oued Laou,Tetouan Oued Laou (M),0.629,direct
+01.571.01.11.,Tétouan (Mun.),Tétouan,Tétouan (M),15710111,Commune de Tétouan,Tetouan Tétouan (M),0.693,direct
+01.571.03.01.,Ain Lahsan,Tétouan,Ain Lahsan,15710301,Commune d'Ain Lahsan,Tetouan Ain Lahsan,0.526,direct
+01.571.03.03.,AL Kharroub,Tétouan,Al Kharroub,15710303,Commune d'Al Kharroub,Tetouan AL Khrroub,0.512,fuzzy
+01.571.03.05.,Bghaghza,Tétouan,Bghaghza,15710305,Commune de Bghaghza,Tetouan Bghaghza,0.457,direct
+01.571.03.07.,Bni Harchen,Tétouan,Bni Harchen,15710307,Commune de Bni Harchen,Tetouan Bni Harchen,0.445,direct
+01.571.03.09.,Jbel Lahbib,Tétouan,Jbel Lahbib,15710309,Commune de Jbel Lahbib,Tetouan Jbel Lahbib,0.55,direct
+01.571.03.11.,Bni Idder,Tétouan,Bni Idder,15710311,Commune de Bni Idder,Tetouan Bni Idder,0.438,direct
+01.571.03.15.,Mallalienne,Tétouan,Mallalienne,15710315,Commune de Mallalienne,Tetouan Mallalienne,0.591,direct
+01.571.03.17.,Saddina,Tétouan,Saddina,15710317,Commune de Saddina,Tetouan Saddina,0.574,direct
+01.571.03.19.,Souk Kdim,Tétouan,Souk Kdim,15710319,Commune de Souk Kdim,Tetouan Souk Kdim,0.548,direct
+01.571.03.21.,Sahtryine,Tétouan,Sahtryine,15710321,Commune de Sahtryine,Tetouan Sahtryine,0.433,direct
+01.571.05.01.,Al Hamra,Tétouan,Al Hamra,15710501,Commune d'Al Hamra,Tetouan Al Hamra,0.491,direct
+01.571.05.05.,Al Oued,Tétouan,Al Oued,15710505,Commune d'Al Oued,Tetouan Al Oued,0.474,direct
+01.571.05.07.,Azla,Tétouan,Azla,15710507,Commune d'Azla,Tetouan Azla,0.584,direct
+01.571.05.13.,Bni Leit,Tétouan,Bni Leit,15710513,Commune de Bni Leit,Tetouan Bni Leit,0.455,direct
+01.571.05.15.,Bni Said,Tétouan,Bni Said,15710515,Commune de Bni Said,Tetouan Bni Said,0.527,direct
+01.571.05.17.,Dar Bni Karrich,Tétouan,Dar Bni Karrich,15710517,Commune de Dar Bni Karrich,Tetouan Dar Bni Karrich,0.587,direct
+01.571.05.19.,Oulad Ali Mansour,Tétouan,Oulad Ali Mansour,15710519,Commune d'Oulad Ali Mansour,Tetouan Oulad Ali Mansour,0.403,direct
+01.571.05.23.,Zaitoune,Tétouan,Zaitoune,15710523,Commune de Zaitoune,Tetouan Zaitoune,0.531,direct
+01.571.05.25.,Zaouiat Sidi Kacem,Tétouan,Zaouiat Sidi Kacem,15710525,Commune de Zaouiat Sidi Kacem,Tetouan Zaouiat Sidi Kacem,0.469,direct
+01.571.05.27.,Zinat,Tétouan,Zinat,15710527,Commune de Zinat,Tetouan Zinat,0.453,direct
+01.573.01.01.,Fnideq (Mun.),M'Diq-Fnideq,Fnideq (M),15730101,Commune de Fnideq,,,
+01.573.01.03.,Martil (Mun.),M'Diq-Fnideq,Martil (M),15730103,Commune de Martil,Tetouan Martil (M),0.729,direct
+01.573.01.05.,M'Diq (Mun.),M'Diq-Fnideq,M'diq (M),15730105,Commune de M'diq,,,
+01.573.03.03.,Allyene,M'Diq-Fnideq,Allyene,15730107,Commune d'Allyene,Tetouan Allyene,0.569,direct
+01.573.03.05.,Belyounech,M'Diq-Fnideq,Belyounech,15730109,Commune de Belyounech,,,
+02.113.01.01.,Ahfir (Mun.),Berkane,Ahfir (M),21130101,Commune d'Ahfir,Berkane Ahfir (M),0.652,direct
+02.113.01.05.,Ain Erreggada (Mun.),Berkane,Ain Erreggada (M),21130105,Commune d'Ain Erreggada,Berkane Ain Erreggada (M),0.638,direct
+02.113.01.07.,Aklim (Mun.),Berkane,Aklim (M),21130107,Commune d'Aklim,Berkane Aklim (M),0.66,direct
+02.113.01.09.,Berkane (Mun.),Berkane,Berkane (M),21130109,Commune de Berkane,Berkane Berkane (M),0.674,direct
+02.113.01.25.,Saidia (Mun.),Berkane,Saidia (M),21130125,Commune de Saidia,Berkane Saidia (M),0.678,direct
+02.113.01.29.,Sidi Slimane Echcharraa (Mun.),Berkane,,21130129,Commune de Sidi Slimane Echcharaa,Berkane Sidi Slimane Echcharraa (M,0.636,fuzzy
+02.113.03.01.,Aghbal,Berkane,Aghbal,21130301,Commune d'Aghbal,Berkane Aghbal,0.609,direct
+02.113.03.07.,Fezouane,Berkane,Fezouane,21130307,Commune de Fezouane,Berkane Fezouane,0.576,direct
+02.113.03.09.,Laatamna,Berkane,Laatamna,21130309,Commune de Laatamna,Berkane Laatamna,0.606,direct
+02.113.03.11.,Madagh,Berkane,Madagh,21130311,Commune de Madagh,Berkane Madagh,0.564,direct
+02.113.05.03.,Boughriba,Berkane,Boughriba,21130503,Commune de Boughriba,Berkane Boughriba,0.57,direct
+02.113.05.05.,Chouihia,Berkane,Chouihia,21130505,Commune de Chouihia,Berkane Chouihia,0.567,direct
+02.113.05.13.,Rislane,Berkane,Rislane,21130513,Commune de Rislane,Berkane Rislane,0.582,direct
+02.113.05.15.,Sidi Bouhria,Berkane,Sidi Bouhria,21130515,Commune de Sidi Bouhria,Berkane Sidi Bouhria,0.587,direct
+02.113.05.17.,Tafoughalt,Berkane,Tafoughalt,21130517,Commune de Tafoughalt,Berkane Tafoughalt,0.49,direct
+02.113.05.19.,Zegzel,Berkane,Zegzel,21130519,Commune de Zegzel,Berkane Zegzel,0.569,direct
+02.167.01.03.,Ben Taieb (Mun.),Driouch,Ben Taieb (M),21670103,Commune de Ben Taieb,Nador Ben Taieb,0.564,direct
+02.167.01.09.,Driouch (Mun.),Driouch,Driouch (M),21670109,Commune de Driouch,Nador Driouch,0.52,direct
+02.167.01.13.,Midar (Mun.),Driouch,Midar (M),21670113,Commune de Midar,Nador Midar,0.576,direct
+02.167.03.01.,Ain Zohra,Driouch,Ain Zohra,21671701,Commune d'Ain Zohra,Nador Ain Zohra,0.506,direct
+02.167.03.03.,Ait Mait,Driouch,Ait Mait,21671503,Commune d'Ait Mait,Nador Ait Mait,0.454,direct
+02.167.03.05.,Amejjaou,Driouch,Amejjaou,21671505,Commune d'Amejjaou,Nador Amejjaou,0.501,direct
+02.167.03.07.,Dar El Kebdani,Driouch,Dar El Kebdani,21671507,Commune de Dar El Kebdani,Nador Dar El Kebdani,0.573,direct
+02.167.03.09.,Mtalssa,Driouch,Mtalssa,21671709,Commune de Mtalssa,,,
+02.167.03.11.,Oulad Boubker,Driouch,Oulad Boubker,21671711,Commune d'Oulad Boubker,Nador Oulad Boubker,0.384,direct
+02.167.03.13.,Tazaghine,Driouch,Tazaghine,21671513,Commune de Tazaghine,Nador Tazaghine,0.521,direct
+02.167.09.01.,Azlaf,Driouch,Azlaf,21671301,Commune d'Azlaf,Nador Azlaf,0.575,direct
+02.167.09.05.,Bni Marghnine,Driouch,Bni Marghnine,21671105,Commune de Bni Marghnine,Nador Bni Marghnine,0.56,direct
+02.167.09.07.,Boudinar,Driouch,Boudinar,21671107,Commune de Boudinar,Nador Boudinar,0.515,direct
+02.167.09.09.,Iferni,Driouch,Iferni,21671309,Commune d'Iferni,Nador Iferni,0.574,direct
+02.167.09.11.,Ijermaouas,Driouch,Ijermaouas,21671111,Commune d'Ijermaouas,Nador Ijermaouas,0.467,direct
+02.167.09.15.,M'Hajer,Driouch,M'Hajer,21671315,Commune de M'hajer,Nador M'Hajer,0.413,direct
+02.167.09.17.,Ouardana,Driouch,Ouardana,21671317,Commune d'Ouardana,Nador Ouardana,0.558,direct
+02.167.09.19.,Oulad Amghar,Driouch,Oulad Amghar,21671119,Commune d'Oulad Amghar,Nador Oulad Amghar,0.469,direct
+02.167.09.21.,Tafersit,Driouch,Tafersit,21671321,Commune de Tafersit,Nador Tafersit (AC),0.611,direct
+02.167.09.23.,Talilit,Driouch,Talilit,21671323,Commune de Talilit,Nador Talilit,0.515,direct
+02.167.09.25.,Temsamane,Driouch,Temsamane,21671125,Commune de Temsamane,Nador Temsamane,0.526,direct
+02.167.09.27.,Trougout,Driouch,Trougout,21671127,Commune de Trougout,Nador Trougout,0.464,direct
+02.167.09.29.,Tsaft,Driouch,Tsaft,21671329,Commune de Tsaft,Nador Tsaft,0.528,direct
+02.251.01.01.,Bouarfa (Mun.),Figuig,Bouarfa (M),22510101,Commune de Bouarfa,Figuig Bouarfa (M),0.661,direct
+02.251.01.03.,Figuig (Mun.),Figuig,Figuig (M),22510103,Commune de Figuig,Figuig Figuig (M),0.652,direct
+02.251.03.01.,Ain Chouater,Figuig,Ain Chouater,22510301,Commune d'Ain Chouater,Figuig Ain Chouater,0.571,direct
+02.251.03.03.,Bni Tadjite,Figuig,Bni Tadjite,22510303,Commune de Bni Tadjite,Figuig Bni Tadjite,0.468,direct
+02.251.03.05.,Bouanane,Figuig,Bouanane,22510305,Commune de Bouanane,Figuig Bouanane,0.493,direct
+02.251.03.07.,Bouchaouene,Figuig,Bouchaouene,22510707,Commune de Bouchaouene,Figuig Bouchaouene,0.288,direct
+02.251.03.09.,Boumerieme,Figuig,Boumerieme,22510709,Commune de Boumerieme,Figuig Boumerieme,0.325,direct
+02.251.03.11.,Talsint,Figuig,Talsint,22510711,Commune de Talsint,Figuig Talsint,0.375,direct
+02.251.03.13.,Ain Chair,Figuig,Ain Chair,22510313,Commune d'Ain Chair,,,
+02.251.05.01.,Abbou Lakhal,Figuig,Abbou Lakhal,22510501,Commune d'Abbou Lakhal,Figuig Abbou Lakhal,0.424,direct
+02.251.05.03.,Bni Guil,Figuig,Bni Guil,22510503,Commune de Bni Guil,Figuig Bni Guil,0.495,direct
+02.251.05.05.,Maatarka,Figuig,Maatarka,22510505,Commune de Maatarka,Figuig Maatarka,0.405,direct
+02.251.05.07.,Tendrara,Figuig,Tendrara,22510507,Commune de Tendrara,Figuig Tendrara,0.338,direct
+02.265.01.03.,Guercif (Mun.),Guercif,Guercif (M),22650103,Commune de Guercif,Taza Guercif (M),0.665,direct
+02.265.05.01.,Assebbab,Guercif,Assebbab,22650501,Commune d'Assebbab,Taza Assebbab,0.492,direct
+02.265.05.03.,Barkine,Guercif,Barkine,22650503,Commune de Barkine,Taza Barkine,0.415,direct
+02.265.05.05.,Houara Oulad Raho,Guercif,Houara Oulad Raho,22650505,Commune de Houara Oulad Raho,Taza Houara Oulad Raho,0.585,direct
+02.265.05.07.,Lamrija,Guercif,Lamrija,22650507,Commune de Lamrija,Taza Lamrija,0.542,direct
+02.265.05.15.,Saka,Guercif,Saka,22650515,Commune de Saka,,,
+02.265.07.09.,Mazguitam,Guercif,Mazguitam,22650709,Commune de Mazguitam,Taza Mazguitam,0.508,direct
+02.265.07.11.,Oulad Bourima,Guercif,Oulad Bourima,22650711,Commune d'Oulad Bourima,Taza Oulad Bourima,0.488,direct
+02.265.07.13.,Ras Laksar,Guercif,Ras Laksar,22650713,Commune de Ras Laksar,Taza Ras Laksar,0.49,direct
+02.265.07.17.,Taddart,Guercif,Taddart,22650717,Commune de Taddart,Taza Taddart,0.542,direct
+02.275.01.03.,Ain Bni Mathar (Mun.),Jerada,Ain Bni Mathar (M),22750103,Commune d'Ain Bni Mathar,Jerada Ain Bni Mathar (M),0.638,direct
+02.275.01.17.,Jerada (Mun.),Jerada,Jerada (M),22750117,Commune de Jerada,Jerada Jerada (M),0.639,direct
+02.275.01.35.,Touissit (Mun.),Jerada,Touissit (M),22750135,Commune de Touissit,Jerada Touissit (M),0.663,direct
+02.275.03.03.,Gafait,Jerada,Gafait,22750703,Commune de Gafait,Jerada Gafait,0.466,direct
+02.275.03.05.,Guenfouda,Jerada,Guenfouda,22750905,Commune de Guenfouda,Jerada Guenfouda,0.534,direct
+02.275.03.07.,Laaouinate,Jerada,Laaouinate,22750707,Commune de Laaouinate,Jerada Laaouinate,0.514,direct
+02.275.03.09.,Lebkhata,Jerada,Lebkhata,22750709,Commune de Lebkhata,Jerada Lebkhata,0.479,direct
+02.275.03.13.,Ras Asfour,Jerada,Ras Asfour,22750913,Commune de Ras Asfour,Jerada Ras Asfour,0.509,direct
+02.275.03.15.,Sidi Boubker,Jerada,Sidi Boubker,22750915,Commune de Sidi Boubker,Jerada Sidi Boubker (AC),0.705,fuzzy
+02.275.03.21.,Tiouli,Jerada,Tiouli,22750921,Commune de Tiouli,Jerada Tiouli,0.446,direct
+02.275.05.01.,Bni Mathar,Jerada,Bni Mathar,22750501,Commune de Bni Mathar,Jerada Bni Mathar,0.453,direct
+02.275.05.11.,Mrija,Jerada,Mrija,22750511,Commune de Mrija,Jerada Mrija,0.43,direct
+02.275.05.13.,Oulad Ghziyel,Jerada,,22750513,Commune d'Ouled Ghziyel,Jerada Oulad Ghziyel,0.399,direct
+02.275.05.15.,Oulad Sidi Abdelhakem,Jerada,,22750515,Commune d'Ouled Sidi Abdelhakem,Jerada Oulad Sidi Abdelhakem,0.404,direct
+02.381.01.01.,Al Aaroui (Mun.),Nador,Al Aaroui (M),23810101,Commune d'Al Aaroui,Nador Al Aaroui (M),0.645,direct
+02.381.01.03.,Bni Ansar (Mun.),Nador,Bni Ansar (M),23810103,Commune de Bni Ansar,Nador Bni Ansar (M),0.691,direct
+02.381.01.05.,Nador (Mun.),Nador,Nador (M),23810105,Commune de Nador,Nador Nador (M),0.679,direct
+02.381.01.07.,Zaio (Mun.),Nador,Zaio (M),23810107,Commune de Zaio,Nador Zaio (M),0.638,direct
+02.381.01.09.,Zeghanghane (Mun.),Nador,Zeghanghane (M),23810109,Commune de Zeghanghane,Nador Zeghanghane (M),0.643,direct
+02.381.01.15.,Ras El Ma (Mun.),Nador,Ras-El-Ma (M),23810115,Commune de Ras-El-Ma,Nador Ras El Ma,0.526,direct
+02.381.01.19.,Selouane (Mun.),Nador,Selouane (M),23810119,Commune de Selouane,Nador Selouane,0.528,direct
+02.381.05.01.,Bni Bouifrour,Nador,Bni Bouifrour,23810501,Commune de Bni Bouifrour,Nador Bni Bouifrour,0.577,direct
+02.381.05.03.,Bni Chiker,Nador,Bni Chiker,23810503,Commune de Bni Chiker,Nador Bni Chiker,0.597,direct
+02.381.05.05.,Bni Sidel Jbel,Nador,Bni Sidel Jbel,23810505,Commune de Bni Sidel Jbel,Nador Bni Sidel Jbel,0.594,direct
+02.381.05.07.,Bni Sidel Louta,Nador,Bni Sidel Louta,23810507,Commune de Bni Sidel Louta,Nador Bni Sidel Louta,0.544,direct
+02.381.05.09.,Bouarg,Nador,Bouarg,23810509,Commune de Bouarg,Nador Bouarg,0.554,direct
+02.381.05.13.,Iaazzanene,Nador,Iaazzanene,23810513,Commune d'Iaazzanene,Nador Iaazzanene,0.618,direct
+02.381.05.15.,Ihaddadene,Nador,Ihaddadene,23810515,Commune d'Ihaddadene,Nador Ihaddadene,0.532,direct
+02.381.05.17.,Iksane,Nador,Iksane,23810517,Commune d'Iksane,Nador Iksane,0.626,direct
+02.381.07.01.,Afsou,Nador,Afsou,23810701,Commune d'Afsou,Nador Afsou,0.424,direct
+02.381.07.03.,Al Barkanyene,Nador,Al Barkanyene,23810703,Commune d'Al Barkanyene,Nador Al Barkanyene,0.368,direct
+02.381.07.05.,Arekmane,Nador,Arekmane,23810705,Commune d'Arekmane,Nador Arekmane,0.598,direct
+02.381.07.07.,Bni Oukil Oulad M'Hand,Nador,Bni Oukil  Oulad M'Hand,23810707,Commune de Bni Oukil Oulad M'hand,Nador Bni Oukil Oulad M'Hand,0.527,direct
+02.381.07.09.,Hassi Berkane,Nador,Hassi-Berkane,23810709,Commune de Hassi-Berkane,Nador Hassi Berkane,0.488,direct
+02.381.07.11.,Oulad Daoud Zkhanine,Nador,Oulad Daoud Zkhanine,23810711,Commune d'Oulad Daoud Zkhanine,Nador Oulad Daoud Zkhanine,0.539,direct
+02.381.07.13.,Oulad Settout,Nador,Oulad Settout,23810713,Commune d'Oulad Settout,Nador Oulad Settout,0.524,direct
+02.381.07.17.,Tiztoutine,Nador,Tiztoutine,23810717,Commune de Tiztoutine,Nador Tiztoutine Centre (AC),0.63,direct
+02.411.01.11.,Bni Drar (Mun.),Oujda-Angad,Bni Drar (M),24110111,Commune de Bni Drar,Oujda-Angad Bni Drar (M),0.657,direct
+02.411.01.19.,Naima (Mun.),Oujda-Angad,Naima (M),24110119,Commune de Naima,Oujda-Angad Naima (M),0.7,direct
+02.411.01.23.,Oujda (Mun.),Oujda-Angad,Oujda (M),24110123,Commune d'Oujda,Oujda-Angad Oujda (M),0.695,direct
+02.411.03.01.,Ahl Angad,Oujda-Angad,Ahl Angad,24110301,Commune d'Ahl Angad,Oujda-Angad Ahl Angad,0.557,direct
+02.411.03.03.,Ain Sfa,Oujda-Angad,Ain Sfa,24110303,Commune d'Ain Sfa,Oujda-Angad Ain Sfa,0.529,direct
+02.411.03.05.,Bni Khaled,Oujda-Angad,Bni Khaled,24110305,Commune de Bni Khaled,Oujda-Angad Bni Khaled,0.566,direct
+02.411.03.07.,Bsara,Oujda-Angad,Bsara,24110307,Commune de Bsara,Oujda-Angad Bsara,0.567,direct
+02.411.05.09.,Isly,Oujda-Angad,Isly,24110509,Commune d'Isly,Oujda-Angad Isly,0.588,direct
+02.411.05.11.,Mestferki,Oujda-Angad,Mestferki,24110511,Commune de Mestferki,Oujda-Angad Mestferki,0.492,direct
+02.411.05.17.,Sidi Boulenouar,Oujda-Angad,Sidi Boulenouar,24110517,Commune de Sidi Boulenouar,Oujda-Angad Sidi Boulenouar,0.444,direct
+02.411.05.19.,Sidi Moussa Lemhaya,Oujda-Angad,Sidi Moussa Lemhaya,24110519,Commune de Sidi Moussa Lemhaya,Oujda-Angad Sidi Moussa Lemhaya,0.534,direct
+02.533.01.13.,Debdou (Mun.),Taourirt,Debdou (M),25330113,Commune de Debdou,Taourirt Debdou (M),0.617,direct
+02.533.01.15.,El Aioun Sidi Mellouk (Mun.),Taourirt,El Aioun Sidi Mellouk (M),25330115,Commune d'El Aioun Sidi Mellouk,Taourirt El Aioun Sidi Mellouk (M),0.629,direct
+02.533.01.33.,Taourirt (Mun.),Taourirt,Taourirt (M),25330133,Commune de Taourirt,Taourirt Taourirt (M),0.635,direct
+02.533.03.05.,El Atef,Taourirt,El Atef,25330305,Commune d'El Atef,Taourirt El Atef,0.308,direct
+02.533.03.15.,Oulad M'hammed,Taourirt,,25330315,Commune d'Ouled M'hamed,Taourirt Oulad M'hammed,0.322,direct
+02.533.03.17.,Sidi Ali Bel Quassem,Taourirt,Sidi Ali Bel Quassem,25330317,Commune de Sidi Ali Bel Quassem,Taourirt Sidi Ali Belkassem,0.445,fuzzy
+02.533.03.19.,Sidi Lahsen,Taourirt,Sidi Lahsen,25330319,Commune de Sidi Lahsen,Taourirt Sidi Lahsen,0.451,direct
+02.533.07.03.,Ain Lehjer,Taourirt,Ain Lehjer,25330703,Commune d'Ain Lehjer,Taourirt Ain Lehjer,0.521,direct
+02.533.07.09.,Mechraa Hammadi,Taourirt,Mechraa Hammadi,25330709,Commune de Mechraa Hammadi,Taourirt Mechraa Hammadi,0.509,direct
+02.533.07.13.,Mestegmer,Taourirt,Mestegmer,25330713,Commune de Mestegmer,Taourirt Mestegmer,0.492,direct
+02.533.07.21.,Tancherfi,Taourirt,Tancherfi,25330721,Commune de Tancherfi,Taourirt Tancherfi,0.432,direct
+02.533.09.01.,Ahl Oued Za,Taourirt,Ahl Oued Za,25330901,Commune d'Ahl Oued Za,Taourirt Ahl Oued Za,0.503,direct
+02.533.09.07.,Gteter,Taourirt,Gteter,25330907,Commune de Gteter,Taourirt Gteter,0.522,direct
+02.533.09.11.,Melg El Ouidane,Taourirt,Melg El Ouidane,25330911,Commune de Melg El Ouidane,Taourirt Melg El Ouidane,0.544,direct
+03.061.01.01.,Meknès (Mun.),Meknès,Meknès (M),30610101,Commune de Meknès,Meknès Meknès (M),0.715,direct
+03.061.01.03.,Al Machouar - Stinia (Mun.),Meknès,Al Machouar - Stinia (M),30610103,Commune d'Al Machouar-Stinia,Meknès Al Machouar - Stinia (M),0.721,direct
+03.061.01.05.,Boufakrane (Mun.),Meknès,Boufakrane (M),30610105,Commune de Boufakrane,Meknès Boufakrane (M),0.686,direct
+03.061.01.07.,Toulal (Mun.),Meknès,Toulal (M),30610107,Commune de Toulal,"Khenifra Sidi Lamine 12,95 21,11 1,67 38,20 0,534 0,238687 Meknès Toulal (M)",0.697,direct
+03.061.01.09.,Moulay Driss Zerhoun (Mun.),Meknès,,,,Meknès Moulay Driss Zerhoun (M),0.672,direct
+03.061.01.11.,Ouislane (Mun.),Meknès,Ouislane (M),30610111,Commune d'Ouislane,Meknès Ouislane (M),0.633,direct
+03.061.03.01.,Ain Jemaa,Meknès,Ain Jemaa,30610301,Commune d'Ain Jemaa,Meknès Ain Jemaa,0.498,direct
+03.061.03.02.,Ain Karma- Oued Rommane,Meknès,Ain Karma-Oued Rommane,30610302,Commune d'Ain Karma-Oued Rommane,,,
+03.061.03.05.,Ain Orma,Meknès,Ain Orma,30610305,Commune d'Ain Orma,Meknès Ain Orma,0.599,direct
+03.061.03.07.,Ait Ouallal,Meknès,Ait Ouallal,30610307,Commune d'Ait Ouallal,Meknès Ait Ouallal,0.567,direct
+03.061.03.09.,Dar Oum Soltane,Meknès,Dar Oum Soltane,30610309,Commune de Dar Oum Soltane,Meknès Dar Oum Soltane,0.452,direct
+03.061.05.01.,Dkhissa,Meknès,Dkhissa,30610501,Commune de Dkhissa,Meknès Dkhissa,0.537,direct
+03.061.05.03.,Majjate,Meknès,Majjate,30610503,Commune de Majjate,Meknès Majjate,0.607,direct
+03.061.05.05.,M'haya,Meknès,M'haya,30610505,Commune de M'haya,Meknès M'haya,0.544,fuzzy
+03.061.05.07.,Oued Jdida,Meknès,Oued Jdida,30610507,Commune d'Oued Jdida,Meknès Oued Jdida,0.555,direct
+03.061.05.09.,Sidi Slimane Moul Al Kifane,Meknès,Sidi Slimane  Moul Al Kifane,30610509,Commune de Sidi Slimane Moul Al Kifane,Meknès Sidi Slimane Moul Al Kifa,0.631,fuzzy
+03.061.07.01.,Charqaoua,Meknès,Charqaoua,30610701,Commune de Charqaoua,Meknès Charqaoua,0.438,direct
+03.061.07.05.,MRhassiyine,Meknès,MRhassiyine,30610705,Commune de Mrhassiyine,Meknès MRhassiyine,0.571,direct
+03.061.07.07.,N'zalat Bni Amar,Meknès,N'zalat Bni Amar,30610707,Commune de N'zalat Bni Amar,Meknès N'zalat Bni Amar,0.505,direct
+03.061.07.09.,Oualili,Meknès,Oualili,30610709,Commune d'Oualili,Meknès Oualili,0.567,direct
+03.061.07.11.,Sidi Abdallah Al Khayat,Meknès,,30610711,Commune de Sidi Abdellah Al Khayat,Meknès Sidi Abdallah Al Khayat,0.506,direct
+03.131.01.01.,Boulemane (Mun.),Boulemane,Boulemane (M),31310101,Commune de Boulemane,Boulemane Boulemane (M),0.656,direct
+03.131.01.02.,Imouzzer Marmoucha (Mun.),Boulemane,Imouzzer Marmoucha(M),31310102,Commune d'Imouzzer Marmoucha,Boulemane Imouzzer Marmoucha(M),0.607,direct
+03.131.01.03.,Missour (Mun.),Boulemane,Missour (M),31310103,Commune de Missour,Boulemane Missour (M),0.663,direct
+03.131.01.05.,Outat El Haj (Mun.),Boulemane,Outat El Haj (M),31310105,Commune d'Outat El Haj,Boulemane Outat El Haj (M),0.629,direct
+03.131.03.01.,Ait Bazza,Boulemane,Ait Bazza,31310901,Commune d'Ait Bazza,Boulemane Ait Bazza,0.473,direct
+03.131.03.03.,Ait El Mane,Boulemane,Ait El Mane,31310903,Commune d'Ait El Mane,Boulemane Ait El Mane,0.529,direct
+03.131.03.05.,Almis Marmoucha,Boulemane,Almis Marmoucha,31310905,Commune d'Almis Marmoucha,Boulemane Almis Marmoucha,0.549,direct
+03.131.03.07.,El Mers,Boulemane,El Mers,31310907,Commune d'El Mers,Boulemane El Mers,0.522,direct
+03.131.03.09.,Enjil,Boulemane,Enjil,31310309,Commune d'Enjil,de la Boulemane Enjil,0.432,direct
+03.131.03.11.,Guigou,Boulemane,Guigou,31310311,Commune de Guigou,Boulemane Guigou,0.472,direct
+03.131.03.13.,Serghina,Boulemane,Serghina,31310913,Commune de Serghina,Boulemane Serghina,0.543,direct
+03.131.03.15.,Skoura M'Daz,Boulemane,Skoura M'Daz,31310315,Commune de Skoura M'daz,Boulemane Skoura M'Daz,0.552,direct
+03.131.03.17.,Talzemt,Boulemane,Talzemt,31310917,Commune de Talzemt,Boulemane Talzemt,0.448,direct
+03.131.05.01.,Ksabi Moulouya,Boulemane,Ksabi-Moulouya,31310501,Commune de Ksabi-Moulouya,Boulemane Ksabi Moulouya,0.562,direct
+03.131.05.03.,Ouizeght,Boulemane,Ouizeght,31310503,Commune d'Ouizeght,Boulemane Ouizeght,0.46,direct
+03.131.05.05.,Sidi Boutayeb,Boulemane,Sidi Boutayeb,31310505,Commune de Sidi Boutayeb,Boulemane Sidi Boutayeb,0.56,direct
+03.131.07.01.,El Orjane,Boulemane,El Orjane,31310701,Commune d'El Orjane,Boulemane El Orjane,0.483,direct
+03.131.07.03.,Ermila,Boulemane,Ermila,31310703,Commune d'Ermila,Boulemane Ermila,0.579,direct
+03.131.07.05.,Fritissa,Boulemane,Fritissa,31310705,Commune de Fritissa,Boulemane Fritissa,0.475,direct
+03.131.07.07.,Oulad Ali Youssef,Boulemane,Oulad Ali Youssef,31310707,Commune d'Oulad Ali Youssef,Boulemane Oulad Ali Youssef,0.416,direct
+03.131.07.09.,Tissaf,Boulemane,Tissaf,31310709,Commune de Tissaf,Boulemane Tissaf,0.497,direct
+03.171.01.01.,Agourai (Mun.),El  Hajeb,Agourai (M),31710101,Commune d'Agourai,El Hajeb Agourai (M),0.615,direct
+03.171.01.03.,Ain Taoujdate (Mun.),El  Hajeb,Ain Taoujdate (M),31710103,Commune d'Ain Taoujdate,El Hajeb Ain Taoujdate (M),0.659,direct
+03.171.01.05.,El Hajeb (Mun.),El  Hajeb,El Hajeb (M),31710105,Commune d'El Hajeb,El Hajeb El Hajeb (M),0.689,direct
+03.171.01.07.,Sabaa Aiyoun (Mun.),El  Hajeb,Sabaa Aiyoun (M),31710107,Commune de Sabaa Aiyoun,El Hajeb Sabaa Aiyoun (M),0.615,direct
+03.171.03.01.,Ait Ouikhalfen,El  Hajeb,Ait Ouikhalfen,31710301,Commune d'Ait Ouikhalfen,El Hajeb Ait Ouikhalfen,0.479,direct
+03.171.03.03.,Ait Yaazem,El  Hajeb,Ait Yaazem,31710303,Commune d'Ait Yaazem,El Hajeb Ait Yaazem,0.557,direct
+03.171.03.05.,Jahjouh,El  Hajeb,Jahjouh,31710305,Commune de Jahjouh,El Hajeb Jahjouh,0.414,direct
+03.171.03.07.,Ras Ijerri,El  Hajeb,Ras Ijerri,31710307,Commune de Ras Ijerri,,,
+03.171.03.09.,Tamchachate,El  Hajeb,Tamchachate,31710309,Commune de Tamchachate,El Hajeb Tamchachate,0.443,direct
+03.171.05.01.,Ait Boubidmane,El  Hajeb,Ait Boubidmane,31710501,Commune d'Ait Boubidmane,El Hajeb Ait Boubidmane,0.555,direct
+03.171.05.03.,Ait Harz Allah,El  Hajeb,Ait Harz Allah,31710503,Commune d'Ait Harz Allah,El Hajeb Ait Harz Allah,0.668,direct
+03.171.05.05.,Bitit,El  Hajeb,Bitit,31710505,Commune de Bitit,El Hajeb Bitit,0.553,direct
+03.171.05.07.,Laqsir,El  Hajeb,Laqsir,31710507,Commune de Laqsir,El Hajeb Laqsir,0.556,direct
+03.171.07.01.,Ait Bourzouine,El  Hajeb,Ait Bourzouine,31710701,Commune d'Ait Bourzouine,El Hajeb Ait Bourzouine,0.545,direct
+03.171.07.03.,Ait Naamane,El  Hajeb,Ait Naamane,31710703,Commune d'Ait Naamane,El Hajeb Ait Naamane,0.575,direct
+03.171.07.05.,Iqaddar,El  Hajeb,Iqaddar,31710705,Commune d'Iqaddar,El Hajeb Iqaddar,0.555,direct
+03.231.01.01.,Agdal (Arrond.),Fès,,32310101,Arrondissement d'Agdal,Fès Agdal (AR),0.749,fuzzy
+03.231.01.03.,Méchouar Fès Jdid (Mun.),Fès,,32310103,Commune de Méchouar-Fès-El Jadid,Fès Méchouar Fès Jdid (M),0.684,direct
+03.231.01.05.,Saiss (Arrond.),Fès,,32310105,Arrondissement de Saiss,Fès Saiss (AR),0.7,fuzzy
+03.231.01.07.,Fès-Médina (Arrond.),Fès,,32310107,Arrondissement de Fès-Médina,Fès Fès-Médina (AR),0.673,fuzzy
+03.231.01.09.,Jnan El Ouard (Arrond.),Fès,,32310109,Arrondissement de Jnan El Ouard,Fès Jnan El Ouard (AR),0.609,fuzzy
+03.231.01.11.,El Mariniyine (Arrond.),Fès,,32310111,Arrondissement d'El Mariniyine,Fès El Mariniyine (AR),0.648,fuzzy
+03.231.01.13.,Zouagha (Arrond.),Fès,,32310113,Arrondissement de Zouagha,,,
+03.231.81.01.,Oulad Tayeb,Fès,Oulad Tayeb,32310115,Commune d'Oulad Tayeb,Fès Oulad Tayeb,0.608,direct
+03.231.81.03.,Ain Bida,Fès,Ain Bida,32318103,Commune d'Ain Bida,Fès Ain Bida,0.625,direct
+03.231.81.05.,Sidi Harazem,Fès,Sidi Harazem,32318105,Commune de Sidi Harazem,Fès Sidi Harazem,0.559,direct
+03.271.01.01.,Azrou (Mun.),Ifrane,Azrou (M),32710101,Commune d'Azrou,"Errachidia Aghbalou N'Kerdous 9,49 9,90 1,41 51,01 0,618 0,51207 Ifrane Azrou (M)",0.69,direct
+03.271.01.03.,Ifrane (Mun.),Ifrane,Ifrane (M),32710103,Commune d'Ifrane,Ifrane Ifrane (M),0.743,direct
+03.271.03.01.,Ain Leuh,Ifrane,Ain Leuh,32710301,Commune d'Ain Leuh,Ifrane Ain Leuh,0.571,direct
+03.271.03.03.,Ben Smim,Ifrane,Ben Smim,32710303,Commune de Ben Smim,Ifrane Ben Smim,0.581,direct
+03.271.03.05.,Oued Ifrane,Ifrane,Oued Ifrane,32710305,Commune d'Oued Ifrane,Ifrane Oued Ifrane,0.496,direct
+03.271.03.07.,Sidi El Makhfi,Ifrane,Sidi El Makhfi,32710307,Commune de Sidi El Makhfi,Ifrane Sidi El Makhfi,0.522,direct
+03.271.03.09.,Tigrigra,Ifrane,Tigrigra,32710309,Commune de Tigrigra,,,
+03.271.03.11.,Timahdite,Ifrane,Timahdite,32710311,Commune de Timahdite,Ifrane Timahdite,0.437,direct
+03.271.81.01.,Dayat Aoua,Ifrane,Dayat-Aoua,32710105,Commune de Dayat-Aoua,Ifrane Dayat Aoua,0.418,direct
+03.271.81.03.,Tizguite,Ifrane,Tizguite,32710107,Commune de Tizguite,Ifrane Tizguite,0.535,direct
+03.451.01.01.,Bhalil (Mun.),Sefrou,Bhalil (M),34510101,Commune de Bhalil,Sefrou Bhalil (M),0.695,direct
+03.451.01.03.,El Menzel (Mun.),Sefrou,El Menzel (M),34510103,Commune d'El Menzel,Sefrou El Menzel (M),0.674,direct
+03.451.01.05.,Imouzzer Kandar (Mun.),Sefrou,Imouzzer-Kandar (M),34510105,Commune d'Immouzzer-Kandar,Sefrou Imouzzer Kandar (M),0.631,direct
+03.451.01.07.,Ribate El Kheir (Mun.),Sefrou,Ribate El Kheir (M),34510107,Commune de Ribate El Kheir,Sefrou Ribate El Kheir (M),0.56,direct
+03.451.01.09.,Sefrou (Mun.),Sefrou,Sefrou (M),34510109,Commune de Sefrou,Sefrou Sefrou (M),0.68,direct
+03.451.03.01.,Adrej,Sefrou,Adrej,34510301,Commune d'Adrej,Sefrou Adrej,0.509,direct
+03.451.03.03.,Ain Timguenai,Sefrou,Ain Timguenai,34510303,Commune d'Ain Timguenai,Sefrou Ain Timguenai,0.527,direct
+03.451.03.05.,Bir Tam Tam,Sefrou,Bir Tam-Tam,34510305,Commune de Bir Tam-Tam,Sefrou Bir Tam Tam,0.51,direct
+03.451.03.07.,Dar El Hamra,Sefrou,Dar El Hamra,34510307,Commune de Dar El Hamra,Sefrou Dar El Hamra,0.591,direct
+03.451.03.09.,Ighzrane,Sefrou,,34510309,Commune d'Irhzrane,Sefrou Ighzrane,0.514,direct
+03.451.03.11.,Mtarnagha,Sefrou,Mtarnagha,34510311,Commune de Mtarnagha,Sefrou Mtarnagha,0.577,direct
+03.451.03.13.,Oulad Mkoudou,Sefrou,Oulad Mkoudou,34510313,Commune d'Oulad Mkoudou,Sefrou Oulad Mkoudou,0.614,direct
+03.451.03.15.,Ras Tabouda,Sefrou,Ras Tabouda,34510315,Commune de Ras Tabouda,Sefrou Ras Tabouda,0.632,direct
+03.451.03.17.,Tafajight,Sefrou,Tafajight,34510317,Commune de Tafajight,Sefrou Tafajight,0.504,direct
+03.451.05.01.,Ain Cheggag,Sefrou,Ain Cheggag,34510501,Commune d'Ain Cheggag,Sefrou Ain Cheggag,0.513,direct
+03.451.05.03.,Ait Sebaa Lajrouf,Sefrou,Ait Sebaa Lajrouf,34510503,Commune d'Ait Sebaa Lajrouf,Sefrou Ait Sebaa Lajrouf,0.494,direct
+03.451.07.01.,Aghbalou Aqorar,Sefrou,Aghbalou Aqorar,34510701,Commune d'Aghbalou Aqorar,Sefrou Aghbalou Aqorar,0.582,direct
+03.451.07.03.,Ahl Sidi Lahcen,Sefrou,Ahl Sidi Lahcen,34510703,Commune d'Ahl Sidi Lahcen,Sefrou Ahl Sidi Lahcen,0.547,direct
+03.451.07.05.,Azzaba,Sefrou,Azzaba,34510705,Commune d'Azzaba,Sefrou Azzaba,0.605,direct
+03.451.07.07.,Kandar Sidi Khiar,Sefrou,Kandar Sidi Khiar,34510707,Commune de Kandar Sidi Khiar,Sefrou Kandar Sidi Khiar,0.486,direct
+03.451.07.09.,Laanoussar,Sefrou,Laanoussar,34510709,Commune de Laanoussar,Sefrou Laanoussar,0.518,direct
+03.451.07.11.,Sidi YoussefBen Ahmed,Sefrou,Sidi Youssef  Ben Ahmed,34510711,Commune de Sidi Youssef Ben Ahmed,Sefrou Sidi Youssef Ben Ahmed,0.582,direct
+03.451.07.13.,Tazouta,Sefrou,Tazouta,34510713,Commune de Tazouta,Sefrou Tazouta,0.484,direct
+03.531.01.01.,Ghafsai (Mun.),Taounate,,35310101,Commune de Rhafsai,Taounate Ghafsai (M),0.707,direct
+03.531.01.03.,Karia Ba Mohamed (Mun.),Taounate,Karia Ba Mohamed (M),35310103,Commune de Karia Ba Mohamed,Taounate Karia Ba Mohamed (M),0.642,direct
+03.531.01.05.,Taounate (Mun.),Taounate,Taounate (M),35310105,Commune de Taounate,Taounate Taounate (M),0.695,direct
+03.531.01.07.,Thar Es-souk (Mun.),Taounate,Thar Es-souk (M),35310107,Commune de Thar Es-Souk,Taounate Thar Es-souk (M),0.693,direct
+03.531.01.09.,Tissa (Mun.),Taounate,Tissa (M),35310109,Commune de Tissa,Taounate Tissa (M),0.659,direct
+03.531.03.01.,El Bibane,Taounate,El Bibane,35310301,Commune d'El Bibane,Taounate El Bibane,0.601,direct
+03.531.03.03.,Galaz,Taounate,Galaz,35310303,Commune de Galaz,Taounate Galaz,0.521,direct
+03.531.03.05.,Kissane,Taounate,Kissane,35310305,Commune de Kissane,Taounate Kissane,0.546,direct
+03.531.03.07.,Oudka,Taounate,Oudka,35310307,Commune d'Oudka,Taounate Oudka,0.545,direct
+03.531.03.09.,Ouartzagh,Taounate,,,,Taounate Ourtzagh,0.616,fuzzy
+03.531.03.11.,Ratba,Taounate,Ratba,35310311,Commune de Ratba,Taounate Ratba,0.556,direct
+03.531.03.13.,Sidi Haj M'hamed,Taounate,Sidi Haj M'hamed,35310313,Commune de Sidi Haj M'hamed,Taounate Sidi Haj M'hamed,0.529,direct
+03.531.03.15.,Sidi Mokhfi,Taounate,,35310315,Commune de Sidi Mokhfi,Taounate Sidi Mokhfi,0.507,direct
+03.531.03.17.,Sidi YahyaBni Zeroual,Taounate,Sidi Yahya  Bni Zeroual,35310317,Commune de Sidi Yahia Bni Zeroual,Taounate Sidi Yahya Bni Zeroual,0.534,direct
+03.531.03.19.,Tabouda,Taounate,Tabouda,35310319,Commune de Tabouda,Taounate Tabouda,0.528,direct
+03.531.03.21.,Tafrant,Taounate,Tafrant,35310321,Commune de Tafrant,Taounate Tafrant,0.571,direct
+03.531.03.23.,Timezgana,Taounate,Timezgana,35310323,Commune de Timezgana,Taounate Timezgana,0.567,direct
+03.531.05.01.,Bni Snous,Taounate,Bni Snous,35310501,Commune de Bni Snous,Taounate Bni Snous,0.546,direct
+03.531.05.03.,Bouchabel,Taounate,Bouchabel,35310503,Commune de Bouchabel,Taounate Bouchabel,0.468,direct
+03.531.05.05.,Rhouazi,Taounate,Rhouazi,35310505,Commune de Rhouazi,Taounate Ghouazi,0.51,fuzzy
+03.531.05.07.,Jbabra,Taounate,Jbabra,35310507,Commune de Jbabra,Taounate Jbabra,0.486,direct
+03.531.05.09.,Loulja,Taounate,Loulja,35310509,Commune de Loulja,Taounate Loulja,0.468,direct
+03.531.05.11.,Mkansa,Taounate,Mkansa,35310511,Commune de Mkansa,Taounate Mkansa,0.484,direct
+03.531.05.13.,Moulay Abdelkrim,Taounate,Moulay Abdelkrim,35310513,Commune de Moulay Abdelkrim,Taounate Moulay Abdelkrim,0.554,direct
+03.531.05.15.,Moulay Bouchta,Taounate,Moulay Bouchta,35310515,Commune de Moulay Bouchta,Taounate Moulay Bouchta,0.514,direct
+03.531.05.17.,Sidi El Abed,Taounate,Sidi El Abed,35310517,Commune de Sidi El Abed,Taounate Sidi El Abed,0.498,direct
+03.531.07.01.,Ain Mediouna,Taounate,Ain Mediouna,35310701,Commune d'Ain Mediouna,Taounate Ain Mediouna,0.616,direct
+03.531.07.03.,Bni Oulid,Taounate,Bni Oulid,35310703,Commune de Bni Oulid,Taounate Bni Oulid,0.617,direct
+03.531.07.05.,Bni Ounjel Tafraout,Taounate,Bni Ounjel Tafraout,35310705,Commune de Bni Ounjel Tafraout,Taounate Bni Ounjel Tafraout,0.559,direct
+03.531.07.07.,Bouadel,Taounate,Bouadel,35310707,Commune de Bouadel,Taounate Bouadel,0.64,direct
+03.531.07.09.,Bouhouda,Taounate,Bouhouda,35310709,Commune de Bouhouda,Taounate Bouhouda,0.551,direct
+03.531.07.11.,Fennassa Bab El Hit,Taounate,Fennassa Bab El Hit,35310711,Commune de Fennassa Bab El Hit,Taounate Fennassa Bab El Hit,0.531,direct
+03.531.07.13.,Khlalfa,Taounate,Khlalfa,35310713,Commune de Khlalfa,Taounate Khlalfa,0.62,direct
+03.531.07.15.,Mezraoua,Taounate,Mezraoua,35310715,Commune de Mezraoua,Taounate Mezraoua,0.552,direct
+03.531.07.17.,Rghioua,Taounate,Rghioua,35310717,Commune de Rghioua,Taounate Rghioua,0.607,direct
+03.531.07.19.,Tamedit,Taounate,Tamedit,35310719,Commune de Tamedit,Taounate Tamedit,0.543,direct
+03.531.07.21.,Zrizer,Taounate,Zrizer,35310721,Commune de Zrizer,Taounate Zrizer,0.658,direct
+03.531.09.01.,Ain Aicha,Taounate,Ain Aicha,35310901,Commune d'Ain Aicha,Taounate Ain Aicha,0.567,direct
+03.531.09.03.,Ain Legdah,Taounate,Ain Legdah,35310903,Commune d'Ain Legdah,Taounate Ain Legdah,0.536,direct
+03.531.09.05.,Ain Maatouf,Taounate,Ain Maatouf,35310905,Commune d'Ain Maatouf,Taounate Ain Maatouf,0.536,direct
+03.531.09.07.,Bouarouss,Taounate,Bouarouss,35310907,Commune de Bouarouss,Taounate Bouarouss,0.469,direct
+03.531.09.09.,El Bsabsa,Taounate,El Bsabsa,35310909,Commune d'El Bsabsa,Taounate El Bsabsa,0.48,direct
+03.531.09.11.,Messassa,Taounate,Messassa,35310911,Commune de Messassa,Taounate Messassa,0.515,direct
+03.531.09.13.,Oued Jemaa,Taounate,Oued Jemaa,35310913,Commune d'Oued Jemaa,Taounate Oued Jemaa,0.506,direct
+03.531.09.15.,Oulad Ayyad,Taounate,Oulad Ayyad,35310915,Commune d'Oulad Ayyad,Taounate Oulad Ayyad,0.608,direct
+03.531.09.17.,Oulad Daoud,Taounate,Oulad Daoud,35310917,Commune d'Oulad Daoud,Taounate Oulad Daoud,0.527,direct
+03.531.09.19.,Outabouabane,Taounate,Outabouabane,35310919,Commune d'Outabouabane,Taounate Outabouabane,0.55,direct
+03.531.09.21.,Ras El Oued,Taounate,Ras El Oued,35310921,Commune de Ras El Oued,Taounate Ras El Oued,0.517,direct
+03.531.09.23.,Sidi M'HamedBen Lahcen,Taounate,Sidi M'Hamed  Ben Lahcen,35310923,Commune de Sidi M'hamed Ben Lahcen,Taounate Sidi M'Hamed Ben Lahcen,0.506,direct
+03.561.01.01.,Aknoul (Mun.),Taza,Aknoul (M),35610101,Commune d'Aknoul,Taza Aknoul (M),0.665,direct
+03.561.01.05.,Oued Amlil (Mun.),Taza,,35610105,Commune d'Ouad Amlil,Taza Oued Amlil (M),0.715,direct
+03.561.01.07.,Tahla (Mun.),Taza,Tahla (M),35610107,Commune de Tahla,Taza Tahla (M),0.69,direct
+03.561.01.11.,Taza (Mun.),Taza,Taza (M),35610111,Commune de Taza,Taza Taza (M),0.719,direct
+03.561.03.01.,Ajdir,Taza,Ajdir,35610301,Commune d'Ajdir,Taza Ajdir,0.589,fuzzy
+03.561.03.03.,Bourd,Taza,Bourd,35610303,Commune de Bourd,Taza Bourd,0.52,direct
+03.561.03.05.,Gzenaya Al Janoubia,Taza,Gzenaya Al Janoubia,35610305,Commune de Gzenaya Al Janoubia,Taza Gzenaya Al Janoubia,0.53,direct
+03.561.03.07.,Jbarna,Taza,Jbarna,35610307,Commune de Jbarna,Taza Jbarna,0.531,direct
+03.561.03.09.,Sidi Ali Bourakba,Taza,Sidi Ali Bourakba,35610309,Commune de Sidi Ali Bourakba,Taza Sidi Ali Bourakba,0.57,direct
+03.561.03.11.,Tizi Ouasli,Taza,Tizi Ouasli,35610311,Commune de Tizi Ouasli,Taza Tizi Ouasli,0.528,direct
+03.561.07.01.,Bni Frassen,Taza,Bni Frassen,35610701,Commune de Bni Frassen,Taza Bni Frassen,0.551,direct
+03.561.07.03.,Bouchfaa,Taza,Bouchfaa,35610703,Commune de Bouchfaa,Taza Bouchfaa,0.567,direct
+03.561.07.05.,Bouhlou,Taza,Bouhlou,35610705,Commune de Bouhlou,Taza Bouhlou,0.596,direct
+03.561.07.07.,Ghiata Al Gharbia,Taza,Ghiata Al Gharbia,35610707,Commune de Ghiata Al Gharbia,Taza Ghiata Al Gharbia,0.534,direct
+03.561.07.09.,Oulad Zbair,Taza,Oulad Zbair,35610709,Commune d'Oulad Zbair,Taza Oulad Zbair,0.522,direct
+03.561.07.11.,Rbaa El Fouki,Taza,Rbaa El Fouki,35610711,Commune de Rbaa El Fouki,Taza Rbaa El Fouki,0.482,direct
+03.561.09.01.,Ait Saghrouchen,Taza,Ait Saghrouchen,35610901,Commune d'Ait Saghrouchen,Taza Ait Saghrouchen,0.554,direct
+03.561.09.03.,Bouyablane,Taza,Bouyablane,35610903,Commune de Bouyablane,Taza Bouyablane,0.37,direct
+03.561.09.07.,Matmata,Taza,Matmata,35610907,Commune de Matmata,Taza Matmata (AC),0.682,direct
+03.561.09.09.,Smià,Taza,Smia,35610909,Commune de Smia,Taza Smià,0.624,direct
+03.561.09.11.,Tazarine,Taza,Tazarine,35610911,Commune de Tazarine,Taza Tazarine,0.574,direct
+03.561.09.13.,Zrarda,Taza,Zrarda,35610913,Commune de Zrarda,Taza Zrarda,0.573,direct
+03.561.11.01.,Bni Ftah,Taza,Bni Ftah,35611101,Commune de Bni Ftah,Taza Bni Ftah,0.574,direct
+03.561.11.03.,Brarha,Taza,Brarha,35611103,Commune de Brarha,Taza Brarha,0.487,direct
+03.561.11.05.,El Gouzate,Taza,El Gouzate,35611105,Commune d'El Gouzate,Taza El Gouzate,0.53,direct
+03.561.11.07.,Kaf El Ghar,Taza,Kaf El Ghar,35611107,Commune de Kaf El Ghar,Taza Kaf El Ghar,0.522,direct
+03.561.11.09.,Msila,Taza,Msila,35611109,Commune de Msila,Taza Msila,0.588,direct
+03.561.11.11.,Taifa,Taza,Taifa,35611111,Commune de Taifa,Taza Taifa,0.541,direct
+03.561.11.13.,Tainaste,Taza,Tainaste,35611113,Commune de Tainaste,Taza Tainaste (AC),0.591,direct
+03.561.11.15.,Traiba,Taza,Traiba,35611115,Commune de Traiba,Taza Traiba,0.585,direct
+03.561.13.01.,Bab Boudir,Taza,Bab Boudir,35611301,Commune de Bab Boudir,Taza Bab Boudir,0.446,direct
+03.561.13.03.,Bab Marzouka,Taza,Bab Marzouka,35611303,Commune de Bab Marzouka,Taza Bab Marzouka,0.542,direct
+03.561.13.05.,Bni Lent,Taza,Bni Lent,35611305,Commune de Bni Lent,Taza Bni Lent,0.52,direct
+03.561.13.07.,Galdamane,Taza,,35611307,Commune de Galdamane,Taza Galdamane,0.549,direct
+03.561.13.09.,Meknassa Acharqia,Taza,Meknassa Acharqia,35611309,Commune de Meknassa Acharqia,Taza Meknassa Acharqia,0.537,direct
+03.561.13.11.,Meknassa Al Gharbia,Taza,Meknassa Al Gharbia,35611311,Commune de Meknassa Al Gharbia,Taza Meknassa Al Gharbia,0.565,direct
+03.561.13.13.,Oulad Chrif,Taza,Oulad Chrif,35611313,Commune d'Oulad Chrif,Taza Oulad Chrif,0.47,direct
+03.561.13.15.,Maghraoua,Taza,Maghraoua,35611315,Commune de Maghraoua,Taza Maghraoua,0.46,direct
+03.591.01.01.,Moulay Yacoub (Mun.),Moulay Yacoub,Moulay Yacoub (M),35910101,Commune de Moulay Yacoub,Moulay Yacoub Moulay Yacoub (M),0.65,direct
+03.591.03.01.,Ain Chkef,Moulay Yacoub,Ain Chkef,35910103,Commune d'Ain Chkef,Moulay Yacoub Ain Chkef,0.565,direct
+03.591.03.03.,Mikkes,Moulay Yacoub,Mikkes,35910303,Commune de Mikkes,Moulay Yacoub Mikkes,0.485,direct
+03.591.03.05.,Sebaa Rouadi,Moulay Yacoub,Sebaa Rouadi,35910305,Commune de Sebaa Rouadi,Moulay Yacoub Sebaa Rouadi,0.571,direct
+03.591.03.07.,Sebt Loudaya,Moulay Yacoub,Sebt Loudaya,35910307,Commune de Sebt Loudaya,Moulay Yacoub Sebt Loudaya,0.484,direct
+03.591.05.01.,Ain Bou Ali,Moulay Yacoub,Ain Bou Ali,35910501,Commune d'Ain Bou Ali,Moulay Yacoub Ain Bou Ali,0.515,direct
+03.591.05.02.,Ain Kansra,Moulay Yacoub,,35910502,Commune d'Ain Kansara,Moulay Yacoub Ain Kansra,0.549,direct
+03.591.05.03.,Laajajra,Moulay Yacoub,Laajajra,35910503,Commune de Laajajra,Moulay Yacoub Laajajra,0.461,direct
+03.591.05.05.,Louadaine,Moulay Yacoub,Louadaine,35910505,Commune de Louadaine,Moulay Yacoub Louadaine,0.479,direct
+03.591.05.07.,Oulad Mimoun,Moulay Yacoub,Oulad Mimoun,35910507,Commune d'Oulad Mimoun,Moulay Yacoub Oulad Mimoun,0.461,direct
+03.591.05.09.,Sidi Daoud,Moulay Yacoub,Sidi Daoud,35910509,Commune de Sidi Daoud,Moulay Yacoub Sidi Daoud,0.453,direct
+04.281.01.01.,Kénitra (Mun.),Kénitra,Kénitra (M),42810101,Commune de Kénitra,Kénitra Kénitra (M),0.702,direct
+04.281.01.05.,Mehdya (Mun.),Kénitra,Mehdya (M),42810105,Commune de Mehdya,Kénitra Mehdya (M),0.606,direct
+04.281.01.11.,Souk El Arbaa (Mun.),Kénitra,Souk El Arbaa (M),42810111,Commune de Souk El Arbaa,Kénitra Souk El Arbaa (M),0.665,direct
+04.281.03.01.,Ameur Seflia,Kénitra,Ameur Seflia,42810301,Commune d'Ameur Seflia,Kénitra Ameur Seflia,0.502,direct
+04.281.03.05.,Haddada,Kénitra,Haddada,42810305,Commune de Haddada,Inégalit é Kénitra Haddada,0.44,direct
+04.281.03.11.,Ouled Slama,Kénitra,Ouled Slama,42810311,Commune d'Ouled Slama,Kénitra Oulad Slama,0.583,fuzzy
+04.281.03.13.,Sidi Taibi,Kénitra,Sidi Taibi,42810113,Commune de Sidi Taibi,Kénitra Sidi Taibi,0.543,direct
+04.281.05.03.,Ben Mansour,Kénitra,Ben Mansour,42810503,Commune de Ben Mansour,Kénitra Ben Mansour,0.484,direct
+04.281.05.07.,Mnasra,Kénitra,Mnasra,42810507,Commune de Mnasra,Kénitra Mnasra,0.494,direct
+04.281.05.09.,Mograne,Kénitra,Mograne,42810509,Commune de Mograne,Kénitra Mograne,0.489,direct
+04.281.05.11.,Sidi Mohamed Ben Mansour,Kénitra,Sidi Mohamed Ben Mansour,42810511,Commune de Sidi Mohamed Benmansour,,,
+04.281.07.01.,Arbaoua,Kénitra,Arbaoua,42810701,Commune d'Arbaoua,Kénitra Arbaoua,0.53,fuzzy
+04.281.07.03.,Beni Malek,Kénitra,Beni Malek,42810703,Commune de Beni Malek,Kénitra Beni Malek,0.519,direct
+04.281.07.05.,Kariat Ben Aouda,Kénitra,Kariat Ben Aouda,42810705,Commune de Kariat Ben Aouda,Kénitra Kariat Ben Aouda,0.495,direct
+04.281.07.07.,Oued El Makhazine,Kénitra,Oued El Makhazine,42810707,Commune d'Oued El Makhazine,Kénitra Oued El Makhazine,0.575,direct
+04.281.09.01.,Bahhara Ouled Ayad,Kénitra,Bahhara Ouled Ayad,42810901,Commune de Bahhara Ouled Ayad,Kénitra Bahhara Oulad Ayad,0.436,fuzzy
+04.281.09.09.,Sidi Allal Tazi,Kénitra,Sidi Allal Tazi,42810909,Commune de Sidi Allal Tazi,Kénitra Sidi Allal Tazi,0.487,direct
+04.281.09.13.,Sidi Mohamed Lahmar,Kénitra,Sidi Mohamed Lahmar,42810913,Commune de Sidi Mohamed Lahmar,Kénitra Sidi Mohamed Lahmar,0.45,direct
+04.281.09.15.,Souk Tlet El Gharb,Kénitra,Souk Tlet El Gharb,42810915,Commune de Souk Tlet El Gharb,Kénitra Souk Tlet El Gharb,0.514,direct
+04.281.11.03.,Chouafaa,Kénitra,Chouafaa,42811103,Commune de Chouafaa,Kénitra Chouafaa,0.45,direct
+04.281.11.05.,Lalla Mimouna,Kénitra,Lalla Mimouna,42811105,Commune de Lalla Mimouna,Kénitra Lalla Mimouna,0.487,direct
+04.281.11.07.,Moulay Bousselham,Kénitra,Moulay Bousselham,42811107,Commune de Moulay Bousselham,Kénitra Moulay Bousselham (AC),0.614,direct
+04.281.11.11.,Sidi Boubker El Haj,Kénitra,Sidi Boubker El Haj,42811111,Commune de Sidi Boubker El Haj,Inégalit é Kénitra Sidi Boubker El Haj,0.558,direct
+04.291.01.01.,Khémisset (Mun.),Khémisset,Khémisset (M),42910101,Commune de Khémisset,Khemisset Khémisset (M),0.646,direct
+04.291.01.03.,Rommani (Mun.),Khémisset,Rommani (M),42910103,Commune de Rommani,Khemisset Rommani (M),0.701,direct
+04.291.01.05.,Tiflet (Mun.),Khémisset,Tiflet (M),42910105,Commune de Tiflet,Khemisset Tiflet (M),0.638,direct
+04.291.01.17.,Sidi Allal El Bahraoui (Mun.),Khémisset,Sidi Allal El Bahraoui (M),42910117,Commune de Sidi Allal El Bahraoui,Khemisset Sidi Allal El Bahraoui,0.493,direct
+04.291.03.01.,Ait Mimoune,Khémisset,Ait Mimoune,42910301,Commune d'Ait Mimoune,Khemisset Ait Mimoune,0.53,direct
+04.291.03.03.,Ait Ouribel,Khémisset,Ait Ouribel,42910303,Commune d'Ait Ouribel,Khemisset Ait Ouribel,0.533,direct
+04.291.03.05.,Ait Siberne,Khémisset,Ait Siberne,42910305,Commune d'Ait Siberne,Khemisset Ait Siberne,0.544,direct
+04.291.03.07.,Ait Yadine,Khémisset,Ait Yadine,42910307,Commune d'Ait Yadine,Khemisset Ait Yadine,0.501,direct
+04.291.03.09.,El Ganzra,Khémisset,El Ganzra,42910309,Commune d'El Ganzra,Khemisset El Ganzra,0.474,direct
+04.291.03.11.,Majmaa Tolba,Khémisset,Majmaa Tolba,42910311,Commune de Majmaa Tolba,Khemisset Majmaa Tolba,0.572,direct
+04.291.03.13.,Sfassif,Khémisset,Sfassif,42910313,Commune de Sfassif,Khemisset Sfassif,0.496,direct
+04.291.03.15.,Sidi Allal Lamsadder,Khémisset,Sidi Allal Lamsadder,42910315,Commune de Sidi Allal Lamsadder,Hajjama Khemisset Sidi Allal Lamsadder,0.561,direct
+04.291.03.17.,Sidi El Ghandour,Khémisset,,42910317,Commune de Sidi El Rhandour,Khemisset Sidi El Ghandour,0.585,direct
+04.291.05.01.,Ait Ichou,Khémisset,Ait Ichou,42910501,Commune d'Ait Ichou,Khemisset Ait Ichou,0.417,direct
+04.291.05.03.,Ait Ikkou,Khémisset,Ait Ikkou,42910503,Commune d'Ait Ikkou,Khemisset Ait Ikkou,0.544,direct
+04.291.05.05.,Bouqachmir,Khémisset,Bouqachmir,42910505,Commune de Bouqachmir,Khemisset Bouqachmir,0.384,direct
+04.291.05.07.,Houderrane,Khémisset,Houderrane,42910507,Commune de Houderrane,Khemisset Houderrane,0.493,direct
+04.291.05.09.,Maaziz,Khémisset,Maaziz,42910509,Commune de Maaziz,KHEMISSET Maaziz (AC),0.639,direct
+04.291.05.11.,Oulmes,Khémisset,Oulmes,42910511,Commune d'Oulmes,Khemisset Oulmes,0.508,direct
+04.291.05.13.,Tiddas,Khémisset,Tiddas,42910513,Commune de Tiddas,KHEMISSET Tiddas (AC),0.663,direct
+04.291.07.01.,Ain Sbit,Khémisset,Ain Sbit,42910701,Commune d'Ain Sbit,Khemisset Ain Sbit,0.551,direct
+04.291.07.05.,Brachoua,Khémisset,Brachoua,42910705,Commune de Brachoua,Khemisset Brachoua,0.561,direct
+04.291.07.07.,Ezzhiliga,Khémisset,Ezzhiliga,42910707,Commune d'Ezzhiliga,Khemisset Ezzhiliga,0.535,direct
+04.291.07.09.,Jemaat Moul Blad,Khémisset,Jemaat Moul Blad,42910709,Commune de Jemaat Moul Blad,Khemisset Jemaat Moul Blad,0.522,direct
+04.291.07.11.,Laghoualem,Khémisset,Laghoualem,42910711,Commune de Laghoualem,Khemisset Laghoualem,0.543,direct
+04.291.07.13.,Marchouch,Khémisset,Marchouch,42910713,Commune de Marchouch,Khemisset Marchouch,0.561,direct
+04.291.07.15.,Moulay Driss Aghbal,Khémisset,,42910715,Commune de My Driss Aghbal,Khemisset Moulay Driss Aghbal,0.492,direct
+04.291.09.02.,Ain Johra -Sidi Boukhalkhal,Khémisset,Ain Johra-Sidi Boukhalkhal,42910902,Commune d'Ain Johra-Sidi Boukhalkhal,Khemisset Sidi Boukhalkhal,0.465,fuzzy
+04.291.09.03.,Ait Belkacem,Khémisset,Ait Belkacem,42910903,Commune d'Ait Belkacem,Khemisset Ait Belkacem,0.526,direct
+04.291.09.05.,Ait Buyahya El Hajjama,Khémisset,,42910905,Commune d'Ait Bouyahia El Hajjama,Khemisset Ait Bouyahya El,0.625,fuzzy
+04.291.09.07.,Ait Malek,Khémisset,Ait Malek,42910907,Commune d'Ait Malek,Khemisset Ait Malek,0.534,direct
+04.291.09.09.,Khemis Sidi Yahya,Khémisset,Khemis Sidi Yahya,42910909,Commune de Khemis Sidi Yahya,Khemisset Khemis Sidi Yahya,0.619,direct
+04.291.09.11.,M'qam Tolba,Khémisset,M'qam Tolba,42910911,Commune de M'qam Tolba,Khemisset M'qam Tolba,0.508,direct
+04.291.09.13.,Sidi Abderrazak,Khémisset,Sidi Abderrazak,42910913,Commune de Sidi Abderrazak,Khemisset Sidi Abderrazak,0.525,direct
+04.291.09.19.,Ait Ali ou Lahcen,Khémisset,Ait Ali ou Lahcen,42910919,Commune d'Ait Ali Ou Lahcen,,,
+04.421.01.01.,Agdal Riyad (Arrond.),Rabat,,44210101,Arrondissement d'Agdal Riyad,Rabat Agdal Riyad (AR),0.82,fuzzy
+04.421.01.03.,El Youssoufia (Arrond.),Rabat,,44210103,Arrondissement d'El Youssoufia,Rabat El Youssoufia (AR),0.726,fuzzy
+04.421.01.05.,Hassan (Arrond.),Rabat,,44210105,Arrondissement de Hassan,Rabat Hassan (AR),0.776,fuzzy
+04.421.01.06.,Souissi (Arrond.),Rabat,,44210106,Arrondissement de Souissi,Rabat Souissi (AR),0.774,fuzzy
+04.421.01.07.,Touarga (Mun.),Rabat,Touarga (M),44210107,Commune de Touarga,Rabat Touarga (M),0.763,direct
+04.421.01.09.,Yacoub El Mansour (Arrond.),Rabat,,44210109,Arrondissement de Yacoub El Mansour,Rabat Yacoub El Mansour (AR),0.737,fuzzy
+04.441.01.03.,Bab Lamrissa (Arrond.),Salé,,44410103,Arrondissement de Bab Lamrissa,Salé Bab Lamrissa (AR),0.726,fuzzy
+04.441.01.05.,Bettana (Arrond.),Salé,,44410105,Arrondissement de Bettana,Salé Bettana (AR),0.739,fuzzy
+04.441.01.06.,Hssaine (Arrond.),Salé,,44410106,Arrondissement de Hssaine,Salé Hssaine (AR),0.719,fuzzy
+04.441.01.07.,Layayda (Arrond.),Salé,,44410107,Arrondissement de Layayda,Salé Layayda (AR),0.64,fuzzy
+04.441.01.08.,Sidi Bouknadel (Mun.),Salé,Sidi Bouknadel (M),44410108,Commune de Sidi Bouknadel,Salé Sidi Bouknadel,0.56,direct
+04.441.01.09.,Tabriquet (Arrond.),Salé,,44410109,Arrondissement de Tabriquet,Salé Tabriquet (AR),0.706,fuzzy
+04.441.03.01.,Shoul,Salé,Shoul,44410111,Commune de Shoul,Salé Shoul,0.525,direct
+04.441.03.05.,Ameur,Salé,Ameur,44410113,Commune d'Ameur,Settat Foqra Oulad Aameur,0.479,direct
+04.481.01.01.,Dar Gueddari (Mun.),Sidi Kacem,Dar Gueddari (M),44810101,Commune de Dar Gueddari,Sidi Kacem Dar Gueddari (M),0.639,direct
+04.481.01.03.,Had Kourt (Mun.),Sidi Kacem,Had Kourt (M),44810103,Commune de Had Kourt,Sidi Kacem Had Kourt (M),0.659,direct
+04.481.01.05.,Jorf El Melha (Mun.),Sidi Kacem,Jorf El Melha (M),44810105,Commune de Jorf El Melha,Sidi Kacem Jorf El Melha (M),0.652,direct
+04.481.01.07.,Mechraa Bel Ksiri (Mun.),Sidi Kacem,Mechraa Bel Ksiri (M),44810107,Commune de Mechraa Bel Ksiri,Sidi Kacem Mechra Bel Ksiri (M),0.658,fuzzy
+04.481.01.11.,Sidi Kacem (Mun.),Sidi Kacem,Sidi Kacem (M),44810111,Commune de Sidi Kacem,Sidi Kacem Sidi-Kacem (M),0.68,direct
+04.481.03.01.,Ain Dfali,Sidi Kacem,Ain Dfali,44810301,Commune d'Ain Dfali,Sidi Kacem Ain Dfali,0.539,direct
+04.481.03.03.,Bni Oual,Sidi Kacem,Bni Oual,44810303,Commune de Bni Oual,Sidi Kacem Bni Oual,0.478,direct
+04.481.03.09.,Moulay Abdelkader,Sidi Kacem,Moulay Abdelkader,44810309,Commune de Moulay Abdelkader,Sidi Kacem Moulay Abdelkader,0.494,direct
+04.481.03.13.,Sidi Ahmed Benaissa,Sidi Kacem,Sidi Ahmed Benaissa,44810313,Commune de Sidi Ahmed Benaissa,Sidi Kacem Sidi Ahmed Benaissa,0.508,direct
+04.481.03.15.,Sidi Ameur Al Hadi,Sidi Kacem,Sidi Ameur Al Hadi,44810315,Commune de Sidi Ameur Al Hadi,Sidi Kacem Sidi Ameur Al Hadi,0.472,direct
+04.481.03.17.,Sidi Azzouz,Sidi Kacem,Sidi Azzouz,44810317,Commune de Sidi Azzouz,Sidi Kacem Sidi Azzouz,0.513,direct
+04.481.05.01.,Al Haouafate,Sidi Kacem,Al Haouafate,44810501,Commune d'Al Haouafate,Inégalit é Sidi Kacem Al Haouafate,0.577,direct
+04.481.05.07.,Nouirate,Sidi Kacem,Nouirate,44810507,Commune de Nouirate,Sidi Kacem Nouirate,0.527,direct
+04.481.05.09.,Sefsaf,Sidi Kacem,Sefsaf,44810509,Commune de Sefsaf,Sidi Kacem Sefsaf,0.5,direct
+04.481.07.05.,Khnichet,Sidi Kacem,Khnichet,44810705,Commune de Khnichet,Sidi Kacem Khnichet (AC),0.612,direct
+04.481.07.07.,Lamrabih,Sidi Kacem,Lamrabih,44810707,Commune de Lamrabih,Sidi Kacem Lamrabih,0.498,direct
+04.481.07.11.,Oulad Nouel,Sidi Kacem,Oulad Nouel,44810711,Commune d'Oulad Nouel,Sidi Kacem Oulad Nouel,0.538,direct
+04.481.07.19.,Sidi M'Hamed Chelh,Sidi Kacem,Sidi M'Hamed Chelh,44810719,Commune de Sidi M'hamed Chelh,Sidi Kacem Sidi M'Hamed Chelh,0.51,direct
+04.481.07.21.,Taoughilt,Sidi Kacem,Taoughilt,44810721,Commune de Taoughilt,Sidi Kacem Taoughilt,0.581,direct
+04.481.09.01.,Bab Tiouka,Sidi Kacem,Bab Tiouka,44810901,Commune de Bab Tiouka,Sidi Kacem Bab Tiouka,0.502,direct
+04.481.09.03.,Bir Taleb,Sidi Kacem,Bir Taleb,44810903,Commune de Bir Taleb,Sidi Kacem Bir Taleb,0.541,direct
+04.481.09.05.,Chbanate,Sidi Kacem,Chbanate,44810905,Commune de Chbanate,Sidi Kacem Chbanate,0.543,direct
+04.481.09.07.,Selfat,Sidi Kacem,Selfat,44810907,Commune de Selfat,Sidi Kacem Selfat,0.503,direct
+04.481.09.09.,Tekna,Sidi Kacem,Tekna,44810909,Commune de Tekna,Sidi Kacem Tekna,0.516,direct
+04.481.09.11.,Zaggota,Sidi Kacem,Zaggota,44810911,Commune de Zaggota,Sidi Kacem Zaggota,0.543,direct
+04.481.09.13.,Zirara,Sidi Kacem,Zirara,44810913,Commune de Zirara,Sidi Kacem Zirara,0.57,direct
+04.481.11.03.,Dar Laaslouji,Sidi Kacem,Dar Laaslouji,44811103,Commune de Dar Laaslouji,Sidi Kacem Dar Laaslouji,0.498,direct
+04.481.11.05.,Rmilat,Sidi Kacem,Rmilat,44811105,Commune de Rmilat,Sidi Kacem Ermilate,0.531,fuzzy
+04.481.11.11.,Sidi Al Kamel,Sidi Kacem,Sidi Al Kamel,44811111,Commune de Sidi Al Kamel,Sidi Kacem Sidi Al Kamel,0.527,direct
+04.491.01.07.,Sidi Slimane (Mun.),Sidi Slimane,Sidi Slimane (M),44910107,Commune de Sidi Slimane,Kénitra Sidi Slimane (M),0.667,direct
+04.491.01.09.,Sidi Yahya El Gharb (Mun.),Sidi Slimane,Sidi Yahya El Gharb (M),44910109,Commune de Sidi Yahia El Gharb,Kénitra Sidi Yahya El Gharb (M),0.636,direct
+04.491.03.07.,Kceibya,Sidi Slimane,Kceibya,44910307,Commune de Kceibya,Kénitra Kceibya,0.522,direct
+04.491.03.15.,Sfafaa,Sidi Slimane,Sfafaa,44910315,Commune de Sfafaa,Kénitra Sfafaa,0.526,direct
+04.491.03.17.,Ameur Chamalia,Sidi Slimane,Ameur Chamalia,44910317,Commune d'Ameur Chamalia,,,
+04.491.05.01.,Azghar,Sidi Slimane,Azghar,44910501,Commune d'Azghar,Kénitra Azghar,0.496,direct
+04.491.05.03.,Boumaiz,Sidi Slimane,Boumaiz,44910503,Commune de Boumaiz,Kénitra Boumaiz,0.542,direct
+04.491.05.05.,Dar Bel Amri,Sidi Slimane,Dar Bel Amri,44910505,Commune de Dar Bel Amri,Kénitra Dar Bel Amri,0.565,direct
+04.491.05.09.,M'saada,Sidi Slimane,M'saada,44910509,Commune de M'saada,Kénitra M'saada,0.519,direct
+04.491.05.11.,Ouled Ben Hammadi,Sidi Slimane,Ouled Ben Hammadi,44910511,Commune d'Ouled Ben Hammadi,,,
+04.491.05.13.,Ouled H'Cine,Sidi Slimane,Ouled H'Cine,44910513,Commune d'Ouled H'cine,,,
+04.501.01.01.,Ain El Aouda (Mun.),Skhirate- Témara,Ain El Aouda (M),45010101,Commune d'Ain El Aouda,Skhirate- Temara Ain El Aouda (M),0.645,direct
+04.501.01.03.,Harhoura (Mun.),Skhirate- Témara,Harhoura (M),45010103,Commune de Harhoura,Skhirate- Temara Harhoura (M),0.715,direct
+04.501.01.05.,Skhirate (Mun.),Skhirate- Témara,Skhirate (M),45010105,Commune de Skhirate,Skhirate- Temara Skhirate (M),0.626,direct
+04.501.01.07.,Témara (Mun.),Skhirate- Témara,Témara (M),45010107,Commune de Témara,Skhirate- Temara Témara (M),0.703,direct
+04.501.01.09.,Ain Attig (Mun.),Skhirate- Témara,Ain Attig (M),45010109,Commune d'Ain Attig,Skhirate- Temara Ain Attig,0.623,direct
+04.501.03.01.,El Menzeh,Skhirate- Témara,El Menzeh,45010301,Commune d'El Menzeh,Skhirate- Temara El Menzeh,0.611,direct
+04.501.03.03.,Oumazza,Skhirate- Témara,Oumazza,45010303,Commune d'Oumazza,Skhirate- Temara Oumazza,0.627,direct
+04.501.03.11.,Sidi Yahya Zaer,Skhirate- Témara,Sidi Yahya Zaer,45010311,Commune de Sidi Yahya Zaer,Skhirate- Temara Sidi Yahya Zaer,0.585,direct
+04.501.05.03.,Mers El Kheir,Skhirate- Témara,Mers El Kheir,45010503,Commune de Mers El Kheir,Skhirate- Temara Mers El Kheir,0.633,direct
+04.501.05.05.,Sabbah,Skhirate- Témara,Sabbah,45010505,Commune de Sabbah,Skhirate- Temara Sabbah,0.598,direct
+05.081.01.01.,Azilal (Mun.),Azilal,Azilal (M),50810101,Commune d'Azilal,Azilal Azilal (M),0.644,direct
+05.081.01.03.,Demnate (Mun.),Azilal,Demnate (M),50810103,Commune de Demnate,Azilal Demnate (M),0.628,direct
+05.081.03.01.,Agoudi N'Lkhair,Azilal,Agoudi N'Lkhair,50810301,Commune d'Agoudi N'lkhair,Azilal Agoudi N'Lkhair,0.432,direct
+05.081.03.03.,Ait Abbas,Azilal,Ait Abbas,50810303,Commune d'Ait Abbas,Azilal Ait Abbas,0.35,direct
+05.081.03.05.,Ait Bou Oulli,Azilal,Ait Bou Oulli,50810305,Commune d'Ait Bou Oulli,Azilal Ait Bou Oulli,0.343,direct
+05.081.03.07.,Ait M'Hamed,Azilal,Ait M'Hamed,50810307,Commune d'Ait M'hamed,Azilal Ait M'Hamed,0.364,direct
+05.081.03.09.,Tabant,Azilal,Tabant,50810309,Commune de Tabant,Azilal Tabant,0.491,direct
+05.081.03.11.,Tamda Noumercid,Azilal,Tamda Noumercid,50810311,Commune de Tamda Noumercid,Azilal Tamda Noumercid,0.492,direct
+05.081.03.13.,Zaouiat Ahansal,Azilal,Zaouiat Ahansal,50810313,Commune de Zaouiat Ahansal,Azilal Zaouiat Ahansal,0.292,direct
+05.081.05.01.,Ait Taguella,Azilal,Ait Taguella,50810501,Commune d'Ait Taguella,Azilal Ait Taguella,0.573,direct
+05.081.05.05.,Bni Hassane,Azilal,Bni Hassane,50810505,Commune de Bni Hassane,Azilal Bni Hassane,0.513,direct
+05.081.05.07.,Bzou,Azilal,Bzou,50810507,Commune de Bzou,Azilal Bzou,0.527,fuzzy
+05.081.05.09.,Foum Jemaa,Azilal,Foum Jemaa,50810509,Commune de Foum Jemaa,Azilal Foum Jemaa,0.488,direct
+05.081.05.11.,Moulay Aissa Ben Driss,Azilal,Moulay Aissa Ben Driss,50810511,Commune de Moulay Aissa Ben Driss,Azilal Moulay Aissa Ben Driss,0.498,direct
+05.081.05.13.,Rfala,Azilal,Rfala,50810513,Commune de Rfala,Azilal Rfala,0.485,direct
+05.081.05.15.,Tabia,Azilal,Tabia,50810515,Commune de Tabia,Azilal Tabia,0.475,direct
+05.081.05.17.,Tanant,Azilal,Tanant,50810517,Commune de Tanant,Azilal Tanant,0.531,direct
+05.081.05.19.,Taounza,Azilal,Taounza,50810519,Commune de Taounza,Azilal Taounza,0.493,direct
+05.081.05.21.,Tisqi,Azilal,Tisqi,50810521,Commune de Tisqi,Azilal Tisqi,0.532,direct
+05.081.09.03.,Ait Mazigh,Azilal,Ait Mazigh,50810903,Commune d'Ait Mazigh,Azilal Ait Mazigh,0.523,direct
+05.081.09.07.,Ait Ouqabli,Azilal,Ait Ouqabli,50810907,Commune d'Ait Ouqabli,Azilal Ait Ouqabli,0.573,direct
+05.081.09.09.,Anergui,Azilal,Anergui,50810909,Commune d'Anergui,Azilal Anergui,0.363,direct
+05.081.09.11.,Bin El Ouidane,Azilal,Bin El Ouidane,50810911,Commune de Bin El Ouidane,Azilal Bin El Ouidane,0.513,direct
+05.081.09.13.,Isseksi,Azilal,Isseksi,50810913,Commune d'Isseksi,Azilal Isseksi,0.385,direct
+05.081.09.15.,Ouaouizeght,Azilal,Ouaouizeght,50810915,Commune d'Ouaouizeght,Azilal Ouaouizeght,0.52,direct
+05.081.09.17.,Tabaroucht,Azilal,Tabaroucht,50810917,Commune de Tabaroucht,Azilal Tabaroucht,0.437,direct
+05.081.09.19.,Tagleft,Azilal,Tagleft,50810919,Commune de Tagleft,Azilal Tagleft,0.442,direct
+05.081.09.21.,Tiffert N'Ait Hamza,Azilal,Tiffert N'Ait Hamza,50810921,Commune de Tiffert N'ait Hamza,Azilal Tiffert N'Ait Hamza,0.369,direct
+05.081.09.23.,Tilougguite,Azilal,Tilougguite,50810923,Commune de Tilougguite,Azilal Tilougguite,0.398,direct
+05.081.11.01.,Afourar,Azilal,Afourar,50811101,Commune d'Afourar,Azilal Afourar (AC),0.694,direct
+05.081.11.03.,Bni Ayat,Azilal,Bni Ayat,50811103,Commune de Bni A'yat,Azilal Bni Ayat,0.561,direct
+05.081.11.05.,Ait Ouaarda,Azilal,Ait Ouaarda,50811105,Commune d'Ait Ouaarda,Azilal Ait Ouaarda,0.579,direct
+05.081.11.25.,Timoulilt,Azilal,Timoulilt,50811125,Commune de Timoulilt,Azilal Timoulilt,0.633,direct
+05.081.13.05.,Ait Oumdis,Azilal,Ait Oumdis,50811305,Commune d'Ait Oumdis,Azilal Ait Oumdis,0.34,direct
+05.081.13.07.,Ait Tamlil,Azilal,Ait Tamlil,50811307,Commune d'Ait Tamlil,Azilal Ait Tamlil,0.37,direct
+05.081.13.09.,Anzou,Azilal,Anzou,50811309,Commune d'Anzou,Azilal Anzou,0.502,direct
+05.081.13.17.,Sidi Yacoub,Azilal,Sidi Yacoub,50811317,Commune de Sidi Yacoub,Azilal Sidi Yacoub,0.461,direct
+05.081.13.19.,Tidili Fetouaka,Azilal,Tidili Fetouaka,50811319,Commune de Tidili Fetouaka,Azilal Tidili Fetouaka,0.554,direct
+05.081.15.01.,Ait Blal,Azilal,Ait Blal,50811501,Commune d'Ait Blal,Azilal Ait Blal,0.342,direct
+05.081.15.03.,Ait Majden,Azilal,Ait Majden,50811503,Commune d'Ait Majden,Azilal Ait Majden,0.485,direct
+05.081.15.11.,Imlil,Azilal,Imlil,50811511,Commune d'Imlil,Azilal Imlil,0.5,direct
+05.081.15.13.,Ouaoula,Azilal,Ouaoula,50811513,Commune d'Ouaoula,Azilal Ouaoula,0.416,direct
+05.081.15.15.,Sidi Boulkhalf,Azilal,Sidi Boulkhalf,50811515,Commune de Sidi Boulkhalf,Azilal Sidi Boulkhalf,0.372,direct
+05.081.15.21.,Tifni,Azilal,Tifni,50811521,Commune de Tifni,Azilal Tifni,0.411,direct
+05.091.01.01.,Béni Mellal (Mun.),Béni Mellal,Béni Mellal (M),50910101,Commune de Béni Mellal,Beni Mellal Béni Mellal (M),0.698,direct
+05.091.01.03.,El Ksiba (Mun.),Béni Mellal,El Ksiba (M),50910103,Commune d'El Ksiba,Beni Mellal El Ksiba (M),0.654,direct
+05.091.01.07.,Kasba Tadla (Mun.),Béni Mellal,Kasba Tadla (M),50910107,Commune de Kasba Tadla,Beni Mellal Kasba Tadla (M),0.702,direct
+05.091.01.13.,Zaouiat Cheikh (Mun.),Béni Mellal,Zaouiat Cheikh (M),50910113,Commune de Zaouiat Cheikh,Beni Mellal Zaouiat Cheikh (M),0.61,direct
+05.091.03.01.,Foum Oudi,Béni Mellal,Foum Oudi,50910301,Commune de Foum Oudi,Beni Mellal Foum Oudi,0.544,direct
+05.091.03.03.,Ouled Gnaou,Béni Mellal,Ouled Gnaou,50910303,Commune d'Ouled Gnaou,Beni Mellal Oulad Gnaou,0.559,fuzzy
+05.091.03.05.,Ouled M'Barek,Béni Mellal,Ouled M'Barek,50910305,Commune d'Ouled M'barek,Beni Mellal Oulad M'Barek (AC),0.637,fuzzy
+05.091.03.07.,Ouled Yaich,Béni Mellal,Ouled Yaich,50910307,Commune d'Ouled Yaich,Beni Mellal Oulad Yaich (AC),0.671,fuzzy
+05.091.03.09.,Sidi Jaber,Béni Mellal,Sidi Jaber,50910309,Commune de Sidi Jaber,Beni Mellal Sidi Jaber,0.612,direct
+05.091.03.11.,Foum El Anceur,Béni Mellal,Foum El Anceur,50910311,Commune de Foum El Anceur,Beni Mellal Foum El Anceur,0.523,direct
+05.091.05.01.,Aghbala,Béni Mellal,Aghbala,50910501,Commune d'Aghbala,Beni Mellal Aghbala,0.434,direct
+05.091.05.05.,Boutferda,Béni Mellal,Boutferda,50910505,Commune de Boutferda,Beni Mellal Boutferda,0.405,direct
+05.091.05.17.,Tizi N'Isly,Béni Mellal,Tizi N'Isly,50910517,Commune de Tizi N'isly,MELLAL Beni Mellal Tizi N'Isly,0.45,direct
+05.091.07.03.,Ait Oum El Bekht,Béni Mellal,Ait Oum El Bekht,50910703,Commune d'Ait Oum El Bekht,Beni Mellal Ait Oum El Bekht,0.441,direct
+05.091.07.07.,Dir El Ksiba,Béni Mellal,Dir El Ksiba,50910707,Commune de Dir El Ksiba,Beni Mellal Dir El Ksiba,0.593,direct
+05.091.07.11.,Naour,Béni Mellal,Naour,50910711,Commune de Naour,Beni Mellal Naour,0.428,direct
+05.091.07.13.,Taghzirt,Béni Mellal,Taghzirt,50910713,Commune de Taghzirt,Beni Mellal Taghzirt,0.576,direct
+05.091.07.15.,Tanougha,Béni Mellal,Tanougha,50910715,Commune de Tanougha,Beni Mellal Tanougha,0.506,direct
+05.091.11.01.,Guettaya,Béni Mellal,Guettaya,50911101,Commune de Guettaya,Beni Mellal Guettaya,0.457,direct
+05.091.11.03.,Ouled Youssef,Béni Mellal,Ouled Youssef,50911103,Commune d'Ouled Youssef,Beni Mellal Oulad Youssef,0.557,fuzzy
+05.091.11.05.,Ouled Said L'Oued,Béni Mellal,Ouled Said Loued,50911105,Commune d'Ouled Said Loued,Beni Mellal Oulad Said L'Oued,0.58,fuzzy
+05.091.11.07.,Semguet,Béni Mellal,Semguet,50911107,Commune de Semguet,Beni Mellal Semguet,0.556,direct
+05.255.01.05.,Fquih Ben Salah (Mun.),Fquih Ben Salah,Fquih Ben Salah (M),52550105,Commune de Fquih Ben Salah,Beni Mellal Fquih Ben Salah (M),0.676,direct
+05.255.01.09.,Ouled Ayad (Mun.),Fquih Ben Salah,Ouled Ayad (M),52550109,Commune d'Ouled Ayad,,,
+05.255.01.11.,Souk Sebt Ouled Nemma (Mun.),Fquih Ben Salah,Souk Sebt Ouled Nemma (M),52550111,Commune de Souk Sebt Ouled Nemma,,,
+05.255.05.05.,Ouled Bourahmoune,Fquih Ben Salah,Ouled Bourahmoune,52550505,Commune d'Ouled Bourahmoune,,,
+05.255.05.09.,Ouled Zmam,Fquih Ben Salah,Ouled Zmam,52550509,Commune d'Ouled Zmam,,,
+05.255.05.11.,Sidi Aissa Ben Ali,Fquih Ben Salah,Sidi Aissa Ben Ali,52550511,Commune de Sidi Aissa Ben Ali,Beni Mellal Sidi Aissa Ben Ali,0.582,direct
+05.255.05.13.,Sidi Hammadi,Fquih Ben Salah,Sidi Hammadi,52550513,Commune de Sidi Hammadi,Beni Mellal Sidi Hammadi,0.611,direct
+05.255.09.01.,Khalfia,Fquih Ben Salah,Khalfia,52550901,Commune de Khalfia,Beni Mellal Al Khalfia,0.573,direct
+05.255.09.03.,Bni Chegdale,Fquih Ben Salah,Bni Chegdale,52550903,Commune de Bni Chegdale,Beni Mellal Bni Chegdale,0.545,direct
+05.255.09.05.,Bni Oukil,Fquih Ben Salah,Bni Oukil,52550905,Commune de Bni Oukil,Beni Mellal Bni Oukil,0.505,direct
+05.255.09.07.,Bradia,Fquih Ben Salah,Bradia,52550907,Commune de Bradia,Beni Mellal Bradia (AC),0.673,direct
+05.255.09.09.,Hel Merbaa,Fquih Ben Salah,Hel Merbaa,52550909,Commune de Hel Merbaa,Beni Mellal Hel Merbaa,0.594,direct
+05.255.09.11.,Krifate,Fquih Ben Salah,Krifate,52550911,Commune de Krifate,Beni Mellal Krifate,0.555,direct
+05.255.11.01.,Dar Ould Zidouh,Fquih Ben Salah,Dar Ould Zidouh,52551101,Commune de Dar Ould Zidouh,BENI MELLAL Dar Ould Zidouh (AC),0.653,direct
+05.255.11.03.,Had Boumoussa,Fquih Ben Salah,Had Boumoussa,52551103,Commune de Had Boumoussa,Beni Mellal Had Boumoussa,0.54,direct
+05.255.11.07.,Ouled Nacer,Fquih Ben Salah,Ouled Nacer,52551107,Commune d'Ouled Nacer,,,
+05.301.01.01.,Khenifra (Mun.),Khénifra,Khenifra (M),53010101,Commune de Khenifra,"Errachidia Fezna 11,01 12,50 1,61 44,90 0,647 0,891228 Khenifra Khenifra (M)",0.672,direct
+05.301.01.05.,M'Rirt (Mun.),Khénifra,M'Rirt (M),53010105,Commune de M'rirt,Khenifra M'Rirt (M),0.619,direct
+05.301.03.01.,Ait Ishaq,Khénifra,Ait Ishaq,53010301,Commune d'Ait Ishaq,Khenifra Ait Ishaq (AC),0.617,direct
+05.301.03.03.,Ait Saadelli,Khénifra,Ait Saadelli,53010303,Commune d'Ait Saadelli,,,
+05.301.03.05.,El Kbab,Khénifra,El Kbab,53010305,Commune d'El Kbab,Khenifra El Kbab,0.499,direct
+05.301.03.07.,Kerrouchen,Khénifra,Kerrouchen,53010307,Commune de Kerrouchen,Khenifra Kerrouchen,0.424,direct
+05.301.03.09.,Ouaoumana,Khénifra,Ouaoumana,53010309,Commune d'Ouaoumana,Khenifra Ouaoumana,0.515,direct
+05.301.03.11.,Sidi Yahya Ou Saad,Khénifra,Sidi Yahya Ou Saad,53010311,Commune de Sidi Yahya Ou Saad,Khenifra Sidi Yahya Ou Saad,0.476,direct
+05.301.03.13.,Tighassaline,Khénifra,Tighassaline,53010313,Commune de Tighassaline,Khenifra Tighassaline,0.463,direct
+05.301.05.01.,Aguelmam Azegza,Khénifra,Aguelmam Azegza,53010501,Commune d'Aguelmam Azegza,Khenifra Aguelmam Azegza,0.452,direct
+05.301.05.05.,El Borj,Khénifra,El Borj,53010505,Commune d'El Borj,Khenifra El Borj,0.509,direct
+05.301.05.11.,Lehri,Khénifra,Lehri,53010511,Commune de Lehri,Khenifra Lehri,0.468,direct
+05.301.05.13.,Moha Ou Hammou Zayani,Khénifra,Moha Ou Hammou Zayani,53010513,Commune de Moha Ou Hammou Zayani,Khenifra Moha Ou Hammou Zayani,0.501,direct
+05.301.05.21.,Sidi Amar,Khénifra,Sidi Amar,53010521,Commune de Sidi Amar,Khenifra Sidi Amar,0.492,direct
+05.301.05.25.,Sidi Lamine,Khénifra,Sidi Lamine,53010525,Commune de Sidi Lamine,,,
+05.301.07.03.,Aguelmous,Khénifra,Aguelmous,53010703,Commune d'Aguelmous,Khenifra Aguelmous,0.471,direct
+05.301.07.07.,El Hammam,Khénifra,El Hammam,53010707,Commune d'El Hammam,Khenifra El Hammam,0.477,direct
+05.301.07.09.,Had Bouhssoussen,Khénifra,Had Bouhssoussen,53010709,Commune de Had Bouhssoussen,Khenifra Had Bouhssoussen,0.527,direct
+05.301.07.15.,Moulay Bouazza,Khénifra,Moulay Bouazza,53010715,Commune de Moulay Bouazza,Khenifra Moulay Bouazza,0.5,direct
+05.301.07.17.,Oum Rabia,Khénifra,Oum Rabia,53010717,Commune d'Oum Rabia,Khenifra Oum Rabia,0.473,direct
+05.301.07.19.,Sebt Ait Rahou,Khénifra,Sebt Ait Rahou,53010719,Commune de Sebt Ait Rahou,Khenifra Sebt Ait Rahou,0.493,direct
+05.301.07.23.,Sidi Hcine,Khénifra,Sidi Hcine,53010723,Commune de Sidi Hcine,Khenifra Sidi Hcine,0.501,direct
+05.311.01.01.,Bejaad (Mun.),Khouribga,Bejaad (M),53110101,Commune de Bejaad,Khouribga Bejaad (M),0.661,direct
+05.311.01.03.,Boujniba (Mun.),Khouribga,Boujniba (M),53110103,Commune de Boujniba,Khouribga Boujniba (M),0.683,direct
+05.311.01.05.,Hattane (Mun.),Khouribga,Hattane (M),53110105,Commune de Hattane,Khouribga Hattane (M),0.676,direct
+05.311.01.07.,Khouribga (Mun.),Khouribga,Khouribga (M),53110107,Commune de Khouribga,Khouribga Khouribga (M),0.715,direct
+05.311.01.09.,Oued Zem (Mun.),Khouribga,Oued Zem (M),53110109,Commune d'Oued Zem,Khouribga Oued Zem (M),0.665,direct
+05.311.03.01.,Ain Kaicher,Khouribga,Ain Kaicher,53110301,Commune d'Ain Kaicher,Khouribga Ain Kaicher,0.528,direct
+05.311.03.03.,Bni Bataou,Khouribga,Bni Bataou,53110303,Commune de Bni Bataou,Khouribga Bni Bataou,0.511,direct
+05.311.03.05.,Bni Zrantel,Khouribga,Bni Zrantel,53110305,Commune de Bni Zrantel,Khouribga Bni Zrantel,0.424,direct
+05.311.03.07.,Boukhrisse,Khouribga,Boukhrisse,53110307,Commune de Boukhrisse,Khouribga Boukhrisse,0.426,direct
+05.311.03.09.,Chougrane,Khouribga,Chougrane,53110309,Commune de Chougrane,Khouribga Chougrane,0.519,direct
+05.311.03.11.,Oulad Gouaouch,Khouribga,Oulad Gouaouch,53110311,Commune d'Oulad Gouaouch,Khouribga Oulad Gouaouch,0.547,direct
+05.311.03.13.,Rouached,Khouribga,Rouached,53110313,Commune de Rouached,Khouribga Rouached,0.527,direct
+05.311.03.15.,Tachraft,Khouribga,Tachraft,53110315,Commune de Tachraft,Khouribga Tachrafat,0.56,fuzzy
+05.311.05.01.,Bir Mezoui,Khouribga,Bir Mezoui,53110501,Commune de Bir Mezoui,Khouribga Bir Mezoui,0.611,direct
+05.311.05.03.,Bni Ykhlef,Khouribga,Bni Ykhlef,53110503,Commune de Bni Ykhlef,Khouribga Bni Ykhlef,0.595,direct
+05.311.05.05.,Bulanouare,Khouribga,,53110505,Commune de Boulanouare,Khouribga Boulanouare,0.586,fuzzy
+05.311.05.07.,Lagfaf,Khouribga,Lagfaf,53110507,Commune de Lagfaf,Khouribga Lagfaf,0.628,direct
+05.311.05.09.,El Foqra,Khouribga,El Foqra,53110509,Commune d'El Foqra,Khouribga El Foqra,0.545,direct
+05.311.05.11.,M'Fassis,Khouribga,M'Fassis,53110511,Commune de M'fassis,Khouribga M'Fassis,0.64,direct
+05.311.05.13.,Oulad Abdoune,Khouribga,Oulad Abdoune,53110513,Commune d'Oulad Abdoune,Khouribga Oulad Abdoune,0.616,direct
+05.311.05.15.,Oulad Azzouz,Khouribga,Oulad Azzouz,53110515,Commune d'Oulad Azzouz,Khouribga Oulad Azzouz,0.55,direct
+05.311.07.01.,Ait Ammar,Khouribga,Ait Ammar,53110701,Commune d'Ait Ammar,Khouribga Ait Ammar,0.553,direct
+05.311.07.03.,Bni Smir,Khouribga,Bni Smir,53110703,Commune de Bni Smir,Khouribga Bni Smir,0.529,direct
+05.311.07.05.,Braksa,Khouribga,Braksa,53110705,Commune de Braksa,Khouribga Braksa,0.495,direct
+05.311.07.07.,Kasbat Troch,Khouribga,Kasbat Troch,53110707,Commune de Kasbat Troch,Khouribga Kasbat Troch,0.563,direct
+05.311.07.09.,Lagnadiz,Khouribga,Lagnadiz,53110709,Commune de Lagnadiz,Khouribga Lagnadiz,0.492,direct
+05.311.07.11.,Maadna,Khouribga,Maadna,53110711,Commune de Maadna,Khouribga Maadna,0.572,direct
+05.311.07.13.,Oulad Aissa,Khouribga,Oulad Aissa,53110713,Commune d'Oulad Aissa,Khouribga Oulad Aissa,0.471,direct
+05.311.07.15.,Oulad Boughadi,Khouribga,Oulad Boughadi,53110715,Commune d'Oulad Boughadi,Khouribga Oulad Boughadi,0.571,direct
+05.311.07.17.,Oulad Fennane,Khouribga,Oulad Fennane,53110717,Commune d'Oulad Fennane,Khouribga Oulad Fennane,0.509,direct
+05.311.07.19.,Oulad Ftata,Khouribga,Oulad Ftata,53110719,Commune d'Oulad Ftata,Khouribga Oulad Ftata,0.58,direct
+06.111.01.01.,Benslimane (Mun.),Benslimane,Benslimane (M),61110101,Commune de Benslimane,Benslimane Benslimane (M),0.724,direct
+06.111.01.03.,Bouznika (Mun.),Benslimane,Bouznika (M),61110103,Commune de Bouznika,Benslimane Bouznika (M),0.697,direct
+06.111.01.05.,El Mansouria (Mun.),Benslimane,El Mansouria (M),61110105,Commune d'El Mansouria,Benslimane El Mansouria,0.685,direct
+06.111.03.01.,Ahlaf,Benslimane,Ahlaf,61110301,Commune d'Ahlaf,Benslimane Ahlaf,0.515,direct
+06.111.03.03.,Ain Tizgha,Benslimane,Ain Tizgha,61110503,Commune d'Ain Tizgha,Benslimane Ain Tizgha,0.616,direct
+06.111.03.05.,Fdalate,Benslimane,Fdalate,61110305,Commune de Fdalate,Benslimane Fdalate,0.6,direct
+06.111.03.07.,Mellila,Benslimane,Mellila,61110307,Commune de Mellila,Benslimane Mellila,0.517,direct
+06.111.03.11.,Moualine El Oued,Benslimane,Moualine El Oued,61110311,Commune de Moualine El Oued,Benslimane Moualine El Oued,0.549,direct
+06.111.03.13.,Oulad Ali Toualaa,Benslimane,Oulad Ali Toualaa,61110313,Commune d'Oulad Ali Toualaa,Benslimane Oulad Ali Toualaa,0.601,direct
+06.111.03.15.,Oulad Yahya Louta,Benslimane,Oulad Yahya Louta,61110315,Commune d'Oulad Yahya Louta,Benslimane Oulad Yahya Louta,0.609,direct
+06.111.03.17.,Rdadna Oulad Malek,Benslimane,Rdadna Oulad Malek,61110317,Commune de Rdadna Oulad Malek,Benslimane Rdadna Oulad Malek,0.607,direct
+06.111.03.19.,Ziaida,Benslimane,Ziaida,61110319,Commune de Ziaida,Benslimane Ziaida,0.517,direct
+06.111.05.01.,Bir Ennasr,Benslimane,Bir Ennasr,61110501,Commune de Bir Ennasr,Benslimane Bir Ennasr,0.496,direct
+06.111.05.04.,Sidi Bettache,Benslimane,Sidi Bettache,61110504,Commune de Sidi Bettache,Benslimane Sidi Bettache,0.638,direct
+06.111.05.05.,Charrate,Benslimane,Charrate,61110505,Commune de Charrate,Benslimane Cherrat,0.605,fuzzy
+06.117.01.03.,Berrechid (Mun.),Berrechid,Berrechid (M),61170103,Commune de Berrechid,Settat Berrechid (M),0.72,direct
+06.117.01.05.,Deroua (Mun.),Berrechid,Deroua (M),61170105,Commune de Deroua,Settat Deroua (AC),0.7,direct
+06.117.01.07.,El Gara (Mun.),Berrechid,El Gara (M),61170107,Commune d'El Gara,Settat El Gara (M),0.626,direct
+06.117.01.09.,Had Soualem (Mun.),Berrechid,Had Soualem (M),61170109,Commune de Had Soualem,,,
+06.117.01.11.,Oulad Abbou (Mun.),Berrechid,Oulad Abbou (M),61170111,Commune d'Oulad Abbou,Settat Oulad Abbou (M),0.646,direct
+06.117.01.13.,Sidi Rahal Chatai (Mun.),Berrechid,Sidi Rahal Chatai (M),61170113,Commune de Sidi Rahal Chatai,Settat Sidi Rahal Chatai (AC),0.666,direct
+06.117.05.01.,Ben Maachou,Berrechid,Ben Maachou,61170501,Commune de Ben Maachou,Settat Ben Maachou,0.596,direct
+06.117.05.11.,Laghnimyine,Berrechid,Laghnimyine,61170511,Commune de Laghnimyine,Settat Laghnimyine,0.562,direct
+06.117.05.13.,Lahsasna,Berrechid,Lahsasna,61170513,Commune de Lahsasna,Settat Lahsasna,0.576,direct
+06.117.05.25.,Sahel Oulad H'Riz,Berrechid,Sahel Oulad H'Riz,61170925,Commune de Sahel Oulad H'riz,Settat Sahel Oulad H'Riz,0.501,direct
+06.117.05.27.,Sidi Abdelkhaleq,Berrechid,Sidi Abdelkhaleq,61170527,Commune de Sidi Abdelkhaleq,Settat Sidi Abdelkhaleq,0.524,direct
+06.117.05.29.,Sidi El Mekki,Berrechid,Sidi El Mekki,61170529,Commune de Sidi El Mekki,Settat Sidi El Mekki,0.61,direct
+06.117.05.33.,Soualem Trifiya,Berrechid,Soualem Trifiya,61170933,Commune de Soualem Trifiya,,,
+06.117.05.35.,Zaouiat Sidi Ben Hamdoun,Berrechid,Zaouiat Sidi  Ben Hamdoun,61170535,Commune de Zaouiat Sidi Ben Hamdoun,Settat Zaouiat Sidi Ben Hamdoun,0.56,direct
+06.117.08.05.,Foqra Oulad Aameur,Berrechid,Foqra Oulad Aameur,61170805,Commune de Foqra Oulad Aameur,Settat Foqra Oulad Aameur,0.479,direct
+06.117.08.07.,Jaqma,Berrechid,Jaqma,61170807,Commune de Jaqma,Settat Jaqma,0.545,direct
+06.117.08.09.,Kasbat Ben Mchich,Berrechid,Kasbat Ben Mchich,61170809,Commune de Kasbat Ben Mchich,Settat Kasbat Ben Mchich,0.585,direct
+06.117.08.17.,Lambarkiyine,Berrechid,,61170817,Commune de Lambarkiyne,Settat Lambarkiyine,0.566,direct
+06.117.08.19.,Ouled Cebbah,Berrechid,Ouled Cebbah,61170819,Commune d'Ouled Cebbah,Settat Ouled Cebbah,0.572,direct
+06.117.08.20.,Oulad Ziyane,Berrechid,Oulad Ziyane,61170820,Commune d'Oulad Ziyane,,,
+06.117.08.21.,Ouled Zidane,Berrechid,Ouled Zidane,61170821,Commune d'Ouled Zidane,Settat Ouled Zidane,0.613,direct
+06.117.08.23.,Riah,Berrechid,Riah,61170823,Commune de Riah,,,
+06.141.01.01.,Anfa (Arrond.),Préfecture d’Arrondissements Casablanca Anfa,,61410101,Arrondissement d'Anfa,,,
+06.141.01.03.,El Maarif (Arrond.),Préfecture d’Arrondissements Casablanca Anfa,,,,,,
+06.141.01.07.,Sidi Belyout (Arrond.),Préfecture d’Arrondissements Casablanca Anfa,,61410107,Arrondissement de Sidi Belyout,,,
+06.141.01.11.,Al-Fida (Arrond.),Préfecture d’Arrondissements Al Fida-Mers Sultan,,61410111,Arrondissement d'Al-Fida,,,
+06.141.01.13.,Mers-Sultan (Arrond.),Préfecture d’Arrondissements Al Fida-Mers Sultan,,61410113,Arrondissement de Mers-Sultan,,,
+06.141.01.21.,Aîn-Sebaâ (Arrond.),Préfecture d’Arrondissements Aïn Sebaâ-Hay Mohammadi,,61410121,Arrondissement d'Aïn-Sebaâ,,,
+06.141.01.23.,Assoukhour Assawda (Arrond.),Préfecture d’Arrondissements Aïn Sebaâ-Hay Mohammadi,,,,,,
+06.141.01.25.,Hay Mohammadi (Arrond.),Préfecture d’Arrondissements Aïn Sebaâ-Hay Mohammadi,,61410125,Arrondissement de Hay-Mohammadi,,,
+06.141.01.31.,Hay-Hassani (Arrond.),Préfecture d’Arrondissement  Hay Hassani,,61410131,Arrondissement de Hay-Hassani,,,
+06.141.01.41.,Aîn-Chock (Arrond.),Préfecture d’Arrondissement  Aïn Chock,,61410141,Arrondissement d'Aïn-Chock,,,
+06.141.01.51.,Sidi Bernoussi (Arrond.),Préfecture d’Arrondissements Sidi Bernoussi,,61410151,Arrondissement de Sidi Bernoussi,,,
+06.141.01.53.,Sidi Moumen (Arrond.),Préfecture d’Arrondissements Sidi Bernoussi,,61410153,Arrondissement de Sidi Moumen,,,
+06.141.01.61.,Ben M'Sick (Arrond.),Préfecture d’Arrondissements Ben M’sick,,61410161,Arrondissement de Ben-M'sick,,,
+06.141.01.63.,Sbata (Arrond.),Préfecture d’Arrondissements Ben M’sick,,61410163,Arrondissement de Sbata,,,
+06.141.01.71.,Moulay Rachid (Arrond.),Préfecture d’Arrondissements Moulay Rachid,,61410171,Arrondissement de Moulay Rachid,,,
+06.141.01.73.,Sidi Othmane (Arrond.),Préfecture d’Arrondissements Moulay Rachid,,61410173,Arrondissement de Sidi Othmane,,,
+06.141.01.81.,Mechouar de Casablanca (Mun.),Préfecture d’Arrondissements Moulay Rachid,Mechouar de Casablanca (M),61410181,Commune de Méchouar de Casablanca,Casablanca Mechouar de Casablanca (M),0.77,direct
+06.181.01.01.,Azemmour (Mun.),El Jadida,Azemmour (M),61810101,Commune d'Azemmour,El Jadida Azemmour (M),0.66,direct
+06.181.01.03.,El Jadida (Mun.),El Jadida,El Jadida (M),61810103,Commune d'El Jadida,El Jadida El-Jadida (M),0.757,direct
+06.181.01.05.,Lbir Jdid (Mun.),El Jadida,Lbir Jdid (M),61810105,Commune de Lbir Jdid,El Jadida Lbir Jdid (M),0.678,direct
+06.181.03.01.,Chtouka,El Jadida,Chtouka,61810301,Commune de Chtouka,El-Jadida Chtouka,0.472,direct
+06.181.03.05.,Laghdira,El Jadida,Laghdira,61810305,Commune de Laghdira,El-Jadida Laghdira,0.517,direct
+06.181.03.07.,Lamharza Essahel,El Jadida,Lamharza Essahel,61810307,Commune de Lamharza Essahel,El Jadida Lamharza Essahel,0.567,direct
+06.181.03.11.,Sidi Ali Ben Hamdouche,El Jadida,Sidi Ali Ben  Hamdouche,61810311,Commune de Sidi Ali Ben Hamdouche,El Jadida Sidi Ali Ben Hamdouche (AC),0.629,direct
+06.181.05.01.,My Abdellah,El Jadida,My Abdellah,61810501,Commune de My Abdellah,El Jadida Moulay Abdellah (AC),0.671,fuzzy
+06.181.05.03.,Oulad Aissa,El Jadida,Oulad Aissa,61810503,Commune d'Oulad Aissa,El-Jadida Oulad Aissa,0.478,direct
+06.181.05.05.,Ouled Ghanem,El Jadida,Ouled Ghanem,61810505,Commune d'Ouled Ghanem,El-Jadida Oulad Ghanem,0.523,fuzzy
+06.181.05.07.,Ouled Hcine,El Jadida,Ouled Hcine,61810507,Commune d'Ouled Hcine,El-Jadida Oulad Hcine,0.402,fuzzy
+06.181.05.09.,Sidi Abed,El Jadida,Sidi Abed,61810509,Commune de Sidi Abed,El-Jadida Sidi Abed,0.508,direct
+06.181.05.11.,Sidi M'Hamed Akhdim,El Jadida,Sidi M'Hamed  Akhdim,61810511,Commune de Sidi M'hamed Akhdim,El-Jadida Sidi M'Hamed Akhdim,0.497,direct
+06.181.07.03.,Haouzia,El Jadida,Haouzia,61810703,Commune de Haouzia,El Jadida Haouzia,0.53,direct
+06.181.07.09.,Oulad Rahmoune,El Jadida,Oulad Rahmoune,61810709,Commune d'Oulad Rahmoune,El-Jadida Oulad Rahmoune,0.459,direct
+06.181.09.01.,Boulaouane,El Jadida,Boulaouane,61810901,Commune de Boulaouane,El-Jadida Boulaouane,0.573,direct
+06.181.09.03.,Chaibate,El Jadida,Chaibate,61810903,Commune de Chaibate,El-Jadida Chaibate,0.504,direct
+06.181.09.05.,Mettouh,El Jadida,Mettouh,61810905,Commune de Mettouh,El-Jadida Mettouh,0.529,direct
+06.181.09.07.,Mogress,El Jadida,Mogress,61810907,Commune de Mogress,El-Jadida Mogress,0.476,direct
+06.181.09.09.,Oulad Hamdane,El Jadida,Oulad Hamdane,61810909,Commune d'Oulad Hamdane,El-Jadida Oulad Hamdane,0.436,direct
+06.181.09.11.,Oulad Sidi Ali Ben Youssef,El Jadida,Oulad Sidi Ali  Ben Youssef,61810911,Commune d'Oulad Sidi Ali Ben Youssef,El-Jadida Oulad Sidi Ali Ben Yousse,0.485,fuzzy
+06.181.09.13.,Ouled Frej,El Jadida,Ouled Frej,61810913,Commune d'Ouled Frej,El-Jadida Oulad Frej,0.522,fuzzy
+06.181.09.15.,Sebt Saiss,El Jadida,Sebt Saiss,61810915,Commune de Sebt Saiss,El-Jadida Sebt Saiss,0.53,direct
+06.181.09.17.,Si Hsaien Ben Abderrahmane,El Jadida,Si Hsaien Ben Abderrahmane,61810917,Commune de Si Hsaien Ben Abderrahmane,El-Jadida Si Hsaien Ben Abderrahman,0.538,fuzzy
+06.181.09.19.,Sidi Smail,El Jadida,Sidi Smail,61810919,Commune de Sidi Smail,El-Jadida Sidi Smail,0.525,direct
+06.181.09.21.,Zaouiat Saiss,El Jadida,Zaouiat Saiss,61810921,Commune de Zaouiat Saiss,El-Jadida Zaouiat Saiss,0.512,direct
+06.181.09.23.,Zaouiat Lakouacem,El Jadida,Zaouiat Lakouacem,61810923,Commune de Zaouiat Lakouacem,El-Jadida Zaouiat Lakouacem,0.483,direct
+06.355.01.01.,Lahraouyine (Mun.),Médiouna,Lahraouyine (M),63550101,Commune de Lahraouyine,Médiouna Lahraouyine (AC),0.626,direct
+06.355.01.03.,Mediouna (Mun.),Médiouna,Mediouna (M),63550103,Commune de Mediouna,Mediouna Mediouna (M),0.692,direct
+06.355.01.05.,Tit Mellil (Mun.),Médiouna,Tit Mellil (M),63550105,Commune de Tit Mellil,Mediouna Tit Mellil (M),0.708,direct
+06.355.03.01.,Al Majjatia Oulad Taleb,Médiouna,Almajjatia Oulad Taleb,63550107,Commune d'Almajjatia Oulad Taleb,Mediouna Al Majjatia Oulad Taleb,0.662,direct
+06.355.03.05.,Sidi Hajjaj Oued Hassar,Médiouna,Sidi Hajjaj Oued Hassar,63550109,Commune de Sidi Hajjaj Oued Hassar,Mediouna Sidi Hajjaj Oued Hassar,0.644,direct
+06.371.01.01.,Mohammadia (Mun.),Mohammadia,Mohammadia (M),63710101,Commune de Mohammadia,Mohammedia Mohammedia (M),0.74,fuzzy
+06.371.01.03.,Ain Harrouda (Mun.),Mohammadia,Ain Harrouda(M),63710103,Commune d'Ain Harrouda,Mohammedia Ain Harrouda(M),0.688,direct
+06.371.03.01.,Bni Yakhlef,Mohammadia,Bni Yakhlef,63710105,Commune de Bni Yakhlef,Mohammedia Bni Yakhlef,0.627,direct
+06.371.03.03.,Ech-challalate,Mohammadia,Ech-challalate,63710107,Commune d'Ech-challalate,Mohammedia Ech-challalate,0.668,direct
+06.371.03.05.,Sidi Moussa Ben Ali,Mohammadia,Sidi Moussa Ben Ali,63710305,Commune de Sidi Moussa Ben Ali,Mohammedia Sidi Moussa Ben Ali,0.637,direct
+06.371.03.07.,Sidi Moussa Majdoub,Mohammadia,,63710307,Commune de Sidi Moussa El Majdoub,Mohammedia Sidi Moussa Majdoub,0.643,direct
+06.385.01.01.,Bouskoura (Mun.),Nouaceur,Bouskoura (M),63850101,Commune de Bouskoura,Nouaceur Bouskoura,0.665,direct
+06.385.01.02.,Dar Bouazza (Mun.),Nouaceur,Dar Bouazza (M),63850102,Commune de Dar Bouazza,Nouaceur Dar Bouazza,0.643,direct
+06.385.01.03.,Nouaceur (Mun.),Nouaceur,Nouaceur (M),63850103,Commune de Nouaceur,Nouaceur Nouaceur (M),0.704,direct
+06.385.03.03.,Oulad Azzouz,Nouaceur,Oulad Azzouz,63850107,Commune d'Oulad Azzouz,Khouribga Oulad Azzouz,0.55,direct
+06.385.03.05.,Oulad Salah,Nouaceur,,63850105,Commune d'Ouled Salah,Nouaceur Oulad Salah,0.656,direct
+06.461.01.01.,Ben Ahmed (Mun.),Settat,Ben Ahmed (M),64610101,Commune de Ben Ahmed,Settat Ben Ahmed (M),0.704,direct
+06.461.01.05.,El Borouj (Mun.),Settat,El Borouj (M),64610105,Commune d'El Borouj,Settat El Borouj (M),0.635,direct
+06.461.01.09.,Loulad (Mun.),Settat,Loulad (M),64610109,Commune de Loulad,Settat Loulad (M),0.603,direct
+06.461.01.13.,Oulad M'Rah (Mun.),Settat,Oulad M'Rah (M),64610113,Commune d'Oulad M'rah,Settat Oulad M'Rah (M),0.685,direct
+06.461.01.15.,Settat (Mun.),Settat,Settat (M),64610115,Commune de Settat,Settat Settat (M),0.713,direct
+06.461.03.02.,Ain Dorbane-Lahlaf,Settat,Ain Dorbane- Lahlaf,64611102,Commune d'Ain Dorbane-Lahlaf,Settat Ain Dorbane,0.583,fuzzy
+06.461.03.03.,Bouguargouh,Settat,Bouguargouh,64611103,Commune de Bouguargouh,Settat Bouguargouh,0.516,direct
+06.461.03.07.,Lakhzazra,Settat,Lakhzazra,64611107,Commune de Lakhzazra,Settat Lakhzazra,0.507,direct
+06.461.03.09.,Mniaa,Settat,Mniaa,64611309,Commune de Mniaa,Settat Mniaa,0.525,direct
+06.461.03.11.,Mrizigue,Settat,Mrizigue,64611311,Commune de Mrizigue,Settat Mrizigue,0.532,direct
+06.461.03.13.,M'Garto,Settat,M'Garto,64611113,Commune de M'garto,Settat M'Garto,0.565,direct
+06.461.03.15.,N'Khila,Settat,N'Khila,64611115,Commune de N'khila,Settat N'Khila,0.528,direct
+06.461.03.17.,Oued Naanaa,Settat,Oued Naanaa,64611317,Commune d'Oued Naanaa,Settat Oued Naanaa,0.598,direct
+06.461.03.19.,Oulad Chbana,Settat,Oulad Chbana,64611319,Commune d'Oulad Chbana,Settat Oulad Chbana,0.484,direct
+06.461.03.21.,Oulad Fares,Settat,Oulad Fares,64611321,Commune d'Oulad Fares,Settat Oulad Fares,0.553,direct
+06.461.03.23.,Oulad M'Hamed,Settat,,64611123,Commune d'Ouled M'hamed,Settat Oulad M'Hamed,0.458,direct
+06.461.03.25.,Ras El Ain Chaouia,Settat,Ras El Ain Chaouia,64611325,Commune de Ras El Ain Chaouia,Settat Ras El Ain Chaouia,0.532,direct
+06.461.03.27.,Sgamna,Settat,Sgamna,64611327,Commune de Sgamna,Settat Sgamna,0.485,direct
+06.461.03.29.,Sidi Abdelkrim,Settat,Sidi Abdelkrim,64611129,Commune de Sidi Abdelkrim,Settat Sidi Abdelkrim,0.554,direct
+06.461.03.31.,Sidi Dahbi,Settat,Sidi Dahbi,64611131,Commune de Sidi Dahbi,Settat Sidi Dahbi,0.592,direct
+06.461.03.33.,Sidi Hajjaj,Settat,Sidi Hajjaj,64611333,Commune de Sidi Hajjaj,Settat Sidi Hajjaj,0.526,direct
+06.461.07.01.,Ain Blal,Settat,Ain Blal,64610701,Commune d'Ain Blal,Settat Ain Blal,0.536,direct
+06.461.07.03.,Bni Khloug,Settat,Bni Khloug,64610703,Commune de Bni Khloug,Settat Bni Khloug,0.561,direct
+06.461.07.05.,Dar Chaffai,Settat,Dar Chaffai,64610705,Commune de Dar Chaffai,Settat Dar Chaffai,0.48,direct
+06.461.07.07.,Laqraqra,Settat,Laqraqra,64610707,Commune de Laqraqra,Settat Laqraqra,0.501,direct
+06.461.07.09.,Meskoura,Settat,Meskoura,64610709,Commune de Meskoura,Settat Meskoura,0.515,direct
+06.461.07.11.,Oulad Amer,Settat,Oulad Amer,64610711,Commune d'Oulad Amer,Settat Oulad Amer,0.5,direct
+06.461.07.13.,Oulad Bouali Nouaja,Settat,Oulad Bouali Nouaja,64610713,Commune d'Oulad Bouali Nouaja,Settat Oulad Bouali Nouaja,0.533,direct
+06.461.07.15.,Oulad Fares El Halla,Settat,Oulad Fares El Halla,64610715,Commune d'Oulad Fares El Halla,Settat Oulad Fares El Halla,0.543,direct
+06.461.07.17.,Oulad Freiha,Settat,Oulad Freiha,64610717,Commune d'Oulad Freiha,Settat Oulad Freiha,0.481,direct
+06.461.07.19.,Sidi Ahmed El Khadir,Settat,Sidi Ahmed El Khadir,64610719,Commune de Sidi Ahmed El Khadir,Settat Sidi Ahmed El Khadir,0.554,direct
+06.461.07.21.,Sidi Boumehdi,Settat,Sidi Boumehdi,64610721,Commune de Sidi Boumehdi,Settat Sidi Boumehdi,0.583,direct
+06.461.09.03.,Bni Yagrine,Settat,Bni Yagrine,64611703,Commune de Bni Yagrine,Settat Bni Yagrine,0.44,direct
+06.461.09.05.,Gdana,Settat,Gdana,64611505,Commune de Gdana,Settat Gdana,0.556,direct
+06.461.09.07.,Guisser,Settat,Guisser,64611707,Commune de Guisser,Settat Guisser,0.573,direct
+06.461.09.09.,Khemisset Chaouia,Settat,Khemisset Chaouia,64611509,Commune de Khemisset Chaouia,Settat Khemisset Chaouia,0.571,direct
+06.461.09.11.,Lahouaza,Settat,Lahouaza,64611511,Commune de Lahouaza,Settat Lahouaza,0.563,direct
+06.461.09.13.,Machraa Ben Abbou,Settat,Machraa Ben Abbou,64611713,Commune de Machraa Ben Abbou,Settat Machraa Ben Abbou,0.516,direct
+06.461.09.14.,Mzamza Janoubia,Settat,Mzamza Janoubia,64611514,Commune de Mzamza Janoubia,,,
+06.461.09.15.,Mzoura,Settat,Mzoura,64611515,Commune de Mzoura,Settat Mzoura,0.54,direct
+06.461.09.19.,Oulad Said,Settat,Oulad Said,64611519,Commune d'Oulad Said,Settat Oulad Said (AC),0.632,direct
+06.461.09.21.,Oulad Sghir,Settat,Oulad Sghir,64611721,Commune d'Oulad Sghir,Settat Oulad Sghir,0.555,direct
+06.461.09.23.,Rima,Settat,Rima,64611723,Commune de Rima,Settat Rima,0.434,direct
+06.461.09.25.,Sidi El Aidi,Settat,Sidi El Aidi,64611525,Commune de Sidi El Aidi,Settat Sidi El Aidi,0.576,direct
+06.461.09.27.,Sidi Mohammed Ben Rahal,Settat,Sidi Mohammed  Ben Rahal,64611727,Commune de Sidi Mohammed Ben Rahal,Settat Sidi Mohammed Ben Rahal,0.559,direct
+06.461.09.31.,Toualet,Settat,Toualet,64611731,Commune de Toualet,Settat Toualet,0.537,direct
+06.467.01.07.,Sidi Bennour (Mun.),Sidi Bennour,Sidi Bennour (M),64670107,Commune de Sidi Bennour,El Jadida Sidi Bennour (M),0.692,direct
+06.467.01.09.,Zemamra (Mun.),Sidi Bennour,,64670109,Commune de Zmamra,El Jadida Zemamra (M),0.648,direct
+06.467.07.01.,Bni Hilal,Sidi Bennour,Bni Hilal,64670301,Commune de Bni Hilal,El Jadida Bni Hilal,0.522,direct
+06.467.07.03.,Bni Tsiriss,Sidi Bennour,Bni Tsiriss,64670303,Commune de Bni Tsiriss,El-Jadida Bni Tsiriss,0.48,direct
+06.467.07.05.,Bouhmame,Sidi Bennour,Bouhmame,64670705,Commune de Bouhmame,El Jadida Bouhmame,0.515,direct
+06.467.07.07.,Jabria,Sidi Bennour,Jabria,64670707,Commune de Jabria,El-Jadida Jabria,0.425,direct
+06.467.07.09.,Khmis Ksiba,Sidi Bennour,Khmis Ksiba,64670309,Commune de Khmis Ksiba,El-Jadida Khmis Ksiba,0.452,direct
+06.467.07.11.,Koudiat Bni Dghough,Sidi Bennour,Koudiat Bni Dghough,64670511,Commune de Koudiat Bni Dghough,El-Jadida Koudiat Bni Dghough,0.481,direct
+06.467.07.13.,Kridid,Sidi Bennour,Kridid,64670513,Commune de Kridid,El-Jadida Kridid,0.507,direct
+06.467.07.15.,Laagagcha,Sidi Bennour,Laagagcha,64670515,Commune de Laagagcha,El Jadida Laagagcha,0.536,direct
+06.467.07.17.,Laamria,Sidi Bennour,Laamria,64670317,Commune de Laamria,,,
+06.467.07.19.,Laaounate,Sidi Bennour,Laaounate,64670319,Commune de Laaounate,El-Jadida Laaounate,0.541,direct
+06.467.07.21.,Laatatra,Sidi Bennour,Laatatra,64670721,Commune de Laatatra,El Jadida Laatatra,0.501,direct
+06.467.07.23.,Lmechrek,Sidi Bennour,Lmechrek,64670723,Commune de Lmechrek,El Jadida Lmechrek,0.518,direct
+06.467.07.25.,Metrane,Sidi Bennour,Metrane,64670325,Commune de Metrane,El-Jadida Metrane,0.469,direct
+06.467.07.27.,M'Tal,Sidi Bennour,M'Tal,64670727,Commune de M'tal,,,
+06.467.07.29.,Oulad Amrane,Sidi Bennour,Oulad Amrane,64670529,Commune d'Oulad Amrane,El-Jadida Oulad Amrane,0.495,direct
+06.467.07.31.,Oulad Boussaken,Sidi Bennour,Oulad Boussaken,64670331,Commune d'Oulad Boussaken,El-Jadida Oulad Boussaken,0.474,direct
+06.467.07.33.,Oulad Si Bouhya,Sidi Bennour,Oulad Si Bouhya,64670733,Commune d'Oulad Si Bouhya,El Jadida Oulad Si Bouhya,0.506,direct
+06.467.07.35.,Tamda,Sidi Bennour,Tamda,64670535,Commune de Tamda,El-Jadida Tamda,0.473,direct
+06.467.11.01.,Laghnadra,Sidi Bennour,Laghnadra,64671101,Commune de Laghnadra,El Jadida Laghnadra,0.541,direct
+06.467.11.03.,Lgharbia,Sidi Bennour,Lgharbia,64671103,Commune de Lgharbia,,,
+06.467.11.05.,Loualidia,Sidi Bennour,Loualidia,64670105,Commune de Loualidia,El-Jadida Loualidia,0.454,direct
+06.467.11.07.,Oulad Sbaita,Sidi Bennour,Oulad Sbaita,64671107,Commune d'Oulad Sbaita,El-Jadida Oulad Sbaita,0.517,direct
+06.467.11.09.,Saniat Berguig,Sidi Bennour,Saniat Berguig,64671109,Commune de Saniat Berguig,El-Jadida Saniat Berguig,0.526,direct
+07.041.01.01.,Ait Ourir (Mun.),Al  Haouz,Ait Ourir (M),70410101,Commune d'Ait Ourir,Al Haouz Ait Ourir (M),0.648,direct
+07.041.01.03.,Amizmiz (Mun.),Al  Haouz,Amizmiz  (M),70410103,Commune d'Amizmiz,Al Haouz Amizmiz,0.574,direct
+07.041.01.09.,Tahannaout (Mun.),Al  Haouz,Tahannaout (M),70410109,Commune de Tahannaout,Al Haouz Tahannaout,0.529,direct
+07.041.03.05.,Ait Faska,Al  Haouz,Ait Faska,70410305,Commune d'Ait Faska,Al Haouz Ait Faska,0.558,direct
+07.041.03.09.,Ait Sidi Daoud,Al  Haouz,Ait Sidi Daoud,70410309,Commune d'Ait Sidi Daoud,Al Haouz Ait Sidi Daoud,0.514,direct
+07.041.03.11.,Ghmate,Al  Haouz,Ghmate,70410311,Commune de Ghmate,Al Haouz Ghmate,0.493,direct
+07.041.03.13.,Iguerferouane,Al  Haouz,Iguerferouane,70410313,Commune d'Iguerferouane,Al Haouz Iguerferouane,0.411,direct
+07.041.03.15.,Sidi Abdallah Ghiat,Al  Haouz,,70410315,Commune de Sidi Abdellah Ghiat,Al Haouz Sidi Abdallah Ghiat,0.483,direct
+07.041.03.19.,Tamazouzte,Al  Haouz,Tamazouzte,70410319,Commune de Tamazouzte,Al Haouz Tamazouzte,0.504,direct
+07.041.03.23.,Tidili Mesfioua,Al  Haouz,Tidili Mesfioua,70410323,Commune de Tidili Mesfioua,Al Haouz Tidili Mesfioua,0.436,direct
+07.041.05.01.,Amghras,Al  Haouz,Amghras,70410501,Commune d'Amghras,Al Haouz Amghras,0.427,direct
+07.041.05.05.,Anougal,Al  Haouz,Anougal,70410505,Commune d'Anougal,Al Haouz Anougal,0.356,direct
+07.041.05.07.,Azgour,Al  Haouz,Azgour,70410507,Commune d'Azgour,Al Haouz Azgour,0.481,direct
+07.041.05.09.,Dar Jamaa,Al  Haouz,Dar Jamaa,70410509,Commune de Dar Jamaa,Al Haouz Dar Jamaa,0.438,direct
+07.041.05.11.,Lalla Takarkoust,Al  Haouz,Lalla Takarkoust,70410511,Commune de Lalla Takarkoust,Al Haouz Lalla Takarkoust,0.503,direct
+07.041.05.13.,Ouazguita,Al  Haouz,Ouazguita,70410513,Commune d'Ouazguita,Al Haouz Ouazguita,0.402,direct
+07.041.05.15.,Oulad Mtaa,Al  Haouz,Oulad Mtaa,70410515,Commune d'Oulad Mtaa,Al Haouz Oulad Mtaa,0.598,direct
+07.041.05.17.,Sidi Badhaj,Al  Haouz,Sidi Badhaj,70410517,Commune de Sidi Badhaj,Al Haouz Sidi Badhaj,0.517,direct
+07.041.05.19.,Tizguine,Al  Haouz,Tizguine,70410519,Commune de Tizguine,Al Haouz Tizguine,0.57,direct
+07.041.07.01.,Aghbar,Al  Haouz,Aghbar,70410701,Commune d'Aghbar,Al Haouz Aghbar,0.347,direct
+07.041.07.03.,Asni,Al  Haouz,Asni,70410703,Commune d'Asni,Al Haouz Asni,0.517,direct
+07.041.07.05.,Ighil,Al  Haouz,Ighil,70410705,Commune d'Ighil,Al Haouz Ighil,0.365,direct
+07.041.07.07.,Ijoukak,Al  Haouz,Ijoukak,70410707,Commune d'Ijoukak,Al Haouz Ijoukak,0.434,direct
+07.041.07.09.,Imgdal,Al  Haouz,Imgdal,70410709,Commune d'Imgdal,Al Haouz Imgdal,0.432,direct
+07.041.07.11.,Ouirgane,Al  Haouz,Ouirgane,70410711,Commune d'Ouirgane,Al Haouz Ouirgane,0.501,direct
+07.041.07.13.,Talat N'Yaaqoub,Al  Haouz,Talat N'Yaaqoub,70410713,Commune de Talat N'yaaqoub,Al Haouz Talat N'Yaaqoub,0.536,direct
+07.041.09.01.,Moulay Brahim,Al  Haouz,Moulay Brahim,70410901,Commune de Moulay Brahim,Al Haouz Moulay Brahim,0.44,direct
+07.041.09.03.,Oukaimden,Al  Haouz,Oukaimden,70410903,Commune d'Oukaimden,Al Haouz Oukaimden,0.437,direct
+07.041.09.05.,Ourika,Al  Haouz,Ourika,70410905,Commune d'Ourika,Al Haouz Ourika,0.552,direct
+07.041.09.07.,Sti Fadma,Al  Haouz,Sti Fadma,70410907,Commune de Sti Fadma,Al Haouz Sti Fadma,0.398,direct
+07.041.09.11.,Tameslohte,Al  Haouz,Tameslohte,70410911,Commune de Tameslohte,Al Haouz Tameslohte,0.541,direct
+07.041.09.13.,Aghouatim,Al  Haouz,Aghouatim,70410913,Commune d'Aghouatim,,,
+07.041.11.01.,Abadou,Al  Haouz,Abadou,70411101,Commune d'Abadou,Al Haouz Abadou,0.502,direct
+07.041.11.03.,Ait Aadel,Al  Haouz,Ait Aadel,70411103,Commune d'Ait Aadel,Al Haouz Ait Aadel,0.411,direct
+07.041.11.07.,Ait Hkim-Ait Yzid,Al  Haouz,Ait Hkim-Ait Yzid,70411107,Commune d'Ait Hkim-Ait Yzid,Al Haouz Ait Hkim Ait Yzid,0.429,direct
+07.041.11.17.,Tamaguert,Al  Haouz,Tamaguert,70411117,Commune de Tamaguert,Al Haouz Tamaguert,0.5,direct
+07.041.11.21.,Tazart,Al  Haouz,Tazart,70411121,Commune de Tazart,Al Haouz Tazart,0.461,direct
+07.041.11.25.,Tighedouine,Al  Haouz,Tighedouine,70411125,Commune de Tighedouine,Al Haouz Tighedouine,0.407,direct
+07.041.11.27.,Touama,Al  Haouz,Touama,70411127,Commune de Touama,Al Haouz Touama,0.531,direct
+07.041.11.29.,Zerkten,Al  Haouz,Zerkten,70411129,Commune de Zerkten,Al Haouz Zerkten,0.417,direct
+07.161.01.01.,Chichaoua (Mun.),Chichaoua,Chichaoua (M),71610101,Commune de Chichaoua,Chichaoua Chichaoua (M),0.661,direct
+07.161.01.03.,Imintanoute (Mun.),Chichaoua,Imintanoute (M),71610103,Commune d'Imintanoute,Chichaoua Imintanoute (M),0.639,direct
+07.161.03.01.,Ahdil,Chichaoua,Ahdil,71610301,Commune d'Ahdil,Chichaoua Ahdil,0.492,direct
+07.161.03.03.,Ait Hadi,Chichaoua,Ait Hadi,71610303,Commune d'Ait Hadi,Chichaoua Ait Hadi,0.543,direct
+07.161.03.05.,Lamzoudia,Chichaoua,Lamzoudia,71610305,Commune de Lamzoudia,Chichaoua Lamzoudia,0.493,direct
+07.161.03.07.,Oulad Moumna,Chichaoua,Oulad Moumna,71610307,Commune d'Oulad Moumna,Chichaoua Oulad Moumna,0.457,direct
+07.161.03.09.,Saidate,Chichaoua,Saidate,71610309,Commune de Saidate,Chichaoua Saidate,0.468,direct
+07.161.03.11.,Sid L'Mokhtar,Chichaoua,Sid L'Mokhtar,71610311,Commune de Sid L'mokhtar,Chichaoua Sid L'Mokhtar,0.536,direct
+07.161.03.13.,Sidi Bouzid Arragragui,Chichaoua,Sidi Bouzid Arragragui,71610313,Commune de Sidi Bouzid Arragragui,Chichaoua Sidi Bouzid Arragragui,0.555,direct
+07.161.03.15.,Sidi M'Hamed Dalil,Chichaoua,Sidi M'Hamed Dalil,71610315,Commune de Sidi M'hamed Dalil,Chichaoua Sidi M'Hamed Dalil,0.415,direct
+07.161.05.01.,Afalla Issen,Chichaoua,Afalla Issen,71610501,Commune d'Afalla Issen,Chichaoua Afalla Issen,0.397,direct
+07.161.05.03.,Ain Tazitounte,Chichaoua,Ain Tazitounte,71610503,Commune d'Ain Tazitounte,Chichaoua Ain Tazitounte,0.441,direct
+07.161.05.05.,Ait Haddou Youssef,Chichaoua,Ait Haddou Youssef,71610505,Commune d'Ait Haddou Youssef,Chichaoua Ait Haddou Youssef,0.408,direct
+07.161.05.07.,Irohalen,Chichaoua,Irohalen,71610507,Commune d'Irohalen,Chichaoua Irohalen,0.406,direct
+07.161.05.09.,Lalla Aaziza,Chichaoua,Lalla Aaziza,71610509,Commune de Lalla Aaziza,Chichaoua Lalla Aaziza,0.377,direct
+07.161.05.11.,Nfifa,Chichaoua,Nfifa,71610511,Commune de Nfifa,Chichaoua Nfifa,0.512,direct
+07.161.05.13.,Ouad L'bour,Chichaoua,Ouad L'bour,71610513,Commune d'Ouad L'bour,Chichaoua Oued L'bour,0.526,fuzzy
+07.161.05.15.,Sidi Ghanem,Chichaoua,Sidi Ghanem,71610515,Commune de Sidi Ghanem,Chichaoua Sidi Ghanem,0.4,direct
+07.161.05.17.,Timezgadiouine,Chichaoua,Timezgadiouine,71610517,Commune de Timezgadiouine,Chichaoua Timezgadiouine,0.422,direct
+07.161.07.01.,Adassil,Chichaoua,Adassil,71610701,Commune d'Adassil,Chichaoua Adassil,0.422,direct
+07.161.07.03.,Assif El Mal,Chichaoua,Assif El Mal,71610703,Commune d'Assif El Mal,Chichaoua Assif El Mal,0.478,direct
+07.161.07.05.,Douirane,Chichaoua,Douirane,71610705,Commune de Douirane,Chichaoua Douirane,0.485,direct
+07.161.07.07.,Gmassa,Chichaoua,Gmassa,71610707,Commune de Gmassa,Chichaoua Gmassa,0.515,direct
+07.161.07.09.,Imindounit,Chichaoua,Imindounit,71610709,Commune d'Imindounit,Chichaoua Imindounit,0.299,direct
+07.161.07.11.,Majjat,Chichaoua,Majjat,71610711,Commune de Majjat,Chichaoua Majjat,0.516,direct
+07.161.07.13.,M'Zouda,Chichaoua,M'Zouda,71610713,Commune de M'zouda,Chichaoua M'Zouda,0.484,direct
+07.161.07.15.,Zaouia Annahlia,Chichaoua,Zaouia Annahlia,71610715,Commune de Zaouia Annahlia,Chichaoua Zaouia Annahlia,0.484,direct
+07.161.09.01.,Bouabout,Chichaoua,Bouabout,71610901,Commune de Bouabout,Chichaoua Bouabout,0.389,direct
+07.161.09.03.,Bouabout Amdlane,Chichaoua,Bouabout Amdlane,71610903,Commune de Bouabout Amdlane,Chichaoua Bouabout Amdlane,0.379,direct
+07.161.09.05.,Ichamraren,Chichaoua,Ichamraren,71610905,Commune d'Ichamraren,Chichaoua Ichamraren,0.471,direct
+07.161.09.07.,Kouzemt,Chichaoua,Kouzemt,71610907,Commune de Kouzemt,Chichaoua Kouzemt,0.448,direct
+07.161.09.09.,Rahhala,Chichaoua,Rahhala,71610909,Commune de Rahhala,Chichaoua Rahhala,0.426,direct
+07.161.09.11.,Sidi Abdelmoumen,Chichaoua,Sidi Abdelmoumen,71610911,Commune de Sidi Abdelmoumen,Chichaoua Sidi Abdelmoumen,0.384,direct
+07.161.09.13.,Taouloukoult,Chichaoua,Taouloukoult,71610913,Commune de Taouloukoult,Chichaoua Taouloukoult,0.426,direct
+07.161.09.15.,Timlilt,Chichaoua,Timlilt,71610915,Commune de Timlilt,Chichaoua Timlilt,0.416,direct
+07.191.01.03.,El Kelaâ des Sraghna (Mun.),El Kelâa des  Sraghna,,,,El Kelaa Des Sraghna El Kelaâ des Sraghna (M),0.662,direct
+07.191.01.05.,Laattaouia (Mun.),El Kelâa des  Sraghna,Laattaouia (M),71910105,Commune de Laattaouia,El Kelaa Des Sraghna Laattaouia (M),0.634,direct
+07.191.01.07.,Sidi Rahhal (Mun.),El Kelâa des  Sraghna,,71910107,Commune de Sidi Rahal,El Kelaa Des Sraghna Sidi Rahhal (M),0.636,direct
+07.191.01.09.,Tamallalt (Mun.),El Kelâa des  Sraghna,Tamallalt (M),71910109,Commune de Tamallalt,El Kelaa Des Sraghna Tamallalt (M),0.613,direct
+07.191.03.01.,Chtaiba,El Kelâa des  Sraghna,Chtaiba,71911301,Commune de Chtaiba,El Kelaa Des Sraghna Chtaiba,0.541,direct
+07.191.03.03.,Eddachra,El Kelâa des  Sraghna,Eddachra,71911303,Commune d'Eddachra,El Kelaa Des Sraghna Eddachra,0.513,direct
+07.191.03.05.,El Aamria,El Kelâa des  Sraghna,El Aamria,71911305,Commune d'El Aamria,El Kelaa Des Sraghna El Aamria,0.535,direct
+07.191.03.07.,El Marbouh,El Kelâa des  Sraghna,El Marbouh,71911107,Commune d'El Marbouh,El Kelaa Des Sraghna El Marbouh,0.542,direct
+07.191.03.09.,Errafiaya,El Kelâa des  Sraghna,Errafiaya,71911309,Commune d'Errafiaya,El Kelaa Des Sraghna Errafiaya,0.501,direct
+07.191.03.11.,Hiadna,El Kelâa des  Sraghna,Hiadna,71911111,Commune de Hiadna,El Kelaa Des Sraghna Hiadna,0.484,direct
+07.191.03.13.,Lounasda,El Kelâa des  Sraghna,Lounasda,71911113,Commune de Lounasda,El Kelaa Des Sraghna Lounasda,0.471,direct
+07.191.03.15.,Mayate,El Kelâa des  Sraghna,Mayate,71911115,Commune de Mayate,El Kelaa Des Sraghna Mayate,0.489,direct
+07.191.03.17.,Oulad Aamer,El Kelâa des  Sraghna,Oulad Aamer,71911317,Commune d'Oulad Aamer,El Kelaa Des Sraghna Oulad Aamer,0.524,direct
+07.191.03.19.,Oulad Bouali Loued,El Kelâa des  Sraghna,Oulad Bouali Loued,71911319,Commune d'Oulad Bouali Loued,El Kelaa Des Sraghna Oulad Bouali Loued,0.586,direct
+07.191.03.21.,Oulad Cherki,El Kelâa des  Sraghna,Oulad Cherki,71911121,Commune d'Oulad Cherki,El Kelaa Des Sraghna Oulad Cherki,0.48,direct
+07.191.03.23.,Oulad El Garne,El Kelâa des  Sraghna,Oulad El Garne,71911123,Commune d'Oulad El Garne,El Kelaa Des Sraghna Oulad El Garne,0.49,direct
+07.191.03.25.,Oulad Massaoud,El Kelâa des  Sraghna,Oulad Massaoud,71911325,Commune d'Oulad Massaoud,El Kelaa Des Sraghna Oulad Massaoud,0.599,direct
+07.191.03.27.,Oulad Msabbel,El Kelâa des  Sraghna,Oulad Msabbel,71911327,Commune d'Oulad Msabbel,El Kelaa Des Sraghna Oulad Msabbel,0.512,direct
+07.191.03.29.,Oulad Sbih,El Kelâa des  Sraghna,Oulad Sbih,71911129,Commune d'Oulad Sbih,El Kelaa Des Sraghna Oulad Sbih,0.519,direct
+07.191.03.31.,Oulad Yaacoub,El Kelâa des  Sraghna,Oulad Yaacoub,71911131,Commune d'Oulad Yaacoub,El Kelaa Des Sraghna Oulad Yaacoub,0.474,direct
+07.191.03.33.,Oulad Zarrad,El Kelâa des  Sraghna,Oulad Zarrad,71911133,Commune d'Oulad Zarrad,El Kelaa Des Sraghna Oulad Zarrad,0.496,direct
+07.191.03.35.,Sidi El Hattab,El Kelâa des  Sraghna,Sidi El Hattab,71911335,Commune de Sidi El Hattab,El Kelaa Des Sraghna Sidi El Hattab,0.476,direct
+07.191.03.37.,Sidi Moussa,El Kelâa des  Sraghna,Sidi Moussa,71911337,Commune de Sidi Moussa,El Kelaa Des Sraghna Sidi Moussa,0.531,direct
+07.191.03.39.,Taouzint,El Kelâa des  Sraghna,Taouzint,71911339,Commune de Taouzint,El Kelaa Des Sraghna Taouzint,0.528,direct
+07.191.03.41.,Znada,El Kelâa des  Sraghna,Znada,71911141,Commune de Znada,El Kelaa Des Sraghna Znada,0.576,direct
+07.191.05.01.,Assahrij,El Kelâa des  Sraghna,Assahrij,71910901,Commune d'Assahrij,El Kelaa Des Sraghna Assahrij,0.514,direct
+07.191.05.03.,Bouya Omar,El Kelâa des  Sraghna,Bouya Omar,71910503,Commune de Bouya Omar,El Kelaa Des Sraghna Bouya Omar,0.514,direct
+07.191.05.05.,Choara,El Kelâa des  Sraghna,Choara,71910505,Commune de Choara,El Kelaa Des Sraghna Choara,0.568,direct
+07.191.05.07.,Dzouz,El Kelâa des  Sraghna,Dzouz,71910507,Commune de Dzouz,El Kelaa Des Sraghna Dzouz,0.537,direct
+07.191.05.09.,Fraita,El Kelâa des  Sraghna,Fraita,71910509,Commune de Fraita,El Kelaa Des Sraghna Fraita,0.409,direct
+07.191.05.15.,Laatamna,El Kelâa des  Sraghna,Laatamna,71910515,Commune de Laatamna,El Kelaa Des Sraghna Laatamna,0.531,direct
+07.191.05.16.,Laattaouia Ech-chaibia,El Kelâa des  Sraghna,Laattaouia  Ech-chaibia,71910516,Commune de Laattaouia Ech-Chaibia,El Kelaa Des Sraghna Laattaouia Ech- chaybia,0.495,fuzzy
+07.191.05.17.,Louad Lakhdar,El Kelâa des  Sraghna,Louad Lakhdar,71910917,Commune de Louad Lakhdar,El Kelaa Des Sraghna Loued Lakhdar,0.49,fuzzy
+07.191.05.19.,M'Zem Sanhaja,El Kelâa des  Sraghna,M'Zem Sanhaja,71910919,Commune de M'zem Sanhaja,El Kelaa Des Sraghna M'Zem Sanhaja,0.521,direct
+07.191.05.21.,Ouargui,El Kelâa des  Sraghna,Ouargui,71910521,Commune d'Ouargui,El Kelaa Des Sraghna Ouargui,0.585,direct
+07.191.05.23.,Oulad Aarrad,El Kelâa des  Sraghna,Oulad Aarrad,71910523,Commune d'Oulad Aarrad,El Kelaa Des Sraghna Oulad Aarrad,0.571,direct
+07.191.05.25.,Oulad Khallouf,El Kelâa des  Sraghna,Oulad Khallouf,71910925,Commune d'Oulad Khallouf,El Kelaa Des Sraghna Oulad Khallouf,0.544,direct
+07.191.05.27.,Sidi Aissa Ben Slimane,El Kelâa des  Sraghna,Sidi Aissa Ben  Slimane,71910927,Commune de Sidi Aissa Ben Slimane,El Kelaa Des Sraghna Sidi Aissa Ben Slimane,0.494,direct
+07.191.05.29.,Sour El Aaz,El Kelâa des  Sraghna,Sour El Aaz,71910929,Commune de Sour El Aaz,El Kelaa Des Sraghna Sour El Aaz,0.471,direct
+07.191.07.11.,Jbiel,El Kelâa des  Sraghna,Jbiel,71910711,Commune de Jbiel,El Kelaa Des Sraghna Jbiel,0.496,direct
+07.191.07.13.,Jouala,El Kelâa des  Sraghna,Jouala,71910713,Commune de Jouala,El Kelaa Des Sraghna Jouala,0.551,direct
+07.191.07.31.,Zemrane,El Kelâa des  Sraghna,Zemrane,71910731,Commune de Zemrane,El Kelaa Des Sraghna Zemrane,0.537,direct
+07.191.07.33.,Zemrane Charqia,El Kelâa des  Sraghna,Zemrane Charqia,71910733,Commune de Zemrane Charqia,El Kelaa Des Sraghna Zemrane Charqia,0.552,direct
+07.211.01.01.,Ait Daoud (Mun.),Essaouira,Ait Daoud (M),72110101,Commune d'Ait Daoud,Essaouira Ait Daoud (M),0.601,direct
+07.211.01.03.,El Hanchane (Mun.),Essaouira,El Hanchane (M),72110103,Commune d'El Hanchane,Essaouira El Hanchane (M),0.625,direct
+07.211.01.05.,Essaouira (Mun.),Essaouira,Essaouira (M),72110105,Commune d'Essaouira,Essaouira Essaouira (M),0.688,direct
+07.211.01.07.,Talmest (Mun.),Essaouira,Talmest (M),72110107,Commune de Talmest,Essaouira Talmest (M),0.615,direct
+07.211.01.09.,Tamanar (Mun.),Essaouira,Tamanar (M),72110109,Commune de Tamanar,Essaouira Tamanar (M),0.574,direct
+07.211.03.01.,Ait Said,Essaouira,Ait Said,72110901,Commune d'Ait Said,Essaouira Ait Said,0.495,direct
+07.211.03.03.,Aquermoud,Essaouira,Aquermoud,72110303,Commune d'Aquermoud,Essaouira Aquermoud,0.462,direct
+07.211.03.05.,Had Dra,Essaouira,Had Dra,72110305,Commune de Had Dra,Essaouira Had Dra,0.537,direct
+07.211.03.07.,Kechoula,Essaouira,Kechoula,72110907,Commune de Kechoula,Essaouira Kechoula,0.484,direct
+07.211.03.09.,Korimate,Essaouira,Korimate,72110909,Commune de Korimate,Essaouira Korimate,0.449,direct
+07.211.03.11.,Lagdadra,Essaouira,Lagdadra,72110911,Commune de Lagdadra,Essaouira Lagdadra,0.481,direct
+07.211.03.13.,Lahsinate,Essaouira,Lahsinate,72110913,Commune de Lahsinate,Essaouira Lahsinate,0.527,direct
+07.211.03.15.,Mejji,Essaouira,Mejji,72110915,Commune de Mejji,Essaouira Mejji,0.486,direct
+07.211.03.17.,Meskala,Essaouira,Meskala,72110917,Commune de Meskala,Essaouira Meskala,0.507,direct
+07.211.03.19.,Mouarid,Essaouira,Mouarid,72110919,Commune de Mouarid,Essaouira Mouarid,0.418,direct
+07.211.03.21.,Moulay Bouzarqtoune,Essaouira,Moulay Bouzarqtoune,72110321,Commune de Moulay Bouzarqtoune,Essaouira Moulay Bouzarqtoune,0.555,direct
+07.211.03.23.,Mzilate,Essaouira,Mzilate,72110923,Commune de Mzilate,Essaouira Mzilate,0.457,direct
+07.211.03.25.,M'Khalif,Essaouira,M'Khalif,72110325,Commune de M'khalif,Essaouira M'Khalif,0.508,direct
+07.211.03.27.,M'Ramer,Essaouira,M'Ramer,72110927,Commune de M'ramer,Essaouira M'Ramer,0.431,direct
+07.211.03.29.,Oulad M'Rabet,Essaouira,Oulad M'Rabet,72110929,Commune d'Oulad M'rabet,Essaouira Oulad M'Rabet,0.474,direct
+07.211.03.31.,Ounagha,Essaouira,Ounagha,72110331,Commune d'Ounagha,Essaouira Ounagha,0.466,direct
+07.211.03.33.,Sidi Abdeljalil,Essaouira,Sidi Abdeljalil,72110333,Commune de Sidi Abdeljalil,Essaouira Sidi Abdeljalil,0.492,direct
+07.211.03.35.,Sidi Aissa Regragui,Essaouira,Sidi Aissa Regragui,72110935,Commune de Sidi Aissa Regragui,Essaouira Sidi Aissa Regragui,0.412,direct
+07.211.03.37.,Sidi Ali El Korati,Essaouira,Sidi Ali El Korati,72110337,Commune de Sidi Ali El Korati,Essaouira Sidi Ali El Korati,0.475,direct
+07.211.03.39.,Sidi Boulaalam,Essaouira,Sidi Boulaalam,72110939,Commune de Sidi Boulaalam,Essaouira Sidi Boulaalam,0.478,direct
+07.211.03.41.,Sidi Ishaq,Essaouira,Sidi Ishaq,72110341,Commune de Sidi Ishaq,Essaouira Sidi Ishaq,0.413,direct
+07.211.03.43.,Sidi Laaroussi,Essaouira,Sidi Laaroussi,72110343,Commune de Sidi Laaroussi,Essaouira Sidi Laaroussi,0.451,direct
+07.211.03.45.,Sidi M'Hamed Ou Marzouq,Essaouira,Sidi M'Hamed Ou Marzouq,72110945,Commune de Sidi M'hamed Ou Marzouq,Essaouira Sidi M'Hamed Ou Marzouq,0.445,direct
+07.211.03.47.,Tafetachte,Essaouira,Tafetachte,72110947,Commune de Tafetachte,Essaouira Tafetachte,0.482,direct
+07.211.03.49.,Takate,Essaouira,Takate,72110349,Commune de Takate,Essaouira Takate,0.423,direct
+07.211.03.51.,Zaouiat Ben Hmida,Essaouira,Zaouiat Ben Hmida,72110351,Commune de Zaouiat Ben Hmida,Essaouira Zaouiat Ben Hmida,0.553,direct
+07.211.05.01.,Adaghas,Essaouira,Adaghas,72110701,Commune d'Adaghas,Essaouira Adaghas,0.481,direct
+07.211.05.03.,Aglif,Essaouira,Aglif,72110703,Commune d'Aglif,Essaouira Aglif,0.419,direct
+07.211.05.05.,Aguerd,Essaouira,Aguerd,72110505,Commune d'Aguerd,Essaouira Aguerd,0.452,direct
+07.211.05.07.,Ait Aissi Ihahane,Essaouira,,72110507,Commune d'Ait Aissa Ihahane,Essaouira Ait Aissi Ihahane,0.407,direct
+07.211.05.09.,Assais,Essaouira,Assais,72110709,Commune d'Assais,Essaouira Assais,0.408,direct
+07.211.05.11.,Bizdad,Essaouira,Bizdad,72110711,Commune de Bizdad,Essaouira Bizdad,0.453,direct
+07.211.05.13.,Bouzemmour,Essaouira,Bouzemmour,72110713,Commune de Bouzemmour,Essaouira Bouzemmour,0.433,direct
+07.211.05.15.,Ezzaouite,Essaouira,Ezzaouite,72110715,Commune d'Ezzaouite,Essaouira Ezzaouite,0.399,direct
+07.211.05.17.,Ida Ou Aazza,Essaouira,Ida Ou Aazza,72110517,Commune d'Ida Ou Aazza,Essaouira Ida Ou Aazza,0.427,direct
+07.211.05.19.,Ida Ou Guelloul,Essaouira,Ida Ou Guelloul,72110519,Commune d'Ida Ou Guelloul,Essaouira Ida Ou Guelloul,0.531,direct
+07.211.05.21.,Ida Ou Kazzou,Essaouira,Ida Ou Kazzou,72110521,Commune d'Ida Ou Kazzou,Essaouira Ida Ou Kazzou,0.477,direct
+07.211.05.23.,Imgrade,Essaouira,Imgrade,72110523,Commune d'Imgrade,Essaouira Imgrade,0.45,direct
+07.211.05.25.,Imi N'Tlit,Essaouira,Imi-N'Tlit,72110525,Commune d'Imi-N'tlit,Essaouira Imi N'Tlit,0.471,direct
+07.211.05.27.,Sidi Ahmed Essayeh,Essaouira,Sidi Ahmed Essayeh,72110527,Commune de Sidi Ahmed Essayeh,Essaouira Sidi Ahmed Essayeh,0.474,direct
+07.211.05.29.,Sidi El Jazouli,Essaouira,Sidi El Jazouli,72110529,Commune de Sidi El Jazouli,Essaouira Sidi El Jazouli,0.432,direct
+07.211.05.31.,Sidi Ghaneme,Essaouira,Sidi Ghaneme,72110731,Commune de Sidi Ghaneme,Essaouira Sidi Ghaneme,0.418,direct
+07.211.05.33.,Sidi H'Mad Ou M'Barek,Essaouira,Sidi HMad  Ou M'Barek,72110533,Commune de Sidi Hmad Ou M'barek,Essaouira Sidi H'Mad Ou M'Barek,0.466,direct
+07.211.05.35.,Sidi Hmad Ou Hamed,Essaouira,Sidi H'mad Ou Hamed,72110535,Commune de Sidi H'mad Ou Hamed,Essaouira Sidi Hmad Ou Hamed,0.356,direct
+07.211.05.37.,Sidi Kaouki,Essaouira,Sidi Kaouki,72110537,Commune de Sidi Kaouki,Essaouira Sidi Kaouki,0.555,direct
+07.211.05.39.,Smimou,Essaouira,Smimou,72110539,Commune de Smimou,Essaouira Smimou,0.489,direct
+07.211.05.41.,Tafedna,Essaouira,Tafedna,72110541,Commune de Tafedna,Essaouira Tafedna,0.533,direct
+07.211.05.43.,Tahelouante,Essaouira,Tahelouante,72110743,Commune de Tahelouante,Essaouira Tahelouante,0.378,direct
+07.211.05.45.,Takoucht,Essaouira,Takoucht,72110745,Commune de Takoucht,Essaouira Takoucht,0.434,direct
+07.211.05.47.,Targante,Essaouira,Targante,72110547,Commune de Targante,Essaouira Targante,0.501,direct
+07.211.05.49.,Tidzi,Essaouira,Tidzi,72110549,Commune de Tidzi,Essaouira Tidzi,0.435,direct
+07.211.05.51.,Timizguida-Ouftas,Essaouira,,72110551,Commune de Timzguida-Ouftas,Essaouira Timizguida Ouftas,0.514,direct
+07.351.01.01.,Méchouar-Kasba (Mun.),Marrakech,Méchouar-Kasba (M),73510101,Commune de Méchouar-Kasba,Marrakech Méchouar Kasba (M),0.68,direct
+07.351.01.03.,Annakhil (Arrond.),Marrakech,,73510103,Arrondissement d'Annakhil,Marrakech Annakhil (AR),0.602,fuzzy
+07.351.01.05.,Gueliz (Arrond.),Marrakech,,73510105,Arrondissement de Gueliz,Marrakech Gueliz (AR),0.75,fuzzy
+07.351.01.07.,Marrakech-Médina (Arrond.),Marrakech,,73510107,Arrondissement de Marrakech-Médina,Marrakech Marrakech-Médina (AR),0.649,fuzzy
+07.351.01.09.,Ménara (Arrond.),Marrakech,,73510109,Arrondissement de Ménara,Marrakech Ménara (AR),0.704,fuzzy
+07.351.01.11.,Sidi Youssef Ben Ali (Arrond.),Marrakech,,73510111,Arrondissement de Sidi Youssef Ben Ali,Marrakech Sidi Youssef Ben Ali (AR),0.65,fuzzy
+07.351.02.01.,Alouidane,Marrakech,Al ouidane,73510201,Commune d'Al Ouidane,Marrakech Alouidane,0.598,direct
+07.351.02.07.,Ouahat Sidi Brahim,Marrakech,Ouahat Sidi Brahim,73510207,Commune d'Ouahat Sidi Brahim,Marrakech Ouahat Sidi Brahim,0.609,direct
+07.351.02.09.,Oulad Hassoune,Marrakech,Oulad Hassoune,73510209,Commune d'Oulad Hassoune,Marrakech Oulad Hassoune,0.544,direct
+07.351.03.03.,Harbil,Marrakech,Harbil,73510303,Commune de Harbil,Marrakech Harbil,0.543,direct
+07.351.03.05.,M'Nabha,Marrakech,M'Nabha,73510305,Commune de M'nabha,Marrakech M'Nabha,0.463,direct
+07.351.03.11.,Ouled Dlim,Marrakech,Ouled Dlim,73510311,Commune d'Ouled Dlim,Marrakech Ouled Dlim,0.466,direct
+07.351.05.01.,Agafay,Marrakech,Agafay,73510501,Commune d'Agafay,Marrakech Agafay,0.516,direct
+07.351.05.03.,Ait Imour,Marrakech,Ait Imour,73510503,Commune d'Ait Imour,Marrakech Ait Imour,0.58,direct
+07.351.05.05.,Loudaya,Marrakech,Loudaya,73510505,Commune de Loudaya,Marrakech Loudaya (AC),0.612,fuzzy
+07.351.05.09.,Sid Zouine,Marrakech,Sid Zouine,73510509,Commune de Sid Zouine,Marrakech Sid Zouine,0.517,direct
+07.351.07.07.,Saada,Marrakech,Saada,73510707,Commune de Saada,Marrakech Saada,0.585,direct
+07.351.07.11.,Souihla,Marrakech,Souihla,73510711,Commune de Souihla,Marrakech Souihla,0.552,direct
+07.351.07.13.,Tassoultante,Marrakech,Tassoultante,73510113,Commune de Tassoultante,Marrakech Tassoultante,0.614,direct
+07.427.01.01.,Ben Guerir (Mun.),Rehamna,Ben Guerir (M),74270101,Commune de Ben Guerir,"Al Haouz Sidi Abdellah Ghiat (AC) 20,64 27,68 2,28 33,18 0,616 - El Kelaa Des Sraghna Ben Guerir (M)",0.634,direct
+07.427.01.17.,Sidi Bou Othmane (Mun.),Rehamna,Sidi Bou Othmane (M),74270117,Commune de Sidi Bou Othmane,El Kelaa Des Sraghna Sidi Bou Othmane,0.503,direct
+07.427.07.01.,Ait Hammou,Rehamna,Ait Hammou,74270701,Commune d'Ait Hammou,El Kelaa Des Sraghna Ait Hammou,0.48,direct
+07.427.07.03.,Ait Taleb,Rehamna,Ait Taleb,74270703,Commune d'Ait Taleb,El Kelaa Des Sraghna Ait Taleb,0.443,direct
+07.427.07.05.,Bouchane,Rehamna,Bouchane,74270705,Commune de Bouchane,El Kelaa Des Sraghna Bouchane,0.507,direct
+07.427.07.07.,Jaafra,Rehamna,Jaafra,74270707,Commune de Jaafra,El Kelaa Des Sraghna Jaafra,0.427,direct
+07.427.07.09.,Labrikiyne,Rehamna,Labrikiyne,74270709,Commune de Labrikiyne,El Kelaa Des Sraghna Labrikiyne,0.481,direct
+07.427.07.11.,Oulad Aamer Tizmarine,Rehamna,Oulad Aamer  Tizmarine,74270711,Commune d'Oulad Aamer Tizmarine,El Kelaa Des Sraghna Oulad Aamer Tizmarine,0.466,direct
+07.427.07.13.,Oulad Hassoune Hamri,Rehamna,Oulad Hassoune Hamri,74270713,Commune d'Oulad Hassoune Hamri,El Kelaa Des Sraghn Oulad Hassoune Hamri,0.5,direct
+07.427.07.15.,Sidi Abdallah,Rehamna,,74270715,Commune de Sidi Abdellah,El Kelaa Des Sraghna Sidi Abdallah,0.439,direct
+07.427.07.17.,Sidi Ali Labrahla,Rehamna,Sidi Ali Labrahla,74270717,Commune de Sidi Ali Labrahla,El Kelaa Des Sraghna Sidi Ali Labrahla,0.545,direct
+07.427.07.19.,Sidi Ghanem,Rehamna,Sidi Ghanem,74270719,Commune de Sidi Ghanem,,,
+07.427.07.21.,Sidi Mansour,Rehamna,Sidi Mansour,74270721,Commune de Sidi Mansour,El Kelaa Des Sraghna Sidi Mansour,0.442,direct
+07.427.07.23.,Skhour Rehamna,Rehamna,Skhour Rehamna,74270723,Commune de Skhour Rhamna,,,
+07.427.07.25.,Skoura Lhadra,Rehamna,Skoura Lhadra,74270725,Commune de Skoura Lhadra,El Kelaa Des Sraghna Skoura Lhadra,0.34,direct
+07.427.09.01.,Akarma,Rehamna,Akarma,74270901,Commune d'Akarma,El Kelaa Des Sraghn Akarma,0.486,direct
+07.427.09.03.,Bourrous,Rehamna,Bourrous,74270903,Commune de Bourrous,El Kelaa Des Sraghna Bourrous,0.506,direct
+07.427.09.05.,Jaidate,Rehamna,Jaidate,74270905,Commune de Jaidate,El Kelaa Des Sraghna Jaidate,0.503,direct
+07.427.09.06.,Jbilate,Rehamna,Jbilate,74270906,Commune de Jbilate,,,
+07.427.09.07.,Lamharra,Rehamna,Lamharra,74270907,Commune de Lamharra,El Kelaa Des Sraghna Lamharra,0.489,direct
+07.427.09.09.,Nzalat Laadam,Rehamna,Nzalat Laadam,74270909,Commune de Nzalat Laadam,El Kelaa Des Sraghna Nzalat Laadam,0.54,direct
+07.427.09.11.,Oulad Imloul,Rehamna,Oulad Imloul,74270911,Commune d'Oulad Imloul,El Kelaa Des Sraghna Oulad Imloul,0.516,direct
+07.427.09.13.,Ras Ain Rhamna,Rehamna,,74270913,Commune de Ras Ain Rhamna,El Kelaa Des Sraghna Ras Ain Rhamna,0.513,direct
+07.427.09.15.,Sidi Boubker,Rehamna,Sidi Boubker,74270915,Commune de Sidi Boubker,,,
+07.427.09.19.,Tlauh,Rehamna,Tlauh,74270919,Commune de Tlauh,El Kelaa Des Sraghna Tlauh,0.542,direct
+07.431.01.03.,Safi (Mun.),Safi,Safi (M),74310103,Commune de Safi,Safi Safi (M),0.703,direct
+07.431.01.09.,Jamaat Shaim (Mun.),Safi,Jamaat Shaim (M),74310109,Commune de Jamaat Shaim,Safi Jamaat Shaim (M),0.659,direct
+07.431.01.11.,Sebt Gzoula (Mun.),Safi,Sebt Gzoula (M),74310111,Commune de Sebt Gzoula,Safi Sebt Gzoula (M),0.644,direct
+07.431.03.01.,Bouguedra,Safi,Bouguedra,74310301,Commune de Bouguedra,Safi Bouguedra,0.567,direct
+07.431.03.02.,Chahda,Safi,Chahda,74310302,Commune de Chahda,,,
+07.431.03.03.,El Gouraani,Safi,El Gouraani,74310303,Commune d'El Gouraani,Safi El Gouraani,0.587,direct
+07.431.03.05.,Labkhati,Safi,Labkhati,74310305,Commune de Labkhati,Safi Labkhati,0.551,direct
+07.431.03.07.,Lahdar,Safi,Lahdar,74310307,Commune de Lahdar,Safi Lahdar,0.534,direct
+07.431.03.09.,Lamrasla,Safi,Lamrasla,74310309,Commune de Lamrasla,Safi Lamrasla,0.443,direct
+07.431.03.11.,Lamsabih,Safi,Lamsabih,74310311,Commune de Lamsabih,Safi Lamsabih,0.489,direct
+07.431.03.13.,Sidi Aissa,Safi,Sidi Aissa,74310313,Commune de Sidi Aissa,Safi Sidi Aissa,0.544,direct
+07.431.03.15.,Sidi Ettiji,Safi,Sidi Ettiji,74310315,Commune de Sidi Ettiji,Safi Sidi Ettiji,0.481,direct
+07.431.07.01.,Atouabet,Safi,Atouabet,74310701,Commune d'Atouabet,Safi Atouabet,0.52,direct
+07.431.07.03.,El Ghiate,Safi,El Ghiate,74310703,Commune d'El Ghiate,Safi El Ghiate,0.484,direct
+07.431.07.05.,Khatazakane,Safi,Khatazakane,74310705,Commune de Khatazakane,Safi Khatazakane,0.537,direct
+07.431.07.07.,Laamamra,Safi,Laamamra,74310707,Commune de Laamamra,Safi Laamamra,0.355,direct
+07.431.07.09.,Lamaachate,Safi,Lamaachate,74310709,Commune de Lamaachate,Safi Lamaachate,0.497,direct
+07.431.07.11.,Nagga,Safi,Nagga,74310711,Commune de Nagga,Safi Nagga,0.489,direct
+07.431.07.13.,Ouled Salmane,Safi,Ouled Salmane,74310713,Commune d'Ouled Salmane,Safi Oulad Salmane,0.475,fuzzy
+07.431.09.01.,Ayir,Safi,Ayir,74310901,Commune d'Ayir,Safi Ayir,0.519,direct
+07.431.09.03.,Dar Si Aissa,Safi,Dar Si Aissa,74310903,Commune de Dar Si Aissa,Safi Dar Si Aissa,0.525,direct
+07.431.09.05.,El Beddouza,Safi,El Beddouza,74310905,Commune d'El Beddouza,Safi El Beddouza,0.442,direct
+07.431.09.07.,Hrara,Safi,Hrara,74310907,Commune de Hrara,Safi Hrara,0.529,direct
+07.431.09.09.,Moul El Bergui,Safi,Moul El Bergui,74310909,Commune de Moul El Bergui,Safi Moul El Bergui,0.529,direct
+07.431.09.15.,Saadla,Safi,Saadla,74310915,Commune de Saadla,Safi Saadla,0.529,direct
+07.585.01.07.,Echemmaia (Mun.),Youssoufia,Echemmaia (M),75850107,Commune d'Echemmaia,Safi Echemmaia (M),0.67,direct
+07.585.01.13.,Youssoufia (Mun.),Youssoufia,Youssoufia (M),75850113,Commune de Youssoufia,Safi Youssoufia (M),0.683,direct
+07.585.05.07.,Ighoud,Youssoufia,Ighoud,75850507,Commune d'Ighoud,Safi Ighoud,0.412,direct
+07.585.05.09.,Jdour,Youssoufia,Jdour,75850509,Commune de Jdour,,,
+07.585.05.11.,Jnane Bouih,Youssoufia,Jnane Bouih,75850511,Commune de Jnane Bouih,Safi Jnane Bouih,0.444,direct
+07.585.05.17.,Sidi Chiker,Youssoufia,Sidi Chiker,75850517,Commune de Sidi Chiker,Safi Sidi Chiker,0.436,direct
+07.585.07.01.,Atiamim,Youssoufia,Atiamim,75850701,Commune d'Atiamim,Safi Atiamim,0.507,direct
+07.585.07.03.,El Gantour,Youssoufia,El Gantour,75850703,Commune d'El Gantour,Safi El Gantour,0.519,direct
+07.585.07.05.,Esbiaat,Youssoufia,Esbiaat,75850705,Commune d'Esbiaat,Safi Esbiaat,0.501,direct
+07.585.07.13.,Lakhoualqa,Youssoufia,Lakhoualqa,75850713,Commune de Lakhoualqa,Safi Lakhoualqa,0.462,direct
+07.585.07.15.,Ras El Ain,Youssoufia,Ras El Ain,75850715,Commune de Ras El Ain,,,
+08.201.01.01.,Arfoud (Mun.),Errachidia,Arfoud (M),82010101,Commune d'Arfoud,Errachidia Arfoud (M),0.7,direct
+08.201.01.03.,Boudnib (Mun.),Errachidia,Boudnib (M),82010103,Commune de Boudnib,Errachidia Boudnib (M),0.69,direct
+08.201.01.05.,Errachidia (Mun.),Errachidia,Errachidia (M),82010105,Commune d'Errachidia,"Ifrane Tigrigra 8,63 13,47 1,11 46,67 0,622 0,578356 Errachidia Errachidia (M)",0.717,direct
+08.201.01.09.,Goulmima (Mun.),Errachidia,Goulmima (M),82010109,Commune de Goulmima,"Khenifra Ait Saadelli 13,44 18,09 1,72 42,46 0,493 0,344262 Khenifra Itzer 13,38 17,21 1,78 45,85 0,545 0,413043 Errachidia Goulmima (M)",0.671,direct
+08.201.01.11.,Jorf (Mun.),Errachidia,Jorf (M),82010111,Commune de Jorf,Errachidia Jorf (M),0.603,direct
+08.201.01.13.,Moulay Ali Cherif (Mun.),Errachidia,Moulay Ali Cherif(M),82010113,Commune de Moulay Ali Cherif,Errachidia Moulay Ali Cherif(M),0.654,direct
+08.201.01.15.,Tinejdad (Mun.),Errachidia,Tinejdad (M),82010115,Commune de Tinejdad,Errachidia Tinejdad (M),0.649,direct
+08.201.03.01.,Aarab Sebbah Gheris,Errachidia,Aarab Sebbah Gheris,82010301,Commune d'Aarab Sebbah Gheris,Errachidia Aarab Sebbah Gheris,0.553,direct
+08.201.03.03.,Aarab Sebbah Ziz,Errachidia,Aarab Sebbah Ziz,82010303,Commune d'Aarab Sebbah Ziz,Errachidia Aarab Sebbah Ziz,0.615,direct
+08.201.03.07.,Es-sifa,Errachidia,Es-sifa,82010307,Commune d'Es-Sifa,Errachidia Es-sifa,0.516,direct
+08.201.03.09.,Fezna,Errachidia,Fezna,82010309,Commune de Fezna,,,
+08.201.07.01.,Aoufous,Errachidia,Aoufous,82010701,Commune d'Aoufous,Errachidia Aoufous,0.61,direct
+08.201.07.03.,Chorfa M'Daghra,Errachidia,Chorfa M'Daghra,82010703,Commune de Chorfa M'daghra,Errachidia Chorfa M'Daghra,0.619,direct
+08.201.07.05.,Er-rteb,Errachidia,Er-rteb,82010705,Commune d'Er-Rteb,Errachidia Er-rteb,0.591,direct
+08.201.07.07.,Lkheng,Errachidia,Lkheng,82010707,Commune de Lkheng,Errachidia Lkheng,0.625,direct
+08.201.07.09.,Oued Naam,Errachidia,Oued Naam,82010709,Commune d'Oued Naam,Errachidia Oued Naam,0.596,direct
+08.201.11.01.,Bni M'Hamed-Sijelmassa,Errachidia,Bni M'Hamed-Sijelmassa,82011101,Commune de Bni M'hamed-Sijelmassa,Errachidia Bni M'Hamed Sijelmassa,0.56,direct
+08.201.11.03.,Er-rissani,Errachidia,Er-rissani,82011103,Commune d'Er-Rissani,Errachidia Er-rissani,0.327,direct
+08.201.11.05.,Es-sfalat,Errachidia,Es-sfalat,82011105,Commune d'Es-Sfalat,Errachidia Es-sfalat,0.551,direct
+08.201.11.07.,Et-taous,Errachidia,Et-taous,82011107,Commune d'Et-Taous,Errachidia Et-taous,0.551,direct
+08.201.11.09.,Sidi Ali,Errachidia,Sidi Ali,82011109,Commune de Sidi Ali,Errachidia Sidi Ali,0.351,direct
+08.201.13.01.,Aghbalou N'Kerdous,Errachidia,Aghbalou-N'Kerdous,82011501,Commune d'Aghbalou-N'kerdous,,,
+08.201.13.02.,Amellagou,Errachidia,Amellagou,82011302,Commune d'Amellagou,Errachidia Amellagou,0.53,direct
+08.201.13.03.,Ferkla El Oulia,Errachidia,Ferkla El Oulia,82011503,Commune de Ferkla El Oulia,Errachidia Ferkla El Oulia,0.58,direct
+08.201.13.05.,Ferkla Es-soufla,Errachidia,Ferkla Es-soufla,82011505,Commune de Ferkla Es-Soufla,Errachidia Ferkla Es-soufla,0.531,direct
+08.201.13.07.,Gheris El Ouloui,Errachidia,Gheris El Ouloui,82011307,Commune de Gheris El Ouloui,Errachidia Gheris El Ouloui,0.518,direct
+08.201.13.09.,Gheris Es-soufli,Errachidia,Gheris Es-soufli,82011309,Commune de Gheris Es-Soufli,Errachidia Gheris Es-soufli,0.596,direct
+08.201.13.11.,Melaab,Errachidia,Melaab,82011511,Commune de Melaab,Errachidia Melaab,0.591,direct
+08.201.13.13.,Tadighoust,Errachidia,Tadighoust,82011313,Commune de Tadighoust,Errachidia Tadighoust,0.643,direct
+08.363.01.03.,Midelt (Mun.),Midelt,Midelt (M),83630103,Commune de Midelt,Khenifra Midelt (M),0.665,direct
+08.363.01.07.,Er-rich (Mun.),Midelt,Er-rich (M),83630107,Commune d'Er-Rich,Errachidia Er-rich (M),0.685,direct
+08.363.05.01.,Aghbalou,Midelt,Aghbalou,83630501,Commune d'Aghbalou,,,
+08.363.05.03.,Agoudim,Midelt,Agoudim,83631703,Commune d'Agoudim,Khenifra Agoudim,0.416,direct
+08.363.05.13.,Anemzi,Midelt,Anemzi,83631713,Commune d'Anemzi,Khenifra Anemzi,0.156,direct
+08.363.05.15.,Boumia,Midelt,Boumia,83630115,Commune de Boumia,Khenifra Boumia,0.465,direct
+08.363.05.21.,Sidi Yahya Ou Youssef,Midelt,Sidi Yahya Ou Youssef,83630521,Commune de Sidi Yahia Ou Youssef,Khenifra Sidi Yahya Ou Youssef,0.356,direct
+08.363.05.23.,Tanourdi,Midelt,Tanourdi,83630523,Commune de Tanourdi,Khenifra Tanourdi,0.507,direct
+08.363.05.25.,Tizi N'Ghachou,Midelt,Tizi N'Ghachou,83630525,Commune de Tizi N'ghachou,Khenifra Tizi N'Ghachou,0.399,direct
+08.363.05.27.,Tounfite,Midelt,Tounfite,83631727,Commune de Tounfite,Khenifra Tounfite,0.422,direct
+08.363.07.05.,Ait Ayach,Midelt,Ait Ayach,83630705,Commune d'Ait Ayach,,,
+08.363.07.07.,Ait Ben Yacoub,Midelt,Ait Ben Yacoub,83630707,Commune d'Ait Ben Yacoub,Khenifra Ait Ben Yacoub,0.54,direct
+08.363.07.09.,Ait Izdeg,Midelt,Ait Izdeg,83630709,Commune d'Ait Izdeg,,,
+08.363.07.11.,Amersid,Midelt,Amersid,83630711,Commune d'Amersid,Khenifra Amersid,0.482,direct
+08.363.07.17.,Itzer,Midelt,Itzer,83630717,Commune d'Itzer,Khenifra Itzer (AC),0.695,direct
+08.363.07.19.,Mibladen,Midelt,Mibladen,83630719,Commune de Mibladen,Khenifra Mibladen,0.533,direct
+08.363.07.29.,Zaida,Midelt,Zaida,83630729,Commune de Zaida,Khenifra Zaida,0.529,direct
+08.363.09.01.,En-nzala,Midelt,En-nzala,83630901,Commune d'En-Nzala,Errachidia En-nzala,0.483,direct
+08.363.09.03.,Gourrama,Midelt,Gourrama,83630903,Commune de Gourrama,Errachidia Gourrama (AC),0.617,direct
+08.363.09.05.,Guers Tiaallaline,Midelt,Guers Tiaallaline,83630905,Commune de Guers Tiaallaline,Errachidia Guers Tiaallaline,0.538,direct
+08.363.09.07.,Guir,Midelt,Guir,83630907,Commune de Guir,,,
+08.363.09.09.,M'Zizel,Midelt,M'Zizel,83630909,Commune de M'zizel,Errachidia M'Zizel,0.538,direct
+08.363.09.11.,Sidi Aayad,Midelt,Sidi Aayad,83630911,Commune de Sidi Aayad,Errachidia Sidi Aayad,0.565,direct
+08.363.09.13.,Zaouiat Sidi Hamza,Midelt,Zaouiat Sidi Hamza,83630913,Commune de Zaouiat Sidi Hamza,Errachidia Zaouiat Sidi Hamza,0.5,direct
+08.363.15.01.,Ait Yahya,Midelt,Ait Yahya,83631501,Commune d'Ait Yahya,Errachidia Ait Yahya,0.457,direct
+08.363.15.03.,Amouguer,Midelt,Amouguer,83631503,Commune d'Amouguer,Errachidia Amouguer,0.553,direct
+08.363.15.05.,Bou Azmou,Midelt,Bou-Azmou,83631505,Commune de Bou-Azmou,Errachidia Bou Azmou,0.366,direct
+08.363.15.07.,Imilchil,Midelt,Imilchil,83631507,Commune d'Imilchil,Errachidia Imilchil,0.399,direct
+08.363.15.09.,Outerbat,Midelt,Outerbat,83631509,Commune d'Outerbat,Errachidia Outerbat,0.447,direct
+08.401.01.07.,Ouarzazate (Mun.),Ouarzazate,Ouarzazate (M),84010107,Commune d'Ouarzazate,Ouarzazate Ouarzazate (M),0.758,direct
+08.401.01.09.,Taznakht (Mun.),Ouarzazate,Taznakht (M),84010109,Commune de Taznakht,Ouarzazate Taznakht (M),0.67,direct
+08.401.03.01.,Ait Zineb,Ouarzazate,Ait Zineb,84010301,Commune d'Ait Zineb,Ouarzazate Ait Zineb,0.613,direct
+08.401.03.03.,Amerzgane,Ouarzazate,Amerzgane,84010303,Commune d'Amerzgane,Ouarzazate Amerzgane,0.616,direct
+08.401.03.05.,Iznaguen,Ouarzazate,Iznaguen,84010305,Commune d'Iznaguen,Ouarzazate Aznaguen,0.486,fuzzy
+08.401.03.07.,Ighrem N'Ougdal,Ouarzazate,Ighrem N'Ougdal,84010307,Commune d'Ighrem N'ougdal,Ouarzazate Ighrem N'Ougdal,0.487,direct
+08.401.03.09.,Khouzama,Ouarzazate,Khouzama,84010309,Commune de Khouzama,Ouarzazate Khouzama,0.314,direct
+08.401.03.11.,Ouisselsate,Ouarzazate,Ouisselsate,84010311,Commune d'Ouisselsate,Ouarzazate Ouisselsate,0.573,direct
+08.401.03.13.,Siroua,Ouarzazate,Siroua,84010313,Commune de Siroua,Ouarzazate Siroua,0.394,direct
+08.401.03.15.,Telouet,Ouarzazate,Telouet,84010315,Commune de Telouet,Ouarzazate Telouet,0.493,direct
+08.401.03.17.,Tidli,Ouarzazate,,84010317,Commune de Tidili,Ouarzazate Tidli,0.478,direct
+08.401.07.01.,Ghassate,Ouarzazate,Ghassate,84010701,Commune de Ghassate,Ouarzazate Ghassate,0.491,direct
+08.401.07.03.,Idelsane,Ouarzazate,Idelsane,84010703,Commune d'Idelsane,Ouarzazate Idelsane,0.619,direct
+08.401.07.05.,Imi N'Oulaoune,Ouarzazate,Imi-N'Oulaoune,84010705,Commune d'Imi-N'oulaoune,Ouarzazate Imi N'Oulaoune,0.424,direct
+08.401.07.07.,Skoura Ahl El Oust,Ouarzazate,Skoura Ahl El Oust,84010707,Commune de Skoura Ahl El Oust,Ouarzazate Skoura Ahl El Oust,0.583,direct
+08.401.07.09.,Tarmigt,Ouarzazate,Tarmigt,84010709,Commune de Tarmigt,Ouarzazate Tarmigt,0.606,direct
+08.401.07.11.,Toundoute,Ouarzazate,Toundoute,84010711,Commune de Toundoute,Ouarzazate Toundoute,0.525,direct
+08.577.01.03.,Boumalne Dades (Mun.),Tinghir,Boumalne-Dades (M),85770103,Commune de Boumalne-Dades,Ouarzazate Boumalne Dades (M),0.632,direct
+08.577.01.05.,Kalaat M'Gouna (Mun.),Tinghir,Kalaat M'Gouna (M),85770105,Commune de Kalâat M'gouna,Ouarzazate Kalaat M'Gouna (M),0.63,direct
+08.577.01.11.,Tinghir (Mun.),Tinghir,Tinghir (M),85770111,Commune de Tinghir,Ouarzazate Tinghir (M),0.67,direct
+08.577.02.05.,Alnif,Tinghir,Alnif,85770205,Commune d'Alnif,Errachidia Alnif,0.562,direct
+08.577.02.11.,H'Ssyia,Tinghir,H'Ssyia,85770211,Commune de H'ssyia,Errachidia H'Ssyia,0.453,direct
+08.577.02.21.,M'Ssici,Tinghir,M'Ssici,85770221,Commune de M'ssici,Errachidia M'Ssici,0.587,direct
+08.577.03.01.,Ait Hani,Tinghir,Ait Hani,85770301,Commune d'Ait Hani,Errachidia Ait Hani,0.439,direct
+08.577.03.05.,Assoul,Tinghir,Assoul,85770305,Commune d'Assoul,Errachidia Assoul,0.512,direct
+08.577.05.03.,Ait Ouassif,Tinghir,Ait Ouassif,85770903,Commune d'Ait Ouassif,Ouarzazate Ait Ouassif,0.495,direct
+08.577.05.05.,Ait Sedrate JbelEl Oulia,Tinghir,Ait Sedrate Jbel  El Oulia,85770505,Commune d'Ait Sedrate Jbel El Oulia,Ouarzazate Ait Sedrate Jbel El Oulia,0.493,direct
+08.577.05.07.,Ait Sedrate JbelEL Soufla,Tinghir,,85770507,Commune d'Ait Sedrate Jebel Soufla,,,
+08.577.05.09.,Ait Sedrate Sahl Charkia,Tinghir,Ait Sedrate Sahl Charkia,85770909,Commune d'Ait Sedrate Sahl Charkia,Ouarzazate Ait Sedrate Sahl Charkia,0.543,direct
+08.577.05.11.,Ait Sedrate Sahl El Gharbia,Tinghir,Ait Sedrate Sahl El Gharbia,85770911,Commune d'Ait Sedrate Sahl El-Gharbia,,,
+08.577.05.13.,Ait Youl,Tinghir,Ait Youl,85770513,Commune d'Ait Youl,Ouarzazate Ait Youl,0.585,direct
+08.577.05.15.,Ighil N'Oumgoun,Tinghir,Ighil N'Oumgoun,85770915,Commune d'Ighil N'oumgoun,Ouarzazate Ighil N'Oumgoun,0.435,direct
+08.577.05.17.,Ikniouen,Tinghir,Ikniouen,85770517,Commune d'Ikniouen,Ouarzazate Ikniouen,0.487,direct
+08.577.05.21.,M'Semrir,Tinghir,M'Semrir,85770521,Commune de M'semrir,Ouarzazate M'Semrir,0.533,direct
+08.577.05.25.,Souk Lakhmis Dades,Tinghir,Souk Lakhmis Dades,85770925,Commune de Souk Lakhmis Dades,Ouarzazate Souk Lakhmis Dades,0.587,direct
+08.577.05.29.,Tilmi,Tinghir,Tilmi,85770529,Commune de Tilmi,Ouarzazate Tilmi,0.49,direct
+08.577.07.01.,Ait El Farsi,Tinghir,Ait El Farsi,85770701,Commune d'Ait El Farsi,Ouarzazate Ait El Farsi,0.552,direct
+08.577.07.19.,Imider,Tinghir,Imider,85770719,Commune d'Imider,Ouarzazate Imider,0.523,direct
+08.577.07.23.,Ouaklim,Tinghir,Ouaklim,85770723,Commune d'Ouaklim,Ouarzazate Ouaklim,0.47,direct
+08.577.07.27.,Taghzoute N'Ait Atta,Tinghir,Taghzoute N'Ait Atta,85770727,Commune de Taghzoute N'ait Atta,de la Ouarzazate Taghzoute N'Ait Atta,0.555,direct
+08.577.07.31.,Toudgha El Oulia,Tinghir,Toudgha El Oulia,85770731,Commune de Toudgha El Oulia,Ouarzazate Toudgha El Oulia,0.619,direct
+08.577.07.33.,Toudgha Essoufla,Tinghir,Toudgha Essoufla,85770733,Commune de Toudgha Essoufla,Ouarzazate Toudgha Essoufla,0.585,direct
+08.587.01.01.,Agdz (Mun.),Zagora,Agdz (M),85870101,Commune d'Agdz,Zagora Agdz (M),0.632,direct
+08.587.01.13.,Zagora (Mun.),Zagora,Zagora (M),85870113,Commune de Zagora,Zagora Zagora (M),0.669,direct
+08.587.03.01.,Afella N'Dra,Zagora,Afella N'Dra,85870301,Commune d'Afella N'dra,Zagora Afella N'Dra,0.533,direct
+08.587.03.03.,Afra,Zagora,Afra,85870303,Commune d'Afra,Zagora Afra,0.489,direct
+08.587.03.05.,Ait Boudaoud,Zagora,Ait Boudaoud,85871105,Commune d'Ait Boudaoud,Zagora Ait Boudaoud,0.562,direct
+08.587.03.07.,Ait Ouallal,Zagora,Ait Ouallal,85871107,Commune d'Ait Ouallal,Zagora Ait Ouallal,0.495,direct
+08.587.03.21.,Mezguita,Zagora,Mezguita,85870321,Commune de Mezguita,Zagora Mezguita,0.558,direct
+08.587.03.25.,N'Kob,Zagora,N'Kob,85871125,Commune de N'kob,Zagora N'Kob,0.492,direct
+08.587.03.27.,Oulad Yahia Lagraire,Zagora,Oulad Yahia Lagraire,85870327,Commune d'Oulad Yahia Lagraire,Zagora Oulad Yahia Lagraire,0.535,direct
+08.587.03.31.,Taghbalte,Zagora,Taghbalte,85871131,Commune de Taghbalte,Zagora Taghbalte,0.507,direct
+08.587.03.37.,Tamezmoute,Zagora,Tamezmoute,85870337,Commune de Tamezmoute,Zagora Tamezmoute,0.53,direct
+08.587.03.39.,Tansifte,Zagora,Tansifte,85870339,Commune de Tansifte,Zagora Tansifte,0.553,direct
+08.587.03.41.,Tazarine,Zagora,Tazarine,85871141,Commune de Tazarine,Zagora Tazarine,0.582,direct
+08.587.07.09.,Bleida,Zagora,Bleida,85870709,Commune de Bleida,de la Zagora Bleida,0.418,direct
+08.587.07.11.,Bni Zoli,Zagora,Bni Zoli,85870711,Commune de Bni Zoli,Zagora Bni Zoli,0.521,direct
+08.587.07.13.,Bouzeroual,Zagora,Bouzeroual,85870713,Commune de Bouzeroual,Zagora Bouzeroual,0.489,direct
+08.587.07.15.,Errouha,Zagora,Errouha,85870715,Commune d'Errouha,Zagora Errouha,0.468,direct
+08.587.07.29.,Taftechna,Zagora,Taftechna,85870729,Commune de Taftechna,Zagora Taftechna,0.52,direct
+08.587.07.43.,Ternata,Zagora,Ternata,85870743,Commune de Ternata,Zagora Ternata,0.532,direct
+08.587.07.45.,Tinzouline,Zagora,Tinzouline,85870745,Commune de Tinzouline,Zagora Tinzouline,0.517,direct
+08.587.09.17.,Fezouata,Zagora,Fezouata,85870917,Commune de Fezouata,Zagora Fezouata,0.523,direct
+08.587.09.19.,Ktaoua,Zagora,Ktaoua,85870919,Commune de Ktaoua,Zagora Ktaoua,0.548,direct
+08.587.09.23.,M'Hamid El Ghizlane,Zagora,M'Hamid El Ghizlane,85870923,Commune de M'hamid El Ghizlane,Zagora M'Hamid El Ghizlane,0.501,direct
+08.587.09.33.,Tagounite,Zagora,Tagounite,85870933,Commune de Tagounite,Zagora Tagounite,0.603,direct
+08.587.09.35.,Tamegroute,Zagora,Tamegroute,85870935,Commune de Tamegroute,Zagora Tamegroute,0.503,direct
+09.001.01.01.,Agadir (Mun.),Agadir-Ida -Ou-Tanane,Agadir (M),90010101,Commune d'Agadir,Agadir-Ida Ou Tanan Agadir (M),0.752,direct
+09.001.05.01.,Amskroud,Agadir-Ida -Ou-Tanane,Amskroud,90010501,Commune d'Amskroud,Agadir-Ida Ou Tanan Amskroud,0.534,direct
+09.001.05.09.,Drargua,Agadir-Ida -Ou-Tanane,Drargua,90010509,Commune de Drargua,Agadir-Ida Ou Tanan Drargua,0.508,direct
+09.001.05.11.,Idmine,Agadir-Ida -Ou-Tanane,Idmine,90010511,Commune d'Idmine,Agadir-Ida Ou Tanan Idmine,0.503,direct
+09.001.07.03.,Aourir,Agadir-Ida -Ou-Tanane,Aourir,90010703,Commune d'Aourir,AGADIR IDA OU TANANE Aourir (AC),0.64,direct
+09.001.07.05.,Aqesri,Agadir-Ida -Ou-Tanane,,90010705,Commune d'Aqsri,Agadir-Ida Ou Tanan Aqesri,0.516,direct
+09.001.07.07.,Aziar,Agadir-Ida -Ou-Tanane,Aziar,90010707,Commune d'Aziar,de la Agadir-Ida Ou Tanan Aziar,0.458,direct
+09.001.07.13.,Imouzzer,Agadir-Ida -Ou-Tanane,Imouzzer,90010713,Commune d'Imouzzer,Agadir-Ida Ou Tanan Imouzzer,0.528,direct
+09.001.07.15.,Imsouane,Agadir-Ida -Ou-Tanane,Imsouane,90010715,Commune d'Imsouane,Agadir-Ida Ou Tanan Imsouane,0.541,direct
+09.001.07.21.,Tadrart,Agadir-Ida -Ou-Tanane,Tadrart,90010721,Commune de Tadrart,Agadir-Ida Ou Tanan Tadrart,0.481,direct
+09.001.07.23.,Taghazout,Agadir-Ida -Ou-Tanane,Taghazout,90010723,Commune de Taghazout,Agadir-Ida Ou Tanan Taghazout,0.6,direct
+09.001.07.25.,Tamri,Agadir-Ida -Ou-Tanane,Tamri,90010725,Commune de Tamri,Agadir-Ida Ou Tanan Tamri,0.503,direct
+09.001.07.29.,Tiqqi,Agadir-Ida -Ou-Tanane,Tiqqi,90010729,Commune de Tiqqi,Agadir-Ida Ou Tanan Tiqqi,0.5,direct
+09.163.01.03.,Ait Baha (Mun.),Chtouka- Ait Baha,Ait Baha  (M),91630103,Commune d'Ait Baha,Chtouka- Ait Baha Ait Baha (M),0.615,direct
+09.163.01.11.,Biougra (Mun.),Chtouka- Ait Baha,Biougra  (M),91630111,Commune de Biougra,Chtouka- Ait Baha Biougra (M),0.66,direct
+09.163.03.05.,Ait Mzal,Chtouka- Ait Baha,Ait Mzal,91630305,Commune d'Ait Mzal,Chtouka- Ait Baha Ait Mzal,0.502,direct
+09.163.03.07.,Ait Ouadrim,Chtouka- Ait Baha,Ait Ouadrim,91630307,Commune d'Ait Ouadrim,Chtouka- Ait Baha Ait Ouadrim,0.493,direct
+09.163.03.09.,Aouguenz,Chtouka- Ait Baha,Aouguenz,91630309,Commune d'Aouguenz,Chtouka- Ait Baha Aouguenz,0.448,direct
+09.163.03.13.,Hilala,Chtouka- Ait Baha,Hilala,91630313,Commune de Hilala,Chtouka- Ait Baha Hilala,0.448,direct
+09.163.03.15.,Ida Ougnidif,Chtouka- Ait Baha,Ida-Ougnidif,91630315,Commune d'Ida-Ougnidif,Chtouka- Ait Baha Ida Ougnidif,0.517,direct
+09.163.03.25.,Sidi AbdallahEl Bouchouari,Chtouka- Ait Baha,Sidi Abdallah  El Bouchouari,91630325,Commune de Sidi Abdallah El Bouchouari,Chtouka- Ait Baha Sidi Abdallah El Bouchoua,0.415,fuzzy
+09.163.03.33.,Tanalt,Chtouka- Ait Baha,Tanalt,91630333,Commune de Tanalt,Chtouka- Ait Baha Tanalt,0.506,direct
+09.163.03.35.,Targua Ntouchka,Chtouka- Ait Baha,Targua-Ntouchka,91630335,Commune de Targua-Ntouchka,Chtouka- Ait Baha Targua Ntouchka,0.512,direct
+09.163.03.37.,Tassegdelt,Chtouka- Ait Baha,Tassegdelt,91630337,Commune de Tassegdelt,Chtouka- Ait Baha Tassegdelt,0.426,direct
+09.163.03.39.,Tizi Ntakoucht,Chtouka- Ait Baha,Tizi Ntakoucht,91630339,Commune de Tizi Ntakoucht,Chtouka- Ait Baha Tizi Ntakoucht,0.49,direct
+09.163.05.03.,Ait Milk,Chtouka- Ait Baha,Ait Milk,91630503,Commune d'Ait Milk,Chtouka- Ait Baha Ait Milk,0.557,direct
+09.163.05.11.,Belfaa,Chtouka- Ait Baha,Belfaa,91630511,Commune de Belfaâ,Chtouka- Ait Baha Belfaa,0.613,direct
+09.163.05.19.,Inchaden,Chtouka- Ait Baha,Inchaden,91630519,Commune d'Inchaden,Chtouka- Ait Baha Inchaden,0.591,direct
+09.163.05.21.,Massa,Chtouka- Ait Baha,Massa,91630521,Commune de Massa,Chtouka- Ait Baha Massa,0.636,fuzzy
+09.163.05.31.,Sidi Ouassay,Chtouka- Ait Baha,Sidi Ouassay,91630531,Commune de Sidi Ouassay,Chtouka- Ait Baha Sidi Ouassay,0.659,direct
+09.163.07.01.,Ait Amira,Chtouka- Ait Baha,Ait Amira,91630101,Commune d'Ait Amira,Chtouka- Ait Baha Ait Amira,0.569,direct
+09.163.07.17.,Imi Mqourn,Chtouka- Ait Baha,Imi-Mqourn,91630717,Commune d'Imi-Mqourn,Chtouka- Ait Baha Imi Mqourn,0.518,direct
+09.163.07.23.,Ouad Essafa,Chtouka- Ait Baha,Ouad Essafa,91630723,Commune d'Oued Essafa,Chtouka- Ait Baha Ouad Essafa,0.587,direct
+09.163.07.27.,Sidi Bibi,Chtouka- Ait Baha,Sidi Bibi,91630127,Commune de Sidi Bibi,Chtouka- Ait Baha Sidi Bibi,0.59,direct
+09.163.07.29.,Sidi Boushab,Chtouka- Ait Baha,Sidi Boushab,91630729,Commune de Sidi Boushab,Chtouka- Ait Baha Sidi Boushab,0.53,direct
+09.273.01.05.,Ait Melloul (Mun.),Inezgane- Ait Melloul,Ait Melloul  (M),92730105,Commune d'Ait Melloul,de la Inezgane- Ait Mellou Ait Melloul (M),0.692,direct
+09.273.01.13.,Dcheira El Jihadia (Mun.),Inezgane- Ait Melloul,Dcheira El Jihadia   (M),92730113,Commune de Dcheira El Jihadia,Inezgane- Ait Mellou Dcheira El Jihadia (M),0.726,direct
+09.273.01.15.,Inezgane (Mun.),Inezgane- Ait Melloul,Inezgane     (M),92730115,Commune d'Inezgane,Inezgane- Ait Mellou Inezgane (M),0.689,direct
+09.273.01.17.,Lqliaa (Mun.),Inezgane- Ait Melloul,Lqliaa (M),92730117,Commune de Lqliaa,Inezgane ait melloul Lqliaa (AC),0.633,direct
+09.273.05.19.,Oulad Dahou,Inezgane- Ait Melloul,Oulad Dahou,92730519,Commune d'Oulad Dahou,Inezgane- Ait Melloul Oulad Dahou,0.585,direct
+09.273.05.27.,Temsia,Inezgane- Ait Melloul,Temsia,92730527,Commune de Temsia,Inezgane Ait Melloul Temsia (AC),0.657,direct
+09.541.01.01.,Ait Iaaza (Mun.),Taroudannt,Ait Iaaza (M),95410101,Commune d'Ait Iaaza,Taroudannt Ait Iaaza (M),0.663,direct
+09.541.01.02.,Aoulouz (Mun.),Taroudannt,Aoulouz  (M),95410102,Commune d'Aoulouz,Taroudannt Aoulouz,0.53,direct
+09.541.01.03.,El Guerdane (Mun.),Taroudannt,El Guerdane (M),95410103,Commune d'El Guerdane,Taroudannt El Guerdane (M),0.704,direct
+09.541.01.05.,Irherm (Mun.),Taroudannt,Irherm (M),95410105,Commune d'Irherm,Taroudannt Irherm (M),0.575,direct
+09.541.01.07.,Oulad Berhil (Mun.),Taroudannt,Oulad Berhil (M),95410107,Commune d'Oulad Berhil,Taroudannt Oulad Berhil (M),0.656,direct
+09.541.01.09.,Oulad Teima (Mun.),Taroudannt,Oulad Teima (M),95410109,Commune d'Oulad Teima,Taroudannt Oulad Teima (M),0.676,direct
+09.541.01.11.,Taliouine (Mun.),Taroudannt,Taliouine (M),95410111,Commune de Taliouine,Taroudannt Taliouine (M),0.575,direct
+09.541.01.13.,Taroudannt (Mun.),Taroudannt,Taroudannt (M),95410113,Commune de Taroudannt,Taroudannt Taroudannt (M),0.702,direct
+09.541.03.01.,Adar,Taroudannt,Adar,95410301,Commune d'Adar,de la Taroudannt Adar,0.502,fuzzy
+09.541.03.03.,Ait Abdallah,Taroudannt,Ait Abdallah,95410303,Commune d'Ait Abdallah,Taroudannt Ait Abdallah,0.445,direct
+09.541.03.05.,Amalou,Taroudannt,Amalou,95410305,Commune d'Amalou,Taroudannt Amalou,0.482,direct
+09.541.03.07.,Azaghar N'Irs,Taroudannt,Azaghar N'Irs,95410307,Commune d'Azaghar N'irs,Taroudannt Azaghar N'Irs,0.521,direct
+09.541.03.09.,Imaouen,Taroudannt,Imaouen,95410309,Commune d'Imaouen,Taroudannt Imaouen,0.474,direct
+09.541.03.11.,Imi N'Tayart,Taroudannt,Imi N'Tayart,95410311,Commune d'Imi N'tayart,Taroudannt Imi N'Tayart,0.542,direct
+09.541.03.13.,Nihit,Taroudannt,Nihit,95410313,Commune de Nihit,Taroudannt Nihit,0.545,direct
+09.541.03.15.,Oualqadi,Taroudannt,Oualqadi,95410315,Commune d'Oualqadi,Taroudannt Oualqadi,0.435,direct
+09.541.03.17.,Sidi Boaal,Taroudannt,Sidi Boaal,95410317,Commune de Sidi Boaal,Taroudannt Sidi Boaal,0.474,direct
+09.541.03.19.,Sidi Mzal,Taroudannt,Sidi Mzal,95410319,Commune de Sidi Mzal,Taroudannt Sidi Mzal,0.503,direct
+09.541.03.21.,Tabia,Taroudannt,Tabia,95410321,Commune de Tabia,Taroudannt Tabia,0.556,direct
+09.541.03.23.,Tataoute,Taroudannt,Tataoute,95410323,Commune de Tataoute,Taroudannt Tataoute,0.522,direct
+09.541.03.25.,Tindine,Taroudannt,Tindine,95410325,Commune de Tindine,Taroudannt Tindine,0.434,direct
+09.541.03.27.,Tisfane,Taroudannt,Tisfane,95410327,Commune de Tisfane,Taroudannt Tisfane,0.47,direct
+09.541.03.29.,Toufelaazt,Taroudannt,Toufelaazt,95410329,Commune de Toufelaazt,Taroudannt Toufelaazt,0.545,direct
+09.541.03.31.,Toumliline,Taroudannt,Toumliline,95410331,Commune de Toumliline,Taroudannt Toumliline,0.449,direct
+09.541.04.09.,Arazane,Taroudannt,Arazane,95410409,Commune d'Arazane,Taroudannt Arazane,0.509,direct
+09.541.04.13.,El Faid,Taroudannt,El Faid,95410413,Commune d'El Faid,Taroudannt El Faid,0.484,direct
+09.541.04.17.,Ida Ou Gailal,Taroudannt,Ida Ou Gailal,95410417,Commune d'Ida Ou Gailal,Taroudannt Ida Ou Gailal,0.49,direct
+09.541.04.21.,Ida Ougoummad,Taroudannt,Ida-Ougoummad,95410421,Commune d'Ida-Ougoummad,Taroudannt Ida Ougoummad,0.596,direct
+09.541.04.23.,Igli,Taroudannt,Igli,95410423,Commune d'Igli,Taroudannt Igli,0.602,direct
+09.541.04.25.,Igoudar Mnabha,Taroudannt,Igoudar Mnabha,95410425,Commune d'Igoudar Mnabha,Taroudannt Igoudar Mnabha,0.591,direct
+09.541.04.29.,Lamhara,Taroudannt,Lamhara,95410429,Commune de Lamhara,Taroudannt Lamhara,0.582,direct
+09.541.04.33.,Oulad Aissa,Taroudannt,Oulad Aissa,95410433,Commune d'Oulad Aissa,Taroudannt Oulad Aissa,0.612,direct
+09.541.04.35.,Ouneine,Taroudannt,Ouneine,95410435,Commune d'Ouneine,Taroudannt Ouneine,0.501,direct
+09.541.04.39.,Sidi Abdellah Ou Said,Taroudannt,Sidi Abdellah Ou Said,95410439,Commune de Sidi Abdellah Ou Said,Taroudannt Sidi Abdellah Ou Said,0.424,direct
+09.541.04.47.,Sidi Ouaaziz,Taroudannt,Sidi Ouaaziz,95410447,Commune de Sidi Ouaaziz,Taroudannt Sidi Ouaaziz,0.527,direct
+09.541.04.49.,Tafingoult,Taroudannt,Tafingoult,95410449,Commune de Tafingoult,Taroudannt Tafingoult,0.528,direct
+09.541.04.53.,Talgjount,Taroudannt,Talgjount,95410453,Commune de Talgjount,Taroudannt Talgjount,0.532,direct
+09.541.04.59.,Tigouga,Taroudannt,Tigouga,95410459,Commune de Tigouga,Taroudannt Tigouga,0.441,direct
+09.541.04.61.,Tinzart,Taroudannt,Tinzart,95410461,Commune de Tinzart,Taroudannt Tinzart,0.526,direct
+09.541.04.67.,Tizi N'Test,Taroudannt,Tizi N'Test,95410467,Commune de Tizi N'test,Taroudannt Tizi N'Test,0.417,direct
+09.541.04.69.,Toughmart,Taroudannt,Toughmart,95410469,Commune de Toughmart,Taroudannt Toughmart,0.492,direct
+09.541.05.01.,Ahl Ramel,Taroudannt,Ahl Ramel,95410501,Commune d'Ahl Ramel,Taroudannt Ahl Ramel,0.588,direct
+09.541.05.03.,Argana,Taroudannt,Argana,95411103,Commune d'Argana,Taroudannt Argana,0.523,direct
+09.541.05.05.,Assads,Taroudannt,Assads,95410505,Commune d'Assads,Taroudannt Assads,0.505,direct
+09.541.05.07.,Bigoudine,Taroudannt,Bigoudine,95411107,Commune de Bigoudine,Taroudannt Bigoudine,0.473,direct
+09.541.05.09.,Eddir,Taroudannt,Eddir,95411109,Commune d'Eddir,Taroudannt Eddir,0.503,direct
+09.541.05.11.,El Koudia El Beida,Taroudannt,El Koudia El Beida,95410511,Commune d'El Koudia El Beida,Taroudannt El Koudia El Beida,0.632,direct
+09.541.05.13.,Imilmaiss,Taroudannt,Imilmaiss,95411113,Commune d'Imilmaiss,Taroudannt Imilmaiss,0.362,direct
+09.541.05.15.,Issen,Taroudannt,Issen,95411115,Commune d'Issen,Taroudannt Issen,0.551,direct
+09.541.05.17.,Lagfifat,Taroudannt,Lagfifat,95410517,Commune de Lagfifat,Taroudannt Lagfifat,0.559,direct
+09.541.05.19.,Lakhnafif,Taroudannt,Lakhnafif,95410519,Commune de Lakhnafif,Taroudannt Lakhnafif,0.61,direct
+09.541.05.21.,Lamhadi,Taroudannt,Lamhadi,95410521,Commune de Lamhadi,Taroudannt Lamhadi,0.603,direct
+09.541.05.23.,Machraa El Ain,Taroudannt,Machraa El Ain,95410523,Commune de Machraa El Ain,Taroudannt Machraa El Ain,0.605,direct
+09.541.05.25.,Sidi Ahmed Ou Amar,Taroudannt,Sidi Ahmed Ou Amar,95410525,Commune de Sidi Ahmed Ou Amar,Taroudannt Sidi Ahmed Ou Amar,0.604,direct
+09.541.05.27.,Sidi Boumoussa,Taroudannt,Sidi Boumoussa,95410527,Commune de Sidi Boumoussa,Taroudannt Sidi Boumoussa,0.623,direct
+09.541.05.29.,Sidi Moussa Lhamri,Taroudannt,Sidi Moussa Lhamri,95411129,Commune de Sidi Moussa Lhamri,Taroudannt Sidi Moussa Lhamri,0.516,direct
+09.541.05.31.,Talmakante,Taroudannt,Talmakante,95411133,Commune de Talmakante,Taroudannt Talmakante,0.437,direct
+09.541.05.33.,Tidsi Nissendalene,Taroudannt,Tidsi-Nissendalene,95410533,Commune de Tidsi-Nissendalene,Taroudannt Tidsi Nissendalene,0.483,direct
+09.541.07.01.,Agadir Melloul,Taroudannt,Agadir Melloul,95410701,Commune d'Agadir Melloul,Taroudannt Agadir Melloul,0.463,direct
+09.541.07.03.,Ahl Tifnoute,Taroudannt,Ahl Tifnoute,95410703,Commune d'Ahl Tifnoute,Taroudannt Ahl Tifnoute,0.413,direct
+09.541.07.05.,Askaouen,Taroudannt,Askaouen,95410705,Commune d'Askaouen,Taroudannt Askaouen,0.468,direct
+09.541.07.07.,Assaisse,Taroudannt,Assaisse,95410707,Commune d'Assaisse,Taroudannt Assaisse,0.461,direct
+09.541.07.09.,Assaki,Taroudannt,Assaki,95410709,Commune d'Assaki,Taroudannt Assaki,0.541,direct
+09.541.07.11.,Azrar,Taroudannt,Azrar,95410711,Commune d'Azrar,Taroudannt Azrar,0.386,direct
+09.541.07.13.,Iguidi,Taroudannt,Iguidi,95410713,Commune d'Iguidi,Taroudannt Iguidi,0.527,direct
+09.541.07.15.,Sidi Hsaine,Taroudannt,Sidi Hsaine,95410715,Commune de Sidi Hsaine,Taroudannt Sidi Hsaine,0.499,direct
+09.541.07.17.,Taouyalte,Taroudannt,Taouyalte,95410717,Commune de Taouyalte,Taroudannt Taouyalte,0.482,direct
+09.541.07.19.,Tassousfi,Taroudannt,Tassousfi,95410719,Commune de Tassousfi,Taroudannt Tassousfi,0.532,direct
+09.541.07.21.,Tizgzaouine,Taroudannt,Tizgzaouine,95410721,Commune de Tizgzaouine,Taroudannt Tizgzaouine,0.512,direct
+09.541.07.23.,Toubkal,Taroudannt,Toubkal,95410723,Commune de Toubkal,Taroudannt Toubkal,0.414,direct
+09.541.07.25.,Zagmouzen,Taroudannt,Zagmouzen,95410725,Commune de Zagmouzen,Taroudannt Zagmouzen,0.453,direct
+09.541.07.37.,Ouzioua,Taroudannt,Ouzioua,95410737,Commune d'Ouzioua,Taroudannt Ouzioua,0.482,direct
+09.541.07.65.,Tisrasse,Taroudannt,Tisrasse,95410765,Commune de Tisrasse,Taroudannt Tisrasse,0.475,direct
+09.541.09.01.,Ahmar Laglalcha,Taroudannt,Ahmar Laglalcha,95411101,Commune d'Ahmar Laglalcha,Taroudannt Ahmar Laglalcha,0.583,direct
+09.541.09.03.,Ait Igas,Taroudannt,Ait Igas,95410903,Commune d'Ait Igas,Taroudannt Ait Igas,0.561,direct
+09.541.09.05.,Ait Makhlouf,Taroudannt,Ait Makhlouf,95410905,Commune d'Ait Makhlouf,Taroudannt Ait Makhlouf,0.508,direct
+09.541.09.11.,Bounrar,Taroudannt,Bounrar,95410911,Commune de Bounrar,Taroudannt Bounrar,0.489,direct
+09.541.09.15.,Freija,Taroudannt,Freija,95410915,Commune de Freija,Taroudannt Freija,0.515,direct
+09.541.09.19.,Ida Ou Moumen,Taroudannt,Ida Ou Moumen,95411119,Commune d'Ida Ou Moumen,Taroudannt Ida Ou Moumen,0.548,direct
+09.541.09.27.,Imoulass,Taroudannt,Imoulass,95410927,Commune d'Imoulass,Taroudannt Imoulass,0.499,direct
+09.541.09.31.,Lamnizla,Taroudannt,Lamnizla,95411131,Commune de Lamnizla,Taroudannt Lamnizla,0.567,direct
+09.541.09.41.,Sidi Ahmed Ou Abdallah,Taroudannt,Sidi Ahmed Ou Abdallah,95410941,Commune de Sidi Ahmed Ou Abdallah,Taroudannt Sidi Ahmed Ou Abdallah,0.482,direct
+09.541.09.43.,Sidi Borja,Taroudannt,Sidi Borja,95410943,Commune de Sidi Borja,Taroudannt Sidi Borja,0.55,direct
+09.541.09.45.,Sidi Dahmane,Taroudannt,Sidi Dahmane,95410945,Commune de Sidi Dahmane,Taroudannt Sidi Dahmane,0.597,direct
+09.541.09.51.,Tafraouten,Taroudannt,Tafraouten,95410951,Commune de Tafraouten,Taroudannt Tafraouten,0.477,direct
+09.541.09.55.,Tamaloukte,Taroudannt,Tamaloukte,95410955,Commune de Tamaloukte,Taroudannt Tamaloukte,0.554,direct
+09.541.09.57.,Tazemmourt,Taroudannt,Tazemmourt,95410957,Commune de Tazemmourt,Taroudannt Tazemmourt,0.565,direct
+09.541.09.63.,Tiout,Taroudannt,Tiout,95410963,Commune de Tiout,Taroudannt Tiout,0.553,direct
+09.541.09.71.,Zaouia Sidi Tahar,Taroudannt,Zaouia Sidi Tahar,95411171,Commune de Zaouia Sidi Tahar,Taroudannt Zaouia Sidi Tahar,0.601,direct
+09.551.01.01.,Akka (Mun.),Tata,Akka (M),95510101,Commune d'Akka,Tata Akka (M),0.632,direct
+09.551.01.03.,Fam El Hisn (Mun.),Tata,Fam El Hisn (M),95510103,Commune de Fam El Hisn,Tata Fam El Hisn (M),0.62,direct
+09.551.01.05.,Foum Zguid (Mun.),Tata,Foum Zguid (M),95510105,Commune de Foum Zguid,Tata Foum Zguid (M),0.611,direct
+09.551.01.07.,Tata (Mun.),Tata,Tata (M),95510107,Commune de Tata,Tata Tata (M),0.668,direct
+09.551.03.01.,Ait Ouabelli,Tata,Ait Ouabelli,95510301,Commune d'Ait Ouabelli,Tata Ait Ouabelli,0.608,direct
+09.551.03.03.,Kasbat Sidi Abdellah Ben M'Barek,Tata,Kasbat Sidi Abdellah Ben M'Barek,95510303,Commune de Kasbat Sidi Abdellah Ben M'barek,Tata Kasbat Sidi Abdellah Ben M.,0.54,fuzzy
+09.551.03.05.,Tamanarte,Tata,Tamanarte,95510305,Commune de Tamanarte,Tata Tamanarte,0.528,direct
+09.551.03.07.,Tizounine,Tata,Tizounine,95510307,Commune de Tizounine,Tata Tizounine,0.606,direct
+09.551.05.01.,Aguinane,Tata,Aguinane,95510501,Commune d'Aguinane,Tata Aguinane,0.616,direct
+09.551.05.03.,Akka Ighane,Tata,Akka-Ighane,95510503,Commune d'Akka-Ighane,Tata Akka Ighane,0.512,direct
+09.551.05.05.,Allougoum,Tata,Allougoum,95510505,Commune d'Allougoum,Tata Allougoum,0.502,direct
+09.551.05.07.,Ibn Yacoub,Tata,Ibn Yacoub,95510507,Commune d'Ibn Yacoub,Tata Ibn Yacoub,0.496,direct
+09.551.05.09.,Tissint,Tata,Tissint,95510509,Commune de Tissint,Tata Tissint,0.542,direct
+09.551.05.11.,Tlite,Tata,Tlite,95510511,Commune de Tlite,Tata Tlite,0.507,direct
+09.551.07.01.,Adis,Tata,Adis,95510701,Commune d'Adis,Tata Adis,0.647,direct
+09.551.07.03.,Issafen,Tata,Issafen,95510703,Commune d'Issafen,Tata Issafen,0.59,direct
+09.551.07.05.,Oum El Guerdane,Tata,Oum El Guerdane,95510705,Commune d'Oum El Guerdane,Tata Oum El Guerdane,0.592,direct
+09.551.07.07.,Tagmout,Tata,Tagmout,95510707,Commune de Tagmout,Tata Tagmout,0.559,direct
+09.551.07.09.,Tigzmerte,Tata,Tigzmerte,95510709,Commune de Tigzmerte,Tata Tigzmerte,0.638,direct
+09.551.07.11.,Tizaghte,Tata,Tizaghte,95510711,Commune de Tizaghte,Tata Tizaghte,0.582,direct
+09.581.01.05.,Tafraout (Mun.),Tiznit,Tafraout (M),95810105,Commune de Tafraout,Tiznit Tafraout (M),0.64,direct
+09.581.01.07.,Tiznit (Mun.),Tiznit,Tiznit (M),95810107,Commune de Tiznit,Tiznit Tiznit (M),0.757,direct
+09.581.03.01.,Ait Issafen,Tiznit,Ait Issafen,95810301,Commune d'Ait Issafen,Tiznit Ait Issafen,0.511,direct
+09.581.03.03.,Anzi,Tiznit,Anzi,95810303,Commune d'Anzi,Tiznit Anzi,0.551,direct
+09.581.03.05.,Arbaa Ait Ahmed,Tiznit,Arbaa Ait Ahmed,95810305,Commune d'Arbaa Ait Ahmed,Tiznit Arbaa Ait Ahmed,0.554,direct
+09.581.03.07.,Ida Ou Gougmar,Tiznit,Ida Ou Gougmar,95810307,Commune d'Ida Ou Gougmar,Tiznit Ida Ou Gougmar,0.544,direct
+09.581.03.09.,Sidi Ahmed Ou Moussa,Tiznit,Sidi Ahmed Ou Moussa,95810309,Commune de Sidi Ahmed Ou Moussa,Tiznit Sidi Ahmed Ou Moussa,0.608,direct
+09.581.03.11.,Tafraout El Mouloud,Tiznit,Tafraout El Mouloud,95810311,Commune de Tafraout El Mouloud,Tiznit Tafraout El Mouloud,0.481,direct
+09.581.03.13.,Tighmi,Tiznit,Tighmi,95810313,Commune de Tighmi,Tiznit Tighmi,0.569,direct
+09.581.03.15.,Tizoughrane,Tiznit,Tizoughrane,95810315,Commune de Tizoughrane,de la Tiznit Tizoughrane,0.474,direct
+09.581.03.17.,Tnine Aday,Tiznit,Tnine Aday,95810317,Commune de Tnine Aday,Tiznit Tnine Aday,0.557,direct
+09.581.09.01.,Afella Ighir,Tiznit,Afella Ighir,95810901,Commune d'Afella Ighir,Tiznit Afella Ighir,0.544,direct
+09.581.09.03.,Ait Ouafqa,Tiznit,Ait Ouafqa,95810903,Commune d'Ait Ouafqa,Tiznit Ait Ouafqa,0.508,direct
+09.581.09.05.,Ammelne,Tiznit,Ammelne,95810905,Commune d'Ammelne,Tiznit Ammelne,0.589,direct
+09.581.09.07.,Irigh N'Tahala,Tiznit,Irigh N'Tahala,95810907,Commune d'Irigh N'tahala,Tiznit Irigh N'Tahala,0.575,direct
+09.581.09.09.,Tarsouat,Tiznit,Tarsouat,95810909,Commune de Tarsouat,Tiznit Tarsouat,0.584,direct
+09.581.09.11.,Tassrirt,Tiznit,Tassrirt,95810911,Commune de Tassrirt,Tiznit Tassrirt,0.545,direct
+09.581.11.01.,Arbaa Rasmouka,Tiznit,Arbaa Rasmouka,95811101,Commune d'Arbaa Rasmouka,Tiznit Arbaa Rasmouka,0.573,direct
+09.581.11.03.,Arbaa Sahel,Tiznit,Arbaa Sahel,95811103,Commune d'Arbaa Sahel,Tiznit Arbaa Sahel,0.562,direct
+09.581.11.05.,Bounaamane,Tiznit,Bounaamane,95811105,Commune de Bounaamane,Tiznit Bounaamane,0.599,direct
+09.581.11.07.,El Maader El Kabir,Tiznit,El Maader El Kabir,95811107,Commune d'El Maader El Kabir,Tiznit El Maader El Kabir,0.646,direct
+09.581.11.09.,Ouijjane,Tiznit,Ouijjane,95811109,Commune d'Ouijjane,Tiznit Ouijjane,0.568,direct
+09.581.11.11.,Reggada,Tiznit,Reggada,95811111,Commune de Reggada,Tiznit Reggada,0.634,direct
+09.581.11.13.,Sidi Bouabdelli,Tiznit,Sidi Bouabdelli,95811113,Commune de Sidi Bouabdelli,Tiznit Sidi Bouabdelli,0.526,direct
+09.581.11.15.,Tnine Aglou,Tiznit,Tnine Aglou,95811115,Commune de Tnine Aglou,Tiznit Tnine Aglou,0.623,direct
+10.071.01.01.,Assa (Mun.),Assa-Zag,Assa (M),100710101,Commune d'Assa,Assa-Zag Assa (M),0.687,direct
+10.071.01.03.,Zag (Mun.),Assa-Zag,Zag (M),100710103,Commune de Zag,Assa-Zag Zag (M),0.729,direct
+10.071.03.01.,Aouint Lahna,Assa-Zag,Aouint Lahna,100710301,Commune d'Aouint Lahna,Assa-Zag Aouint Lahna,0.602,direct
+10.071.03.03.,Aouint Yghomane,Assa-Zag,Aouint Yghomane,100710303,Commune d'Aouint Yghomane,Assa-Zag Aouint Yghomane,0.651,direct
+10.071.03.05.,Touizgui,Assa-Zag,Touizgui,100710305,Commune de Touizgui,Assa-Zag Touizgui,0.553,direct
+10.071.05.01.,Al Mahbass,Assa-Zag,Al Mahbass,100710501,Commune d'Al Mahbass,Assa-Zag Al Mahbass,0.787,direct
+10.071.05.03.,Labouirat,Assa-Zag,Labouirat,100710503,Commune de Labouirat,Assa-Zag Labouirat,0.545,direct
+10.261.01.01.,Bouizakarne (Mun.),Guelmim,Bouizakarne (M),102610101,Commune de Bouizakarne,Guelmim Bouizakarne (M),0.711,direct
+10.261.01.03.,Guelmim (Mun.),Guelmim,Guelmim (M),102610103,Commune de Guelmim,Guelmim Guelmim (M),0.686,direct
+10.261.03.01.,Aday,Guelmim,Aday,102610301,Commune d'Aday,Guelmim Aday,0.632,direct
+10.261.03.03.,Ait Boufoulen,Guelmim,Ait Boufoulen,102610303,Commune d'Ait Boufoulen,Guelmim Ait Boufoulen,0.523,direct
+10.261.03.05.,Amtdi,Guelmim,Amtdi,102610305,Commune d'Amtdi,Guelmim Amtdi,0.564,direct
+10.261.03.07.,Ifrane Atlas Saghir,Guelmim,Ifrane Atlas Saghir,102610307,Commune d'Ifrane Atlas Saghir,Guelmim Ifrane Atlas Saghir,0.622,direct
+10.261.03.09.,Tagante,Guelmim,Tagante,102610309,Commune de Tagante,Guelmim Tagante,0.607,direct
+10.261.03.11.,Taghjijt,Guelmim,Taghjijt,102610311,Commune de Taghjijt,Guelmim Taghjijt,0.517,direct
+10.261.03.13.,Timoulay,Guelmim,Timoulay,102610313,Commune de Timoulay,Guelmim Timoulay,0.614,direct
+10.261.05.03.,Aferkat,Guelmim,Aferkat,102610503,Commune d'Aferkat,Guelmim Aferkat,0.508,direct
+10.261.05.05.,Asrir,Guelmim,Asrir,102610505,Commune d'Asrir,Guelmim Asrir,0.678,direct
+10.261.05.09.,Fask,Guelmim,Fask,102610509,Commune de Fask,Guelmim Fask,0.656,direct
+10.261.05.21.,Tiglit,Guelmim,Tiglit,102610521,Commune de Tiglit,Guelmim Tiglit,0.374,direct
+10.261.07.01.,Abaynou,Guelmim,Abaynou,102610701,Commune d'Abaynou,Guelmim Abaynou,0.656,direct
+10.261.07.07.,Echatea El Abied,Guelmim,Echatea El Abied,102610707,Commune d'Echatea El Abied,Guelmim Echatea El Abied,0.469,direct
+10.261.07.11.,Labyar,Guelmim,Labyar,102610711,Commune de Labyar,Guelmim Labyar,0.684,direct
+10.261.07.13.,Laqsabi Tagoust,Guelmim,Laqsabi Tagoust,102610713,Commune de Laqsabi Tagoust,Guelmim Laqsabi Tagoust,0.749,direct
+10.261.07.15.,Rass Oumlil,Guelmim,Rass Oumlil,102610715,Commune de Rass Oumlil,Guelmim Rass Oumlil,0.566,direct
+10.261.07.17.,Taliouine Assaka,Guelmim,Taliouine Assaka,102610717,Commune de Taliouine Assaka,Guelmim Taliouine Assaka,0.725,direct
+10.261.07.19.,Targa Wassay,Guelmim,Targa Wassay,102610719,Commune de Targa Wassay,Guelmim Targa Wassay,0.614,direct
+10.473.01.01.,Lakhsas (Mun.),Sidi Ifni,Lakhsas (M),104730101,Commune de Lakhsas,Tiznit Lakhsas (M),0.648,direct
+10.473.01.03.,Sidi Ifni (Mun.),Sidi Ifni,Sidi Ifni  (M),104730103,Commune de Sidi Ifni,Tiznit Sidi Ifni (M),0.705,direct
+10.473.05.01.,Arbaa Ait Abdellah,Sidi Ifni,Arbaa Ait Abdellah,104730501,Commune d'Arbaa Ait Abdellah,Tiznit Arbaa Ait Abdellah,0.5,direct
+10.473.05.03.,Imi N'Fast,Sidi Ifni,Imi-N'Fast,104730503,Commune d'Imi-N'fast,Tiznit Imi N'Fast,0.522,direct
+10.473.05.05.,Mesti,Sidi Ifni,Mesti,104730505,Commune de Mesti,Tiznit Mesti,0.553,direct
+10.473.05.07.,Mirleft,Sidi Ifni,Mirleft,104730107,Commune de Mirleft,Tiznit Mirleft,0.549,direct
+10.473.05.09.,Sbouya,Sidi Ifni,Sbouya,104730509,Commune de Sbouya,Tiznit Sbouya,0.584,direct
+10.473.05.11.,Tangarfa,Sidi Ifni,Tangarfa,104730511,Commune de Tangarfa,Tiznit Tangarfa,0.568,direct
+10.473.05.13.,Tioughza,Sidi Ifni,Tioughza,104730513,Commune de Tioughza,Tiznit Tioughza,0.5,direct
+10.473.05.15.,Tnine Amellou,Sidi Ifni,Tnine Amellou,104730515,Commune de Tnine Amellou,Tiznit Tnine Amellou,0.546,direct
+10.473.07.01.,Ait Erkha,Sidi Ifni,Ait Erkha,104730701,Commune d'Ait Erkha,Tiznit Ait Erkha,0.512,direct
+10.473.07.03.,Anfeg,Sidi Ifni,Anfeg,104730703,Commune d'Anfeg,Tiznit Anfeg,0.425,direct
+10.473.07.05.,Boutrouch,Sidi Ifni,Boutrouch,104730705,Commune de Boutrouch,Tiznit Boutrouch,0.529,direct
+10.473.07.07.,Ibdar,Sidi Ifni,,104730707,Commune d'Ibdar,Tiznit Ibdar,0.548,direct
+10.473.07.09.,Sebt Ennabour,Sidi Ifni,Sebt Ennabour,104730709,Commune de Sebt Ennabour,Tiznit Sebt Ennabour,0.532,direct
+10.473.07.11.,Sidi AbdallahOu Belaid,Sidi Ifni,,,,de la Tiznit Sidi Abdallah Ou Belaid,0.528,direct
+10.473.07.13.,Sidi H'Saine Ou Ali,Sidi Ifni,Sidi H'Saine Ou Ali,104730713,Commune de Sidi H'saine Ou Ali,Tiznit Sidi H'Saine Ou Ali,0.5,direct
+10.473.07.15.,Sidi M'Bark,Sidi Ifni,Sidi M'Bark,104730715,Commune de Sidi M'bark,Tiznit Sidi M'Bark,0.493,direct
+10.473.07.17.,Tighirt,Sidi Ifni,Tighirt,104730717,Commune de Tighirt,Tiznit Tighirt,0.535,direct
+10.521.01.01.,Tan Tan (Mun.),Tan-Tan,Tan-Tan (M),105210101,Commune de Tan-Tan,Tan-Tan Tan Tan (M),0.693,direct
+10.521.01.03.,El Ouatia (Mun.),Tan-Tan,El ouatia (M),105210103,Commune d'El Ouatia,Tan-Tan El Ouatia (M),0.871,direct
+10.521.03.01.,Msied,Tan-Tan,Msied,105210301,Commune de Msied,Tan-Tan Msied,0.488,direct
+10.521.03.03.,Tilemzoun,Tan-Tan,Tilemzoun,105210303,Commune de Tilemzoun,Tan-Tan Tilemzoun,0.46,direct
+10.521.05.01.,Abteh,Tan-Tan,Abteh,105210501,Commune d'Abteh,Tan-Tan Abteh,0.397,direct
+10.521.05.03.,Ben Khlil,Tan-Tan,Ben Khlil,105210503,Commune de Ben Khlil,Tan-Tan Ben Khlil,0.463,direct
+10.521.05.05.,Chbika,Tan-Tan,Chbika,105210505,Commune de Chbika,Tan-Tan Chbika,0.471,direct
+11.121.01.01.,Boujdour (Mun.),Boujdour,Boujdour (M),111210101,Commune de Boujdour,Boujdour Boujdour (M),0.687,direct
+11.121.03.01.,Gueltat Zemmour,Boujdour,Gueltat Zemmour,111210301,Commune de Gueltat Zemmour,Boujdour Gueltat Zemmour,0.434,direct
+11.121.03.03.,Jraifia,Boujdour,Jraifia,111210303,Commune de Jraifia,Boujdour Jraifia,0.578,direct
+11.121.03.05.,Lamssid,Boujdour,Lamssid,111210305,Commune de Lamssid,Boujdour Lamssid,0.628,direct
+11.221.01.01.,Es-semara (Mun.),Es-Semara,Es-semara (M),112210101,Commune d'Es-Semara,Es-Semara Es-semara (M),0.719,direct
+11.221.03.01.,Amgala,Es-Semara,Amgala,112210301,Commune d'Amgala,Es-Semara Amgala,0.826,direct
+11.221.03.03.,Haouza,Es-Semara,Haouza,112210303,Commune de Haouza,Es-Semara Haouza,0.635,direct
+11.221.03.05.,Jdiriya,Es-Semara,Jdiriya,112210305,Commune de Jdiriya,Es-Semara Jdiriya,0.656,direct
+11.221.03.07.,Sidi Ahmed Laaroussi,Es-Semara,Sidi Ahmed Laaroussi,112210307,Commune de Sidi Ahmed Laaroussi,Es-Semara Sidi Ahmed Laaroussi,0.473,direct
+11.221.03.09.,Tifariti,Es-Semara,Tifariti,112210309,Commune de Tifariti,Es-Semara Tifariti,0.751,direct
+11.321.01.01.,El Marsa (Mun.),Laâyoune,El Marsa (M),113210101,Commune d'El Marsa,Laayoune El Marsa (M),0.798,direct
+11.321.01.03.,Laayoune (Mun.),Laâyoune,Laâyoune (M),113210103,Commune de Laâyoune,Laayoune Laayoune (M),0.712,direct
+11.321.03.01.,Boukraa,Laâyoune,Boukraa,113210301,Commune de Boukraa,Laayoune Boukraa,0.684,direct
+11.321.03.03.,Dcheira,Laâyoune,Dcheira,113210303,Commune de Dcheira,Laayoune Dcheira,0.64,direct
+11.321.03.05.,Foum El Oued,Laâyoune,Foum El Oued,113210305,Commune de Foum El Oued,Laayoune Foum El Oued,0.738,direct
+11.537.01.05.,Tarfaya (Mun.),Tarfaya,Tarfaya (M),115370105,Commune de Tarfaya,Laayoune Tarfaya (M),0.676,direct
+11.537.03.03.,Daoura,Tarfaya,Daoura,115370303,Commune de Daoura,Laayoune Daoura,0.598,direct
+11.537.03.05.,El Hagounia,Tarfaya,El Hagounia,115370305,Commune d'El Hagounia,Laayoune El Hagounia,0.765,direct
+11.537.05.01.,Akhfennir,Tarfaya,Akhfennir,115370501,Commune d'Akhfennir,Laayoune Akhfennir,0.635,direct
+11.537.05.07.,Tah,Tarfaya,Tah,115370507,Commune de Tah,,,
+12.066.01.03.,Lagouira (Mun.),Aousserd,,120660103,Commune de Lagouira,Aousserd Lagouira (M),0.74,direct
+12.066.03.03.,Aghouinite,Aousserd,,120660303,Commune d'Aghouinite,Aousserd Aghouinite,0.698,direct
+12.066.03.05.,Aousserd,Aousserd,Aousserd,120660305,Commune d'Aousserd,Aousserd Aousserd,0.588,direct
+12.066.03.07.,Tichla,Aousserd,Tichla,120660307,Commune de Tichla,Aousserd Tichla,0.667,direct
+12.066.03.09.,Zoug,Aousserd,,120660309,Commune de Zoug,Aousserd Zoug,0.622,direct
+12.066.05.03.,Bir Gandouz,Aousserd,Bir Gandouz,120660503,Commune de Bir Gandouz,Aousserd Bir Gandouz,0.794,direct
+12.391.01.01.,Dakhla (Mun.),Oued Ed-Dahab,Dakhla (M),123910101,Commune de Dakhla,Oued-Ed-Dahab Dakhla (M),0.743,direct
+12.391.05.01.,Bir Anzarane,Oued Ed-Dahab,Bir Anzarane,123910501,Commune de Bir Anzarane,Oued-Ed-Dahab Bir Anzarane,0.713,direct
+12.391.05.03.,Gleibat El Foula,Oued Ed-Dahab,Gleibat El Foula,123910503,Commune de Gleibat El Foula,Oued-Ed-Dahab Gleibat El Foula,0.724,direct
+12.391.05.05.,Mijik,Oued Ed-Dahab,,123910505,Commune de Mijik,Oued-Ed-Dahab Mijik,0.675,direct
+12.391.05.07.,Oum Dreyga,Oued Ed-Dahab,Oum Dreyga,123910507,Commune d'Oum Dreyga,Oued-Ed-Dahab Oum Dreyga,0.647,direct
+12.391.09.01.,El Argoub,Oued Ed-Dahab,El Argoub,123910901,Commune d'El Argoub,Oued-Ed-Dahab El Argoub,0.814,direct
+12.391.09.03.,Imlili,Oued Ed-Dahab,Imlili,123910903,Commune d'Imlili,Oued-Ed-Dahab Imlili,0.772,direct
