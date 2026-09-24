@@ -117,6 +117,24 @@ Robustness checks should drop imputed rows; the flags make that a one-line filte
   Harhoura fall just outside that coarse outline; it is extended by 1 km around them.
 - Weights: queen contiguity on the cells, 1,497 units, mean 5.76 neighbours, no islands.
 
+## Validation
+
+`mc validate` writes `data/processed/validation.json` (tracked); `uv run pytest` checks it against the
+published tables.
+
+- **Population against the legal count.** HCP publishes each census's legal population per commune
+  separately from the indicator workbooks. In 2014, 992 of 1,534 comparable communes match exactly and the
+  median absolute difference is 0.0% (4 Oued Ed-Dahab communes carry "pm" in the legal list); in 2024, 639 of
+  1,503 match exactly, median 0.012%. The commune tables sum to 33,610,084 (2014) and 36,490,591 (2024)
+  against legal totals of 33,848,242 and 36,828,330. Legal population includes the *population comptée à part*
+  — people living collectively: military in barracks and camps, detainees, long-stay patients, boarders
+  ([HCP definitions](https://www.hcp.ma/region-meknes/Concepts-et-definitions-utilisees-dans-le-Recensement-General-de-la-Population-et-de-l-Habitat-2014_a124.html)).
+  The largest shortfalls are consistent with that: Saharan communes (Al Mahbass 582 against 19,139 in
+  2024) and large cities. Use the legal population, not `population14`/`population24`, as a denominator
+  where institutional population matters.
+- **Linkage and imputation**: the counts in *Matching* and *Imputation* above, recomputed.
+- **Seed points**: the gazetteer cross-check in *Geometry* above.
+
 ## Changes from the dissertation-era build
 
 The pipeline was ported from the research repository behind Lehnert (2021) and Lehnert & Smirnov

@@ -1,0 +1,150 @@
+{
+  "population": {
+    "2014": {
+      "communes": 1538,
+      "in_legal_list": 1538,
+      "compared": 1534,
+      "exact": 992,
+      "within_1pct": 1373,
+      "median_abs_pct": 0.0,
+      "sum_table": 33610084,
+      "sum_legal_compared": 33848242,
+      "national_legal": 33848242,
+      "largest_shortfalls": [
+        {
+          "name": "Zag (Mun.)",
+          "table": 4168,
+          "legal": 12763
+        },
+        {
+          "name": "Aîn-Sebaâ (Arrond.)",
+          "table": 163254,
+          "legal": 171452
+        },
+        {
+          "name": "Kénitra (Mun.)",
+          "table": 423890,
+          "legal": 431282
+        },
+        {
+          "name": "Es-semara (Mun.)",
+          "table": 50016,
+          "legal": 57035
+        },
+        {
+          "name": "Gueltat Zemmour",
+          "table": 414,
+          "legal": 6393
+        },
+        {
+          "name": "Tichla",
+          "table": 40,
+          "legal": 5743
+        },
+        {
+          "name": "Bir Anzarane",
+          "table": 824,
+          "legal": 6244
+        },
+        {
+          "name": "Aousserd",
+          "table": 424,
+          "legal": 5822
+        }
+      ]
+    },
+    "2024": {
+      "communes": 1503,
+      "in_legal_list": 1503,
+      "compared": 1503,
+      "exact": 639,
+      "within_1pct": 1311,
+      "median_abs_pct": 0.012,
+      "sum_table": 36490591,
+      "sum_legal_compared": 36828330,
+      "national_legal": 36828330,
+      "largest_shortfalls": [
+        {
+          "name": "Commune de Casablanca",
+          "table": 3197332,
+          "legal": 3215935
+        },
+        {
+          "name": "Commune d'Al Mahbass",
+          "table": 582,
+          "legal": 19139
+        },
+        {
+          "name": "Commune de Gleibat El Foula",
+          "table": 34,
+          "legal": 7155
+        },
+        {
+          "name": "Commune de Kénitra",
+          "table": 500772,
+          "legal": 507736
+        },
+        {
+          "name": "Commune de Gueltat Zemmour",
+          "table": 89,
+          "legal": 6881
+        },
+        {
+          "name": "Commune de Tichla",
+          "table": 139,
+          "legal": 6735
+        },
+        {
+          "name": "Commune de Rabat",
+          "table": 503375,
+          "legal": 509916
+        },
+        {
+          "name": "Commune de Salé",
+          "table": 938863,
+          "legal": 945101
+        }
+      ]
+    }
+  },
+  "linkage": {
+    "spine_2014": 1538,
+    "linked_2004_annex": 1473,
+    "linked_2024": 1529,
+    "linked_all_three": 1466,
+    "imputation": {
+      "src04": {
+        "direct": 1398,
+        "imputed_cercle": 72,
+        "fuzzy": 67,
+        "imputed_province": 1
+      },
+      "src14": {
+        "direct": 1527,
+        "imputed_cercle": 11
+      },
+      "src24": {
+        "direct": 1527,
+        "imputed_cercle": 11
+      }
+    }
+  },
+  "seeds": {
+    "units": 1503,
+    "placed": 1497,
+    "by_source": {
+      "geonames": 1444,
+      "wikidata": 53
+    },
+    "fuzzy": 22,
+    "both_gazetteers": 1371,
+    "median_km": 3.26,
+    "p90_km": 9.84,
+    "over_25km": 37,
+    "decided_by": {
+      "agree": 1334,
+      "review": 35,
+      "anchor": 2
+    }
+  }
+}

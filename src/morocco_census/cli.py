@@ -22,6 +22,12 @@ def geometry(outline: str | None = None) -> None:
     g.main(outline)
 
 
+def validate() -> None:
+    from . import validate as v
+
+    v.main()
+
+
 def site() -> None:
     from . import site as s
 
@@ -36,8 +42,9 @@ def main() -> int:
     sub.add_parser("build", help="raw -> data/processed tables")
     gp = sub.add_parser("geometry", help="seed points, Thiessen cells and queen weights")
     gp.add_argument("--outline", help="clip to this outline instead of Natural Earth MAR+SAH")
+    sub.add_parser("validate", help="check tables against independent sources -> validation.json")
     sub.add_parser("site", help="export site/data and catalog.json")
-    sub.add_parser("all", help="build, geometry, site")
+    sub.add_parser("all", help="build, geometry, validate, site")
     a = ap.parse_args()
 
     if a.cmd == "fetch":
@@ -52,6 +59,8 @@ def main() -> int:
         build()
     if a.cmd in ("geometry", "all"):
         geometry(getattr(a, "outline", None))
+    if a.cmd in ("validate", "all"):
+        validate()
     if a.cmd in ("site", "all"):
         site()
     return 0

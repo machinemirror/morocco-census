@@ -1,3 +1,5 @@
+import json
+
 import geopandas as gpd
 import pandas as pd
 import pytest
@@ -13,6 +15,7 @@ from morocco_census.config import (
     P_SEEDS,
     SEED_REVIEW,
 )
+from morocco_census.validate import P_VALIDATION
 
 
 @pytest.fixture(scope="module")
@@ -122,3 +125,14 @@ def test_other_2024_workbooks():
     douars = t24[["douar_grouped", "douar_fragmented", "douar_dispersed"]].dropna()
     assert douars.sum(axis=1).between(99.9, 100.1).all()
     assert t24.n_urban_dwellings.notna().sum() == 380
+
+
+def test_validation_report_matches_tables():
+    v = json.loads(P_VALIDATION.read_text())
+    cw = pd.read_csv(P_CROSSWALK, dtype=str)
+    assert v["linkage"]["linked_all_three"] == (cw.code24.notna() & cw.label04.notna()).sum()
+    assert v["seeds"]["placed"] == len(gpd.read_file(P_GPKG, layer="points"))
+    for y, n in (("2014", 1538), ("2024", 1503)):
+        p = v["population"][y]
+        assert p["communes"] == p["in_legal_list"] == n
+        assert p["sum_table"] <= p["national_legal"]  # the legal count adds population counted separately
