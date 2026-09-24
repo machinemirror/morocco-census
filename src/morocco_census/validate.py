@@ -11,6 +11,7 @@ import json
 import pandas as pd
 
 from .config import P_COMMUNES, P_CROSSCHECK, P_CROSSWALK, P_PANEL, P_SEEDS, P_UNMATCHED, PROCESSED, RAW
+from .site import CITIES
 
 P_VALIDATION = PROCESSED / "validation.json"
 SHORTFALLS = 8
@@ -66,6 +67,8 @@ def main() -> dict:
     communes = panel[panel.level != "city"]
     seeds = pd.read_csv(P_SEEDS, dtype=str)
     check = pd.read_csv(P_CROSSCHECK)
+    t24 = pd.read_csv(P_COMMUNES[2024], dtype={"code24": str})
+    city_codes = {str(code) for _, code in CITIES.values()}
     out = {
         "population": {
             "2014": reconcile(2014, "code14", "name14", "population14", legal_2014()),
@@ -76,6 +79,10 @@ def main() -> dict:
             "linked_2004_annex": int(cw.label04.notna().sum()),
             "linked_2024": int(cw.code24.notna().sum()),
             "linked_all_three": int((cw.code24.notna() & cw.label04.notna()).sum()),
+            # 2024 communes with no 2014 counterpart; the arrondissement cities link through their arrondissements
+            "unlinked_2024": sorted(
+                set(t24.name24[~t24.code24.isin(cw.code24.dropna()) & ~t24.code24.isin(city_codes)])
+            ),
             "imputation": {
                 f: {k: int(v) for k, v in communes[f].fillna("direct").value_counts().items()} for f in ("src04", "src14", "src24")
             },

@@ -112,6 +112,12 @@
     "linked_2004_annex": 1473,
     "linked_2024": 1529,
     "linked_all_three": 1466,
+    "unlinked_2024": [
+      "Commune d'Ourtzarh",
+      "Commune de Kelâat Sraghna",
+      "Commune de My Idriss Zerhoun",
+      "Commune de Sidi Abdellah Ou Belaid"
+    ],
     "imputation": {
       "src04": {
         "direct": 1398,
