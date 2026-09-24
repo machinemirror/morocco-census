@@ -170,5 +170,7 @@ country-map bundle and records each file in the manifest. The files declare CRS8
 - The layer is not in the download bundle: HCP's terms allow reuse with attribution, but no licence for the geometry as
   data is stated.
 - Reliability by census on these boundaries: 2014 exact (same codes); 2024 through the crosswalk (1,493 of 1,503
-  communes, cities from their arrondissements); 2004 through the app crosswalk (1,478 linked: 1,231 in cercles with no
-  post-2004 reorganisation, 222 in cercles where a commune was created, 41 arrondissements whose 2004 structure differed).
+  communes, cities from their arrondissements); 2004 through the app crosswalk (1,478 linked one-to-one, 41 of them
+  arrondissements whose 2004 structure differed). A cautious rule flagged 206 linked communes sharing a cercle with a
+  commune that has no 2004 link, in case territory was carved from them; their 2004-2014 population growth matches the
+  rest (median +3.2% vs +3.0%, 2 drops over 25%), so no territorial change is evident.
