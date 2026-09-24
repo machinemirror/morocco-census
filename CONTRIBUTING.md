@@ -27,8 +27,15 @@ coordinates to Wikidata is the quickest way to put them on the map.
 
 Extraction is declared in `src/morocco_census/extract.py` (`SPEC_2014`, `SPEC_2024`: the exact source
 column of every variable). Every published column must also appear in `catalog/variables.yaml` with its
-English, French and Arabic label, unit, definition and source; the tests fail otherwise. Keep the
-French source header in the catalogue so users can trace the column back to HCP's workbook.
+English label, unit, definition and source; the tests fail otherwise. Keep the French source header in the
+catalogue so users can trace the column back to HCP's workbook. French and Arabic labels (`fr`, `ar`) are only
+HCP's own wording, cited in `label_source`, never a translation of ours.
+
+## Translate
+
+Only the map is multilingual, and only for HCP's place names and indicator labels. Definitions, notes and the
+other pages are English. Fluent French or Arabic speakers who would translate them are welcome: open an issue
+labelled `translation`.
 
 ## Before a pull request
 

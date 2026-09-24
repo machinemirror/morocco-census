@@ -110,14 +110,17 @@
   "linkage": {
     "spine_2014": 1538,
     "linked_2004_annex": 1473,
-    "linked_2024": 1529,
-    "linked_all_three": 1466,
-    "unlinked_2024": [
-      "Commune d'Ourtzarh",
-      "Commune de Kelâat Sraghna",
-      "Commune de My Idriss Zerhoun",
-      "Commune de Sidi Abdellah Ou Belaid"
-    ],
+    "linked_2004_profiles": 1528,
+    "profile_links": {
+      "exact": 1467,
+      "centre": 147,
+      "fuzzy": 31,
+      "review": 27,
+      "province_split": 13
+    },
+    "linked_2024": 1538,
+    "linked_all_three": 1473,
+    "unlinked_2024": [],
     "imputation": {
       "src04": {
         "direct": 1398,
@@ -126,29 +129,29 @@
         "imputed_province": 1
       },
       "src14": {
-        "direct": 1527,
-        "imputed_cercle": 11
+        "direct": 1536,
+        "imputed_cercle": 2
       },
       "src24": {
-        "direct": 1527,
-        "imputed_cercle": 11
+        "direct": 1536,
+        "imputed_cercle": 2
       }
     }
   },
   "seeds": {
     "units": 1503,
-    "placed": 1497,
+    "placed": 1502,
     "by_source": {
-      "geonames": 1444,
-      "wikidata": 53
+      "geonames": 1448,
+      "wikidata": 54
     },
     "fuzzy": 22,
-    "both_gazetteers": 1371,
+    "both_gazetteers": 1374,
     "median_km": 3.26,
     "p90_km": 9.84,
     "over_25km": 37,
     "decided_by": {
-      "agree": 1334,
+      "agree": 1337,
       "review": 35,
       "anchor": 2
     }

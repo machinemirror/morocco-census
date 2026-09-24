@@ -1,96 +1,91 @@
 const L = {
   en: {
     indicator: "Indicator", view: "View", level: "Level", change: "Change", census: "Census",
-    find: "Find a commune", hideImputed: "Hide imputed values",
+    find: "Find a commune",
     nodata: "No data", decrease: "decrease", increase: "increase", rural: "Rural", urban: "Urban",
     caveat: "Commune shapes are approximate Thiessen cells built from one point per commune, not administrative boundaries. They show roughly where a commune is, not its true extent.",
     caveatHcp: "Commune boundaries as drawn in HCP's RGPH 2024 results platform. 2004 and 2014 values are shown on 2024 boundaries; where communes were reorganised after 2004, a 2004 value may cover a different territory.",
     shapes: "Shapes", gThiessen: "Approximate", gHcp: "HCP 2024 boundaries",
     noncomp: "Definitions differ between censuses; read the change with care.",
-    imputed: "imputed from neighbouring communes (post-2004 reorganisation)",
-    fuzzy: "2004 values matched by name similarity", point: "seed point", allind: "All indicators",
+    point: "seed point", allind: "All indicators",
     city: "city (arrondissements combined)", communes: "communes",
   },
   fr: {
     indicator: "Indicateur", view: "Affichage", level: "Niveau", change: "Évolution", census: "Recensement",
-    find: "Trouver une commune", hideImputed: "Masquer les valeurs imputées",
+    find: "Trouver une commune",
     nodata: "Pas de donnée", decrease: "baisse", increase: "hausse", rural: "Rurale", urban: "Urbaine",
-    caveat: "Les contours sont des cellules de Thiessen approximatives construites à partir d'un point par commune, et non des limites administratives. Ils indiquent l'emplacement approximatif d'une commune, pas son étendue réelle.",
-    caveatHcp: "Limites communales telles que tracées sur la plateforme de résultats du RGPH 2024 du HCP. Les valeurs de 2004 et 2014 sont affichées sur les limites de 2024 ; là où des communes ont été réorganisées après 2004, une valeur de 2004 peut couvrir un autre territoire.",
     shapes: "Contours", gThiessen: "Approximatifs", gHcp: "Limites HCP 2024",
-    noncomp: "Les définitions diffèrent entre recensements ; interpréter l'évolution avec prudence.",
-    imputed: "imputé à partir des communes voisines (réorganisation post-2004)",
-    fuzzy: "valeurs 2004 appariées par similarité de nom", point: "point d'ancrage", allind: "Tous les indicateurs",
-    city: "ville (arrondissements agrégés)", communes: "communes",
+    point: "point d'ancrage", allind: "Tous les indicateurs", communes: "communes",
   },
   ar: {
     indicator: "المؤشر", view: "العرض", level: "المستوى", change: "التطور", census: "الإحصاء",
-    find: "البحث عن جماعة", hideImputed: "إخفاء القيم المقدّرة",
+    find: "البحث عن جماعة",
     nodata: "لا توجد معطيات", decrease: "انخفاض", increase: "ارتفاع", rural: "قروية", urban: "حضرية",
-    caveat: "أشكال الجماعات خلايا ثيسن تقريبية مبنية انطلاقاً من نقطة واحدة لكل جماعة، وليست حدوداً إدارية. تبيّن الموقع التقريبي للجماعة لا امتدادها الحقيقي.",
-    caveatHcp: "حدود الجماعات كما ترسمها منصة نتائج الإحصاء العام للسكان والسكنى 2024 التابعة للمندوبية السامية للتخطيط. تُعرض قيم 2004 و2014 على حدود 2024؛ وحيث أُعيد تنظيم الجماعات بعد 2004، قد تغطي قيمة 2004 مجالاً ترابياً مختلفاً.",
     shapes: "الأشكال", gThiessen: "تقريبية", gHcp: "حدود المندوبية 2024",
-    noncomp: "تختلف التعاريف بين الإحصاءات؛ يُرجى قراءة التطور بحذر.",
-    imputed: "مقدّرة انطلاقاً من الجماعات المجاورة (بسبب إعادة التقسيم بعد 2004)",
-    fuzzy: "قيم 2004 مُطابَقة على أساس تشابه الأسماء", point: "نقطة الارتكاز", allind: "جميع المؤشرات",
-    city: "مدينة (مقاطعات مجمّعة)", communes: "جماعة",
+    point: "نقطة الارتكاز", allind: "جميع المؤشرات", communes: "جماعة",
   },
 };
 // Colour-blind-safe ramps: viridis (reversed, so more = darker) and ColorBrewer PuOr.
 const SEQ = ["#fde725", "#90d743", "#35b779", "#21918c", "#31688e", "#443983", "#440154"];
 const DIV = ["#b35806", "#f1a340", "#fee0b6", "#f7f7f7", "#d8daeb", "#998ec3", "#542788"];
 const FLAG = ["#90d743", "#31688e"];
-// Orientation labels: [en, fr, ar, lon, lat, tier (1 always, 2 from zoom 6, 3 from zoom 7.5), label side]. Coastal labels sit over the sea.
+// Orientation labels: [English name, map unit (French and Arabic names come from HCP), lon, lat, tier (1 always, 2 from zoom 6,
+// 3 from zoom 7.5), label side]. Coastal labels sit over the sea.
 const CITIES = [
-  ["Rabat", "Rabat", "الرباط", -6.8417, 34.0209, 1, "w"], ["Casablanca", "Casablanca", "الدار البيضاء", -7.5898, 33.5731, 1, "w"],
-  ["Fez", "Fès", "فاس", -5.0003, 34.0331, 1], ["Marrakesh", "Marrakech", "مراكش", -7.9811, 31.6295, 1],
-  ["Tangier", "Tanger", "طنجة", -5.834, 35.7595, 1, "w"], ["Agadir", "Agadir", "أكادير", -9.5981, 30.4278, 1, "w"],
-  ["Oujda", "Oujda", "وجدة", -1.9086, 34.6814, 1], ["Laâyoune", "Laâyoune", "العيون", -13.1625, 27.1253, 1, "w"],
-  ["Dakhla", "Dakhla", "الداخلة", -15.958, 23.6848, 1, "w"], ["Meknes", "Meknès", "مكناس", -5.5473, 33.8935, 2],
-  ["Kenitra", "Kénitra", "القنيطرة", -6.5802, 34.261, 2, "w"], ["Tetouan", "Tétouan", "تطوان", -5.3626, 35.5889, 2],
-  ["Nador", "Nador", "الناظور", -2.9335, 35.1681, 2], ["Beni Mellal", "Béni Mellal", "بني ملال", -6.3498, 32.3373, 2],
-  ["Errachidia", "Errachidia", "الرشيدية", -4.4245, 31.9314, 2], ["Ouarzazate", "Ouarzazate", "ورزازات", -6.8934, 30.9189, 2],
-  ["Guelmim", "Guelmim", "كلميم", -10.0574, 28.987, 2], ["Safi", "Safi", "آسفي", -9.2372, 32.2994, 2, "w"],
-  ["El Jadida", "El Jadida", "الجديدة", -8.5007, 33.2316, 2, "w"], ["Al Hoceima", "Al Hoceïma", "الحسيمة", -3.9372, 35.2517, 2],
-  ["Essaouira", "Essaouira", "الصويرة", -9.7595, 31.5085, 2, "w"],  ["Mohammedia", "Mohammédia", "المحمدية", -7.3833, 33.6861, 3], ["Settat", "Settat", "سطات", -7.6164, 33.001, 3],
-  ["Berrechid", "Berrechid", "برشيد", -7.5872, 33.2655, 3],
-  ["Khouribga", "Khouribga", "خريبكة", -6.9063, 32.8811, 3], ["Khenifra", "Khénifra", "خنيفرة", -5.668, 32.9394, 3],
-  ["Ifrane", "Ifrane", "إفران", -5.1107, 33.5228, 3], ["Sefrou", "Séfrou", "صفرو", -4.8288, 33.8305, 3],
-  ["Taza", "Taza", "تازة", -4.0103, 34.21, 3], ["Taounate", "Taounate", "تاونات", -4.64, 34.536, 3],
-  ["Chefchaouen", "Chefchaouen", "شفشاون", -5.2636, 35.1688, 3],
-  ["Larache", "Larache", "العرائش", -6.156, 35.1932, 3, "w"],
-  ["Ksar El Kebir", "Ksar El Kébir", "القصر الكبير", -5.9033, 35.0017, 3],
-  ["Ouezzane", "Ouezzane", "وزان", -5.5836, 34.7969, 3],
-  ["Sidi Kacem", "Sidi Kacem", "سيدي قاسم", -5.7076, 34.226, 3],
-  ["Sidi Slimane", "Sidi Slimane", "سيدي سليمان", -5.9256, 34.2648, 3, "w"],
-  ["Khemisset", "Khémisset", "الخميسات", -6.0662, 33.824, 3], ["Guercif", "Guercif", "جرسيف", -3.3536, 34.2257, 3],
-  ["Taourirt", "Taourirt", "تاوريرت", -2.897, 34.4073, 3], ["Berkane", "Berkane", "بركان", -2.32, 34.92, 3],
-  ["Driouch", "Driouch", "الدريوش", -3.39, 34.976, 3], ["Jerada", "Jerada", "جرادة", -2.16, 34.31, 3],
-  ["Figuig", "Figuig", "فجيج", -1.229, 32.109, 3], ["Bouarfa", "Bouarfa", "بوعرفة", -1.959, 32.531, 3],
-  ["Midelt", "Midelt", "ميدلت", -4.734, 32.68, 3], ["Boulemane", "Boulemane", "بولمان", -4.73, 33.362, 3],
-  ["El Hajeb", "El Hajeb", "الحاجب", -5.371, 33.689, 3], ["Azilal", "Azilal", "أزيلال", -6.5718, 31.9616, 3],
-  ["Fquih Ben Salah", "Fquih Ben Salah", "الفقيه بن صالح", -6.6853, 32.5022, 3],
-  ["El Kelaa des Sraghna", "El Kelaâ des Sraghna", "قلعة السراغنة", -7.4058, 32.058, 3],
-  ["Youssoufia", "Youssoufia", "اليوسفية", -8.529, 32.2464, 3],
-  ["Benguerir", "Benguerir", "ابن جرير", -7.9543, 32.236, 3],
-  ["Sidi Bennour", "Sidi Bennour", "سيدي بنور", -8.427, 32.65, 3],
-  ["Chichaoua", "Chichaoua", "شيشاوة", -8.766, 31.544, 3], ["Tahannaout", "Tahannaout", "تحناوت", -7.951, 31.35, 3],
-  ["Taroudant", "Taroudant", "تارودانت", -8.877, 30.47, 3], ["Tiznit", "Tiznit", "تيزنيت", -9.7316, 29.6974, 3],
-  ["Sidi Ifni", "Sidi Ifni", "سيدي إفني", -10.1733, 29.3797, 3, "w"], ["Tata", "Tata", "طاطا", -7.969, 29.743, 3],
-  ["Zagora", "Zagora", "زاكورة", -5.838, 30.332, 3], ["Tinghir", "Tinghir", "تنغير", -5.532, 31.515, 3],
-  ["Tan-Tan", "Tan-Tan", "طانطان", -11.103, 28.438, 3], ["Assa", "Assa", "أسا", -9.427, 28.609, 3],
-  ["Smara", "Smara", "السمارة", -11.67, 26.739, 3], ["Boujdour", "Boujdour", "بوجدور", -14.485, 26.126, 3, "w"],
-  ["Tarfaya", "Tarfaya", "طرفاية", -12.926, 27.939, 3, "w"], ["Aousserd", "Aousserd", "أوسرد", -14.325, 22.553, 3],
+  ["Rabat", "04.421.01.", -6.8417, 34.0209, 1, "w"], ["Casablanca", "06.141.01.", -7.5898, 33.5731, 1, "w"],
+  ["Fez", "03.231.01.", -5.0003, 34.0331, 1], ["Marrakesh", "07.351.01.", -7.9811, 31.6295, 1],
+  ["Tangier", "01.511.01.", -5.834, 35.7595, 1, "w"], ["Agadir", "09.001.01.01.", -9.5981, 30.4278, 1, "w"],
+  ["Oujda", "02.411.01.23.", -1.9086, 34.6814, 1], ["Laâyoune", "11.321.01.03.", -13.1625, 27.1253, 1, "w"],
+  ["Dakhla", "12.391.01.01.", -15.958, 23.6848, 1, "w"], ["Meknes", "03.061.01.01.", -5.5473, 33.8935, 2],
+  ["Kenitra", "04.281.01.01.", -6.5802, 34.261, 2, "w"], ["Tetouan", "01.571.01.11.", -5.3626, 35.5889, 2],
+  ["Nador", "02.381.01.05.", -2.9335, 35.1681, 2], ["Beni Mellal", "05.091.01.01.", -6.3498, 32.3373, 2],
+  ["Errachidia", "08.201.01.05.", -4.4245, 31.9314, 2], ["Ouarzazate", "08.401.01.07.", -6.8934, 30.9189, 2],
+  ["Guelmim", "10.261.01.03.", -10.0574, 28.987, 2], ["Safi", "07.431.01.03.", -9.2372, 32.2994, 2, "w"],
+  ["El Jadida", "06.181.01.03.", -8.5007, 33.2316, 2, "w"], ["Al Hoceima", "01.051.01.01.", -3.9372, 35.2517, 2],
+  ["Essaouira", "07.211.01.05.", -9.7595, 31.5085, 2, "w"],  ["Mohammedia", "06.371.01.01.", -7.3833, 33.6861, 3], ["Settat", "06.461.01.15.", -7.6164, 33.001, 3],
+  ["Berrechid", "06.117.01.03.", -7.5872, 33.2655, 3],
+  ["Khouribga", "05.311.01.07.", -6.9063, 32.8811, 3], ["Khenifra", "05.301.01.01.", -5.668, 32.9394, 3],
+  ["Ifrane", "03.271.01.03.", -5.1107, 33.5228, 3], ["Sefrou", "03.451.01.09.", -4.8288, 33.8305, 3],
+  ["Taza", "03.561.01.11.", -4.0103, 34.21, 3], ["Taounate", "03.531.01.05.", -4.64, 34.536, 3],
+  ["Chefchaouen", "01.151.01.01.", -5.2636, 35.1688, 3],
+  ["Larache", "01.331.01.03.", -6.156, 35.1932, 3, "w"],
+  ["Ksar El Kebir", "01.331.01.01.", -5.9033, 35.0017, 3],
+  ["Ouezzane", "01.405.01.09.", -5.5836, 34.7969, 3],
+  ["Sidi Kacem", "04.481.01.11.", -5.7076, 34.226, 3],
+  ["Sidi Slimane", "04.491.01.07.", -5.9256, 34.2648, 3, "w"],
+  ["Khemisset", "04.291.01.01.", -6.0662, 33.824, 3], ["Guercif", "02.265.01.03.", -3.3536, 34.2257, 3],
+  ["Taourirt", "02.533.01.33.", -2.897, 34.4073, 3], ["Berkane", "02.113.01.09.", -2.32, 34.92, 3],
+  ["Driouch", "02.167.01.09.", -3.39, 34.976, 3], ["Jerada", "02.275.01.17.", -2.16, 34.31, 3],
+  ["Figuig", "02.251.01.03.", -1.229, 32.109, 3], ["Bouarfa", "02.251.01.01.", -1.959, 32.531, 3],
+  ["Midelt", "08.363.01.03.", -4.734, 32.68, 3], ["Boulemane", "03.131.01.01.", -4.73, 33.362, 3],
+  ["El Hajeb", "03.171.01.05.", -5.371, 33.689, 3], ["Azilal", "05.081.01.01.", -6.5718, 31.9616, 3],
+  ["Fquih Ben Salah", "05.255.01.05.", -6.6853, 32.5022, 3],
+  ["El Kelaa des Sraghna", "07.191.01.03.", -7.4058, 32.058, 3],
+  ["Youssoufia", "07.585.01.13.", -8.529, 32.2464, 3],
+  ["Benguerir", "07.427.01.01.", -7.9543, 32.236, 3],
+  ["Sidi Bennour", "06.467.01.07.", -8.427, 32.65, 3],
+  ["Chichaoua", "07.161.01.01.", -8.766, 31.544, 3], ["Tahannaout", "07.041.01.09.", -7.951, 31.35, 3],
+  ["Taroudant", "09.541.01.13.", -8.877, 30.47, 3], ["Tiznit", "09.581.01.07.", -9.7316, 29.6974, 3],
+  ["Sidi Ifni", "10.473.01.03.", -10.1733, 29.3797, 3, "w"], ["Tata", "09.551.01.07.", -7.969, 29.743, 3],
+  ["Zagora", "08.587.01.13.", -5.838, 30.332, 3], ["Tinghir", "08.577.01.11.", -5.532, 31.515, 3],
+  ["Tan-Tan", "10.521.01.01.", -11.103, 28.438, 3], ["Assa", "10.071.01.01.", -9.427, 28.609, 3],
+  ["Smara", "11.221.01.01.", -11.67, 26.739, 3], ["Boujdour", "11.121.01.01.", -14.485, 26.126, 3, "w"],
+  ["Tarfaya", "11.537.01.05.", -12.926, 27.939, 3, "w"], ["Aousserd", "12.066.03.05.", -14.325, 22.553, 3],
 ];
 const YEARS = [2004, 2014, 2024];
 const CITY = /^\d+\.\d+\.\d+\.$/;
 
-const openThemes = new Set();
-let D, map, byId = {}, state = { geom: "thiessen", ind: "pct_electricity", y: 2024, mode: "level", pair: [2014, 2024], hideImp: false,
+const openGroups = new Set();
+let D, map, byId = {}, loaded = {}, state = { geom: "thiessen", ind: "pct_electricity", y: 2024, mode: "level", pair: [2014, 2024],
   sel: null, base: true };
-const t = (k) => L[MC.lang][k] || k;
-const label = (ind) => D.indicators[ind][MC.lang];
-const tx = (o, k) => o[`${k}_${MC.lang}`] || o[k];
+// English wherever a string has no French or Arabic (definitions, notes and caveats are English only)
+const t = (k) => L[MC.lang][k] || L.en[k] || k;
+const isEn = (k) => !L[MC.lang][k];
+// French and Arabic labels are HCP's own; where HCP gives none in Arabic its French label is used, then English
+const label = (ind) => { const x = D.indicators[ind]; return x[MC.lang] || (MC.lang === "ar" && x.fr) || x.en; };
+const groupName = (g) => D.groups[g][MC.lang];
+const uname = (u) => (MC.lang === "en" ? u.name : u[`name_${MC.lang}`]);
+const pname = (u) => D.provinces[u.prov][MC.lang];
 const F = (v, ind = state.ind) => MC.fmt(v, D.indicators[ind].unit, D.indicators[ind].agg);
 
 function readHash() {
@@ -116,14 +111,13 @@ function pairs(ind) {
   for (let a = 0; a < v.length; a++) for (let b = a + 1; b < v.length; b++) out.push([v[a], v[b]]);
   return out;
 }
-function isImputed(i, y) {
-  const u = D.units[i], f = y === 2004 ? u.src04 : y === 2014 ? u.src14 : u.src24;
-  const ds = D.indicators[state.ind].vintages[y]?.dataset;
-  return ds === "panel_commune" && typeof f === "string" && f.startsWith("imputed");
+// values are split by catalogue theme; a map group can gather several
+const loadGroup = (g) => Promise.all(Object.values(D.indicators).filter(x => x.group === g).map(x => loadTheme(x.theme)));
+function loadTheme(th) {
+  return (loaded[th] ||= fetch(`data/map/${th}.json`).then(r => r.json()).then(v => Object.assign(D.values, v)));
 }
 function series(ind, y) {
-  const v = D.values[`${ind}|${y}`] || [];
-  return state.hideImp && ind === state.ind ? v.map((x, i) => (isImputed(i, y) ? null : x)) : v;
+  return D.values[`${ind}|${y}`] || [];
 }
 function current() {
   if (state.mode === "level") return series(state.ind, state.y);
@@ -188,12 +182,12 @@ function legend(c) {
 
 function controls() {
   const sel = document.getElementById("ind");
-  const byTheme = {};
-  Object.entries(D.indicators).forEach(([k, v]) => (byTheme[v.theme] ||= []).push(k));
-  sel.innerHTML = Object.keys(D.themes).filter(th => byTheme[th]).map(th =>
-    `<optgroup label="${MC.esc(D.themes[th][MC.lang])}">${byTheme[th]
+  const byGroup = {};
+  Object.entries(D.indicators).forEach(([k, v]) => (byGroup[v.group] ||= []).push(k));
+  sel.innerHTML = Object.keys(D.groups).filter(g => byGroup[g]).map(g =>
+    `<optgroup label="${MC.esc(groupName(g))}">${byGroup[g]
       .sort((a, b) => label(a).localeCompare(label(b)))
-      .map(k => `<option value="${k}">${MC.esc(label(k))} (${vintages(k).join(", ")})</option>`).join("")}</optgroup>`
+      .map(k => `<option value="${k}">${MC.esc(label(k))}</option>`).join("")}</optgroup>`
   ).join("");
   sel.value = state.ind;
 
@@ -219,18 +213,20 @@ function controls() {
   const ind = D.indicators[state.ind];
   document.getElementById("ind-title").textContent = label(state.ind);
   const n = state.mode === "level" ? ind.vintages[state.y]?.n : null;
-  document.getElementById("ind-def").innerHTML = `${MC.esc(tx(ind, "definition"))}${n ? ` <span class="muted">${n.toLocaleString()} / ${D.units.length} ${t("communes")}</span>` : ""}`;
+  document.getElementById("ind-def").innerHTML = `${MC.esc(ind.definition)}${n ? ` <span class="muted">${n.toLocaleString()} / ${D.units.length} ${t("communes")}</span>` : ""}`;
   const note = document.getElementById("ind-note");
   const warn = [];
-  if (ind.note) warn.push(MC.esc(tx(ind, "note")));
+  if (ind.note) warn.push(MC.esc(ind.note));
   if (state.mode === "change" && ind.comparable === false) warn.unshift(`<b>${t("noncomp")}</b>`);
   note.innerHTML = warn.join("<br>");
   note.hidden = !warn.length;
-  const usesPanel = Object.values(ind.vintages).some(x => x.dataset === "panel_commune");
-  document.getElementById("imp-row").hidden = !usesPanel;
   document.querySelectorAll("#geom button").forEach(b => b.setAttribute("aria-pressed", b.dataset.g === state.geom));
   document.querySelector(".caveat").dataset.t = state.geom === "hcp" ? "caveatHcp" : "caveat";
-  document.querySelectorAll("[data-t]").forEach(el => (el.textContent = t(el.dataset.t)));
+  document.querySelectorAll("[data-t]").forEach(el => {
+    el.textContent = t(el.dataset.t);
+    if (isEn(el.dataset.t)) { el.lang = "en"; el.dir = "ltr"; } else { el.removeAttribute("lang"); el.removeAttribute("dir"); }
+  });
+  document.getElementById("i18n").innerHTML = MC.translateNote();
 }
 
 let shapes = {};
@@ -247,36 +243,34 @@ function detail() {
   if (state.sel == null || !(state.sel in byId)) { el.hidden = true; return; }
   const i = byId[state.sel], u = D.units[i];
   const groups = [];
-  const curTheme = D.indicators[state.ind].theme;
-  for (const th of Object.keys(D.themes)) {
-    const inds = Object.keys(D.indicators).filter(k => D.indicators[k].theme === th)
+  const curGroup = D.indicators[state.ind].group;
+  for (const g of Object.keys(D.groups)) {
+    const inds = Object.keys(D.indicators).filter(k => D.indicators[k].group === g)
       .sort((a, b) => label(a).localeCompare(label(b)));
+    const open = openGroups.has(g) || g === curGroup;
+    if (open && inds.some(k => !D.values[`${k}|2024`])) loadGroup(g).then(detail);
     const body = inds.map(k => {
       const cells = YEARS.map(y => {
         const v = D.values[`${k}|${y}`]?.[i];
         const cur = k === state.ind && (state.mode === "level" ? y === state.y : state.pair.includes(y));
-        return `<td class="num${cur ? " cur" : ""}">${D.indicators[k].vintages[y] ? F(v, k) : ""}</td>`;
+        return `<td class="num${cur ? " cur" : ""}">${F(v, k)}</td>`;
       }).join("");
       return `<tr><td>${MC.esc(label(k))}</td>${cells}</tr>`;
     }).join("");
-    if (inds.length) groups.push(`<details data-th="${th}"${openThemes.has(th) || th === curTheme ? " open" : ""}>
-      <summary>${MC.esc(D.themes[th][MC.lang])} <span class="muted">${inds.length}</span></summary>
+    if (inds.length) groups.push(`<details data-g="${g}"${open ? " open" : ""}>
+      <summary>${MC.esc(groupName(g))} <span class="muted">${inds.length}</span></summary>
       <table><thead><tr><th></th>${YEARS.map(y => `<th class="num">${y}</th>`).join("")}</tr></thead>
       <tbody>${body}</tbody></table></details>`);
   }
-  const flags = [];
-  if (u.src04 && u.src04.startsWith("imputed")) flags.push(`2004: ${t("imputed")}`);
-  if (u.src04 === "fuzzy") flags.push(t("fuzzy"));
-  if (u.src14 && u.src14.startsWith("imputed")) flags.push(`2014 MPI: ${t("imputed")}`);
-  if (u.src24 && u.src24.startsWith("imputed")) flags.push(`2024 MPI: ${t("imputed")}`);
   el.innerHTML = `
-    <h3>${MC.esc(u.name)}</h3>
-    <div class="meta">${MC.esc(u.prov)} · <code>${MC.esc(u.id)}</code>${CITY.test(u.id) ? " · " + t("city") : ""} · ${t("point")}: ${MC.esc(u.pt)}</div>
-    ${flags.length ? `<div class="note" style="margin-bottom:.5rem">${flags.map(MC.esc).join("<br>")}</div>` : ""}
+    <h3>${MC.esc(uname(u))}</h3>
+    <div class="meta">${MC.esc(pname(u))} · <code dir="ltr">${MC.esc(u.id)}</code>${CITY.test(u.id) ? ` · <span lang="en" dir="ltr">${t("city")}</span>` : ""} · ${t("point")}: ${MC.esc(u.pt)}</div>
     <div class="h">${t("allind")}</div>
     <div class="groups">${groups.join("")}</div>`;
-  el.querySelectorAll("details").forEach(d => d.addEventListener("toggle", () =>
-    d.open ? openThemes.add(d.dataset.th) : openThemes.delete(d.dataset.th)));
+  el.querySelectorAll("details").forEach(d => d.addEventListener("toggle", () => {
+    if (d.open) { openGroups.add(d.dataset.g); loadGroup(d.dataset.g).then(detail); }
+    else openGroups.delete(d.dataset.g);
+  }));
   el.hidden = false;
 }
 
@@ -303,9 +297,9 @@ function tooltip(e) {
     sub = `<bdi>${a}: ${lvl(a)}</bdi> → <bdi>${b}: ${lvl(b)}</bdi>`;
   }
   const y = state.mode === "level" ? state.y : null;
-  tip.innerHTML = `<b>${MC.esc(u.name)}</b><br><span class="muted">${MC.esc(u.prov)}</span><br>
+  tip.innerHTML = `<b>${MC.esc(uname(u))}</b><br><span class="muted">${MC.esc(pname(u))}</span><br>
     <span class="v"><bdi>${state.mode === "change" && v != null ? (v > 0 ? "+" : "") : ""}${MC.withUnit(F(v), unit, state.mode === "change")}</bdi></span>
-    ${sub ? `<br><span class="muted">${sub}</span>` : ""}${y && isImputed(i, y) ? `<br><span class="muted">${t("imputed")}</span>` : ""}`;
+    ${sub ? `<br><span class="muted">${sub}</span>` : ""}`;
   const r = document.getElementById("map").getBoundingClientRect();
   const x = Math.min(e.point.x + 14, r.width - 270), yy = Math.min(e.point.y + 14, r.height - 110);
   tip.style.left = x + "px"; tip.style.top = yy + "px"; tip.hidden = false;
@@ -317,13 +311,17 @@ const dark = () => document.documentElement.dataset.theme === "dark" ||
 async function main() {
   MC.header("map");
   const [d, cells, outline, context] = await Promise.all(
-    ["data/map.json", "data/communes.geojson", "data/outline.geojson", "data/context.geojson"]
+    ["data/map/index.json", "data/communes.geojson", "data/outline.geojson", "data/context.geojson"]
     .map(u => fetch(u).then(r => r.json())));
-  D = d; shapes.thiessen = cells;
+  const cols = d.units;
+  D = { ...d, values: {}, units: cols.id.map((_, i) => Object.fromEntries(Object.keys(cols).map(k => [k, cols[k][i]]))) };
+  shapes.thiessen = cells;
   D.units.forEach((u, i) => (byId[u.id] = i));
   readHash();
-  document.getElementById("communes").innerHTML = D.units
-    .map(u => `<option value="${MC.esc(u.name)} — ${MC.esc(u.prov)}"></option>`).join("");
+  await loadTheme(D.indicators[state.ind].theme);
+  const datalist = () => (document.getElementById("communes").innerHTML = D.units
+    .map(u => `<option value="${MC.esc(uname(u))} — ${MC.esc(pname(u))}"></option>`).join(""));
+  datalist();
 
   const css = (v) => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
   map = new maplibregl.Map({
@@ -362,10 +360,10 @@ async function main() {
   document.getElementById("map").appendChild(tip);
 
   // HTML markers render Arabic natively; a symbol layer would need glyphs and the RTL text plugin
-  const cityEls = CITIES.map(([en, fr, ar, lon, lat, tier, side]) => {
+  const cityEls = CITIES.map(([en, id, lon, lat, tier, side]) => {
     const el = document.createElement("div");
     el.className = `city t${tier}${side === "w" ? " w" : ""}`;
-    el.dataset.en = en; el.dataset.fr = fr; el.dataset.ar = ar;
+    el.dataset.en = en; el.dataset.fr = D.units[byId[id]].name_fr; el.dataset.ar = D.units[byId[id]].name_ar;
     new maplibregl.Marker({ element: el, anchor: side === "w" ? "right" : "left" }).setLngLat([lon, lat]).addTo(map);
     return el;
   });
@@ -398,19 +396,23 @@ async function main() {
     map.on("click", "cells-fill", (e) => select(D.units[e.features[0].id].id, false));
   });
 
-  document.getElementById("ind").onchange = (e) => { state.ind = e.target.value; controls(); paint(); detail(); };
+  document.getElementById("ind").onchange = async (e) => {
+    state.ind = e.target.value;
+    await loadTheme(D.indicators[state.ind].theme);
+    controls(); paint(); detail();
+  };
   document.querySelectorAll("#mode button").forEach(b => b.onclick = () => {
     if (b.disabled) return; state.mode = b.dataset.m; controls(); paint(); detail();
   });
-  document.getElementById("imp").onchange = (e) => { state.hideImp = e.target.checked; paint(); };
   document.querySelectorAll("#geom button").forEach(b => b.onclick = () => b.dataset.g !== state.geom && setGeom(b.dataset.g));
   document.getElementById("q").onchange = (e) => {
     const name = e.target.value.split(" — ")[0].trim().toLowerCase();
     const prov = (e.target.value.split(" — ")[1] || "").trim().toLowerCase();
-    const u = D.units.find(u => u.name.toLowerCase() === name && (!prov || u.prov.toLowerCase() === prov))
-      || D.units.find(u => u.name.toLowerCase().startsWith(name));
+    const names = u => [u.name, u.name_fr, u.name_ar].map(x => x.toLowerCase());
+    const u = D.units.find(u => uname(u).toLowerCase() === name && (!prov || pname(u).toLowerCase() === prov))
+      || D.units.find(u => names(u).some(x => x.startsWith(name)));
     if (u) select(u.id, true);
   };
-  MC.onLang(() => { controls(); paint(); detail(); });
+  MC.onLang(() => { controls(); paint(); detail(); datalist(); });
 }
 main();

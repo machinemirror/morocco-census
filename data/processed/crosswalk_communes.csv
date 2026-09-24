@@ -108,9 +108,9 @@ code14,name14,prov14,name_carto,code24,name24,label04,idh04,src04
 01.405.11.11.,Zoumi,Ouezzane,Zoumi,14051111,Commune de Zoumi,Chefchaouen Zoumi,0.563,direct
 01.511.01.01.,Assilah (Mun.),Tanger-Assilah,Assilah (M),15110101,Commune d'Assilah,Tanger-Assilah Assilah (M),0.702,direct
 01.511.01.03.,Bni Makada (Arrond.),Tanger-Assilah,,15110103,Arrondissement de Bni Makada,Tanger-Assilah Bni Makada (AR),0.656,fuzzy
-01.511.01.05.,Charf-Mghogha (Arrond.),Tanger-Assilah,,,,Tanger-Assilah Charf-Mghogha (AR),0.709,fuzzy
-01.511.01.06.,Charf-Souani (Arrond.),Tanger-Assilah,,,,Tanger-Assilah Charf-Souani (AR),0.745,fuzzy
-01.511.01.07.,Tanger-Médina (Arrond.),Tanger-Assilah,,,,Tanger-Assilah Tanger-Médina (AR),0.74,fuzzy
+01.511.01.05.,Charf-Mghogha (Arrond.),Tanger-Assilah,,15110105,Arrondissement de Mghogha,Tanger-Assilah Charf-Mghogha (AR),0.709,fuzzy
+01.511.01.06.,Charf-Souani (Arrond.),Tanger-Assilah,,15110106,Arrondissement de Souani,Tanger-Assilah Charf-Souani (AR),0.745,fuzzy
+01.511.01.07.,Tanger-Médina (Arrond.),Tanger-Assilah,,15110107,Arrondissement de Médina,Tanger-Assilah Tanger-Médina (AR),0.74,fuzzy
 01.511.01.09.,Gueznaia (Mun.),Tanger-Assilah,Gueznaia (M),15110109,Commune de Gueznaia,Tanger – Assilah Gueznaia (AC),0.712,direct
 01.511.03.01.,Al Manzla,Tanger-Assilah,Al Manzla,15110501,Commune d'Al Manzla,Tanger-Assilah Al Manzla,0.508,direct
 01.511.03.03.,Aquouass Briech,Tanger-Assilah,Aquouass Briech,15110303,Commune d'Aquouass Briech,Tanger-Assilah Aquouass Briech,0.587,direct
@@ -276,7 +276,7 @@ code14,name14,prov14,name_carto,code24,name24,label04,idh04,src04
 03.061.01.03.,Al Machouar - Stinia (Mun.),Meknès,Al Machouar - Stinia (M),30610103,Commune d'Al Machouar-Stinia,Meknès Al Machouar - Stinia (M),0.721,direct
 03.061.01.05.,Boufakrane (Mun.),Meknès,Boufakrane (M),30610105,Commune de Boufakrane,Meknès Boufakrane (M),0.686,direct
 03.061.01.07.,Toulal (Mun.),Meknès,Toulal (M),30610107,Commune de Toulal,"Khenifra Sidi Lamine 12,95 21,11 1,67 38,20 0,534 0,238687 Meknès Toulal (M)",0.697,direct
-03.061.01.09.,Moulay Driss Zerhoun (Mun.),Meknès,,,,Meknès Moulay Driss Zerhoun (M),0.672,direct
+03.061.01.09.,Moulay Driss Zerhoun (Mun.),Meknès,,30610109,Commune de My Idriss Zerhoun,Meknès Moulay Driss Zerhoun (M),0.672,direct
 03.061.01.11.,Ouislane (Mun.),Meknès,Ouislane (M),30610111,Commune d'Ouislane,Meknès Ouislane (M),0.633,direct
 03.061.03.01.,Ain Jemaa,Meknès,Ain Jemaa,30610301,Commune d'Ain Jemaa,Meknès Ain Jemaa,0.498,direct
 03.061.03.02.,Ain Karma- Oued Rommane,Meknès,Ain Karma-Oued Rommane,30610302,Commune d'Ain Karma-Oued Rommane,,,
@@ -382,7 +382,7 @@ code14,name14,prov14,name_carto,code24,name24,label04,idh04,src04
 03.531.03.03.,Galaz,Taounate,Galaz,35310303,Commune de Galaz,Taounate Galaz,0.521,direct
 03.531.03.05.,Kissane,Taounate,Kissane,35310305,Commune de Kissane,Taounate Kissane,0.546,direct
 03.531.03.07.,Oudka,Taounate,Oudka,35310307,Commune d'Oudka,Taounate Oudka,0.545,direct
-03.531.03.09.,Ouartzagh,Taounate,,,,Taounate Ourtzagh,0.616,fuzzy
+03.531.03.09.,Ouartzagh,Taounate,,35310309,Commune d'Ourtzarh,Taounate Ourtzagh,0.616,fuzzy
 03.531.03.11.,Ratba,Taounate,Ratba,35310311,Commune de Ratba,Taounate Ratba,0.556,direct
 03.531.03.13.,Sidi Haj M'hamed,Taounate,Sidi Haj M'hamed,35310313,Commune de Sidi Haj M'hamed,Taounate Sidi Haj M'hamed,0.529,direct
 03.531.03.15.,Sidi Mokhfi,Taounate,,35310315,Commune de Sidi Mokhfi,Taounate Sidi Mokhfi,0.507,direct
@@ -766,12 +766,12 @@ code14,name14,prov14,name_carto,code24,name24,label04,idh04,src04
 06.117.08.21.,Ouled Zidane,Berrechid,Ouled Zidane,61170821,Commune d'Ouled Zidane,Settat Ouled Zidane,0.613,direct
 06.117.08.23.,Riah,Berrechid,Riah,61170823,Commune de Riah,,,
 06.141.01.01.,Anfa (Arrond.),Préfecture d’Arrondissements Casablanca Anfa,,61410101,Arrondissement d'Anfa,,,
-06.141.01.03.,El Maarif (Arrond.),Préfecture d’Arrondissements Casablanca Anfa,,,,,,
+06.141.01.03.,El Maarif (Arrond.),Préfecture d’Arrondissements Casablanca Anfa,,61410103,Arrondissement de Maârif,,,
 06.141.01.07.,Sidi Belyout (Arrond.),Préfecture d’Arrondissements Casablanca Anfa,,61410107,Arrondissement de Sidi Belyout,,,
 06.141.01.11.,Al-Fida (Arrond.),Préfecture d’Arrondissements Al Fida-Mers Sultan,,61410111,Arrondissement d'Al-Fida,,,
 06.141.01.13.,Mers-Sultan (Arrond.),Préfecture d’Arrondissements Al Fida-Mers Sultan,,61410113,Arrondissement de Mers-Sultan,,,
 06.141.01.21.,Aîn-Sebaâ (Arrond.),Préfecture d’Arrondissements Aïn Sebaâ-Hay Mohammadi,,61410121,Arrondissement d'Aïn-Sebaâ,,,
-06.141.01.23.,Assoukhour Assawda (Arrond.),Préfecture d’Arrondissements Aïn Sebaâ-Hay Mohammadi,,,,,,
+06.141.01.23.,Assoukhour Assawda (Arrond.),Préfecture d’Arrondissements Aïn Sebaâ-Hay Mohammadi,,61410123,Arrondissement d'Asoukhour Assawda,,,
 06.141.01.25.,Hay Mohammadi (Arrond.),Préfecture d’Arrondissements Aïn Sebaâ-Hay Mohammadi,,61410125,Arrondissement de Hay-Mohammadi,,,
 06.141.01.31.,Hay-Hassani (Arrond.),Préfecture d’Arrondissement  Hay Hassani,,61410131,Arrondissement de Hay-Hassani,,,
 06.141.01.41.,Aîn-Chock (Arrond.),Préfecture d’Arrondissement  Aïn Chock,,61410141,Arrondissement d'Aïn-Chock,,,
@@ -971,7 +971,7 @@ code14,name14,prov14,name_carto,code24,name24,label04,idh04,src04
 07.161.09.11.,Sidi Abdelmoumen,Chichaoua,Sidi Abdelmoumen,71610911,Commune de Sidi Abdelmoumen,Chichaoua Sidi Abdelmoumen,0.384,direct
 07.161.09.13.,Taouloukoult,Chichaoua,Taouloukoult,71610913,Commune de Taouloukoult,Chichaoua Taouloukoult,0.426,direct
 07.161.09.15.,Timlilt,Chichaoua,Timlilt,71610915,Commune de Timlilt,Chichaoua Timlilt,0.416,direct
-07.191.01.03.,El Kelaâ des Sraghna (Mun.),El Kelâa des  Sraghna,,,,El Kelaa Des Sraghna El Kelaâ des Sraghna (M),0.662,direct
+07.191.01.03.,El Kelaâ des Sraghna (Mun.),El Kelâa des  Sraghna,,71910103,Commune de Kelâat Sraghna,El Kelaa Des Sraghna El Kelaâ des Sraghna (M),0.662,direct
 07.191.01.05.,Laattaouia (Mun.),El Kelâa des  Sraghna,Laattaouia (M),71910105,Commune de Laattaouia,El Kelaa Des Sraghna Laattaouia (M),0.634,direct
 07.191.01.07.,Sidi Rahhal (Mun.),El Kelâa des  Sraghna,,71910107,Commune de Sidi Rahal,El Kelaa Des Sraghna Sidi Rahhal (M),0.636,direct
 07.191.01.09.,Tamallalt (Mun.),El Kelâa des  Sraghna,Tamallalt (M),71910109,Commune de Tamallalt,El Kelaa Des Sraghna Tamallalt (M),0.613,direct
@@ -1493,7 +1493,7 @@ code14,name14,prov14,name_carto,code24,name24,label04,idh04,src04
 10.473.07.05.,Boutrouch,Sidi Ifni,Boutrouch,104730705,Commune de Boutrouch,Tiznit Boutrouch,0.529,direct
 10.473.07.07.,Ibdar,Sidi Ifni,,104730707,Commune d'Ibdar,Tiznit Ibdar,0.548,direct
 10.473.07.09.,Sebt Ennabour,Sidi Ifni,Sebt Ennabour,104730709,Commune de Sebt Ennabour,Tiznit Sebt Ennabour,0.532,direct
-10.473.07.11.,Sidi AbdallahOu Belaid,Sidi Ifni,,,,de la Tiznit Sidi Abdallah Ou Belaid,0.528,direct
+10.473.07.11.,Sidi AbdallahOu Belaid,Sidi Ifni,,104730711,Commune de Sidi Abdellah Ou Belaid,de la Tiznit Sidi Abdallah Ou Belaid,0.528,direct
 10.473.07.13.,Sidi H'Saine Ou Ali,Sidi Ifni,Sidi H'Saine Ou Ali,104730713,Commune de Sidi H'saine Ou Ali,Tiznit Sidi H'Saine Ou Ali,0.5,direct
 10.473.07.15.,Sidi M'Bark,Sidi Ifni,Sidi M'Bark,104730715,Commune de Sidi M'bark,Tiznit Sidi M'Bark,0.493,direct
 10.473.07.17.,Tighirt,Sidi Ifni,Tighirt,104730717,Commune de Tighirt,Tiznit Tighirt,0.535,direct

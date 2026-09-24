@@ -15,7 +15,7 @@ import unicodedata
 import pandas as pd
 from rapidfuzz import fuzz, process
 
-from .config import P_CROSSWALK, P_CROSSWALK_APP, P_INDICES_2004, R_APP_INDEX, R_CARTO, R_MPI, RAW
+from .config import LINK_REVIEW, P_CROSSWALK, P_CROSSWALK_APP, P_INDICES_2004, R_APP_INDEX, R_CARTO, R_MPI, RAW
 
 
 def norm(s: str) -> str:
@@ -88,7 +88,9 @@ def load_2024() -> pd.DataFrame:
     return com.reset_index(drop=True)
 
 
-CONTAMINATION = re.compile(r"^(Notation :.*?rural\.\s*|Vulné-\s*|bilité\s*|(communaux |de |la |développement )+)", re.IGNORECASE)
+CONTAMINATION = re.compile(
+    r"^(Notation :.*?rural\.\s*|Vulné-\s*|bilité\s*|(communaux |de |la |développement )+)", re.IGNORECASE
+)
 
 
 def load_2004() -> pd.DataFrame:
@@ -177,7 +179,13 @@ def communes(out_path=P_CROSSWALK) -> pd.DataFrame:
         if scored and scored[0][0] >= 105:
             spine.loc[si, "i_2024"] = scored[0][1]
             add2 += 1
-    print(f"2024 fuzzy added: {add2}; total {spine.i_2024.notna().sum()}/{len(spine)}")
+    # most 2024 codes are the 2014 code without dots (cercles were renumbered in places): Ourtzarh/Ouartzagh
+    by_code = pd.Series(c24.index, c24.code24.astype(str))
+    by_code = by_code[~by_code.isin(set(spine.i_2024.dropna()))]
+    same = spine.code14.str.replace(".", "").str.lstrip("0").map(by_code)
+    add3 = int((spine.i_2024.isna() & same.notna()).sum())
+    spine["i_2024"] = spine.i_2024.fillna(same)
+    print(f"2024 fuzzy added: {add2}, same code: {add3}; total {spine.i_2024.notna().sum()}/{len(spine)}")
 
     out = spine[["code14", "name14", "prov14"]].copy()
     out["name_carto"] = spine.i_carto.map(carto.name_carto)
@@ -213,30 +221,30 @@ def app2004(threshold: int = 85, out_path=P_CROSSWALK_APP) -> pd.DataFrame:
     idx["kx"], idx["px"] = idx.commune.str.replace(APP_PREFIX, "", regex=True).map(norm), idx.province.map(norm)
     spine["kx"], spine["px"] = spine.name14.map(norm), spine.prov14.fillna("").map(norm)
 
+    # The app reports a rural commune (last digit 2) apart from its autonomous centres (3-5, same first 9 digits):
+    # disjoint populations that the 2014 commune covers together. A centre named like its commune is not matched
+    # on its own; every centre left unmatched is linked with its commune.
+    base, milieu = idx.commune_code.str[:9], idx.commune_code.str[-1]
+    centre = milieu.isin(["3", "4", "5"])
+    idx["parent"] = base.map(idx.commune_code[milieu == "2"].set_axis(base[milieu == "2"])).where(centre)
+    parent_k = idx.parent.map(idx.set_index("commune_code").k)
+    twin = centre & pd.Series(
+        [fuzz.token_sort_ratio(a, b) >= 90 for a, b in zip(idx.k, parent_k.fillna(""))], idx.index
+    )
+    units = idx[~twin]
+
     # tier 1: exact name + province, unique on both sides; tier 2: name unique on both sides
     pairs = []
     for keys in (["kx", "px"], ["kx"]):
-        a = idx[~idx.commune_code.isin({c for _, c in pairs})]
+        a = units[~units.commune_code.isin({c for _, c in pairs})]
         b = spine[~spine.code14.isin({c for c, _ in pairs})]
         a = a[~a.duplicated(keys, keep=False)]
         b = b[~b.duplicated(keys, keep=False)]
         m = b.merge(a, on=keys)
         pairs += list(zip(m.code14, m.commune_code))
-    print(f"app2004 exact: {len(pairs)} pairs")
+    n_exact = len(pairs)
 
-    # tier 3: province-constrained mutual-best fuzzy
-    matched14, matched_app = {c for c, _ in pairs}, {c for _, c in pairs}
-    rest = idx[~idx.commune_code.isin(matched_app)]
-    sp = spine[~spine.code14.isin(matched14)]
-    added = []
-    for p, g14 in sp.groupby("p"):
-        # province names drift between the 2004 app and the 2014 spine (renamed post-2009): allow a fuzzy link
-        pool = rest[rest.p == p]
-        if pool.empty:
-            hit = process.extractOne(p, rest.p.unique(), scorer=fuzz.token_sort_ratio, score_cutoff=88)
-            if hit is None:
-                continue
-            pool = rest[rest.p == hit[0]]
+    def mutual_best(g14: pd.DataFrame, pool: pd.DataFrame) -> list[tuple[str, str]]:
         fwd, back = {}, {}
         for _, r in g14.iterrows():
             h = process.extractOne(r.k, pool.k.tolist(), scorer=fuzz.token_sort_ratio, score_cutoff=threshold)
@@ -246,10 +254,56 @@ def app2004(threshold: int = 85, out_path=P_CROSSWALK_APP) -> pd.DataFrame:
             h = process.extractOne(r.k, g14.k.tolist(), scorer=fuzz.token_sort_ratio, score_cutoff=threshold)
             if h:
                 back[r.commune_code] = g14.code14.iloc[h[2]]
-        added += [(c14, a) for c14, a in fwd.items() if back.get(a) == c14]
-    add = pd.DataFrame(added, columns=["code14", "app_code"]).drop_duplicates("code14").drop_duplicates("app_code")
-    out = pd.concat([pd.DataFrame(pairs, columns=["code14", "app_code"]), add], ignore_index=True)
-    assert out.code14.is_unique and out.app_code.is_unique
+        return [(c14, a) for c14, a in fwd.items() if back.get(a) == c14]
+
+    # tier 3: province-constrained mutual-best fuzzy
+    rest = units[~units.commune_code.isin({c for _, c in pairs})]
+    sp = spine[~spine.code14.isin({c for c, _ in pairs})]
+    for p, g14 in sp.groupby("p"):
+        # province names drift between the 2004 app and the 2014 spine (renamed post-2009): allow a fuzzy link
+        pool = rest[rest.p == p]
+        if pool.empty:
+            hit = process.extractOne(p, rest.p.unique(), scorer=fuzz.token_sort_ratio, score_cutoff=88)
+            if hit is None:
+                continue
+            pool = rest[rest.p == hit[0]]
+        pairs += mutual_best(g14, pool)
+    n_fuzzy = len(pairs) - n_exact
+
+    # tier 4: provinces created after 2004 (Driouch, Ouezzane, Rehamna...) draw on the 2004 provinces their
+    # already-linked communes came from
+    lk = pd.DataFrame(pairs, columns=["code14", "app_code"])
+    origin = (
+        lk.code14.map(spine.set_index("code14").p)
+        .to_frame("p14")
+        .assign(p04=lk.app_code.map(idx.set_index("commune_code").p))
+    )
+    rest = units[~units.commune_code.isin(lk.app_code)]
+    sp = spine[~spine.code14.isin(lk.code14)]
+    for p, g14 in sp.groupby("p"):
+        pool = rest[rest.p.isin(set(origin.p04[origin.p14 == p]))]
+        if len(pool):
+            pairs += mutual_best(g14, pool)
+    n_split = len(pairs) - n_exact - n_fuzzy
+
+    out = pd.DataFrame(pairs, columns=["code14", "app_code"])
+    out["link"] = ["exact"] * n_exact + ["fuzzy"] * n_fuzzy + ["province_split"] * n_split
+    by_parent = out.set_index("app_code").code14
+    extra = idx[centre & ~idx.commune_code.isin(out.app_code) & idx.parent.isin(by_parent.index)]
+    out = pd.concat(
+        [out, pd.DataFrame({"code14": extra.parent.map(by_parent), "app_code": extra.commune_code, "link": "centre"})],
+        ignore_index=True,
+    )
+    # merges, renames and absorptions after 2004, decided on population and GeoNames location
+    review = pd.read_csv(LINK_REVIEW, dtype=str)
+    out = pd.concat(
+        [out[~out.app_code.isin(review.app_code)], review[["code14", "app_code"]].assign(link="review")],
+        ignore_index=True,
+    )
+    assert out.app_code.is_unique and out.code14.isin(spine.code14).all()
     out.to_csv(out_path, index=False)
-    print(f"app2004: exact {len(pairs)} + fuzzy {len(add)} = {len(out)}/{len(spine)}")
+    print(
+        f"app2004: exact {n_exact} + fuzzy {n_fuzzy} + province split {n_split} + centres {len(extra)}, "
+        f"{len(review)} reviewed; {out.code14.nunique()}/{len(spine)} communes linked"
+    )
     return out

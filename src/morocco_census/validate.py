@@ -10,7 +10,17 @@ import json
 
 import pandas as pd
 
-from .config import P_COMMUNES, P_CROSSCHECK, P_CROSSWALK, P_PANEL, P_SEEDS, P_UNMATCHED, PROCESSED, RAW
+from .config import (
+    P_COMMUNES,
+    P_CROSSCHECK,
+    P_CROSSWALK,
+    P_CROSSWALK_APP,
+    P_PANEL,
+    P_SEEDS,
+    P_UNMATCHED,
+    PROCESSED,
+    RAW,
+)
 from .site import CITIES
 
 P_VALIDATION = PROCESSED / "validation.json"
@@ -62,6 +72,7 @@ def reconcile(year: int, key: str, name: str, pop: str, legal: tuple[pd.DataFram
 
 def main() -> dict:
     cw = pd.read_csv(P_CROSSWALK, dtype=str)
+    app = pd.read_csv(P_CROSSWALK_APP, dtype=str)
     panel = pd.read_csv(P_PANEL, dtype=str)
     # city aggregate rows carry no flags; the catalogue defines an empty src14/src24 as direct
     communes = panel[panel.level != "city"]
@@ -77,6 +88,8 @@ def main() -> dict:
         "linkage": {
             "spine_2014": len(cw),
             "linked_2004_annex": int(cw.label04.notna().sum()),
+            "linked_2004_profiles": int(app.code14.nunique()),
+            "profile_links": {k: int(v) for k, v in app.link.value_counts().items()},
             "linked_2024": int(cw.code24.notna().sum()),
             "linked_all_three": int((cw.code24.notna() & cw.label04.notna()).sum()),
             # 2024 communes with no 2014 counterpart; the arrondissement cities link through their arrondissements

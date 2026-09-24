@@ -242,6 +242,7 @@ unit,name14,prov14,geonameid,qid,km,flag,chosen,decided_by
 02.533.01.15.,El Aioun Sidi Mellouk (Mun.),Taourirt,11878987,Q3049730,0.4,False,geonames,agree
 02.533.01.33.,Taourirt (Mun.),Taourirt,6545983,Q2329701,1.2,False,geonames,agree
 02.533.03.05.,El Atef,Taourirt,6545480,Q5350784,0.0,False,geonames,agree
+02.533.03.17.,Sidi Ali Bel Quassem,Taourirt,6545919,Q15277627,0.63,False,geonames,agree
 02.533.03.19.,Sidi Lahsen,Taourirt,11911220,Q3483246,7.41,False,geonames,agree
 02.533.07.03.,Ain Lehjer,Taourirt,6545448,Q4697349,16.04,False,geonames,agree
 02.533.07.09.,Mechraa Hammadi,Taourirt,6545449,Q6804744,13.16,False,geonames,agree
@@ -513,6 +514,7 @@ unit,name14,prov14,geonameid,qid,km,flag,chosen,decided_by
 04.481.09.11.,Zaggota,Sidi Kacem,11911840,Q8064382,5.75,False,geonames,agree
 04.481.09.13.,Zirara,Sidi Kacem,11911841,Q553133,5.68,False,geonames,agree
 04.481.11.03.,Dar Laaslouji,Sidi Kacem,6546426,Q5221909,7.19,False,geonames,agree
+04.481.11.05.,Rmilat,Sidi Kacem,6546451,Q5392453,8.33,False,geonames,agree
 04.481.11.11.,Sidi Al Kamel,Sidi Kacem,6546429,Q7508639,3.46,False,geonames,agree
 04.491.01.07.,Sidi Slimane (Mun.),Sidi Slimane,6546898,Q2359952,0.78,False,geonames,agree
 04.491.01.09.,Sidi Yahya El Gharb (Mun.),Sidi Slimane,6546899,Q1169845,0.4,False,geonames,agree
@@ -703,13 +705,14 @@ unit,name14,prov14,geonameid,qid,km,flag,chosen,decided_by
 06.181.03.05.,Laghdira,El Jadida,6546864,Q6472090,4.06,False,geonames,agree
 06.181.03.07.,Lamharza Essahel,El Jadida,6546790,Q6481811,6.1,False,geonames,agree
 06.181.03.11.,Sidi Ali Ben Hamdouche,El Jadida,11912558,Q12217698,2.46,False,geonames,agree
+06.181.05.01.,My Abdellah,El Jadida,6546792,Q3325520,4.83,False,geonames,agree
 06.181.05.03.,Oulad Aissa,El Jadida,11912566,Q12181242,2.72,False,geonames,agree
 06.181.05.05.,Ouled Ghanem,El Jadida,6546794,Q17013245,6.26,False,geonames,agree
 06.181.05.07.,Ouled Hcine,El Jadida,11912567,Q7110407,3.55,False,geonames,agree
 06.181.05.09.,Sidi Abed,El Jadida,6546279,Q12217677,4.15,False,geonames,agree
 06.181.05.11.,Sidi M'Hamed Akhdim,El Jadida,6545791,Q12217613,0.55,False,geonames,agree
 06.181.07.03.,Haouzia,El Jadida,11912568,Q12209102,7.38,False,geonames,agree
-06.181.07.09.,Oulad Rahmoune,El Jadida,11912559,Q7110422,7.99,False,geonames,agree
+06.181.07.09.,Oulad Rahmoune,El Jadida,6545607,Q7110422,6.69,False,geonames,agree
 06.181.09.01.,Boulaouane,El Jadida,6546795,Q4949512,0.46,False,geonames,agree
 06.181.09.03.,Chaibate,El Jadida,6546284,Q12218880,164.99,True,geonames,review
 06.181.09.05.,Mettouh,El Jadida,6546796,Q12238743,2.01,False,geonames,agree

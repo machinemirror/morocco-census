@@ -10,6 +10,8 @@ INTERIM = DATA / "interim"
 SITE = ROOT / "site"
 CATALOG = ROOT / "catalog" / "variables.yaml"
 SEED_REVIEW = ROOT / "catalog" / "seed_review.csv"
+LINK_REVIEW = ROOT / "catalog" / "link_review.csv"
+SEED_NAMES = ROOT / "catalog" / "seed_names.csv"
 
 # raw inputs, relative to RAW (names chosen by fetch.py)
 R_ANNEX_2004 = RAW / "2004" / "pauvrete_developpement_2004.pdf"

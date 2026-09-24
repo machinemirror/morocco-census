@@ -1,5 +1,6 @@
-"""Export the static site's data: map.json (units x indicator series), communes.geojson (simplified
-cells), catalog.json, and the downloads folder (tables as CSV + Parquet, geometry, dictionary, zip)."""
+"""Export the static site's data: map/index.json (units, HCP names, the three-census indicators) with one
+values file per theme, communes.geojson (simplified cells), catalog.json, and the downloads folder (tables as
+CSV + Parquet, geometry, dictionary, zip)."""
 
 import json
 import shutil
@@ -113,64 +114,68 @@ def unit_frame(cells: gpd.GeoDataFrame, hcp: gpd.GeoDataFrame) -> pd.DataFrame:
     return f
 
 
+def hcp_names(units: list[str]) -> pd.DataFrame:
+    """French and Arabic commune and province names as HCP writes them, per map unit."""
+    cw = pd.read_csv(P_CROSSWALK, dtype={"code14": str})
+    cw["unit"] = unit_of(cw)
+    code = cw.dropna(subset=["code24"]).drop_duplicates("unit").set_index("unit").code24.astype("int64")
+    code = pd.concat([code[~code.index.isin(CITIES)], pd.Series({u: c for u, (_, c) in CITIES.items()})])
+    t24 = pd.read_csv(P_COMMUNES[2024]).set_index("code24")
+    n = t24.reindex(code.reindex(units).values).set_axis(units)
+    return pd.DataFrame(
+        {
+            "name_fr": n.name24.str.replace(r"^Commune (de |d')", "", regex=True),
+            "name_ar": n.name24_ar.str.replace(r"^جماعة ", "", regex=True),
+            "prov_fr": n.province24,
+            "prov_ar": n.province24_ar,
+        }
+    )
+
+
 def map_data(cat: dict, uf: pd.DataFrame) -> dict:
+    """The map's index (units, themes, indicators) and its values, one file per theme."""
     units = uf.unit.tolist()
     tables = keyed_tables()
+    shown = catalog.on_map(cat)
+    group_of = {th: g for g, spec in cat["map_groups"].items() for th in spec["themes"]}
     values, indicators = {}, {}
     for (ind, year), (ds, col) in sorted(catalog.series(cat).items()):
+        if ind not in shown:
+            continue
         df, weight = tables[ds]
         spec = cat["indicators"][ind]
         if spec.get("weight") == "households" and "n_households" in df:
             weight = "n_households"
         s = aggregate(df, col, weight, spec).reindex(units)
-        if s.notna().sum() == 0:
-            continue
-        values[f"{ind}|{year}"] = rounded(s, spec)
+        values.setdefault(spec["theme"], {})[f"{ind}|{year}"] = rounded(s, spec)
         entry = indicators.setdefault(
             ind,
-            {
-                k: spec.get(k)
-                for k in (
-                    "theme",
-                    "en",
-                    "fr",
-                    "ar",
-                    "unit",
-                    "agg",
-                    "definition",
-                    "definition_fr",
-                    "definition_ar",
-                    "note",
-                    "note_fr",
-                    "note_ar",
-                )
-            }
-            | {"comparable": spec.get("comparable", True), "vintages": {}},
+            {k: spec[k] for k in ("theme", "en", "fr", "ar", "unit", "agg", "definition", "note") if k in spec}
+            | {"group": group_of[spec["theme"]], "comparable": spec.get("comparable", True), "vintages": {}},
         )
         entry["vintages"][year] = {"dataset": ds, "column": col, "n": int(s.notna().sum())}
 
-    panel, _ = tables["panel_commune"]
-    flags = {}
-    for f in ("src04", "src14", "src24"):
-        g = panel.dropna(subset=["unit"]).groupby("unit")[f]
-        flags[f] = g.agg(lambda x: x.iloc[0] if x.nunique(dropna=False) == 1 else "mixed").reindex(units)
-    return {
-        "units": [
-            {
-                "id": u,
-                "name": CITIES[u][0] if u in CITIES else n,
-                "prov": p,
-                "lon": round(x, 4),
-                "lat": round(y, 4),
-                "pt": s,
-                **{f: (None if pd.isna(flags[f].iloc[i]) else flags[f].iloc[i]) for f in flags},
-            }
-            for i, (u, n, p, x, y, s) in enumerate(zip(units, uf.name14, uf.prov14, uf.lon, uf.lat, uf.pt_src))
-        ],
-        "themes": cat["themes"],
+    names = hcp_names(units)
+    provs = pd.DataFrame({"en": uf.prov14.values, "fr": names.prov_fr.values, "ar": names.prov_ar.values})
+    prov_table = provs.drop_duplicates().reset_index(drop=True)
+    prov_idx = provs.merge(prov_table.reset_index(), how="left").loc[:, "index"]
+    # column-wise, with provinces as a lookup table: a third of the size of one object per unit
+    index = {
+        "units": {
+            "id": units,
+            "name": [CITIES[u][0] if u in CITIES else n for u, n in zip(units, uf.name14)],
+            "name_fr": names.name_fr.tolist(),
+            "name_ar": names.name_ar.tolist(),
+            "prov": prov_idx.tolist(),
+            "lon": [round(x, 4) for x in uf.lon],
+            "lat": [round(y, 4) for y in uf.lat],
+            "pt": uf.pt_src.tolist(),
+        },
+        "provinces": prov_table.to_dict(orient="records"),
+        "groups": {k: {x: v[x] for x in ("en", "fr", "ar")} for k, v in cat["map_groups"].items()},
         "indicators": indicators,
-        "values": values,
     }
+    return {"index": index, "values": values}
 
 
 def simplified(cells: gpd.GeoDataFrame, ids=None) -> gpd.GeoDataFrame:
@@ -203,8 +208,6 @@ def downloads(cat: dict, cells: gpd.GeoDataFrame, dest) -> list[dict]:
             {
                 "dataset": ds["id"],
                 "en": ds["en"],
-                "fr": ds["fr"],
-                "ar": ds["ar"],
                 "rows": len(df),
                 "cols": df.shape[1],
                 "formats": ["csv", "parquet"],
@@ -239,7 +242,10 @@ def main() -> None:
     hcp = gpd.read_file(P_HCP_GPKG)
     uf = unit_frame(cells, hcp)
     data = map_data(cat, uf)
-    (out / "map.json").write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")))
+    (out / "map").mkdir()
+    (out / "map" / "index.json").write_text(json.dumps(data["index"], ensure_ascii=False, separators=(",", ":")))
+    for theme, vals in data["values"].items():
+        (out / "map" / f"{theme}.json").write_text(json.dumps(vals, separators=(",", ":")))
     write_geojson(simplified(cells), out / "communes.geojson")
     hcp = hcp.set_index("unit").loc[[u for u in uf.unit if u in set(hcp.unit)]].reset_index()
     hcp["i"] = hcp.unit.map({u: i for i, u in enumerate(uf.unit)})
@@ -259,8 +265,11 @@ def main() -> None:
                 "files": files,
                 "sizes": {f.name: f.stat().st_size for f in sorted((out / "downloads").iterdir())},
                 "columns": dictionary.to_dict(orient="records"),
-                "indicators": {
-                    k: {"n": {y: v["n"] for y, v in ind["vintages"].items()}} for k, ind in data["indicators"].items()
+                "on_map": sorted(data["index"]["indicators"]),
+                "coverage": {
+                    ds["id"]: {**pd.read_csv(PROCESSED / ds["file"], dtype=str).notna().sum().astype(int).to_dict()}
+                    | {"_rows": len(pd.read_csv(PROCESSED / ds["file"], usecols=[0]))}
+                    for ds in cat["datasets"]
                 },
             },
             ensure_ascii=False,
@@ -268,7 +277,8 @@ def main() -> None:
         )
     )
     sizes = {f.name: f.stat().st_size for f in out.iterdir() if f.is_file()}
+    sizes |= {f"map/{f.name}": f.stat().st_size for f in (out / "map").iterdir()}
     print(
-        f"site/data: {len(data['units'])} units, {len(data['values'])} series;",
+        f"site/data: {len(uf)} units, {len(data['index']['indicators'])} map indicators;",
         ", ".join(f"{k} {v / 1e3:.0f} kB" for k, v in sizes.items()),
     )

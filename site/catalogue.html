@@ -18,12 +18,11 @@
 <body>
 <header class="topbar"></header>
 <div class="page">
+  <div class="i18n" id="i18n-page"></div>
   <h1 data-t="title">Data catalogue</h1>
-  <p class="lede" data-t="lede">Every column of every published table, with its definition, unit, census and exact
-    HCP source field. Columns that measure the same concept across censuses share an indicator; notes flag where
-    definitions differ.</p>
+  <p class="lede" data-t="lede"></p>
   <div class="filters">
-    <input id="q" type="search" placeholder="Search: electricity, IDH, chômage…" aria-label="Search">
+    <input id="q" type="search" placeholder="Search: electricity, IDH, analphabétisme…" aria-label="Search">
     <select id="ds" aria-label="Dataset"></select>
     <select id="th" aria-label="Theme"></select>
     <select id="yr" aria-label="Census"></select>
@@ -42,26 +41,19 @@
 <script src="common.js"></script>
 <script>
 const L = {
-  en: { title: "Data catalogue", lede: "Every column of every published table, with its definition, unit, census and exact HCP source field. Columns that measure the same concept across censuses share an indicator; notes flag where definitions differ.",
+  en: { title: "Data catalogue", lede: "Every column of every published table, with its definition, unit, census and exact HCP source field. Columns that measure the same concept across censuses share an indicator; notes flag where definitions differ. Indicators tagged 'map' are observed in all three censuses and are the ones the map shows; HCP's own French and Arabic labels are given for them.",
         "h-var": "Variable", "h-col": "Column", "h-census": "Census", "h-unit": "Unit", "h-cov": "Coverage",
         all: "All", allds: "All tables", allth: "All themes", allyr: "All censuses", of: "of", cols: "columns", id: "Identifier", comm: "communes" },
-  fr: { title: "Catalogue des données", lede: "Chaque colonne de chaque table publiée, avec sa définition, son unité, son recensement et le champ source exact du HCP. Les colonnes qui mesurent le même concept d'un recensement à l'autre partagent un indicateur ; les notes signalent les différences de définition.",
-        "h-var": "Variable", "h-col": "Colonne", "h-census": "Recensement", "h-unit": "Unité", "h-cov": "Couverture",
-        all: "Tous", allds: "Toutes les tables", allth: "Tous les thèmes", allyr: "Tous les recensements", of: "sur", cols: "colonnes", id: "Identifiant", comm: "communes" },
-  ar: { title: "فهرس المعطيات", lede: "كل أعمدة الجداول المنشورة، مع تعريفها ووحدتها والإحصاء الذي تنتمي إليه والحقل الأصلي لدى المندوبية السامية للتخطيط. الأعمدة التي تقيس المفهوم نفسه عبر الإحصاءات تشترك في مؤشر واحد، وتنبّه الملاحظات إلى اختلاف التعاريف.",
-        "h-var": "المتغير", "h-col": "العمود", "h-census": "الإحصاء", "h-unit": "الوحدة", "h-cov": "التغطية",
-        all: "الكل", allds: "جميع الجداول", allth: "جميع المحاور", allyr: "جميع الإحصاءات", of: "من أصل", cols: "عموداً", id: "معرّف", comm: "جماعة" },
 };
 let C;
 const t = k => L[MC.lang][k];
-const tx = (o, k) => o[`${k}_${MC.lang}`] || o[k];
 function options() {
   const keep = id => document.getElementById(id).value;
   const [ds, th, yr] = ["ds", "th", "yr"].map(keep);
   document.getElementById("ds").innerHTML = `<option value="">${t("allds")}</option>` +
-    C.datasets.map(d => `<option value="${d.id}">${MC.esc(d[MC.lang])}</option>`).join("");
+    C.datasets.map(d => `<option value="${d.id}">${MC.esc(d.en)}</option>`).join("");
   document.getElementById("th").innerHTML = `<option value="">${t("allth")}</option>` +
-    Object.entries(C.themes).map(([k, v]) => `<option value="${MC.esc(v.en)}">${MC.esc(v[MC.lang])}</option>`).join("") +
+    Object.entries(C.themes).map(([k, v]) => `<option value="${MC.esc(v.en)}">${MC.esc(v.en)}</option>`).join("") +
     `<option value="Identifier">${t("id")}</option>`;
   document.getElementById("yr").innerHTML = `<option value="">${t("allyr")}</option>` +
     [2004, 2014, 2024].map(y => `<option>${y}</option>`).join("");
@@ -70,23 +62,24 @@ function options() {
 function render() {
   const q = document.getElementById("q").value.toLowerCase().trim();
   const ds = document.getElementById("ds").value, th = document.getElementById("th").value, yr = document.getElementById("yr").value;
-  const names = Object.fromEntries(C.datasets.map(d => [d.id, d[MC.lang]]));
+  const names = Object.fromEntries(C.datasets.map(d => [d.id, d.en]));
   const rows = C.columns.filter(c =>
     (!ds || c.dataset === ds) && (!th || c.theme === th) && (!yr || String(c.vintage) === yr) &&
-    (!q || [c.column, c.label_en, c.label_fr, c.label_ar, c.definition, c.definition_fr, c.definition_ar, c.source_field, c.note, c.note_fr, c.note_ar].join(" ").toLowerCase().includes(q)));
+    (!q || [c.column, c.label_en, c.label_fr, c.label_ar, c.definition, c.source_field, c.note].join(" ").toLowerCase().includes(q)));
   document.getElementById("count").textContent = `${rows.length} ${t("of")} ${C.columns.length} ${t("cols")}`;
   document.getElementById("rows").innerHTML = rows.map(c => {
-    const lab = c["label_" + MC.lang];
-    const n = c.indicator && c.vintage ? C.indicators[c.indicator]?.n?.[c.vintage] : null;
+    const cov = C.coverage[c.dataset];
     const src = c.source ? `${c.source_url ? `<a href="${MC.esc(c.source_url)}">${MC.esc(c.source)}</a>` : MC.esc(c.source)}${c.source_field ? " — " + MC.esc(c.source_field) : ""}` : "";
+    const hcp = [c.label_fr, c.label_ar].filter(Boolean).map(x => `<span dir="auto">${MC.esc(x)}</span>`).join(" · ");
     return `<tr>
-      <td><b>${MC.esc(lab)}</b>${c.comparable === false ? ' <span class="tag warn">≠</span>' : ""}
-        <div class="def" dir="auto">${MC.esc(tx(c, "definition"))}${c.note ? `<br><i>${MC.esc(tx(c, "note"))}</i>` : ""}</div>
+      <td><b>${MC.esc(c.label_en)}</b>${c.comparable === false ? ' <span class="tag warn">≠</span>' : ""}${C.on_map.includes(c.indicator) ? ' <span class="tag">map</span>' : ""}
+        ${hcp ? `<div class="src">HCP: ${hcp}</div>` : ""}
+        <div class="def">${MC.esc(c.definition)}${c.note ? `<br><i>${MC.esc(c.note)}</i>` : ""}</div>
         ${src ? `<div class="src">${src}</div>` : ""}</td>
       <td><code>${MC.esc(c.column)}</code><div class="src">${MC.esc(names[c.dataset])}</div></td>
       <td>${c.vintage || ""}</td>
       <td>${MC.esc(MC.unitName(c.unit))}</td>
-      <td class="num">${n ? `${n.toLocaleString()} ${t("comm")}` : ""}</td></tr>`;
+      <td class="num">${cov[c.column].toLocaleString()} / ${cov._rows.toLocaleString()}</td></tr>`;
   }).join("");
   document.querySelectorAll("[data-t]").forEach(el => (el.textContent = t(el.dataset.t)));
 }
@@ -94,7 +87,6 @@ MC.header("catalogue");
 fetch("data/catalog.json").then(r => r.json()).then(c => {
   C = c; options(); render();
   ["q", "ds", "th", "yr"].forEach(id => document.getElementById(id).addEventListener("input", render));
-  MC.onLang(() => { options(); render(); });
 });
 </script>
 </body>

@@ -71,15 +71,30 @@ municipalities, 41 arrondissements).
 | Link | Matched of 1,538 | Notes |
 |---|---|---|
 | 2004–2014 poverty map | 1,455 | exact name + province |
-| 2025 MPI database (2024 codes) | 1,529 | 36 by fuzzy name with a same-province bonus |
+| 2025 MPI database (2024 codes) | 1,538 | 36 by fuzzy name with a same-province bonus, 9 by identical code (a 2024 code is usually the 2014 code without dots) |
 | 2004 annex | 1,473 | 1,405 direct, 68 mutual-best fuzzy (rapidfuzz ≥ 82) |
-| All three censuses | 1,466 (95.3%) | the rest are communes created or merged after 2004 |
+| All three censuses | 1,473 (95.8%) | the rest are communes created or merged after 2004 |
 
-**2004 app codes** (`crosswalk_app2004.csv`): 1,478 of 1,538, by exact space-insensitive name + province,
-then unique name, then province-constrained mutual-best fuzzy (≥ 85).
+**2004 app codes** (`crosswalk_app2004.csv`): 1,528 of 1,538 communes, one row per app unit with its `link` type.
 
-**Not linked yet.** 4 communes of the 2024 indicators file (My Idriss Zerhoun, Ourtzarh, Kelâat Sraghna,
-Sidi Abdellah Ou Belaid) carry codes that differ from the MPI database's.
+- The app reports a rural commune (code ending 2) apart from its autonomous centres (3-5, same first 9 digits): disjoint
+  populations (all app units sum to the 2004 national total) that HCP's 2014 commune covers together. A centre named
+  like its commune is not matched on its own; every centre left unmatched is linked with its commune (147,
+  `centre`). Before this, 125 linked communes carried the rural part's values only.
+- Matching: exact space-insensitive name + province, then unique name (1,467 `exact`); province-constrained
+  mutual-best fuzzy ≥ 85 (31 `fuzzy`); for provinces created after 2004 (Driouch, Fquih Ben Salah, Sidi Slimane...),
+  mutual-best fuzzy within the 2004 provinces their linked communes came from (13 `province_split`).
+- `catalog/link_review.csv` (27 `review`): merges (Ain Johra + Sidi Boukhalkhal, Ain Nzagh + Tamadroust), renames
+  (Lkhaloua → Had Al Gharbia), rural remainders renamed when their centre became a municipality (Driouch → Mtalssa,
+  Tahannaout → Aghouatim, Sidi Bou Othmane → Jbilate, Sidi Bouknadel → Ameur) and absorptions (Amalou Ighriben into
+  Khenifra). Each is decided on 2004-2014 population and on where the GeoNames point of the 2004 unit falls in HCP's
+  2024 polygons, and states its evidence.
+- Several app units sharing a 2014 commune are combined like arrondissements into cities: sums for counts,
+  population- or household-weighted means for rates.
+- Not linked: 10 communes created after 2004 from part of another (Had Soualem, Soualem Trifiya, Oulad Ziyane, Ameur
+  Chamalia, Sidi Mohamed Ben Mansour, Ait Ali ou Lahcen, Belyounech, Ain Chair, Chahda, Oulad Azzouz in Nouaceur) and
+  3 app units split between 2014 communes (Ain Dorbane, Lakhiaita, Soualem): apportioning their values would need
+  assumptions.
 
 ## Imputation (panel only)
 
@@ -97,9 +112,11 @@ Robustness checks should drop imputed rows; the flags make that a one-line filte
 
 ## Geometry
 
-- Units: 1,503 (the 41 arrondissements collapse to 6 cities). Seed points: 1,444 from GeoNames (1,427 by
-  exact name, 17 by fuzzy name), 53 from Wikidata (48 exact, 5 fuzzy), 6 without a point
-  (`points_unmatched.csv`). Every point, its source identifier (geonameid or QID), feature class and match
+- Units: 1,503 (the 41 arrondissements collapse to 6 cities). Seed points: 1,448 from GeoNames (1,431 by
+  exact name, 17 by fuzzy name), 54 from Wikidata (49 exact, 5 fuzzy), 1 without a point
+  (`points_unmatched.csv`: Sidi Mohamed Ben Mansour, which neither gazetteer has as a commune). Five communes are
+  matched under a gazetteer spelling recorded in `catalog/seed_names.csv` (Mtalssa as Metalsa, Rmilat as Ermilate...),
+  each checked to fall inside the commune's HCP 2024 polygon. Every point, its source identifier (geonameid or QID), feature class and match
   type is in `points_seeds.csv`.
 - GeoNames matching: commune-level admin features (ADM3/ADM4) before populated places, primary names before
   alternate names; cercles and higher units are excluded. Candidates must lie within a province radius of
@@ -115,7 +132,7 @@ Robustness checks should drop imputed rows; the flags make that a one-line filte
   municipalities and for Saharan communes are often off; for rural northern communes Wikidata is.
 - Cells: Voronoi in EPSG:32629, clipped to the Natural Earth outline. Seeds for Figuig, Bab Lamrissa and
   Harhoura fall just outside that coarse outline; it is extended by 1 km around them.
-- Weights: queen contiguity on the cells, 1,497 units, mean 5.76 neighbours, no islands.
+- Weights: queen contiguity on the cells, 1,502 units, mean 5.76 neighbours, no islands.
 
 ## Validation
 
@@ -165,12 +182,26 @@ country-map bundle and records each file in the manifest. The files declare CRS8
   commune) plus a milieu digit (1 municipality or arrondissement, 2 rural commune, 3-5 urban centre inside a rural
   commune). All 1,538 communes of the 2014 spine match; Sebta and Melilla features have no census data and are dropped.
 - `geometry.hcp_boundaries()` dissolves centres into their rural commune and arrondissements into their city, giving
-  1,503 map units (the 1,497 Thiessen units plus 6 communes with no seed point), coverage-simplified at 100 m, in
+  1,503 map units (the 1,502 Thiessen units plus 1 commune with no seed point), coverage-simplified at 100 m, in
   `geometry/hcp_communes_2024.gpkg`.
 - The layer is not in the download bundle: HCP's terms allow reuse with attribution, but no licence for the geometry as
   data is stated.
-- Reliability by census on these boundaries: 2014 exact (same codes); 2024 through the crosswalk (1,493 of 1,503
-  communes, cities from their arrondissements); 2004 through the app crosswalk (1,478 linked one-to-one, 41 of them
-  arrondissements whose 2004 structure differed). A cautious rule flagged 206 linked communes sharing a cercle with a
-  commune that has no 2004 link, in case territory was carved from them; their 2004-2014 population growth matches the
-  rest (median +3.2% vs +3.0%, 2 drops over 25%), so no territorial change is evident.
+- Reliability by census on these boundaries: 2014 exact (same codes); 2024 through the crosswalk (every commune,
+  cities from their arrondissements); 2004 through the app crosswalk (1,528 communes; rural communes with their
+  centres, reviewed merges and renames as above). 2004-2014 population growth across linked communes has a median
+  ratio of 1.02; the largest drops are Saharan communes, whose census coverage differs between rounds.
+
+## Names and labels in French and Arabic
+
+- Commune and province names: HCP's 2024 legal population list (`poplegale_2024.xlsx`), which names every commune
+  (`جماعة ...`) and province in both languages; published as `name24_ar`, `province24`, `province24_ar` in
+  `communes_2024.csv`. The map drops the `Commune de` / `جماعة` prefix.
+- Indicator labels (`fr`, `ar`, `label_source` in the catalogue) for the 50 map indicators: HCP's own wording, from the
+  RGPH 2024 results platform's bilingual indicator menu (chart 667) and concept definitions, the bilingual headers of
+  the 2024 douar workbook, the 2024 and 2014 indicator workbooks, and HCP's Chichaoua 2024 provincial note for Arabic
+  category names the platform lacks (age groups, local languages, employment status). Where HCP gives a variable
+  and a category, the label joins them with a colon as HCP's Arabic does ("Type de logement : Villa" /
+  "نوع المسكن: فيلا"). Two indicators have no HCP wording (65 and over; divorced women) and stay in English.
+- Map groups (`map_groups`): the platform menu's headings (Démographie, Conditions d'habitat...).
+- Everything else (definitions, notes, dataset descriptions, the other pages) is English; earlier AI-assisted French
+  and Arabic versions were removed pending review by fluent speakers.

@@ -148,7 +148,8 @@ def main() -> pd.DataFrame:
             for c in [c for c in cols if c in p.columns]:
                 num = (p[c] * w).groupby([p[g] for g in group]).transform("sum")
                 den = w.where(p[c].notna(), 0).groupby([p[g] for g in group]).transform("sum")
-                p.loc[need & p[c].isna() & (den > 0), c] = (num / den)[need & (den > 0)]
+                fill = need & p[c].isna() & (den > 0)
+                p.loc[fill, c] = (num / den)[fill]
             p.loc[need & p[cols[0]].notna(), flag_col] = tag
 
     impute(cols04, "src04")

@@ -19,6 +19,7 @@
 <body>
 <header class="topbar"></header>
 <div class="page">
+  <div class="i18n" id="i18n-page"></div>
   <h1 data-t="title">Downloads</h1>
   <p class="lede" data-t="lede">All tables are commune-level, UTF-8 CSV and Parquet. Codes are text: keep leading zeros
     (app_code) and trailing dots (code14) when you open them in a spreadsheet.</p>
@@ -33,10 +34,7 @@
     <tbody id="tables"></tbody></table></div>
 
   <h2 data-t="geo">Geometry</h2>
-  <div class="note" style="margin-bottom:.8rem" data-t="geo-note">Commune shapes are Thiessen (Voronoi) cells around one
-    seed point per commune, clipped to the national outline. They are approximations for mapping and neighbour
-    relations, not administrative boundaries. 1,497 map units: the 41 arrondissements are merged into 6 cities and
-    6 communes have no seed point yet.</div>
+  <div class="note" style="margin-bottom:.8rem" data-t="geo-note"></div>
   <div class="table-wrap"><table><tbody id="geo"></tbody></table></div>
 
   <h2 data-t="code">Use from code</h2>
@@ -52,25 +50,11 @@
 const L = {
   en: { title: "Downloads", lede: "All tables are commune-level, UTF-8 CSV and Parquet. Codes are text: keep leading zeros (app_code) and trailing dots (code14) when you open them in a spreadsheet.",
         tables: "Tables", "h-table": "Table", "h-rows": "Rows", "h-cols": "Columns", "h-files": "Files", geo: "Geometry",
-        "geo-note": "Commune shapes are Thiessen (Voronoi) cells around one seed point per commune, clipped to the national outline. They are approximations for mapping and neighbour relations, not administrative boundaries. 1,497 map units: the 41 arrondissements are merged into 6 cities and 6 communes have no seed point yet.",
+        "geo-note": "Commune shapes are Thiessen (Voronoi) cells around one seed point per commune, clipped to the national outline. They are approximations for mapping and neighbour relations, not administrative boundaries. 1,502 map units: the 41 arrondissements are merged into 6 cities, and one commune (Sidi Mohamed Ben Mansour) has no seed point yet.",
         code: "Use from code", cite: "Cite", all: "Download everything (.zip)",
         g: { "communes.gpkg": "GeoPackage: layers thiessen (cells) and points (seed points)", "communes_thiessen.geojson": "Thiessen cells, GeoJSON",
              "communes_points.geojson": "Seed points, GeoJSON", "communes_queen.gal": "Queen-contiguity spatial weights (GAL, cell order of the GeoPackage)",
              "boundary_mar_esh.gpkg": "National outline used for clipping (Natural Earth)", "data_dictionary.csv": "Data dictionary: every column, definition and source" } },
-  fr: { title: "Téléchargements", lede: "Toutes les tables sont au niveau communal, en CSV UTF-8 et Parquet. Les codes sont du texte : conserver les zéros initiaux (app_code) et les points finaux (code14) dans un tableur.",
-        tables: "Tables", "h-table": "Table", "h-rows": "Lignes", "h-cols": "Colonnes", "h-files": "Fichiers", geo: "Géométrie",
-        "geo-note": "Les contours sont des cellules de Thiessen (Voronoï) autour d'un point par commune, découpées selon le contour national. Ce sont des approximations pour la cartographie et le voisinage, pas des limites administratives. 1 497 unités : les 41 arrondissements sont regroupés en 6 villes et 6 communes n'ont pas encore de point.",
-        code: "Utilisation en code", cite: "Citer", all: "Tout télécharger (.zip)",
-        g: { "communes.gpkg": "GeoPackage : couches thiessen (cellules) et points", "communes_thiessen.geojson": "Cellules de Thiessen, GeoJSON",
-             "communes_points.geojson": "Points des communes, GeoJSON", "communes_queen.gal": "Matrice de contiguïté (reine), format GAL",
-             "boundary_mar_esh.gpkg": "Contour national utilisé pour le découpage (Natural Earth)", "data_dictionary.csv": "Dictionnaire des données : chaque colonne, définition et source" } },
-  ar: { title: "التحميلات", lede: "جميع الجداول على مستوى الجماعة، بصيغتي CSV وParquet، بترميز UTF-8. الرموز نصوص: احتفظ بالأصفار في البداية (app_code) وبالنقاط في النهاية (code14) عند فتحها في جدول بيانات.",
-        tables: "الجداول", "h-table": "الجدول", "h-rows": "الصفوف", "h-cols": "الأعمدة", "h-files": "الملفات", geo: "المعطيات الجغرافية",
-        "geo-note": "أشكال الجماعات خلايا ثيسن (فورونوي) حول نقطة واحدة لكل جماعة، مقصوصة وفق الحدود الوطنية. هي تقريبات لأغراض الخرائط وعلاقات الجوار، وليست حدوداً إدارية. 1497 وحدة: دُمجت المقاطعات الـ41 في 6 مدن، و6 جماعات ليست لها نقطة بعد.",
-        code: "الاستعمال في البرمجة", cite: "الاستشهاد", all: "تحميل الكل بصيغة ZIP",
-        g: { "communes.gpkg": "GeoPackage: طبقتا thiessen (الخلايا) وpoints (النقاط)", "communes_thiessen.geojson": "خلايا ثيسن، GeoJSON",
-             "communes_points.geojson": "نقاط الجماعات، GeoJSON", "communes_queen.gal": "مصفوفة التجاور (نوع الملكة)، صيغة GAL",
-             "boundary_mar_esh.gpkg": "الحدود الوطنية المستعملة للقص (Natural Earth)", "data_dictionary.csv": "قاموس المعطيات: كل عمود وتعريفه ومصدره" } },
 };
 let C;
 const t = k => L[MC.lang][k];
@@ -82,7 +66,7 @@ function render() {
   b.href = "data/downloads/" + bundle; b.textContent = t("all");
   document.getElementById("bundle-meta").textContent = `${bundle} · ${MC.bytes(C.sizes[bundle])} · v${C.version}`;
   document.getElementById("tables").innerHTML = C.files.map(f => `<tr>
-    <td><b>${MC.esc(f[MC.lang])}</b><div class="muted small"><code>${f.stem}</code></div></td>
+    <td><b>${MC.esc(f.en)}</b><div class="muted small"><code>${f.stem}</code></div></td>
     <td class="num">${f.rows.toLocaleString()}</td><td class="num">${f.cols}</td>
     <td><span class="fmt" dir="ltr">${f.formats.map(x => link(`${f.stem}.${x}`)).join("")}</span></td></tr>`).join("");
   document.getElementById("geo").innerHTML = Object.entries(t("g")).map(([f, d]) =>
@@ -102,7 +86,7 @@ panel <- read.csv("${base}panel_commune.csv", colClasses = c(code14 = "character
     `Source statistics: Haut-Commissariat au Plan, Recensement Général de la Population et de l'Habitat 2004, 2014, 2024.`;
 }
 MC.header("downloads");
-fetch("data/catalog.json").then(r => r.json()).then(c => { C = c; render(); MC.onLang(render); });
+fetch("data/catalog.json").then(r => r.json()).then(c => { C = c; render(); });
 </script>
 </body>
 </html>

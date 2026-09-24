@@ -1,4 +1,5 @@
-// Shared chrome: nav, EN/FR/AR switch (remembered per browser), small helpers.
+// Shared chrome: nav, the map's EN/FR/AR switch (remembered per browser), small helpers. Only the map is
+// multilingual, and only for HCP's own place names and indicator labels; every other page is English.
 const MC = (() => {
   const T = {
     en: { map: "Map", catalogue: "Catalogue", downloads: "Downloads", about: "About", tag: "Moroccan census by commune" },
@@ -6,8 +7,27 @@ const MC = (() => {
     ar: { map: "الخريطة", catalogue: "الفهرس", downloads: "التحميلات", about: "حول المشروع", tag: "الإحصاء العام للسكان والسكنى حسب الجماعة" },
   };
   let lang = "en";
-  try { lang = localStorage.getItem("mc-lang") || ["fr", "ar"].find(l => (navigator.language || "").startsWith(l)) || "en"; } catch (e) {}
-  if (!T[lang]) lang = "en";
+  const multilingual = document.body.dataset.page === "map";
+  if (multilingual) {
+    try { lang = localStorage.getItem("mc-lang") || ["fr", "ar"].find(l => (navigator.language || "").startsWith(l)) || "en"; } catch (e) {}
+    if (!T[lang]) lang = "en";
+  }
+  const ISSUE = "https://github.com/machinemirror/morocco-census/issues/new?labels=translation&title=";
+  const ASK = {
+    fr: { page: "Cette page n'existe qu'en anglais. Vous maîtrisez le français ? Aidez-nous à la traduire",
+          map: "Les définitions et les notes n'existent qu'en anglais. Vous maîtrisez le français ? Aidez-nous à les traduire",
+          link: "écrivez-nous sur GitHub" },
+    ar: { page: "هذه الصفحة متوفرة بالإنجليزية فقط. هل تتقن العربية؟ ساعدنا في ترجمتها",
+          map: "التعاريف والملاحظات متوفرة بالإنجليزية فقط. هل تتقن العربية؟ ساعدنا في ترجمتها",
+          link: "راسلنا على GitHub" },
+  };
+  // on the map, a note in the chosen language; on English-only pages, one line in each
+  function translateNote() {
+    const line = (l, kind) => `<p lang="${l}" dir="${l === "ar" ? "rtl" : "ltr"}">${ASK[l][kind]} : ` +
+      `<a href="${ISSUE}${encodeURIComponent(`Translation (${l})`)}">${ASK[l].link}</a>.</p>`;
+    if (multilingual) return lang === "en" ? "" : line(lang, "map");
+    return line("fr", "page") + line("ar", "page");
+  }
   const listeners = [];
 
   function header(active) {
@@ -20,12 +40,14 @@ const MC = (() => {
           `<a href="${k === "map" ? "./" : k + ".html"}" ${k === active ? 'aria-current="page"' : ""}>${t[k]}</a>`).join("")}
       </nav>
       <div class="spacer"></div>
-      <div class="lang" role="group" aria-label="Language">
+      ${multilingual ? `<div class="lang" role="group" aria-label="Language">
         <button data-l="en" aria-pressed="${lang === "en"}">EN</button>
         <button data-l="fr" aria-pressed="${lang === "fr"}">FR</button>
         <button data-l="ar" aria-pressed="${lang === "ar"}" lang="ar" title="العربية">ع</button>
-      </div>`;
+      </div>` : ""}`;
     el.querySelectorAll(".lang button").forEach(b => b.onclick = () => setLang(b.dataset.l, active));
+    const note = document.getElementById("i18n-page");
+    if (note) note.innerHTML = translateNote();
     document.documentElement.lang = lang;
     document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
   }
@@ -85,5 +107,5 @@ const MC = (() => {
   }
   const esc = (s) => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
-  return { header, get lang() { return lang; }, onLang: f => listeners.push(f), fmt, withUnit, unitName, bytes, esc };
+  return { header, get lang() { return lang; }, onLang: f => listeners.push(f), fmt, withUnit, unitName, bytes, esc, translateNote };
 })();

@@ -10,7 +10,8 @@ cell clipped to the national outline. Every input is openly licensed:
      coordinates agree with one another and fall near the province anchor.
 Where both gazetteers place a unit, their distance is written to points_crosscheck.csv. When they
 disagree by more than CROSSCHECK_FLAG_KM, catalog/seed_review.csv records a reviewed choice of
-source; without a review, the point nearer the province anchor is used. Arrondissements collapse to one unit per city. The outline is Natural Earth.
+source; without a review, the point nearer the province anchor is used. catalog/seed_names.csv gives the
+gazetteer spelling of communes whose census name matches nothing (Mtalssa is Metalsa). Arrondissements collapse to one unit per city. The outline is Natural Earth.
 """
 
 import re
@@ -40,6 +41,7 @@ from .config import (
     R_HCP_BOUNDARIES,
     R_NATURAL_EARTH,
     R_WIKIDATA,
+    SEED_NAMES,
     SEED_REVIEW,
 )
 from .crosswalk import norm, norm_app
@@ -89,7 +91,9 @@ def units() -> pd.DataFrame:
     cw["is_arr"] = cw.name14.str.contains(r"\(Arrond", na=False)
     cw["unit"] = np.where(cw.is_arr, cw.code14.str.extract(r"^(\d+\.\d+\.\d+\.)")[0], cw.code14)
     u = cw.drop_duplicates("unit").copy()
-    u["k_name"] = u.name14.str.replace(r"\s*\((Mun|Arrond)\.\)", "", regex=True).map(norm)
+    alias = pd.read_csv(SEED_NAMES).set_index("unit").gazetteer_name
+    u["match_name"] = u.unit.map(alias).fillna(u.name14)
+    u["k_name"] = u.match_name.str.replace(r"\s*\((Mun|Arrond)\.\)", "", regex=True).map(norm)
     u["k_prov"] = u.prov14.map(norm)
     u["is_mun"] = u.name14.str.contains(r"\((?:Mun|Arrond)", na=False)
     return u
@@ -177,10 +181,10 @@ def match_geonames(u: pd.DataFrame, gn: pd.DataFrame) -> tuple[pd.DataFrame, pd.
             pool = near(communes, r.prov14)
             if not len(pool):
                 continue
-            best = process.extract("".join(words(r.name14)), pool.key.tolist(), scorer=fuzz.ratio, limit=2)
+            best = process.extract("".join(words(r.match_name)), pool.key.tolist(), scorer=fuzz.ratio, limit=2)
             clear = len(best) == 1 or best[0][1] - best[1][1] >= 5
             b = pool.iloc[best[0][2]]
-            if not (best[0][1] >= 88 and clear and words_agree(r.name14, b["name"])):
+            if not (best[0][1] >= 88 and clear and words_agree(r.match_name, b["name"])):
                 continue
             how = "fuzzy"
         else:
@@ -223,7 +227,7 @@ def match_wikidata(u: pd.DataFrame, wd: pd.DataFrame, anchor: pd.DataFrame, radi
     for r in u.itertuples():
         c = wd[(wd.k == r.k_name) | (wd.k_fr == r.k_name)]
         if not len(c):
-            c = wd.loc[[fuzz.ratio(k, r.k_name) >= 88 and words_agree(r.name14, lab) for k, lab in zip(wd.k, wd.label.fillna(wd.fr))]]
+            c = wd.loc[[fuzz.ratio(k, r.k_name) >= 88 and words_agree(r.match_name, lab) for k, lab in zip(wd.k, wd.label.fillna(wd.fr))]]
         # Wikidata states each commune's province, so that replaces the anchor-radius test when present
         same_prov = np.array([fuzz.ratio(p, r.k_prov) >= 70 for p in c.k_prov], dtype=bool)
         if r.prov14 in anchor.index:

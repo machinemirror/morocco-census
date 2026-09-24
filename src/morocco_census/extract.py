@@ -355,6 +355,21 @@ def extract_2024() -> tuple[pd.DataFrame, dict]:
         f"indicateurs_demo_socioeco_2024.xlsx[Population] col{POP_COL_2024}: {header_label(pop_df, POP_COL_2024)}"
     )
 
+    # HCP's legal population list names every commune and province in Arabic as well as French
+    legal = pd.read_excel(RAW / "poplegale_2024.xlsx", header=None, skiprows=7).rename(
+        columns={0: "fr", 5: "ar", 6: "code"}
+    )
+    legal = legal[legal.code.notna()]
+    legal = legal.assign(code=legal.code.astype("int64")).drop_duplicates("code").set_index("code")
+    prov = legal[legal.fr.str.match(r"(Province|Préfecture) ")]
+    # a commune code ends in cercle + commune (4 digits); an arrondissement city's in 010
+    code = out.code24.astype(str)
+    prov_code = code.str[:-4].astype("int64").where(lambda c: c.isin(prov.index), code.str[:-3].astype("int64"))
+    out.insert(2, "name24_ar", out.code24.map(legal.ar).str.strip())
+    out.insert(3, "province24", prov_code.map(prov.fr).str.strip())
+    out.insert(4, "province24_ar", prov_code.map(prov.ar).str.strip())
+    assert out[["name24_ar", "province24", "province24_ar"]].notna().all().all()
+
     for sheet, spec in SPEC_2024.items():
         df = sheets[sheet]
         code_s = pd.to_numeric(df[CODE_COL_2024], errors="coerce")

@@ -102,6 +102,11 @@ p { margin: 0 0 0.9em; }
 .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 1rem 1.1rem; }
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0.9rem; }
 
+.i18n { color: var(--text-2); font-size: 0.82rem; }
+.i18n p { margin: 0.15rem 0; }
+.i18n:empty { display: none; }
+#i18n-page { border-inline-start: 3px solid var(--line); padding-inline-start: 0.6rem; margin-bottom: 1rem; }
+
 .note {
   background: var(--warn-bg); border: 1px solid var(--warn-line); border-radius: var(--radius);
   padding: 0.55rem 0.75rem; font-size: 0.85rem; color: var(--text);

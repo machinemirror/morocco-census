@@ -5,6 +5,7 @@ import pandas as pd
 import pytest
 
 from morocco_census.config import (
+    LINK_REVIEW,
     P_COMMUNES,
     P_CROSSCHECK,
     P_CROSSWALK,
@@ -13,6 +14,7 @@ from morocco_census.config import (
     P_INDICES_2004,
     P_PANEL,
     P_SEEDS,
+    SEED_NAMES,
     SEED_REVIEW,
 )
 from morocco_census.validate import P_VALIDATION
@@ -48,11 +50,21 @@ def test_crosswalk_coverage(cw):
     assert set(t14.code14) == set(cw.code14)
 
 
-def test_app_crosswalk_is_one_to_one(cw):
+def test_app_crosswalk(cw):
     app = pd.read_csv(P_CROSSWALK_APP, dtype=str)
-    assert len(app) >= 1478
-    assert app.code14.is_unique and app.app_code.is_unique
-    assert set(app.code14) <= set(cw.code14)
+    assert app.app_code.is_unique and set(app.code14) <= set(cw.code14)
+    assert app.code14.nunique() >= 1528
+    assert set(app.link) == {"exact", "fuzzy", "province_split", "centre", "review"}
+    # a centre (milieu digit 3-5) shares its rural commune's link, unless a review moved that commune (the rural
+    # remainder renamed when the centre became a municipality)
+    review = pd.read_csv(LINK_REVIEW, dtype=str)
+    by_code = app.set_index("app_code").code14
+    centres = app[app.link == "centre"]
+    parent = centres.app_code.str[:9] + "2"
+    kept = ~parent.isin(review.app_code)
+    assert (centres.code14[kept].to_numpy() == parent[kept].map(by_code).to_numpy()).all()
+    assert review.app_code.is_unique and review.evidence.notna().all()
+    assert (by_code[review.app_code].to_numpy() == review.code14.to_numpy()).all()
 
 
 def test_panel(panel):
@@ -86,7 +98,7 @@ def test_shares_sum_to_100():
 def test_geometry():
     cells = gpd.read_file(P_GPKG, layer="thiessen")
     pts = gpd.read_file(P_GPKG, layer="points")
-    assert len(cells) == len(pts) == 1497
+    assert len(cells) == len(pts) == 1502
     assert cells.unit.is_unique and set(cells.unit) == set(pts.unit)
     assert cells.geometry.is_valid.all()
     assert set(pts.pt_src) == {"geonames", "wikidata"}  # openly licensed gazetteers only
@@ -100,6 +112,19 @@ def test_seed_review():
     assert check.loc[check.flag, "decided_by"].isin(["review", "anchor"]).all()
     seeds = pd.read_csv(P_SEEDS, dtype={"unit": str}).set_index("unit")
     assert (seeds.loc[review.unit, "pt_src"].to_numpy() == review.source.to_numpy()).all()
+
+
+def test_seed_names_place_their_units():
+    names = pd.read_csv(SEED_NAMES, dtype=str)
+    seeds = pd.read_csv(P_SEEDS, dtype={"unit": str}).set_index("unit")
+    assert set(names.unit) <= set(seeds.index)
+
+
+def test_hcp_names_2024():
+    t24 = pd.read_csv(P_COMMUNES[2024])
+    assert t24.name24_ar.str.startswith("جماعة ").all()
+    assert t24.province24.str.match(r"(Province|Préfecture) ").all()
+    assert t24.province24_ar.str.match(r"(إقليم|عمالة) ").all()
 
 
 def test_shares_and_2004_gaps():
@@ -131,6 +156,8 @@ def test_validation_report_matches_tables():
     v = json.loads(P_VALIDATION.read_text())
     cw = pd.read_csv(P_CROSSWALK, dtype=str)
     assert v["linkage"]["linked_all_three"] == (cw.code24.notna() & cw.label04.notna()).sum()
+    assert v["linkage"]["linked_2004_profiles"] == pd.read_csv(P_CROSSWALK_APP, dtype=str).code14.nunique()
+    assert v["linkage"]["unlinked_2024"] == []
     assert v["seeds"]["placed"] == len(gpd.read_file(P_GPKG, layer="points"))
     for y, n in (("2014", 1538), ("2024", 1503)):
         p = v["population"][y]

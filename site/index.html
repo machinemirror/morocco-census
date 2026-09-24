@@ -75,7 +75,7 @@
   }
 </style>
 </head>
-<body>
+<body data-page="map">
 <header class="topbar"></header>
 <div class="app">
   <aside class="side">
@@ -97,8 +97,8 @@
     <div class="legend" id="legend"></div>
     <div>
       <div class="ind-title" id="ind-title"></div>
-      <div class="def" id="ind-def" dir="auto"></div>
-      <div class="note" id="ind-note" dir="auto" hidden></div>
+      <div class="def" id="ind-def" lang="en" dir="ltr"></div>
+      <div class="note" id="ind-note" lang="en" dir="ltr" hidden></div>
     </div>
     <div>
       <label class="h" data-t="shapes">Shapes</label>
@@ -107,13 +107,13 @@
         <button data-g="hcp" aria-pressed="false" data-t="gHcp">HCP 2024 boundaries</button>
       </div>
     </div>
-    <label class="row" id="imp-row" hidden><input type="checkbox" id="imp"> <span data-t="hideImputed">Hide imputed values</span></label>
     <div>
       <label class="h" for="q" data-t="find">Find a commune</label>
       <input id="q" type="search" list="communes" autocomplete="off" placeholder="Taroudant, Anfa, Dakhla…">
       <datalist id="communes"></datalist>
     </div>
     <div class="detail" id="detail" hidden></div>
+    <div class="i18n small" id="i18n"></div>
   </aside>
   <main id="map">
     <div class="caveat" data-t="caveat">Commune shapes are approximate Thiessen cells built from one point per commune,

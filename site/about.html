@@ -13,7 +13,8 @@
 </head>
 <body>
 <header class="topbar"></header>
-<div class="page" data-l="en" lang="en" dir="ltr">
+<div class="page">
+  <div class="i18n" id="i18n-page"></div>
   <h1>About the data</h1>
   <p class="lede">Morocco's Haut-Commissariat au Plan (HCP) publishes census results by commune, but each census
     uses its own codes, its own commune list and, before 2015, a different regional map. This project puts the
@@ -23,13 +24,23 @@
   <h2>What is here</h2>
   <ul>
     <li><b>Per-census tables</b> in HCP's own units: 1,689 communes in 2004 (16-region map), 1,538 in 2014, 1,503 in 2024.</li>
-    <li><b>A crosswalk</b> linking the 2014 commune list to the 2004 and 2024 lists: 1,466 of 1,538 communes (95.3%)
-      are matched in all three censuses. The rest are communes created or merged after 2004.</li>
+    <li><b>A crosswalk</b> linking the 2014 commune list to the 2004 and 2024 lists. All 1,538 communes are linked to
+      2024, and 1,528 to the 2004 commune profiles. The 10 without a 2004 link were carved out of a larger commune
+      after 2004.</li>
     <li><b>A three-census panel</b> of HCP's poverty and development indices (2004 IDH, IDS and monetary poverty;
       multidimensional poverty for 2004, 2014 and 2024). Where a commune did not exist in an earlier census, its value
       is imputed from the same cercle (population-weighted) and <b>flagged</b> in <code>src04</code>/<code>src14</code>/<code>src24</code>.</li>
     <li><b>Approximate geometry</b>: Thiessen cells and seed points, with queen-contiguity weights.</li>
   </ul>
+
+  <h2>The map</h2>
+  <p>The map shows the 50 indicators observed in all three censuses, so that change can be read from one census to the
+    next. The other indicators, observed in one or two censuses, are in the downloads and listed in the catalogue.</p>
+  <p>The map can be read in English, French or Arabic. In French and Arabic, commune and province names are HCP's
+    own, from its 2024 legal population list, and indicator labels are HCP's own wording; the catalogue gives the
+    source of each. Where HCP publishes no Arabic label for an indicator, its French label is shown. Definitions,
+    notes and the other pages are in English only; help from fluent French or Arabic speakers to translate them is
+    welcome.</p>
 
   <h2>How it was built</h2>
   <p>Everything is rebuilt from HCP's published files by the code in the
@@ -53,19 +64,23 @@
     extent or area; do not compute densities from them. The outline is Natural Earth. Every geometry input is openly
     licensed.</p>
   <p>HCP's 2024 layer is keyed by 2014 commune codes, so every 2014 commune has its polygon and 2024 values follow
-    through the crosswalk. 2004 values are drawn on these later boundaries too: 1,478 communes are linked one-to-one,
-    and their 2004-2014 population change gives no sign of lost territory (2 sharp drops among the communes near a
-    post-2004 creation, no more than elsewhere). The 60 communes with no 2004 link have no 2004 value.</p>
+    through the crosswalk. 2004 values are drawn on these later boundaries too. The 2004 profiles report a rural
+    commune apart from its autonomous centres (its small towns); since 2014 HCP counts them together, so a 2014
+    commune's 2004 value combines them, population-weighted. Communes merged after 2004 are combined the same way,
+    and renames are followed; each such decision is recorded, with its population and location evidence, in
+    <code>catalog/link_review.csv</code>. The 10 communes with no 2004 link have no 2004 value.</p>
 
   <h2>Known gaps</h2>
   <ul>
-    <li>6 communes have no seed point yet and have no Thiessen cell (listed in <code>points_unmatched.csv</code>);
-      they appear with the HCP 2024 boundaries layer, and their data are in the tables.</li>
+    <li>One commune (Sidi Mohamed Ben Mansour, Kénitra) has no seed point yet and no Thiessen cell
+      (<code>points_unmatched.csv</code>); it appears with the HCP 2024 boundaries layer, and its data are in the
+      tables. Five others are placed from gazetteer spellings recorded in <code>catalog/seed_names.csv</code>.</li>
     <li>In 2014 the six largest cities are split into 41 arrondissements; in 2024 they are single communes. The map
       merges the arrondissements into one city cell (sums for counts, population-weighted means for rates); the
       tables keep them separate.</li>
-    <li>4 communes in the 2024 indicators file (My Idriss Zerhoun, Ourtzarh, Kelâat Sraghna, Sidi Abdellah Ou Belaid)
-      are not yet linked to the 2014 list.</li>
+    <li>10 communes created after 2004 from part of another commune (Had Soualem, Soualem Trifiya, Oulad Ziyane,
+      Ameur Chamalia, Sidi Mohamed Ben Mansour and five more) have no 2004 value, and three 2004 communes (Ain Dorbane,
+      Lakhiaita, Soualem) are not linked, since splitting their values would need assumptions.</li>
     <li>Only both-sexes, both-milieux values are published so far; HCP's breakdowns by sex and by urban/rural
       milieu are not yet extracted.</li>
     <li>Some indicators change definition between censuses (activity rate, urban status); the catalogue flags them.
@@ -91,179 +106,10 @@
   <h2>Contact</h2>
   <p>Corrections and questions: <a href="https://github.com/machinemirror/morocco-census/issues">GitHub issues</a>.</p>
 </div>
-<div class="page" data-l="fr" lang="fr" dir="ltr" hidden>
-  <h1>À propos des données</h1>
-  <p class="lede">Le Haut-Commissariat au Plan (HCP) du Maroc publie les résultats des recensements par commune, mais chaque
-    recensement utilise ses propres codes, sa propre liste de communes et, avant 2015, un découpage régional différent. Ce projet place
-    les recensements (RGPH) de 2004, 2014 et 2024 sur une clé communale commune, afin de suivre un même lieu sur vingt
-    ans, et ajoute des contours approximatifs des communes pour permettre la cartographie des données.</p>
-
-  <h2>Contenu</h2>
-  <ul>
-    <li><b>Des tableaux par recensement</b> dans les unités propres au HCP : 1 689 communes en 2004 (carte à 16 régions), 1 538 en 2014, 1 503 en 2024.</li>
-    <li><b>Une table de correspondance</b> reliant la liste des communes de 2014 à celles de 2004 et de 2024 : 1 466 des 1 538 communes (95,3 %)
-      sont appariées dans les trois recensements. Les autres sont des communes créées ou fusionnées après 2004.</li>
-    <li><b>Un panel sur trois recensements</b> des indices de pauvreté et de développement du HCP (IDH, IDS et pauvreté monétaire de 2004 ;
-      pauvreté multidimensionnelle pour 2004, 2014 et 2024). Lorsqu'une commune n'existait pas lors d'un recensement antérieur, sa valeur
-      est imputée à partir du même cercle (avec pondération par la population) et <b>signalée</b> dans <code>src04</code>/<code>src14</code>/<code>src24</code>.</li>
-    <li><b>Une géométrie approximative</b> : cellules de Thiessen et points d'ancrage, avec des poids de contiguïté de type reine.</li>
-  </ul>
-
-  <h2>Construction</h2>
-  <p>Tout est reconstruit à partir des fichiers publiés par le HCP grâce au code du
-    <a href="https://github.com/machinemirror/morocco-census">dépôt</a> : <code>uv run mc fetch</code> télécharge
-    les fichiers bruts et les vérifie par rapport à <code>data/raw/manifest.json</code>, et <code>uv run mc all</code> reconstruit
-    tous les tableaux, la géométrie et ce site. Les profils communaux de 2004 proviennent de l'application
-    <a href="https://applications-web.hcp.ma/hpmc/frmmarocenchiffres.aspx">Maroc en Chiffres</a> du HCP
-    (<code>mc crawl-2004</code>) ; les indices de 2004, de l'Annexe 2 du volume du HCP sur la pauvreté de 2004 ; les indicateurs de 2014 et 2024,
-    des classeurs communaux du HCP, complétés pour 2024 par les tableaux sur les déplacements domicile-travail, la migration,
-    le parc de logements urbains, les établissements économiques et les douars ; la pauvreté multidimensionnelle, de la carte de la pauvreté 2004–2014 du HCP et de sa
-    base de données de mai 2025. La provenance complète, avec les sommes de contrôle des fichiers, figure dans le dossier <code>docs/</code> du dépôt.</p>
-
-  <h2>Contours des communes</h2>
-  <p>Le HCP ne diffuse pas les limites communales sous forme de jeu de données, et aucune n'a été fournie sur demande. Sa
-    plateforme de résultats du RGPH 2024 les trace toutefois, et la carte les propose en couche facultative (<i>Limites HCP 2024</i>).
-    Leur licence de réutilisation en tant que données n'étant pas précisée, la carte par défaut et les téléchargements utilisent
-    des approximations construites uniquement à partir de sources sous licence libre. Chaque commune reçoit un point
-    d'ancrage, tiré du répertoire géographique GeoNames, ou de Wikidata lorsque GeoNames ne contient pas la commune, puis
-    le pays est divisé en cellules regroupant les lieux les plus proches de chaque point. Lorsque les deux sources placent une commune à plus de 25 km
-    d'écart, le choix entre elles est consigné dans <code>catalog/seed_review.csv</code>. Les cellules indiquent approximativement où se trouve une commune, et non son
-    étendue ou sa superficie réelles ; n'en calculez pas de densités. Le contour national provient de Natural Earth. Toutes les sources géographiques sont sous licence libre.</p>
-  <p>La couche du HCP est codée selon les codes communaux de 2014 : chaque commune de 2014 a donc son polygone, et les valeurs de
-    2024 suivent par la table de correspondance. Les valeurs de 2004 sont aussi affichées sur ces limites plus récentes : 1 478 communes
-    sont appariées une à une, et leur évolution démographique 2004-2014 ne suggère aucune perte de territoire (2 baisses marquées parmi
-    les communes proches d'une création postérieure à 2004, pas plus qu'ailleurs). Les 60 communes sans lien avec 2004 n'ont pas de valeur de 2004.</p>
-
-  <h2>Lacunes connues</h2>
-  <ul>
-    <li>6 communes n'ont pas encore de point d'ancrage et n'ont pas de cellule de Thiessen (liste dans <code>points_unmatched.csv</code>) ;
-      elles apparaissent avec la couche des limites HCP 2024, et leurs données figurent dans les tableaux.</li>
-    <li>En 2014, les six plus grandes villes sont divisées en 41 arrondissements ; en 2024, ce sont des communes uniques. La carte
-      fusionne les arrondissements en une seule cellule par ville (sommes pour les effectifs, moyennes pondérées par la population pour les taux) ; les
-      tableaux les conservent séparément.</li>
-    <li>4 communes du fichier d'indicateurs de 2024 (My Idriss Zerhoun, Ourtzarh, Kelâat Sraghna, Sidi Abdellah Ou Belaid)
-      ne sont pas encore reliées à la liste de 2014.</li>
-    <li>Seules les valeurs pour l'ensemble (deux sexes, deux milieux) sont publiées à ce jour ; les ventilations du HCP par sexe et par milieu
-      urbain/rural ne sont pas encore extraites.</li>
-    <li>Certains indicateurs changent de définition d'un recensement à l'autre (taux d'activité, statut urbain) ; le catalogue les signale.
-      L'IPM de la carte de la pauvreté (2004, 2014) et la base de données MPI de 2025 (2014, 2024) reposent sur des méthodes et des échelles différentes ; ne
-      combinez pas les deux séries.</li>
-    <li>Sahara occidental : le RGPH 2024 couvre les communes des régions de Laâyoune-Sakia El Hamra et de Dakhla-Oued Ed-Dahab, et
-      elles sont incluses telles que le HCP les présente. Cette inclusion suit les statistiques sources et n'implique aucune position sur le
-      statut du territoire.</li>
-  </ul>
-
-  <h2>Licence et citation</h2>
-  <p>Code : MIT. Tableaux dérivés, tables de correspondance, catalogue et géométrie : <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
-    Les statistiques sous-jacentes sont celles du HCP ; citez le HCP comme source originale et ce projet pour l'harmonisation.
-    Les fichiers bruts du HCP ne sont pas redistribués ici.</p>
-  <p class="small">Lehnert, M. R. (2026). <i>morocco-census: commune-level RGPH 2004, 2014 and 2024</i>.
-    <a href="https://github.com/machinemirror/morocco-census">github.com/machinemirror/morocco-census</a>.
-    L'harmonisation a débuté avec Lehnert (2021), <i>Spatial Data Science: Theory and Methods with Applications to
-    Human Development in Morocco</i> (thèse de doctorat, University of Toledo), et Lehnert &amp; Smirnov (2024),
-    Human development in Morocco: out-of-sample prediction using spatial econometrics and RandomForest,
-    <i>African Geographical Review</i> 43(1):60–79,
-    <a href="https://doi.org/10.1080/19376812.2022.2107547">doi:10.1080/19376812.2022.2107547</a>.</p>
-
-  <h2>Contact</h2>
-  <p>Corrections et questions : <a href="https://github.com/machinemirror/morocco-census/issues">GitHub issues</a>.</p>
-
-  <h2>À propos de cette traduction</h2>
-  <p>La version anglaise de ce site fait référence. Le texte français a été traduit avec l'aide de l'intelligence artificielle et n'a pas
-    encore été relu par un traducteur professionnel. Les termes français du HCP sont repris lorsque les classeurs sources sont en français,
-    mais certaines définitions et notes traduites peuvent manquer de précision. En cas de doute, le champ source du HCP affiché dans le
-    catalogue et la page anglaise prévalent. Les corrections sont les bienvenues via les
-    <a href="https://github.com/machinemirror/morocco-census/issues">GitHub issues</a>.</p>
-</div>
-<div class="page" data-l="ar" lang="ar" dir="rtl" hidden>
-  <h1>حول المعطيات</h1>
-  <p class="lede">تنشر المندوبية السامية للتخطيط (HCP) نتائج الإحصاء العام للسكان والسكنى حسب الجماعة، غير أن كل إحصاء
-    يعتمد رموزه الخاصة ولائحة جماعاته الخاصة، وقبل سنة 2015 تقسيما جهويا مختلفا. يضع هذا المشروع إحصاءات
-    2004 و2014 و2024 (RGPH) على مفتاح جماعي موحد، بحيث يمكن تتبع المكان نفسه على مدى عشرين
-    سنة، ويضيف أشكالا تقريبية للجماعات حتى يمكن عرض المعطيات على الخريطة.</p>
-
-  <h2>ما يتضمنه المشروع</h2>
-  <ul>
-    <li><b>جداول لكل إحصاء</b> بالوحدات الخاصة بالمندوبية السامية للتخطيط: 1689 جماعة سنة 2004 (تقسيم 16 جهة)، و1538 سنة 2014، و1503 سنة 2024.</li>
-    <li><b>جدول مقابلة</b> يربط لائحة جماعات 2014 بلائحتي 2004 و2024: 1466 جماعة من أصل 1538 (95.3%)
-      متطابقة في الإحصاءات الثلاثة. أما الباقي فجماعات أُحدثت أو أُدمجت بعد 2004.</li>
-    <li><b>بيانات طولية عبر الإحصاءات الثلاثة</b> لمؤشرات الفقر والتنمية للمندوبية السامية للتخطيط (IDH وIDS والفقر النقدي لسنة 2004؛
-      والفقر متعدد الأبعاد لسنوات 2004 و2014 و2024). وحيث لم تكن الجماعة موجودة في إحصاء سابق، تُقدَّر قيمتها
-      انطلاقا من الدائرة نفسها (مع الترجيح بعدد السكان) و<b>يُؤشَّر عليها</b> في <code>src04</code>/<code>src14</code>/<code>src24</code>.</li>
-    <li><b>هندسة تقريبية</b>: خلايا Thiessen ونقاط مرجعية، مع أوزان تجاور من نوع queen.</li>
-  </ul>
-
-  <h2>طريقة الإنجاز</h2>
-  <p>يُعاد بناء كل شيء انطلاقا من الملفات المنشورة للمندوبية السامية للتخطيط بواسطة الشيفرة الموجودة في
-    <a href="https://github.com/machinemirror/morocco-census">المستودع</a>: يقوم <code>uv run mc fetch</code> بتنزيل
-    الملفات الخام والتحقق منها مقابل <code>data/raw/manifest.json</code>، ويعيد <code>uv run mc all</code> بناء
-    كل الجداول والهندسة وهذا الموقع. تأتي بطاقات الجماعات لسنة 2004 من تطبيق
-    <a href="https://applications-web.hcp.ma/hpmc/frmmarocenchiffres.aspx">Maroc en Chiffres</a> التابع للمندوبية
-    (<code>mc crawl-2004</code>)؛ ومؤشرات 2004 من الملحق 2 لمجلد الفقر لسنة 2004؛ ومؤشرات 2014 و2024
-    من مصنفات المندوبية على مستوى الجماعة، تكملها بالنسبة لسنة 2024 جداول التنقل بين السكن ومقر العمل والهجرة
-    والرصيد السكني الحضري والمؤسسات الاقتصادية والدواوير؛ والفقر متعدد الأبعاد من خريطة الفقر 2004–2014 وقاعدة بيانات
-    ماي 2025. ويوجد المصدر الكامل لكل ملف، مع بصماته الرقمية، في مجلد <code>docs/</code> بالمستودع.</p>
-
-  <h2>أشكال الجماعات</h2>
-  <p>لا توزع المندوبية السامية للتخطيط حدود الجماعات في شكل مجموعة معطيات، ولم تُقدَّم عند طلبها. غير أن منصة نتائج
-    الإحصاء العام للسكان والسكنى 2024 ترسمها، وتعرضها الخريطة كطبقة اختيارية (<i>حدود المندوبية 2024</i>). ولما كان ترخيص
-    إعادة استعمالها كمعطيات غير محدد، تعتمد الخريطة الافتراضية والتحميلات تقريبات مبنية حصرا على مصادر ذات ترخيص مفتوح. تحصل كل جماعة على نقطة
-    مرجعية واحدة من معجم GeoNames، أو من Wikidata حين لا يتضمن GeoNames الجماعة، ثم
-    يُقسَّم البلد إلى الخلايا الأقرب إلى كل نقطة. وحين يضع المصدران جماعةً ما على بعد يزيد عن 25 كلم، يُسجَّل الاختيار بينهما في
-    <code>catalog/seed_review.csv</code>. تبيّن الخلايا الموقع التقريبي للجماعة، لا امتدادها
-    الحقيقي ولا مساحتها؛ فلا ينبغي حساب الكثافات انطلاقا منها. الحدود الخارجية مأخوذة من Natural Earth. وجميع المصادر الجغرافية ذات ترخيص مفتوح.</p>
-  <p>ترتكز طبقة المندوبية على رموز الجماعات لسنة 2014، لذا لكل جماعة من جماعات 2014 مضلعها، وتلتحق بها قيم 2024 عبر جدول
-    التقابل. وتُعرض قيم 2004 أيضا على هذه الحدود اللاحقة: 1478 جماعة مطابقة واحدة بواحدة، ولا يشير تطور عدد سكانها بين 2004 و2014
-    إلى فقدان أي مجال ترابي (انخفاضان حادان فقط بين الجماعات القريبة من جماعة أُحدثت بعد 2004، وليس أكثر مما في غيرها). أما الجماعات
-    الستون التي لا رابط لها بسنة 2004 فليست لها قيمة لتلك السنة.</p>
-
-  <h2>الثغرات المعروفة</h2>
-  <ul>
-    <li>6 جماعات ليست لها بعد نقطة مرجعية وليست لها خلية ثيسن (مدرجة في <code>points_unmatched.csv</code>)؛
-      وتظهر مع طبقة حدود المندوبية 2024، ومعطياتها موجودة في الجداول.</li>
-    <li>سنة 2014 كانت المدن الست الكبرى مقسمة إلى 41 مقاطعة؛ وسنة 2024 تظهر كجماعات موحدة. تدمج الخريطة
-      المقاطعات في خلية واحدة لكل مدينة (المجاميع بالنسبة للأعداد، والمتوسطات المرجحة بعدد السكان بالنسبة للمعدلات)؛ بينما
-      تحتفظ الجداول بها منفصلة.</li>
-    <li>4 جماعات في ملف مؤشرات 2024 (My Idriss Zerhoun, Ourtzarh, Kelâat Sraghna, Sidi Abdellah Ou Belaid)
-      لم تُربط بعد بلائحة 2014.</li>
-    <li>لم تُنشر حتى الآن سوى القيم الخاصة بالجنسين معا وبالوسطين معا؛ أما تفصيلات المندوبية حسب الجنس وحسب الوسط الحضري/القروي،
-      فلم تُستخرج بعد.</li>
-    <li>يتغير تعريف بعض المؤشرات بين الإحصاءات (معدل النشاط، الصفة الحضرية)؛ ويشير الفهرس إلى ذلك.
-      ويعتمد MPI خريطة الفقر (2004، 2014) وقاعدة بيانات MPI لسنة 2025 (2014، 2024) منهجيتين وسلمين مختلفين؛ فلا ينبغي
-      دمج السلسلتين.</li>
-    <li>الصحراء الغربية: يغطي RGPH 2024 جماعات جهتي العيون-الساقية الحمراء والداخلة-وادي الذهب،
-      وهي مدرجة كما تنشرها المندوبية السامية للتخطيط. ويتبع إدراجها الإحصاءات المصدر ولا يعبّر عن أي موقف من
-      وضع الإقليم.</li>
-  </ul>
-
-  <h2>الترخيص والاستشهاد</h2>
-  <p>الشيفرة: MIT. الجداول المشتقة وجداول المقابلة والفهرس والهندسة: <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
-    الإحصاءات الأصلية ملك للمندوبية السامية للتخطيط؛ يُرجى ذكر المندوبية كمصدر أصلي وهذا المشروع بالنسبة للمواءمة.
-    ولا يُعاد هنا توزيع الملفات الخام للمندوبية.</p>
-  <p class="small">Lehnert, M. R. (2026). <i>morocco-census: commune-level RGPH 2004, 2014 and 2024</i>.
-    <a href="https://github.com/machinemirror/morocco-census">github.com/machinemirror/morocco-census</a>.
-    بدأت المواءمة مع Lehnert (2021)، <i>Spatial Data Science: Theory and Methods with Applications to
-    Human Development in Morocco</i> (أطروحة دكتوراه، University of Toledo)، وLehnert &amp; Smirnov (2024)،
-    Human development in Morocco: out-of-sample prediction using spatial econometrics and RandomForest,
-    <i>African Geographical Review</i> 43(1):60–79,
-    <a href="https://doi.org/10.1080/19376812.2022.2107547">doi:10.1080/19376812.2022.2107547</a>.</p>
-
-  <h2>الاتصال</h2>
-  <p>للتصويبات والأسئلة: <a href="https://github.com/machinemirror/morocco-census/issues">GitHub issues</a>.</p>
-
-  <h2>حول هذه الترجمة</h2>
-  <p>النسخة الإنجليزية من هذا الموقع هي النسخة المرجعية. تُرجم النص العربي بمساعدة الذكاء الاصطناعي، ولم يراجعه بعد
-    مترجم محترف أو متخصص من الناطقين بالعربية. وهو يتبع المصطلحات العربية التي تعتمدها المندوبية السامية للتخطيط في الإحصاء
-    حيثما كانت معروفة، لكن بعض التعاريف والملاحظات قد تكون غير دقيقة. ولما كانت المصنفات المصدر للمندوبية بالفرنسية في معظمها،
-    فإن المرجع عند الشك هو الحقل المصدر بالفرنسية المعروض في الفهرس والصفحة الإنجليزية. ونرحب بالتصويبات عبر
-    <a href="https://github.com/machinemirror/morocco-census/issues">GitHub issues</a>.</p>
-</div>
 <footer class="site">Source statistics © Haut-Commissariat au Plan, Royaume du Maroc</footer>
 <script src="common.js"></script>
 <script>
 MC.header("about");
-const show = () => document.querySelectorAll(".page[data-l]").forEach(el => (el.hidden = el.dataset.l !== MC.lang));
-show(); MC.onLang(show);
 </script>
 </body>
 </html>
