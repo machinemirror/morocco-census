@@ -312,7 +312,7 @@ async function main() {
     style: {
       version: 8,
       sources: {
-        cells: { type: "geojson", data: cells, promoteId: "i", attribution: 'HCP RGPH · <a href="https://www.naturalearthdata.com">Natural Earth</a> · GADM · GeoNames' },
+        cells: { type: "geojson", data: cells, promoteId: "i", attribution: 'HCP RGPH · <a href="https://www.naturalearthdata.com">Natural Earth</a> · GeoNames · Wikidata' },
         outline: { type: "geojson", data: outline },
         context: { type: "geojson", data: context },
       },

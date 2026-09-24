@@ -31,8 +31,8 @@ Everything published is in [`data/processed/`](data/processed) and described col
 | `panel_commune.csv` | 1,544 | `code14` | three-census poverty/development panel, with provenance flags |
 | `crosswalk_communes.csv` | 1,538 | `code14` | 2014 ↔ 2004 annex ↔ poverty map ↔ 2024 codes |
 | `crosswalk_app2004.csv` | 1,478 | `code14` | 2014 ↔ 2004 profile codes |
-| `geometry/communes.gpkg` | 1,475 | `unit` | Thiessen cells + seed points (approximate, see below) |
-| `geometry/communes_queen.gal` | 1,475 | | queen-contiguity weights |
+| `geometry/communes.gpkg` | 1,497 | `unit` | Thiessen cells + seed points (approximate, see below) |
+| `geometry/communes_queen.gal` | 1,497 | | queen-contiguity weights |
 
 Read codes as text: `app_code` has leading zeros and `code14` ends with a dot.
 
@@ -44,7 +44,7 @@ panel = pd.read_csv(base + "panel_commune.csv", dtype={"code14": str})
 
 ### Commune shapes are approximate
 
-HCP publishes no commune boundaries. Each commune gets one seed point (GADM 4.1, else GeoNames) and
+HCP publishes no commune boundaries. Each commune gets one seed point (GeoNames, else Wikidata) and
 the country is split into Thiessen cells around them. The cells show where a commune is, not its
 extent: do not compute areas or densities from them.
 

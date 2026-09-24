@@ -31,7 +31,7 @@ def site() -> None:
 def main() -> int:
     ap = argparse.ArgumentParser(prog="mc", description="Build the morocco-census data and site")
     sub = ap.add_subparsers(dest="cmd", required=True)
-    sub.add_parser("fetch", help="download raw HCP, GADM, GeoNames and Natural Earth files into data/raw")
+    sub.add_parser("fetch", help="download raw HCP, GeoNames, Wikidata and Natural Earth files into data/raw")
     sub.add_parser("crawl-2004", help="crawl the 2004 Maroc-en-Chiffres commune profiles (hours)")
     sub.add_parser("build", help="raw -> data/processed tables")
     gp = sub.add_parser("geometry", help="seed points, Thiessen cells and queen weights")

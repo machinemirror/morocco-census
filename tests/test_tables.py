@@ -2,7 +2,17 @@ import geopandas as gpd
 import pandas as pd
 import pytest
 
-from morocco_census.config import P_COMMUNES, P_CROSSWALK, P_CROSSWALK_APP, P_GPKG, P_INDICES_2004, P_PANEL
+from morocco_census.config import (
+    P_COMMUNES,
+    P_CROSSCHECK,
+    P_CROSSWALK,
+    P_CROSSWALK_APP,
+    P_GPKG,
+    P_INDICES_2004,
+    P_PANEL,
+    P_SEEDS,
+    SEED_REVIEW,
+)
 
 
 @pytest.fixture(scope="module")
@@ -73,10 +83,20 @@ def test_shares_sum_to_100():
 def test_geometry():
     cells = gpd.read_file(P_GPKG, layer="thiessen")
     pts = gpd.read_file(P_GPKG, layer="points")
-    assert len(cells) == len(pts) == 1475
+    assert len(cells) == len(pts) == 1497
     assert cells.unit.is_unique and set(cells.unit) == set(pts.unit)
     assert cells.geometry.is_valid.all()
-    assert set(pts.pt_src) == {"gadm", "geonames"}
+    assert set(pts.pt_src) == {"geonames", "wikidata"}  # openly licensed gazetteers only
+
+
+def test_seed_review():
+    review = pd.read_csv(SEED_REVIEW, dtype=str)
+    check = pd.read_csv(P_CROSSCHECK, dtype={"unit": str})
+    assert review.unit.is_unique and review.source.isin(["geonames", "wikidata"]).all()
+    assert set(review.unit) <= set(check.unit[check.flag])  # a review only settles a disagreement
+    assert check.loc[check.flag, "decided_by"].isin(["review", "anchor"]).all()
+    seeds = pd.read_csv(P_SEEDS, dtype={"unit": str}).set_index("unit")
+    assert (seeds.loc[review.unit, "pt_src"].to_numpy() == review.source.to_numpy()).all()
 
 
 def test_shares_and_2004_gaps():

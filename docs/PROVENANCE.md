@@ -10,7 +10,7 @@ changes daily).
 
 | Step | Command / module | Inputs | Output |
 |---|---|---|---|
-| Fetch | `mc fetch` · `fetch.py` | 20 files (HCP, GADM, GeoNames, Natural Earth) | `data/raw/` |
+| Fetch | `mc fetch` · `fetch.py` | 20 files (HCP, GeoNames, Wikidata, Natural Earth) | `data/raw/` |
 | 2004 profiles | `mc crawl-2004` · `hcp_app.py` | HCP Maroc en Chiffres app (4 profile pages × 1,689 communes) | `data/raw/2004_app/` |
 | 2004 indices | `parse_2004.annex` | HCP 2004 poverty volume, Annexe 2 (PDF) | `commune_indices_2004.csv` |
 | 2004 table | `parse_2004.app` | crawled profile pages | `communes_2004.csv` |
@@ -18,7 +18,7 @@ changes daily).
 | 2014 and 2024 tables | `extract.py` | HCP 2014 commune workbooks; 2024 indicators workbook | `communes_2014.csv`, `communes_2024.csv` |
 | Panel | `panel.py` | crosswalk, annex, poverty map, MPI database, 2014 legal population | `panel_commune.csv` |
 | App crosswalk | `crosswalk.app2004` | app commune index, crosswalk | `crosswalk_app2004.csv` |
-| Geometry | `mc geometry` · `geometry.py` | crosswalk, GADM 4.1 L4, GeoNames, Natural Earth | `geometry/*` |
+| Geometry | `mc geometry` · `geometry.py` | crosswalk, GeoNames, Wikidata, `catalog/seed_review.csv`, Natural Earth | `geometry/*` |
 | Site | `mc site` · `site.py` | processed tables, catalogue | `site/data/` |
 
 `mc all` runs build, geometry and site. Only `site` runs in CI; everything before it needs the raw files.
@@ -39,7 +39,7 @@ changes daily).
 | 2024 establishments | HCP, RGPH 2024 cartographie des établissements économiques (CEE) | https://www.hcp.ma/file/242672/ |
 | 2024 douars | HCP, RGPH 2024 population et ménages par douars | https://www.hcp.ma/file/245768/ |
 | 2024 migration | HCP, RGPH 2024 base de données de la migration interne | https://www.hcp.ma/file/245650/ |
-| Seed points | GADM 4.1 level 4 (not redistributed); GeoNames MA + EH (CC BY 4.0) | gadm.org; geonames.org |
+| Seed points | GeoNames MA + EH (CC BY 4.0); Wikidata rural and urban communes of Morocco, SPARQL query in `fetch.py` (CC0) | geonames.org; query.wikidata.org |
 | Outline | Natural Earth 1:10m admin-0, Morocco + W. Sahara (public domain) | naturalearthdata.com |
 
 The 2014 and 2024 tables carry every both-sexes, both-milieux column of these workbooks (age structure,
@@ -97,12 +97,25 @@ Robustness checks should drop imputed rows; the flags make that a one-line filte
 
 ## Geometry
 
-- Units: 1,503 (the 41 arrondissements collapse to 6 cities). Seed points: 1,323 from GADM 4.1 level-4
-  representative points (computed in UTM 29N), 152 from GeoNames (post-2015 provinces, Western Sahara),
-  28 without a point (`points_unmatched.csv`).
-- Cells: Voronoi in EPSG:32629, clipped to the Natural Earth outline. Harhoura's seed falls 250 m
-  offshore of that coarse coastline; the outline is extended by 1 km around it.
-- Weights: queen contiguity on the cells, 1,475 units, mean 5.75 neighbours, no islands.
+- Units: 1,503 (the 41 arrondissements collapse to 6 cities). Seed points: 1,444 from GeoNames (1,427 by
+  exact name, 17 by fuzzy name), 53 from Wikidata (48 exact, 5 fuzzy), 6 without a point
+  (`points_unmatched.csv`). Every point, its source identifier (geonameid or QID), feature class and match
+  type is in `points_seeds.csv`.
+- GeoNames matching: commune-level admin features (ADM3/ADM4) before populated places, primary names before
+  alternate names; cercles and higher units are excluded. Candidates must lie within a province radius of
+  the province anchor, the median of units with a single unambiguous candidate (3 × the 75th-percentile
+  anchor distance, clipped to 0.5°–3°). Fuzzy matches (rapidfuzz ≥ 88, a clear margin, every word agreeing)
+  are tried only within that radius.
+- Wikidata: items with several coordinates are used only if these agree within ~15 km (their median is
+  taken); the item's stated province (P131) must match.
+- Cross-check (`points_crosscheck.csv`): 1,371 units are placed by both gazetteers, median 3.3 km apart,
+  90th percentile 9.8 km. 37 disagree by more than 25 km. 35 are settled in `catalog/seed_review.csv`
+  by comparison with an OpenStreetMap Nominatim lookup (used for review only; no OSM data is published),
+  2 without an OSM result by distance to the province anchor. The pattern: GeoNames admin points for
+  municipalities and for Saharan communes are often off; for rural northern communes Wikidata is.
+- Cells: Voronoi in EPSG:32629, clipped to the Natural Earth outline. Seeds for Figuig, Bab Lamrissa and
+  Harhoura fall just outside that coarse outline; it is extended by 1 km around them.
+- Weights: queen contiguity on the cells, 1,497 units, mean 5.76 neighbours, no islands.
 
 ## Changes from the dissertation-era build
 
@@ -118,3 +131,8 @@ byte-for-byte and its tessellation to within 2e-5 m² per cell. Deliberate chang
 4. Panel city rows sum population and households (they were population-weighted means).
 5. `is_urban`: 2024 flagged every commune urban (all appear in the urban sheet); it is now "no rural
    population". 2014 now counts arrondissements as urban.
+6. Seed points no longer derive from GADM (release 2026.9.2). GADM's licence bars redistribution
+   without permission, and derived seed coordinates were arguably covered. GeoNames and Wikidata replace it;
+   22 more units get a cell (1,497), and the previous release's point for Lagouira, about 1,700 km from the
+   town, is corrected. Against the 1,473 units placed in both releases the median shift is 3.0 km;
+   12 move more than 50 km, all Saharan communes, reviewed disagreements or corrected errors.

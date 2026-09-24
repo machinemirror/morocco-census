@@ -9,6 +9,7 @@ import hashlib
 import json
 import subprocess
 import time
+import urllib.parse
 import zipfile
 from pathlib import Path
 
@@ -20,6 +21,27 @@ USER_AGENT = (
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
     "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
 )
+
+# Rural (Q17318027) and urban (Q3327862) communes of Morocco with coordinates. Wikidata changes
+# continuously; the snapshot's sha256 and fetch date in the manifest pin what a build used.
+WIKIDATA_QUERY = """SELECT ?item ?cls ?label ?fr ?coord ?admLabel WHERE {
+  VALUES ?cls { wd:Q17318027 wd:Q3327862 }
+  ?item wdt:P31 ?cls; wdt:P625 ?coord.
+  OPTIONAL { ?item rdfs:label ?label FILTER(lang(?label) = "en") }
+  OPTIONAL { ?item rdfs:label ?fr FILTER(lang(?fr) = "fr") }
+  OPTIONAL { ?item wdt:P131 ?adm. ?adm rdfs:label ?admLabel FILTER(lang(?admLabel) = "en") }
+} ORDER BY ?item ?coord"""
+WIKIDATA_URL = "https://query.wikidata.org/sparql?query=" + urllib.parse.quote(WIKIDATA_QUERY)
+
+# the Wikidata Query Service asks for a descriptive agent and needs Accept to choose CSV
+HEADERS = {
+    "geometry/wikidata_communes.csv": [
+        "-A",
+        "morocco-census/1 (https://github.com/machinemirror/morocco-census)",
+        "-H",
+        "Accept: text/csv",
+    ]
+}
 
 # (path under data/raw, url, description)
 FILES = [
@@ -96,11 +118,6 @@ FILES = [
     ),
     # --- Geometry ---
     (
-        "gadm41_MAR_shp.zip",
-        "https://geodata.ucdavis.edu/gadm/gadm4.1/shp/gadm41_MAR_shp.zip",
-        "GADM 4.1 Morocco, levels 0-4 (seed points only; not redistributed)",
-    ),
-    (
         "geometry/MA.zip",
         "https://download.geonames.org/export/dump/MA.zip",
         "GeoNames gazetteer, Morocco (CC BY 4.0; updated daily upstream)",
@@ -115,10 +132,14 @@ FILES = [
         "https://naciscdn.org/naturalearth/10m/cultural/ne_10m_admin_0_countries.zip",
         "Natural Earth 1:10m admin-0 countries (public domain); outline for clipping",
     ),
+    (
+        "geometry/wikidata_communes.csv",
+        WIKIDATA_URL,
+        "Wikidata rural and urban communes of Morocco with coordinates (CC0; changes continuously upstream)",
+    ),
 ]
 
 UNZIP = {
-    "gadm41_MAR_shp.zip": "gadm41_MAR",
     "geometry/MA.zip": "geometry",
     "geometry/EH.zip": "geometry",
 }
@@ -132,15 +153,12 @@ def sha256_of(path: Path) -> str:
     return h.hexdigest()
 
 
-def curl_fetch(url: str, dest: Path) -> tuple[bool, str]:
+def curl_fetch(url: str, dest: Path, headers: list[str] | None = None) -> tuple[bool, str]:
     cmd = [
         "curl",
         "-sSL",
         "--fail",
-        "-A",
-        USER_AGENT,
-        "-H",
-        "Accept: */*",
+        *(headers or ["-A", USER_AGENT, "-H", "Accept: */*"]),
         "--connect-timeout",
         "20",
         "--max-time",
@@ -191,7 +209,7 @@ def main() -> int:
         else:
             print(f"[fetch] {rel} <- {url}")
             tmp = dest.with_suffix(dest.suffix + ".part")
-            ok, err = curl_fetch(url, tmp)
+            ok, err = curl_fetch(url, tmp, HEADERS.get(rel))
             if ok and tmp.stat().st_size < 200:
                 ok, err = False, f"suspiciously small response ({tmp.stat().st_size} bytes)"
             if not ok:

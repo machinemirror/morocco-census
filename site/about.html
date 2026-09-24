@@ -44,14 +44,15 @@
 
   <h2>Commune shapes</h2>
   <p>HCP publishes no commune boundaries, and none were provided on request. Each commune therefore gets one seed
-    point, from GADM 4.1 level-4 polygons where GADM has the commune and from the GeoNames gazetteer otherwise, and
-    the country is divided into the cells nearest each point. The cells show roughly where a commune is, not its true
-    extent or area; do not compute densities from them. The outline is Natural Earth. GADM data themselves are not
-    redistributed.</p>
+    point from the GeoNames gazetteer, or from Wikidata where GeoNames lacks the commune, and the country is divided
+    into the cells nearest each point. Where both place a commune more than 25 km apart, the choice between them is
+    recorded in <code>catalog/seed_review.csv</code>. The cells show roughly where a commune is, not its true
+    extent or area; do not compute densities from them. The outline is Natural Earth. Every geometry input is openly
+    licensed.</p>
 
   <h2>Known gaps</h2>
   <ul>
-    <li>28 communes have no seed point yet and are missing from the map (listed in <code>points_unmatched.csv</code>);
+    <li>6 communes have no seed point yet and are missing from the map (listed in <code>points_unmatched.csv</code>);
       their data are in the tables.</li>
     <li>In 2014 the six largest cities are split into 41 arrondissements; in 2024 they are single communes. The map
       merges the arrondissements into one city cell (sums for counts, population-weighted means for rates); the
@@ -114,14 +115,14 @@
 
   <h2>Contours des communes</h2>
   <p>Le HCP ne publie aucune limite communale, et aucune n'a été fournie sur demande. Chaque commune reçoit donc un point
-    d'ancrage, tiré des polygones de niveau 4 de GADM 4.1 lorsque GADM contient la commune, et du répertoire géographique GeoNames sinon, puis
-    le pays est divisé en cellules regroupant les lieux les plus proches de chaque point. Les cellules indiquent approximativement où se trouve une commune, et non son
-    étendue ou sa superficie réelles ; n'en calculez pas de densités. Le contour national provient de Natural Earth. Les données GADM elles-mêmes ne sont pas
-    redistribuées.</p>
+    d'ancrage, tiré du répertoire géographique GeoNames, ou de Wikidata lorsque GeoNames ne contient pas la commune, puis
+    le pays est divisé en cellules regroupant les lieux les plus proches de chaque point. Lorsque les deux sources placent une commune à plus de 25 km
+    d'écart, le choix entre elles est consigné dans <code>catalog/seed_review.csv</code>. Les cellules indiquent approximativement où se trouve une commune, et non son
+    étendue ou sa superficie réelles ; n'en calculez pas de densités. Le contour national provient de Natural Earth. Toutes les sources géographiques sont sous licence libre.</p>
 
   <h2>Lacunes connues</h2>
   <ul>
-    <li>28 communes n'ont pas encore de point d'ancrage et sont absentes de la carte (liste dans <code>points_unmatched.csv</code>) ;
+    <li>6 communes n'ont pas encore de point d'ancrage et sont absentes de la carte (liste dans <code>points_unmatched.csv</code>) ;
       leurs données figurent dans les tableaux.</li>
     <li>En 2014, les six plus grandes villes sont divisées en 41 arrondissements ; en 2024, ce sont des communes uniques. La carte
       fusionne les arrondissements en une seule cellule par ville (sommes pour les effectifs, moyennes pondérées par la population pour les taux) ; les
@@ -191,14 +192,14 @@
 
   <h2>أشكال الجماعات</h2>
   <p>لا تنشر المندوبية السامية للتخطيط حدود الجماعات، ولم تُقدَّم عند طلبها. لذلك تحصل كل جماعة على نقطة
-    مرجعية واحدة، من مضلعات GADM 4.1 من المستوى 4 حين تتضمن GADM الجماعة، ومن معجم GeoNames في غير ذلك، ثم
-    يُقسَّم البلد إلى الخلايا الأقرب إلى كل نقطة. تبيّن الخلايا الموقع التقريبي للجماعة، لا امتدادها
-    الحقيقي ولا مساحتها؛ فلا ينبغي حساب الكثافات انطلاقا منها. الحدود الخارجية مأخوذة من Natural Earth. ولا يُعاد
-    توزيع معطيات GADM نفسها.</p>
+    مرجعية واحدة من معجم GeoNames، أو من Wikidata حين لا يتضمن GeoNames الجماعة، ثم
+    يُقسَّم البلد إلى الخلايا الأقرب إلى كل نقطة. وحين يضع المصدران جماعةً ما على بعد يزيد عن 25 كلم، يُسجَّل الاختيار بينهما في
+    <code>catalog/seed_review.csv</code>. تبيّن الخلايا الموقع التقريبي للجماعة، لا امتدادها
+    الحقيقي ولا مساحتها؛ فلا ينبغي حساب الكثافات انطلاقا منها. الحدود الخارجية مأخوذة من Natural Earth. وجميع المصادر الجغرافية ذات ترخيص مفتوح.</p>
 
   <h2>الثغرات المعروفة</h2>
   <ul>
-    <li>28 جماعة ليس لها بعد نقطة مرجعية وهي غائبة عن الخريطة (مدرجة في <code>points_unmatched.csv</code>)؛
+    <li>6 جماعات ليست لها بعد نقطة مرجعية وهي غائبة عن الخريطة (مدرجة في <code>points_unmatched.csv</code>)؛
       لكن معطياتها موجودة في الجداول.</li>
     <li>سنة 2014 كانت المدن الست الكبرى مقسمة إلى 41 مقاطعة؛ وسنة 2024 تظهر كجماعات موحدة. تدمج الخريطة
       المقاطعات في خلية واحدة لكل مدينة (المجاميع بالنسبة للأعداد، والمتوسطات المرجحة بعدد السكان بالنسبة للمعدلات)؛ بينما

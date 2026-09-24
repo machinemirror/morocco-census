@@ -1,0 +1,1498 @@
+unit,name14,prov14,lon,lat,pt_src,source_id,feature,source_name,match
+01.051.01.01.,Al Hoceima (Mun.),Al Hoceima,-3.943,35.23587,geonames,6546170,ADM3,Al Hoceima,exact
+01.051.01.03.,Bni Bouayach (Mun.),Al Hoceima,-3.85033,35.10559,geonames,6547070,ADM3,Bni Bouayach,exact
+01.051.01.05.,Imzouren (Mun.),Al Hoceima,-3.85048,35.1448,geonames,6547071,ADM3,Imzouren,exact
+01.051.01.07.,Targuist (Mun.),Al Hoceima,-4.33101,34.93904,geonames,6547072,ADM3,Targuist,exact
+01.051.03.01.,Bni Boufrah,Al Hoceima,-4.32061,35.06761,geonames,6546357,ADM3,Bni Boufrah,exact
+01.051.03.03.,Bni Gmil,Al Hoceima,-4.4241,35.06739,geonames,6546358,ADM3,Bni Gmil,exact
+01.051.03.05.,Bni Gmil Maksouline,Al Hoceima,-4.45659,35.02119,geonames,6546359,ADM3,Bni Gmil Maksouline,exact
+01.051.03.07.,Senada,Al Hoceima,-4.2043,35.08251,geonames,6545436,ADM3,Senada,exact
+01.051.05.01.,Ait Kamra,Al Hoceima,-4.01115,35.14407,geonames,6545437,ADM3,Ait Kamra,exact
+01.051.05.03.,Ait Youssef Ou Ali,Al Hoceima,-3.88858,35.14991,geonames,11911116,ADM4,Ait Youssef Ou Ali,exact
+01.051.05.05.,Arbaa Taourirt,Al Hoceima,-3.95501,34.91222,geonames,11911110,ADM4,Arbaa Taourirt,exact
+01.051.05.07.,Bni Abdallah,Al Hoceima,-4.0601,35.0375,geonames,6546171,ADM3,Bni Abdallah,exact
+01.051.05.09.,Bni Hadifa,Al Hoceima,-4.19278,34.9986,geonames,6546356,ADM3,Bni Hadifa,exact
+01.051.05.11.,Chakrane,Al Hoceima,-3.98867,34.91318,geonames,6545820,ADM3,Chakrane,exact
+01.051.05.13.,Imrabten,Al Hoceima,-3.98674,35.04643,geonames,6546172,ADM3,Imrabten,exact
+01.051.05.15.,Izemmouren,Al Hoceima,-4.00486,35.16688,geonames,11911113,ADM4,Izemmouren,exact
+01.051.05.17.,Louta,Al Hoceima,-3.89924,35.10709,geonames,6545822,ADM3,Louta,exact
+01.051.05.19.,Nekkour,Al Hoceima,-3.87714,35.01899,geonames,11911111,ADM4,Nekkour,exact
+01.051.05.21.,Rouadi,Al Hoceima,-4.17843,35.15613,geonames,6545810,ADM3,Rouadi,exact
+01.051.05.23.,Tifarouine,Al Hoceima,-3.91732,35.02365,geonames,6545811,ADM3,Tifarouine,exact
+01.051.07.03.,Bni Ahmed Imoukzan,Al Hoceima,-4.44166,34.76418,geonames,6546173,ADM3,Bni Ahmed Imoukzan,exact
+01.051.07.05.,Bni Ammart,Al Hoceima,-4.19928,34.80874,geonames,6547073,ADM3,Bni Ammart,exact
+01.051.07.07.,Bni Bchir,Al Hoceima,-4.33668,34.778,geonames,6547074,ADM3,Bni Bchir,exact
+01.051.07.11.,Bni Bounsar,Al Hoceima,-4.4439,34.86375,geonames,6547076,ADM3,Bni Bounsar,exact
+01.051.07.19.,Sidi Boutmim,Al Hoceima,-4.27099,34.9257,geonames,6547078,ADM3,Sidi Boutmim,exact
+01.051.07.21.,Sidi Bouzineb,Al Hoceima,-4.09534,34.82038,geonames,6547079,ADM3,Sidi Bouzineb,exact
+01.051.07.27.,Zarkt,Al Hoceima,-4.35156,34.89599,geonames,6545785,ADM3,Zarkt,exact
+01.051.09.01.,Abdelghaya Souahel,Al Hoceima,-4.65177,34.79096,geonames,6546454,ADM3,Abdelghaya Souahel,exact
+01.051.09.09.,Bni Bouchibet,Al Hoceima,-4.50809,34.70711,geonames,6547075,ADM3,Bni Bouchibet,exact
+01.051.09.13.,Issaguen,Al Hoceima,-4.52417,34.9175,geonames,11911123,ADM4,Issaguen,exact
+01.051.09.15.,Ketama,Al Hoceima,-4.68416,34.88163,geonames,6546174,ADM3,Ketama,exact
+01.051.09.17.,Moulay Ahmed Cherif,Al Hoceima,-4.47276,34.92733,geonames,6547077,ADM3,Moulay Ahmed Cherif,exact
+01.051.09.23.,Taghzout,Al Hoceima,-4.54964,34.76409,geonames,6547080,ADM3,Taghzout,exact
+01.051.09.25.,Tamsaout,Al Hoceima,-4.75124,34.8223,geonames,6547081,ADM3,Tamsaout,exact
+01.151.01.01.,Chefchaouen (Mun.),Chefchaouen,-5.27151,35.1674,geonames,6545557,ADM3,Chefchaouen,exact
+01.151.03.03.,Bab Berred,Chefchaouen,-4.93074,34.98906,geonames,6546142,ADM3,Bab Berred,exact
+01.151.03.13.,Iounane,Chefchaouen,-4.82472,35.03407,geonames,6546952,ADM3,Iounane,exact
+01.151.03.23.,Tamorot,Chefchaouen,-4.81506,34.90381,geonames,6545794,ADM3,Tamorot,exact
+01.151.05.01.,Bab Taza,Chefchaouen,-5.20605,35.06047,geonames,11911074,ADM4,Bab Taza,exact
+01.151.05.03.,Bni Darkoul,Chefchaouen,-5.08222,35.0418,geonames,11911075,ADM4,Bni Darkoul,exact
+01.151.05.05.,Bni Faghloum,Chefchaouen,-5.14244,34.90502,geonames,6545562,ADM3,Bni Faghloum,exact
+01.151.05.07.,Bni Salah,Chefchaouen,-5.06534,34.98903,geonames,6545563,ADM3,Bni Salah,exact
+01.151.05.09.,Derdara,Chefchaouen,-5.33421,35.1414,geonames,11911082,ADM4,Derdara,exact
+01.151.05.11.,Fifi,Chefchaouen,-5.19141,34.93241,geonames,11911079,ADM4,Fifi,exact
+01.151.05.13.,Laghdir,Chefchaouen,-5.39212,35.03713,geonames,6546002,ADM3,Laghdir,exact
+01.151.05.15.,Tanaqoub,Chefchaouen,-5.4371,35.11507,geonames,11911083,ADM4,Tanaqoub,exact
+01.151.06.05.,Bni Ahmed Cherqia,Chefchaouen,-5.072,34.83766,geonames,6546949,ADM3,Bni Ahmed Cherqia,exact
+01.151.06.07.,Bni Ahmed Gharbia,Chefchaouen,-5.1376,34.814,geonames,6546143,ADM3,Bni Ahmed Gharbia,exact
+01.151.06.15.,Mansoura,Chefchaouen,-4.9626,34.84335,geonames,6545992,ADM3,Mansoura,exact
+01.151.06.21.,Oued Malha,Chefchaouen,-5.02018,34.9151,geonames,6545997,ADM3,Oued Malha,exact
+01.151.07.01.,Bni Bouzra,Chefchaouen,-4.89337,35.26992,geonames,6547021,ADM3,Bni Bouzra,exact
+01.151.07.03.,Bni Mansour,Chefchaouen,-4.91004,35.15152,geonames,6547022,ADM3,Bni Mansour,exact
+01.151.07.05.,Bni Selmane,Chefchaouen,-5.01727,35.16425,geonames,6547023,ADM3,Bni Selmane,exact
+01.151.07.07.,Steha,Chefchaouen,-5.0198,35.29567,geonames,6547024,ADM3,Steha,exact
+01.151.07.09.,Talambote,Chefchaouen,-5.16038,35.16889,geonames,6546444,ADM3,Talambote,exact
+01.151.07.11.,Tassift,Chefchaouen,-5.12881,35.30188,geonames,6546445,ADM3,Tassift,exact
+01.151.07.13.,Tizgane,Chefchaouen,-5.04424,35.37009,geonames,6546446,ADM3,Tizgane,exact
+01.151.09.01.,Amtar,Chefchaouen,-4.76962,35.18164,geonames,6546141,ADM3,Amtar,exact
+01.151.09.09.,Bni Rzine,Chefchaouen,-4.71401,35.08233,geonames,11911271,ADM4,Bni Rzine,exact
+01.151.09.11.,Bni Smih,Chefchaouen,-4.75933,35.13377,geonames,6546951,ADM3,Bni Smih,exact
+01.151.09.17.,M'tioua,Chefchaouen,-4.57897,35.1404,geonames,6545780,ADM3,M'Tioua,exact
+01.151.09.19.,Ouaouzgane,Chefchaouen,-4.57144,35.02846,geonames,6545996,ADM3,Ouaouzgane,exact
+01.227.03.05.,Anjra,Fahs-Anjra,-5.53814,35.69254,geonames,6546382,ADM3,Anjra,exact
+01.227.03.11.,Jouamaa,Fahs-Anjra,-5.64832,35.6397,geonames,6546021,ADM3,Jouamaa,exact
+01.227.03.13.,Ksar El Majaz,Fahs-Anjra,-5.51196,35.82753,geonames,6545417,ADM3,Ksar El Majaz,exact
+01.227.03.21.,Taghramt,Fahs-Anjra,-5.4364,35.81399,geonames,6545734,ADM3,Taghramt,exact
+01.227.05.01.,Al Bahraoyine,Fahs-Anjra,-5.71656,35.76548,geonames,6545718,ADM3,Albahraoyine,exact
+01.227.05.05.,Ksar Sghir,Fahs-Anjra,-5.63955,35.80369,geonames,6545686,ADM3,Ksar Sghir,exact
+01.227.05.09.,Malloussa,Fahs-Anjra,-5.64727,35.73301,geonames,6545717,ADM3,Malloussa,exact
+01.331.01.01.,Ksar El Kebir (Mun.),Larache,-5.90422,35.00647,geonames,6546541,ADM3,Ksar El Kebir,exact
+01.331.01.03.,Larache (Mun.),Larache,-6.1502,35.18335,geonames,6545687,ADM3,Larache,exact
+01.331.07.01.,Bou Jedyane,Larache,-5.73303,35.09229,geonames,6545704,ADM3,Bou Jedyane,exact
+01.331.07.03.,Ksar Bjir,Larache,-5.88013,34.98865,geonames,6546383,ADM3,Ksar Bjir,exact
+01.331.07.05.,Laouamra,Larache,-6.1413,35.08053,geonames,6546677,ADM3,Laouamra,exact
+01.331.07.11.,Souk L'Qolla,Larache,-5.59873,35.12112,geonames,6547029,ADM3,Souk L Qolla,exact
+01.331.07.15.,Tatoft,Larache,-5.74069,35.04137,geonames,11911050,ADM4,Tatoft,exact
+01.331.07.17.,Zouada,Larache,-6.0224,35.05458,geonames,6546019,ADM3,Zouada,exact
+01.331.09.01.,Ayacha,Larache,-5.83452,35.38649,geonames,11911058,ADM4,Ayacha,exact
+01.331.09.03.,Bni Arouss,Larache,-5.64217,35.325,geonames,6546336,ADM3,Bni Arouss,exact
+01.331.09.05.,Bni Garfett,Larache,-5.84055,35.25765,geonames,6545564,ADM3,Bni Garfett,exact
+01.331.09.13.,Tazroute,Larache,-5.53529,35.3063,geonames,6546003,ADM3,Tazroute,exact
+01.331.09.15.,Zaaroura,Larache,-5.73457,35.23263,geonames,6546004,ADM3,Zaaroura,exact
+01.331.11.03.,Oulad Ouchih,Larache,-5.96763,35.06524,geonames,6545705,ADM3,Oulad Ouchih,exact
+01.331.11.07.,Rissana Chamalia,Larache,-5.94753,35.27242,geonames,6547033,ADM3,Rissana Chamalia,exact
+01.331.11.09.,Rissana Janoubia,Larache,-5.97145,35.17332,geonames,6545699,ADM3,Rissana Janoubia,exact
+01.331.11.11.,Sahel,Larache,-6.06168,35.24761,geonames,6546248,ADM3,Sahel,exact
+01.331.11.12.,Souaken,Larache,-5.93075,35.12034,geonames,6547028,ADM3,Souaken,exact
+01.331.11.13.,Souk Tolba,Larache,-5.85607,35.0803,geonames,6547030,ADM3,Souk Tolba,exact
+01.405.01.09.,Ouezzane (Mun.),Ouezzane,-5.46096,34.69819,geonames,11878430,ADM3,Ouezzane,exact
+01.405.07.01.,Bni Quolla,Ouezzane,-5.52317,34.75218,geonames,11911061,ADM4,Bni Quolla,exact
+01.405.07.03.,Lamjaara,Ouezzane,-5.31021,34.63746,geonames,11911062,ADM4,Lamjaara,exact
+01.405.07.05.,Masmouda,Ouezzane,-5.69006,34.76091,geonames,6546920,ADM3,Masmouda,exact
+01.405.07.07.,Mzefroune,Ouezzane,-5.70815,34.79815,geonames,11911067,ADM4,Mzefroune,exact
+01.405.07.09.,Ounnana,Ouezzane,-5.36334,34.65841,geonames,6546922,ADM3,Ounnana,exact
+01.405.07.11.,Sidi Ahmed Cherif,Ouezzane,-5.29654,34.5582,geonames,6546311,ADM3,Sidi Ahmed Cherif,exact
+01.405.07.13.,Sidi Bousber,Ouezzane,-5.38092,34.56716,geonames,6545892,ADM3,Sidi Bousber,exact
+01.405.07.15.,Sidi Redouane,Ouezzane,-5.44626,34.67465,geonames,11911060,ADM4,Sidi Redouane,exact
+01.405.07.17.,Teroual,Ouezzane,-5.24092,34.68864,geonames,6546923,ADM3,Teroual,exact
+01.405.07.19.,Zghira,Ouezzane,-5.21898,34.64746,geonames,6546128,ADM3,Zghira,exact
+01.405.09.01.,Ain Beida,Ouezzane,-5.46072,34.93491,geonames,6547025,ADM3,Ain Beida,exact
+01.405.09.03.,Asjen,Ouezzane,-5.64946,34.87999,geonames,6547026,ADM3,Asjen,exact
+01.405.09.05.,Brikcha,Ouezzane,-5.62029,34.91462,geonames,11911068,ADM4,Brikcha,exact
+01.405.09.09.,Moqrisset,Ouezzane,-5.31894,34.92345,geonames,6546046,ADM3,Moqrisset,exact
+01.405.11.07.,Kalaat Bouqorra,Ouezzane,-5.21962,34.77542,geonames,6546540,ADM3,Kalaat Bouqorra,exact
+01.405.11.11.,Zoumi,Ouezzane,-5.36413,34.79157,geonames,6546008,ADM3,Zoumi,exact
+01.511.01.01.,Assilah (Mun.),Tanger-Assilah,-5.96894,35.44439,geonames,11878900,ADM3,Assilah,exact
+01.511.01.,Bni Makada (Arrond.),Tanger-Assilah,-5.81802,35.72827,geonames,11911097,ADM4,Arrondissement de Bni Makada,exact
+01.511.01.09.,Gueznaia (Mun.),Tanger-Assilah,-5.90881,35.7066,geonames,6545548,ADM3,Gueznaia,exact
+01.511.03.01.,Al Manzla,Tanger-Assilah,-5.84416,35.55087,geonames,6545700,ADM3,Almanzla,exact
+01.511.03.03.,Aquouass Briech,Tanger-Assilah,-5.95759,35.55422,geonames,6546250,ADM3,Aquouass Briech,exact
+01.511.03.07.,Dar Chaoui,Tanger-Assilah,-5.80003,35.55478,geonames,11911093,ADM4,Dar Chaoui,exact
+01.511.03.11.,Sahel Chamali,Tanger-Assilah,-6.04368,35.3878,geonames,6546038,ADM3,Sahel Chamali,exact
+01.511.03.13.,Sidi Lyamani,Tanger-Assilah,-5.96637,35.37445,geonames,6546448,ADM3,Sidi Lyamani,exact
+01.511.03.17.,Laaouama,Tanger-Assilah,-5.78471,35.6519,geonames,11911094,ADM4,Laaouama,exact
+01.511.81.05.,HJAR ENNHAL,Tanger-Assilah,-5.89846,35.63556,geonames,11911095,ADM4,Hjar Ennhal,exact
+01.571.01.07.,Oued Laou (Mun.),Tétouan,-5.12224,35.45741,geonames,11878905,ADM3,Oued Laou,exact
+01.571.01.11.,Tétouan (Mun.),Tétouan,-5.34462,35.57856,geonames,6546449,ADM3,Tetouan,exact
+01.571.03.01.,Ain Lahsan,Tétouan,-5.55352,35.5799,geonames,11911087,ADM4,Ain Lahsan,exact
+01.571.03.05.,Bghaghza,Tétouan,-5.60228,35.45899,geonames,6546450,ADM3,Bghaghza,exact
+01.571.03.07.,Bni Harchen,Tétouan,-5.66165,35.52067,geonames,6547036,ADM3,Bni Harchen,exact
+01.571.03.09.,Jbel Lahbib,Tétouan,-5.7048,35.47769,geonames,11911088,ADM4,Jbel Lahbib,exact
+01.571.03.11.,Bni Idder,Tétouan,-5.53282,35.43478,geonames,6545778,ADM3,Bni Idder,exact
+01.571.03.15.,Mallalienne,Tétouan,-5.38019,35.62918,geonames,6547038,ADM3,Mallalienne,exact
+01.571.03.17.,Saddina,Tétouan,-5.44285,35.63017,geonames,6545414,ADM3,Saddina,exact
+01.571.03.19.,Souk Kdim,Tétouan,-5.5246,35.60685,geonames,6547039,ADM3,Souk Kdim,exact
+01.571.03.21.,Sahtryine,Tétouan,-5.47627,35.48855,geonames,6545779,ADM3,Sahtryine,exact
+01.571.05.01.,Al Hamra,Tétouan,-5.35636,35.34598,geonames,6546192,ADM3,Alhamra,exact
+01.571.05.05.,Al Oued,Tétouan,-5.31875,35.26844,geonames,6546193,ADM3,Aloued,exact
+01.571.05.07.,Azla,Tétouan,-5.28847,35.5317,geonames,6547040,ADM3,Azla,exact
+01.571.05.13.,Bni Leit,Tétouan,-5.43716,35.30485,geonames,6546030,ADM3,Bni Leit,exact
+01.571.05.15.,Bni Said,Tétouan,-5.21071,35.45868,geonames,11911084,ADM4,Bni Said,exact
+01.571.05.17.,Dar Bni Karrich,Tétouan,-5.41438,35.53856,geonames,6546908,ADM3,Dar Bni Karrich,exact
+01.571.05.19.,Oulad Ali Mansour,Tétouan,-5.24841,35.36332,geonames,6546005,ADM3,Oulad Ali Mansour,exact
+01.571.05.23.,Zaitoune,Tétouan,-5.356,35.50903,geonames,6546006,ADM3,Zaitoune,exact
+01.571.05.25.,Zaouiat Sidi Kacem,Tétouan,-5.22835,35.47477,geonames,6545828,ADM3,Zaouiat Sidi Kacem,exact
+01.571.05.27.,Zinat,Tétouan,-5.39591,35.42673,geonames,6545993,ADM3,Zinat,exact
+01.573.01.01.,Fnideq (Mun.),M'Diq-Fnideq,-5.36939,35.8253,geonames,11878438,ADM3,Fnideq,exact
+01.573.01.03.,Martil (Mun.),M'Diq-Fnideq,-5.30265,35.64341,geonames,6546337,ADM3,Martil,exact
+01.573.01.05.,M'Diq (Mun.),M'Diq-Fnideq,-5.32507,35.68571,geonames,6545494,ADM3,M'Diq,exact
+01.573.03.03.,Allyene,M'Diq-Fnideq,-5.39539,35.73491,geonames,6546679,ADM3,Allyene,exact
+01.573.03.05.,Belyounech,M'Diq-Fnideq,-5.39792,35.87665,geonames,11911108,ADM4,Belyounech,exact
+02.113.01.01.,Ahfir (Mun.),Berkane,-2.23756,34.96701,geonames,11879000,ADM3,Ahfir,exact
+02.113.01.05.,Ain Erreggada (Mun.),Berkane,-2.23729,34.93199,geonames,6545533,ADM3,Ain Erreggada,exact
+02.113.01.07.,Aklim (Mun.),Berkane,-2.46192,34.80138,geonames,11879001,ADM3,Aklim,exact
+02.113.01.09.,Berkane (Mun.),Berkane,-2.33179,34.92019,geonames,6545678,ADM3,Berkane,exact
+02.113.01.25.,Saidia (Mun.),Berkane,-2.24115,35.08348,geonames,6545976,ADM3,Saidia,exact
+02.113.01.29.,Sidi Slimane Echcharraa (Mun.),Berkane,-2.35515,34.91123,geonames,11878991,ADM3,Sidi Slimane Echcharraa,exact
+02.113.03.01.,Aghbal,Berkane,-2.19078,34.92354,geonames,11911230,ADM4,Aghbal,exact
+02.113.03.07.,Fezouane,Berkane,-2.24354,34.88803,geonames,6545610,ADM3,Fezouane,exact
+02.113.03.09.,Laatamna,Berkane,-2.26912,35.02664,geonames,11911231,ADM4,Laatamna,exact
+02.113.03.11.,Madagh,Berkane,-2.35634,35.04202,geonames,11911232,ADM4,Madagh,exact
+02.113.05.03.,Boughriba,Berkane,-2.51167,34.91342,geonames,6545679,ADM3,Boughriba,exact
+02.113.05.05.,Chouihia,Berkane,-2.65162,34.80899,geonames,11911227,ADM4,Chouihia,exact
+02.113.05.13.,Rislane,Berkane,-2.47137,34.69729,geonames,6545979,ADM3,Rislane,exact
+02.113.05.15.,Sidi Bouhria,Berkane,-2.32663,34.69347,geonames,6545980,ADM3,Sidi Bouhria,exact
+02.113.05.17.,Tafoughalt,Berkane,-2.36349,34.79,geonames,6545981,ADM3,Tafoughalt,exact
+02.113.05.19.,Zegzel,Berkane,-2.35921,34.91324,geonames,6545875,ADM3,Zegzel,exact
+02.167.01.03.,Ben Taieb (Mun.),Driouch,-3.4824,35.06756,geonames,6545611,ADM3,Ben Taieb,exact
+02.167.01.09.,Driouch (Mun.),Driouch,-3.4249,34.90129,geonames,11911234,ADM4,Driouch,exact
+02.167.01.13.,Midar (Mun.),Driouch,-3.54929,34.93506,geonames,6547059,ADM3,Midar,exact
+02.167.03.01.,Ain Zohra,Driouch,-3.4518,34.72973,geonames,11911247,ADM4,Ain Zohra,exact
+02.167.03.03.,Ait Mait,Driouch,-3.35158,35.07353,geonames,6546348,ADM3,Ait Mait,exact
+02.167.03.05.,Amejjaou,Driouch,-3.24587,35.13716,geonames,6546349,ADM3,Amejjaou,exact
+02.167.03.07.,Dar El Kebdani,Driouch,-3.34919,35.13767,geonames,6546163,ADM3,Dar El Kebdani,exact
+02.167.03.11.,Oulad Boubker,Driouch,-3.3984,34.7765,geonames,6546073,ADM3,Oulad Boubker,exact
+02.167.03.13.,Tazaghine,Driouch,-3.47277,35.17497,geonames,6546371,ADM3,Tazaghine,exact
+02.167.09.01.,Azlaf,Driouch,-3.66712,34.90075,geonames,6546530,ADM3,Azlaf,exact
+02.167.09.05.,Bni Marghnine,Driouch,-3.58401,35.17701,geonames,6547058,ADM3,Bni Marghnine,exact
+02.167.09.07.,Boudinar,Driouch,-3.64291,35.20014,geonames,6546076,ADM3,Boudinar,exact
+02.167.09.09.,Iferni,Driouch,-3.64132,35.00202,geonames,6546077,ADM3,Iferni,exact
+02.167.09.11.,Ijermaouas,Driouch,-3.73409,35.0556,geonames,11911246,ADM4,Ijermaouas,exact
+02.167.09.15.,M'Hajer,Driouch,-3.49508,35.14316,geonames,6547060,ADM3,M Hajer,exact
+02.167.09.17.,Ouardana,Driouch,-3.43858,35.06403,geonames,6547061,ADM3,Ouardana,exact
+02.167.09.19.,Oulad Amghar,Driouch,-3.69986,35.23318,geonames,6545412,ADM3,Oulad Amghar,exact
+02.167.09.21.,Tafersit,Driouch,-3.5684,35.01917,geonames,6546351,ADM3,Tafersit,exact
+02.167.09.23.,Talilit,Driouch,-3.56924,35.13425,geonames,6545982,ADM3,Talilit,exact
+02.167.09.25.,Temsamane,Driouch,-3.63304,35.10508,geonames,6545746,ADM3,Temsamane,exact
+02.167.09.27.,Trougout,Driouch,-3.76529,35.16836,geonames,11911233,ADM4,Trougout,exact
+02.167.09.29.,Tsaft,Driouch,-3.76227,34.95666,geonames,6545894,ADM3,Tsaft,exact
+02.251.01.01.,Bouarfa (Mun.),Figuig,-1.97216,32.51165,geonames,6545473,ADM3,Bouarfa,exact
+02.251.01.03.,Figuig (Mun.),Figuig,-1.23902,32.08011,geonames,6546275,ADM3,Figuig,exact
+02.251.03.01.,Ain Chouater,Figuig,-3.06378,31.83599,geonames,6546781,ADM3,Ain Chouater,exact
+02.251.03.03.,Bni Tadjite,Figuig,-3.35846,32.32875,geonames,11911201,ADM4,Bni Tadjite,exact
+02.251.03.05.,Bouanane,Figuig,-2.83872,32.22074,geonames,11911195,ADM4,Bouanane,exact
+02.251.03.07.,Bouchaouene,Figuig,-3.05716,32.77605,geonames,6545429,ADM3,Bouchaouene,exact
+02.251.03.09.,Boumerieme,Figuig,-3.65264,32.81248,geonames,6545670,ADM3,Boumerieme,exact
+02.251.03.11.,Talsint,Figuig,-3.43483,32.59975,geonames,11911200,ADM4,Talsint,exact
+02.251.03.13.,Ain Chair,Figuig,-2.50073,32.22402,geonames,11911196,ADM4,Ain Chair,exact
+02.251.05.01.,Abbou Lakhal,Figuig,-1.54034,32.24432,geonames,6546400,ADM3,Abbou Lakhal,exact
+02.251.05.03.,Bni Guil,Figuig,-1.88151,32.44804,geonames,6545613,ADM3,Bni Guil,exact
+02.251.05.05.,Maatarka,Figuig,-2.55645,33.21056,geonames,6546935,ADM3,Maatarka,exact
+02.251.05.07.,Tendrara,Figuig,-2.20464,33.17361,geonames,11911199,ADM4,Tendrara,exact
+02.265.01.03.,Guercif (Mun.),Guercif,-3.35235,34.22514,geonames,6547086,ADM3,Guercif,exact
+02.265.05.01.,Assebbab,Guercif,-3.5633,33.95568,geonames,11911249,ADM4,Assebbab,exact
+02.265.05.03.,Barkine,Guercif,-3.883,33.72897,geonames,6545690,ADM3,Barkine,exact
+02.265.05.05.,Houara Oulad Raho,Guercif,-3.30149,34.19189,geonames,6545571,ADM3,Houara Oulad Raho,exact
+02.265.05.07.,Lamrija,Guercif,-3.29482,33.94138,geonames,6546155,ADM3,Lamrija,exact
+02.265.05.15.,Saka,Guercif,-3.26895,34.55539,geonames,11911255,ADM4,Saka,exact
+02.265.07.09.,Mazguitam,Guercif,-3.66683,34.47891,geonames,11911254,ADM4,Mazguitam,exact
+02.265.07.11.,Oulad Bourima,Guercif,-3.80095,34.40354,geonames,6547090,ADM3,Oulad Bourima,exact
+02.265.07.13.,Ras Laksar,Guercif,-3.80811,33.97782,geonames,11911251,ADM4,Ras Laksar,exact
+02.265.07.17.,Taddart,Guercif,-3.66607,34.2126,geonames,11911252,ADM4,Taddart,exact
+02.275.01.03.,Ain Bni Mathar (Mun.),Jerada,-2.11053,34.00922,geonames,6545517,ADM3,Ain Bni Mathar,exact
+02.275.01.17.,Jerada (Mun.),Jerada,-2.18847,34.30063,geonames,6545872,ADM3,Jerada,exact
+02.275.01.35.,Touissit (Mun.),Jerada,-1.77119,34.46736,geonames,6545873,ADM3,Touissit,exact
+02.275.03.03.,Gafait,Jerada,-2.2822,34.23396,geonames,6546312,ADM3,Gafait,exact
+02.275.03.05.,Guenfouda,Jerada,-2.00579,34.44147,geonames,6545674,ADM3,Guenfouda,exact
+02.275.03.07.,Laaouinate,Jerada,-2.14966,34.32634,geonames,11911209,ADM4,Laaouinate,exact
+02.275.03.09.,Lebkhata,Jerada,-2.41074,34.16927,geonames,6545676,ADM3,Lebkhata,exact
+02.275.03.13.,Ras Asfour,Jerada,-1.84483,34.51897,geonames,6545918,ADM3,Ras Asfour,exact
+02.275.03.15.,Sidi Boubker,Jerada,-1.7461,34.45906,geonames,6546936,ADM3,Sidi Boubker,exact
+02.275.03.21.,Tiouli,Jerada,-1.87936,34.33858,geonames,6546313,ADM3,Tiouli,exact
+02.275.05.01.,Bni Mathar,Jerada,-1.9871,34.00603,geonames,11911205,ADM4,Bni Mathar,exact
+02.275.05.11.,Mrija,Jerada,-2.3138,33.89377,geonames,6545975,ADM3,Mrija,exact
+02.275.05.13.,Oulad Ghziyel,Jerada,-2.56247,33.84951,geonames,6546937,ADM3,Oulad Ghziyel,exact
+02.275.05.15.,Oulad Sidi Abdelhakem,Jerada,-1.76628,33.93795,geonames,11911206,ADM4,Oulad Sidi Abdelhakem,exact
+02.381.01.01.,Al Aaroui (Mun.),Nador,-3.00008,35.02009,geonames,6547049,ADM3,Al Aaroui,exact
+02.381.01.03.,Bni Ansar (Mun.),Nador,-2.92516,35.23422,geonames,6546346,ADM3,Bni Ansar,exact
+02.381.01.05.,Nador (Mun.),Nador,-2.93621,35.17498,geonames,6547050,ADM3,Nador,exact
+02.381.01.07.,Zaio (Mun.),Nador,-2.74358,34.93681,geonames,6546347,ADM3,Zaio,exact
+02.381.01.09.,Zeghanghane (Mun.),Nador,-3.01221,35.15165,geonames,6547051,ADM3,Zeghanghane,exact
+02.381.01.15.,Ras El Ma (Mun.),Nador,-2.44853,35.06173,geonames,6546350,ADM3,Ras El Ma,exact
+02.381.01.19.,Selouane (Mun.),Nador,-2.96783,35.04393,geonames,6547055,ADM3,Selouane,exact
+02.381.05.01.,Bni Bouifrour,Nador,-3.01666,35.11964,geonames,11911262,ADM4,Bni Bouifrour,exact
+02.381.05.03.,Bni Chiker,Nador,-3.00788,35.31531,geonames,11911265,ADM4,Bni Chiker,exact
+02.381.05.05.,Bni Sidel Jbel,Nador,-3.048,35.185,geonames,6547053,ADM3,Bni Sidel Jbel,exact
+02.381.05.07.,Bni Sidel Louta,Nador,-3.1374,35.10038,geonames,6547052,ADM3,Bni Sidel Louta,exact
+02.381.05.09.,Bouarg,Nador,-2.91743,35.09346,geonames,11911261,ADM4,Bouarg,exact
+02.381.05.13.,Iaazzanene,Nador,-3.1275,35.23185,geonames,11911264,ADM4,Iaazzanene,exact
+02.381.05.15.,Ihaddadene,Nador,-2.98528,35.19923,geonames,6545745,ADM3,Ihaddadene,exact
+02.381.05.17.,Iksane,Nador,-3.02974,35.08884,geonames,6547054,ADM3,Iksane,exact
+02.381.07.01.,Afsou,Nador,-3.14224,34.82392,geonames,6547056,ADM3,Afsou,exact
+02.381.07.03.,Al Barkanyene,Nador,-2.59677,35.04719,geonames,6547057,ADM3,Albarkanyene,exact
+02.381.07.05.,Arekmane,Nador,-2.70932,35.03333,geonames,6546059,ADM3,Arekmane,exact
+02.381.07.09.,Hassi Berkane,Nador,-3.00842,34.81952,geonames,11911257,ADM4,Hassi Berkane,exact
+02.381.07.11.,Oulad Daoud Zkhanine,Nador,-2.60141,34.98106,geonames,6546060,ADM3,Oulad Daoud Zkhanine,exact
+02.381.07.13.,Oulad Settout,Nador,-2.77768,34.93265,geonames,11911258,ADM4,Oulad Settout,exact
+02.381.07.17.,Tiztoutine,Nador,-3.17063,34.95995,geonames,6545858,ADM3,Tiztoutine,exact
+02.411.01.11.,Bni Drar (Mun.),Oujda-Angad,-1.99888,34.8547,geonames,6545895,ADM3,Bni Drar,exact
+02.411.01.19.,Naima (Mun.),Oujda-Angad,-2.2334,34.59986,geonames,6545777,ADM3,Naima,exact
+02.411.01.23.,Oujda (Mun.),Oujda-Angad,-1.9108,34.68288,geonames,6545974,ADM3,Oujda,exact
+02.411.03.01.,Ahl Angad,Oujda-Angad,-1.8579,34.68924,geonames,6545640,ADM3,Ahl Angad,exact
+02.411.03.03.,Ain Sfa,Oujda-Angad,-2.15686,34.74211,geonames,11911216,ADM4,Ain Sfa,exact
+02.411.03.05.,Bni Khaled,Oujda-Angad,-2.02101,34.86142,geonames,6545643,ADM3,Bni Khaled,exact
+02.411.03.07.,Bsara,Oujda-Angad,-2.21926,34.6844,geonames,6545627,ADM3,Bsara,exact
+02.411.05.09.,Isly,Oujda-Angad,-2.04789,34.68511,geonames,6545628,ADM3,Isly,exact
+02.411.05.11.,Mestferki,Oujda-Angad,-2.26708,34.48613,geonames,6546353,ADM3,Mestferki,exact
+02.411.05.17.,Sidi Boulenouar,Oujda-Angad,-2.12333,34.51333,geonames,6545874,ADM3,Sidi Boulenouar,exact
+02.411.05.19.,Sidi Moussa Lemhaya,Oujda-Angad,-2.13,34.58187,geonames,6546314,ADM3,Sidi Moussa Lemhaya,exact
+02.533.01.13.,Debdou (Mun.),Taourirt,-3.04602,33.97954,geonames,6545857,ADM3,Debdou,exact
+02.533.01.15.,El Aioun Sidi Mellouk (Mun.),Taourirt,-2.50479,34.57868,geonames,11878987,ADM3,El Aioun Sidi Mellouk,exact
+02.533.01.33.,Taourirt (Mun.),Taourirt,-2.90029,34.40343,geonames,6545983,ADM3,Taourirt,exact
+02.533.03.05.,El Atef,Taourirt,-2.90892,33.78381,geonames,6545480,ADM3,Elatef,exact
+02.533.03.15.,Oulad M'hammed,Taourirt,-3.07021,33.53306,geonames,6546938,ADM3,Oulad M Hammed,exact
+02.533.03.19.,Sidi Lahsen,Taourirt,-2.67005,34.04672,geonames,11911220,ADM4,Sidi Lahsen,exact
+02.533.07.03.,Ain Lehjer,Taourirt,-2.4858,34.48594,geonames,6545448,ADM3,Ain Lehjer,exact
+02.533.07.09.,Mechraa Hammadi,Taourirt,-2.66892,34.66269,geonames,6545449,ADM3,Mechraa Hammadi,exact
+02.533.07.13.,Mestegmer,Taourirt,-2.7939,34.51425,geonames,6546354,ADM3,Mestegmer,exact
+02.533.07.21.,Tancherfi,Taourirt,-2.4972,34.3801,geonames,6545859,ADM3,Tancherfi,exact
+02.533.09.01.,Ahl Oued Za,Taourirt,-2.81757,34.28544,geonames,6545534,ADM3,Ahl Oued Za,exact
+02.533.09.07.,Gteter,Taourirt,-3.03179,34.29183,geonames,6545680,ADM3,Gteter,exact
+02.533.09.11.,Melg El Ouidane,Taourirt,-2.96418,34.52391,geonames,11911224,ADM4,Melg El Ouidane,exact
+03.061.01.01.,Meknès (Mun.),Meknès,-5.53329,33.88234,geonames,6546578,ADM3,Meknes,exact
+03.061.01.03.,Al Machouar - Stinia (Mun.),Meknès,-5.55608,33.8849,geonames,11878978,ADM3,Al Machouar-Stinia,exact
+03.061.01.05.,Boufakrane (Mun.),Meknès,-5.48662,33.76013,geonames,6545537,ADM3,Boufakrane,exact
+03.061.01.07.,Toulal (Mun.),Meknès,-5.60214,33.89513,geonames,6546237,ADM3,Toulal,exact
+03.061.01.09.,Moulay Driss Zerhoun (Mun.),Meknès,-5.51832,34.05594,geonames,6546094,ADM3,Moulay Driss Zerhoun,exact
+03.061.01.11.,Ouislane (Mun.),Meknès,-5.47796,33.91194,geonames,6545812,ADM3,Ouislane,exact
+03.061.03.01.,Ain Jemaa,Meknès,-5.7191,34.06742,geonames,11911387,ADM4,Ain Jemaa,exact
+03.061.03.05.,Ain Orma,Meknès,-5.68253,33.9053,geonames,11911386,ADM4,Ain Orma,exact
+03.061.03.07.,Ait Ouallal,Meknès,-5.67959,33.85856,geonames,6546581,ADM3,Ait Ouallal,exact
+03.061.03.09.,Dar Oum Soltane,Meknès,-5.62414,33.93034,geonames,6546966,ADM3,Dar Oum Soltane,exact
+03.061.05.01.,Dkhissa,Meknès,-5.4996,33.94907,geonames,11911384,ADM4,Dkhissa,exact
+03.061.05.03.,Majjate,Meknès,-5.48703,33.82897,geonames,11911383,ADM4,Majjate,exact
+03.061.05.05.,M'haya,Meknès,-5.26514,34.04363,geonames,6546045,ADM3,M Haya,exact
+03.061.05.07.,Oued Jdida,Meknès,-5.38808,33.93874,geonames,6546969,ADM3,Oued Jdida,exact
+03.061.07.01.,Charqaoua,Meknès,-5.40512,34.17389,geonames,6545539,ADM3,Charqaoua,exact
+03.061.07.05.,MRhassiyine,Meknès,-5.49739,34.00723,geonames,6546970,ADM3,M'Rhassiyine,exact
+03.061.07.07.,N'zalat Bni Amar,Meknès,-5.41616,34.09816,geonames,6546971,ADM3,N'Zalat Bni Amar,exact
+03.061.07.09.,Oualili,Meknès,-5.52203,34.08906,geonames,11911388,ADM4,Oualili,exact
+03.061.07.11.,Sidi Abdallah Al Khayat,Meknès,-5.37694,34.0346,geonames,6546973,ADM3,Sidi Abdallah Khayat,fuzzy
+03.131.01.02.,Imouzzer Marmoucha (Mun.),Boulemane,-4.29501,33.46277,geonames,6545558,ADM3,Imouzzer Marmoucha,exact
+03.131.01.03.,Missour (Mun.),Boulemane,-3.99783,33.0401,geonames,6546860,ADM3,Missour,exact
+03.131.01.05.,Outat El Haj (Mun.),Boulemane,-3.70774,33.33348,geonames,6546861,ADM3,Outat El Haj,exact
+03.131.03.01.,Ait Bazza,Boulemane,-4.21567,33.40226,geonames,6545500,ADM3,Ait Bazza,exact
+03.131.03.03.,Ait El Mane,Boulemane,-4.31546,33.45443,geonames,6546974,ADM3,Ait El Mane,exact
+03.131.03.05.,Almis Marmoucha,Boulemane,-4.1565,33.23593,geonames,6546975,ADM3,Almis Marmoucha,exact
+03.131.03.07.,El Mers,Boulemane,-4.54258,33.42584,geonames,6545542,ADM3,Elmers,exact
+03.131.03.09.,Enjil,Boulemane,-4.58481,33.09338,geonames,6545485,ADM3,Enjil,exact
+03.131.03.11.,Guigou,Boulemane,-4.83299,33.38236,geonames,6546188,ADM3,Guigou,exact
+03.131.03.13.,Serghina,Boulemane,-4.47558,33.38897,geonames,11911279,ADM4,Serghina,exact
+03.131.03.15.,Skoura M'Daz,Boulemane,-4.56076,33.5436,geonames,6546032,ADM3,Skoura M Daz,exact
+03.131.03.17.,Talzemt,Boulemane,-4.18876,33.54531,geonames,6546033,ADM3,Talzemt,exact
+03.131.05.01.,Ksabi Moulouya,Boulemane,-4.28253,32.79199,geonames,6546862,ADM3,Ksabi Moulouya,exact
+03.131.05.03.,Ouizeght,Boulemane,-4.02297,32.83749,geonames,6546189,ADM3,Ouizeght,exact
+03.131.05.05.,Sidi Boutayeb,Boulemane,-4.032,33.026,geonames,6546863,ADM3,Sidi Boutayeb,exact
+03.131.07.01.,El Orjane,Boulemane,-3.77287,33.4508,geonames,6546984,ADM3,Elorjane,exact
+03.131.07.03.,Ermila,Boulemane,-3.82598,33.19001,geonames,6545708,ADM3,Ermila,exact
+03.131.07.05.,Fritissa,Boulemane,-3.438,33.69619,geonames,6545712,ADM3,Fritissa,exact
+03.131.07.07.,Oulad Ali Youssef,Boulemane,-4.00403,33.40742,geonames,6546441,ADM3,Oulad Ali Youssef,exact
+03.131.07.09.,Tissaf,Boulemane,-3.3202,33.32591,geonames,6546294,ADM3,Tissaf,exact
+03.171.01.01.,Agourai (Mun.),El  Hajeb,-5.59183,33.63883,geonames,6546953,ADM3,Agourai,exact
+03.171.01.03.,Ain Taoujdate (Mun.),El  Hajeb,-5.24058,33.84264,geonames,11878983,ADM3,Ain Taoujdate,exact
+03.171.01.05.,El Hajeb (Mun.),El  Hajeb,-5.41897,33.6581,geonames,11878982,ADM3,El Hajeb,exact
+03.171.01.07.,Sabaa Aiyoun (Mun.),El  Hajeb,-5.36109,33.89689,geonames,6546956,ADM3,Sabaa Aiyoun,exact
+03.171.03.01.,Ait Ouikhalfen,El  Hajeb,-5.72237,33.61792,geonames,6546435,ADM3,Ait Ouikhalfen,exact
+03.171.03.03.,Ait Yaazem,El  Hajeb,-5.60866,33.74463,geonames,6546323,ADM3,Ait Yaazem,exact
+03.171.03.05.,Jahjouh,El  Hajeb,-5.667,33.718,geonames,6545711,ADM3,Jahjouh,exact
+03.171.03.07.,Ras Ijerri,El  Hajeb,-5.71328,33.79546,geonames,6545693,ADM3,Ras Ijerri,exact
+03.171.03.09.,Tamchachate,El  Hajeb,-5.64533,33.50983,geonames,6545483,ADM3,Tamchachate,exact
+03.171.05.01.,Ait Boubidmane,El  Hajeb,-5.30475,33.79075,geonames,11911289,ADM4,Ait Boubidmane,exact
+03.171.05.03.,Ait Harz Allah,El  Hajeb,-5.31474,33.73662,geonames,6546958,ADM3,Ait Harz Allah,exact
+03.171.05.05.,Bitit,El  Hajeb,-5.1567,33.82915,geonames,11911291,ADM4,Bitit,exact
+03.171.05.07.,Laqsir,El  Hajeb,-5.2287,33.90437,geonames,6546066,ADM3,Laqsir,exact
+03.171.07.01.,Ait Bourzouine,El  Hajeb,-5.49017,33.63665,geonames,6546508,ADM3,Ait Bourzouine,exact
+03.171.07.03.,Ait Naamane,El  Hajeb,-5.27294,33.66616,geonames,6545715,ADM3,Ait Naamane,exact
+03.171.07.05.,Iqaddar,El  Hajeb,-5.35687,33.67402,geonames,6546509,ADM3,Iqaddar,exact
+03.231.01.,Agdal (Arrond.),Fès,-5.00292,34.03634,geonames,11911418,ADM4,Agdal,exact
+03.231.01.03.,Méchouar Fès Jdid (Mun.),Fès,-4.99506,34.05102,geonames,6546342,ADM3,Mechouar Fes Jdid,exact
+03.231.81.01.,Oulad Tayeb,Fès,-4.9608,33.9269,geonames,11911397,ADM4,Oulad Tayeb,exact
+03.231.81.03.,Ain Bida,Fès,-4.89306,33.98558,geonames,6545681,ADM3,Ain Bida,exact
+03.231.81.05.,Sidi Harazem,Fès,-4.88461,33.99611,geonames,11911398,ADM4,Sidi Harazem,exact
+03.271.01.01.,Azrou (Mun.),Ifrane,-5.22467,33.44242,geonames,11878912,ADM3,Azrou,exact
+03.271.01.03.,Ifrane (Mun.),Ifrane,-5.11154,33.52231,geonames,11878913,ADM3,Ifrane,exact
+03.271.03.01.,Ain Leuh,Ifrane,-5.30314,33.27166,geonames,11911299,ADM4,Ain Leuh,exact
+03.271.03.03.,Ben Smim,Ifrane,-5.20804,33.46891,geonames,6546219,ADM3,Ben Smim,exact
+03.271.03.05.,Oued Ifrane,Ifrane,-5.485,33.292,geonames,6546220,ADM3,Oued Ifrane,exact
+03.271.03.07.,Sidi El Makhfi,Ifrane,-5.33986,33.24967,geonames,6545702,ADM3,Sidi El Makhfi,exact
+03.271.03.09.,Tigrigra,Ifrane,-5.36306,33.47166,geonames,6545703,ADM3,Tigrigra,exact
+03.271.03.11.,Timahdite,Ifrane,-5.02587,33.2517,geonames,6545846,ADM3,Timahdite,exact
+03.271.81.01.,Dayat Aoua,Ifrane,-4.98163,33.58191,geonames,12034994,ADM4,Commune Rurale de Dayat Aoua,exact
+03.271.81.03.,Tizguite,Ifrane,-5.14616,33.62865,geonames,6545538,ADM3,Tizguite,exact
+03.451.01.01.,Bhalil (Mun.),Sefrou,-4.87327,33.8522,geonames,6545682,ADM3,Bhalil,exact
+03.451.01.03.,El Menzel (Mun.),Sefrou,-4.5526,33.83594,geonames,6546992,ADM3,Elmenzel,exact
+03.451.01.05.,Imouzzer Kandar (Mun.),Sefrou,-5.00832,33.72154,geonames,6545723,ADM3,Imouzzer Kandar,exact
+03.451.01.07.,Ribate El Kheir (Mun.),Sefrou,-4.42243,33.81119,geonames,6546993,ADM3,Ribate El Kheir,exact
+03.451.01.09.,Sefrou (Mun.),Sefrou,-4.83005,33.82252,geonames,6546442,ADM3,Sefrou,exact
+03.451.03.01.,Adrej,Sefrou,-4.44828,33.63884,geonames,6546994,ADM3,Adrej,exact
+03.451.03.03.,Ain Timguenai,Sefrou,-4.48741,33.8667,geonames,6546147,ADM3,Ain Timguenai,exact
+03.451.03.05.,Bir Tam Tam,Sefrou,-4.64268,33.97674,geonames,6546995,ADM3,Bir Tam Tam,exact
+03.451.03.07.,Dar El Hamra,Sefrou,-4.39785,33.69955,geonames,6545560,ADM3,Dar El Hamra,exact
+03.451.03.09.,Ighzrane,Sefrou,-4.25293,33.75957,geonames,6545512,ADM3,Ighzrane,exact
+03.451.03.11.,Mtarnagha,Sefrou,-4.58399,33.85207,geonames,6546996,ADM3,Mtarnagha,exact
+03.451.03.13.,Oulad Mkoudou,Sefrou,-4.51451,33.77669,geonames,6546035,ADM3,Oulad Mkoudou,exact
+03.451.03.15.,Ras Tabouda,Sefrou,-4.67595,34.00466,geonames,11911306,ADM4,Ras Tabouda,exact
+03.451.03.17.,Tafajight,Sefrou,-4.34096,33.59259,geonames,6545506,ADM3,Tafajight,exact
+03.451.05.01.,Ain Cheggag,Sefrou,-5.04874,33.8744,geonames,11911304,ADM4,Ain Cheggag,exact
+03.451.05.03.,Ait Sebaa Lajrouf,Sefrou,-5.05488,33.74232,geonames,6546998,ADM3,Ait Sebaa Lajrouf,exact
+03.451.07.01.,Aghbalou Aqorar,Sefrou,-4.78848,33.88994,geonames,6546058,ADM3,Aghbalou Aqorar,exact
+03.451.07.03.,Ahl Sidi Lahcen,Sefrou,-4.65259,33.76705,geonames,6545688,ADM3,Ahl Sidi Lahcen,exact
+03.451.07.05.,Azzaba,Sefrou,-4.6813,33.8189,geonames,6546999,ADM3,Azzaba,exact
+03.451.07.07.,Kandar Sidi Khiar,Sefrou,-4.957,33.78,geonames,6546190,ADM3,Kandar Sidi Khiar,exact
+03.451.07.09.,Laanoussar,Sefrou,-4.80792,33.62847,geonames,6546191,ADM3,Laanoussar,exact
+03.451.07.11.,Sidi YoussefBen Ahmed,Sefrou,-4.79757,33.81825,geonames,10921618,PPLF,Commune Sidi Youssef Ben Ahmed,exact
+03.451.07.13.,Tazouta,Sefrou,-4.64911,33.69943,geonames,11911301,ADM4,Tazouta,exact
+03.531.01.01.,Ghafsai (Mun.),Taounate,-4.91119,34.62455,geonames,6546148,ADM3,Ghafsai,exact
+03.531.01.03.,Karia Ba Mohamed (Mun.),Taounate,-5.21225,34.36307,geonames,6547001,ADM3,Karia Ba Mohamed,exact
+03.531.01.05.,Taounate (Mun.),Taounate,-4.65322,34.52321,geonames,6547002,ADM3,Taounate,exact
+03.531.01.07.,Thar Es-souk (Mun.),Taounate,-4.27817,34.65084,geonames,6545612,ADM3,Thar Es-Souk,exact
+03.531.01.09.,Tissa (Mun.),Taounate,-4.6699,34.28967,geonames,6545689,ADM3,Tissa,exact
+03.531.03.01.,El Bibane,Taounate,-4.86223,34.62554,geonames,6547003,ADM3,Elbibane,exact
+03.531.03.03.,Galaz,Taounate,-4.85228,34.55597,geonames,6546443,ADM3,Galaz,exact
+03.531.03.05.,Kissane,Taounate,-5.03172,34.58918,geonames,6546149,ADM3,Kissane,exact
+03.531.03.07.,Oudka,Taounate,-4.8591,34.69301,geonames,6546150,ADM3,Oudka,exact
+03.531.03.09.,Ouartzagh,Taounate,-4.94922,34.50939,geonames,11911372,ADM4,Ouartzagh,exact
+03.531.03.11.,Ratba,Taounate,-4.88206,34.76836,geonames,6546152,ADM3,Ratba,exact
+03.531.03.13.,Sidi Haj M'hamed,Taounate,-4.9906,34.75792,geonames,6547004,ADM3,Sidi Haj M Hamed,exact
+03.531.03.15.,Sidi Mokhfi,Taounate,-4.79925,34.65198,geonames,6547005,ADM3,Sidi Mokhfi,exact
+03.531.03.17.,Sidi YahyaBni Zeroual,Taounate,-4.9819,34.67442,geonames,6547006,ADM3,Sidi Yahya  Bni Zero,fuzzy
+03.531.03.19.,Tabouda,Taounate,-5.0975,34.74348,geonames,6546037,ADM3,Tabouda,exact
+03.531.03.21.,Tafrant,Taounate,-5.08291,34.66163,geonames,11911354,ADM4,Tafrant,exact
+03.531.03.23.,Timezgana,Taounate,-4.73016,34.64636,geonames,6547007,ADM3,Timezgana,exact
+03.531.05.01.,Bni Snous,Taounate,-5.20007,34.35447,geonames,6547008,ADM3,Bni Snous,exact
+03.531.05.03.,Bouchabel,Taounate,-5.05713,34.397,geonames,6546534,ADM3,Bouchabel,exact
+03.531.05.05.,Rhouazi,Taounate,-5.30235,34.47737,geonames,2538099,PPLA3,Ghouazi,exact
+03.531.05.07.,Jbabra,Taounate,-4.97005,34.43532,geonames,6546179,ADM3,Jbabra,exact
+03.531.05.09.,Loulja,Taounate,-4.90776,34.29157,geonames,6546535,ADM3,Loulja,exact
+03.531.05.11.,Mkansa,Taounate,-5.40242,34.33285,geonames,6546536,ADM3,Mkansa,exact
+03.531.05.13.,Moulay Abdelkrim,Taounate,-5.241,34.483,geonames,6546007,ADM3,Moulay Abdelkrim,exact
+03.531.05.15.,Moulay Bouchta,Taounate,-5.13608,34.5087,geonames,11911378,ADM4,Moulay Bouchta,exact
+03.531.05.17.,Sidi El Abed,Taounate,-5.02734,34.31548,geonames,6546180,ADM3,Sidi El Abed,exact
+03.531.07.01.,Ain Mediouna,Taounate,-4.53639,34.47968,geonames,6545684,ADM3,Ain Mediouna,exact
+03.531.07.03.,Bni Oulid,Taounate,-4.43849,34.54773,geonames,11911346,ADM4,Bni Oulid,exact
+03.531.07.05.,Bni Ounjel Tafraout,Taounate,-4.35136,34.66594,geonames,6547082,ADM3,Bni Ounjel Tafraout,exact
+03.531.07.07.,Bouadel,Taounate,-4.52858,34.54634,geonames,6546539,ADM3,Bouadel,exact
+03.531.07.09.,Bouhouda,Taounate,-4.51592,34.63446,geonames,11911352,ADM4,Bouhouda,exact
+03.531.07.11.,Fennassa Bab El Hit,Taounate,-4.39325,34.63758,geonames,6545860,ADM3,Fennassa Bab El Hit,exact
+03.531.07.13.,Khlalfa,Taounate,-4.63972,34.67,geonames,6547083,ADM3,Khlalfa,exact
+03.531.07.15.,Mezraoua,Taounate,-4.74516,34.50874,geonames,6545987,ADM3,Mezraoua,exact
+03.531.07.17.,Rghioua,Taounate,-4.60086,34.52977,geonames,6547009,ADM3,Rghioua,exact
+03.531.07.19.,Tamedit,Taounate,-4.19767,34.70198,geonames,6547084,ADM3,Tamedit,exact
+03.531.07.21.,Zrizer,Taounate,-4.63869,34.59298,geonames,6545988,ADM3,Zrizer,exact
+03.531.09.01.,Ain Aicha,Taounate,-4.6619,34.39997,geonames,6547010,ADM3,Ain Aicha,exact
+03.531.09.03.,Ain Legdah,Taounate,-4.57105,34.16459,geonames,6547011,ADM3,Ain Legdah,exact
+03.531.09.05.,Ain Maatouf,Taounate,-4.54145,34.41494,geonames,6547012,ADM3,Ain Maatouf,exact
+03.531.09.07.,Bouarouss,Taounate,-4.79282,34.41217,geonames,11911375,ADM4,Bouarouss,exact
+03.531.09.09.,El Bsabsa,Taounate,-4.72144,34.3109,geonames,6547014,ADM3,Elbsabsa,exact
+03.531.09.11.,Messassa,Taounate,-4.52648,34.25691,geonames,6547015,ADM3,Messassa,exact
+03.531.09.13.,Oued Jemaa,Taounate,-4.76871,34.23703,geonames,6547016,ADM3,Oued Jemaa,exact
+03.531.09.15.,Oulad Ayyad,Taounate,-4.66429,34.09375,geonames,6547017,ADM3,Oulad Ayyad,exact
+03.531.09.17.,Oulad Daoud,Taounate,-4.77275,34.4303,geonames,6545784,ADM3,Oulad Daoud,exact
+03.531.09.19.,Outabouabane,Taounate,-4.44441,34.25077,geonames,11911336,ADM4,Outabouabane,exact
+03.531.09.21.,Ras El Oued,Taounate,-4.55582,34.33896,geonames,6546153,ADM3,Ras El Oued,exact
+03.561.01.01.,Aknoul (Mun.),Taza,-3.89412,34.60021,geonames,11911325,ADM4,Aknoul,exact
+03.561.01.05.,Oued Amlil (Mun.),Taza,-4.2741,34.19114,geonames,11878971,ADM3,Oued Amlil,exact
+03.561.01.07.,Tahla (Mun.),Taza,-4.42889,34.0476,geonames,6547019,ADM3,Tahla,exact
+03.561.01.11.,Taza (Mun.),Taza,-4.0088,34.215,geonames,6547088,ADM3,Taza,exact
+03.561.03.01.,Ajdir,Taza,-4.00038,34.75556,geonames,11911326,ADM4,Ajdir,exact
+03.561.03.03.,Bourd,Taza,-4.04726,34.74276,geonames,6546455,ADM3,Bourd,exact
+03.561.03.05.,Gzenaya Al Janoubia,Taza,-3.93015,34.63338,geonames,6546456,ADM3,Gzenaya Al Janoubia,exact
+03.561.03.07.,Jbarna,Taza,-3.84965,34.51588,geonames,6545570,ADM3,Jbarna,exact
+03.561.03.09.,Sidi Ali Bourakba,Taza,-3.721,34.82167,geonames,6546176,ADM3,Sidi Ali Bourakba,exact
+03.561.03.11.,Tizi Ouasli,Taza,-3.76124,34.74506,geonames,6546361,ADM3,Tizi Ouasli,exact
+03.561.07.01.,Bni Frassen,Taza,-4.35648,34.3717,geonames,11911319,ADM4,Bni Frassen,exact
+03.561.07.03.,Bouchfaa,Taza,-4.28506,34.08805,geonames,6546156,ADM3,Bouchfaa,exact
+03.561.07.05.,Bouhlou,Taza,-4.31179,34.10833,geonames,11911315,ADM4,Bouhlou,exact
+03.561.07.07.,Ghiata Al Gharbia,Taza,-4.25253,34.1846,geonames,11911316,ADM4,Ghiata Al Gharbia,exact
+03.561.07.09.,Oulad Zbair,Taza,-4.28398,34.29282,geonames,11911317,ADM4,Oulad Zbair,exact
+03.561.07.11.,Rbaa El Fouki,Taza,-4.274,34.3937,geonames,6546529,ADM3,Rbaa El Fouki,exact
+03.561.09.01.,Ait Saghrouchen,Taza,-4.49199,33.9741,geonames,6545691,ADM3,Ait Saghrouchen,exact
+03.561.09.03.,Bouyablane,Taza,-4.10056,33.81723,geonames,11911307,ADM4,Bouyablane,exact
+03.561.09.07.,Matmata,Taza,-4.48424,34.09448,geonames,6546321,ADM3,Matmata,exact
+03.561.09.09.,Smià,Taza,-4.29327,34.00228,geonames,6546322,ADM3,Smia,exact
+03.561.09.11.,Tazarine,Taza,-4.15402,33.90049,geonames,6546139,ADM3,Tazarine,exact
+03.561.09.13.,Zrarda,Taza,-4.35558,33.93418,geonames,11911312,ADM4,Zrarda,exact
+03.561.11.01.,Bni Ftah,Taza,-4.01326,34.51829,geonames,6546355,ADM3,Bni Ftah,exact
+03.561.11.03.,Brarha,Taza,-4.34691,34.45467,geonames,6546166,ADM3,Brarha,exact
+03.561.11.05.,El Gouzate,Taza,-4.12677,34.49718,geonames,6546167,ADM3,Elgouzate,exact
+03.561.11.07.,Kaf El Ghar,Taza,-4.28333,34.53224,geonames,11911323,ADM4,Kaf El Ghar,exact
+03.561.11.09.,Msila,Taza,-4.17109,34.44267,geonames,6546169,ADM3,Msila,exact
+03.561.11.11.,Taifa,Taza,-4.07819,34.35557,geonames,6547062,ADM3,Taifa,exact
+03.561.11.13.,Tainaste,Taza,-4.14292,34.54708,geonames,11911324,ADM4,Tainaste,exact
+03.561.11.15.,Traiba,Taza,-4.00003,34.40647,geonames,6546039,ADM3,Traiba,exact
+03.561.13.01.,Bab Boudir,Taza,-4.09088,34.0854,geonames,6547064,ADM3,Bab Boudir,exact
+03.561.13.03.,Bab Marzouka,Taza,-4.07865,34.18651,geonames,6547065,ADM3,Bab Marzouka,exact
+03.561.13.05.,Bni Lent,Taza,-4.17922,34.31524,geonames,11911318,ADM4,Bni Lent,exact
+03.561.13.07.,Galdamane,Taza,-3.93155,34.14786,geonames,6546453,ADM3,Galdamane,exact
+03.561.13.09.,Meknassa Acharqia,Taza,-3.961,34.316,geonames,6547067,ADM3,Meknassa Acharqia,exact
+03.561.13.11.,Meknassa Al Gharbia,Taza,-4.06907,34.26809,geonames,6547068,ADM3,Meknassa Al Gharbia,exact
+03.561.13.13.,Oulad Chrif,Taza,-4.17126,34.28109,geonames,6547069,ADM3,Oulad Chrif,exact
+03.561.13.15.,Maghraoua,Taza,-4.01067,33.94853,geonames,11911308,ADM4,Maghraoua,exact
+03.591.01.01.,Moulay Yacoub (Mun.),Moulay Yacoub,-5.17915,34.08475,geonames,6546987,ADM3,Moulay Yacoub,exact
+03.591.03.01.,Ain Chkef,Moulay Yacoub,-5.08854,33.96639,geonames,11911395,ADM4,Ain Chkef,exact
+03.591.03.03.,Mikkes,Moulay Yacoub,-5.26489,34.12734,geonames,6546988,ADM3,Mikkes,exact
+03.591.03.05.,Sebaa Rouadi,Moulay Yacoub,-5.14492,34.07532,geonames,11911396,ADM4,Sebaa Rouadi,exact
+03.591.03.07.,Sebt Loudaya,Moulay Yacoub,-5.33782,34.21216,geonames,6546990,ADM3,Sebt Loudaya,exact
+03.591.05.01.,Ain Bou Ali,Moulay Yacoub,-4.99558,34.12642,geonames,6546991,ADM3,Ain Bou Ali,exact
+03.591.05.02.,Ain Kansra,Moulay Yacoub,-4.84805,34.11269,geonames,6545722,ADM3,Ain Kansra,exact
+03.591.05.03.,Laajajra,Moulay Yacoub,-5.16015,34.21937,geonames,11911394,ADM4,Laajajra,exact
+03.591.05.05.,Louadaine,Moulay Yacoub,-4.92071,34.22478,geonames,6545503,ADM3,Louadaine,exact
+03.591.05.07.,Oulad Mimoun,Moulay Yacoub,-5.04436,34.23247,geonames,6545504,ADM3,Oulad Mimoun,exact
+03.591.05.09.,Sidi Daoud,Moulay Yacoub,-5.16651,34.25876,geonames,6545505,ADM3,Sidi Daoud,exact
+04.281.01.01.,Kénitra (Mun.),Kénitra,-6.57719,34.26593,geonames,6546897,ADM3,Kenitra,exact
+04.281.01.05.,Mehdya (Mun.),Kénitra,-6.66193,34.26234,geonames,6546240,ADM3,Mehdya,exact
+04.281.01.11.,Souk El Arbaa (Mun.),Kénitra,-5.99819,34.68252,geonames,6546900,ADM3,Souk El Arbaa,exact
+04.281.03.01.,Ameur Seflia,Kénitra,-6.3576,34.26029,geonames,11911439,ADM4,Ameur Seflia,exact
+04.281.03.05.,Haddada,Kénitra,-6.51406,34.20042,geonames,6546599,ADM3,Haddada,exact
+04.281.03.13.,Sidi Taibi,Kénitra,-6.63286,34.19545,geonames,6546305,ADM3,Sidi Taibi,exact
+04.281.05.03.,Ben Mansour,Kénitra,-6.38786,34.58051,geonames,11911430,ADM4,Ben Mansour,exact
+04.281.05.07.,Mnasra,Kénitra,-6.55355,34.37333,geonames,6545590,ADM3,Mnasra,exact
+04.281.05.09.,Mograne,Kénitra,-6.35114,34.44235,geonames,11911434,ADM4,Mograne,exact
+04.281.07.01.,Arbaoua,Kénitra,-5.93081,34.91318,geonames,6545447,ADM3,Arbaoua,exact
+04.281.07.03.,Beni Malek,Kénitra,-6.00473,34.70676,geonames,6545477,ADM3,Beni Malek,exact
+04.281.07.05.,Kariat Ben Aouda,Kénitra,-5.98595,34.72905,geonames,11911427,ADM4,Kariat Ben Aouda,exact
+04.281.07.07.,Oued El Makhazine,Kénitra,-5.81662,34.88663,geonames,6546125,ADM3,Oued El Makhazine,exact
+04.281.09.01.,Bahhara Ouled Ayad,Kénitra,-6.28725,34.77942,geonames,11911433,ADM4,Bahhara Ouled Ayad,exact
+04.281.09.09.,Sidi Allal Tazi,Kénitra,-6.26646,34.5709,geonames,11911429,ADM4,Sidi Allal Tazi,exact
+04.281.09.13.,Sidi Mohamed Lahmar,Kénitra,-6.21577,34.73513,geonames,11911431,ADM4,Sidi Mohamed Lahmar,exact
+04.281.09.15.,Souk Tlet El Gharb,Kénitra,-6.16483,34.65553,geonames,6546424,ADM3,Souk Tlet El Gharb,exact
+04.281.11.03.,Chouafaa,Kénitra,-6.16667,34.94685,geonames,6546601,ADM3,Chouafaa,exact
+04.281.11.05.,Lalla Mimouna,Kénitra,-6.05752,34.83082,geonames,11911426,ADM4,Lalla Mimouna,exact
+04.281.11.07.,Moulay Bousselham,Kénitra,-6.21479,34.87647,geonames,11911423,ADM4,Moulay Bousselham,exact
+04.281.11.11.,Sidi Boubker El Haj,Kénitra,-6.04759,34.92176,geonames,6546910,ADM3,Sidi Boubker El Haj,exact
+04.291.01.01.,Khémisset (Mun.),Khémisset,-6.07048,33.82449,geonames,6546130,ADM3,Khemisset,exact
+04.291.01.03.,Rommani (Mun.),Khémisset,-6.60388,33.53286,geonames,6545553,ADM3,Rommani,exact
+04.291.01.05.,Tiflet (Mun.),Khémisset,-6.31519,33.89517,geonames,6546939,ADM3,Tiflet,exact
+04.291.01.17.,Sidi Allal El Bahraoui (Mun.),Khémisset,-6.49,34.01848,geonames,11911855,ADM4,Sidi Allal El Bahraoui,exact
+04.291.03.01.,Ait Mimoune,Khémisset,-5.82965,33.69285,geonames,11911877,ADM4,Ait Mimoune,exact
+04.291.03.03.,Ait Ouribel,Khémisset,-6.11579,33.77507,geonames,6546940,ADM3,Ait Ouribel,exact
+04.291.03.05.,Ait Siberne,Khémisset,-5.86073,33.84983,geonames,6546941,ADM3,Ait Siberne,exact
+04.291.03.07.,Ait Yadine,Khémisset,-5.99091,33.95093,geonames,6546431,ADM3,Ait Yadine,exact
+04.291.03.09.,El Ganzra,Khémisset,-5.95396,34.032,geonames,6546132,ADM3,Elganzra,exact
+04.291.03.11.,Majmaa Tolba,Khémisset,-6.00514,33.72483,geonames,6545795,ADM3,Majmaa Tolba,exact
+04.291.03.13.,Sfassif,Khémisset,-5.83144,33.92649,geonames,6546133,ADM3,Sfassif,exact
+04.291.03.15.,Sidi Allal Lamsadder,Khémisset,-6.14478,33.8894,geonames,6545792,ADM3,Sidi Allal Lamsadder,exact
+04.291.03.17.,Sidi El Ghandour,Khémisset,-6.00541,33.87106,geonames,6546942,ADM3,Sidi El Ghandour,exact
+04.291.05.01.,Ait Ichou,Khémisset,-6.03526,33.53363,geonames,6545554,ADM3,Ait Ichou,exact
+04.291.05.03.,Ait Ikkou,Khémisset,-6.08625,33.65222,geonames,6546943,ADM3,Ait Ikkou,exact
+04.291.05.05.,Bouqachmir,Khémisset,-5.88708,33.50514,geonames,6545555,ADM3,Bouqachmir,exact
+04.291.05.07.,Houderrane,Khémisset,-6.266,33.712,geonames,6545498,ADM3,Houderrane,exact
+04.291.05.09.,Maaziz,Khémisset,-6.34012,33.70402,geonames,6545499,ADM3,Maaziz,exact
+04.291.05.11.,Oulmes,Khémisset,-6.10361,33.53275,geonames,11880866,ADM3,Oulmes,exact
+04.291.05.13.,Tiddas,Khémisset,-6.26746,33.58271,geonames,6546352,ADM3,Tiddas,exact
+04.291.07.01.,Ain Sbit,Khémisset,-6.47116,33.50253,geonames,6546366,ADM3,Ain Sbit,exact
+04.291.07.05.,Brachoua,Khémisset,-6.64542,33.72053,geonames,6546317,ADM3,Brachoua,exact
+04.291.07.07.,Ezzhiliga,Khémisset,-6.52133,33.31324,geonames,6546318,ADM3,Ezzhiliga,exact
+04.291.07.09.,Jemaat Moul Blad,Khémisset,-6.45315,33.6663,geonames,6546319,ADM3,Jemaat Moul Blad,exact
+04.291.07.11.,Laghoualem,Khémisset,-6.71497,33.39185,geonames,6546134,ADM3,Laghoualem,exact
+04.291.07.13.,Marchouch,Khémisset,-6.5422,33.50468,geonames,11911883,ADM4,Marchouch,exact
+04.291.07.15.,Moulay Driss Aghbal,Khémisset,-6.51188,33.72865,geonames,6546136,ADM3,Moulay Driss Aghbal,exact
+04.291.09.02.,Ain Johra -Sidi Boukhalkhal,Khémisset,-6.37523,34.01395,geonames,11911856,ADM4,Ain Johra - Sidi Boukhalkhal,exact
+04.291.09.03.,Ait Belkacem,Khémisset,-6.37239,33.83232,geonames,6546944,ADM3,Ait Belkacem,exact
+04.291.09.07.,Ait Malek,Khémisset,-6.47171,33.96108,geonames,6546050,ADM3,Ait Malek,exact
+04.291.09.09.,Khemis Sidi Yahya,Khémisset,-6.2424,33.79851,geonames,6546946,ADM3,Khemis Sidi Yahya,exact
+04.291.09.11.,M'qam Tolba,Khémisset,-6.24998,34.01733,geonames,6546947,ADM3,M Qam Tolba,exact
+04.291.09.13.,Sidi Abderrazak,Khémisset,-6.19998,34.02896,geonames,11911857,ADM4,Sidi Abderrazak,exact
+04.421.01.,Agdal Riyad (Arrond.),Rabat,-6.86668,33.9783,geonames,6545725,ADM3,Agdal Riyad,exact
+04.421.01.07.,Touarga (Mun.),Rabat,-6.83561,34.01071,geonames,6545486,ADM3,Touarga,exact
+04.441.01.,Bab Lamrissa (Arrond.),Salé,-6.81048,34.05991,geonames,6546340,ADM3,Bab Lamrissa,exact
+04.441.01.08.,Sidi Bouknadel (Mun.),Salé,-6.6893,34.17659,geonames,6545710,ADM3,Sidi Bouknadel,exact
+04.441.03.01.,Shoul,Salé,-6.61588,33.9196,geonames,6545709,ADM3,Shoul,exact
+04.441.03.05.,Ameur,Salé,-6.65793,34.0849,geonames,11911945,ADM4,Ameur,exact
+04.481.01.01.,Dar Gueddari (Mun.),Sidi Kacem,-6.08899,34.42278,geonames,6545656,ADM3,Dar Gueddari,exact
+04.481.01.03.,Had Kourt (Mun.),Sidi Kacem,-5.72629,34.61694,geonames,6545478,ADM3,Had Kourt,exact
+04.481.01.05.,Jorf El Melha (Mun.),Sidi Kacem,-5.50469,34.49448,geonames,6546911,ADM3,Jorf El Melha,exact
+04.481.01.07.,Mechraa Bel Ksiri (Mun.),Sidi Kacem,-5.96418,34.57905,geonames,11880964,ADM3,Mechraa Bel Ksiri,exact
+04.481.01.11.,Sidi Kacem (Mun.),Sidi Kacem,-5.71307,34.22162,geonames,6545871,ADM3,Sidi-Kacem,exact
+04.481.03.01.,Ain Dfali,Sidi Kacem,-5.58283,34.62608,geonames,11911833,ADM4,Ain Dfali,exact
+04.481.03.03.,Bni Oual,Sidi Kacem,-5.64953,34.67475,geonames,6546425,ADM3,Bni Oual,exact
+04.481.03.09.,Moulay Abdelkader,Sidi Kacem,-5.77379,34.58706,geonames,11911834,ADM4,Moulay Abdelkader,exact
+04.481.03.13.,Sidi Ahmed Benaissa,Sidi Kacem,-5.82822,34.71822,geonames,6546915,ADM3,Sidi Ahmed Benaissa,exact
+04.481.03.15.,Sidi Ameur Al Hadi,Sidi Kacem,-5.83035,34.75848,geonames,11911835,ADM4,Sidi Ameur Al Hadi,exact
+04.481.03.17.,Sidi Azzouz,Sidi Kacem,-5.75162,34.5411,geonames,6545915,ADM3,Sidi Azzouz,exact
+04.481.05.01.,Al Haouafate,Sidi Kacem,-5.97113,34.46753,geonames,11911845,ADM4,Al Haouafate,exact
+04.481.05.07.,Nouirate,Sidi Kacem,-5.93395,34.59121,geonames,11911843,ADM4,Nouirate,exact
+04.481.05.09.,Sefsaf,Sidi Kacem,-6.0127,34.55473,geonames,6546428,ADM3,Sefsaf,exact
+04.481.07.05.,Khnichet,Sidi Kacem,-5.65439,34.42832,geonames,6545529,ADM3,Khnichet,exact
+04.481.07.07.,Lamrabih,Sidi Kacem,-5.44449,34.47585,geonames,6545530,ADM3,Lamrabih,exact
+04.481.07.11.,Oulad Nouel,Sidi Kacem,-5.701,34.49193,geonames,11911838,ADM4,Oulad Nouel,exact
+04.481.07.19.,Sidi M'Hamed Chelh,Sidi Kacem,-5.77872,34.47415,geonames,6545916,ADM3,Sidi M Hamed Chelh,exact
+04.481.07.21.,Taoughilt,Sidi Kacem,-5.50583,34.41481,geonames,6545917,ADM3,Taoughilt,exact
+04.481.09.01.,Bab Tiouka,Sidi Kacem,-5.62681,34.21395,geonames,6546430,ADM3,Bab Tiouka,exact
+04.481.09.03.,Bir Taleb,Sidi Kacem,-5.65578,34.33659,geonames,6546129,ADM3,Bir Taleb,exact
+04.481.09.05.,Chbanate,Sidi Kacem,-5.7302,34.27039,geonames,6546924,ADM3,Chbanate,exact
+04.481.09.07.,Selfat,Sidi Kacem,-5.47833,34.23603,geonames,6546925,ADM3,Selfat,exact
+04.481.09.09.,Tekna,Sidi Kacem,-5.56075,34.34252,geonames,6545451,ADM3,Tekna,exact
+04.481.09.11.,Zaggota,Sidi Kacem,-5.52435,34.21796,geonames,11911840,ADM4,Zaggota,exact
+04.481.09.13.,Zirara,Sidi Kacem,-5.68992,34.24654,geonames,11911841,ADM4,Zirara,exact
+04.481.11.03.,Dar Laaslouji,Sidi Kacem,-5.95605,34.38251,geonames,6546426,ADM3,Dar Laaslouji,exact
+04.481.11.11.,Sidi Al Kamel,Sidi Kacem,-6.20606,34.55523,geonames,6546429,ADM3,Sidi Al Kamel,exact
+04.491.01.07.,Sidi Slimane (Mun.),Sidi Slimane,-5.92184,34.26194,geonames,6546898,ADM3,Sidi Slimane,exact
+04.491.01.09.,Sidi Yahya El Gharb (Mun.),Sidi Slimane,-6.30196,34.30745,geonames,6546899,ADM3,Sidi Yahya El Gharb,exact
+04.491.03.07.,Kceibya,Sidi Slimane,-6.15957,34.29354,geonames,6546187,ADM3,Kceibya,exact
+04.491.03.15.,Sfafaa,Sidi Slimane,-5.99592,34.3278,geonames,11911847,ADM4,Sfafaa,exact
+04.491.03.17.,Ameur Chamalia,Sidi Slimane,-6.22162,34.39055,geonames,11911852,ADM4,Ameur Chamalia,exact
+04.491.05.01.,Azghar,Sidi Slimane,-5.90021,34.17415,geonames,6546186,ADM3,Azghar,exact
+04.491.05.03.,Boumaiz,Sidi Slimane,-5.96684,34.30154,geonames,6546902,ADM3,Boumaiz,exact
+04.491.05.05.,Dar Bel Amri,Sidi Slimane,-6.06633,34.18104,geonames,6545630,ADM3,Dar Bel Amri,exact
+04.491.05.09.,M'saada,Sidi Slimane,-5.84819,34.37882,geonames,6546903,ADM3,M Saada,exact
+04.491.05.11.,Ouled Ben Hammadi,Sidi Slimane,-5.82903,34.23767,geonames,6545869,ADM3,Oulad Ben Hammadi,fuzzy
+04.491.05.13.,Ouled H'Cine,Sidi Slimane,-5.80321,34.41015,geonames,11911854,ADM4,Caïdat d’Ouled H’Cine,exact
+04.501.01.01.,Ain El Aouda (Mun.),Skhirate- Témara,-6.79613,33.81001,geonames,6546948,ADM3,Ain El Aouda,exact
+04.501.01.03.,Harhoura (Mun.),Skhirate- Témara,-6.95273,33.93675,geonames,6546138,ADM3,Harhoura,exact
+04.501.01.05.,Skhirate (Mun.),Skhirate- Témara,-7.05836,33.8644,geonames,6545719,ADM3,Skhirate,exact
+04.501.01.07.,Témara (Mun.),Skhirate- Témara,-6.90704,33.9278,geonames,6545720,ADM3,Temara,exact
+04.501.01.09.,Ain Attig (Mun.),Skhirate- Témara,-6.96052,33.8789,geonames,6546177,ADM3,Ain Attig,exact
+04.501.03.01.,El Menzeh,Skhirate- Témara,-6.85199,33.86142,geonames,6545609,ADM3,Elmenzeh,exact
+04.501.03.03.,Oumazza,Skhirate- Témara,-6.78096,33.8294,geonames,6545556,ADM3,Oumazza,exact
+04.501.03.11.,Sidi Yahya Zaer,Skhirate- Témara,-6.88308,33.71045,geonames,6545793,ADM3,Sidi Yahya Zaer,exact
+04.501.05.03.,Mers El Kheir,Skhirate- Témara,-6.8988,33.88656,geonames,6546432,ADM3,Mers El Kheir,exact
+04.501.05.05.,Sabbah,Skhirate- Témara,-7.03335,33.82012,geonames,6546320,ADM3,Sabbah,exact
+05.081.01.01.,Azilal (Mun.),Azilal,-6.57567,31.95871,geonames,11881762,ADM3,Azilal,exact
+05.081.01.03.,Demnate (Mun.),Azilal,-7.01216,31.73458,geonames,6546525,ADM3,Demnate,exact
+05.081.03.01.,Agoudi N'Lkhair,Azilal,-6.48906,31.98695,geonames,6546526,ADM3,Agoudi N Lkhair,exact
+05.081.03.03.,Ait Abbas,Azilal,-6.6134,31.74839,geonames,6546671,ADM3,Ait Abbas,exact
+05.081.03.05.,Ait Bou Oulli,Azilal,-6.6266,31.59078,geonames,6546672,ADM3,Ait Bou Oulli,exact
+05.081.03.07.,Ait M'Hamed,Azilal,-6.50849,31.85965,geonames,6546367,ADM3,Ait M Hamed,exact
+05.081.03.09.,Tabant,Azilal,-6.49234,31.63277,geonames,11912484,ADM4,Tabant,exact
+05.081.03.11.,Tamda Noumercid,Azilal,-6.61665,31.95017,geonames,6546802,ADM3,Tamda Noumercid,exact
+05.081.03.13.,Zaouiat Ahansal,Azilal,-6.0932,31.84407,geonames,11912476,ADM4,Zaouiat Ahansal,exact
+05.081.05.01.,Ait Taguella,Azilal,-6.73337,31.94341,geonames,6546285,ADM3,Ait Taguella,exact
+05.081.05.05.,Bni Hassane,Azilal,-6.91927,32.04331,geonames,6546804,ADM3,Bni Hassane,exact
+05.081.05.07.,Bzou,Azilal,-6.97663,32.12027,geonames,11912495,ADM4,Bzou,exact
+05.081.05.09.,Foum Jemaa,Azilal,-6.91955,32.00149,geonames,11912494,ADM4,Foum Jemaa,exact
+05.081.05.11.,Moulay Aissa Ben Driss,Azilal,-6.72012,32.10734,geonames,6546043,ADM3,Moulay Aissa Ben Dri,fuzzy
+05.081.05.13.,Rfala,Azilal,-6.87591,32.14107,geonames,6546184,ADM3,Rfala,exact
+05.081.05.15.,Tabia,Azilal,-6.82988,32.00416,geonames,6546806,ADM3,Tabia,exact
+05.081.05.17.,Tanant,Azilal,-6.91667,31.90923,geonames,11912493,ADM4,Tanant,exact
+05.081.05.19.,Taounza,Azilal,-6.62017,32.09485,geonames,6546408,ADM3,Taounza,exact
+05.081.05.21.,Tisqi,Azilal,-6.8099,32.10566,geonames,6546807,ADM3,Tisqi,exact
+05.081.09.03.,Ait Mazigh,Azilal,-6.34976,32.01511,geonames,6545585,ADM3,Ait Mazigh,exact
+05.081.09.07.,Ait Ouqabli,Azilal,-6.02531,32.32497,geonames,6546813,ADM3,Ait Ouqabli,exact
+05.081.09.09.,Anergui,Azilal,-5.94857,32.06981,geonames,6546814,ADM3,Anergui,exact
+05.081.09.11.,Bin El Ouidane,Azilal,-6.46331,32.10853,geonames,6546815,ADM3,Bin El Ouidane,exact
+05.081.09.13.,Isseksi,Azilal,-6.28684,32.2171,geonames,6546287,ADM3,Isseksi,exact
+05.081.09.15.,Ouaouizeght,Azilal,-6.38977,32.1567,geonames,11912475,ADM4,Ouaouizeght,exact
+05.081.09.17.,Tabaroucht,Azilal,-6.18621,32.13788,geonames,6546817,ADM3,Tabaroucht,exact
+05.081.09.19.,Tagleft,Azilal,-6.1288,32.23079,geonames,6545781,ADM3,Tagleft,exact
+05.081.09.21.,Tiffert N'Ait Hamza,Azilal,-5.94942,32.30243,geonames,6546818,ADM3,Tiffert N Ait Hamza,exact
+05.081.09.23.,Tilougguite,Azilal,-6.20684,32.04184,geonames,11912474,ADM4,Tilougguite,exact
+05.081.11.01.,Afourar,Azilal,-6.58692,32.19337,geonames,11881778,ADM3,Afourar,exact
+05.081.11.03.,Bni Ayat,Azilal,-6.65961,32.20397,geonames,11912485,ADM4,Bni Ayat,exact
+05.081.11.05.,Ait Ouaarda,Azilal,-6.52869,32.14429,geonames,6546812,ADM3,Ait Ouaarda,exact
+05.081.11.25.,Timoulilt,Azilal,-6.4659,32.21639,geonames,6545817,ADM3,Timoulilt,exact
+05.081.13.05.,Ait Oumdis,Azilal,-7.07032,31.48312,geonames,6545540,ADM3,Ait Oumdis,exact
+05.081.13.07.,Ait Tamlil,Azilal,-6.86543,31.49534,geonames,6546674,ADM3,Ait Tamlil,exact
+05.081.13.09.,Anzou,Azilal,-7.24309,31.686,geonames,6545511,ADM3,Anzou,exact
+05.081.13.17.,Sidi Yacoub,Azilal,-7.11657,31.65361,geonames,6546409,ADM3,Sidi Yacoub,exact
+05.081.13.19.,Tidili Fetouaka,Azilal,-7.14965,31.71492,geonames,6546810,ADM3,Tidili Fetouaka,exact
+05.081.15.01.,Ait Blal,Azilal,-6.70048,31.68533,geonames,6546396,ADM3,Ait Blal,exact
+05.081.15.03.,Ait Majden,Azilal,-6.91424,31.81771,geonames,6546808,ADM3,Ait Majden,exact
+05.081.15.11.,Imlil,Azilal,-7.01078,31.76727,geonames,6545801,ADM3,Imlil,exact
+05.081.15.13.,Ouaoula,Azilal,-6.78209,31.80753,geonames,6546809,ADM3,Ouaoula,exact
+05.081.15.15.,Sidi Boulkhalf,Azilal,-6.83302,31.68031,geonames,6545813,ADM3,Sidi Boulkhalf,exact
+05.081.15.21.,Tifni,Azilal,-6.94076,31.6446,geonames,6545814,ADM3,Tifni,exact
+05.091.01.01.,Béni Mellal (Mun.),Béni Mellal,-6.36062,32.34268,geonames,6546819,ADM3,Beni Mellal,exact
+05.091.01.03.,El Ksiba (Mun.),Béni Mellal,-6.03273,32.56397,geonames,11881765,ADM3,El Ksiba,exact
+05.091.01.07.,Kasba Tadla (Mun.),Béni Mellal,-6.265,32.59609,geonames,6546821,ADM3,Kasba Tadla,exact
+05.091.01.13.,Zaouiat Cheikh (Mun.),Béni Mellal,-5.91576,32.64534,geonames,6545818,ADM3,Zaouiat Cheikh,exact
+05.091.03.01.,Foum Oudi,Béni Mellal,-6.427,32.278,geonames,6546822,ADM3,Foum Oudi,exact
+05.091.03.03.,Ouled Gnaou,Béni Mellal,-6.53435,32.33567,geonames,6546288,ADM3,Oulad Gnaou,fuzzy
+05.091.03.05.,Ouled M'Barek,Béni Mellal,-6.44642,32.28356,geonames,11911911,ADM4,Caïdat d’Ouled M’Barek,exact
+05.091.03.07.,Ouled Yaich,Béni Mellal,-6.33557,32.43184,geonames,11911908,ADM4,Ouled Yaich,exact
+05.091.03.09.,Sidi Jaber,Béni Mellal,-6.42826,32.36726,geonames,11911910,ADM4,Sidi Jaber,exact
+05.091.03.11.,Foum El Anceur,Béni Mellal,-6.226,32.3538,geonames,6546829,ADM3,Foum El Anceur,exact
+05.091.05.01.,Aghbala,Béni Mellal,-5.72239,32.37448,geonames,11881774,ADM3,Aghbala,exact
+05.091.05.05.,Boutferda,Béni Mellal,-5.77032,32.26025,geonames,6545541,ADM3,Boutferda,exact
+05.091.05.17.,Tizi N'Isly,Béni Mellal,-5.78474,32.48602,geonames,6545807,ADM3,Tizi N Isly,exact
+05.091.07.03.,Ait Oum El Bekht,Béni Mellal,-5.92757,32.65922,geonames,6545573,ADM3,Ait Oum El Bekht,exact
+05.091.07.07.,Dir El Ksiba,Béni Mellal,-6.03717,32.57616,geonames,6546052,ADM3,Dir El Ksiba,exact
+05.091.07.11.,Naour,Béni Mellal,-5.9495,32.47411,geonames,6546413,ADM3,Naour,exact
+05.091.07.13.,Taghzirt,Béni Mellal,-6.15003,32.41734,geonames,6546830,ADM3,Taghzirt,exact
+05.091.07.15.,Tanougha,Béni Mellal,-6.08954,32.4431,geonames,6545819,ADM3,Tanougha,exact
+05.091.11.01.,Guettaya,Béni Mellal,-6.28,32.565,geonames,6546834,ADM3,Guettaya,exact
+05.091.11.05.,Ouled Said L'Oued,Béni Mellal,-6.46136,32.59935,geonames,11911901,ADM4,Caïdat d’Ouled Said L’Oued,exact
+05.091.11.07.,Semguet,Béni Mellal,-6.18188,32.64782,geonames,6545418,ADM3,Semguet,exact
+05.255.01.05.,Fquih Ben Salah (Mun.),Fquih Ben Salah,-6.68858,32.50705,geonames,6546410,ADM3,Fquih Ben Salah,exact
+05.255.01.09.,Ouled Ayad (Mun.),Fquih Ben Salah,-6.80275,32.20209,geonames,11881763,ADM3,Ouled Ayad,exact
+05.255.01.11.,Souk Sebt Ouled Nemma (Mun.),Fquih Ben Salah,-6.7092,32.29541,geonames,11881764,ADM3,Souk Sebt Ouled Nemma,exact
+05.255.05.09.,Ouled Zmam,Fquih Ben Salah,-6.73631,32.3903,geonames,11911980,ADM4,Ouled Zmam,exact
+05.255.05.11.,Sidi Aissa Ben Ali,Fquih Ben Salah,-6.64399,32.35165,geonames,6546828,ADM3,Sidi Aissa Ben Ali,exact
+05.255.05.13.,Sidi Hammadi,Fquih Ben Salah,-6.57094,32.27536,geonames,6546118,ADM3,Sidi Hammadi,exact
+05.255.09.03.,Bni Chegdale,Fquih Ben Salah,-6.93101,32.44667,geonames,6546832,ADM3,Bni Chegdale,exact
+05.255.09.05.,Bni Oukil,Fquih Ben Salah,-6.8846,32.53405,geonames,11911976,ADM4,Bni Oukil,exact
+05.255.09.07.,Bradia,Fquih Ben Salah,-6.56474,32.48143,geonames,11911979,ADM4,Bradia,exact
+05.255.09.09.,Hel Merbaa,Fquih Ben Salah,-6.60868,32.43699,geonames,6546833,ADM3,Hel Merbaa,exact
+05.255.09.11.,Krifate,Fquih Ben Salah,-6.70757,32.55942,geonames,6546119,ADM3,Krifate,exact
+05.255.11.01.,Dar Ould Zidouh,Fquih Ben Salah,-6.89062,32.33968,geonames,11911981,ADM4,Dar Ould Zidouh,exact
+05.255.11.03.,Had Boumoussa,Fquih Ben Salah,-6.97902,32.27743,geonames,6546412,ADM3,Had Boumoussa,exact
+05.255.11.07.,Ouled Nacer,Fquih Ben Salah,-6.77105,32.25947,geonames,11911983,ADM4,Ouled Nacer,exact
+05.301.01.01.,Khenifra (Mun.),Khénifra,-5.66629,32.93207,geonames,6546573,ADM3,Khenifra,exact
+05.301.01.05.,M'Rirt (Mun.),Khénifra,-5.56338,33.16537,geonames,6546574,ADM3,M'Rirt,exact
+05.301.03.01.,Ait Ishaq,Khénifra,-5.78594,32.73374,geonames,11911963,ADM4,Ait Ishaq,exact
+05.301.03.03.,Ait Saadelli,Khénifra,-5.3632,32.66468,geonames,6546575,ADM3,Ait Saadelli,exact
+05.301.03.05.,El Kbab,Khénifra,-5.57705,32.69959,geonames,11881772,ADM3,El Kbab,exact
+05.301.03.07.,Kerrouchen,Khénifra,-5.34194,32.79063,geonames,6546236,ADM3,Kerrouchen,exact
+05.301.03.09.,Ouaoumana,Khénifra,-5.81979,32.69082,geonames,6546093,ADM3,Ouaoumana,exact
+05.301.03.11.,Sidi Yahya Ou Saad,Khénifra,-5.63054,32.61644,geonames,6546577,ADM3,Sidi Yahya Ou Saad,exact
+05.301.03.13.,Tighassaline,Khénifra,-5.5544,32.65601,geonames,6546324,ADM3,Tighassaline,exact
+05.301.05.01.,Aguelmam Azegza,Khénifra,-5.42801,32.93673,geonames,6545484,ADM3,Aguelmam Azegza,exact
+05.301.05.05.,El Borj,Khénifra,-5.60133,33.03439,geonames,6546959,ADM3,Elborj,exact
+05.301.05.11.,Lehri,Khénifra,-5.58515,32.83497,geonames,6546014,ADM3,Lehri,exact
+05.301.05.13.,Moha Ou Hammou Zayani,Khénifra,-5.65724,32.99322,geonames,11911959,ADM4,Moha Ou Hammou Zayani,exact
+05.301.05.21.,Sidi Amar,Khénifra,-5.8002,32.9244,geonames,6546327,ADM3,Sidi Amar,exact
+05.301.05.25.,Sidi Lamine,Khénifra,-5.98048,32.88321,geonames,6545730,ADM3,Sidi Lamine,exact
+05.301.07.03.,Aguelmous,Khénifra,-5.8366,33.13242,geonames,6546325,ADM3,Aguelmous,exact
+05.301.07.07.,El Hammam,Khénifra,-5.55618,33.20391,geonames,11911956,ADM4,El Hammam,exact
+05.301.07.09.,Had Bouhssoussen,Khénifra,-6.1348,33.13496,geonames,6546326,ADM3,Had Bouhssoussen,exact
+05.301.07.15.,Moulay Bouazza,Khénifra,-6.13193,33.25646,geonames,6546015,ADM3,Moulay Bouazza,exact
+05.301.07.17.,Oum Rabia,Khénifra,-5.43037,33.07103,geonames,6546961,ADM3,Oum Rabia,exact
+05.301.07.19.,Sebt Ait Rahou,Khénifra,-6.26698,33.30073,geonames,6546016,ADM3,Sebt Ait Rahou,exact
+05.301.07.23.,Sidi Hcine,Khénifra,-6.03356,33.04158,geonames,6546962,ADM3,Sidi Hcine,exact
+05.311.01.01.,Bejaad (Mun.),Khouribga,-6.39125,32.77296,geonames,6546397,ADM3,Bejaad,exact
+05.311.01.03.,Boujniba (Mun.),Khouribga,-6.77697,32.89734,geonames,11881767,ADM3,Boujniba,exact
+05.311.01.05.,Hattane (Mun.),Khouribga,-6.81937,32.84364,geonames,6546694,ADM3,Hattane,exact
+05.311.01.07.,Khouribga (Mun.),Khouribga,-6.91356,32.88677,geonames,6546695,ADM3,Khouribga,exact
+05.311.01.09.,Oued Zem (Mun.),Khouribga,-6.56605,32.8695,geonames,6545669,ADM3,Oued Zem,exact
+05.311.03.01.,Ain Kaicher,Khouribga,-6.58,32.729,geonames,6545594,ADM3,Ain Kaicher,exact
+05.311.03.03.,Bni Bataou,Khouribga,-6.24501,32.8938,geonames,6546927,ADM3,Bni Bataou,exact
+05.311.03.05.,Bni Zrantel,Khouribga,-6.15226,32.77302,geonames,6545595,ADM3,Bni Zrantel,exact
+05.311.03.07.,Boukhrisse,Khouribga,-6.18086,32.85113,geonames,6545445,ADM3,Boukhrisse,exact
+05.311.03.09.,Chougrane,Khouribga,-6.35966,32.89067,geonames,11911968,ADM4,Chougrane,exact
+05.311.03.11.,Oulad Gouaouch,Khouribga,-6.32946,32.73463,geonames,6546696,ADM3,Oulad Gouaouch,exact
+05.311.03.13.,Rouached,Khouribga,-6.26973,32.93611,geonames,6546929,ADM3,Rouached,exact
+05.311.03.15.,Tachraft,Khouribga,-6.474,32.83943,geonames,2532119,PPL,Tachraft,exact
+05.311.05.01.,Bir Mezoui,Khouribga,-6.77272,32.85764,geonames,6546697,ADM3,Bir Mezoui,exact
+05.311.05.03.,Bni Ykhlef,Khouribga,-6.83985,32.98107,geonames,6545430,ADM3,Bni Ykhlef,exact
+05.311.05.05.,Bulanouare,Khouribga,-6.78402,32.87929,geonames,6546698,ADM3,Boulanouare,fuzzy
+05.311.05.07.,Lagfaf,Khouribga,-6.72245,32.94377,geonames,6546699,ADM3,Lagfaf,exact
+05.311.05.09.,El Foqra,Khouribga,-6.97032,32.70504,geonames,6546700,ADM3,Elfoqra,exact
+05.311.05.11.,M'Fassis,Khouribga,-6.81101,32.77393,geonames,6546701,ADM3,M Fassis,exact
+05.311.05.13.,Oulad Abdoune,Khouribga,-6.93206,32.85808,geonames,6545960,ADM3,Oulad Abdoune,exact
+05.311.05.15.,Oulad Azzouz,Khouribga,-6.75429,32.76927,geonames,6546702,ADM3,Oulad Azzouz,exact
+05.311.07.01.,Ait Ammar,Khouribga,-6.63489,33.0487,geonames,6546930,ADM3,Ait Ammar,exact
+05.311.07.03.,Bni Smir,Khouribga,-6.61783,32.79641,geonames,11911970,ADM4,Bni Smir,exact
+05.311.07.05.,Braksa,Khouribga,-6.35423,33.02837,geonames,6546931,ADM3,Braksa,exact
+05.311.07.07.,Kasbat Troch,Khouribga,-6.59218,32.94085,geonames,6546704,ADM3,Kasbat Troch,exact
+05.311.07.09.,Lagnadiz,Khouribga,-6.78395,33.17455,geonames,6546932,ADM3,Lagnadiz,exact
+05.311.07.11.,Maadna,Khouribga,-6.49633,32.91739,geonames,6545764,ADM3,Maadna,exact
+05.311.07.13.,Oulad Aissa,Khouribga,-6.40337,33.05275,geonames,6546933,ADM3,Oulad Aissa,exact
+05.311.07.15.,Oulad Boughadi,Khouribga,-6.73249,33.07979,geonames,6546934,ADM3,Oulad Boughadi,exact
+05.311.07.17.,Oulad Fennane,Khouribga,-6.51435,33.09495,geonames,6545972,ADM3,Oulad Fennane,exact
+05.311.07.19.,Oulad Ftata,Khouribga,-6.63704,33.18211,geonames,6545973,ADM3,Oulad Ftata,exact
+06.111.01.01.,Benslimane (Mun.),Benslimane,-7.1246,33.62018,geonames,6547048,ADM3,Benslimane,exact
+06.111.01.03.,Bouznika (Mun.),Benslimane,-7.20881,33.76484,geonames,6546124,ADM3,Bouznika,exact
+06.111.01.05.,El Mansouria (Mun.),Benslimane,-7.27845,33.72739,geonames,11881434,ADM3,El Mansouria,exact
+06.111.03.01.,Ahlaf,Benslimane,-7.13869,33.28816,geonames,11912499,ADM4,Ahlaf,exact
+06.111.03.03.,Ain Tizgha,Benslimane,-7.03996,33.65726,geonames,6546905,ADM3,Ain Tizgha,exact
+06.111.03.05.,Fdalate,Benslimane,-7.2653,33.50984,geonames,11912501,ADM4,Fdalate,exact
+06.111.03.07.,Mellila,Benslimane,-7.10829,33.39327,geonames,6545637,ADM3,Mellila,exact
+06.111.03.11.,Moualine El Oued,Benslimane,-7.32051,33.45609,geonames,6545862,ADM3,Moualine El Oued,exact
+06.111.03.13.,Oulad Ali Toualaa,Benslimane,-7.17718,33.43868,geonames,6545831,ADM3,Oulad Ali Toualaa,exact
+06.111.03.15.,Oulad Yahya Louta,Benslimane,-7.17508,33.54975,geonames,6545863,ADM3,Oulad Yahya Louta,exact
+06.111.03.17.,Rdadna Oulad Malek,Benslimane,-7.25587,33.35821,geonames,6545467,ADM3,Rdadna Oulad Malek,exact
+06.111.03.19.,Ziaida,Benslimane,-7.06662,33.5746,geonames,11912496,ADM4,Ziaida,exact
+06.111.05.01.,Bir Ennasr,Benslimane,-6.9069,33.35326,geonames,6545479,ADM3,Bir Ennasr,exact
+06.111.05.04.,Sidi Bettache,Benslimane,-6.89258,33.41767,geonames,11912498,ADM4,Sidi Bettache,exact
+06.111.05.05.,Charrate,Benslimane,-7.10327,33.7694,geonames,11912497,ADM4,Charrate,exact
+06.117.01.03.,Berrechid (Mun.),Berrechid,-7.5871,33.27313,geonames,6546705,ADM3,Berrechid,exact
+06.117.01.05.,Deroua (Mun.),Berrechid,-7.47284,33.40859,geonames,6546262,ADM3,Deroua,exact
+06.117.01.07.,El Gara (Mun.),Berrechid,-7.42352,33.26154,geonames,11881407,ADM3,El Gara,exact
+06.117.01.09.,Had Soualem (Mun.),Berrechid,-7.85237,33.41972,geonames,12718675,PPL,Had Soualem,exact
+06.117.01.11.,Oulad Abbou (Mun.),Berrechid,-7.93656,33.14703,geonames,6546398,ADM3,Oulad Abbou,exact
+06.117.01.13.,Sidi Rahal Chatai (Mun.),Berrechid,-7.96399,33.44697,geonames,6546723,ADM3,Sidi Rahal Chatai,exact
+06.117.05.01.,Ben Maachou,Berrechid,-8.05283,33.19232,geonames,6546716,ADM3,Ben Maachou,exact
+06.117.05.11.,Laghnimyine,Berrechid,-7.84576,33.20801,geonames,6546717,ADM3,Laghnimyine,exact
+06.117.05.13.,Lahsasna,Berrechid,-7.67007,33.19139,geonames,6546718,ADM3,Lahsasna,exact
+06.117.05.25.,Sahel Oulad H'Riz,Berrechid,-7.85198,33.3354,geonames,6546720,ADM3,Sahel Oulad H Riz,exact
+06.117.05.27.,Sidi Abdelkhaleq,Berrechid,-8.02539,33.08603,geonames,6546721,ADM3,Sidi Abdelkhaleq,exact
+06.117.05.29.,Sidi El Mekki,Berrechid,-7.66346,33.25702,geonames,6546722,ADM3,Sidi El Mekki,exact
+06.117.05.33.,Soualem Trifiya,Berrechid,-7.90317,33.44246,geonames,11912555,ADM4,Soualem Trifiya,exact
+06.117.08.05.,Foqra Oulad Aameur,Berrechid,-7.50391,33.13489,geonames,6546265,ADM3,Foqra Oulad Aameur,exact
+06.117.08.07.,Jaqma,Berrechid,-7.47301,33.24921,geonames,11912517,ADM4,Jaqma,exact
+06.117.08.09.,Kasbat Ben Mchich,Berrechid,-7.46321,33.35958,geonames,6546733,ADM3,Kasbat Ben Mchich,exact
+06.117.08.17.,Lambarkiyine,Berrechid,-7.4684,33.22421,geonames,6546734,ADM3,Lambarkiyine,exact
+06.117.08.19.,Ouled Cebbah,Berrechid,-7.32261,33.27865,geonames,6546735,ADM3,Ouled Cebbah,exact
+06.117.08.20.,Oulad Ziyane,Berrechid,-7.462,33.394,geonames,11912520,ADM4,Oulad Ziyane,exact
+06.117.08.21.,Ouled Zidane,Berrechid,-7.36856,33.36401,geonames,6546736,ADM3,Ouled Zidane,exact
+06.117.08.23.,Riah,Berrechid,-7.43303,33.15433,geonames,11912518,ADM4,Riah,exact
+06.141.01.,Anfa (Arrond.),Préfecture d’Arrondissements Casablanca Anfa,-7.67285,33.59117,geonames,6545671,ADM3,Anfa,exact
+06.141.01.81.,Mechouar de Casablanca (Mun.),Préfecture d’Arrondissements Moulay Rachid,-7.60615,33.57918,geonames,12718671,PPL,Méchouar de Casablanca,exact
+06.181.01.01.,Azemmour (Mun.),El Jadida,-8.34773,33.28605,geonames,11881414,ADM3,Azemmour,exact
+06.181.01.03.,El Jadida (Mun.),El Jadida,-8.50668,33.2492,geonames,6546786,ADM3,El-Jadida,exact
+06.181.01.05.,Lbir Jdid (Mun.),El Jadida,-7.99955,33.38325,geonames,6546115,ADM3,Lbir Jdid,exact
+06.181.03.01.,Chtouka,El Jadida,-8.16831,33.2931,geonames,11912557,ADM4,Chtouka,exact
+06.181.03.05.,Laghdira,El Jadida,-8.04732,33.30392,geonames,6546864,ADM3,Laghdira,exact
+06.181.03.07.,Lamharza Essahel,El Jadida,-8.06202,33.39714,geonames,6546790,ADM3,Lamharza Essahel,exact
+06.181.03.11.,Sidi Ali Ben Hamdouche,El Jadida,-8.27259,33.30177,geonames,11912558,ADM4,Sidi Ali Ben Hamdouche,exact
+06.181.05.03.,Oulad Aissa,El Jadida,-8.67981,32.9651,geonames,11912566,ADM4,Oulad Aissa,exact
+06.181.05.05.,Ouled Ghanem,El Jadida,-8.86325,32.81758,geonames,6546794,ADM3,Oulad Ghanem,fuzzy
+06.181.05.07.,Ouled Hcine,El Jadida,-8.48686,33.04316,geonames,11912567,ADM4,Ouled Hcine,exact
+06.181.05.09.,Sidi Abed,El Jadida,-8.64746,33.03534,geonames,6546279,ADM3,Sidi Abed,exact
+06.181.05.11.,Sidi M'Hamed Akhdim,El Jadida,-8.756,32.799,geonames,6545791,ADM3,Sidi M Hamed  Akhdim,exact
+06.181.07.03.,Haouzia,El Jadida,-8.42376,33.20294,geonames,11912568,ADM4,Haouzia,exact
+06.181.07.09.,Oulad Rahmoune,El Jadida,-8.30329,33.18292,geonames,11912559,ADM4,Oulad Rahmoune,exact
+06.181.09.01.,Boulaouane,El Jadida,-8.07074,32.86374,geonames,6546795,ADM3,Boulaouane,exact
+06.181.09.03.,Chaibate,El Jadida,-8.33107,33.03111,geonames,6546284,ADM3,Chaibate,exact
+06.181.09.05.,Mettouh,El Jadida,-8.18626,32.89529,geonames,6546796,ADM3,Mettouh,exact
+06.181.09.07.,Mogress,El Jadida,-8.44971,32.90096,geonames,6546797,ADM3,Mogress,exact
+06.181.09.09.,Oulad Hamdane,El Jadida,-8.26669,33.0654,geonames,11912560,ADM4,Oulad Hamdane,exact
+06.181.09.13.,Ouled Frej,El Jadida,-8.21178,32.96715,geonames,11912561,ADM4,Ouled Frej,exact
+06.181.09.15.,Sebt Saiss,El Jadida,-8.64008,32.77417,geonames,6546010,ADM3,Sebt Saiss,exact
+06.181.09.19.,Sidi Smail,El Jadida,-8.50462,32.89442,geonames,11912563,ADM4,Sidi Smail,exact
+06.181.09.21.,Zaouiat Saiss,El Jadida,-8.63335,32.84628,geonames,6546013,ADM3,Zaouiat Saiss,exact
+06.181.09.23.,Zaouiat Lakouacem,El Jadida,-8.32128,32.92636,geonames,6546800,ADM3,Zaouiat Lakouacem,exact
+06.355.01.01.,Lahraouyine (Mun.),Médiouna,-7.51721,33.54593,geonames,6546274,ADM3,Lahraouyine,exact
+06.355.01.03.,Mediouna (Mun.),Médiouna,-7.52683,33.46441,geonames,11912507,ADM4,Mediouna,exact
+06.355.01.05.,Tit Mellil (Mun.),Médiouna,-7.49058,33.55326,geonames,6546782,ADM3,Tit Mellil,exact
+06.355.03.01.,Al Majjatia Oulad Taleb,Médiouna,-7.52749,33.47907,geonames,6545657,ADM3,Almajjatia Oulad Tal,fuzzy
+06.355.03.05.,Sidi Hajjaj Oued Hassar,Médiouna,-7.44056,33.52478,geonames,6545658,ADM3,Sidi Hajjaj Oued Has,fuzzy
+06.371.01.01.,Mohammadia (Mun.),Mohammadia,-7.39529,33.68903,geonames,11881738,ADM3,Mohammadia,exact
+06.371.01.03.,Ain Harrouda (Mun.),Mohammadia,-7.42731,33.67295,geonames,6545528,ADM3,Ain Harrouda,exact
+06.371.03.01.,Bni Yakhlef,Mohammadia,-7.32538,33.65776,geonames,11912502,ADM4,Bni Yakhlef,exact
+06.371.03.03.,Ech-challalate,Mohammadia,-7.4317,33.61207,geonames,6546194,ADM3,Ech-Challalate,exact
+06.371.03.05.,Sidi Moussa Ben Ali,Mohammadia,-7.36283,33.56188,geonames,11912504,ADM4,Sidi Moussa Ben Ali,exact
+06.371.03.07.,Sidi Moussa Majdoub,Mohammadia,-7.36534,33.6361,geonames,6545677,ADM3,Sidi Moussa Majdoub,exact
+06.385.01.01.,Bouskoura (Mun.),Nouaceur,-7.64711,33.47629,geonames,6546277,ADM3,Bouskoura,exact
+06.385.01.02.,Dar Bouazza (Mun.),Nouaceur,-7.78875,33.52606,geonames,6546784,ADM3,Dar Bouazza,exact
+06.385.01.03.,Nouaceur (Mun.),Nouaceur,-7.57927,33.3852,geonames,6545638,ADM3,Nouaceur,exact
+06.385.03.03.,Oulad Azzouz,Nouaceur,-7.77754,33.49153,geonames,12034991,ADM3,Oulad Azzouz,exact
+06.385.03.05.,Oulad Salah,Nouaceur,-7.64371,33.36721,geonames,6545639,ADM3,Oulad Salah,exact
+06.461.01.01.,Ben Ahmed (Mun.),Settat,-7.24358,33.07141,geonames,6546108,ADM3,Ben Ahmed,exact
+06.461.01.05.,El Borouj (Mun.),Settat,-7.32322,32.5547,geonames,11881405,ADM3,El Borouj,exact
+06.461.01.09.,Loulad (Mun.),Settat,-7.1285,32.99594,geonames,6546707,ADM3,Loulad,exact
+06.461.01.13.,Oulad M'Rah (Mun.),Settat,-7.26206,32.91286,geonames,11881432,ADM3,Municipalité d’Oulad M’Rah,exact
+06.461.01.15.,Settat (Mun.),Settat,-7.62667,33.00632,geonames,11881431,ADM3,Settat,exact
+06.461.03.03.,Bouguargouh,Settat,-7.32096,33.09074,geonames,6546111,ADM3,Bouguargouh,exact
+06.461.03.07.,Lakhzazra,Settat,-7.04312,33.02095,geonames,6546112,ADM3,Lakhzazra,exact
+06.461.03.09.,Mniaa,Settat,-7.31067,32.85634,geonames,6546113,ADM3,Mniaa,exact
+06.461.03.11.,Mrizigue,Settat,-7.11852,32.85628,geonames,6545765,ADM3,Mrizigue,exact
+06.461.03.13.,M'Garto,Settat,-7.05197,33.18863,geonames,6546114,ADM3,M Garto,exact
+06.461.03.15.,N'Khila,Settat,-7.06917,32.92388,geonames,6546710,ADM3,N Khila,exact
+06.461.03.17.,Oued Naanaa,Settat,-7.28444,33.00403,geonames,6545766,ADM3,Oued Naanaa,exact
+06.461.03.19.,Oulad Chbana,Settat,-7.39356,33.07904,geonames,6545767,ADM3,Oulad Chbana,exact
+06.461.03.21.,Oulad Fares,Settat,-7.16265,32.78789,geonames,11912551,ADM4,Oulad Fares,exact
+06.461.03.23.,Oulad M'Hamed,Settat,-6.97456,33.1272,geonames,6545769,ADM3,Oulad M Hamed,exact
+06.461.03.25.,Ras El Ain Chaouia,Settat,-7.41386,33.00169,geonames,6546711,ADM3,Ras El Ain Chaouia,exact
+06.461.03.27.,Sgamna,Settat,-7.1915,32.73849,geonames,6546712,ADM3,Sgamna,exact
+06.461.03.29.,Sidi Abdelkrim,Settat,-7.26078,33.1834,geonames,6546713,ADM3,Sidi Abdelkrim,exact
+06.461.03.31.,Sidi Dahbi,Settat,-7.16532,33.06897,geonames,6546714,ADM3,Sidi Dahbi,exact
+06.461.03.33.,Sidi Hajjaj,Settat,-7.31738,32.88602,geonames,11912574,ADM4,Sidi Hajjaj,exact
+06.461.07.01.,Ain Blal,Settat,-7.65179,32.53148,geonames,6546724,ADM3,Ain Blal,exact
+06.461.07.03.,Bni Khloug,Settat,-7.39129,32.65733,geonames,6546725,ADM3,Bni Khloug,exact
+06.461.07.05.,Dar Chaffai,Settat,-7.49957,32.54436,geonames,6546726,ADM3,Dar Chaffai,exact
+06.461.07.07.,Laqraqra,Settat,-7.12195,32.42154,geonames,6546727,ADM3,Laqraqra,exact
+06.461.07.09.,Meskoura,Settat,-7.23555,32.60427,geonames,6546728,ADM3,Meskoura,exact
+06.461.07.11.,Oulad Amer,Settat,-7.22684,32.4538,geonames,6546729,ADM3,Oulad Amer,exact
+06.461.07.13.,Oulad Bouali Nouaja,Settat,-7.08244,32.63185,geonames,6546730,ADM3,Oulad Bouali Nouaja,exact
+06.461.07.15.,Oulad Fares El Halla,Settat,-7.09801,32.52757,geonames,6546731,ADM3,Oulad Fares El Halla,exact
+06.461.07.17.,Oulad Freiha,Settat,-7.60993,32.62321,geonames,6546732,ADM3,Oulad Freiha,exact
+06.461.07.19.,Sidi Ahmed El Khadir,Settat,-7.36969,32.50698,geonames,6546263,ADM3,Sidi Ahmed El Khadir,exact
+06.461.07.21.,Sidi Boumehdi,Settat,-7.32889,32.70132,geonames,6546264,ADM3,Sidi Boumehdi,exact
+06.461.09.03.,Bni Yagrine,Settat,-7.54971,32.73673,geonames,6546080,ADM3,Bni Yagrine,exact
+06.461.09.05.,Gdana,Settat,-7.96445,32.97242,geonames,6545600,ADM3,Gdana,exact
+06.461.09.07.,Guisser,Settat,-7.4355,32.7797,geonames,11912552,ADM4,Guisser,exact
+06.461.09.09.,Khemisset Chaouia,Settat,-7.76409,32.86823,geonames,6545601,ADM3,Khemisset Chaouia,exact
+06.461.09.11.,Lahouaza,Settat,-7.68688,32.95948,geonames,6546082,ADM3,Lahouaza,exact
+06.461.09.13.,Machraa Ben Abbou,Settat,-7.82075,32.69062,geonames,6545756,ADM3,Machraa Ben Abbou,exact
+06.461.09.15.,Mzoura,Settat,-7.9444,32.83503,geonames,6545757,ADM3,Mzoura,exact
+06.461.09.19.,Oulad Said,Settat,-7.76952,32.93226,geonames,11912544,ADM4,Oulad Said,exact
+06.461.09.21.,Oulad Sghir,Settat,-7.53146,32.862,geonames,6546085,ADM3,Oulad Sghir,exact
+06.461.09.23.,Rima,Settat,-7.40409,32.80312,geonames,6546738,ADM3,Rima,exact
+06.461.09.25.,Sidi El Aidi,Settat,-7.6587,33.09835,geonames,6546739,ADM3,Sidi El Aidi,exact
+06.461.09.31.,Toualet,Settat,-7.65828,32.76784,geonames,6545471,ADM3,Toualet,exact
+06.467.01.07.,Sidi Bennour (Mun.),Sidi Bennour,-8.42819,32.66136,geonames,6546787,ADM3,Sidi Bennour,exact
+06.467.01.09.,Zemamra (Mun.),Sidi Bennour,-8.7053,32.62181,geonames,6546788,ADM3,Zemamra,exact
+06.467.07.01.,Bni Hilal,Sidi Bennour,-8.38137,32.81124,geonames,6545697,ADM3,Bni Hilal,exact
+06.467.07.03.,Bni Tsiriss,Sidi Bennour,-8.11924,32.74306,geonames,6546280,ADM3,Bni Tsiriss,exact
+06.467.07.05.,Bouhmame,Sidi Bennour,-8.45537,32.59945,geonames,11912538,ADM4,Bouhmame,exact
+06.467.07.07.,Jabria,Sidi Bennour,-8.32422,32.56997,geonames,6546402,ADM3,Jabria,exact
+06.467.07.09.,Khmis Ksiba,Sidi Bennour,-8.20936,32.52489,geonames,6546403,ADM3,Khmis Ksiba,exact
+06.467.07.11.,Koudiat Bni Dghough,Sidi Bennour,-8.48889,32.4331,geonames,6546404,ADM3,Koudiat Bni Dghough,exact
+06.467.07.13.,Kridid,Sidi Bennour,-8.60015,32.49701,geonames,6546405,ADM3,Kridid,exact
+06.467.07.15.,Laagagcha,Sidi Bennour,-8.68458,32.55863,geonames,6546282,ADM3,Laagagcha,exact
+06.467.07.17.,Laamria,Sidi Bennour,-8.23631,32.82742,geonames,6546283,ADM3,Laamria,exact
+06.467.07.19.,Laaounate,Sidi Bennour,-8.15749,32.68566,geonames,6546406,ADM3,Laaounate,exact
+06.467.07.21.,Laatatra,Sidi Bennour,-8.37684,32.6015,geonames,6546407,ADM3,Laatatra,exact
+06.467.07.23.,Lmechrek,Sidi Bennour,-8.3771,32.72961,geonames,11912541,ADM4,Lmechrek,exact
+06.467.07.25.,Metrane,Sidi Bennour,-8.2408,32.63879,geonames,6546024,ADM3,Metrane,exact
+06.467.07.27.,M'Tal,Sidi Bennour,-8.40329,32.51295,geonames,6546025,ADM3,M Tal,exact
+06.467.07.29.,Oulad Amrane,Sidi Bennour,-8.50341,32.45351,geonames,11912572,ADM4,Oulad Amrane,exact
+06.467.07.31.,Oulad Boussaken,Sidi Bennour,-8.14417,32.57013,geonames,6546027,ADM3,Oulad Boussaken,exact
+06.467.07.33.,Oulad Si Bouhya,Sidi Bennour,-8.34697,32.73176,geonames,6546028,ADM3,Oulad Si Bouhya,exact
+06.467.07.35.,Tamda,Sidi Bennour,-8.34645,32.43963,geonames,6546029,ADM3,Tamda,exact
+06.467.11.01.,Laghnadra,Sidi Bennour,-8.66959,32.64994,geonames,6546801,ADM3,Laghnadra,exact
+06.467.11.03.,Lgharbia,Sidi Bennour,-8.88009,32.58959,geonames,6545543,ADM3,Lgharbia,exact
+06.467.11.05.,Loualidia,Sidi Bennour,-8.911,32.63124,geonames,11912570,ADM4,Loualidia,exact
+06.467.11.07.,Oulad Sbaita,Sidi Bennour,-8.80304,32.67424,geonames,6545488,ADM3,Oulad Sbaita,exact
+06.467.11.09.,Saniat Berguig,Sidi Bennour,-8.60733,32.6991,geonames,6546515,ADM3,Saniat Berguig,exact
+07.041.01.01.,Ait Ourir (Mun.),Al  Haouz,-7.72257,31.49916,geonames,11881792,ADM3,Ait Ourir,exact
+07.041.01.03.,Amizmiz (Mun.),Al  Haouz,-8.24324,31.27405,geonames,11881790,ADM3,Amizmiz,exact
+07.041.01.09.,Tahannaout (Mun.),Al  Haouz,-7.94203,31.38006,geonames,6546183,ADM3,Tahannaout,exact
+07.041.03.05.,Ait Faska,Al  Haouz,-7.69643,31.54996,geonames,6546742,ADM3,Ait Faska,exact
+07.041.03.09.,Ait Sidi Daoud,Al  Haouz,-7.67566,31.61548,geonames,6546743,ADM3,Ait Sidi Daoud,exact
+07.041.03.11.,Ghmate,Al  Haouz,-7.7921,31.42765,geonames,6546604,ADM3,Ghmate,exact
+07.041.03.13.,Iguerferouane,Al  Haouz,-7.68554,31.41593,geonames,6546605,ADM3,Iguerferouane,exact
+07.041.03.15.,Sidi Abdallah Ghiat,Al  Haouz,-7.83733,31.51881,geonames,6546744,ADM3,Sidi Abdallah Ghiat,exact
+07.041.03.19.,Tamazouzte,Al  Haouz,-7.78466,31.49976,geonames,6545425,ADM3,Tamazouzte,exact
+07.041.03.23.,Tidili Mesfioua,Al  Haouz,-7.61536,31.48,geonames,6545770,ADM3,Tidili Mesfioua,exact
+07.041.05.01.,Amghras,Al  Haouz,-8.17076,31.21844,geonames,6546606,ADM3,Amghras,exact
+07.041.05.05.,Anougal,Al  Haouz,-8.27954,31.1183,geonames,6546068,ADM3,Anougal,exact
+07.041.05.07.,Azgour,Al  Haouz,-8.34675,31.12539,geonames,6546069,ADM3,Azgour,exact
+07.041.05.09.,Dar Jamaa,Al  Haouz,-8.38501,31.25236,geonames,6546608,ADM3,Dar Jamaa,exact
+07.041.05.11.,Lalla Takarkoust,Al  Haouz,-8.1248,31.32703,geonames,6546070,ADM3,Lalla Takarkoust,exact
+07.041.05.13.,Ouazguita,Al  Haouz,-8.07905,31.26427,geonames,6545804,ADM3,Ouazguita,exact
+07.041.05.15.,Oulad Mtaa,Al  Haouz,-8.29907,31.33113,geonames,6545802,ADM3,Oulad Mtaa,exact
+07.041.05.17.,Sidi Badhaj,Al  Haouz,-8.21553,31.34245,geonames,6546071,ADM3,Sidi Badhaj,exact
+07.041.05.19.,Tizguine,Al  Haouz,-8.32281,31.26158,geonames,6546609,ADM3,Tizguine,exact
+07.041.07.01.,Aghbar,Al  Haouz,-8.50186,30.91765,geonames,6546072,ADM3,Aghbar,exact
+07.041.07.03.,Asni,Al  Haouz,-7.91261,31.16757,geonames,6545572,ADM3,Asni,exact
+07.041.07.05.,Ighil,Al  Haouz,-8.35331,31.01102,geonames,6546610,ADM3,Ighil,exact
+07.041.07.07.,Ijoukak,Al  Haouz,-8.07507,31.00406,geonames,6546611,ADM3,Ijoukak,exact
+07.041.07.09.,Imgdal,Al  Haouz,-8.11428,31.10981,geonames,6546612,ADM3,Imgdal,exact
+07.041.07.11.,Ouirgane,Al  Haouz,-8.07564,31.18774,geonames,6545803,ADM3,Ouirgane,exact
+07.041.07.13.,Talat N'Yaaqoub,Al  Haouz,-8.27021,30.96777,geonames,6546613,ADM3,Talat N Yaaqoub,exact
+07.041.09.01.,Moulay Brahim,Al  Haouz,-8.02398,31.32156,geonames,6546614,ADM3,Moulay Brahim,exact
+07.041.09.03.,Oukaimden,Al  Haouz,-7.82865,31.22231,geonames,6546390,ADM3,Oukaimden,exact
+07.041.09.05.,Ourika,Al  Haouz,-7.76741,31.33776,geonames,6545518,ADM3,Ourika,exact
+07.041.09.07.,Sti Fadma,Al  Haouz,-7.71198,31.25077,geonames,6545577,ADM3,Sti Fadma,exact
+07.041.09.11.,Tameslohte,Al  Haouz,-8.05316,31.4562,geonames,6546615,ADM3,Tameslohte,exact
+07.041.11.01.,Abadou,Al  Haouz,-7.29961,31.60497,geonames,6545578,ADM3,Abadou,exact
+07.041.11.03.,Ait Aadel,Al  Haouz,-7.21235,31.60012,geonames,6546741,ADM3,Ait Aadel,exact
+07.041.11.07.,Ait Hkim-Ait Yzid,Al  Haouz,-7.20407,31.48829,geonames,6546603,ADM3,Ait Hkim Ait Yzid,exact
+07.041.11.17.,Tamaguert,Al  Haouz,-7.54046,31.54196,geonames,6545424,ADM3,Tamaguert,exact
+07.041.11.21.,Tazart,Al  Haouz,-7.39768,31.57875,geonames,6545426,ADM3,Tazart,exact
+07.041.11.25.,Tighedouine,Al  Haouz,-7.53816,31.37639,geonames,6545805,ADM3,Tighedouine,exact
+07.041.11.27.,Touama,Al  Haouz,-7.48895,31.55271,geonames,6545771,ADM3,Touama,exact
+07.041.11.29.,Zerkten,Al  Haouz,-7.34838,31.4056,geonames,6545806,ADM3,Zerkten,exact
+07.161.01.01.,Chichaoua (Mun.),Chichaoua,-8.76493,31.55006,geonames,6546616,ADM3,Chichaoua,exact
+07.161.01.03.,Imintanoute (Mun.),Chichaoua,-8.84422,31.17876,geonames,6546617,ADM3,Imintanoute,exact
+07.161.03.01.,Ahdil,Chichaoua,-8.8681,31.62305,geonames,6546618,ADM3,Ahdil,exact
+07.161.03.03.,Ait Hadi,Chichaoua,-8.78366,31.39129,geonames,6546619,ADM3,Ait Hadi,exact
+07.161.03.05.,Lamzoudia,Chichaoua,-8.59471,31.63612,geonames,6546620,ADM3,Lamzoudia,exact
+07.161.03.07.,Oulad Moumna,Chichaoua,-9.03236,31.45973,geonames,6546621,ADM3,Oulad Moumna,exact
+07.161.03.09.,Saidate,Chichaoua,-8.82446,31.37297,geonames,6546622,ADM3,Saidate,exact
+07.161.03.13.,Sidi Bouzid Arragragui,Chichaoua,-8.77888,31.49166,geonames,6545762,ADM3,Sidi Bouzid Arragrag,fuzzy
+07.161.03.15.,Sidi M'Hamed Dalil,Chichaoua,-8.68602,31.4047,geonames,6545763,ADM3,Sidi M Hamed Dalil,exact
+07.161.05.01.,Afalla Issen,Chichaoua,-8.92548,31.03999,geonames,6546097,ADM3,Afalla Issen,exact
+07.161.05.03.,Ain Tazitounte,Chichaoua,-8.88576,31.11051,geonames,6546098,ADM3,Ain Tazitounte,exact
+07.161.05.05.,Ait Haddou Youssef,Chichaoua,-8.69745,30.91,geonames,6546099,ADM3,Ait Haddou Youssef,exact
+07.161.05.07.,Irohalen,Chichaoua,-8.90492,31.06604,geonames,6546100,ADM3,Irohalen,exact
+07.161.05.09.,Lalla Aaziza,Chichaoua,-8.69879,31.06532,geonames,6546101,ADM3,Lalla Aaziza,exact
+07.161.05.11.,Nfifa,Chichaoua,-8.86653,31.23742,geonames,6546624,ADM3,Nfifa,exact
+07.161.05.13.,Ouad L'bour,Chichaoua,-8.97489,31.18761,geonames,6546625,ADM3,Oued L Bour,fuzzy
+07.161.05.15.,Sidi Ghanem,Chichaoua,-8.78407,31.13447,geonames,6546626,ADM3,Sidi Ghanem,exact
+07.161.05.17.,Timezgadiouine,Chichaoua,-9.0115,30.91265,geonames,6545849,ADM3,Timezgadiouine,exact
+07.161.07.01.,Adassil,Chichaoua,-8.47682,31.1476,geonames,6546627,ADM3,Adassil,exact
+07.161.07.03.,Assif El Mal,Chichaoua,-8.45861,31.26527,geonames,6546628,ADM3,Assif El Mal,exact
+07.161.07.05.,Douirane,Chichaoua,-8.6993,31.19691,geonames,6546241,ADM3,Douirane,exact
+07.161.07.07.,Gmassa,Chichaoua,-8.37836,31.41824,geonames,6546629,ADM3,Gmassa,exact
+07.161.07.09.,Imindounit,Chichaoua,-8.52536,31.03706,geonames,6546630,ADM3,Imindounit,exact
+07.161.07.11.,Majjat,Chichaoua,-8.57058,31.46034,geonames,6545885,ADM3,Majjat,exact
+07.161.07.13.,M'Zouda,Chichaoua,-8.55443,31.23549,geonames,6546631,ADM3,M Zouda,exact
+07.161.07.15.,Zaouia Annahlia,Chichaoua,-8.64786,31.22011,geonames,6546645,ADM3,Zaouia Annahlia,exact
+07.161.09.01.,Bouabout,Chichaoua,-9.21704,31.29923,geonames,6545462,ADM3,Bouabout,exact
+07.161.09.03.,Bouabout Amdlane,Chichaoua,-9.22715,31.19005,geonames,6545463,ADM3,Bouabout Amdlane,exact
+07.161.09.05.,Ichamraren,Chichaoua,-9.12858,31.12821,geonames,6545464,ADM3,Ichamraren,exact
+07.161.09.07.,Kouzemt,Chichaoua,-9.27193,31.08752,geonames,6545465,ADM3,Kouzemt,exact
+07.161.09.09.,Rahhala,Chichaoua,-9.06849,31.34733,geonames,6545466,ADM3,Rahhala,exact
+07.161.09.11.,Sidi Abdelmoumen,Chichaoua,-8.98482,31.2777,geonames,6546646,ADM3,Sidi Abdelmoumen,exact
+07.161.09.13.,Taouloukoult,Chichaoua,-9.09057,31.21501,geonames,6546647,ADM3,Taouloukoult,exact
+07.161.09.15.,Timlilt,Chichaoua,-9.11218,31.00995,geonames,6546242,ADM3,Timlilt,exact
+07.191.01.03.,El Kelaâ des Sraghna (Mun.),El Kelâa des  Sraghna,-7.39928,32.05457,geonames,11881877,ADM3,Municipalité d’El Kelaâ des Sraghna,exact
+07.191.01.05.,Laattaouia (Mun.),El Kelâa des  Sraghna,-7.33318,31.83882,geonames,6546746,ADM3,Laattaouia,exact
+07.191.01.07.,Sidi Rahhal (Mun.),El Kelâa des  Sraghna,-7.47508,31.67337,geonames,6546747,ADM3,Sidi Rahhal,exact
+07.191.01.09.,Tamallalt (Mun.),El Kelâa des  Sraghna,-7.52616,31.82885,geonames,6546748,ADM3,Tamallalt,exact
+07.191.03.01.,Chtaiba,El Kelâa des  Sraghna,-7.33122,32.20168,geonames,6546749,ADM3,Chtaiba,exact
+07.191.03.03.,Eddachra,El Kelâa des  Sraghna,-7.15776,32.21366,geonames,6546750,ADM3,Eddachra,exact
+07.191.03.05.,El Aamria,El Kelâa des  Sraghna,-7.24169,32.23384,geonames,6546751,ADM3,Elaamria,exact
+07.191.03.07.,El Marbouh,El Kelâa des  Sraghna,-7.40388,32.12022,geonames,6546752,ADM3,Elmarbouh,exact
+07.191.03.09.,Errafiaya,El Kelâa des  Sraghna,-7.25215,32.16274,geonames,6546753,ADM3,Errafiaya,exact
+07.191.03.11.,Hiadna,El Kelâa des  Sraghna,-7.654,32.175,geonames,6546754,ADM3,Hiadna,exact
+07.191.03.13.,Lounasda,El Kelâa des  Sraghna,-7.358,32.139,geonames,6546755,ADM3,Lounasda,exact
+07.191.03.15.,Mayate,El Kelâa des  Sraghna,-7.51562,32.2515,geonames,6546756,ADM3,Mayate,exact
+07.191.03.17.,Oulad Aamer,El Kelâa des  Sraghna,-7.1856,32.08534,geonames,6546757,ADM3,Oulad Aamer,exact
+07.191.03.19.,Oulad Bouali Loued,El Kelâa des  Sraghna,-7.20009,32.1402,geonames,6546758,ADM3,Oulad Bouali Loued,exact
+07.191.03.21.,Oulad Cherki,El Kelâa des  Sraghna,-7.43486,32.28488,geonames,6546267,ADM3,Oulad Cherki,exact
+07.191.03.23.,Oulad El Garne,El Kelâa des  Sraghna,-7.32951,32.13427,geonames,6546268,ADM3,Oulad El Garne,exact
+07.191.03.25.,Oulad Massaoud,El Kelâa des  Sraghna,-7.16239,32.24314,geonames,6546399,ADM3,Oulad Massaoud,exact
+07.191.03.27.,Oulad Msabbel,El Kelâa des  Sraghna,-7.22194,32.32019,geonames,6546759,ADM3,Oulad Msabbel,exact
+07.191.03.29.,Oulad Sbih,El Kelâa des  Sraghna,-7.52778,32.06666,geonames,6545888,ADM3,Oulad Sbih,exact
+07.191.03.31.,Oulad Yaacoub,El Kelâa des  Sraghna,-7.29568,32.0271,geonames,6545889,ADM3,Oulad Yaacoub,exact
+07.191.03.33.,Oulad Zarrad,El Kelâa des  Sraghna,-7.64853,32.11,geonames,6545890,ADM3,Oulad Zarrad,exact
+07.191.03.35.,Sidi El Hattab,El Kelâa des  Sraghna,-7.32447,32.35281,geonames,6545737,ADM3,Sidi El Hattab,exact
+07.191.03.37.,Sidi Moussa,El Kelâa des  Sraghna,-7.16973,32.26952,geonames,6545738,ADM3,Sidi Moussa,exact
+07.191.03.39.,Taouzint,El Kelâa des  Sraghna,-7.2862,32.08652,geonames,6545855,ADM3,Taouzint,exact
+07.191.03.41.,Znada,El Kelâa des  Sraghna,-7.37165,32.05329,geonames,6545856,ADM3,Znada,exact
+07.191.05.01.,Assahrij,El Kelâa des  Sraghna,-7.1475,31.79136,geonames,6546269,ADM3,Assahrij,exact
+07.191.05.03.,Bouya Omar,El Kelâa des  Sraghna,-7.21373,31.7794,geonames,6546270,ADM3,Bouya Omar,exact
+07.191.05.05.,Choara,El Kelâa des  Sraghna,-7.31053,31.79112,geonames,6546271,ADM3,Choara,exact
+07.191.05.07.,Dzouz,El Kelâa des  Sraghna,-7.301,31.86825,geonames,6546272,ADM3,Dzouz,exact
+07.191.05.09.,Fraita,El Kelâa des  Sraghna,-7.29177,31.94558,geonames,6546273,ADM3,Fraita,exact
+07.191.05.15.,Laatamna,El Kelâa des  Sraghna,-7.3307,31.91916,geonames,6545427,ADM3,Laatamna,exact
+07.191.05.17.,Louad Lakhdar,El Kelâa des  Sraghna,-7.12004,31.88365,geonames,6545772,ADM3,Loued Lakhdar,fuzzy
+07.191.05.19.,M'Zem Sanhaja,El Kelâa des  Sraghna,-7.10628,31.99167,geonames,6545773,ADM3,M Zem Sanhaja,exact
+07.191.05.21.,Ouargui,El Kelâa des  Sraghna,-7.19743,31.84031,geonames,6546762,ADM3,Ouargui,exact
+07.191.05.23.,Oulad Aarrad,El Kelâa des  Sraghna,-7.39927,31.84107,geonames,6545774,ADM3,Oulad Aarrad,exact
+07.191.05.25.,Oulad Khallouf,El Kelâa des  Sraghna,-7.06921,31.7956,geonames,6546763,ADM3,Oulad Khallouf,exact
+07.191.05.27.,Sidi Aissa Ben Slimane,El Kelâa des  Sraghna,-7.17382,31.9543,geonames,6545739,ADM3,Sidi Aissa Ben  Slim,fuzzy
+07.191.05.29.,Sour El Aaz,El Kelâa des  Sraghna,-7.0506,31.85484,geonames,6546764,ADM3,Sour El Aaz,exact
+07.191.07.11.,Jbiel,El Kelâa des  Sraghna,-7.46968,31.98108,geonames,6546760,ADM3,Jbiel,exact
+07.191.07.13.,Jouala,El Kelâa des  Sraghna,-7.47137,31.90507,geonames,6546761,ADM3,Jouala,exact
+07.191.07.31.,Zemrane,El Kelâa des  Sraghna,-7.51718,31.7131,geonames,6546765,ADM3,Zemrane,exact
+07.191.07.33.,Zemrane Charqia,El Kelâa des  Sraghna,-7.40114,31.76345,geonames,6546766,ADM3,Zemrane Charqia,exact
+07.211.01.01.,Ait Daoud (Mun.),Essaouira,-9.34786,31.09444,geonames,6546648,ADM3,Ait Daoud,exact
+07.211.01.03.,El Hanchane (Mun.),Essaouira,-9.43544,31.51949,geonames,11881818,ADM3,El Hanchane,exact
+07.211.01.05.,Essaouira (Mun.),Essaouira,-9.75862,31.45222,geonames,11881817,ADM3,Essaouira,exact
+07.211.01.07.,Talmest (Mun.),Essaouira,-9.34725,31.82116,geonames,6546651,ADM3,Talmest,exact
+07.211.01.09.,Tamanar (Mun.),Essaouira,-9.66746,31.0076,geonames,6546652,ADM3,Tamanar,exact
+07.211.03.01.,Ait Said,Essaouira,-9.46487,31.44296,geonames,6546653,ADM3,Ait Said,exact
+07.211.03.03.,Aquermoud,Essaouira,-9.53913,31.78101,geonames,6546654,ADM3,Aquermoud,exact
+07.211.03.05.,Had Dra,Essaouira,-9.55513,31.62259,geonames,6546655,ADM3,Had Dra,exact
+07.211.03.07.,Kechoula,Essaouira,-9.25513,31.53672,geonames,6545523,ADM3,Kechoula,exact
+07.211.03.09.,Korimate,Essaouira,-9.28333,31.46028,geonames,6545524,ADM3,Korimate,exact
+07.211.03.11.,Lagdadra,Essaouira,-9.42382,31.55616,geonames,6545947,ADM3,Lagdadra,exact
+07.211.03.13.,Lahsinate,Essaouira,-9.48798,31.5383,geonames,6546656,ADM3,Lahsinate,exact
+07.211.03.15.,Mejji,Essaouira,-9.34712,31.5682,geonames,6546657,ADM3,Mejji,exact
+07.211.03.17.,Meskala,Essaouira,-9.37284,31.38869,geonames,6545948,ADM3,Meskala,exact
+07.211.03.19.,Mouarid,Essaouira,-9.169,31.399,geonames,6545949,ADM3,Mouarid,exact
+07.211.03.21.,Moulay Bouzarqtoune,Essaouira,-9.63678,31.66703,geonames,6545950,ADM3,Moulay Bouzarqtoune,exact
+07.211.03.23.,Mzilate,Essaouira,-9.12168,31.731,geonames,6545845,ADM3,Mzilate,exact
+07.211.03.25.,M'Khalif,Essaouira,-9.22789,31.8848,geonames,6545932,ADM3,M Khalif,exact
+07.211.03.27.,M'Ramer,Essaouira,-9.16907,31.69095,geonames,6545951,ADM3,M Ramer,exact
+07.211.03.29.,Oulad M'Rabet,Essaouira,-9.18654,31.6048,geonames,6545952,ADM3,Oulad M Rabet,exact
+07.211.03.31.,Ounagha,Essaouira,-9.62981,31.50436,geonames,6546243,ADM3,Ounagha,exact
+07.211.03.33.,Sidi Abdeljalil,Essaouira,-9.32438,31.82408,geonames,6545953,ADM3,Sidi Abdeljalil,exact
+07.211.03.35.,Sidi Aissa Regragui,Essaouira,-9.35542,31.68554,geonames,6546244,ADM3,Sidi Aissa Regragui,exact
+07.211.03.37.,Sidi Ali El Korati,Essaouira,-9.408,31.804,geonames,6546245,ADM3,Sidi Ali El Korati,exact
+07.211.03.39.,Sidi Boulaalam,Essaouira,-9.28276,31.69775,geonames,6545850,ADM3,Sidi Boulaalam,exact
+07.211.03.41.,Sidi Ishaq,Essaouira,-9.4555,31.8776,geonames,6546391,ADM3,Sidi Ishaq,exact
+07.211.03.43.,Sidi Laaroussi,Essaouira,-9.15476,31.81834,geonames,6546514,ADM3,Sidi Laaroussi,exact
+07.211.03.45.,Sidi M'Hamed Ou Marzouq,Essaouira,-9.06115,31.74096,geonames,6546380,ADM3,Sidi M Hamed Ou Marz,fuzzy
+07.211.03.47.,Tafetachte,Essaouira,-9.28253,31.62964,geonames,6545851,ADM3,Tafetachte,exact
+07.211.03.49.,Takate,Essaouira,-9.4794,31.67977,geonames,6545852,ADM3,Takate,exact
+07.211.03.51.,Zaouiat Ben Hmida,Essaouira,-9.37022,31.74097,geonames,6545853,ADM3,Zaouiat Ben Hmida,exact
+07.211.05.01.,Adaghas,Essaouira,-9.34362,30.90253,geonames,6545440,ADM3,Adaghas,exact
+07.211.05.03.,Aglif,Essaouira,-9.38717,31.09556,geonames,6545441,ADM3,Aglif,exact
+07.211.05.05.,Aguerd,Essaouira,-9.63273,31.42808,geonames,6545442,ADM3,Aguerd,exact
+07.211.05.07.,Ait Aissi Ihahane,Essaouira,-9.43328,30.90816,geonames,6546392,ADM3,Ait Aissi Ihahane,exact
+07.211.05.09.,Assais,Essaouira,-9.21228,30.9245,geonames,6546246,ADM3,Assais,exact
+07.211.05.11.,Bizdad,Essaouira,-9.32844,31.29318,geonames,6546247,ADM3,Bizdad,exact
+07.211.05.13.,Bouzemmour,Essaouira,-9.37248,31.01699,geonames,6545886,ADM3,Bouzemmour,exact
+07.211.05.15.,Ezzaouite,Essaouira,-9.43173,31.32528,geonames,6545887,ADM3,Ezzaouite,exact
+07.211.05.17.,Ida Ou Aazza,Essaouira,-9.74134,31.16318,geonames,6546658,ADM3,Ida Ou Aazza,exact
+07.211.05.19.,Ida Ou Guelloul,Essaouira,-9.70284,30.94354,geonames,6546659,ADM3,Ida Ou Guelloul,exact
+07.211.05.21.,Ida Ou Kazzou,Essaouira,-9.58619,30.95389,geonames,6546660,ADM3,Ida Ou Kazzou,exact
+07.211.05.23.,Imgrade,Essaouira,-9.58248,31.11605,geonames,6546102,ADM3,Imgrade,exact
+07.211.05.25.,Imi N'Tlit,Essaouira,-9.5885,31.23485,geonames,6546103,ADM3,Imi N Tlit,exact
+07.211.05.27.,Sidi Ahmed Essayeh,Essaouira,-9.77897,31.25572,geonames,6546104,ADM3,Sidi Ahmed Essayeh,exact
+07.211.05.29.,Sidi El Jazouli,Essaouira,-9.52998,31.34434,geonames,6546105,ADM3,Sidi El Jazouli,exact
+07.211.05.31.,Sidi Ghaneme,Essaouira,-9.46863,31.28206,geonames,6546661,ADM3,Sidi Ghaneme,exact
+07.211.05.33.,Sidi H'Mad Ou M'Barek,Essaouira,-9.69535,30.84253,geonames,6546662,ADM3,Sidi H Mad  Ou M Bar,fuzzy
+07.211.05.35.,Sidi Hmad Ou Hamed,Essaouira,-9.68174,31.35423,geonames,6545825,ADM3,Sidi Hmad Ou Hamed,exact
+07.211.05.37.,Sidi Kaouki,Essaouira,-9.73657,31.39299,geonames,6545826,ADM3,Sidi Kaouki,exact
+07.211.05.39.,Smimou,Essaouira,-9.70245,31.2301,geonames,6546663,ADM3,Smimou,exact
+07.211.05.41.,Tafedna,Essaouira,-9.76337,31.10002,geonames,6545827,ADM3,Tafedna,exact
+07.211.05.43.,Tahelouante,Essaouira,-9.32124,31.19083,geonames,6545908,ADM3,Tahelouante,exact
+07.211.05.45.,Takoucht,Essaouira,-9.45443,31.23268,geonames,6545909,ADM3,Takoucht,exact
+07.211.05.47.,Targante,Essaouira,-9.665,31.086,geonames,6546664,ADM3,Targante,exact
+07.211.05.49.,Tidzi,Essaouira,-9.67473,31.27256,geonames,6546665,ADM3,Tidzi,exact
+07.211.05.51.,Timizguida-Ouftas,Essaouira,-9.76858,31.00199,geonames,6546666,ADM3,Timizguida Ouftas,exact
+07.351.01.01.,Méchouar-Kasba (Mun.),Marrakech,-8.04582,31.64432,geonames,6545593,ADM3,Mechouar Kasba,exact
+07.351.01.,Annakhil (Arrond.),Marrakech,-7.96217,31.65869,geonames,6545596,ADM3,Annakhil,exact
+07.351.02.01.,Alouidane,Marrakech,-7.86706,31.65089,geonames,11881793,ADM3,Alouidane,exact
+07.351.02.07.,Ouahat Sidi Brahim,Marrakech,-7.96644,31.73039,geonames,6546778,ADM3,Ouahat Sidi Brahim,exact
+07.351.02.09.,Oulad Hassoune,Marrakech,-7.81268,31.64798,geonames,6546779,ADM3,Oulad Hassoune,exact
+07.351.03.03.,Harbil,Marrakech,-8.11208,31.79574,geonames,6546776,ADM3,Harbil,exact
+07.351.03.05.,M'Nabha,Marrakech,-8.13059,31.96024,geonames,6546777,ADM3,M'Nabha,exact
+07.351.03.11.,Ouled Dlim,Marrakech,-8.30237,31.90388,geonames,6546780,ADM3,Ouled Dlim,exact
+07.351.05.01.,Agafay,Marrakech,-8.20584,31.47353,geonames,6546667,ADM3,Agafay,exact
+07.351.05.03.,Ait Imour,Marrakech,-8.33149,31.54465,geonames,6546668,ADM3,Ait Imour,exact
+07.351.05.05.,Loudaya,Marrakech,-8.30214,31.6507,geonames,6546669,ADM3,Loudaya,exact
+07.351.05.09.,Sid Zouine,Marrakech,-8.38175,31.64935,geonames,6546670,ADM3,Sid Zouine,exact
+07.351.07.07.,Saada,Marrakech,-8.13025,31.62101,geonames,6545654,ADM3,Saada,exact
+07.351.07.11.,Souihla,Marrakech,-8.19948,31.61789,geonames,6545910,ADM3,Souihla,exact
+07.351.07.13.,Tassoultante,Marrakech,-7.99043,31.55052,geonames,6545866,ADM3,Tassoultante,exact
+07.427.01.01.,Ben Guerir (Mun.),Rehamna,-7.94627,32.24232,geonames,6545468,ADM3,Ben Guerir,exact
+07.427.01.17.,Sidi Bou Othmane (Mun.),Rehamna,-7.928,31.8366,geonames,6546379,ADM3,Sidi Bou Othmane,exact
+07.427.07.01.,Ait Hammou,Rehamna,-8.23118,32.21624,geonames,6546767,ADM3,Ait Hammou,exact
+07.427.07.03.,Ait Taleb,Rehamna,-8.18298,32.38765,geonames,6546768,ADM3,Ait Taleb,exact
+07.427.07.05.,Bouchane,Rehamna,-8.37165,32.34062,geonames,6546769,ADM3,Bouchane,exact
+07.427.07.07.,Jaafra,Rehamna,-7.72955,32.36394,geonames,6546770,ADM3,Jaafra,exact
+07.427.07.09.,Labrikiyne,Rehamna,-8.08054,32.2965,geonames,6546771,ADM3,Labrikiyne,exact
+07.427.07.13.,Oulad Hassoune Hamri,Rehamna,-7.85851,32.29673,geonames,6545740,ADM3,Oulad Hassoune Hamri,exact
+07.427.07.15.,Sidi Abdallah,Rehamna,-7.8243,32.60334,geonames,6546773,ADM3,Sidi Abdallah,exact
+07.427.07.17.,Sidi Ali Labrahla,Rehamna,-8.00051,32.19824,geonames,6546774,ADM3,Sidi Ali Labrahla,exact
+07.427.07.19.,Sidi Ghanem,Rehamna,-7.98151,32.6986,geonames,6546212,ADM3,Sidi Ghanem,exact
+07.427.07.21.,Sidi Mansour,Rehamna,-8.092,32.46035,geonames,6545474,ADM3,Sidi Mansour,exact
+07.427.07.23.,Skhour Rehamna,Rehamna,-7.91533,32.48244,geonames,2532646,PPL,Skhour Rehamna,exact
+07.427.07.25.,Skoura Lhadra,Rehamna,-7.75571,32.47496,geonames,6545830,ADM3,Skoura Lhadra,exact
+07.427.09.01.,Akarma,Rehamna,-7.62727,31.90845,geonames,6546214,ADM3,Akarma,exact
+07.427.09.03.,Bourrous,Rehamna,-7.78561,31.76409,geonames,6545602,ADM3,Bourrous,exact
+07.427.09.05.,Jaidate,Rehamna,-7.73263,31.6985,geonames,6545603,ADM3,Jaidate,exact
+07.427.09.07.,Lamharra,Rehamna,-7.73562,32.06803,geonames,6545604,ADM3,Lamharra,exact
+07.427.09.09.,Nzalat Laadam,Rehamna,-8.05665,32.06903,geonames,6545605,ADM3,Nzalat Laadam,exact
+07.427.09.11.,Oulad Imloul,Rehamna,-7.83838,32.08966,geonames,6545844,ADM3,Oulad Imloul,exact
+07.427.09.13.,Ras Ain Rhamna,Rehamna,-7.63586,31.70664,geonames,6546513,ADM3,Ras Ain Rhamna,exact
+07.427.09.15.,Sidi Boubker,Rehamna,-7.74018,31.85799,geonames,6546067,ADM3,Sidi Boubker,exact
+07.427.09.19.,Tlauh,Rehamna,-7.60567,31.81529,geonames,6546422,ADM3,Tlauh,exact
+07.431.01.03.,Safi (Mun.),Safi,-9.23478,32.26924,geonames,6546086,ADM3,Safi,exact
+07.431.01.09.,Jamaat Shaim (Mun.),Safi,-8.87441,32.35156,geonames,6546517,ADM3,Jamaat Shaim,exact
+07.431.01.11.,Sebt Gzoula (Mun.),Safi,-9.08889,32.12191,geonames,6546518,ADM3,Sebt Gzoula,exact
+07.431.03.01.,Bouguedra,Safi,-8.9615,32.23368,geonames,6546519,ADM3,Bouguedra,exact
+07.431.03.03.,El Gouraani,Safi,-8.76367,32.32055,geonames,6546520,ADM3,Elgouraani,exact
+07.431.03.05.,Labkhati,Safi,-8.67023,32.41224,geonames,6546088,ADM3,Labkhati,exact
+07.431.03.07.,Lahdar,Safi,-8.82024,32.4566,geonames,6546521,ADM3,Lahdar,exact
+07.431.03.09.,Lamrasla,Safi,-8.9182,32.01894,geonames,6546522,ADM3,Lamrasla,exact
+07.431.03.11.,Lamsabih,Safi,-8.6959,32.30053,geonames,6545782,ADM3,Lamsabih,exact
+07.431.03.13.,Sidi Aissa,Safi,-8.90803,32.41989,geonames,6546632,ADM3,Sidi Aissa,exact
+07.431.03.15.,Sidi Ettiji,Safi,-8.90735,32.15252,geonames,6546633,ADM3,Sidi Ettiji,exact
+07.431.07.01.,Atouabet,Safi,-9.298,31.94939,geonames,6546639,ADM3,Atouabet,exact
+07.431.07.03.,El Ghiate,Safi,-9.1547,31.99037,geonames,6546640,ADM3,Elghiate,exact
+07.431.07.05.,Khatazakane,Safi,-9.13435,32.22264,geonames,6545546,ADM3,Khatazakane,exact
+07.431.07.07.,Laamamra,Safi,-8.97507,31.8968,geonames,6545491,ADM3,Laamamra,exact
+07.431.07.09.,Lamaachate,Safi,-9.35155,32.00804,geonames,6546395,ADM3,Lamaachate,exact
+07.431.07.11.,Nagga,Safi,-9.04334,32.05714,geonames,6546641,ADM3,Nagga,exact
+07.431.09.01.,Ayir,Safi,-9.08346,32.61529,geonames,6545492,ADM3,Ayir,exact
+07.431.09.03.,Dar Si Aissa,Safi,-9.0213,32.39138,geonames,6545493,ADM3,Dar Si Aissa,exact
+07.431.09.05.,El Beddouza,Safi,-9.20168,32.54791,geonames,6546644,ADM3,Elbeddouza,exact
+07.431.09.07.,Hrara,Safi,-9.17737,32.42851,geonames,6546523,ADM3,Hrara,exact
+07.431.09.09.,Moul El Bergui,Safi,-8.98488,32.51129,geonames,6546524,ADM3,Moul El Bergui,exact
+07.431.09.15.,Saadla,Safi,-9.1133,32.34502,geonames,6546643,ADM3,Saadla,exact
+07.585.01.07.,Echemmaia (Mun.),Youssoufia,-8.65015,32.06434,geonames,11881879,ADM3,Municipalité d’Echemmaia,exact
+07.585.01.13.,Youssoufia (Mun.),Youssoufia,-8.53351,32.25394,geonames,6546087,ADM3,Youssoufia,exact
+07.585.05.07.,Ighoud,Youssoufia,-8.8552,31.85726,geonames,6546637,ADM3,Ighoud,exact
+07.585.05.09.,Jdour,Youssoufia,-8.75873,32.11544,geonames,6545606,ADM3,Jdour,exact
+07.585.05.11.,Jnane Bouih,Youssoufia,-8.71505,31.96865,geonames,6546638,ADM3,Jnane Bouih,exact
+07.585.05.17.,Sidi Chiker,Youssoufia,-8.58935,31.82696,geonames,6545789,ADM3,Sidi Chiker,exact
+07.585.07.01.,Atiamim,Youssoufia,-8.55615,32.0812,geonames,6546634,ADM3,Atiamim,exact
+07.585.07.03.,El Gantour,Youssoufia,-8.49031,32.08908,geonames,11881812,ADM3,El Gantour,exact
+07.585.07.05.,Esbiaat,Youssoufia,-8.64197,32.21,geonames,6546636,ADM3,Esbiaat,exact
+07.585.07.13.,Lakhoualqa,Youssoufia,-8.35946,32.06634,geonames,6545787,ADM3,Lakhoualqa,exact
+07.585.07.15.,Ras El Ain,Youssoufia,-8.48665,31.95604,geonames,6545788,ADM3,Ras El Ain,exact
+08.201.01.03.,Boudnib (Mun.),Errachidia,-3.61214,31.93808,geonames,6545608,ADM3,Boudnib,exact
+08.201.01.05.,Errachidia (Mun.),Errachidia,-4.43588,31.93055,geonames,6545550,ADM3,Errachidia,exact
+08.201.01.09.,Goulmima (Mun.),Errachidia,-4.95324,31.68239,geonames,6546836,ADM3,Goulmima,exact
+08.201.01.11.,Jorf (Mun.),Errachidia,-4.40326,31.47958,geonames,6546120,ADM3,Jorf,exact
+08.201.01.13.,Moulay Ali Cherif (Mun.),Errachidia,-4.2699,31.27285,geonames,6546290,ADM3,Moulay Ali Cherif,exact
+08.201.01.15.,Tinejdad (Mun.),Errachidia,-5.03416,31.50516,geonames,6545991,ADM3,Tinejdad,exact
+08.201.03.01.,Aarab Sebbah Gheris,Errachidia,-4.42348,31.41751,geonames,6546837,ADM3,Aarab Sebbah Gheris,exact
+08.201.03.03.,Aarab Sebbah Ziz,Errachidia,-4.26512,31.4514,geonames,11912630,ADM4,Aarab Sebbah Ziz,exact
+08.201.03.07.,Es-sifa,Errachidia,-4.32158,31.32647,geonames,6546839,ADM3,Es-Sifa,exact
+08.201.03.09.,Fezna,Errachidia,-4.53576,31.56128,geonames,6546417,ADM3,Fezna,exact
+08.201.07.01.,Aoufous,Errachidia,-4.13796,31.74502,geonames,11912636,ADM4,Aoufous,exact
+08.201.07.03.,Chorfa M'Daghra,Errachidia,-4.19597,31.86126,geonames,6546121,ADM3,Chorfa M Daghra,exact
+08.201.07.05.,Er-rteb,Errachidia,-4.24334,31.61637,geonames,6546844,ADM3,Er-Rteb,exact
+08.201.07.07.,Lkheng,Errachidia,-4.473,31.969,geonames,6546185,ADM3,Lkheng,exact
+08.201.07.09.,Oued Naam,Errachidia,-3.65488,31.92251,geonames,11912643,ADM4,Oued Naam,exact
+08.201.11.01.,Bni M'Hamed-Sijelmassa,Errachidia,-4.22277,31.24205,geonames,6546848,ADM3,Bni M Hamed  Sijelma,fuzzy
+08.201.11.03.,Er-rissani,Errachidia,-4.08835,31.37001,geonames,11912628,ADM4,Er-rissani,exact
+08.201.11.05.,Es-sfalat,Errachidia,-4.29162,31.23725,geonames,6546849,ADM3,Es-Sfalat,exact
+08.201.11.07.,Et-taous,Errachidia,-3.9966,30.92931,geonames,11912627,ADM4,Et-taous,exact
+08.201.11.09.,Sidi Ali,Errachidia,-4.74426,30.65031,geonames,6545706,ADM3,Sidi Ali,exact
+08.201.13.01.,Aghbalou N'Kerdous,Errachidia,-5.29759,31.67671,geonames,6546850,ADM3,Aghbalou N Kerdous,exact
+08.201.13.02.,Amellagou,Errachidia,-4.93784,32.02059,geonames,6546841,ADM3,Amellagou,exact
+08.201.13.03.,Ferkla El Oulia,Errachidia,-5.14095,31.43387,geonames,6546291,ADM3,Ferkla El Oulia,exact
+08.201.13.05.,Ferkla Es-soufla,Errachidia,-5.03594,31.58738,geonames,6546292,ADM3,Ferkla Es-Soufla,exact
+08.201.13.07.,Gheris El Ouloui,Errachidia,-4.94278,31.72474,geonames,6545551,ADM3,Gheris El Ouloui,exact
+08.201.13.09.,Gheris Es-soufli,Errachidia,-4.82372,31.69557,geonames,6546851,ADM3,Gheris Es-Soufli,exact
+08.201.13.11.,Melaab,Errachidia,-4.73736,31.47934,geonames,11912633,ADM4,Melaab,exact
+08.201.13.13.,Tadighoust,Errachidia,-4.85043,31.89746,geonames,11912639,ADM4,Tadighoust,exact
+08.363.01.03.,Midelt (Mun.),Midelt,-4.74077,32.6828,geonames,6545495,ADM3,Midelt,exact
+08.363.01.07.,Er-rich (Mun.),Midelt,-4.49912,32.25935,geonames,6546835,ADM3,Er-Rich,exact
+08.363.05.01.,Aghbalou,Midelt,-5.26004,32.65773,geonames,6546963,ADM3,Aghbalou,exact
+08.363.05.03.,Agoudim,Midelt,-5.05277,32.38746,geonames,6546856,ADM3,Agoudim,exact
+08.363.05.13.,Anemzi,Midelt,-5.36641,32.28454,geonames,6545990,ADM3,Anemzi,exact
+08.363.05.15.,Boumia,Midelt,-5.13207,32.66526,geonames,6546965,ADM3,Boumia,exact
+08.363.05.21.,Sidi Yahya Ou Youssef,Midelt,-5.38155,32.40824,geonames,2532796,PPL,Sidi Yahya Ou Youssef,exact
+08.363.05.23.,Tanourdi,Midelt,-5.14769,32.82496,geonames,6546017,ADM3,Tanourdi,exact
+08.363.05.25.,Tizi N'Ghachou,Midelt,-5.24801,32.79624,geonames,6546436,ADM3,Tizi N Ghachou,exact
+08.363.05.27.,Tounfite,Midelt,-5.13477,32.47733,geonames,6546022,ADM3,Tounfite,exact
+08.363.07.05.,Ait Ayach,Midelt,-4.92925,32.69087,geonames,6545694,ADM3,Ait Ayach,exact
+08.363.07.07.,Ait Ben Yacoub,Midelt,-4.87052,33.01053,geonames,6546964,ADM3,Ait Ben Yacoub,exact
+08.363.07.09.,Ait Izdeg,Midelt,-4.74091,32.64437,geonames,6546857,ADM3,Ait Izdeg,exact
+08.363.07.11.,Amersid,Midelt,-4.51306,32.69303,geonames,6546858,ADM3,Amersid,exact
+08.363.07.17.,Itzer,Midelt,-4.94332,32.98067,geonames,11912662,ADM4,Itzer,exact
+08.363.07.19.,Mibladen,Midelt,-4.59354,32.78758,geonames,6546859,ADM3,Mibladen,exact
+08.363.07.29.,Zaida,Midelt,-4.87086,32.80255,geonames,6546018,ADM3,Zaida,exact
+08.363.09.01.,En-nzala,Midelt,-4.37598,32.44745,geonames,6546054,ADM3,En-Nzala,exact
+08.363.09.03.,Gourrama,Midelt,-4.1413,32.41974,geonames,6546845,ADM3,Gourrama,exact
+08.363.09.05.,Guers Tiaallaline,Midelt,-4.45538,32.22416,geonames,6546055,ADM3,Guers Tiaallaline,exact
+08.363.09.07.,Guir,Midelt,-3.99501,32.33424,geonames,6546846,ADM3,Guir,exact
+08.363.09.09.,M'Zizel,Midelt,-4.7092,32.17091,geonames,6546847,ADM3,M Zizel,exact
+08.363.09.11.,Sidi Aayad,Midelt,-4.63592,32.31303,geonames,6545731,ADM3,Sidi Aayad,exact
+08.363.09.13.,Zaouiat Sidi Hamza,Midelt,-4.78,32.43535,geonames,6545732,ADM3,Zaouiat Sidi Hamza,exact
+08.363.15.01.,Ait Yahya,Midelt,-5.17607,32.27214,geonames,6546676,ADM3,Ait Yahya,exact
+08.363.15.03.,Amouguer,Midelt,-4.90879,32.27211,geonames,6546853,ADM3,Amouguer,exact
+08.363.15.05.,Bou Azmou,Midelt,-5.52071,32.03253,geonames,6546854,ADM3,Bou Azmou,exact
+08.363.15.07.,Imilchil,Midelt,-5.35513,32.14304,geonames,11882669,ADM3,Imilchil,exact
+08.363.15.09.,Outerbat,Midelt,-5.19881,32.12906,geonames,6546855,ADM3,Outerbat,exact
+08.401.01.07.,Ouarzazate (Mun.),Ouarzazate,-6.92559,30.93812,geonames,11882640,ADM3,Ouarzazate,exact
+08.401.01.09.,Taznakht (Mun.),Ouarzazate,-7.19531,30.56964,geonames,6546385,ADM3,Taznakht,exact
+08.401.03.01.,Ait Zineb,Ouarzazate,-7.12215,31.01133,geonames,6545587,ADM3,Ait Zineb,exact
+08.401.03.03.,Amerzgane,Ouarzazate,-7.23628,30.993,geonames,11912611,ADM4,Amerzgane,exact
+08.401.03.07.,Ighrem N'Ougdal,Ouarzazate,-7.41413,31.19393,geonames,6545622,ADM3,Ighrem N Ougdal,exact
+08.401.03.09.,Khouzama,Ouarzazate,-7.53578,30.8885,geonames,6546234,ADM3,Khouzama,exact
+08.401.03.11.,Ouisselsate,Ouarzazate,-7.16989,30.51956,geonames,6545760,ADM3,Ouisselsate,exact
+08.401.03.13.,Siroua,Ouarzazate,-7.36126,30.72705,geonames,6545458,ADM3,Siroua,exact
+08.401.03.15.,Telouet,Ouarzazate,-7.15579,31.27711,geonames,11912610,ADM4,Telouet,exact
+08.401.03.17.,Tidli,Ouarzazate,-7.55521,31.06641,geonames,6545937,ADM3,Tidli,exact
+08.401.07.01.,Ghassate,Ouarzazate,-6.86179,31.16992,geonames,6546041,ADM3,Ghassate,exact
+08.401.07.03.,Idelsane,Ouarzazate,-6.56363,30.92904,geonames,6546566,ADM3,Idelsane,exact
+08.401.07.05.,Imi N'Oulaoune,Ouarzazate,-6.56415,31.42238,geonames,6546567,ADM3,Imi N Oulaoune,exact
+08.401.07.07.,Skoura Ahl El Oust,Ouarzazate,-6.47891,31.04269,geonames,6546568,ADM3,Skoura Ahl El Oust,exact
+08.401.07.09.,Tarmigt,Ouarzazate,-6.92249,30.86536,geonames,6545589,ADM3,Tarmigt,exact
+08.401.07.11.,Toundoute,Ouarzazate,-6.51735,31.34804,geonames,6546181,ADM3,Toundoute,exact
+08.577.01.03.,Boumalne Dades (Mun.),Tinghir,-5.93922,31.36255,geonames,6546556,ADM3,Boumalne Dades,exact
+08.577.01.05.,Kalaat M'Gouna (Mun.),Tinghir,-6.12823,31.24077,geonames,6546369,ADM3,Kalaat M'Gouna,exact
+08.577.01.11.,Tinghir (Mun.),Tinghir,-5.52997,31.51666,geonames,6546260,ADM3,Tinghir,exact
+08.577.02.05.,Alnif,Tinghir,-5.11347,31.11829,geonames,6546838,ADM3,Alnif,exact
+08.577.02.11.,H'Ssyia,Tinghir,-5.18758,30.72052,geonames,6546051,ADM3,H Ssyia,exact
+08.577.02.21.,M'Ssici,Tinghir,-4.80642,31.00123,geonames,6546418,ADM3,M Ssici,exact
+08.577.03.01.,Ait Hani,Tinghir,-5.57346,31.74831,geonames,6546840,ADM3,Ait Hani,exact
+08.577.03.05.,Assoul,Tinghir,-5.36801,31.86618,geonames,11882670,ADM3,Assoul,exact
+08.577.05.03.,Ait Ouassif,Tinghir,-6.1883,31.29412,geonames,6546561,ADM3,Ait Ouassif,exact
+08.577.05.09.,Ait Sedrate Sahl Charkia,Tinghir,-6.05469,31.16936,geonames,6546562,ADM3,Ait Sedrate Sahl Cha,fuzzy
+08.577.05.13.,Ait Youl,Tinghir,-5.96037,31.31279,geonames,6546042,ADM3,Ait Youl,exact
+08.577.05.15.,Ighil N'Oumgoun,Tinghir,-6.25111,31.50558,geonames,6546564,ADM3,Ighil N Oumgoun,exact
+08.577.05.17.,Ikniouen,Tinghir,-5.5985,31.18929,geonames,6546565,ADM3,Ikniouen,exact
+08.577.05.21.,M'Semrir,Tinghir,-5.88266,31.72992,geonames,6545955,ADM3,M Semrir,exact
+08.577.05.25.,Souk Lakhmis Dades,Tinghir,-5.98662,31.24482,geonames,6545847,ADM3,Souk Lakhmis Dades,exact
+08.577.05.29.,Tilmi,Tinghir,-5.72919,31.85202,geonames,6545958,ADM3,Tilmi,exact
+08.577.07.01.,Ait El Farsi,Tinghir,-5.34239,31.26896,geonames,6546690,ADM3,Ait El Farsi,exact
+08.577.07.19.,Imider,Tinghir,-5.81058,31.40483,geonames,6545954,ADM3,Imider,exact
+08.577.07.23.,Ouaklim,Tinghir,-5.65448,31.45539,geonames,6545956,ADM3,Ouaklim,exact
+08.577.07.27.,Taghzoute N'Ait Atta,Tinghir,-5.36092,31.4615,geonames,6545957,ADM3,Taghzoute N Ait Atta,exact
+08.577.07.31.,Toudgha El Oulia,Tinghir,-5.54938,31.57898,geonames,6545912,ADM3,Toudgha El Oulia,exact
+08.577.07.33.,Toudgha Essoufla,Tinghir,-5.48898,31.46538,geonames,6545959,ADM3,Toudgha Essoufla,exact
+08.587.01.13.,Zagora (Mun.),Zagora,-5.83517,30.30452,geonames,6545905,ADM3,Zagora,exact
+08.587.03.01.,Afella N'Dra,Zagora,-6.51974,30.79125,geonames,6546596,ADM3,Afella N Dra,exact
+08.587.03.03.,Afra,Zagora,-6.28599,30.79406,geonames,6545667,ADM3,Afra,exact
+08.587.03.05.,Ait Boudaoud,Zagora,-5.52234,30.61419,geonames,6545668,ADM3,Ait Boudaoud,exact
+08.587.03.07.,Ait Ouallal,Zagora,-5.91311,30.87975,geonames,6545592,ADM3,Ait Ouallal,exact
+08.587.03.21.,Mezguita,Zagora,-6.36985,30.68393,geonames,6545938,ADM3,Mezguita,exact
+08.587.03.25.,N'Kob,Zagora,-5.84035,30.99635,geonames,6545835,ADM3,N Kob,exact
+08.587.03.27.,Oulad Yahia Lagraire,Zagora,-6.22587,30.53048,geonames,6545939,ADM3,Oulad Yahia Lagraire,exact
+08.587.03.31.,Taghbalte,Zagora,-5.39368,30.55803,geonames,6545848,ADM3,Taghbalte,exact
+08.587.03.37.,Tamezmoute,Zagora,-6.10909,30.79452,geonames,6545940,ADM3,Tamezmoute,exact
+08.587.03.39.,Tansifte,Zagora,-6.64491,30.65753,geonames,6545761,ADM3,Tansifte,exact
+08.587.03.41.,Tazarine,Zagora,-5.50184,30.73864,geonames,11912605,ADM4,Tazarine,exact
+08.587.07.09.,Bleida,Zagora,-6.37164,30.25129,geonames,6545460,ADM3,Bleida,exact
+08.587.07.11.,Bni Zoli,Zagora,-5.85629,30.50465,geonames,6545941,ADM3,Bni Zoli,exact
+08.587.07.13.,Bouzeroual,Zagora,-6.0294,30.51114,geonames,6546597,ADM3,Bouzeroual,exact
+08.587.07.15.,Errouha,Zagora,-5.72234,30.47456,geonames,6545942,ADM3,Errouha,exact
+08.587.07.29.,Taftechna,Zagora,-5.85237,30.65051,geonames,6545944,ADM3,Taftechna,exact
+08.587.07.43.,Ternata,Zagora,-5.96203,30.30263,geonames,6545946,ADM3,Ternata,exact
+08.587.07.45.,Tinzouline,Zagora,-6.17493,30.40149,geonames,11912591,ADM4,Tinzouline,exact
+08.587.09.17.,Fezouata,Zagora,-5.60753,30.20117,geonames,6545943,ADM3,Fezouata,exact
+08.587.09.19.,Ktaoua,Zagora,-5.27784,30.11274,geonames,6545906,ADM3,Ktaoua,exact
+08.587.09.23.,M'Hamid El Ghizlane,Zagora,-5.95686,29.7328,geonames,6545907,ADM3,M Hamid El Ghizlane,exact
+08.587.09.33.,Tagounite,Zagora,-5.52159,30.12455,geonames,11912587,ADM4,Tagounite,exact
+08.587.09.35.,Tamegroute,Zagora,-5.76774,30.24672,geonames,6545945,ADM3,Tamegroute,exact
+09.001.01.01.,Agadir (Mun.),Agadir-Ida -Ou-Tanane,-9.57347,30.41534,geonames,11882684,ADM3,Agadir,exact
+09.001.05.01.,Amskroud,Agadir-Ida -Ou-Tanane,-9.36601,30.54747,geonames,11913272,ADM4,Amskroud,exact
+09.001.05.09.,Drargua,Agadir-Ida -Ou-Tanane,-9.48082,30.4529,geonames,6545569,ADM3,Drargua,exact
+09.001.05.11.,Idmine,Agadir-Ida -Ou-Tanane,-9.36871,30.61188,geonames,6545798,ADM3,Idmine,exact
+09.001.07.03.,Aourir,Agadir-Ida -Ou-Tanane,-9.61163,30.52521,geonames,6545566,ADM3,Aourir,exact
+09.001.07.05.,Aqesri,Agadir-Ida -Ou-Tanane,-9.51605,30.59368,geonames,6545567,ADM3,Aqesri,exact
+09.001.07.07.,Aziar,Agadir-Ida -Ou-Tanane,-9.57416,30.79111,geonames,6545568,ADM3,Aziar,exact
+09.001.07.13.,Imouzzer,Agadir-Ida -Ou-Tanane,-9.46468,30.75006,geonames,11913179,ADM4,Imouzzer,exact
+09.001.07.15.,Imsouane,Agadir-Ida -Ou-Tanane,-9.81857,30.84386,geonames,6545800,ADM3,Imsouane,exact
+09.001.07.21.,Tadrart,Agadir-Ida -Ou-Tanane,-9.46753,30.79756,geonames,6545423,ADM3,Tadrart,exact
+09.001.07.23.,Taghazout,Agadir-Ida -Ou-Tanane,-9.56776,30.59208,geonames,11913178,ADM4,Taghazout,exact
+09.001.07.25.,Tamri,Agadir-Ida -Ou-Tanane,-9.76354,30.7332,geonames,11913177,ADM4,Tamri,exact
+09.001.07.29.,Tiqqi,Agadir-Ida -Ou-Tanane,-9.34799,30.77946,geonames,6545759,ADM3,Tiqqi,exact
+09.163.01.03.,Ait Baha (Mun.),Chtouka- Ait Baha,-9.16018,30.07095,geonames,11882687,ADM3,Ait Baha,exact
+09.163.01.11.,Biougra (Mun.),Chtouka- Ait Baha,-9.36849,30.21339,geonames,6546196,ADM3,Biougra,exact
+09.163.03.05.,Ait Mzal,Chtouka- Ait Baha,-9.1264,30.03543,geonames,6545644,ADM3,Ait Mzal,exact
+09.163.03.07.,Ait Ouadrim,Chtouka- Ait Baha,-9.24999,30.01939,geonames,6545645,ADM3,Ait Ouadrim,exact
+09.163.03.09.,Aouguenz,Chtouka- Ait Baha,-9.15647,29.82796,geonames,6545646,ADM3,Aouguenz,exact
+09.163.03.13.,Hilala,Chtouka- Ait Baha,-8.99073,30.05265,geonames,6545748,ADM3,Ilalln,exact
+09.163.03.15.,Ida Ougnidif,Chtouka- Ait Baha,-8.99984,29.92815,geonames,11913170,ADM4,Ida Ougnidif,exact
+09.163.03.33.,Tanalt,Chtouka- Ait Baha,-9.15048,29.84338,geonames,11913169,ADM4,Tanalt,exact
+09.163.03.35.,Targua Ntouchka,Chtouka- Ait Baha,-9.17506,29.90656,geonames,6545837,ADM3,Targua Ntouchka,exact
+09.163.03.37.,Tassegdelt,Chtouka- Ait Baha,-9.09853,30.14518,geonames,6545838,ADM3,Tassegdelt,exact
+09.163.03.39.,Tizi Ntakoucht,Chtouka- Ait Baha,-9.07511,29.96235,geonames,6545922,ADM3,Tizi Ntakoucht,exact
+09.163.05.03.,Ait Milk,Chtouka- Ait Baha,-9.42343,29.96082,geonames,6545591,ADM3,Ait Milk,exact
+09.163.05.11.,Belfaa,Chtouka- Ait Baha,-9.50541,29.98204,geonames,6545878,ADM3,Belfaa,exact
+09.163.05.19.,Inchaden,Chtouka- Ait Baha,-9.56186,30.10004,geonames,6545923,ADM3,Inchaden,exact
+09.163.05.21.,Massa,Chtouka- Ait Baha,-9.65878,29.98612,geonames,11913165,ADM4,Massa,exact
+09.163.05.31.,Sidi Ouassay,Chtouka- Ait Baha,-9.64042,30.04967,geonames,6545924,ADM3,Sidi Ouassay,exact
+09.163.07.01.,Ait Amira,Chtouka- Ait Baha,-9.463,30.15102,geonames,11913175,ADM4,Ait Amira,exact
+09.163.07.17.,Imi Mqourn,Chtouka- Ait Baha,-9.25343,30.14621,geonames,11913172,ADM4,Imi Mqourn,exact
+09.163.07.23.,Ouad Essafa,Chtouka- Ait Baha,-9.35797,30.20763,geonames,6545832,ADM3,Ouad Essafa,exact
+09.163.07.27.,Sidi Bibi,Chtouka- Ait Baha,-9.54092,30.22348,geonames,6545925,ADM3,Sidi Bibi,exact
+09.163.07.29.,Sidi Boushab,Chtouka- Ait Baha,-9.30529,30.08692,geonames,6545833,ADM3,Sidi Boushab,exact
+09.273.01.05.,Ait Melloul (Mun.),Inezgane- Ait Melloul,-9.49783,30.33729,geonames,6545664,ADM3,Ait Melloul,exact
+09.273.01.13.,Dcheira El Jihadia (Mun.),Inezgane- Ait Melloul,-9.5377,30.37786,geonames,6545935,ADM3,Dcheira El Jihadia,exact
+09.273.01.15.,Inezgane (Mun.),Inezgane- Ait Melloul,-9.5417,30.35345,geonames,6545936,ADM3,Inezgane,exact
+09.273.01.17.,Lqliaa (Mun.),Inezgane- Ait Melloul,-9.52151,30.31375,geonames,6545901,ADM3,Lqliaa,exact
+09.273.05.19.,Oulad Dahou,Inezgane- Ait Melloul,-9.31576,30.3688,geonames,6545902,ADM3,Oulad Dahou,exact
+09.273.05.27.,Temsia,Inezgane- Ait Melloul,-9.4043,30.34023,geonames,6545903,ADM3,Temsia,exact
+09.541.01.01.,Ait Iaaza (Mun.),Taroudannt,-8.79724,30.50598,geonames,11882779,ADM3,Ait Iaaza,exact
+09.541.01.02.,Aoulouz (Mun.),Taroudannt,-8.19221,30.66376,geonames,6546373,ADM3,Aoulouz,exact
+09.541.01.03.,El Guerdane (Mun.),Taroudannt,-9.01546,30.36976,geonames,11882780,ADM3,El Guerdane,exact
+09.541.01.05.,Irherm (Mun.),Taroudannt,-8.53038,30.09302,geonames,11882679,ADM3,Irherm,exact
+09.541.01.07.,Oulad Berhil (Mun.),Taroudannt,-8.47316,30.6388,geonames,6545452,ADM3,Oulad Berhil,exact
+09.541.01.09.,Oulad Teima (Mun.),Taroudannt,-9.03749,30.29467,geonames,11882681,ADM3,Oulad Teima,exact
+09.541.01.11.,Taliouine (Mun.),Taroudannt,-7.91932,30.53532,geonames,6546459,ADM3,Taliouine,exact
+09.541.01.13.,Taroudannt (Mun.),Taroudannt,-8.7483,30.52841,geonames,11882682,ADM3,Taroudannt,exact
+09.541.03.01.,Adar,Taroudannt,-8.31938,30.16807,geonames,6546460,ADM3,Adar,exact
+09.541.03.03.,Ait Abdallah,Taroudannt,-8.80556,29.89347,geonames,11913273,ADM4,Ait Abdallah,exact
+09.541.03.05.,Amalou,Taroudannt,-8.73837,30.18322,geonames,6546461,ADM3,Amalou,exact
+09.541.03.07.,Azaghar N'Irs,Taroudannt,-8.16511,30.18859,geonames,6546462,ADM3,Azaghar N Irs,exact
+09.541.03.09.,Imaouen,Taroudannt,-8.61003,30.02236,geonames,6545415,ADM3,Imaouen,exact
+09.541.03.11.,Imi N'Tayart,Taroudannt,-8.38197,30.27442,geonames,6546463,ADM3,Imi N Tayart,exact
+09.541.03.13.,Nihit,Taroudannt,-8.51315,30.31632,geonames,6546199,ADM3,Nihit,exact
+09.541.03.15.,Oualqadi,Taroudannt,-8.52092,30.24121,geonames,11913276,ADM4,Oualqadi,exact
+09.541.03.17.,Sidi Boaal,Taroudannt,-8.43354,30.01559,geonames,6545420,ADM3,Sidi Boaal,exact
+09.541.03.19.,Sidi Mzal,Taroudannt,-8.89112,29.86263,geonames,6546200,ADM3,Sidi Mzal,exact
+09.541.03.21.,Tabia,Taroudannt,-8.88111,29.99583,geonames,6546467,ADM3,Tabia,exact
+09.541.03.23.,Tataoute,Taroudannt,-8.66917,30.26065,geonames,6546201,ADM3,Tataoute,exact
+09.541.03.25.,Tindine,Taroudannt,-8.6824,30.09392,geonames,6545421,ADM3,Tindine,exact
+09.541.03.27.,Tisfane,Taroudannt,-8.56899,30.19642,geonames,6545749,ADM3,Tisfane,exact
+09.541.03.29.,Toufelaazt,Taroudannt,-8.82285,30.05777,geonames,6546464,ADM3,Toufelaazt,exact
+09.541.03.31.,Toumliline,Taroudannt,-8.74756,29.95468,geonames,6546465,ADM3,Toumliline,exact
+09.541.04.09.,Arazane,Taroudannt,-8.53397,30.46786,geonames,6546202,ADM3,Arazane,exact
+09.541.04.13.,El Faid,Taroudannt,-8.32946,30.51406,geonames,11913291,ADM4,El Faid,exact
+09.541.04.17.,Ida Ou Gailal,Taroudannt,-8.61293,30.67893,geonames,6546078,ADM3,Ida Ou Gailal,exact
+09.541.04.21.,Ida Ougoummad,Taroudannt,-8.22816,30.72825,geonames,6546374,ADM3,Ida Ougoummad,exact
+09.541.04.23.,Igli,Taroudannt,-8.55436,30.58232,geonames,6546466,ADM3,Igli,exact
+09.541.04.25.,Igoudar Mnabha,Taroudannt,-8.44138,30.65502,geonames,6546375,ADM3,Igoudar Mnabha,exact
+09.541.04.29.,Lamhara,Taroudannt,-8.45258,30.55333,geonames,6546468,ADM3,Lamhara,exact
+09.541.04.33.,Oulad Aissa,Taroudannt,-8.62942,30.56304,geonames,6545839,ADM3,Oulad Aissa,exact
+09.541.04.35.,Ouneine,Taroudannt,-8.15597,30.86263,geonames,6545735,ADM3,Ouneine,exact
+09.541.04.47.,Sidi Ouaaziz,Taroudannt,-8.30842,30.76682,geonames,6545829,ADM3,Sidi Ouaaziz,exact
+09.541.04.49.,Tafingoult,Taroudannt,-8.41339,30.78169,geonames,6545877,ADM3,Tafingoult,exact
+09.541.04.53.,Talgjount,Taroudannt,-8.59406,30.76867,geonames,6545926,ADM3,Talgjount,exact
+09.541.04.59.,Tigouga,Taroudannt,-8.61251,30.83539,geonames,6545927,ADM3,Tigouga,exact
+09.541.04.61.,Tinzart,Taroudannt,-8.38081,30.62963,geonames,6545928,ADM3,Tinzart,exact
+09.541.04.69.,Toughmart,Taroudannt,-8.40509,30.42117,geonames,6545882,ADM3,Toughmart,exact
+09.541.05.01.,Ahl Ramel,Taroudannt,-9.12438,30.28859,geonames,6546469,ADM3,Ahl Ramel,exact
+09.541.05.03.,Argana,Taroudannt,-9.03049,30.78594,geonames,11913282,ADM4,Argana,exact
+09.541.05.05.,Assads,Taroudannt,-8.88473,30.21023,geonames,6546471,ADM3,Assads,exact
+09.541.05.07.,Bigoudine,Taroudannt,-9.23458,30.70434,geonames,6546472,ADM3,Bigoudine,exact
+09.541.05.09.,Eddir,Taroudannt,-9.23643,30.55847,geonames,6546473,ADM3,Eddir,exact
+09.541.05.11.,El Koudia El Beida,Taroudannt,-9.122,30.35023,geonames,6546474,ADM3,Elkoudia El Beida,exact
+09.541.05.13.,Imilmaiss,Taroudannt,-8.8202,30.88455,geonames,6546475,ADM3,Imilmaiss,exact
+09.541.05.15.,Issen,Taroudannt,-9.24084,30.44115,geonames,6546476,ADM3,Issen,exact
+09.541.05.17.,Lagfifat,Taroudannt,-9.25653,30.30803,geonames,6546477,ADM3,Lagfifat,exact
+09.541.05.19.,Lakhnafif,Taroudannt,-8.99621,30.40607,geonames,6545453,ADM3,Lakhnafif,exact
+09.541.05.21.,Lamhadi,Taroudannt,-9.01267,30.32943,geonames,6545454,ADM3,Lamhadi,exact
+09.541.05.23.,Machraa El Ain,Taroudannt,-8.92782,30.37144,geonames,6545455,ADM3,Machraa El Ain,exact
+09.541.05.25.,Sidi Ahmed Ou Amar,Taroudannt,-9.12464,30.4119,geonames,6546478,ADM3,Sidi Ahmed Ou Amar,exact
+09.541.05.27.,Sidi Boumoussa,Taroudannt,-9.24812,30.38266,geonames,6546479,ADM3,Sidi Boumoussa,exact
+09.541.05.29.,Sidi Moussa Lhamri,Taroudannt,-9.1593,30.49661,geonames,6545456,ADM3,Sidi Moussa Lhamri,exact
+09.541.05.31.,Talmakante,Taroudannt,-8.93047,30.84408,geonames,6546204,ADM3,Talmakante,exact
+09.541.05.33.,Tidsi Nissendalene,Taroudannt,-8.9688,30.18606,geonames,6546205,ADM3,Tidsi Nissendalene,exact
+09.541.07.01.,Agadir Melloul,Taroudannt,-7.75171,30.25093,geonames,6546206,ADM3,Agadir Melloul,exact
+09.541.07.03.,Ahl Tifnoute,Taroudannt,-7.86071,30.97818,geonames,6546480,ADM3,Ahl Tifnoute,exact
+09.541.07.05.,Askaouen,Taroudannt,-7.79366,30.70095,geonames,6546481,ADM3,Askaouen,exact
+09.541.07.07.,Assaisse,Taroudannt,-7.60803,30.57044,geonames,6546482,ADM3,Assaisse,exact
+09.541.07.09.,Assaki,Taroudannt,-8.03353,30.5581,geonames,6546483,ADM3,Assaki,exact
+09.541.07.11.,Azrar,Taroudannt,-8.02986,30.22099,geonames,6546484,ADM3,Azrar,exact
+09.541.07.13.,Iguidi,Taroudannt,-7.96664,30.83483,geonames,6546376,ADM3,Iguidi,exact
+09.541.07.15.,Sidi Hsaine,Taroudannt,-7.73904,30.46521,geonames,6546062,ADM3,Sidi Hsaine,exact
+09.541.07.17.,Taouyalte,Taroudannt,-7.76557,30.82802,geonames,6546063,ADM3,Taouyalte,exact
+09.541.07.19.,Tassousfi,Taroudannt,-7.89546,30.45218,geonames,6546064,ADM3,Tassousfi,exact
+09.541.07.21.,Tizgzaouine,Taroudannt,-8.05782,30.39104,geonames,6546485,ADM3,Tizgzaouine,exact
+09.541.07.23.,Toubkal,Taroudannt,-7.81857,31.02436,geonames,6546486,ADM3,Toubkal,exact
+09.541.07.25.,Zagmouzen,Taroudannt,-7.82358,30.61454,geonames,6546065,ADM3,Zagmouzen,exact
+09.541.07.37.,Ouzioua,Taroudannt,-8.035,30.73,geonames,6545865,ADM3,Ouzioua,exact
+09.541.07.65.,Tisrasse,Taroudannt,-8.08879,30.74548,geonames,6545880,ADM3,Tisrasse,exact
+09.541.09.01.,Ahmar Laglalcha,Taroudannt,-8.96879,30.48922,geonames,6545519,ADM3,Ahmar Laglalcha,exact
+09.541.09.03.,Ait Igas,Taroudannt,-8.72323,30.59133,geonames,6545520,ADM3,Ait Igas,exact
+09.541.09.05.,Ait Makhlouf,Taroudannt,-8.91547,30.61008,geonames,6545521,ADM3,Ait Makhlouf,exact
+09.541.09.11.,Bounrar,Taroudannt,-8.76356,30.31268,geonames,6545751,ADM3,Bounrar,exact
+09.541.09.15.,Freija,Taroudannt,-8.68299,30.46541,geonames,11913292,ADM4,Freija,exact
+09.541.09.19.,Ida Ou Moumen,Taroudannt,-9.00374,30.58335,geonames,6546488,ADM3,Ida Ou Moumen,exact
+09.541.09.27.,Imoulass,Taroudannt,-8.769,30.76565,geonames,6546489,ADM3,Imoulass,exact
+09.541.09.31.,Lamnizla,Taroudannt,-9.0786,30.6448,geonames,6545840,ADM3,Lamnizla,exact
+09.541.09.43.,Sidi Borja,Taroudannt,-8.82573,30.43068,geonames,6545842,ADM3,Sidi Borja,exact
+09.541.09.45.,Sidi Dahmane,Taroudannt,-8.822,30.497,geonames,6545843,ADM3,Sidi Dahmane,exact
+09.541.09.51.,Tafraouten,Taroudannt,-8.90182,30.72795,geonames,6545752,ADM3,Tafraouten,exact
+09.541.09.55.,Tamaloukte,Taroudannt,-8.79194,30.61438,geonames,6545753,ADM3,Tamaloukte,exact
+09.541.09.57.,Tazemmourt,Taroudannt,-8.80737,30.34681,geonames,11913293,ADM4,Tazemmourt,exact
+09.541.09.63.,Tiout,Taroudannt,-8.66904,30.41342,geonames,6545929,ADM3,Tiout,exact
+09.541.09.71.,Zaouia Sidi Tahar,Taroudannt,-9.09255,30.50636,geonames,6545930,ADM3,Zaouia Sidi Tahar,exact
+09.551.01.01.,Akka (Mun.),Tata,-8.15399,29.34132,geonames,6546550,ADM3,Akka,exact
+09.551.01.03.,Fam El Hisn (Mun.),Tata,-8.88785,28.85959,geonames,11882688,ADM3,Fam El Hisn,exact
+09.551.01.05.,Foum Zguid (Mun.),Tata,-6.95558,30.00333,geonames,6546226,ADM3,Foum Zguid,exact
+09.551.01.07.,Tata (Mun.),Tata,-7.96836,29.7562,geonames,6545618,ADM3,Tata,exact
+09.551.03.01.,Ait Ouabelli,Tata,-8.32748,29.21246,geonames,11913161,ADM4,Ait Ouabelli,exact
+09.551.03.05.,Tamanarte,Tata,-8.97408,29.19548,geonames,11913160,ADM4,Tamanarte,exact
+09.551.03.07.,Tizounine,Tata,-8.27939,29.07337,geonames,6546228,ADM3,Tizounine,exact
+09.551.05.01.,Aguinane,Tata,-7.44767,30.10902,geonames,6545620,ADM3,Aguinane,exact
+09.551.05.03.,Akka Ighane,Tata,-7.62127,29.99271,geonames,11913196,ADM4,Akka Ighane,exact
+09.551.05.05.,Allougoum,Tata,-6.8291,29.96707,geonames,11913195,ADM4,Allougoum,exact
+09.551.05.07.,Ibn Yacoub,Tata,-7.84312,30.00843,geonames,6546552,ADM3,Ibn Yacoub,exact
+09.551.05.09.,Tissint,Tata,-7.35459,29.68955,geonames,6545653,ADM3,Tissint,exact
+09.551.05.11.,Tlite,Tata,-7.09096,30.19362,geonames,6545900,ADM3,Tlite,exact
+09.551.07.01.,Adis,Tata,-7.95252,29.63149,geonames,11913193,ADM4,Adis,exact
+09.551.07.03.,Issafen,Tata,-8.50808,29.8737,geonames,6546231,ADM3,Issafen,exact
+09.551.07.05.,Oum El Guerdane,Tata,-7.79669,29.40892,geonames,6546232,ADM3,Oum El Guerdane,exact
+09.551.07.07.,Tagmout,Tata,-8.22609,29.89717,geonames,6546553,ADM3,Tagmout,exact
+09.551.07.09.,Tigzmerte,Tata,-8.07284,29.74047,geonames,6546554,ADM3,Tigzmerte,exact
+09.551.07.11.,Tizaghte,Tata,-8.50378,29.60564,geonames,6546555,ADM3,Tizaghte,exact
+09.581.01.05.,Tafraout (Mun.),Tiznit,-8.99462,29.69952,geonames,6546238,ADM3,Tafraout,exact
+09.581.01.07.,Tiznit (Mun.),Tiznit,-9.69927,29.68638,geonames,6547047,ADM3,Tiznit,exact
+09.581.03.01.,Ait Issafen,Tiznit,-9.32081,29.57831,geonames,6546582,ADM3,Ait Issafen,exact
+09.581.03.03.,Anzi,Tiznit,-9.30785,29.67971,geonames,11913203,ADM4,Anzi,exact
+09.581.03.05.,Arbaa Ait Ahmed,Tiznit,-9.33117,29.76677,geonames,6545629,ADM3,Arbaa Ait Ahmed,exact
+09.581.03.07.,Ida Ou Gougmar,Tiznit,-9.24139,29.5652,geonames,11913202,ADM4,Ida Ou Gougmar,exact
+09.581.03.09.,Sidi Ahmed Ou Moussa,Tiznit,-9.499,29.51376,geonames,6545615,ADM3,Sidi Ahmed Ou Moussa,exact
+09.581.03.11.,Tafraout El Mouloud,Tiznit,-9.21768,29.67385,geonames,6546583,ADM3,Tafraout El Mouloud,exact
+09.581.03.13.,Tighmi,Tiznit,-9.39608,29.59175,geonames,11913204,ADM4,Tighmi,exact
+09.581.03.15.,Tizoughrane,Tiznit,-9.18943,29.5905,geonames,6546386,ADM3,Tizoughrane,exact
+09.581.03.17.,Tnine Aday,Tiznit,-9.2368,29.71612,geonames,6546387,ADM3,Tnine Aday,exact
+09.581.09.01.,Afella Ighir,Tiznit,-8.79707,29.49964,geonames,11913199,ADM4,Afella Ighir,exact
+09.581.09.03.,Ait Ouafqa,Tiznit,-9.147,29.504,geonames,6546510,ADM3,Ait Ouafqa,exact
+09.581.09.05.,Ammelne,Tiznit,-8.968,29.754,geonames,6546511,ADM3,Ammelne,exact
+09.581.09.07.,Irigh N'Tahala,Tiznit,-9.08222,29.62489,geonames,6546211,ADM3,Irigh N Tahala,exact
+09.581.09.09.,Tarsouat,Tiznit,-8.99219,29.54876,geonames,6546590,ADM3,Tarsouat,exact
+09.581.09.11.,Tassrirt,Tiznit,-8.85963,29.64394,geonames,6546048,ADM3,Tassrirt,exact
+09.581.11.01.,Arbaa Rasmouka,Tiznit,-9.52283,29.80265,geonames,6546049,ADM3,Arbaa Rasmouka,exact
+09.581.11.03.,Arbaa Sahel,Tiznit,-9.92787,29.61394,geonames,6546591,ADM3,Arbaa Sahel,exact
+09.581.11.05.,Bounaamane,Tiznit,-9.79528,29.54829,geonames,6546592,ADM3,Bounaamane,exact
+09.581.11.07.,El Maader El Kabir,Tiznit,-9.65486,29.82221,geonames,6546593,ADM3,Elmaader El Kabir,exact
+09.581.11.09.,Ouijjane,Tiznit,-9.56262,29.66136,geonames,6546096,ADM3,Ouijjane,exact
+09.581.11.11.,Reggada,Tiznit,-9.66638,29.52052,geonames,6545904,ADM3,Reggada,exact
+09.581.11.13.,Sidi Bouabdelli,Tiznit,-9.81144,29.47559,geonames,6546594,ADM3,Sidi Bouabdelli,exact
+09.581.11.15.,Tnine Aglou,Tiznit,-9.81422,29.75476,geonames,6546595,ADM3,Tnine Aglou,exact
+10.071.01.01.,Assa (Mun.),Assa-Zag,-9.34822,28.67999,geonames,6545579,ADM3,Assa,exact
+10.071.03.01.,Aouint Lahna,Assa-Zag,-9.7538,28.5387,geonames,6546497,ADM3,Aouint Lahna,exact
+10.071.03.03.,Aouint Yghomane,Assa-Zag,-10.38925,28.4579,geonames,6546498,ADM3,Aouint Yghomane,exact
+10.071.03.05.,Touizgui,Assa-Zag,-9.12056,28.54469,geonames,6545581,ADM3,Touizgui,exact
+10.071.05.01.,Al Mahbass,Assa-Zag,-8.98753,27.47276,geonames,6546499,ADM3,Almahbass,exact
+10.071.05.03.,Labouirat,Assa-Zag,-9.85862,27.96369,geonames,6545574,ADM3,Labouirat,exact
+10.261.01.01.,Bouizakarne (Mun.),Guelmim,-9.73844,29.19846,geonames,11912864,ADM4,Bouizakarne,exact
+10.261.01.03.,Guelmim (Mun.),Guelmim,-10.06345,28.98635,geonames,6546501,ADM3,Guelmim,exact
+10.261.03.01.,Aday,Guelmim,-9.30371,29.20414,geonames,6546502,ADM3,Aday,exact
+10.261.03.03.,Ait Boufoulen,Guelmim,-9.73733,29.23426,geonames,6545617,ADM3,Ait Boufoulen,exact
+10.261.03.05.,Amtdi,Guelmim,-9.19143,29.20739,geonames,6546178,ADM3,Amtdi,exact
+10.261.03.07.,Ifrane Atlas Saghir,Guelmim,-9.53362,29.17498,geonames,11912863,ADM4,Ifrane Atlas Saghir,exact
+10.261.03.09.,Tagante,Guelmim,-9.73223,29.15488,geonames,6546504,ADM3,Tagante,exact
+10.261.03.11.,Taghjijt,Guelmim,-9.49623,28.89395,geonames,11912861,ADM4,Taghjijt,exact
+10.261.03.13.,Timoulay,Guelmim,-9.61685,29.09974,geonames,6545931,ADM3,Timoulay,exact
+10.261.05.03.,Aferkat,Guelmim,-10.35816,28.68731,geonames,6546506,ADM3,Aferkat,exact
+10.261.05.05.,Asrir,Guelmim,-10.10295,28.81324,geonames,6545422,ADM3,Asrir,exact
+10.261.05.09.,Fask,Guelmim,-9.88157,28.77788,geonames,6545514,ADM3,Fask,exact
+10.261.05.21.,Tiglit,Guelmim,-10.24689,28.56739,geonames,6545934,ADM3,Tiglit,exact
+10.261.07.01.,Abaynou,Guelmim,-9.9363,29.07942,geonames,6546505,ADM3,Abaynou,exact
+10.261.07.07.,Echatea El Abied,Guelmim,-10.52981,28.94263,geonames,6545598,ADM3,Echatea El Abied,exact
+10.261.07.11.,Labyar,Guelmim,-10.41416,28.77436,geonames,6546209,ADM3,Labyar,exact
+10.261.07.13.,Laqsabi Tagoust,Guelmim,-10.21366,28.96943,geonames,6546507,ADM3,Laqsabi Tagoust,exact
+10.261.07.15.,Rass Oumlil,Guelmim,-10.77805,28.65213,geonames,6545897,ADM3,Rass Oumlil,exact
+10.261.07.17.,Taliouine Assaka,Guelmim,-10.20037,29.03169,geonames,6545899,ADM3,Taliouine Assaka,exact
+10.261.07.19.,Targa Wassay,Guelmim,-10.26197,29.05663,geonames,6545758,ADM3,Targa Wassay,exact
+10.473.01.01.,Lakhsas (Mun.),Sidi Ifni,-9.74633,29.37163,geonames,6545623,ADM3,Lakhsas,exact
+10.473.01.03.,Sidi Ifni (Mun.),Sidi Ifni,-10.16328,29.37075,geonames,6545624,ADM3,Sidi Ifni,exact
+10.473.05.01.,Arbaa Ait Abdellah,Sidi Ifni,-9.87444,29.33527,geonames,6546585,ADM3,Arbaa Ait Abdellah,exact
+10.473.05.03.,Imi N'Fast,Sidi Ifni,-10.09698,29.11745,geonames,6546388,ADM3,Imi N Fast,exact
+10.473.05.05.,Mesti,Sidi Ifni,-10.18109,29.26839,geonames,6546586,ADM3,Mesti,exact
+10.473.05.07.,Mirleft,Sidi Ifni,-10.03753,29.51535,geonames,11913185,ADM4,Mirleft,exact
+10.473.05.09.,Sbouya,Sidi Ifni,-10.26486,29.17086,geonames,6546389,ADM3,Sbouya,exact
+10.473.05.11.,Tangarfa,Sidi Ifni,-9.93246,29.25261,geonames,6546587,ADM3,Tangarfa,exact
+10.473.05.13.,Tioughza,Sidi Ifni,-9.95897,29.41114,geonames,11913184,ADM4,Tioughza,exact
+10.473.05.15.,Tnine Amellou,Sidi Ifni,-10.05349,29.29108,geonames,6545893,ADM3,Tnine Amellou,exact
+10.473.07.01.,Ait Erkha,Sidi Ifni,-9.63136,29.34648,geonames,6546588,ADM3,Ait Erkha,exact
+10.473.07.03.,Anfeg,Sidi Ifni,-9.24634,29.41748,geonames,6546589,ADM3,Anfeg,exact
+10.473.07.05.,Boutrouch,Sidi Ifni,-9.36664,29.33552,geonames,6546569,ADM3,Boutrouch,exact
+10.473.07.07.,Ibdar,Sidi Ifni,-9.37204,29.44286,geonames,6546047,ADM3,Ibdar,exact
+10.473.07.09.,Sebt Ennabour,Sidi Ifni,-9.58187,29.42298,geonames,6546570,ADM3,Sebt Ennabour,exact
+10.473.07.13.,Sidi H'Saine Ou Ali,Sidi Ifni,-9.73147,29.36032,geonames,6546572,ADM3,Sidi H Saine Ou Ali,exact
+10.473.07.15.,Sidi M'Bark,Sidi Ifni,-9.82468,29.28862,geonames,6546210,ADM3,Sidi M Bark,exact
+10.473.07.17.,Tighirt,Sidi Ifni,-9.46788,29.38025,geonames,11913158,ADM4,Tighirt,exact
+10.521.01.01.,Tan Tan (Mun.),Tan-Tan,-11.08697,28.43288,geonames,6546224,ADM3,Tan Tan,exact
+10.521.01.03.,El Ouatia (Mun.),Tan-Tan,-11.3223,28.47075,geonames,6545522,ADM3,Elouatia,exact
+10.521.03.01.,Msied,Tan-Tan,-10.81399,28.01506,geonames,2542380,PPL,Messeïed,exact
+10.521.03.03.,Tilemzoun,Tan-Tan,-10.91685,28.32962,geonames,11912785,ADM4,Tilemzoun,exact
+10.521.05.03.,Ben Khlil,Tan-Tan,-11.14335,28.53732,geonames,11912786,ADM4,Ben Khlil,exact
+10.521.05.05.,Chbika,Tan-Tan,-11.43232,28.24683,geonames,6545663,ADM3,Chbika,exact
+11.121.01.01.,Boujdour (Mun.),Boujdour,-14.32129,26.12681,geonames,6546490,ADM3,Boujdour,exact
+11.121.03.01.,Gueltat Zemmour,Boujdour,-12.89066,25.25419,geonames,6545648,ADM3,Gueltat Zemmour,exact
+11.121.03.05.,Lamssid,Boujdour,-13.29071,26.00324,geonames,6545513,ADM3,Lamssid,exact
+11.221.03.03.,Haouza,Es-Semara,-11.20923,27.1272,geonames,6545651,ADM3,Haouza,exact
+11.221.03.09.,Tifariti,Es-Semara,-9.82045,26.33348,geonames,6545662,ADM3,Tifariti,exact
+11.321.01.01.,El Marsa (Mun.),Laâyoune,-13.4,27.091,geonames,6545660,ADM3,Elmarsa,exact
+11.321.01.03.,Laayoune (Mun.),Laâyoune,-13.06349,27.18064,geonames,6545631,ADM3,Laayoune,exact
+11.321.03.01.,Boukraa,Laâyoune,-12.80895,26.65006,geonames,6546040,ADM3,Boukraa,exact
+11.321.03.03.,Dcheira,Laâyoune,-12.61965,26.97639,geonames,6546491,ADM3,Dcheira,exact
+11.537.01.05.,Tarfaya (Mun.),Tarfaya,-12.91426,27.87944,geonames,6545632,ADM3,Tarfaya,exact
+11.537.03.03.,Daoura,Tarfaya,-12.85308,27.46033,geonames,6546494,ADM3,Daoura,exact
+12.066.01.03.,Lagouira (Mun.),Aousserd,-17.08988,20.83228,geonames,2462651,PPLQ,La Güera,exact
+12.066.03.03.,Aghouinite,Aousserd,-13.62351,22.47328,geonames,6546559,ADM3,Aghouinite,exact
+12.066.03.05.,Aousserd,Aousserd,-14.55998,22.70937,geonames,6545582,ADM3,Aousserd,exact
+12.066.03.07.,Tichla,Aousserd,-15.11326,21.78277,geonames,6545583,ADM3,Tichla,exact
+12.066.03.09.,Zoug,Aousserd,-13.75618,21.8671,geonames,6545584,ADM3,Zoug,exact
+12.066.05.03.,Bir Gandouz,Aousserd,-16.46866,21.61567,geonames,6545580,ADM3,Bir Gandouz,exact
+12.391.01.01.,Dakhla (Mun.),Oued Ed-Dahab,-15.81519,23.67822,geonames,6546560,ADM3,Dakhla,exact
+12.391.05.01.,Bir Anzarane,Oued Ed-Dahab,-14.66318,24.046,geonames,6545634,ADM3,Bir Anzarane,exact
+12.391.05.03.,Gleibat El Foula,Oued Ed-Dahab,-13.78162,23.44159,geonames,6545635,ADM3,Gleibat El Foula,exact
+12.391.05.05.,Mijik,Oued Ed-Dahab,-12.50346,23.80786,geonames,6545665,ADM3,Mijik,exact
+12.391.05.07.,Oum Dreyga,Oued Ed-Dahab,-13.50212,24.15433,geonames,6545636,ADM3,Oum Dreyga,exact
+01.051.01.09.,Ajdir (Mun.),Al Hoceima,-3.915209,35.193229,wikidata,Q412703,,Ajdir,exact
+01.051.05.25.,Zaouiat Sidi Abdelkader,Al Hoceima,-4.1286466,34.9169677,wikidata,Q8066343,,Zaouiat Sidi Abdelkader,exact
+01.511.03.05.,Sebt Azzinate,Tanger-Assilah,-5.7364305,35.6548721,wikidata,Q12188202,,Sebt Azzinate,exact
+01.511.03.15.,Had Al Gharbia,Tanger-Assilah,-5.9304923,35.5153823,wikidata,Q25454385,,Had Al Gharbia,exact
+01.571.03.03.,AL Kharroub,Tétouan,-5.7277173,35.396537,wikidata,Q12186968,,Al Kharroub,exact
+02.381.07.07.,Bni Oukil Oulad M'Hand,Nador,-3.0422176,35.0005914,wikidata,Q16843631,,Bni Oukil Oulad M'Hand,exact
+03.061.03.02.,Ain Karma- Oued Rommane,Meknès,-5.7005,34.1038,wikidata,Q7110285,,Ain Karma-Oued Rommane,exact
+03.061.05.09.,Sidi Slimane Moul Al Kifane,Meknès,-5.4528655555,33.8491827775,wikidata,Q7508818,,Sidi Slimane Moul Al Kifane,exact
+03.131.01.01.,Boulemane (Mun.),Boulemane,-4.733,33.366,wikidata,Q2745175,,Boulemane,exact
+03.531.09.23.,Sidi M'HamedBen Lahcen,Taounate,-4.6471877775,34.229467222,wikidata,Q7508765,,Sidi M'Hamed Ben Lahcen,exact
+04.281.03.11.,Ouled Slama,Kénitra,-6.4773438885,34.3399377775,wikidata,Q2369027,,Oulad Slama,fuzzy
+04.291.09.05.,Ait Buyahya El Hajjama,Khémisset,-6.2825155555,33.881478333000004,wikidata,Q16739972,,Ait Bouyahya El Hajjama,fuzzy
+04.291.09.19.,Ait Ali ou Lahcen,Khémisset,-6.512222222,34.025833333,wikidata,Q25454400,,Ait Ali Ou Lahcen,exact
+05.091.11.03.,Ouled Youssef,Béni Mellal,-6.429072222,32.5269827775,wikidata,Q956049,,Oulad Youssef,fuzzy
+05.255.05.05.,Ouled Bourahmoune,Fquih Ben Salah,-6.666944444,32.295277777,wikidata,Q7110388,,Oulad Bourahmoune,exact
+05.255.09.01.,Khalfia,Fquih Ben Salah,-6.5341855555,32.530314444,wikidata,Q4704207,,Al Khalfia,exact
+06.117.05.35.,Zaouiat Sidi Ben Hamdoun,Berrechid,-7.929166666,33.045,wikidata,Q12214252,,Zaouiat Sidi Ben Hamdoun,exact
+06.181.09.11.,Oulad Sidi Ali Ben Youssef,El Jadida,-8.106433333,32.9829966665,wikidata,Q7110429,,Oulad Sidi Ali Ben Youssef,exact
+06.181.09.17.,Si Hsaien Ben Abderrahmane,El Jadida,-8.177722777500001,33.104177222,wikidata,Q12217474,,Si Hsaien Ben Abderrahmane,exact
+06.461.03.02.,Ain Dorbane-Lahlaf,Settat,-7.235555555,33.093888888,wikidata,Q4697336,,Ain Dorbane Lahlaf,exact
+06.461.09.14.,Mzamza Janoubia,Settat,-7.548333333,32.979444444,wikidata,Q25454404,,Mzamza Janoubia,exact
+06.461.09.27.,Sidi Mohammed Ben Rahal,Settat,-7.77122,32.761515,wikidata,Q12217722,,Sidi Mohammed Ben Rahal,exact
+07.041.09.13.,Aghouatim,Al  Haouz,-7.93,31.41,wikidata,Q17049982,,Aghouatim,exact
+07.161.03.11.,Sid L'Mokhtar,Chichaoua,-9.019935,31.58438,wikidata,Q1169573,,Sid L'Mokhtar,exact
+07.191.05.16.,Laattaouia Ech-chaibia,El Kelâa des  Sraghna,-7.3271466665,31.86686,wikidata,Q6466617,,Laattaouia Ech-Chaybia,fuzzy
+07.427.07.11.,Oulad Aamer Tizmarine,Rehamna,-8.397222222,32.253611111,wikidata,Q7110378,,Oulad Aamer Tizmarine,exact
+07.427.09.06.,Jbilate,Rehamna,-7.868888888,31.901666666,wikidata,Q22948629,,Jbilate,exact
+07.431.07.13.,Ouled Salmane,Safi,-9.23333333,32.28333333,wikidata,Q12181202,,Oulad Salmane,fuzzy
+08.201.01.01.,Arfoud (Mun.),Errachidia,-4.232777777,31.436111111,wikidata,Q648987,,Erfoud,exact
+08.401.03.05.,Iznaguen,Ouarzazate,-7.429444444,30.422222222,wikidata,Q16836407,,Aznaguen,exact
+08.577.05.05.,Ait Sedrate JbelEl Oulia,Tinghir,-5.910269444,31.626825555499998,wikidata,Q16826412,,Ait Sedrate Jbel El Oulia,exact
+08.577.05.07.,Ait Sedrate JbelEL Soufla,Tinghir,-5.957222222,31.528333333,wikidata,Q16826416,,Ait Sedrate Jbel El Soufla,exact
+08.577.05.11.,Ait Sedrate Sahl El Gharbia,Tinghir,-6.1734605555,31.1331355555,wikidata,Q16826425,,Ait Sedrate Sahl El Gharbia,exact
+08.587.01.01.,Agdz (Mun.),Zagora,-6.46129611,30.698078889999998,wikidata,Q2717415,,Agdz,exact
+09.163.03.25.,Sidi AbdallahEl Bouchouari,Chtouka- Ait Baha,-9.3006316665,29.931811111000002,wikidata,Q7508604,,Sidi Abdallah El Bouchouari,exact
+09.541.04.39.,Sidi Abdellah Ou Said,Taroudannt,-8.6877785,30.782249,wikidata,Q7508613,,Sidi Abdellah Ou Said,exact
+09.541.04.67.,Tizi N'Test,Taroudannt,-8.39,30.844444444,wikidata,Q7810524,,Tizi N'Test,exact
+09.541.09.41.,Sidi Ahmed Ou Abdallah,Taroudannt,-8.588356111,30.334836666500003,wikidata,Q7508630,,Sidi Ahmed Ou Abdallah,exact
+09.551.03.03.,Kasbat Sidi Abdellah Ben M'Barek,Tata,-8.300712222,29.440921111,wikidata,Q12232938,,Kasbat Sidi Abdellah Ben M'Barek,exact
+10.071.01.03.,Zag (Mun.),Assa-Zag,-9.3333,28.0167,wikidata,Q140209,,Zag,exact
+10.473.07.11.,Sidi AbdallahOu Belaid,Sidi Ifni,-9.585694444,29.31825,wikidata,Q12217687,,Sidi Abdallah Ou Belaid,exact
+10.521.05.01.,Abteh,Tan-Tan,-11.4494,27.9015,wikidata,Q4670009,,Abteh,exact
+11.121.03.03.,Jraifia,Boujdour,-14.82732,24.90945,wikidata,Q25454468,,Jraifia,exact
+11.221.01.01.,Es-semara (Mun.),Es-Semara,-11.670277777,26.739444444,wikidata,Q842810,,Smara,exact
+11.221.03.01.,Amgala,Es-Semara,-11.413,26.1617,wikidata,Q109016773,,Amgala,exact
+11.221.03.05.,Jdiriya,Es-Semara,-10.4132,27.2486,wikidata,Q1656837,,Jdiriya,exact
+11.221.03.07.,Sidi Ahmed Laaroussi,Es-Semara,-11.773333333,26.822777777,wikidata,Q27534267,,Sidi Ahmed Laaroussi,exact
+11.321.03.05.,Foum El Oued,Laâyoune,-13.3928,27.1769,wikidata,Q25454472,,Foum El Oued,exact
+11.537.03.05.,El Hagounia,Tarfaya,-12.3919,27.4264,wikidata,Q1324202,,El Hagounia,exact
+11.537.05.01.,Akhfennir,Tarfaya,-12.048333333,28.095277777,wikidata,Q18729679,,Akhfenir,exact
+11.537.05.07.,Tah,Tarfaya,-12.9553,27.6704,wikidata,Q2388243,,Tah,exact
+12.391.09.01.,El Argoub,Oued Ed-Dahab,-15.858333,23.611111,wikidata,Q259477,,El Argoub,exact
+12.391.09.03.,Imlili,Oued Ed-Dahab,-16.0814,23.251807,wikidata,Q6004236,,Imlili,exact

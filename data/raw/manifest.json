@@ -44,13 +44,6 @@
     "size_bytes": 3272998,
     "url": "https://www.hcp.ma/file/230031/"
   },
-  "gadm41_MAR_shp.zip": {
-    "description": "GADM 4.1 Morocco, levels 0-4 (seed points only; not redistributed)",
-    "fetch_date": "2026-08-30T07:27:57Z",
-    "sha256": "b3a9221aa72d020a60d047f8dedf9b7259f1d09d001f3dc9deaec0f37b5f2908",
-    "size_bytes": 3049737,
-    "url": "https://geodata.ucdavis.edu/gadm/gadm4.1/shp/gadm41_MAR_shp.zip"
-  },
   "geometry/EH.zip": {
     "description": "GeoNames gazetteer, Western Sahara (CC BY 4.0; updated daily upstream)",
     "fetch_date": "2026-08-30",
@@ -73,6 +66,13 @@
     "sha256": "ce1ac7036499a0edd641fbc093cd209a98f96a49d2eca8480aaacad35138a7f6",
     "size_bytes": 4930492,
     "url": "https://naciscdn.org/naturalearth/10m/cultural/ne_10m_admin_0_countries.zip"
+  },
+  "geometry/wikidata_communes.csv": {
+    "description": "Wikidata rural and urban communes of Morocco with coordinates (CC0; changes continuously upstream)",
+    "fetch_date": "2026-09-24T09:16:04Z",
+    "sha256": "daf627de53b72a697b9e18cb33681dee10b2c2605cba67f76c3ae924a97da01b",
+    "size_bytes": 291481,
+    "url": "https://query.wikidata.org/sparql?query=SELECT%20%3Fitem%20%3Fcls%20%3Flabel%20%3Ffr%20%3Fcoord%20%3FadmLabel%20WHERE%20%7B%0A%20%20VALUES%20%3Fcls%20%7B%20wd%3AQ17318027%20wd%3AQ3327862%20%7D%0A%20%20%3Fitem%20wdt%3AP31%20%3Fcls%3B%20wdt%3AP625%20%3Fcoord.%0A%20%20OPTIONAL%20%7B%20%3Fitem%20rdfs%3Alabel%20%3Flabel%20FILTER%28lang%28%3Flabel%29%20%3D%20%22en%22%29%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fitem%20rdfs%3Alabel%20%3Ffr%20FILTER%28lang%28%3Ffr%29%20%3D%20%22fr%22%29%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fitem%20wdt%3AP131%20%3Fadm.%20%3Fadm%20rdfs%3Alabel%20%3FadmLabel%20FILTER%28lang%28%3FadmLabel%29%20%3D%20%22en%22%29%20%7D%0A%7D%20ORDER%20BY%20%3Fitem%20%3Fcoord"
   },
   "indicateurs_demo_socioeco_2024.xlsx": {
     "description": "RGPH 2024 - Indicateurs demographiques et socioeconomiques du Royaume",

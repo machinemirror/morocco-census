@@ -28,7 +28,7 @@ def exported(tmp_path_factory):
 def test_map_json(exported):
     d = json.loads((exported / "map.json").read_text())
     n = len(d["units"])
-    assert n == 1475
+    assert n == 1497
     assert all(len(v) == n for v in d["values"].values())
     for key in d["values"]:
         ind, year = key.split("|")
@@ -42,7 +42,7 @@ def test_map_json(exported):
 
 def test_geojson_aligns_with_units(exported):
     g = json.loads((exported / "communes.geojson").read_text())
-    assert sorted(f["properties"]["i"] for f in g["features"]) == list(range(1475))
+    assert sorted(f["properties"]["i"] for f in g["features"]) == list(range(1497))
 
 
 def test_downloads(exported):

@@ -1,13 +1,16 @@
 """Approximate commune geometry -> communes.gpkg (layers thiessen, points) + queen weights.
 
 HCP publishes no commune boundaries, so each commune gets a seed point and a Thiessen (Voronoi)
-cell clipped to the national outline. Seed points, in order of preference:
-  1. GADM 4.1 level-4 representative points, matched to the crosswalk by normalized
-     name + province (GADM provinces are pre-2015, so a fuzzy province tie-break is allowed);
-  2. the GeoNames gazetteer for units GADM lacks (post-2015 provinces, Western Sahara),
-     disambiguated by distance to the province's centroid of already-placed points.
-Arrondissements collapse to one unit per city. The outline is Natural Earth (public domain);
-GADM itself is never redistributed, only the derived seed coordinates.
+cell clipped to the national outline. Every input is openly licensed:
+  1. GeoNames (CC BY 4.0), matched by normalized name. Commune-level admin features (ADM3/ADM4)
+     rank before populated places, primary names before alternate names, and candidates must lie
+     near their province's anchor: the median of units with a single unambiguous candidate. A
+     province-constrained fuzzy match, checked word by word, catches spelling variants.
+  2. Wikidata (CC0) for units GeoNames misses: a unique name + province match whose recorded
+     coordinates agree with one another and fall near the province anchor.
+Where both gazetteers place a unit, their distance is written to points_crosscheck.csv. When they
+disagree by more than CROSSCHECK_FLAG_KM, catalog/seed_review.csv records a reviewed choice of
+source; without a review, the point nearer the province anchor is used. Arrondissements collapse to one unit per city. The outline is Natural Earth.
 """
 
 import re
@@ -18,117 +21,32 @@ import pandas as pd
 import shapely
 from libpysal import weights as psw
 from libpysal.io import open as psopen
-from rapidfuzz import fuzz
+from rapidfuzz import fuzz, process
 from shapely.geometry import Point
 
 from .config import (
     GEOMETRY,
-    I_GADM_CENTROIDS,
-    INTERIM,
     P_BOUNDARY,
     P_CONTEXT,
+    P_CROSSCHECK,
     P_CROSSWALK,
     P_DUP_POINTS,
     P_GAL,
-    P_GEOCODED,
     P_GPKG,
+    P_SEEDS,
     P_UNMATCHED,
-    R_GADM_L4,
     R_GEONAMES,
     R_NATURAL_EARTH,
+    R_WIKIDATA,
+    SEED_REVIEW,
 )
-from .crosswalk import norm
+from .crosswalk import norm, norm_app
 
 UTM = 32629
-
-
-def gadm_centroids() -> pd.DataFrame:
-    g = gpd.read_file(R_GADM_L4)
-    pt = g.to_crs(UTM).geometry.representative_point().to_crs(4326)
-    out = g[["NAME_1", "NAME_2", "NAME_3", "NAME_4", "VARNAME_4", "TYPE_4"]].assign(lon=pt.x, lat=pt.y)
-    INTERIM.mkdir(parents=True, exist_ok=True)
-    out.to_csv(I_GADM_CENTROIDS, index=False)
-    return out
-
-
-def boundary() -> gpd.GeoDataFrame:
-    ne = gpd.read_file(f"zip://{R_NATURAL_EARTH}")
-    b = gpd.GeoDataFrame(geometry=[ne[ne.ADM0_A3.isin(["MAR", "SAH"])].union_all()], crs=4326)
-    b.to_file(P_BOUNDARY, driver="GPKG")
-    # neighbouring land for map context, so the site needs no third-party basemap
-    ctx = ne[~ne.ADM0_A3.isin(["MAR", "SAH"])].clip((-24, 16, 6, 42))
-    ctx[["ADM0_A3", "NAME", "geometry"]].to_file(P_CONTEXT, driver="GPKG")
-    return b
-
-
-def units() -> pd.DataFrame:
-    cw = pd.read_csv(P_CROSSWALK)
-    cw["is_arr"] = cw.name14.str.contains(r"\(Arrond", na=False)
-    cw["unit"] = np.where(cw.is_arr, cw.code14.str.extract(r"^(\d+\.\d+\.\d+\.)")[0], cw.code14)
-    u = cw.drop_duplicates("unit").copy()
-    u["k_name"] = u.name14.str.replace(r"\s*\((Mun|Arrond)\.\)", "", regex=True).map(norm)
-    u["k_prov"] = u.prov14.map(norm)
-    u["is_mun"] = u.name14.str.contains(r"\((?:Mun|Arrond)", na=False)
-    return u
-
-
-def match_gadm(u: pd.DataFrame, g: pd.DataFrame) -> pd.Series:
-    g = g.copy()
-    g["k_name"] = g.NAME_4.map(norm)
-    g["k_prov"] = g.NAME_2.map(norm)
-    g = g.reset_index(drop=True)
-    g["is_mun"] = g.TYPE_4.astype(str).str.lower() != "commune rural"
-    d3 = g.drop_duplicates(["k_name", "k_prov", "is_mun"])
-    lut3 = {k: i for i, k in zip(d3.index, d3.set_index(["k_name", "k_prov", "is_mun"]).index)}
-    d2 = g.drop_duplicates(["k_name", "k_prov"])
-    lut = {k: i for i, k in zip(d2.index, d2.set_index(["k_name", "k_prov"]).index)}
-    uniq = g[g.k_name.map(g.k_name.value_counts()) == 1].set_index("k_name")
-    spine_counts = u.k_name.value_counts()
-    by_name = {}
-    for i, r in g.iterrows():
-        by_name.setdefault((r.k_name, r.is_mun), []).append(i)
-        by_name.setdefault((r.k_name, None), []).append(i)
-
-    def find(row):
-        i = lut3.get((row.k_name, row.k_prov, row.is_mun))
-        if i is not None:
-            return i
-        i = lut.get((row.k_name, row.k_prov))
-        if i is not None:
-            return i
-        # among same-name candidates pick the one whose (pre-2015) province is fuzzy-closest, by a clear margin
-        for key in ((row.k_name, row.is_mun), (row.k_name, None)):
-            cand = by_name.get(key, [])
-            if len(cand) == 1 and spine_counts.get(row.k_name, 0) == 1:
-                return cand[0]
-            if len(cand) > 1:
-                scored = sorted(((fuzz.ratio(row.k_prov, g.k_prov[i]), i) for i in cand), reverse=True)
-                if scored[0][0] >= 60 and (len(scored) == 1 or scored[0][0] - scored[1][0] >= 10):
-                    return scored[0][1]
-        if row.is_arr and norm(row.prov14) in uniq.index:  # arrondissement city: match on the city name
-            return uniq.loc[norm(row.prov14)].name
-        if row.k_name in uniq.index and spine_counts.get(row.k_name, 0) == 1:
-            return uniq.loc[row.k_name].name
-        return None
-
-    gi = u.apply(find, axis=1)
-    return gi, g
-
-
-def place(matched: pd.DataFrame) -> tuple[gpd.GeoDataFrame, pd.DataFrame]:
-    matched = matched[matched.lon.notna() & matched.lat.notna()].copy()
-    # homonym urban/rural pairs sharing one GADM polygon are distinct communes: offset later shares ~2 km east
-    shared = matched.groupby("gi").cumcount()
-    matched.loc[shared > 0, "lon"] = matched.lon + 0.02 * shared
-    key = matched.lon.round(3).astype(str) + "|" + matched.lat.round(3).astype(str)
-    dup = key.duplicated(keep="first")
-    pts = gpd.GeoDataFrame(
-        matched.loc[~dup, ["unit", "name14", "prov14", "code24", "label04", "pt_src"]],
-        geometry=[Point(xy) for xy in zip(matched.lon[~dup], matched.lat[~dup])],
-        crs=4326,
-    )
-    return pts, matched.loc[dup, ["unit", "name14", "prov14"]]
-
+KM_PER_DEG = 111.0
+MIN_RADIUS_DEG = 0.5  # ~55 km: floor on the province search radius
+MAX_RADIUS_DEG = 3.0  # ~330 km: one stray first-pass match must not open a whole region
+CROSSCHECK_FLAG_KM = 25
 
 GEONAMES_COLS = [
     "geonameid",
@@ -153,49 +71,203 @@ GEONAMES_COLS = [
 ]
 
 
-def geonames(unmatched: pd.DataFrame, pts: gpd.GeoDataFrame, outline) -> pd.DataFrame:
+def boundary() -> gpd.GeoDataFrame:
+    ne = gpd.read_file(f"zip://{R_NATURAL_EARTH}")
+    b = gpd.GeoDataFrame(geometry=[ne[ne.ADM0_A3.isin(["MAR", "SAH"])].union_all()], crs=4326)
+    b.to_file(P_BOUNDARY, driver="GPKG")
+    # neighbouring land for map context, so the site needs no third-party basemap
+    ctx = ne[~ne.ADM0_A3.isin(["MAR", "SAH"])].clip((-24, 16, 6, 42))
+    ctx[["ADM0_A3", "NAME", "geometry"]].to_file(P_CONTEXT, driver="GPKG")
+    return b
+
+
+def units() -> pd.DataFrame:
+    cw = pd.read_csv(P_CROSSWALK)
+    cw["is_arr"] = cw.name14.str.contains(r"\(Arrond", na=False)
+    cw["unit"] = np.where(cw.is_arr, cw.code14.str.extract(r"^(\d+\.\d+\.\d+\.)")[0], cw.code14)
+    u = cw.drop_duplicates("unit").copy()
+    u["k_name"] = u.name14.str.replace(r"\s*\((Mun|Arrond)\.\)", "", regex=True).map(norm)
+    u["k_prov"] = u.prov14.map(norm)
+    u["is_mun"] = u.name14.str.contains(r"\((?:Mun|Arrond)", na=False)
+    return u
+
+
+def words(s: str) -> list[str]:
+    s = re.sub(r"([a-z])([A-Z])", r"\1 \2", str(s))  # "Sidi YahyaBni Zeroual"
+    s = re.sub(r"\s*\((Mun|Arrond)\.\)", "", s)
+    s = norm_app(s)
+    for a, b in (("ouled", "oulad"), ("sid", "sidi"), ("si", "sidi"), ("my", "moulay"), ("bni", "beni")):
+        s = re.sub(rf"\b{a}\b", b, s)
+    return s.split()
+
+
+def words_agree(census: str, gazetteer: str) -> bool:
+    # every word of the census name needs a close counterpart; GeoNames sometimes truncates the last word
+    g = words(gazetteer)
+    return all(
+        any(fuzz.ratio(w, x) >= 75 or (x == g[-1] and len(x) >= 3 and w.startswith(x)) for x in g)
+        for w in words(census)
+        if len(w) > 2
+    )
+
+
+def load_geonames(outline) -> pd.DataFrame:
     gn = pd.concat(
         [pd.read_csv(f, sep="\t", names=GEONAMES_COLS, dtype=str, keep_default_na=False) for f in R_GEONAMES]
     )
+    gn = gn[gn.fclass.isin(["P", "A"])]
+    # cercles, pachaliks and higher units share names with communes but are not communes
+    gn = gn[~gn["name"].str.match(r"(?i)cercle|pachalik|province|prefecture|region")]
     gn["lat"] = gn.lat.astype(float)
     gn["lon"] = gn.lon.astype(float)
-    gn = gn[gn.fclass.isin(["P", "A"])].reset_index(drop=True)
-    lut: dict[str, list[int]] = {}
-    for i, r in gn.iterrows():
-        for k in {norm(r["name"]), norm(r.asciiname)} | {norm(a) for a in r.altnames.split(",") if a}:
-            if len(k) >= 4:
-                lut.setdefault(k, []).append(i)
-
-    anchors = pts.assign(x=pts.geometry.x, y=pts.geometry.y).groupby("prov14")[["x", "y"]].mean()
     inside = outline.buffer(0.05)
+    gn = gn[[inside.contains(Point(x, y)) for x, y in zip(gn.lon, gn.lat)]].reset_index(drop=True)
+    gn["tier"] = gn.fcode.map(lambda c: 0 if c in ("ADM3", "ADM4") else 1 if c.startswith("PPL") else 2)
+    gn["key"] = ["".join(words(n)) for n in gn["name"]]
+    return gn
+
+
+def match_geonames(u: pd.DataFrame, gn: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame, pd.Series]:
+    primary: dict[str, set[int]] = {}
+    any_name: dict[str, set[int]] = {}
+    for i, r in gn.iterrows():
+        names = {norm(r["name"]), norm(r.asciiname)}
+        for k in names:
+            primary.setdefault(k, set()).add(i)
+        for k in names | {norm(a) for a in r.altnames.split(",") if a}:
+            if len(k) >= 4:
+                any_name.setdefault(k, set()).add(i)
+
+    def candidates(k: str) -> pd.DataFrame:
+        c = gn.loc[sorted(any_name.get(k, set()))].copy()
+        c["rank"] = 2 * c.tier + [0 if i in primary.get(k, set()) else 1 for i in c.index]
+        return c
+
+    cands = {r.unit: candidates(r.k_name) for r in u.itertuples()}
+    first = []
+    for r in u.itertuples():
+        c = cands[r.unit]
+        if len(c) and c["rank"].min() < 4 and (c["rank"] == c["rank"].min()).sum() == 1:
+            b = c.loc[c["rank"].idxmin()]
+            first.append((r.prov14, b.lon, b.lat))
+    f = pd.DataFrame(first, columns=["prov14", "lon", "lat"])
+    anchor = f.groupby("prov14")[["lon", "lat"]].median()
+    f = f.join(anchor, on="prov14", rsuffix="_a")
+    f["d"] = np.hypot(f.lon - f.lon_a, f.lat - f.lat_a)
+    radius = (3 * f.groupby("prov14").d.quantile(0.75)).clip(MIN_RADIUS_DEG, MAX_RADIUS_DEG)
+
+    def near(c: pd.DataFrame, prov: str) -> pd.DataFrame:
+        if prov not in anchor.index:
+            return c.assign(d=0.0)
+        ax, ay = anchor.loc[prov]
+        c = c.assign(d=np.hypot(c.lon - ax, c.lat - ay))
+        return c[c.d <= radius.get(prov, MIN_RADIUS_DEG)]
+
+    communes = gn[gn.tier <= 1]
     rows = []
-    for _, r in unmatched.iterrows():
-        name = re.sub(r"\s*\((Mun|Arrond)\.\)", "", str(r.name14)).strip()
-        cands = gn.loc[lut.get(norm(name), [])]
-        cands = cands[[inside.contains(Point(x, y)) for x, y in zip(cands.lon, cands.lat)]]
-        if not len(cands):
-            continue
-        if r.prov14 in anchors.index and len(cands) > 1:
-            ax, ay = anchors.loc[r.prov14]
-            d = np.hypot(cands.lon - ax, cands.lat - ay)
-            if d.min() > 3.0:  # >~300 km from the province anchor: refuse
+    for r in u.itertuples():
+        c = near(cands[r.unit], r.prov14)
+        how = "exact"
+        if len(c):
+            b = c.sort_values(["rank", "d"]).iloc[0]
+        elif r.prov14 in anchor.index:
+            pool = near(communes, r.prov14)
+            if not len(pool):
                 continue
-            best = cands.loc[d.idxmin()]
+            best = process.extract("".join(words(r.name14)), pool.key.tolist(), scorer=fuzz.ratio, limit=2)
+            clear = len(best) == 1 or best[0][1] - best[1][1] >= 5
+            b = pool.iloc[best[0][2]]
+            if not (best[0][1] >= 88 and clear and words_agree(r.name14, b["name"])):
+                continue
+            how = "fuzzy"
         else:
-            best = cands.sort_values("fclass").iloc[0]  # A (admin) before P (populated place)
+            continue
         rows.append(
             {
                 "unit": r.unit,
                 "name14": r.name14,
                 "prov14": r.prov14,
-                "lon": float(best.lon),
-                "lat": float(best.lat),
-                "geonameid": best.geonameid,
-                "fcode": best.fcode,
-                "display": best["name"],
+                "lon": float(b.lon),
+                "lat": float(b.lat),
+                "pt_src": "geonames",
+                "source_id": b.geonameid,
+                "feature": b.fcode,
+                "source_name": b["name"],
+                "match": how,
+            }
+        )
+    return pd.DataFrame(rows), anchor, radius
+
+
+def load_wikidata() -> pd.DataFrame:
+    wd = pd.read_csv(R_WIKIDATA, dtype=str)
+    xy = wd.coord.str.extract(r"Point\(([-\d.]+) ([-\d.]+)\)").astype(float)
+    wd["lon"], wd["lat"] = xy[0], xy[1]
+    wd["qid"] = wd.item.str.rsplit("/", n=1).str[-1]
+    g = wd.groupby("qid")
+    out = g.agg(label=("label", "first"), fr=("fr", "first"), adm=("admLabel", "first"), lon=("lon", "median"), lat=("lat", "median"))
+    # an item with several coordinates is usable only if they agree to within ~15 km
+    out["spread"] = np.hypot(g.lon.max() - g.lon.min(), g.lat.max() - g.lat.min())
+    out = out[out.spread <= 0.15].reset_index()
+    out["k"] = out.label.fillna(out.fr).map(norm)
+    out["k_fr"] = out.fr.fillna(out.label).map(norm)
+    out["k_prov"] = out.adm.fillna("").str.replace(r"(?i)\b(province|prefecture)\b|\(|\)", "", regex=True).map(norm)
+    return out
+
+
+def match_wikidata(u: pd.DataFrame, wd: pd.DataFrame, anchor: pd.DataFrame, radius: pd.Series) -> pd.DataFrame:
+    rows = []
+    for r in u.itertuples():
+        c = wd[(wd.k == r.k_name) | (wd.k_fr == r.k_name)]
+        if not len(c):
+            c = wd.loc[[fuzz.ratio(k, r.k_name) >= 88 and words_agree(r.name14, lab) for k, lab in zip(wd.k, wd.label.fillna(wd.fr))]]
+        # Wikidata states each commune's province, so that replaces the anchor-radius test when present
+        same_prov = np.array([fuzz.ratio(p, r.k_prov) >= 70 for p in c.k_prov], dtype=bool)
+        if r.prov14 in anchor.index:
+            ax, ay = anchor.loc[r.prov14]
+            near = np.hypot(c.lon - ax, c.lat - ay).to_numpy() <= radius.get(r.prov14, MIN_RADIUS_DEG)
+        else:
+            near = np.ones(len(c), dtype=bool)
+        c = c[same_prov | ((c.k_prov == "").to_numpy() & near)]
+        if len(c) != 1:
+            continue
+        b = c.iloc[0]
+        rows.append(
+            {
+                "unit": r.unit,
+                "name14": r.name14,
+                "prov14": r.prov14,
+                "lon": float(b.lon),
+                "lat": float(b.lat),
+                "pt_src": "wikidata",
+                "source_id": b.qid,
+                "feature": "",
+                "source_name": b.label if isinstance(b.label, str) else b.fr,
+                "match": "exact" if r.k_name in (b.k, b.k_fr) else "fuzzy",
             }
         )
     return pd.DataFrame(rows)
+
+
+def km(lon1, lat1, lon2, lat2) -> np.ndarray:
+    a = gpd.GeoSeries(gpd.points_from_xy(lon1, lat1), crs=4326).to_crs(UTM)
+    b = gpd.GeoSeries(gpd.points_from_xy(lon2, lat2), crs=4326).to_crs(UTM)
+    return (a.distance(b) / 1000).round(2).to_numpy()
+
+
+def place(seeds: pd.DataFrame) -> tuple[gpd.GeoDataFrame, pd.DataFrame]:
+    seeds = seeds.copy()
+    # homonym urban/rural pairs matched to one gazetteer feature are distinct communes: offset later shares ~2 km east
+    shared = seeds.groupby("source_id").cumcount()
+    seeds.loc[shared > 0, "lon"] = seeds.lon + 0.02 * shared
+    key = seeds.lon.round(3).astype(str) + "|" + seeds.lat.round(3).astype(str)
+    dup = key.duplicated(keep="first")
+    pts = gpd.GeoDataFrame(
+        seeds.loc[~dup, ["unit", "name14", "prov14", "code24", "label04", "pt_src"]],
+        geometry=[Point(xy) for xy in zip(seeds.lon[~dup], seeds.lat[~dup])],
+        crs=4326,
+    )
+    return pts, seeds.loc[dup, ["unit", "name14", "prov14"]]
 
 
 def tessellate(pts: gpd.GeoDataFrame, outline) -> gpd.GeoDataFrame:
@@ -216,23 +288,37 @@ def main(outline_path=None) -> gpd.GeoDataFrame:
     GEOMETRY.mkdir(parents=True, exist_ok=True)
     outline = (gpd.read_file(outline_path) if outline_path else boundary()).to_crs(4326).geometry.iloc[0]
     u = units()
-    gi, g = match_gadm(u, gadm_centroids())
-    u["gi"] = gi
-    matched = u[u.gi.notna()].copy()
-    unmatched = u[u.gi.isna()]
-    matched["lon"] = pd.to_numeric(matched.gi.map(g.lon), errors="coerce")
-    matched["lat"] = pd.to_numeric(matched.gi.map(g.lat), errors="coerce")
-    matched["pt_src"] = "gadm"
-    print(f"GADM seed points: {len(matched)}/{len(u)} units")
+    gn_seeds, anchor, radius = match_geonames(u, load_geonames(outline))
+    print(f"GeoNames seed points: {len(gn_seeds)}/{len(u)} units ({(gn_seeds.match == 'fuzzy').sum()} fuzzy)")
+    wd_all = match_wikidata(u, load_wikidata(), anchor, radius)
 
-    pts_gadm, _ = place(matched)
-    gc = geonames(unmatched, pts_gadm, outline)
-    gc.to_csv(P_GEOCODED, index=False)
-    add = unmatched.merge(gc[["unit", "lon", "lat"]], on="unit", how="inner").assign(pt_src="geonames")
-    print(f"GeoNames seed points: {len(add)}/{len(unmatched)}")
-    unmatched[~unmatched.unit.isin(set(gc.unit))][["unit", "name14", "prov14"]].to_csv(P_UNMATCHED, index=False)
+    both = gn_seeds.merge(wd_all, on=["unit", "name14", "prov14"], suffixes=("_gn", "_wd")).join(anchor, on="prov14")
+    both["km"] = km(both.lon_gn, both.lat_gn, both.lon_wd, both.lat_wd)
+    both["flag"] = both.km > CROSSCHECK_FLAG_KM
+    review = pd.read_csv(SEED_REVIEW).set_index("unit").source
+    nearer = np.where(
+        km(both.lon_gn, both.lat_gn, both.lon, both.lat) <= km(both.lon_wd, both.lat_wd, both.lon, both.lat),
+        "geonames",
+        "wikidata",
+    )
+    both["chosen"] = np.where(~both.flag, "geonames", both.unit.map(review).fillna(pd.Series(nearer, index=both.index)))
+    both["decided_by"] = np.where(~both.flag, "agree", np.where(both.unit.isin(review.index), "review", "anchor"))
+    both[["unit", "name14", "prov14", "source_id_gn", "source_id_wd", "km", "flag", "chosen", "decided_by"]].rename(
+        columns={"source_id_gn": "geonameid", "source_id_wd": "qid"}
+    ).to_csv(P_CROSSCHECK, index=False)
+    print(
+        f"cross-check: {len(both)} units in both gazetteers, median {both.km.median():.1f} km, "
+        f"{both.flag.sum()} over {CROSSCHECK_FLAG_KM} km ({(both.decided_by == 'review').sum()} reviewed)"
+    )
 
-    pts, dups = place(pd.concat([matched, add], ignore_index=True))
+    use_wd = set(both.unit[both.chosen == "wikidata"]) | (set(wd_all.unit) - set(gn_seeds.unit))
+    seeds = pd.concat([gn_seeds[~gn_seeds.unit.isin(use_wd)], wd_all[wd_all.unit.isin(use_wd)]], ignore_index=True)
+    print(f"seed points: {len(seeds)}/{len(u)} ({(seeds.pt_src == 'wikidata').sum()} from Wikidata)")
+    seeds = seeds.merge(u[["unit", "code24", "label04"]], on="unit")
+    seeds.drop(columns=["code24", "label04"]).to_csv(P_SEEDS, index=False)
+    u[~u.unit.isin(set(seeds.unit))][["unit", "name14", "prov14"]].to_csv(P_UNMATCHED, index=False)
+
+    pts, dups = place(seeds)
     dups.to_csv(P_DUP_POINTS, index=False)
     # a coarse coastline can leave a coastal seed just offshore (Harhoura with Natural Earth): keep its cell
     offshore = pts[~pts.within(outline)]

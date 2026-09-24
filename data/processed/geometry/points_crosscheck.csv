@@ -1,0 +1,1372 @@
+unit,name14,prov14,geonameid,qid,km,flag,chosen,decided_by
+01.051.01.01.,Al Hoceima (Mun.),Al Hoceima,6546170,Q310350,1.56,False,geonames,agree
+01.051.01.05.,Imzouren (Mun.),Al Hoceima,6547071,Q2719983,0.18,False,geonames,agree
+01.051.01.07.,Targuist (Mun.),Al Hoceima,6547072,Q2544562,0.97,False,geonames,agree
+01.051.01.09.,Ajdir (Mun.),Al Hoceima,11911326,Q412703,49.28,True,wikidata,review
+01.051.03.01.,Bni Boufrah,Al Hoceima,6546357,Q4930995,3.73,False,geonames,agree
+01.051.03.03.,Bni Gmil,Al Hoceima,6546358,Q1942317,3.96,False,geonames,agree
+01.051.03.05.,Bni Gmil Maksouline,Al Hoceima,6546359,Q4931002,2.0,False,geonames,agree
+01.051.03.07.,Senada,Al Hoceima,6545436,Q628903,1.03,False,geonames,agree
+01.051.05.01.,Ait Kamra,Al Hoceima,6545437,Q4699248,2.14,False,geonames,agree
+01.051.05.03.,Ait Youssef Ou Ali,Al Hoceima,11911116,Q4699275,3.03,False,geonames,agree
+01.051.05.05.,Arbaa Taourirt,Al Hoceima,11911110,Q4784591,11.13,False,geonames,agree
+01.051.05.07.,Bni Abdallah,Al Hoceima,6546171,Q4930986,1.98,False,geonames,agree
+01.051.05.09.,Bni Hadifa,Al Hoceima,6546356,Q2907469,5.56,False,geonames,agree
+01.051.05.11.,Chakrane,Al Hoceima,6545820,Q5068404,4.55,False,geonames,agree
+01.051.05.13.,Imrabten,Al Hoceima,6546172,Q3149563,2.91,False,geonames,agree
+01.051.05.15.,Izemmouren,Al Hoceima,11911113,Q6101904,2.35,False,geonames,agree
+01.051.05.17.,Louta,Al Hoceima,6545822,Q6689834,0.0,False,geonames,agree
+01.051.05.19.,Nekkour,Al Hoceima,11911111,Q6989822,1.38,False,geonames,agree
+01.051.05.21.,Rouadi,Al Hoceima,6545810,Q7370731,4.36,False,geonames,agree
+01.051.05.23.,Tifarouine,Al Hoceima,6545811,Q7801163,7.41,False,geonames,agree
+01.051.07.03.,Bni Ahmed Imoukzan,Al Hoceima,6546173,Q4930989,2.71,False,geonames,agree
+01.051.07.05.,Bni Ammart,Al Hoceima,6547073,Q4930990,3.79,False,geonames,agree
+01.051.07.07.,Bni Bchir,Al Hoceima,6547074,Q4930993,1.94,False,geonames,agree
+01.051.07.11.,Bni Bounsar,Al Hoceima,6547076,Q2907468,2.87,False,geonames,agree
+01.051.07.19.,Sidi Boutmim,Al Hoceima,6547078,Q7508696,2.86,False,geonames,agree
+01.051.07.21.,Sidi Bouzineb,Al Hoceima,6547079,Q7508700,0.98,False,geonames,agree
+01.051.07.27.,Zarkt,Al Hoceima,6545785,Q8066828,4.18,False,geonames,agree
+01.051.09.01.,Abdelghaya Souahel,Al Hoceima,6546454,Q4664804,4.36,False,geonames,agree
+01.051.09.09.,Bni Bouchibet,Al Hoceima,6547075,Q4930994,1.21,False,geonames,agree
+01.051.09.13.,Issaguen,Al Hoceima,11911123,Q2737756,4.16,False,geonames,agree
+01.051.09.15.,Ketama,Al Hoceima,6546174,Q6395311,5.57,False,geonames,agree
+01.051.09.17.,Moulay Ahmed Cherif,Al Hoceima,6547077,Q6918954,1.79,False,geonames,agree
+01.051.09.23.,Taghzout,Al Hoceima,6547080,Q7675261,2.24,False,geonames,agree
+01.051.09.25.,Tamsaout,Al Hoceima,6547081,Q7681848,0.48,False,geonames,agree
+01.151.01.01.,Chefchaouen (Mun.),Chefchaouen,6545557,Q676778,0.33,False,geonames,agree
+01.151.03.03.,Bab Berred,Chefchaouen,6546142,Q2877663,3.86,False,geonames,agree
+01.151.03.13.,Iounane,Chefchaouen,6546952,Q6064171,1.21,False,geonames,agree
+01.151.03.23.,Tamorot,Chefchaouen,6545794,Q7681643,5.01,False,geonames,agree
+01.151.05.01.,Bab Taza,Chefchaouen,11911074,Q920156,0.83,False,geonames,agree
+01.151.05.03.,Bni Darkoul,Chefchaouen,11911075,Q4930998,2.21,False,geonames,agree
+01.151.05.05.,Bni Faghloum,Chefchaouen,6545562,Q4930999,1.57,False,geonames,agree
+01.151.05.07.,Bni Salah,Chefchaouen,6545563,Q4931011,2.15,False,geonames,agree
+01.151.05.09.,Derdara,Chefchaouen,11911082,Q5261728,5.51,False,geonames,agree
+01.151.05.11.,Fifi,Chefchaouen,11911079,Q5447396,4.91,False,geonames,agree
+01.151.05.13.,Laghdir,Chefchaouen,6546002,Q6472089,1.47,False,geonames,agree
+01.151.05.15.,Tanaqoub,Chefchaouen,11911083,Q7682311,2.35,False,geonames,agree
+01.151.06.05.,Bni Ahmed Cherqia,Chefchaouen,6546949,Q4930987,1.28,False,geonames,agree
+01.151.06.07.,Bni Ahmed Gharbia,Chefchaouen,6546143,Q4930988,2.58,False,geonames,agree
+01.151.06.21.,Oued Malha,Chefchaouen,6545997,Q7110282,2.43,False,geonames,agree
+01.151.07.01.,Bni Bouzra,Chefchaouen,6547021,Q4930997,7.94,False,geonames,agree
+01.151.07.03.,Bni Mansour,Chefchaouen,6547022,Q4931006,0.82,False,geonames,agree
+01.151.07.05.,Bni Selmane,Chefchaouen,6547023,Q12199513,7.15,False,geonames,agree
+01.151.07.07.,Steha,Chefchaouen,6547024,Q12183037,8.0,False,geonames,agree
+01.151.07.09.,Talambote,Chefchaouen,6546444,Q12202006,9.29,False,geonames,agree
+01.151.07.11.,Tassift,Chefchaouen,6546445,Q7687645,11.34,False,geonames,agree
+01.151.07.13.,Tizgane,Chefchaouen,6546446,Q7810515,5.35,False,geonames,agree
+01.151.09.01.,Amtar,Chefchaouen,6546141,Q4748877,7.03,False,geonames,agree
+01.151.09.09.,Bni Rzine,Chefchaouen,11911271,Q4931010,8.03,False,geonames,agree
+01.151.09.11.,Bni Smih,Chefchaouen,6546951,Q4931014,4.77,False,geonames,agree
+01.151.09.17.,M'tioua,Chefchaouen,6545780,Q6711886,10.79,False,geonames,agree
+01.151.09.19.,Ouaouzgane,Chefchaouen,6545996,Q17013173,4.98,False,geonames,agree
+01.227.03.05.,Anjra,Fahs-Anjra,6546382,Q8200021,3.99,False,geonames,agree
+01.227.03.11.,Jouamaa,Fahs-Anjra,6546021,Q6294505,4.3,False,geonames,agree
+01.227.03.13.,Ksar El Majaz,Fahs-Anjra,6545417,Q6440699,4.55,False,geonames,agree
+01.227.03.21.,Taghramt,Fahs-Anjra,6545734,Q6137989,4.03,False,geonames,agree
+01.227.05.01.,Al Bahraoyine,Fahs-Anjra,6545718,Q5661733,2.95,False,geonames,agree
+01.227.05.05.,Ksar Sghir,Fahs-Anjra,6545686,Q2383366,8.67,False,geonames,agree
+01.227.05.09.,Malloussa,Fahs-Anjra,6545717,Q3305200,1.37,False,geonames,agree
+01.331.01.01.,Ksar El Kebir (Mun.),Larache,6546541,Q52603,0.95,False,geonames,agree
+01.331.01.03.,Larache (Mun.),Larache,6545687,Q606775,1.34,False,geonames,agree
+01.331.07.01.,Bou Jedyane,Larache,6545704,Q2921647,4.48,False,geonames,agree
+01.331.07.03.,Ksar Bjir,Larache,6546383,Q6440696,1.42,False,geonames,agree
+01.331.07.05.,Laouamra,Larache,6546677,Q6488033,5.03,False,geonames,agree
+01.331.07.11.,Souk L'Qolla,Larache,6547029,Q7564131,6.06,False,geonames,agree
+01.331.07.15.,Tatoft,Larache,11911050,Q12202670,2.85,False,geonames,agree
+01.331.07.17.,Zouada,Larache,6546019,Q12214765,3.4,False,geonames,agree
+01.331.09.01.,Ayacha,Larache,11911058,Q16208538,5.56,False,geonames,agree
+01.331.09.03.,Bni Arouss,Larache,6546336,Q4930992,2.37,False,geonames,agree
+01.331.09.05.,Bni Garfett,Larache,6545564,Q4931000,0.74,False,geonames,agree
+01.331.09.13.,Tazroute,Larache,6546003,Q12201972,4.9,False,geonames,agree
+01.331.09.15.,Zaaroura,Larache,6546004,Q8063409,0.88,False,geonames,agree
+01.331.11.03.,Oulad Ouchih,Larache,6545705,Q7110420,3.27,False,geonames,agree
+01.331.11.07.,Rissana Chamalia,Larache,6547033,Q12214072,4.44,False,geonames,agree
+01.331.11.09.,Rissana Janoubia,Larache,6545699,Q12214073,0.51,False,geonames,agree
+01.331.11.12.,Souaken,Larache,6547028,Q12188602,2.1,False,geonames,agree
+01.331.11.13.,Souk Tolba,Larache,6547030,Q6802800,1.45,False,geonames,agree
+01.405.01.09.,Ouezzane (Mun.),Ouezzane,11878430,Q602426,17.03,False,geonames,agree
+01.405.07.01.,Bni Quolla,Ouezzane,11911061,Q4931009,2.48,False,geonames,agree
+01.405.07.03.,Lamjaara,Ouezzane,11911062,Q553125,3.21,False,geonames,agree
+01.405.07.05.,Masmouda,Ouezzane,6546920,Q17009600,1.62,False,geonames,agree
+01.405.07.07.,Mzefroune,Ouezzane,11911067,Q6949463,5.36,False,geonames,agree
+01.405.07.09.,Ounnana,Ouezzane,6546922,Q7110527,4.81,False,geonames,agree
+01.405.07.11.,Sidi Ahmed Cherif,Ouezzane,6546311,Q17019247,2.29,False,geonames,agree
+01.405.07.13.,Sidi Bousber,Ouezzane,6545892,Q3915278,0.66,False,geonames,agree
+01.405.07.15.,Sidi Redouane,Ouezzane,11911060,Q7508814,0.64,False,geonames,agree
+01.405.07.17.,Teroual,Ouezzane,6546923,Q7702998,1.7,False,geonames,agree
+01.405.07.19.,Zghira,Ouezzane,6546128,Q8070008,1.2,False,geonames,agree
+01.405.09.01.,Ain Beida,Ouezzane,6547025,Q4697329,0.0,False,geonames,agree
+01.405.09.03.,Asjen,Ouezzane,6547026,Q4807050,2.24,False,geonames,agree
+01.405.09.05.,Brikcha,Ouezzane,11911068,Q2925553,4.89,False,geonames,agree
+01.405.09.09.,Moqrisset,Ouezzane,6546046,Q2744413,2.77,False,geonames,agree
+01.405.11.07.,Kalaat Bouqorra,Ouezzane,6546540,Q12233422,3.63,False,geonames,agree
+01.405.11.11.,Zoumi,Ouezzane,6546008,Q8074648,0.8,False,geonames,agree
+01.511.01.01.,Assilah (Mun.),Tanger-Assilah,11878900,Q730328,6.44,False,geonames,agree
+01.511.01.09.,Gueznaia (Mun.),Tanger-Assilah,6545548,Q3119260,1.98,False,geonames,agree
+01.511.03.01.,Al Manzla,Tanger-Assilah,6545700,Q12205807,4.79,False,geonames,agree
+01.511.03.03.,Aquouass Briech,Tanger-Assilah,6546250,Q12180072,3.86,False,geonames,agree
+01.511.03.07.,Dar Chaoui,Tanger-Assilah,11911093,Q12211244,7.82,False,geonames,agree
+01.511.03.11.,Sahel Chamali,Tanger-Assilah,6546038,Q12188222,1.31,False,geonames,agree
+01.511.03.13.,Sidi Lyamani,Tanger-Assilah,6546448,Q3483251,1.03,False,geonames,agree
+01.511.03.17.,Laaouama,Tanger-Assilah,11911094,Q5968571,8.18,False,geonames,agree
+01.511.81.05.,HJAR ENNHAL,Tanger-Assilah,11911095,Q25454397,3.3,False,geonames,agree
+01.571.01.07.,Oued Laou (Mun.),Tétouan,11878905,Q3099183,2.76,False,geonames,agree
+01.571.01.11.,Tétouan (Mun.),Tétouan,6546449,Q185157,2.9,False,geonames,agree
+01.571.03.01.,Ain Lahsan,Tétouan,11911087,Q12229154,3.6,False,geonames,agree
+01.571.03.05.,Bghaghza,Tétouan,6546450,Q6532523,4.78,False,geonames,agree
+01.571.03.07.,Bni Harchen,Tétouan,6547036,Q12199460,3.76,False,geonames,agree
+01.571.03.09.,Jbel Lahbib,Tétouan,11911088,Q12204913,8.77,False,geonames,agree
+01.571.03.11.,Bni Idder,Tétouan,6545778,Q12199688,3.11,False,geonames,agree
+01.571.03.15.,Mallalienne,Tétouan,6547038,Q12244892,3.52,False,geonames,agree
+01.571.03.17.,Saddina,Tétouan,6545414,Q12219919,1.4,False,geonames,agree
+01.571.03.19.,Souk Kdim,Tétouan,6547039,Q12217374,2.44,False,geonames,agree
+01.571.03.21.,Sahtryine,Tétouan,6545779,Q12188309,7.81,False,geonames,agree
+01.571.05.01.,Al Hamra,Tétouan,6546192,Q12186725,1.49,False,geonames,agree
+01.571.05.05.,Al Oued,Tétouan,6546193,Q12194780,8.13,False,geonames,agree
+01.571.05.07.,Azla,Tétouan,6547040,Q27538687,4.69,False,geonames,agree
+01.571.05.13.,Bni Leit,Tétouan,6546030,Q12199612,3.82,False,geonames,agree
+01.571.05.15.,Bni Said,Tétouan,11911084,Q12199508,9.02,False,geonames,agree
+01.571.05.19.,Oulad Ali Mansour,Tétouan,6546005,Q12181230,1.2,False,geonames,agree
+01.571.05.23.,Zaitoune,Tétouan,6546006,Q12214854,1.94,False,geonames,agree
+01.571.05.25.,Zaouiat Sidi Kacem,Tétouan,6545828,Q12214257,6.63,False,geonames,agree
+01.571.05.27.,Zinat,Tétouan,6545993,Q204287,4.93,False,geonames,agree
+01.573.01.01.,Fnideq (Mun.),M'Diq-Fnideq,11878438,Q513678,1.7,False,geonames,agree
+01.573.01.03.,Martil (Mun.),M'Diq-Fnideq,6546337,Q2626632,3.87,False,geonames,agree
+01.573.01.05.,M'Diq (Mun.),M'Diq-Fnideq,6545494,Q2501764,0.31,False,geonames,agree
+01.573.03.03.,Allyene,M'Diq-Fnideq,6546679,Q5669510,5.14,False,geonames,agree
+01.573.03.05.,Belyounech,M'Diq-Fnideq,11911108,Q22672360,3.33,False,geonames,agree
+02.113.01.01.,Ahfir (Mun.),Berkane,11879000,Q2544620,12.51,False,geonames,agree
+02.113.01.05.,Ain Erreggada (Mun.),Berkane,6545533,Q2876313,0.35,False,geonames,agree
+02.113.01.07.,Aklim (Mun.),Berkane,11879001,Q2484384,13.77,False,geonames,agree
+02.113.01.09.,Berkane (Mun.),Berkane,6545678,Q820813,1.44,False,geonames,agree
+02.113.01.25.,Saidia (Mun.),Berkane,6545976,Q4759,0.25,False,geonames,agree
+02.113.01.29.,Sidi Slimane Echcharraa (Mun.),Berkane,11878991,Q3483293,0.34,False,geonames,agree
+02.113.03.01.,Aghbal,Berkane,11911230,Q23011118,5.28,False,geonames,agree
+02.113.03.07.,Fezouane,Berkane,6545610,Q20408470,4.8,False,geonames,agree
+02.113.03.09.,Laatamna,Berkane,11911231,Q3220085,0.72,False,geonames,agree
+02.113.03.11.,Madagh,Berkane,11911232,Q6726176,1.12,False,geonames,agree
+02.113.05.03.,Boughriba,Berkane,6545679,Q27534251,3.91,False,geonames,agree
+02.113.05.05.,Chouihia,Berkane,11911227,Q27536893,3.87,False,geonames,agree
+02.113.05.13.,Rislane,Berkane,6545979,Q3433149,7.74,False,geonames,agree
+02.113.05.15.,Sidi Bouhria,Berkane,6545980,Q27535307,6.04,False,geonames,agree
+02.113.05.17.,Tafoughalt,Berkane,6545981,Q3513793,4.73,False,geonames,agree
+02.113.05.19.,Zegzel,Berkane,6545875,Q2541521,8.09,False,geonames,agree
+02.167.01.03.,Ben Taieb (Mun.),Driouch,6545611,Q2801411,3.56,False,geonames,agree
+02.167.01.09.,Driouch (Mun.),Driouch,11911234,Q1259122,8.97,False,geonames,agree
+02.167.01.13.,Midar (Mun.),Driouch,6547059,Q2152433,1.47,False,geonames,agree
+02.167.03.01.,Ain Zohra,Driouch,11911247,Q16826304,10.97,False,geonames,agree
+02.167.03.03.,Ait Mait,Driouch,6546348,Q16826392,3.2,False,geonames,agree
+02.167.03.05.,Amejjaou,Driouch,6546349,Q2842628,4.27,False,geonames,agree
+02.167.03.07.,Dar El Kebdani,Driouch,6546163,Q2678389,2.26,False,geonames,agree
+02.167.03.11.,Oulad Boubker,Driouch,6546073,Q17013217,8.67,False,geonames,agree
+02.167.03.13.,Tazaghine,Driouch,6546371,Q15077954,3.31,False,geonames,agree
+02.167.09.01.,Azlaf,Driouch,6546530,Q2875186,1.12,False,geonames,agree
+02.167.09.05.,Bni Marghnine,Driouch,6547058,Q16843623,1.8,False,geonames,agree
+02.167.09.07.,Boudinar,Driouch,6546076,Q2921480,5.22,False,geonames,agree
+02.167.09.09.,Iferni,Driouch,6546077,Q17005193,1.92,False,geonames,agree
+02.167.09.11.,Ijermaouas,Driouch,11911246,Q17005275,5.81,False,geonames,agree
+02.167.09.15.,M'Hajer,Driouch,6547060,Q17009094,2.92,False,geonames,agree
+02.167.09.17.,Ouardana,Driouch,6547061,Q12205834,1.72,False,geonames,agree
+02.167.09.19.,Oulad Amghar,Driouch,6545412,Q12205793,4.28,False,geonames,agree
+02.167.09.21.,Tafersit,Driouch,6546351,Q2094680,2.92,False,geonames,agree
+02.167.09.23.,Talilit,Driouch,6545982,Q17023246,2.53,False,geonames,agree
+02.167.09.25.,Temsamane,Driouch,6545746,Q2006438,1.58,False,geonames,agree
+02.167.09.29.,Tsaft,Driouch,6545894,Q17053064,8.08,False,geonames,agree
+02.251.01.01.,Bouarfa (Mun.),Figuig,6545473,Q2293231,2.32,False,geonames,agree
+02.251.01.03.,Figuig (Mun.),Figuig,6546275,Q425646,4.24,False,geonames,agree
+02.251.03.01.,Ain Chouater,Figuig,6546781,Q20395177,9.52,False,geonames,agree
+02.251.03.03.,Bni Tadjite,Figuig,11911201,Q2907473,10.1,False,geonames,agree
+02.251.03.07.,Bouchaouene,Figuig,6545429,Q20416246,5.74,False,geonames,agree
+02.251.03.11.,Talsint,Figuig,11911200,Q683959,6.83,False,geonames,agree
+02.251.03.13.,Ain Chair,Figuig,11911196,Q19543775,2.12,False,geonames,agree
+02.251.05.01.,Abbou Lakhal,Figuig,6546400,Q20382270,5.04,False,geonames,agree
+02.251.05.03.,Bni Guil,Figuig,6545613,Q20414002,0.94,False,geonames,agree
+02.251.05.07.,Tendrara,Figuig,11911199,Q3518036,23.62,False,geonames,agree
+02.265.01.03.,Guercif (Mun.),Guercif,6547086,Q2330467,0.89,False,geonames,agree
+02.265.05.01.,Assebbab,Guercif,11911249,Q16834686,5.32,False,geonames,agree
+02.265.05.03.,Barkine,Guercif,6545690,Q16838097,22.98,False,geonames,agree
+02.265.05.05.,Houara Oulad Raho,Guercif,6545571,Q17004898,8.68,False,geonames,agree
+02.265.05.07.,Lamrija,Guercif,6546155,Q17007740,5.72,False,geonames,agree
+02.265.05.15.,Saka,Guercif,11911255,Q16864736,15.21,False,geonames,agree
+02.265.07.09.,Mazguitam,Guercif,11911254,Q3303130,3.39,False,geonames,agree
+02.265.07.11.,Oulad Bourima,Guercif,6547090,Q16860493,7.3,False,geonames,agree
+02.265.07.13.,Ras Laksar,Guercif,11911251,Q16862005,5.45,False,geonames,agree
+02.265.07.17.,Taddart,Guercif,11911252,Q3513696,4.72,False,geonames,agree
+02.275.01.03.,Ain Bni Mathar (Mun.),Jerada,6545517,Q2293260,11.92,False,geonames,agree
+02.275.01.17.,Jerada (Mun.),Jerada,6545872,Q2287316,2.83,False,geonames,agree
+02.275.01.35.,Touissit (Mun.),Jerada,6545873,Q3532864,1.19,False,geonames,agree
+02.275.03.03.,Gafait,Jerada,6546312,Q3118857,9.78,False,geonames,agree
+02.275.03.05.,Guenfouda,Jerada,6545674,Q3118884,5.96,False,geonames,agree
+02.275.03.07.,Laaouinate,Jerada,11911209,Q27534254,1.34,False,geonames,agree
+02.275.03.09.,Lebkhata,Jerada,6545676,Q27727985,5.26,False,geonames,agree
+02.275.03.13.,Ras Asfour,Jerada,6545918,Q27535380,1.58,False,geonames,agree
+02.275.03.15.,Sidi Boubker,Jerada,6546936,Q3483203,2.38,False,geonames,agree
+02.275.03.21.,Tiouli,Jerada,6546313,Q27728075,13.01,False,geonames,agree
+02.275.05.01.,Bni Mathar,Jerada,11911205,Q20414402,2.81,False,geonames,agree
+02.275.05.11.,Mrija,Jerada,6545975,Q20424498,7.79,False,geonames,agree
+02.275.05.13.,Oulad Ghziyel,Jerada,6546937,Q27728016,12.46,False,geonames,agree
+02.381.01.01.,Al Aaroui (Mun.),Nador,6547049,Q613913,1.57,False,geonames,agree
+02.381.01.03.,Bni Ansar (Mun.),Nador,6546346,Q537462,2.94,False,geonames,agree
+02.381.01.05.,Nador (Mun.),Nador,6547050,Q824594,0.75,False,geonames,agree
+02.381.01.07.,Zaio (Mun.),Nador,6546347,Q144416,1.03,False,geonames,agree
+02.381.01.09.,Zeghanghane (Mun.),Nador,6547051,Q184459,0.79,False,geonames,agree
+02.381.01.15.,Ras El Ma (Mun.),Nador,6546350,Q1004716,8.74,False,geonames,agree
+02.381.01.19.,Selouane (Mun.),Nador,6547055,Q280853,4.01,False,geonames,agree
+02.381.05.01.,Bni Bouifrour,Nador,11911262,Q16952423,4.77,False,geonames,agree
+02.381.05.05.,Bni Sidel Jbel,Nador,6547053,Q16843647,0.01,False,geonames,agree
+02.381.05.07.,Bni Sidel Louta,Nador,6547052,Q16843652,6.61,False,geonames,agree
+02.381.05.09.,Bouarg,Nador,11911261,Q894944,4.25,False,geonames,agree
+02.381.05.13.,Iaazzanene,Nador,11911264,Q17005076,2.76,False,geonames,agree
+02.381.05.15.,Ihaddadene,Nador,6545745,Q605549,4.44,False,geonames,agree
+02.381.05.17.,Iksane,Nador,6547054,Q17005295,4.9,False,geonames,agree
+02.381.07.01.,Afsou,Nador,6547056,Q16825930,3.29,False,geonames,agree
+02.381.07.03.,Al Barkanyene,Nador,6547057,Q16826584,1.94,False,geonames,agree
+02.381.07.05.,Arekmane,Nador,6546059,Q16833598,9.46,False,geonames,agree
+02.381.07.09.,Hassi Berkane,Nador,11911257,Q2435042,12.25,False,geonames,agree
+02.381.07.11.,Oulad Daoud Zkhanine,Nador,6546060,Q17013233,9.06,False,geonames,agree
+02.381.07.13.,Oulad Settout,Nador,11911258,Q17013247,1.45,False,geonames,agree
+02.381.07.17.,Tiztoutine,Nador,6545858,Q3530003,1.95,False,geonames,agree
+02.411.01.11.,Bni Drar (Mun.),Oujda-Angad,6545895,Q2907474,3.01,False,geonames,agree
+02.411.01.19.,Naima (Mun.),Oujda-Angad,6545777,Q3335196,0.77,False,geonames,agree
+02.411.01.23.,Oujda (Mun.),Oujda-Angad,6545974,Q193802,0.43,False,geonames,agree
+02.411.03.01.,Ahl Angad,Oujda-Angad,6545640,Q18384650,6.63,False,geonames,agree
+02.411.03.03.,Ain Sfa,Oujda-Angad,11911216,Q20395652,1.75,False,geonames,agree
+02.411.03.05.,Bni Khaled,Oujda-Angad,6545643,Q2907466,0.55,False,geonames,agree
+02.411.03.07.,Bsara,Oujda-Angad,6545627,Q20417892,1.27,False,geonames,agree
+02.411.05.09.,Isly,Oujda-Angad,6545628,Q23011092,2.39,False,geonames,agree
+02.411.05.11.,Mestferki,Oujda-Angad,6546353,Q12242656,1.2,False,geonames,agree
+02.411.05.17.,Sidi Boulenouar,Oujda-Angad,6545874,Q20389716,4.02,False,geonames,agree
+02.411.05.19.,Sidi Moussa Lemhaya,Oujda-Angad,6546314,Q12217731,3.75,False,geonames,agree
+02.533.01.13.,Debdou (Mun.),Taourirt,6545857,Q654695,0.84,False,geonames,agree
+02.533.01.15.,El Aioun Sidi Mellouk (Mun.),Taourirt,11878987,Q3049730,0.4,False,geonames,agree
+02.533.01.33.,Taourirt (Mun.),Taourirt,6545983,Q2329701,1.2,False,geonames,agree
+02.533.03.05.,El Atef,Taourirt,6545480,Q5350784,0.0,False,geonames,agree
+02.533.03.19.,Sidi Lahsen,Taourirt,11911220,Q3483246,7.41,False,geonames,agree
+02.533.07.03.,Ain Lehjer,Taourirt,6545448,Q4697349,16.04,False,geonames,agree
+02.533.07.09.,Mechraa Hammadi,Taourirt,6545449,Q6804744,13.16,False,geonames,agree
+02.533.07.13.,Mestegmer,Taourirt,6546354,Q6822065,10.2,False,geonames,agree
+02.533.07.21.,Tancherfi,Taourirt,6545859,Q7682365,6.1,False,geonames,agree
+02.533.09.01.,Ahl Oued Za,Taourirt,6545534,Q4695159,6.31,False,geonames,agree
+02.533.09.07.,Gteter,Taourirt,6545680,Q5613096,3.37,False,geonames,agree
+02.533.09.11.,Melg El Ouidane,Taourirt,11911224,Q6812236,6.79,False,geonames,agree
+03.061.01.01.,Meknès (Mun.),Meknès,6546578,Q178663,1.55,False,geonames,agree
+03.061.01.03.,Al Machouar - Stinia (Mun.),Meknès,11878978,Q16208113,0.53,False,geonames,agree
+03.061.01.05.,Boufakrane (Mun.),Meknès,6545537,Q2921521,0.18,False,geonames,agree
+03.061.01.07.,Toulal (Mun.),Meknès,6546237,Q3532881,0.0,False,geonames,agree
+03.061.01.09.,Moulay Driss Zerhoun (Mun.),Meknès,6546094,Q593222,0.0,False,geonames,agree
+03.061.01.11.,Ouislane (Mun.),Meknès,6545812,Q3358142,0.0,False,geonames,agree
+03.061.03.01.,Ain Jemaa,Meknès,11911387,Q4697344,8.35,False,geonames,agree
+03.061.03.05.,Ain Orma,Meknès,11911386,Q4697354,6.19,False,geonames,agree
+03.061.03.09.,Dar Oum Soltane,Meknès,6546966,Q5221917,3.66,False,geonames,agree
+03.061.05.01.,Dkhissa,Meknès,11911384,Q5285423,3.32,False,geonames,agree
+03.061.05.03.,Majjate,Meknès,11911383,Q6737908,2.69,False,geonames,agree
+03.061.05.07.,Oued Jdida,Meknès,6546969,Q7110279,2.07,False,geonames,agree
+03.061.07.01.,Charqaoua,Meknès,6545539,Q5086646,1.81,False,geonames,agree
+03.061.07.05.,MRhassiyine,Meknès,6546970,Q6929556,1.68,False,geonames,agree
+03.061.07.07.,N'zalat Bni Amar,Meknès,6546971,Q3334115,0.01,False,geonames,agree
+03.061.07.09.,Oualili,Meknès,11911388,Q7110169,6.62,False,geonames,agree
+03.061.07.11.,Sidi Abdallah Al Khayat,Meknès,6546973,Q7508605,1.85,False,geonames,agree
+03.131.01.01.,Boulemane (Mun.),Boulemane,11911274,Q2745175,32.45,True,wikidata,review
+03.131.01.02.,Imouzzer Marmoucha (Mun.),Boulemane,6545558,Q2557021,1.17,False,geonames,agree
+03.131.01.03.,Missour (Mun.),Boulemane,6546860,Q2540367,1.28,False,geonames,agree
+03.131.01.05.,Outat El Haj (Mun.),Boulemane,6546861,Q3358599,0.93,False,geonames,agree
+03.131.03.01.,Ait Bazza,Boulemane,6545500,Q4699233,7.91,False,geonames,agree
+03.131.03.03.,Ait El Mane,Boulemane,6546974,Q4699237,7.5,False,geonames,agree
+03.131.03.05.,Almis Marmoucha,Boulemane,6546975,Q4733854,9.24,False,geonames,agree
+03.131.03.07.,El Mers,Boulemane,6545542,Q5351584,4.53,False,geonames,agree
+03.131.03.09.,Enjil,Boulemane,6545485,Q5378987,5.25,False,geonames,agree
+03.131.03.11.,Guigou,Boulemane,6546188,Q3119508,0.0,False,geonames,agree
+03.131.03.13.,Serghina,Boulemane,11911279,Q7454150,9.18,False,geonames,agree
+03.131.03.15.,Skoura M'Daz,Boulemane,6546032,Q7536484,1.63,False,geonames,agree
+03.131.03.17.,Talzemt,Boulemane,6546033,Q3514599,4.25,False,geonames,agree
+03.131.05.01.,Ksabi Moulouya,Boulemane,6546862,Q6440690,12.04,False,geonames,agree
+03.131.05.03.,Ouizeght,Boulemane,6546189,Q11285966,6.99,False,geonames,agree
+03.131.05.05.,Sidi Boutayeb,Boulemane,6546863,Q7508695,0.05,False,geonames,agree
+03.131.07.01.,El Orjane,Boulemane,6546984,Q5351723,7.71,False,geonames,agree
+03.131.07.03.,Ermila,Boulemane,6545708,Q5392456,2.33,False,geonames,agree
+03.131.07.05.,Fritissa,Boulemane,6545712,Q5504804,6.83,False,geonames,agree
+03.131.07.07.,Oulad Ali Youssef,Boulemane,6546441,Q7110393,39.44,True,geonames,review
+03.171.01.01.,Agourai (Mun.),El  Hajeb,6546953,Q2827113,1.0,False,geonames,agree
+03.171.01.03.,Ain Taoujdate (Mun.),El  Hajeb,11878983,Q2828136,10.31,False,geonames,agree
+03.171.01.05.,El Hajeb (Mun.),El  Hajeb,11878982,Q2606723,5.88,False,geonames,agree
+03.171.01.07.,Sabaa Aiyoun (Mun.),El  Hajeb,6546956,Q3460453,0.93,False,geonames,agree
+03.171.03.01.,Ait Ouikhalfen,El  Hajeb,6546435,Q4699261,12.36,False,geonames,agree
+03.171.03.03.,Ait Yaazem,El  Hajeb,6546323,Q4699274,1.33,False,geonames,agree
+03.171.03.05.,Jahjouh,El  Hajeb,6545711,Q6123262,0.57,False,geonames,agree
+03.171.03.07.,Ras Ijerri,El  Hajeb,6545693,Q12212719,1.38,False,geonames,agree
+03.171.03.09.,Tamchachate,El  Hajeb,6545483,Q12202031,1.96,False,geonames,agree
+03.171.05.01.,Ait Boubidmane,El  Hajeb,11911289,Q2876461,3.99,False,geonames,agree
+03.171.05.03.,Ait Harz Allah,El  Hajeb,6546958,Q4699243,3.41,False,geonames,agree
+03.171.05.05.,Bitit,El  Hajeb,11911291,Q12198740,3.61,False,geonames,agree
+03.171.05.07.,Laqsir,El  Hajeb,6546066,Q6488479,2.63,False,geonames,agree
+03.171.07.01.,Ait Bourzouine,El  Hajeb,6546508,Q4699234,2.53,False,geonames,agree
+03.171.07.03.,Ait Naamane,El  Hajeb,6545715,Q4699257,8.95,False,geonames,agree
+03.171.07.05.,Iqaddar,El  Hajeb,6546509,Q12182392,4.28,False,geonames,agree
+03.271.01.01.,Azrou (Mun.),Ifrane,11878912,Q794128,0.74,False,geonames,agree
+03.271.01.03.,Ifrane (Mun.),Ifrane,11878913,Q1001887,1.31,False,geonames,agree
+03.271.03.01.,Ain Leuh,Ifrane,11911299,Q540643,5.0,False,geonames,agree
+03.271.03.03.,Ben Smim,Ifrane,6546219,Q20390976,2.13,False,geonames,agree
+03.271.03.05.,Oued Ifrane,Ifrane,6546220,Q3358023,0.56,False,geonames,agree
+03.271.03.07.,Sidi El Makhfi,Ifrane,6545702,Q22932867,16.24,False,geonames,agree
+03.271.03.09.,Tigrigra,Ifrane,6545703,Q20406106,11.49,False,geonames,agree
+03.271.03.11.,Timahdite,Ifrane,6545846,Q388222,1.79,False,geonames,agree
+03.271.81.01.,Dayat Aoua,Ifrane,12034994,Q20395523,119.09,True,geonames,review
+03.271.81.03.,Tizguite,Ifrane,6545538,Q20405880,0.0,False,geonames,agree
+03.451.01.01.,Bhalil (Mun.),Sefrou,6545682,Q2294821,0.66,False,geonames,agree
+03.451.01.03.,El Menzel (Mun.),Sefrou,6546992,Q2319740,0.71,False,geonames,agree
+03.451.01.05.,Imouzzer Kandar (Mun.),Sefrou,6545723,Q2556989,0.48,False,geonames,agree
+03.451.01.07.,Ribate El Kheir (Mun.),Sefrou,6546993,Q3430101,1.36,False,geonames,agree
+03.451.01.09.,Sefrou (Mun.),Sefrou,6546442,Q1009308,0.83,False,geonames,agree
+03.451.03.01.,Adrej,Sefrou,6546994,Q2824317,1.86,False,geonames,agree
+03.451.03.03.,Ain Timguenai,Sefrou,6546147,Q20395392,1.3,False,geonames,agree
+03.451.03.05.,Bir Tam Tam,Sefrou,6546995,Q12195486,0.75,False,geonames,agree
+03.451.03.07.,Dar El Hamra,Sefrou,6545560,Q20405984,2.47,False,geonames,agree
+03.451.03.09.,Ighzrane,Sefrou,6545512,Q12182367,13.11,False,geonames,agree
+03.451.03.11.,Mtarnagha,Sefrou,6546996,Q20399373,0.83,False,geonames,agree
+03.451.03.13.,Oulad Mkoudou,Sefrou,6546035,Q17013241,4.11,False,geonames,agree
+03.451.03.15.,Ras Tabouda,Sefrou,11911306,Q3419779,3.8,False,geonames,agree
+03.451.03.17.,Tafajight,Sefrou,6545506,Q3513777,7.28,False,geonames,agree
+03.451.05.01.,Ain Cheggag,Sefrou,11911304,Q2876277,0.23,False,geonames,agree
+03.451.05.03.,Ait Sebaa Lajrouf,Sefrou,6546998,Q16826407,5.41,False,geonames,agree
+03.451.07.01.,Aghbalou Aqorar,Sefrou,6546058,Q16825974,6.78,False,geonames,agree
+03.451.07.03.,Ahl Sidi Lahcen,Sefrou,6545688,Q20391685,3.57,False,geonames,agree
+03.451.07.07.,Kandar Sidi Khiar,Sefrou,6546190,Q12236295,0.29,False,geonames,agree
+03.451.07.09.,Laanoussar,Sefrou,6546191,Q1799331,6.15,False,geonames,agree
+03.451.07.11.,Sidi YoussefBen Ahmed,Sefrou,10921618,Q17019366,0.68,False,geonames,agree
+03.451.07.13.,Tazouta,Sefrou,11911301,Q20418029,3.92,False,geonames,agree
+03.531.01.01.,Ghafsai (Mun.),Taounate,6546148,Q3104753,0.55,False,geonames,agree
+03.531.01.03.,Karia Ba Mohamed (Mun.),Taounate,6547001,Q1169860,0.6,False,geonames,agree
+03.531.01.05.,Taounate (Mun.),Taounate,6547002,Q2548730,1.86,False,geonames,agree
+03.531.01.07.,Thar Es-souk (Mun.),Taounate,6545612,Q3519588,0.13,False,geonames,agree
+03.531.03.01.,El Bibane,Taounate,6547003,Q12184731,0.55,False,geonames,agree
+03.531.03.03.,Galaz,Taounate,6546443,Q5518168,2.43,False,geonames,agree
+03.531.03.05.,Kissane,Taounate,6546149,Q12236738,4.89,False,geonames,agree
+03.531.03.07.,Oudka,Taounate,6546150,Q12250843,4.8,False,geonames,agree
+03.531.03.09.,Ouartzagh,Taounate,11911372,Q3358491,2.3,False,geonames,agree
+03.531.03.11.,Ratba,Taounate,6546152,Q12187698,4.98,False,geonames,agree
+03.531.03.13.,Sidi Haj M'hamed,Taounate,6547004,Q12217597,1.31,False,geonames,agree
+03.531.03.15.,Sidi Mokhfi,Taounate,6547005,Q12217609,5.43,False,geonames,agree
+03.531.03.17.,Sidi YahyaBni Zeroual,Taounate,6547006,Q12217742,1.62,False,geonames,agree
+03.531.03.19.,Tabouda,Taounate,6546037,Q12201791,4.43,False,geonames,agree
+03.531.03.21.,Tafrant,Taounate,11911354,Q12201992,5.56,False,geonames,agree
+03.531.03.23.,Timezgana,Taounate,6547007,Q12203246,7.01,False,geonames,agree
+03.531.05.01.,Bni Snous,Taounate,6547008,Q12199521,0.91,False,geonames,agree
+03.531.05.03.,Bouchabel,Taounate,6546534,Q4949264,4.02,False,geonames,agree
+03.531.05.07.,Jbabra,Taounate,6546179,Q6168632,0.7,False,geonames,agree
+03.531.05.09.,Loulja,Taounate,6546535,Q6689625,3.72,False,geonames,agree
+03.531.05.13.,Moulay Abdelkrim,Taounate,6546007,Q12246368,0.15,False,geonames,agree
+03.531.05.15.,Moulay Bouchta,Taounate,11911378,Q6918958,1.53,False,geonames,agree
+03.531.05.17.,Sidi El Abed,Taounate,6546180,Q12217603,4.86,False,geonames,agree
+03.531.07.01.,Ain Mediouna,Taounate,6545684,Q4833287,2.58,False,geonames,agree
+03.531.07.03.,Bni Oulid,Taounate,11911346,Q12199676,4.81,False,geonames,agree
+03.531.07.05.,Bni Ounjel Tafraout,Taounate,6547082,Q12199678,5.5,False,geonames,agree
+03.531.07.07.,Bouadel,Taounate,6546539,Q12200072,1.98,False,geonames,agree
+03.531.07.09.,Bouhouda,Taounate,11911352,Q4949463,5.6,False,geonames,agree
+03.531.07.11.,Fennassa Bab El Hit,Taounate,6545860,Q12231079,3.66,False,geonames,agree
+03.531.07.13.,Khlalfa,Taounate,6547083,Q12182857,1.16,False,geonames,agree
+03.531.07.15.,Mezraoua,Taounate,6545987,Q12242449,1.91,False,geonames,agree
+03.531.07.17.,Rghioua,Taounate,6547009,Q12182900,4.54,False,geonames,agree
+03.531.07.19.,Tamedit,Taounate,6547084,Q7681120,2.08,False,geonames,agree
+03.531.07.21.,Zrizer,Taounate,6545988,Q12188091,1.81,False,geonames,agree
+03.531.09.01.,Ain Aicha,Taounate,6547010,Q4833263,4.95,False,geonames,agree
+03.531.09.03.,Ain Legdah,Taounate,6547011,Q12229157,3.28,False,geonames,agree
+03.531.09.05.,Ain Maatouf,Taounate,6547012,Q12229163,2.66,False,geonames,agree
+03.531.09.07.,Bouarouss,Taounate,11911375,Q4949231,4.62,False,geonames,agree
+03.531.09.09.,El Bsabsa,Taounate,6547014,Q12184451,2.57,False,geonames,agree
+03.531.09.11.,Messassa,Taounate,6547015,Q12242551,2.68,False,geonames,agree
+03.531.09.13.,Oued Jemaa,Taounate,6547016,Q12250433,2.89,False,geonames,agree
+03.531.09.15.,Oulad Ayyad,Taounate,6547017,Q16896279,5.13,False,geonames,agree
+03.531.09.17.,Oulad Daoud,Taounate,6545784,Q17013226,3.88,False,geonames,agree
+03.531.09.19.,Outabouabane,Taounate,11911336,Q12195309,3.02,False,geonames,agree
+03.531.09.21.,Ras El Oued,Taounate,6546153,Q7294686,3.63,False,geonames,agree
+03.561.01.05.,Oued Amlil (Mun.),Taza,11878971,Q580553,0.28,False,geonames,agree
+03.561.01.07.,Tahla (Mun.),Taza,6547019,Q2544567,0.86,False,geonames,agree
+03.561.01.11.,Taza (Mun.),Taza,6547088,Q574469,0.06,False,geonames,agree
+03.561.03.01.,Ajdir,Taza,11911326,Q4699689,2.76,False,geonames,agree
+03.561.03.03.,Bourd,Taza,6546455,Q16845268,4.45,False,geonames,agree
+03.561.03.05.,Gzenaya Al Janoubia,Taza,6546456,Q17004047,6.19,False,geonames,agree
+03.561.03.07.,Jbarna,Taza,6545570,Q17006549,6.21,False,geonames,agree
+03.561.03.09.,Sidi Ali Bourakba,Taza,6546176,Q3483176,0.89,False,geonames,agree
+03.561.03.11.,Tizi Ouasli,Taza,6546361,Q3529989,3.68,False,geonames,agree
+03.561.07.01.,Bni Frassen,Taza,11911319,Q12199592,2.14,False,geonames,agree
+03.561.07.03.,Bouchfaa,Taza,6546156,Q20416263,1.69,False,geonames,agree
+03.561.07.05.,Bouhlou,Taza,11911315,Q16766449,8.61,False,geonames,agree
+03.561.07.07.,Ghiata Al Gharbia,Taza,11911316,Q17003635,4.98,False,geonames,agree
+03.561.07.09.,Oulad Zbair,Taza,11911317,Q3358176,1.75,False,geonames,agree
+03.561.07.11.,Rbaa El Fouki,Taza,6546529,Q16862201,1.31,False,geonames,agree
+03.561.09.01.,Ait Saghrouchen,Taza,6545691,Q6539397,7.1,False,geonames,agree
+03.561.09.03.,Bouyablane,Taza,11911307,Q22928959,14.15,False,geonames,agree
+03.561.09.07.,Matmata,Taza,6546321,Q6787693,3.05,False,geonames,agree
+03.561.09.09.,Smià,Taza,6546322,Q16867021,4.74,False,geonames,agree
+03.561.09.11.,Tazarine,Taza,6546139,Q16868591,4.36,False,geonames,agree
+03.561.09.13.,Zrarda,Taza,11911312,Q8074757,4.95,False,geonames,agree
+03.561.11.01.,Bni Ftah,Taza,6546355,Q20409024,3.3,False,geonames,agree
+03.561.11.03.,Brarha,Taza,6546166,Q16845914,4.6,False,geonames,agree
+03.561.11.05.,El Gouzate,Taza,6546167,Q16966952,1.4,False,geonames,agree
+03.561.11.07.,Kaf El Ghar,Taza,11911323,Q17007033,1.41,False,geonames,agree
+03.561.11.09.,Msila,Taza,6546169,Q17011622,0.0,False,geonames,agree
+03.561.11.11.,Taifa,Taza,6547062,Q16868254,3.23,False,geonames,agree
+03.561.11.13.,Tainaste,Taza,11911324,Q3516558,1.21,False,geonames,agree
+03.561.11.15.,Traiba,Taza,6546039,Q16766657,2.59,False,geonames,agree
+03.561.13.01.,Bab Boudir,Taza,6547064,Q20407395,3.23,False,geonames,agree
+03.561.13.03.,Bab Marzouka,Taza,6547065,Q12195563,6.78,False,geonames,agree
+03.561.13.05.,Bni Lent,Taza,11911318,Q12199611,2.64,False,geonames,agree
+03.561.13.07.,Galdamane,Taza,6546453,Q12235795,2.28,False,geonames,agree
+03.561.13.09.,Meknassa Acharqia,Taza,6547067,Q17009906,0.73,False,geonames,agree
+03.561.13.11.,Meknassa Al Gharbia,Taza,6547068,Q17009915,1.49,False,geonames,agree
+03.561.13.13.,Oulad Chrif,Taza,6547069,Q16860494,1.77,False,geonames,agree
+03.561.13.15.,Maghraoua,Taza,11911308,Q16766656,1.94,False,geonames,agree
+03.591.01.01.,Moulay Yacoub (Mun.),Moulay Yacoub,6546987,Q1950230,0.38,False,geonames,agree
+03.591.03.01.,Ain Chkef,Moulay Yacoub,11911395,Q12229116,5.61,False,geonames,agree
+03.591.03.03.,Mikkes,Moulay Yacoub,6546988,Q12246857,6.23,False,geonames,agree
+03.591.03.05.,Sebaa Rouadi,Moulay Yacoub,11911396,Q12215290,4.23,False,geonames,agree
+03.591.03.07.,Sebt Loudaya,Moulay Yacoub,6546990,Q12215323,4.16,False,geonames,agree
+03.591.05.02.,Ain Kansra,Moulay Yacoub,6545722,Q27534928,4.42,False,geonames,agree
+03.591.05.03.,Laajajra,Moulay Yacoub,11911394,Q12190035,3.57,False,geonames,agree
+03.591.05.05.,Louadaine,Moulay Yacoub,6545503,Q12237283,2.91,False,geonames,agree
+03.591.05.07.,Oulad Mimoun,Moulay Yacoub,6545504,Q12181274,1.39,False,geonames,agree
+03.591.05.09.,Sidi Daoud,Moulay Yacoub,6545505,Q20389789,2.71,False,geonames,agree
+04.281.01.01.,Kénitra (Mun.),Kénitra,6546897,Q478207,1.86,False,geonames,agree
+04.281.01.05.,Mehdya (Mun.),Kénitra,6546240,Q598684,1.37,False,geonames,agree
+04.281.01.11.,Souk El Arbaa (Mun.),Kénitra,6546900,Q2544644,1.69,False,geonames,agree
+04.281.03.01.,Ameur Seflia,Kénitra,11911439,Q2368725,7.8,False,geonames,agree
+04.281.03.05.,Haddada,Kénitra,6546599,Q2368779,2.41,False,geonames,agree
+04.281.03.11.,Ouled Slama,Kénitra,2539194,Q2369027,96.49,True,wikidata,anchor
+04.281.03.13.,Sidi Taibi,Kénitra,6546305,Q3483299,289.66,True,geonames,review
+04.281.05.03.,Ben Mansour,Kénitra,11911430,Q2368983,8.02,False,geonames,agree
+04.281.05.07.,Mnasra,Kénitra,6545590,Q12245176,104.73,True,geonames,review
+04.281.05.09.,Mograne,Kénitra,11911434,Q2369007,4.14,False,geonames,agree
+04.281.07.01.,Arbaoua,Kénitra,6545447,Q2859627,0.98,False,geonames,agree
+04.281.07.03.,Beni Malek,Kénitra,6545477,Q4887904,7.48,False,geonames,agree
+04.281.07.05.,Kariat Ben Aouda,Kénitra,11911427,Q2368920,5.32,False,geonames,agree
+04.281.07.07.,Oued El Makhazine,Kénitra,6546125,Q2368792,6.02,False,geonames,agree
+04.281.09.01.,Bahhara Ouled Ayad,Kénitra,11911433,Q4842547,1.89,False,geonames,agree
+04.281.09.09.,Sidi Allal Tazi,Kénitra,11911429,Q3483181,7.73,False,geonames,agree
+04.281.09.13.,Sidi Mohamed Lahmar,Kénitra,11911431,Q2369044,5.09,False,geonames,agree
+04.281.09.15.,Souk Tlet El Gharb,Kénitra,6546424,Q952999,4.77,False,geonames,agree
+04.281.11.05.,Lalla Mimouna,Kénitra,11911426,Q1169828,2.3,False,geonames,agree
+04.281.11.07.,Moulay Bousselham,Kénitra,11911423,Q3325538,7.19,False,geonames,agree
+04.281.11.11.,Sidi Boubker El Haj,Kénitra,6546910,Q7508686,2.48,False,geonames,agree
+04.291.01.01.,Khémisset (Mun.),Khémisset,6546130,Q1046653,1.88,False,geonames,agree
+04.291.01.03.,Rommani (Mun.),Khémisset,6545553,Q3441236,0.36,False,geonames,agree
+04.291.01.05.,Tiflet (Mun.),Khémisset,6546939,Q2501786,1.47,False,geonames,agree
+04.291.01.17.,Sidi Allal El Bahraoui (Mun.),Khémisset,11911855,Q3483178,4.5,False,geonames,agree
+04.291.03.01.,Ait Mimoune,Khémisset,11911877,Q16740017,10.71,False,geonames,agree
+04.291.03.03.,Ait Ouribel,Khémisset,6546940,Q16740015,0.76,False,geonames,agree
+04.291.03.05.,Ait Siberne,Khémisset,6546941,Q16740014,7.53,False,geonames,agree
+04.291.03.07.,Ait Yadine,Khémisset,6546431,Q16740013,1.63,False,geonames,agree
+04.291.03.09.,El Ganzra,Khémisset,6546132,Q12191863,1.35,False,geonames,agree
+04.291.03.11.,Majmaa Tolba,Khémisset,6545795,Q20422268,9.76,False,geonames,agree
+04.291.03.13.,Sfassif,Khémisset,6546133,Q20415523,4.08,False,geonames,agree
+04.291.03.15.,Sidi Allal Lamsadder,Khémisset,6545792,Q20389883,0.51,False,geonames,agree
+04.291.03.17.,Sidi El Ghandour,Khémisset,6546942,Q20389573,5.39,False,geonames,agree
+04.291.05.01.,Ait Ichou,Khémisset,6545554,Q16740003,2.73,False,geonames,agree
+04.291.05.03.,Ait Ikkou,Khémisset,6546943,Q16740002,5.28,False,geonames,agree
+04.291.05.05.,Bouqachmir,Khémisset,6545555,Q20417349,4.07,False,geonames,agree
+04.291.05.07.,Houderrane,Khémisset,6545498,Q20384740,0.02,False,geonames,agree
+04.291.05.09.,Maaziz,Khémisset,6545499,Q6721325,0.02,False,geonames,agree
+04.291.05.11.,Oulmes,Khémisset,11880866,Q3087932,15.25,False,geonames,agree
+04.291.05.13.,Tiddas,Khémisset,6546352,Q7800804,1.7,False,geonames,agree
+04.291.07.01.,Ain Sbit,Khémisset,6546366,Q20395058,7.84,False,geonames,agree
+04.291.07.05.,Brachoua,Khémisset,6546317,Q20385209,2.92,False,geonames,agree
+04.291.07.07.,Ezzhiliga,Khémisset,6546318,Q20394261,1.85,False,geonames,agree
+04.291.07.09.,Jemaat Moul Blad,Khémisset,6546319,Q20386271,9.03,False,geonames,agree
+04.291.07.11.,Laghoualem,Khémisset,6546134,Q20413069,4.94,False,geonames,agree
+04.291.07.13.,Marchouch,Khémisset,11911883,Q20424271,15.22,False,geonames,agree
+04.291.07.15.,Moulay Driss Aghbal,Khémisset,6546136,Q20423125,6.89,False,geonames,agree
+04.291.09.02.,Ain Johra -Sidi Boukhalkhal,Khémisset,11911856,Q123681063,10.04,False,geonames,agree
+04.291.09.03.,Ait Belkacem,Khémisset,6546944,Q16739973,0.59,False,geonames,agree
+04.291.09.07.,Ait Malek,Khémisset,6546050,Q20383301,0.0,False,geonames,agree
+04.291.09.09.,Khemis Sidi Yahya,Khémisset,6546946,Q20402833,2.12,False,geonames,agree
+04.291.09.11.,M'qam Tolba,Khémisset,6546947,Q20424492,4.43,False,geonames,agree
+04.291.09.13.,Sidi Abderrazak,Khémisset,11911857,Q20389839,8.1,False,geonames,agree
+04.291.09.19.,Ait Ali ou Lahcen,Khémisset,10976661,Q25454400,120.76,True,wikidata,review
+04.421.01.07.,Touarga (Mun.),Rabat,6545486,Q3532767,0.86,False,geonames,agree
+04.441.01.08.,Sidi Bouknadel (Mun.),Salé,6545710,Q3483204,6.29,False,geonames,agree
+04.441.03.01.,Shoul,Salé,6545709,Q3482552,6.19,False,geonames,agree
+04.441.03.05.,Ameur,Salé,11911945,Q2843153,3.14,False,geonames,agree
+04.481.01.01.,Dar Gueddari (Mun.),Sidi Kacem,6545656,Q3015942,0.43,False,geonames,agree
+04.481.01.03.,Had Kourt (Mun.),Sidi Kacem,6545478,Q3125519,0.65,False,geonames,agree
+04.481.01.05.,Jorf El Melha (Mun.),Sidi Kacem,6546911,Q3183779,0.84,False,geonames,agree
+04.481.01.07.,Mechraa Bel Ksiri (Mun.),Sidi Kacem,11880964,Q3303856,0.47,False,geonames,agree
+04.481.01.11.,Sidi Kacem (Mun.),Sidi Kacem,6545871,Q2089594,0.65,False,geonames,agree
+04.481.03.01.,Ain Dfali,Sidi Kacem,11911833,Q4697338,4.48,False,geonames,agree
+04.481.03.03.,Bni Oual,Sidi Kacem,6546425,Q4931007,0.0,False,geonames,agree
+04.481.03.09.,Moulay Abdelkader,Sidi Kacem,11911834,Q6918953,6.33,False,geonames,agree
+04.481.03.13.,Sidi Ahmed Benaissa,Sidi Kacem,6546915,Q7508621,1.43,False,geonames,agree
+04.481.03.15.,Sidi Ameur Al Hadi,Sidi Kacem,11911835,Q7508655,4.59,False,geonames,agree
+04.481.03.17.,Sidi Azzouz,Sidi Kacem,6545915,Q7508659,0.0,False,geonames,agree
+04.481.05.01.,Al Haouafate,Sidi Kacem,11911845,Q4703980,1.2,False,geonames,agree
+04.481.05.07.,Nouirate,Sidi Kacem,11911843,Q7063828,4.55,False,geonames,agree
+04.481.05.09.,Sefsaf,Sidi Kacem,6546428,Q7446089,0.58,False,geonames,agree
+04.481.07.05.,Khnichet,Sidi Kacem,6545529,Q6401913,2.98,False,geonames,agree
+04.481.07.07.,Lamrabih,Sidi Kacem,6545530,Q6482705,0.0,False,geonames,agree
+04.481.07.11.,Oulad Nouel,Sidi Kacem,11911838,Q7110421,0.92,False,geonames,agree
+04.481.07.19.,Sidi M'Hamed Chelh,Sidi Kacem,6545916,Q7508764,1.57,False,geonames,agree
+04.481.07.21.,Taoughilt,Sidi Kacem,6545917,Q7684332,0.4,False,geonames,agree
+04.481.09.01.,Bab Tiouka,Sidi Kacem,6546430,Q4837221,4.81,False,geonames,agree
+04.481.09.03.,Bir Taleb,Sidi Kacem,6546129,Q4915563,1.01,False,geonames,agree
+04.481.09.05.,Chbanate,Sidi Kacem,6546924,Q5088729,0.0,False,geonames,agree
+04.481.09.07.,Selfat,Sidi Kacem,6546925,Q7448318,1.34,False,geonames,agree
+04.481.09.09.,Tekna,Sidi Kacem,6545451,Q7695450,0.62,False,geonames,agree
+04.481.09.11.,Zaggota,Sidi Kacem,11911840,Q8064382,5.75,False,geonames,agree
+04.481.09.13.,Zirara,Sidi Kacem,11911841,Q553133,5.68,False,geonames,agree
+04.481.11.03.,Dar Laaslouji,Sidi Kacem,6546426,Q5221909,7.19,False,geonames,agree
+04.481.11.11.,Sidi Al Kamel,Sidi Kacem,6546429,Q7508639,3.46,False,geonames,agree
+04.491.01.07.,Sidi Slimane (Mun.),Sidi Slimane,6546898,Q2359952,0.78,False,geonames,agree
+04.491.01.09.,Sidi Yahya El Gharb (Mun.),Sidi Slimane,6546899,Q1169845,0.4,False,geonames,agree
+04.491.03.07.,Kceibya,Sidi Slimane,6546187,Q2368809,0.03,False,geonames,agree
+04.491.05.01.,Azghar,Sidi Slimane,6546186,Q2368837,1.37,False,geonames,agree
+04.491.05.03.,Boumaiz,Sidi Slimane,6546902,Q12200242,3.1,False,geonames,agree
+04.491.05.05.,Dar Bel Amri,Sidi Slimane,6545630,Q2369020,4.48,False,geonames,agree
+04.491.05.09.,M'saada,Sidi Slimane,6546903,Q2368770,3.33,False,geonames,agree
+04.491.05.11.,Ouled Ben Hammadi,Sidi Slimane,6545869,Q2368935,4.15,False,geonames,agree
+04.491.05.13.,Ouled H'Cine,Sidi Slimane,11911854,Q7110404,0.58,False,geonames,agree
+04.501.01.01.,Ain El Aouda (Mun.),Skhirate- Témara,6546948,Q1170305,0.38,False,geonames,agree
+04.501.01.03.,Harhoura (Mun.),Skhirate- Témara,6546138,Q3127439,1.28,False,geonames,agree
+04.501.01.05.,Skhirate (Mun.),Skhirate- Témara,6545719,Q1333077,1.54,False,geonames,agree
+04.501.01.07.,Témara (Mun.),Skhirate- Témara,6545720,Q1635606,0.49,False,geonames,agree
+04.501.01.09.,Ain Attig (Mun.),Skhirate- Témara,6546177,Q20395672,0.0,False,geonames,agree
+04.501.03.01.,El Menzeh,Skhirate- Témara,6545609,Q3050074,0.34,False,geonames,agree
+04.501.03.03.,Oumazza,Skhirate- Témara,6545556,Q20390004,5.72,False,geonames,agree
+04.501.03.11.,Sidi Yahya Zaer,Skhirate- Témara,6545793,Q20390194,6.49,False,geonames,agree
+04.501.05.03.,Mers El Kheir,Skhirate- Témara,6546432,Q3306624,0.01,False,geonames,agree
+04.501.05.05.,Sabbah,Skhirate- Témara,6546320,Q3460496,0.93,False,geonames,agree
+05.081.01.01.,Azilal (Mun.),Azilal,11881762,Q1934167,1.49,False,geonames,agree
+05.081.01.03.,Demnate (Mun.),Azilal,6546525,Q2540234,0.97,False,geonames,agree
+05.081.03.01.,Agoudi N'Lkhair,Azilal,6546526,Q4693645,3.4,False,geonames,agree
+05.081.03.03.,Ait Abbas,Azilal,6546671,Q4699226,0.0,False,geonames,agree
+05.081.03.05.,Ait Bou Oulli,Azilal,6546672,Q4699232,1.29,False,geonames,agree
+05.081.03.07.,Ait M'Hamed,Azilal,6546367,Q4699250,4.21,False,geonames,agree
+05.081.03.09.,Tabant,Azilal,11912484,Q7672893,7.41,False,geonames,agree
+05.081.03.11.,Tamda Noumercid,Azilal,6546802,Q7681100,4.18,False,geonames,agree
+05.081.03.13.,Zaouiat Ahansal,Azilal,11912476,Q8066337,1.74,False,geonames,agree
+05.081.05.01.,Ait Taguella,Azilal,6546285,Q4699271,1.68,False,geonames,agree
+05.081.05.05.,Bni Hassane,Azilal,6546804,Q4931003,2.83,False,geonames,agree
+05.081.05.07.,Bzou,Azilal,11912495,Q2929225,7.28,False,geonames,agree
+05.081.05.09.,Foum Jemaa,Azilal,11912494,Q1169855,7.34,False,geonames,agree
+05.081.05.11.,Moulay Aissa Ben Driss,Azilal,6546043,Q6918957,0.49,False,geonames,agree
+05.081.05.13.,Rfala,Azilal,6546184,Q7319944,9.52,False,geonames,agree
+05.081.05.15.,Tabia,Azilal,6546806,Q7673058,2.18,False,geonames,agree
+05.081.05.17.,Tanant,Azilal,11912493,Q7682288,5.67,False,geonames,agree
+05.081.05.19.,Taounza,Azilal,6546408,Q7684334,1.67,False,geonames,agree
+05.081.05.21.,Tisqi,Azilal,6546807,Q7809622,3.98,False,geonames,agree
+05.081.09.03.,Ait Mazigh,Azilal,6545585,Q4699253,6.62,False,geonames,agree
+05.081.09.07.,Ait Ouqabli,Azilal,6546813,Q4699265,3.31,False,geonames,agree
+05.081.09.09.,Anergui,Azilal,6546814,Q4761709,1.17,False,geonames,agree
+05.081.09.11.,Bin El Ouidane,Azilal,6546815,Q2903881,1.1,False,geonames,agree
+05.081.09.13.,Isseksi,Azilal,6546287,Q6088172,0.92,False,geonames,agree
+05.081.09.15.,Ouaouizeght,Azilal,11912475,Q3357934,3.77,False,geonames,agree
+05.081.09.17.,Tabaroucht,Azilal,6546817,Q7672931,10.67,False,geonames,agree
+05.081.09.19.,Tagleft,Azilal,6545781,Q7675285,1.2,False,geonames,agree
+05.081.09.21.,Tiffert N'Ait Hamza,Azilal,6546818,Q7801272,0.82,False,geonames,agree
+05.081.09.23.,Tilougguite,Azilal,11912474,Q7802949,3.73,False,geonames,agree
+05.081.11.01.,Afourar,Azilal,11881778,Q1158785,4.7,False,geonames,agree
+05.081.11.03.,Bni Ayat,Azilal,11912485,Q2895855,4.85,False,geonames,agree
+05.081.11.05.,Ait Ouaarda,Azilal,6546812,Q4699259,1.43,False,geonames,agree
+05.081.11.25.,Timoulilt,Azilal,6545817,Q7807629,0.91,False,geonames,agree
+05.081.13.05.,Ait Oumdis,Azilal,6545540,Q16207821,2.16,False,geonames,agree
+05.081.13.07.,Ait Tamlil,Azilal,6546674,Q4699273,3.64,False,geonames,agree
+05.081.13.09.,Anzou,Azilal,6545511,Q4778477,139.76,True,geonames,review
+05.081.13.17.,Sidi Yacoub,Azilal,6546409,Q15277645,4.95,False,geonames,agree
+05.081.13.19.,Tidili Fetouaka,Azilal,6546810,Q7800909,4.43,False,geonames,agree
+05.081.15.01.,Ait Blal,Azilal,6546396,Q4699231,1.63,False,geonames,agree
+05.081.15.03.,Ait Majden,Azilal,6546808,Q2876500,6.15,False,geonames,agree
+05.081.15.11.,Imlil,Azilal,6545801,Q6004240,0.59,False,geonames,agree
+05.081.15.13.,Ouaoula,Azilal,6546809,Q15264695,3.61,False,geonames,agree
+05.081.15.15.,Sidi Boulkhalf,Azilal,6545813,Q7508687,5.23,False,geonames,agree
+05.081.15.21.,Tifni,Azilal,6545814,Q7801293,1.87,False,geonames,agree
+05.091.01.01.,Béni Mellal (Mun.),Béni Mellal,6546819,Q817279,0.36,False,geonames,agree
+05.091.01.03.,El Ksiba (Mun.),Béni Mellal,11881765,Q3050022,0.49,False,geonames,agree
+05.091.01.07.,Kasba Tadla (Mun.),Béni Mellal,6546821,Q1734833,0.64,False,geonames,agree
+05.091.01.13.,Zaouiat Cheikh (Mun.),Béni Mellal,6545818,Q3574798,1.11,False,geonames,agree
+05.091.03.01.,Foum Oudi,Béni Mellal,6546822,Q12231052,0.08,False,geonames,agree
+05.091.03.03.,Ouled Gnaou,Béni Mellal,6546288,Q7110403,3.3,False,geonames,agree
+05.091.03.05.,Ouled M'Barek,Béni Mellal,11911911,Q3358170,1.58,False,geonames,agree
+05.091.03.07.,Ouled Yaich,Béni Mellal,11911908,Q3358172,1.69,False,geonames,agree
+05.091.03.09.,Sidi Jaber,Béni Mellal,11911910,Q3483238,0.32,False,geonames,agree
+05.091.03.11.,Foum El Anceur,Béni Mellal,6546829,Q12231051,3.88,False,geonames,agree
+05.091.05.01.,Aghbala,Béni Mellal,11881774,Q2826830,13.61,False,geonames,agree
+05.091.05.05.,Boutferda,Béni Mellal,6545541,Q4950440,12.31,False,geonames,agree
+05.091.05.17.,Tizi N'Isly,Béni Mellal,6545807,Q12203608,1.02,False,geonames,agree
+05.091.07.03.,Ait Oum El Bekht,Béni Mellal,6545573,Q4699263,3.7,False,geonames,agree
+05.091.07.07.,Dir El Ksiba,Béni Mellal,6546052,Q12212322,11.0,False,geonames,agree
+05.091.07.11.,Naour,Béni Mellal,6546413,Q6964757,3.91,False,geonames,agree
+05.091.07.13.,Taghzirt,Béni Mellal,6546830,Q12202060,1.8,False,geonames,agree
+05.091.07.15.,Tanougha,Béni Mellal,6545819,Q12202042,6.68,False,geonames,agree
+05.091.11.05.,Ouled Said L'Oued,Béni Mellal,11911901,Q7110423,5.41,False,geonames,agree
+05.091.11.07.,Semguet,Béni Mellal,6545418,Q7449253,5.35,False,geonames,agree
+05.255.01.05.,Fquih Ben Salah (Mun.),Fquih Ben Salah,6546410,Q2895854,0.66,False,geonames,agree
+05.255.01.11.,Souk Sebt Ouled Nemma (Mun.),Fquih Ben Salah,11881764,Q2616240,1.01,False,geonames,agree
+05.255.05.09.,Ouled Zmam,Fquih Ben Salah,11911980,Q7110434,10.67,False,geonames,agree
+05.255.05.11.,Sidi Aissa Ben Ali,Fquih Ben Salah,6546828,Q12217709,1.37,False,geonames,agree
+05.255.05.13.,Sidi Hammadi,Fquih Ben Salah,6546118,Q12217651,0.0,False,geonames,agree
+05.255.09.03.,Bni Chegdale,Fquih Ben Salah,6546832,Q12199532,2.27,False,geonames,agree
+05.255.09.05.,Bni Oukil,Fquih Ben Salah,11911976,Q12199675,6.62,False,geonames,agree
+05.255.09.07.,Bradia,Fquih Ben Salah,11911979,Q2923477,6.1,False,geonames,agree
+05.255.09.09.,Hel Merbaa,Fquih Ben Salah,6546833,Q12195296,4.0,False,geonames,agree
+05.255.09.11.,Krifate,Fquih Ben Salah,6546119,Q12234875,4.28,False,geonames,agree
+05.255.11.01.,Dar Ould Zidouh,Fquih Ben Salah,11911981,Q3015955,1.25,False,geonames,agree
+05.255.11.03.,Had Boumoussa,Fquih Ben Salah,6546412,Q12178395,5.27,False,geonames,agree
+05.255.11.07.,Ouled Nacer,Fquih Ben Salah,11911983,Q7110418,1.25,False,geonames,agree
+05.301.01.01.,Khenifra (Mun.),Khénifra,6546573,Q990115,0.63,False,geonames,agree
+05.301.01.05.,M'Rirt (Mun.),Khénifra,6546574,Q2291564,0.17,False,geonames,agree
+05.301.03.01.,Ait Ishaq,Khénifra,11911963,Q2876499,6.56,False,geonames,agree
+05.301.03.03.,Ait Saadelli,Khénifra,6546575,Q16826399,3.14,False,geonames,agree
+05.301.03.05.,El Kbab,Khénifra,11881772,Q3051316,6.79,False,geonames,agree
+05.301.03.07.,Kerrouchen,Khénifra,6546236,Q3195491,1.01,False,geonames,agree
+05.301.03.09.,Ouaoumana,Khénifra,6546093,Q3357931,2.84,False,geonames,agree
+05.301.03.11.,Sidi Yahya Ou Saad,Khénifra,6546577,Q20390177,8.64,False,geonames,agree
+05.301.03.13.,Tighassaline,Khénifra,6546324,Q3528320,16.72,False,geonames,agree
+05.301.05.01.,Aguelmam Azegza,Khénifra,6545484,Q16826207,2.17,False,geonames,agree
+05.301.05.05.,El Borj,Khénifra,6546959,Q12184357,1.85,False,geonames,agree
+05.301.05.11.,Lehri,Khénifra,6546014,Q20394656,0.0,False,geonames,agree
+05.301.05.13.,Moha Ou Hammou Zayani,Khénifra,11911959,Q17011331,4.02,False,geonames,agree
+05.301.05.21.,Sidi Amar,Khénifra,6546327,Q17019262,4.33,False,geonames,agree
+05.301.05.25.,Sidi Lamine,Khénifra,6545730,Q20390084,6.77,False,geonames,agree
+05.301.07.03.,Aguelmous,Khénifra,6546325,Q2827329,0.99,False,geonames,agree
+05.301.07.07.,El Hammam,Khénifra,11911956,Q20384841,8.61,False,geonames,agree
+05.301.07.09.,Had Bouhssoussen,Khénifra,6546326,Q3125514,2.68,False,geonames,agree
+05.301.07.15.,Moulay Bouazza,Khénifra,6546015,Q3325534,3.57,False,geonames,agree
+05.301.07.17.,Oum Rabia,Khénifra,6546961,Q17013263,2.21,False,geonames,agree
+05.301.07.19.,Sebt Ait Rahou,Khénifra,6546016,Q20381232,9.5,False,geonames,agree
+05.301.07.23.,Sidi Hcine,Khénifra,6546962,Q20389772,3.58,False,geonames,agree
+05.311.01.01.,Bejaad (Mun.),Khouribga,6546397,Q895029,0.81,False,geonames,agree
+05.311.01.03.,Boujniba (Mun.),Khouribga,11881767,Q2921654,0.66,False,geonames,agree
+05.311.01.05.,Hattane (Mun.),Khouribga,6546694,Q3128336,1.62,False,geonames,agree
+05.311.01.07.,Khouribga (Mun.),Khouribga,6546695,Q595974,1.47,False,geonames,agree
+05.311.01.09.,Oued Zem (Mun.),Khouribga,6545669,Q1724990,0.96,False,geonames,agree
+05.311.03.01.,Ain Kaicher,Khouribga,6545594,Q12229146,3.31,False,geonames,agree
+05.311.03.03.,Bni Bataou,Khouribga,6546927,Q12199428,4.21,False,geonames,agree
+05.311.03.05.,Bni Zrantel,Khouribga,6545595,Q12199491,4.63,False,geonames,agree
+05.311.03.07.,Boukhrisse,Khouribga,6545445,Q12199843,3.36,False,geonames,agree
+05.311.03.09.,Chougrane,Khouribga,11911968,Q12219457,2.35,False,geonames,agree
+05.311.03.11.,Oulad Gouaouch,Khouribga,6546696,Q12181295,1.65,False,geonames,agree
+05.311.03.13.,Rouached,Khouribga,6546929,Q12187899,5.65,False,geonames,agree
+05.311.03.15.,Tachraft,Khouribga,2532119,Q12202523,3.75,False,geonames,agree
+05.311.05.01.,Bir Mezoui,Khouribga,6546697,Q12195491,4.93,False,geonames,agree
+05.311.05.03.,Bni Ykhlef,Khouribga,6545430,Q12199685,6.28,False,geonames,agree
+05.311.05.05.,Bulanouare,Khouribga,6546698,Q2921701,9.15,False,geonames,agree
+05.311.05.07.,Lagfaf,Khouribga,6546699,Q12237945,2.33,False,geonames,agree
+05.311.05.09.,El Foqra,Khouribga,6546700,Q12190990,1.98,False,geonames,agree
+05.311.05.11.,M'Fassis,Khouribga,6546701,Q12244447,2.4,False,geonames,agree
+05.311.05.13.,Oulad Abdoune,Khouribga,6545960,Q12181219,5.28,False,geonames,agree
+05.311.05.15.,Oulad Azzouz,Khouribga,6546702,Q12181223,4.8,False,geonames,agree
+05.311.07.01.,Ait Ammar,Khouribga,6546930,Q6539466,4.31,False,geonames,agree
+05.311.07.03.,Bni Smir,Khouribga,11911970,Q12199519,3.09,False,geonames,agree
+05.311.07.05.,Braksa,Khouribga,6546931,Q12237087,16.9,False,geonames,agree
+05.311.07.07.,Kasbat Troch,Khouribga,6546704,Q12232933,0.67,False,geonames,agree
+05.311.07.09.,Lagnadiz,Khouribga,6546932,Q27538761,5.19,False,geonames,agree
+05.311.07.13.,Oulad Aissa,Khouribga,6546933,Q12181241,12.15,False,geonames,agree
+05.311.07.15.,Oulad Boughadi,Khouribga,6546934,Q12181165,1.05,False,geonames,agree
+05.311.07.17.,Oulad Fennane,Khouribga,6545972,Q12181255,13.44,False,geonames,agree
+05.311.07.19.,Oulad Ftata,Khouribga,6545973,Q12181251,1.02,False,geonames,agree
+06.111.01.01.,Benslimane (Mun.),Benslimane,6547048,Q1970952,0.47,False,geonames,agree
+06.111.01.03.,Bouznika (Mun.),Benslimane,6546124,Q638967,5.3,False,geonames,agree
+06.111.01.05.,El Mansouria (Mun.),Benslimane,11881434,Q5351554,3.21,False,geonames,agree
+06.111.03.01.,Ahlaf,Benslimane,11912499,Q4695168,0.79,False,geonames,agree
+06.111.03.03.,Ain Tizgha,Benslimane,6546905,Q12229075,1.54,False,geonames,agree
+06.111.03.05.,Fdalate,Benslimane,11912501,Q4118513,9.1,False,geonames,agree
+06.111.03.07.,Mellila,Benslimane,6545637,Q12245031,2.58,False,geonames,agree
+06.111.03.11.,Moualine El Oued,Benslimane,6545862,Q6918850,1.27,False,geonames,agree
+06.111.03.13.,Oulad Ali Toualaa,Benslimane,6545831,Q12181229,109.69,True,geonames,review
+06.111.03.15.,Oulad Yahya Louta,Benslimane,6545863,Q7110432,2.53,False,geonames,agree
+06.111.03.17.,Rdadna Oulad Malek,Benslimane,6545467,Q12187750,1.64,False,geonames,agree
+06.111.03.19.,Ziaida,Benslimane,11912496,Q8071339,9.84,False,geonames,agree
+06.111.05.01.,Bir Ennasr,Benslimane,6545479,Q12195472,0.84,False,geonames,agree
+06.111.05.04.,Sidi Bettache,Benslimane,11912498,Q12217620,13.06,False,geonames,agree
+06.111.05.05.,Charrate,Benslimane,11912497,Q12188834,1.24,False,geonames,agree
+06.117.01.03.,Berrechid (Mun.),Berrechid,6546705,Q2191860,0.35,False,geonames,agree
+06.117.01.05.,Deroua (Mun.),Berrechid,6546262,Q3023962,5.7,False,geonames,agree
+06.117.01.07.,El Gara (Mun.),Berrechid,11881407,Q3049863,18.0,False,geonames,agree
+06.117.01.11.,Oulad Abbou (Mun.),Berrechid,6546398,Q964975,1.75,False,geonames,agree
+06.117.05.01.,Ben Maachou,Berrechid,6546716,Q6537760,8.03,False,geonames,agree
+06.117.05.11.,Laghnimyine,Berrechid,6546717,Q6472109,2.54,False,geonames,agree
+06.117.05.13.,Lahsasna,Berrechid,6546718,Q6473471,0.0,False,geonames,agree
+06.117.05.25.,Sahel Oulad H'Riz,Berrechid,6546720,Q7399585,8.77,False,geonames,agree
+06.117.05.27.,Sidi Abdelkhaleq,Berrechid,6546721,Q12217679,3.11,False,geonames,agree
+06.117.05.29.,Sidi El Mekki,Berrechid,6546722,Q12217610,7.0,False,geonames,agree
+06.117.05.33.,Soualem Trifiya,Berrechid,11912555,Q12217195,3.49,False,geonames,agree
+06.117.08.05.,Foqra Oulad Aameur,Berrechid,6546265,Q12190991,1.44,False,geonames,agree
+06.117.08.07.,Jaqma,Berrechid,11912517,Q6159370,5.67,False,geonames,agree
+06.117.08.09.,Kasbat Ben Mchich,Berrechid,6546733,Q12232934,1.8,False,geonames,agree
+06.117.08.17.,Lambarkiyine,Berrechid,6546734,Q6481078,3.99,False,geonames,agree
+06.117.08.19.,Ouled Cebbah,Berrechid,6546735,Q12181214,5.22,False,geonames,agree
+06.117.08.20.,Oulad Ziyane,Berrechid,11912520,Q25463412,12.22,False,geonames,agree
+06.117.08.21.,Ouled Zidane,Berrechid,6546736,Q12181187,2.49,False,geonames,agree
+06.117.08.23.,Riah,Berrechid,11912518,Q12213975,4.45,False,geonames,agree
+06.181.01.01.,Azemmour (Mun.),El Jadida,11881414,Q178172,1.37,False,geonames,agree
+06.181.01.03.,El Jadida (Mun.),El Jadida,6546786,Q219583,2.24,False,geonames,agree
+06.181.01.05.,Lbir Jdid (Mun.),El Jadida,6546115,Q667275,1.07,False,geonames,agree
+06.181.03.01.,Chtouka,El Jadida,11912557,Q12218399,1.31,False,geonames,agree
+06.181.03.05.,Laghdira,El Jadida,6546864,Q6472090,4.06,False,geonames,agree
+06.181.03.07.,Lamharza Essahel,El Jadida,6546790,Q6481811,6.1,False,geonames,agree
+06.181.03.11.,Sidi Ali Ben Hamdouche,El Jadida,11912558,Q12217698,2.46,False,geonames,agree
+06.181.05.03.,Oulad Aissa,El Jadida,11912566,Q12181242,2.72,False,geonames,agree
+06.181.05.05.,Ouled Ghanem,El Jadida,6546794,Q17013245,6.26,False,geonames,agree
+06.181.05.07.,Ouled Hcine,El Jadida,11912567,Q7110407,3.55,False,geonames,agree
+06.181.05.09.,Sidi Abed,El Jadida,6546279,Q12217677,4.15,False,geonames,agree
+06.181.05.11.,Sidi M'Hamed Akhdim,El Jadida,6545791,Q12217613,0.55,False,geonames,agree
+06.181.07.03.,Haouzia,El Jadida,11912568,Q12209102,7.38,False,geonames,agree
+06.181.07.09.,Oulad Rahmoune,El Jadida,11912559,Q7110422,7.99,False,geonames,agree
+06.181.09.01.,Boulaouane,El Jadida,6546795,Q4949512,0.46,False,geonames,agree
+06.181.09.03.,Chaibate,El Jadida,6546284,Q12218880,164.99,True,geonames,review
+06.181.09.05.,Mettouh,El Jadida,6546796,Q12238743,2.01,False,geonames,agree
+06.181.09.07.,Mogress,El Jadida,6546797,Q12246952,2.81,False,geonames,agree
+06.181.09.09.,Oulad Hamdane,El Jadida,11912560,Q7110406,4.55,False,geonames,agree
+06.181.09.13.,Ouled Frej,El Jadida,11912561,Q3358160,2.92,False,geonames,agree
+06.181.09.15.,Sebt Saiss,El Jadida,6546010,Q7442829,0.46,False,geonames,agree
+06.181.09.19.,Sidi Smail,El Jadida,11912563,Q3405481,5.02,False,geonames,agree
+06.181.09.21.,Zaouiat Saiss,El Jadida,6546013,Q12214246,6.11,False,geonames,agree
+06.181.09.23.,Zaouiat Lakouacem,El Jadida,6546800,Q12214261,3.93,False,geonames,agree
+06.355.01.01.,Lahraouyine (Mun.),Médiouna,6546274,Q3078218,1.01,False,geonames,agree
+06.355.01.03.,Mediouna (Mun.),Médiouna,11912507,Q2254188,1.13,False,geonames,agree
+06.355.01.05.,Tit Mellil (Mun.),Médiouna,6546782,Q3529467,0.67,False,geonames,agree
+06.355.03.01.,Al Majjatia Oulad Taleb,Médiouna,6545657,Q4704358,0.78,False,geonames,agree
+06.355.03.05.,Sidi Hajjaj Oued Hassar,Médiouna,6545658,Q12217644,1.1,False,geonames,agree
+06.371.01.01.,Mohammadia (Mun.),Mohammadia,11881738,Q647417,1.28,False,geonames,agree
+06.371.01.03.,Ain Harrouda (Mun.),Mohammadia,6545528,Q1169351,4.42,False,geonames,agree
+06.371.03.01.,Bni Yakhlef,Mohammadia,11912502,Q2895604,1.18,False,geonames,agree
+06.371.03.05.,Sidi Moussa Ben Ali,Mohammadia,11912504,Q25454408,1.77,False,geonames,agree
+06.371.03.07.,Sidi Moussa Majdoub,Mohammadia,6545677,Q3483271,2.7,False,geonames,agree
+06.385.01.01.,Bouskoura (Mun.),Nouaceur,6546277,Q2294847,3.04,False,geonames,agree
+06.385.01.02.,Dar Bouazza (Mun.),Nouaceur,6546784,Q12211296,2.61,False,geonames,agree
+06.385.01.03.,Nouaceur (Mun.),Nouaceur,6545638,Q1876685,4.01,False,geonames,agree
+06.385.03.03.,Oulad Azzouz,Nouaceur,12034991,Q25463413,2.8,False,geonames,agree
+06.461.01.05.,El Borouj (Mun.),Settat,11881405,Q3049747,12.93,False,geonames,agree
+06.461.01.09.,Loulad (Mun.),Settat,6546707,Q1650968,1.47,False,geonames,agree
+06.461.01.13.,Oulad M'Rah (Mun.),Settat,11881432,Q3358169,0.06,False,geonames,agree
+06.461.03.03.,Bouguargouh,Settat,6546111,Q12200288,2.86,False,geonames,agree
+06.461.03.07.,Lakhzazra,Settat,6546112,Q17007734,1.52,False,geonames,agree
+06.461.03.09.,Mniaa,Settat,6546113,Q12195145,4.83,False,geonames,agree
+06.461.03.11.,Mrizigue,Settat,6545765,Q17011630,1.65,False,geonames,agree
+06.461.03.13.,M'Garto,Settat,6546114,Q12195151,0.0,False,geonames,agree
+06.461.03.15.,N'Khila,Settat,6546710,Q12195237,1.86,False,geonames,agree
+06.461.03.17.,Oued Naanaa,Settat,6545766,Q12250443,4.78,False,geonames,agree
+06.461.03.19.,Oulad Chbana,Settat,6545767,Q7110392,3.36,False,geonames,agree
+06.461.03.21.,Oulad Fares,Settat,11912551,Q12181248,4.7,False,geonames,agree
+06.461.03.23.,Oulad M'Hamed,Settat,6545769,Q7110412,4.06,False,geonames,agree
+06.461.03.25.,Ras El Ain Chaouia,Settat,6546711,Q12212743,2.93,False,geonames,agree
+06.461.03.27.,Sgamna,Settat,6546712,Q12188727,1.21,False,geonames,agree
+06.461.03.29.,Sidi Abdelkrim,Settat,6546713,Q12217681,2.59,False,geonames,agree
+06.461.03.31.,Sidi Dahbi,Settat,6546714,Q12217598,2.69,False,geonames,agree
+06.461.03.33.,Sidi Hajjaj,Settat,11912574,Q3483233,26.38,True,geonames,review
+06.461.07.01.,Ain Blal,Settat,6546724,Q4697332,3.57,False,geonames,agree
+06.461.07.03.,Bni Khloug,Settat,6546725,Q4931004,1.1,False,geonames,agree
+06.461.07.05.,Dar Chaffai,Settat,6546726,Q12211242,0.63,False,geonames,agree
+06.461.07.07.,Laqraqra,Settat,6546727,Q6488478,3.09,False,geonames,agree
+06.461.07.09.,Meskoura,Settat,6546728,Q12242966,2.78,False,geonames,agree
+06.461.07.11.,Oulad Amer,Settat,6546729,Q12181218,1.33,False,geonames,agree
+06.461.07.13.,Oulad Bouali Nouaja,Settat,6546730,Q7110387,4.3,False,geonames,agree
+06.461.07.15.,Oulad Fares El Halla,Settat,6546731,Q7110399,3.57,False,geonames,agree
+06.461.07.17.,Oulad Freiha,Settat,6546732,Q7110400,1.97,False,geonames,agree
+06.461.07.19.,Sidi Ahmed El Khadir,Settat,6546263,Q12217585,1.67,False,geonames,agree
+06.461.07.21.,Sidi Boumehdi,Settat,6546264,Q12217637,0.77,False,geonames,agree
+06.461.09.03.,Bni Yagrine,Settat,6546080,Q4931015,2.84,False,geonames,agree
+06.461.09.05.,Gdana,Settat,6545600,Q12252290,2.08,False,geonames,agree
+06.461.09.07.,Guisser,Settat,11912552,Q3120664,5.56,False,geonames,agree
+06.461.09.09.,Khemisset Chaouia,Settat,6545601,Q12182859,2.57,False,geonames,agree
+06.461.09.11.,Lahouaza,Settat,6546082,Q6473439,5.25,False,geonames,agree
+06.461.09.13.,Machraa Ben Abbou,Settat,6545756,Q6723849,5.19,False,geonames,agree
+06.461.09.15.,Mzoura,Settat,6545757,Q6949494,0.0,False,geonames,agree
+06.461.09.19.,Oulad Said,Settat,11912544,Q252511,5.22,False,geonames,agree
+06.461.09.21.,Oulad Sghir,Settat,6546085,Q7110427,1.07,False,geonames,agree
+06.461.09.23.,Rima,Settat,6546738,Q7334353,2.06,False,geonames,agree
+06.461.09.25.,Sidi El Aidi,Settat,6546739,Q12217604,4.37,False,geonames,agree
+06.461.09.31.,Toualet,Settat,6545471,Q12203382,1.3,False,geonames,agree
+06.467.01.09.,Zemamra (Mun.),Sidi Bennour,6546788,Q1740626,0.29,False,geonames,agree
+06.467.07.01.,Bni Hilal,Sidi Bennour,6545697,Q12199659,31.22,True,geonames,review
+06.467.07.03.,Bni Tsiriss,Sidi Bennour,6546280,Q12199442,14.43,False,geonames,agree
+06.467.07.05.,Bouhmame,Sidi Bennour,11912538,Q12199838,2.9,False,geonames,agree
+06.467.07.07.,Jabria,Sidi Bennour,6546402,Q12204085,4.22,False,geonames,agree
+06.467.07.09.,Khmis Ksiba,Sidi Bennour,6546403,Q12210868,4.38,False,geonames,agree
+06.467.07.11.,Koudiat Bni Dghough,Sidi Bennour,6546404,Q12234621,1.87,False,geonames,agree
+06.467.07.13.,Kridid,Sidi Bennour,6546405,Q12234693,2.45,False,geonames,agree
+06.467.07.15.,Laagagcha,Sidi Bennour,6546282,Q6466536,3.16,False,geonames,agree
+06.467.07.17.,Laamria,Sidi Bennour,6546283,Q6466560,2.9,False,geonames,agree
+06.467.07.19.,Laaounate,Sidi Bennour,6546406,Q3214270,7.38,False,geonames,agree
+06.467.07.21.,Laatatra,Sidi Bennour,6546407,Q6466609,4.86,False,geonames,agree
+06.467.07.23.,Lmechrek,Sidi Bennour,11912541,Q12193191,8.13,False,geonames,agree
+06.467.07.25.,Metrane,Sidi Bennour,6546024,Q12243606,3.22,False,geonames,agree
+06.467.07.27.,M'Tal,Sidi Bennour,6546025,Q12195135,3.41,False,geonames,agree
+06.467.07.29.,Oulad Amrane,Sidi Bennour,11912572,Q3358154,9.49,False,geonames,agree
+06.467.07.31.,Oulad Boussaken,Sidi Bennour,6546027,Q7110390,2.11,False,geonames,agree
+06.467.07.33.,Oulad Si Bouhya,Sidi Bennour,6546028,Q7110428,4.16,False,geonames,agree
+06.467.07.35.,Tamda,Sidi Bennour,6546029,Q12202018,1.15,False,geonames,agree
+06.467.11.01.,Laghnadra,Sidi Bennour,6546801,Q6472108,4.14,False,geonames,agree
+06.467.11.05.,Loualidia,Sidi Bennour,11912570,Q3135328,15.51,False,geonames,agree
+06.467.11.07.,Oulad Sbaita,Sidi Bennour,6545488,Q7110424,6.15,False,geonames,agree
+06.467.11.09.,Saniat Berguig,Sidi Bennour,6546515,Q12215261,1.99,False,geonames,agree
+07.041.01.01.,Ait Ourir (Mun.),Al  Haouz,11881792,Q260908,9.2,False,geonames,agree
+07.041.01.03.,Amizmiz (Mun.),Al  Haouz,11881790,Q2717813,7.13,False,geonames,agree
+07.041.01.09.,Tahannaout (Mun.),Al  Haouz,6546183,Q2189469,3.29,False,geonames,agree
+07.041.03.05.,Ait Faska,Al  Haouz,6546742,Q4699236,5.24,False,geonames,agree
+07.041.03.09.,Ait Sidi Daoud,Al  Haouz,6546743,Q4699270,3.67,False,geonames,agree
+07.041.03.13.,Iguerferouane,Al  Haouz,6546605,Q5994446,0.24,False,geonames,agree
+07.041.03.15.,Sidi Abdallah Ghiat,Al  Haouz,6546744,Q3483152,1.15,False,geonames,agree
+07.041.03.19.,Tamazouzte,Al  Haouz,6545425,Q7680986,58.34,True,geonames,review
+07.041.03.23.,Tidili Mesfioua,Al  Haouz,6545770,Q3991198,1.47,False,geonames,agree
+07.041.05.01.,Amghras,Al  Haouz,6546606,Q4745989,1.53,False,geonames,agree
+07.041.05.05.,Anougal,Al  Haouz,6546068,Q4770423,2.77,False,geonames,agree
+07.041.05.07.,Azgour,Al  Haouz,6546069,Q4832483,4.46,False,geonames,agree
+07.041.05.09.,Dar Jamaa,Al  Haouz,6546608,Q5221898,1.11,False,geonames,agree
+07.041.05.11.,Lalla Takarkoust,Al  Haouz,6546070,Q20726082,0.0,False,geonames,agree
+07.041.05.13.,Ouazguita,Al  Haouz,6545804,Q7110229,3.07,False,geonames,agree
+07.041.05.15.,Oulad Mtaa,Al  Haouz,6545802,Q7110417,4.06,False,geonames,agree
+07.041.05.17.,Sidi Badhaj,Al  Haouz,6546071,Q7508660,78.16,True,geonames,review
+07.041.05.19.,Tizguine,Al  Haouz,6546609,Q7810516,1.88,False,geonames,agree
+07.041.07.01.,Aghbar,Al  Haouz,6546072,Q4692403,9.51,False,geonames,agree
+07.041.07.03.,Asni,Al  Haouz,6545572,Q512217,5.56,False,geonames,agree
+07.041.07.05.,Ighil,Al  Haouz,6546610,Q5991698,6.85,False,geonames,agree
+07.041.07.07.,Ijoukak,Al  Haouz,6546611,Q3891617,7.52,False,geonames,agree
+07.041.07.09.,Imgdal,Al  Haouz,6546612,Q17005863,1.84,False,geonames,agree
+07.041.07.11.,Ouirgane,Al  Haouz,6545803,Q3358143,0.69,False,geonames,agree
+07.041.07.13.,Talat N'Yaaqoub,Al  Haouz,6546613,Q7678950,8.68,False,geonames,agree
+07.041.09.01.,Moulay Brahim,Al  Haouz,6546614,Q3325542,6.83,False,geonames,agree
+07.041.09.03.,Oukaimden,Al  Haouz,6546390,Q7110362,3.8,False,geonames,agree
+07.041.09.05.,Ourika,Al  Haouz,6545518,Q7111281,2.85,False,geonames,agree
+07.041.09.07.,Sti Fadma,Al  Haouz,6545577,Q7616121,4.43,False,geonames,agree
+07.041.09.11.,Tameslohte,Al  Haouz,6546615,Q3304306,5.99,False,geonames,agree
+07.041.11.01.,Abadou,Al  Haouz,6545578,Q4663230,1.52,False,geonames,agree
+07.041.11.03.,Ait Aadel,Al  Haouz,6546741,Q4699224,8.66,False,geonames,agree
+07.041.11.07.,Ait Hkim-Ait Yzid,Al  Haouz,6546603,Q4699244,0.24,False,geonames,agree
+07.041.11.17.,Tamaguert,Al  Haouz,6545424,Q7680555,4.54,False,geonames,agree
+07.041.11.21.,Tazart,Al  Haouz,6545426,Q7690401,9.04,False,geonames,agree
+07.041.11.27.,Touama,Al  Haouz,6545771,Q7828525,2.09,False,geonames,agree
+07.041.11.29.,Zerkten,Al  Haouz,6545806,Q8069420,6.95,False,geonames,agree
+07.161.01.01.,Chichaoua (Mun.),Chichaoua,6546616,Q2218997,1.86,False,geonames,agree
+07.161.01.03.,Imintanoute (Mun.),Chichaoua,6546617,Q1169798,0.62,False,geonames,agree
+07.161.03.01.,Ahdil,Chichaoua,6546618,Q2782569,7.25,False,geonames,agree
+07.161.03.03.,Ait Hadi,Chichaoua,6546619,Q4699242,1.11,False,geonames,agree
+07.161.03.05.,Lamzoudia,Chichaoua,6546620,Q6482766,12.08,False,geonames,agree
+07.161.03.07.,Oulad Moumna,Chichaoua,6546621,Q7110419,17.3,False,geonames,agree
+07.161.03.09.,Saidate,Chichaoua,6546622,Q7399963,11.78,False,geonames,agree
+07.161.03.13.,Sidi Bouzid Arragragui,Chichaoua,6545762,Q7508698,0.4,False,geonames,agree
+07.161.03.15.,Sidi M'Hamed Dalil,Chichaoua,6545763,Q7508767,3.15,False,geonames,agree
+07.161.05.01.,Afalla Issen,Chichaoua,6546097,Q4688791,7.35,False,geonames,agree
+07.161.05.03.,Ain Tazitounte,Chichaoua,6546098,Q4697365,4.15,False,geonames,agree
+07.161.05.05.,Ait Haddou Youssef,Chichaoua,6546099,Q4699239,3.97,False,geonames,agree
+07.161.05.07.,Irohalen,Chichaoua,6546100,Q6072209,5.27,False,geonames,agree
+07.161.05.09.,Lalla Aaziza,Chichaoua,6546101,Q12237396,2.52,False,geonames,agree
+07.161.05.11.,Nfifa,Chichaoua,6546624,Q7021714,3.17,False,geonames,agree
+07.161.05.13.,Ouad L'bour,Chichaoua,6546625,Q7110281,8.32,False,geonames,agree
+07.161.05.17.,Timezgadiouine,Chichaoua,6545849,Q7806641,4.91,False,geonames,agree
+07.161.07.01.,Adassil,Chichaoua,6546627,Q4680871,2.66,False,geonames,agree
+07.161.07.03.,Assif El Mal,Chichaoua,6546628,Q4808848,4.0,False,geonames,agree
+07.161.07.05.,Douirane,Chichaoua,6546241,Q5302210,3.78,False,geonames,agree
+07.161.07.07.,Gmassa,Chichaoua,6546629,Q5573724,3.17,False,geonames,agree
+07.161.07.09.,Imindounit,Chichaoua,6546630,Q6004090,3.34,False,geonames,agree
+07.161.07.11.,Majjat,Chichaoua,6545885,Q6737912,12.78,False,geonames,agree
+07.161.07.15.,Zaouia Annahlia,Chichaoua,6546645,Q8066338,0.01,False,geonames,agree
+07.161.09.01.,Bouabout,Chichaoua,6545462,Q302201,2.61,False,geonames,agree
+07.161.09.03.,Bouabout Amdlane,Chichaoua,6545463,Q4949212,1.12,False,geonames,agree
+07.161.09.05.,Ichamraren,Chichaoua,6545464,Q5986049,5.32,False,geonames,agree
+07.161.09.07.,Kouzemt,Chichaoua,6545465,Q6434808,1.97,False,geonames,agree
+07.161.09.09.,Rahhala,Chichaoua,6545466,Q7283388,2.41,False,geonames,agree
+07.161.09.11.,Sidi Abdelmoumen,Chichaoua,6546646,Q7508627,32.62,True,geonames,review
+07.161.09.13.,Taouloukoult,Chichaoua,6546647,Q7684336,0.36,False,geonames,agree
+07.161.09.15.,Timlilt,Chichaoua,6546242,Q7806771,3.68,False,geonames,agree
+07.191.01.03.,El Kelaâ des Sraghna (Mun.),El Kelâa des  Sraghna,11881877,Q3985724,0.51,False,geonames,agree
+07.191.01.05.,Laattaouia (Mun.),El Kelâa des  Sraghna,6546746,Q3269930,2.4,False,geonames,agree
+07.191.01.07.,Sidi Rahhal (Mun.),El Kelâa des  Sraghna,6546747,Q3483281,1.08,False,geonames,agree
+07.191.01.09.,Tamallalt (Mun.),El Kelâa des  Sraghna,6546748,Q305302,0.01,False,geonames,agree
+07.191.03.01.,Chtaiba,El Kelâa des  Sraghna,6546749,Q20402960,2.95,False,geonames,agree
+07.191.03.03.,Eddachra,El Kelâa des  Sraghna,6546750,Q20419409,1.88,False,geonames,agree
+07.191.03.05.,El Aamria,El Kelâa des  Sraghna,6546751,Q20385454,1.52,False,geonames,agree
+07.191.03.07.,El Marbouh,El Kelâa des  Sraghna,6546752,Q20404751,1.45,False,geonames,agree
+07.191.03.09.,Errafiaya,El Kelâa des  Sraghna,6546753,Q20401927,2.21,False,geonames,agree
+07.191.03.11.,Hiadna,El Kelâa des  Sraghna,6546754,Q20416353,6.03,False,geonames,agree
+07.191.03.13.,Lounasda,El Kelâa des  Sraghna,6546755,Q20395439,0.23,False,geonames,agree
+07.191.03.15.,Mayate,El Kelâa des  Sraghna,6546756,Q20423199,2.43,False,geonames,agree
+07.191.03.17.,Oulad Aamer,El Kelâa des  Sraghna,6546757,Q7110376,3.21,False,geonames,agree
+07.191.03.19.,Oulad Bouali Loued,El Kelâa des  Sraghna,6546758,Q7110386,1.62,False,geonames,agree
+07.191.03.23.,Oulad El Garne,El Kelâa des  Sraghna,6546268,Q7110396,1.77,False,geonames,agree
+07.191.03.25.,Oulad Massaoud,El Kelâa des  Sraghna,6546399,Q7110415,6.32,False,geonames,agree
+07.191.03.27.,Oulad Msabbel,El Kelâa des  Sraghna,6546759,Q7110416,2.63,False,geonames,agree
+07.191.03.29.,Oulad Sbih,El Kelâa des  Sraghna,6545888,Q7110426,0.0,False,geonames,agree
+07.191.03.31.,Oulad Yaacoub,El Kelâa des  Sraghna,6545889,Q7110431,1.41,False,geonames,agree
+07.191.03.33.,Oulad Zarrad,El Kelâa des  Sraghna,6545890,Q7110433,4.97,False,geonames,agree
+07.191.03.35.,Sidi El Hattab,El Kelâa des  Sraghna,6545737,Q20389557,5.15,False,geonames,agree
+07.191.03.37.,Sidi Moussa,El Kelâa des  Sraghna,6545738,Q20390160,1.37,False,geonames,agree
+07.191.03.39.,Taouzint,El Kelâa des  Sraghna,6545855,Q20405009,1.15,False,geonames,agree
+07.191.03.41.,Znada,El Kelâa des  Sraghna,6545856,Q20421090,0.0,False,geonames,agree
+07.191.05.01.,Assahrij,El Kelâa des  Sraghna,6546269,Q2398281,0.6,False,geonames,agree
+07.191.05.03.,Bouya Omar,El Kelâa des  Sraghna,6546270,Q22928955,1.01,False,geonames,agree
+07.191.05.05.,Choara,El Kelâa des  Sraghna,6546271,Q20405629,0.97,False,geonames,agree
+07.191.05.07.,Dzouz,El Kelâa des  Sraghna,6546272,Q20414082,0.84,False,geonames,agree
+07.191.05.09.,Fraita,El Kelâa des  Sraghna,6546273,Q1440541,3.36,False,geonames,agree
+07.191.05.15.,Laatamna,El Kelâa des  Sraghna,6545427,Q6466608,0.46,False,geonames,agree
+07.191.05.17.,Louad Lakhdar,El Kelâa des  Sraghna,6545772,Q20416906,5.01,False,geonames,agree
+07.191.05.19.,M'Zem Sanhaja,El Kelâa des  Sraghna,6545773,Q6711890,1.43,False,geonames,agree
+07.191.05.21.,Ouargui,El Kelâa des  Sraghna,6546762,Q22934475,3.19,False,geonames,agree
+07.191.05.23.,Oulad Aarrad,El Kelâa des  Sraghna,6545774,Q7110379,2.58,False,geonames,agree
+07.191.05.27.,Sidi Aissa Ben Slimane,El Kelâa des  Sraghna,6545739,Q12217710,3.33,False,geonames,agree
+07.191.05.29.,Sour El Aaz,El Kelâa des  Sraghna,6546764,Q20386709,3.37,False,geonames,agree
+07.191.07.11.,Jbiel,El Kelâa des  Sraghna,6546760,Q12185423,7.59,False,geonames,agree
+07.191.07.13.,Jouala,El Kelâa des  Sraghna,6546761,Q20392863,3.44,False,geonames,agree
+07.191.07.31.,Zemrane,El Kelâa des  Sraghna,6546765,Q3575180,0.0,False,geonames,agree
+07.191.07.33.,Zemrane Charqia,El Kelâa des  Sraghna,6546766,Q12214560,2.29,False,geonames,agree
+07.211.01.01.,Ait Daoud (Mun.),Essaouira,6546648,Q786763,1.46,False,geonames,agree
+07.211.01.03.,El Hanchane (Mun.),Essaouira,11881818,Q3049944,0.34,False,geonames,agree
+07.211.01.05.,Essaouira (Mun.),Essaouira,11881817,Q216939,6.81,False,geonames,agree
+07.211.01.07.,Talmest (Mun.),Essaouira,6546651,Q3514557,0.94,False,geonames,agree
+07.211.01.09.,Tamanar (Mun.),Essaouira,6546652,Q2579094,1.14,False,geonames,agree
+07.211.03.01.,Ait Said,Essaouira,6546653,Q4699268,1.27,False,geonames,agree
+07.211.03.03.,Aquermoud,Essaouira,6546654,Q4782866,1.92,False,geonames,agree
+07.211.03.05.,Had Dra,Essaouira,6546655,Q5637534,4.82,False,geonames,agree
+07.211.03.07.,Kechoula,Essaouira,6545523,Q20411078,2.57,False,geonames,agree
+07.211.03.09.,Korimate,Essaouira,6545524,Q12191752,1.42,False,geonames,agree
+07.211.03.11.,Lagdadra,Essaouira,6545947,Q6471952,2.52,False,geonames,agree
+07.211.03.13.,Lahsinate,Essaouira,6546656,Q17007709,1.46,False,geonames,agree
+07.211.03.15.,Mejji,Essaouira,6546657,Q20422283,2.04,False,geonames,agree
+07.211.03.17.,Meskala,Essaouira,6545948,Q20422693,1.94,False,geonames,agree
+07.211.03.19.,Mouarid,Essaouira,6545949,Q20389749,0.06,False,geonames,agree
+07.211.03.21.,Moulay Bouzarqtoune,Essaouira,6545950,Q6918959,4.62,False,geonames,agree
+07.211.03.23.,Mzilate,Essaouira,6545845,Q2782530,3.07,False,geonames,agree
+07.211.03.25.,M'Khalif,Essaouira,6545932,Q6711871,1.56,False,geonames,agree
+07.211.03.27.,M'Ramer,Essaouira,6545951,Q20390342,1.75,False,geonames,agree
+07.211.03.31.,Ounagha,Essaouira,6546243,Q3358330,3.96,False,geonames,agree
+07.211.03.33.,Sidi Abdeljalil,Essaouira,6545953,Q7508609,1.23,False,geonames,agree
+07.211.03.35.,Sidi Aissa Regragui,Essaouira,6546244,Q17019364,4.46,False,geonames,agree
+07.211.03.37.,Sidi Ali El Korati,Essaouira,6546245,Q20389914,0.14,False,geonames,agree
+07.211.03.39.,Sidi Boulaalam,Essaouira,6545850,Q20389699,1.23,False,geonames,agree
+07.211.03.41.,Sidi Ishaq,Essaouira,6546391,Q7508743,1.08,False,geonames,agree
+07.211.03.43.,Sidi Laaroussi,Essaouira,6546514,Q7508752,2.98,False,geonames,agree
+07.211.03.45.,Sidi M'Hamed Ou Marzouq,Essaouira,6546380,Q2782535,2.61,False,geonames,agree
+07.211.03.47.,Tafetachte,Essaouira,6545851,Q3513790,5.71,False,geonames,agree
+07.211.03.51.,Zaouiat Ben Hmida,Essaouira,6545853,Q20419878,1.53,False,geonames,agree
+07.211.05.03.,Aglif,Essaouira,6545441,Q4692883,1.95,False,geonames,agree
+07.211.05.05.,Aguerd,Essaouira,6545442,Q3784301,0.47,False,geonames,agree
+07.211.05.07.,Ait Aissi Ihahane,Essaouira,6546392,Q4699227,16.47,False,geonames,agree
+07.211.05.09.,Assais,Essaouira,6546246,Q20387165,3.28,False,geonames,agree
+07.211.05.11.,Bizdad,Essaouira,6546247,Q12198285,4.82,False,geonames,agree
+07.211.05.13.,Bouzemmour,Essaouira,6545886,Q4950500,3.26,False,geonames,agree
+07.211.05.15.,Ezzaouite,Essaouira,6545887,Q20388858,1.63,False,geonames,agree
+07.211.05.17.,Ida Ou Aazza,Essaouira,6546658,Q20393812,1.33,False,geonames,agree
+07.211.05.19.,Ida Ou Guelloul,Essaouira,6546659,Q5987152,0.53,False,geonames,agree
+07.211.05.21.,Ida Ou Kazzou,Essaouira,6546660,Q5987155,5.0,False,geonames,agree
+07.211.05.23.,Imgrade,Essaouira,6546102,Q17005873,3.57,False,geonames,agree
+07.211.05.25.,Imi N'Tlit,Essaouira,6546103,Q17005378,2.28,False,geonames,agree
+07.211.05.27.,Sidi Ahmed Essayeh,Essaouira,6546104,Q20389512,9.29,False,geonames,agree
+07.211.05.29.,Sidi El Jazouli,Essaouira,6546105,Q20389544,6.2,False,geonames,agree
+07.211.05.31.,Sidi Ghaneme,Essaouira,6546661,Q7508725,2.13,False,geonames,agree
+07.211.05.35.,Sidi Hmad Ou Hamed,Essaouira,6545825,Q20389498,2.96,False,geonames,agree
+07.211.05.37.,Sidi Kaouki,Essaouira,6545826,Q3784300,7.11,False,geonames,agree
+07.211.05.39.,Smimou,Essaouira,6546663,Q3486986,0.93,False,geonames,agree
+07.211.05.41.,Tafedna,Essaouira,6545827,Q20418150,5.5,False,geonames,agree
+07.211.05.43.,Tahelouante,Essaouira,6545908,Q20418480,1.92,False,geonames,agree
+07.211.05.45.,Takoucht,Essaouira,6545909,Q7678486,2.51,False,geonames,agree
+07.211.05.47.,Targante,Essaouira,6546664,Q7685836,88.07,True,geonames,review
+07.211.05.51.,Timizguida-Ouftas,Essaouira,6546666,Q20403848,3.2,False,geonames,agree
+07.351.01.01.,Méchouar-Kasba (Mun.),Marrakech,6545593,Q27534342,6.04,False,geonames,agree
+07.351.02.01.,Alouidane,Marrakech,11881793,Q25454416,6.57,False,geonames,agree
+07.351.02.07.,Ouahat Sidi Brahim,Marrakech,6546778,Q25454421,3.44,False,geonames,agree
+07.351.02.09.,Oulad Hassoune,Marrakech,6546779,Q25454422,2.24,False,geonames,agree
+07.351.03.03.,Harbil,Marrakech,6546776,Q2363471,1.98,False,geonames,agree
+07.351.03.05.,M'Nabha,Marrakech,6546777,Q27538118,5.46,False,geonames,agree
+07.351.03.11.,Ouled Dlim,Marrakech,6546780,Q25454423,5.35,False,geonames,agree
+07.351.05.01.,Agafay,Marrakech,6546667,Q25454431,1.9,False,geonames,agree
+07.351.05.03.,Ait Imour,Marrakech,6546668,Q25454438,1.65,False,geonames,agree
+07.351.05.05.,Loudaya,Marrakech,6546669,Q3260207,4.69,False,geonames,agree
+07.351.05.09.,Sid Zouine,Marrakech,6546670,Q3483305,4.16,False,geonames,agree
+07.351.07.07.,Saada,Marrakech,6545654,Q25463425,1.33,False,geonames,agree
+07.351.07.11.,Souihla,Marrakech,6545910,Q25454428,2.24,False,geonames,agree
+07.351.07.13.,Tassoultante,Marrakech,6545866,Q25454432,1.42,False,geonames,agree
+07.427.01.01.,Ben Guerir (Mun.),Rehamna,6545468,Q2542724,1.41,False,geonames,agree
+07.427.01.17.,Sidi Bou Othmane (Mun.),Rehamna,6546379,Q3483201,7.52,False,geonames,agree
+07.427.07.01.,Ait Hammou,Rehamna,6546767,Q4699240,5.45,False,geonames,agree
+07.427.07.03.,Ait Taleb,Rehamna,6546768,Q4699272,0.48,False,geonames,agree
+07.427.07.05.,Bouchane,Rehamna,6546769,Q4949269,8.88,False,geonames,agree
+07.427.07.09.,Labrikiyne,Rehamna,6546771,Q6467609,2.3,False,geonames,agree
+07.427.07.13.,Oulad Hassoune Hamri,Rehamna,6545740,Q7110405,4.51,False,geonames,agree
+07.427.07.15.,Sidi Abdallah,Rehamna,6546773,Q20389853,3.05,False,geonames,agree
+07.427.07.17.,Sidi Ali Labrahla,Rehamna,6546774,Q20389964,2.08,False,geonames,agree
+07.427.07.21.,Sidi Mansour,Rehamna,6545474,Q20390151,5.52,False,geonames,agree
+07.427.07.23.,Skhour Rehamna,Rehamna,2532646,Q3486243,0.16,False,geonames,agree
+07.427.07.25.,Skoura Lhadra,Rehamna,6545830,Q7536479,0.33,False,geonames,agree
+07.427.09.01.,Akarma,Rehamna,6546214,Q4700298,5.11,False,geonames,agree
+07.427.09.03.,Bourrous,Rehamna,6545602,Q20416063,3.17,False,geonames,agree
+07.427.09.05.,Jaidate,Rehamna,6545603,Q6123514,2.04,False,geonames,agree
+07.427.09.07.,Lamharra,Rehamna,6545604,Q6481810,10.59,False,geonames,agree
+07.427.09.09.,Nzalat Laadam,Rehamna,6545605,Q20402038,12.02,False,geonames,agree
+07.427.09.11.,Oulad Imloul,Rehamna,6545844,Q7110410,13.08,False,geonames,agree
+07.427.09.13.,Ras Ain Rhamna,Rehamna,6546513,Q20403827,3.46,False,geonames,agree
+07.427.09.15.,Sidi Boubker,Rehamna,6546067,Q7508681,2.21,False,geonames,agree
+07.427.09.19.,Tlauh,Rehamna,6546422,Q7810723,3.8,False,geonames,agree
+07.431.01.03.,Safi (Mun.),Safi,6546086,Q183405,1.57,False,geonames,agree
+07.431.01.09.,Jamaat Shaim (Mun.),Safi,6546517,Q3161600,1.15,False,geonames,agree
+07.431.01.11.,Sebt Gzoula (Mun.),Safi,6546518,Q3476964,0.39,False,geonames,agree
+07.431.03.01.,Bouguedra,Safi,6546519,Q532652,2.1,False,geonames,agree
+07.431.03.03.,El Gouraani,Safi,6546520,Q20384439,1.16,False,geonames,agree
+07.431.03.05.,Labkhati,Safi,6546088,Q27536146,3.43,False,geonames,agree
+07.431.03.07.,Lahdar,Safi,6546521,Q20418786,2.15,False,geonames,agree
+07.431.03.09.,Lamrasla,Safi,6546522,Q20394228,0.7,False,geonames,agree
+07.431.03.11.,Lamsabih,Safi,6545782,Q20394308,1.04,False,geonames,agree
+07.431.03.13.,Sidi Aissa,Safi,6546632,Q20390017,0.0,False,geonames,agree
+07.431.03.15.,Sidi Ettiji,Safi,6546633,Q20389756,3.82,False,geonames,agree
+07.431.07.01.,Atouabet,Safi,6546639,Q20399826,2.49,False,geonames,agree
+07.431.07.03.,El Ghiate,Safi,6546640,Q20413900,2.39,False,geonames,agree
+07.431.07.05.,Khatazakane,Safi,6545546,Q12210570,0.31,False,geonames,agree
+07.431.07.07.,Laamamra,Safi,6545491,Q27533450,0.9,False,geonames,agree
+07.431.07.09.,Lamaachate,Safi,6546395,Q20394346,0.86,False,geonames,agree
+07.431.07.11.,Nagga,Safi,6546641,Q26293409,3.86,False,geonames,agree
+07.431.09.01.,Ayir,Safi,6545492,Q27533449,0.01,False,geonames,agree
+07.431.09.03.,Dar Si Aissa,Safi,6545493,Q20409803,31.01,True,geonames,review
+07.431.09.05.,El Beddouza,Safi,6546644,Q12184310,3.6,False,geonames,agree
+07.431.09.09.,Moul El Bergui,Safi,6546524,Q20423107,0.91,False,geonames,agree
+07.431.09.15.,Saadla,Safi,6546643,Q20421355,29.46,True,geonames,review
+07.585.01.07.,Echemmaia (Mun.),Youssoufia,11881879,Q935605,0.75,False,geonames,agree
+07.585.01.13.,Youssoufia (Mun.),Youssoufia,6546087,Q2627209,0.55,False,geonames,agree
+07.585.05.07.,Ighoud,Youssoufia,6546637,Q3148139,1.37,False,geonames,agree
+07.585.05.09.,Jdour,Youssoufia,6545606,Q25454443,0.67,False,geonames,agree
+07.585.05.11.,Jnane Bouih,Youssoufia,6546638,Q25454446,9.84,False,geonames,agree
+07.585.05.17.,Sidi Chiker,Youssoufia,6545789,Q20389806,14.35,False,geonames,agree
+07.585.07.01.,Atiamim,Youssoufia,6546634,Q20387873,1.03,False,geonames,agree
+07.585.07.03.,El Gantour,Youssoufia,11881812,Q20385749,15.1,False,geonames,agree
+07.585.07.05.,Esbiaat,Youssoufia,6546636,Q20421098,7.67,False,geonames,agree
+07.585.07.13.,Lakhoualqa,Youssoufia,6545787,Q20419206,3.87,False,geonames,agree
+07.585.07.15.,Ras El Ain,Youssoufia,6545788,Q19921114,7.47,False,geonames,agree
+08.201.01.01.,Arfoud (Mun.),Errachidia,11882664,Q648987,26.96,True,wikidata,review
+08.201.01.03.,Boudnib (Mun.),Errachidia,6545608,Q2290071,1.62,False,geonames,agree
+08.201.01.05.,Errachidia (Mun.),Errachidia,6545550,Q1980885,1.09,False,geonames,agree
+08.201.01.09.,Goulmima (Mun.),Errachidia,6546836,Q3111649,1.45,False,geonames,agree
+08.201.01.11.,Jorf (Mun.),Errachidia,6546120,Q1276800,0.6,False,geonames,agree
+08.201.01.13.,Moulay Ali Cherif (Mun.),Errachidia,6546290,Q2154823,1.32,False,geonames,agree
+08.201.03.01.,Aarab Sebbah Gheris,Errachidia,6546837,Q20384963,4.83,False,geonames,agree
+08.201.03.03.,Aarab Sebbah Ziz,Errachidia,11912630,Q20384972,5.33,False,geonames,agree
+08.201.03.09.,Fezna,Errachidia,6546417,Q20408433,3.72,False,geonames,agree
+08.201.07.01.,Aoufous,Errachidia,11912636,Q2857997,3.59,False,geonames,agree
+08.201.07.05.,Er-rteb,Errachidia,6546844,Q3055936,1.96,False,geonames,agree
+08.201.07.07.,Lkheng,Errachidia,6546185,Q20413865,3.93,False,geonames,agree
+08.201.07.09.,Oued Naam,Errachidia,11912643,Q22931756,7.4,False,geonames,agree
+08.201.11.01.,Bni M'Hamed-Sijelmassa,Errachidia,6546848,Q12199427,2.56,False,geonames,agree
+08.201.11.05.,Es-sfalat,Errachidia,6546849,Q20416059,2.41,False,geonames,agree
+08.201.11.09.,Sidi Ali,Errachidia,6545706,Q20389898,4.83,False,geonames,agree
+08.201.13.01.,Aghbalou N'Kerdous,Errachidia,6546850,Q20388185,4.77,False,geonames,agree
+08.201.13.02.,Amellagou,Errachidia,6546841,Q20401078,6.3,False,geonames,agree
+08.201.13.03.,Ferkla El Oulia,Errachidia,6546291,Q12230635,11.57,False,geonames,agree
+08.201.13.05.,Ferkla Es-soufla,Errachidia,6546292,Q12230634,3.43,False,geonames,agree
+08.201.13.07.,Gheris El Ouloui,Errachidia,6545551,Q20421423,3.83,False,geonames,agree
+08.201.13.09.,Gheris Es-soufli,Errachidia,6546851,Q20421422,5.88,False,geonames,agree
+08.201.13.11.,Melaab,Errachidia,11912633,Q20424997,4.37,False,geonames,agree
+08.363.01.03.,Midelt (Mun.),Midelt,6545495,Q2501809,0.32,False,geonames,agree
+08.363.01.07.,Er-rich (Mun.),Midelt,6546835,Q3055931,0.0,False,geonames,agree
+08.363.05.01.,Aghbalou,Midelt,6546963,Q2826831,0.0,False,geonames,agree
+08.363.05.03.,Agoudim,Midelt,6546856,Q16826137,11.89,False,geonames,agree
+08.363.05.13.,Anemzi,Midelt,6545990,Q12180876,10.42,False,geonames,agree
+08.363.05.15.,Boumia,Midelt,6546965,Q2414144,3.23,False,geonames,agree
+08.363.05.23.,Tanourdi,Midelt,6546017,Q3515253,0.01,False,geonames,agree
+08.363.05.27.,Tounfite,Midelt,6546022,Q3532967,5.43,False,geonames,agree
+08.363.07.07.,Ait Ben Yacoub,Midelt,6546964,Q16826379,2.75,False,geonames,agree
+08.363.07.09.,Ait Izdeg,Midelt,6546857,Q2876496,0.0,False,geonames,agree
+08.363.07.11.,Amersid,Midelt,6546858,Q16827966,7.68,False,geonames,agree
+08.363.07.17.,Itzer,Midelt,11912662,Q3156016,11.95,False,geonames,agree
+08.363.07.19.,Mibladen,Midelt,6546859,Q12246427,4.4,False,geonames,agree
+08.363.07.29.,Zaida,Midelt,6546018,Q3574981,8.49,False,geonames,agree
+08.363.09.01.,En-nzala,Midelt,6546054,Q12194323,10.6,False,geonames,agree
+08.363.09.03.,Gourrama,Midelt,6546845,Q3111760,5.51,False,geonames,agree
+08.363.09.05.,Guers Tiaallaline,Midelt,6546055,Q12229498,14.34,False,geonames,agree
+08.363.09.07.,Guir,Midelt,6546846,Q12252292,21.67,False,geonames,agree
+08.363.09.09.,M'Zizel,Midelt,6546847,Q12195133,8.53,False,geonames,agree
+08.363.09.11.,Sidi Aayad,Midelt,6545731,Q12217704,9.6,False,geonames,agree
+08.363.09.13.,Zaouiat Sidi Hamza,Midelt,6545732,Q12214253,6.49,False,geonames,agree
+08.363.15.01.,Ait Yahya,Midelt,6546676,Q6539827,0.0,False,geonames,agree
+08.363.15.03.,Amouguer,Midelt,6546853,Q27538808,7.38,False,geonames,agree
+08.363.15.05.,Bou Azmou,Midelt,6546854,Q27538807,8.75,False,geonames,agree
+08.363.15.07.,Imilchil,Midelt,11882669,Q2676569,26.85,True,geonames,review
+08.363.15.09.,Outerbat,Midelt,6546855,Q20391836,14.4,False,geonames,agree
+08.401.01.07.,Ouarzazate (Mun.),Ouarzazate,11882640,Q505208,2.53,False,geonames,agree
+08.401.01.09.,Taznakht (Mun.),Ouarzazate,6546385,Q13420293,0.84,False,geonames,agree
+08.401.03.01.,Ait Zineb,Ouarzazate,6545587,Q16826433,1.36,False,geonames,agree
+08.401.03.03.,Amerzgane,Ouarzazate,11912611,Q16827971,6.59,False,geonames,agree
+08.401.03.05.,Iznaguen,Ouarzazate,10909337,Q16836407,132.28,True,wikidata,review
+08.401.03.07.,Ighrem N'Ougdal,Ouarzazate,6545622,Q1657147,3.91,False,geonames,agree
+08.401.03.09.,Khouzama,Ouarzazate,6546234,Q20403724,9.81,False,geonames,agree
+08.401.03.11.,Ouisselsate,Ouarzazate,6545760,Q17013211,6.12,False,geonames,agree
+08.401.03.13.,Siroua,Ouarzazate,6545458,Q17052254,0.02,False,geonames,agree
+08.401.03.15.,Telouet,Ouarzazate,11912610,Q1010760,5.08,False,geonames,agree
+08.401.03.17.,Tidli,Ouarzazate,6545937,Q20405809,6.01,False,geonames,agree
+08.401.07.01.,Ghassate,Ouarzazate,6546041,Q12229582,5.49,False,geonames,agree
+08.401.07.03.,Idelsane,Ouarzazate,6546566,Q17005135,11.42,False,geonames,agree
+08.401.07.05.,Imi N'Oulaoune,Ouarzazate,6546567,Q17005366,6.98,False,geonames,agree
+08.401.07.07.,Skoura Ahl El Oust,Ouarzazate,6546568,Q20383603,6.41,False,geonames,agree
+08.401.07.09.,Tarmigt,Ouarzazate,6545589,Q17023283,3.9,False,geonames,agree
+08.401.07.11.,Toundoute,Ouarzazate,6546181,Q3532937,11.58,False,geonames,agree
+08.577.01.03.,Boumalne Dades (Mun.),Tinghir,6546556,Q2435851,5.51,False,geonames,agree
+08.577.01.05.,Kalaat M'Gouna (Mun.),Tinghir,6546369,Q1018286,0.07,False,geonames,agree
+08.577.01.11.,Tinghir (Mun.),Tinghir,6546260,Q335141,0.34,False,geonames,agree
+08.577.02.05.,Alnif,Tinghir,6546838,Q984312,2.88,False,geonames,agree
+08.577.02.11.,H'Ssyia,Tinghir,6546051,Q20399008,9.84,False,geonames,agree
+08.577.02.21.,M'Ssici,Tinghir,6546418,Q20423354,24.4,False,geonames,agree
+08.577.03.01.,Ait Hani,Tinghir,6546840,Q6539663,5.84,False,geonames,agree
+08.577.03.05.,Assoul,Tinghir,11882670,Q4810308,17.52,False,geonames,agree
+08.577.05.03.,Ait Ouassif,Tinghir,6546561,Q16826396,3.87,False,geonames,agree
+08.577.05.09.,Ait Sedrate Sahl Charkia,Tinghir,6546562,Q6539351,4.71,False,geonames,agree
+08.577.05.13.,Ait Youl,Tinghir,6546042,Q16826429,12.13,False,geonames,agree
+08.577.05.15.,Ighil N'Oumgoun,Tinghir,6546564,Q3148135,0.61,False,geonames,agree
+08.577.05.17.,Ikniouen,Tinghir,6546565,Q20395697,5.19,False,geonames,agree
+08.577.05.21.,M'Semrir,Tinghir,6545955,Q3272361,3.68,False,geonames,agree
+08.577.05.25.,Souk Lakhmis Dades,Tinghir,6545847,Q3491585,8.14,False,geonames,agree
+08.577.05.29.,Tilmi,Tinghir,6545958,Q20406198,5.46,False,geonames,agree
+08.577.07.01.,Ait El Farsi,Tinghir,6546690,Q16826382,9.86,False,geonames,agree
+08.577.07.19.,Imider,Tinghir,6545954,Q17005387,4.28,False,geonames,agree
+08.577.07.23.,Ouaklim,Tinghir,6545956,Q17013164,9.96,False,geonames,agree
+08.577.07.27.,Taghzoute N'Ait Atta,Tinghir,6545957,Q20418091,2.78,False,geonames,agree
+08.577.07.31.,Toudgha El Oulia,Tinghir,6545912,Q20404937,4.17,False,geonames,agree
+08.577.07.33.,Toudgha Essoufla,Tinghir,6545959,Q20404920,4.38,False,geonames,agree
+08.587.01.01.,Agdz (Mun.),Zagora,11882659,Q2717415,38.44,True,wikidata,review
+08.587.01.13.,Zagora (Mun.),Zagora,6545905,Q140354,3.01,False,geonames,agree
+08.587.03.01.,Afella N'Dra,Zagora,6546596,Q20388426,3.6,False,geonames,agree
+08.587.03.03.,Afra,Zagora,6545667,Q20388252,2.18,False,geonames,agree
+08.587.03.05.,Ait Boudaoud,Zagora,6545668,Q3607218,2.98,False,geonames,agree
+08.587.03.21.,Mezguita,Zagora,6545938,Q20424708,0.14,False,geonames,agree
+08.587.03.25.,N'Kob,Zagora,6545835,Q10334921,6.98,False,geonames,agree
+08.587.03.27.,Oulad Yahia Lagraire,Zagora,6545939,Q20392319,1.34,False,geonames,agree
+08.587.03.31.,Taghbalte,Zagora,6545848,Q3980098,8.31,False,geonames,agree
+08.587.03.37.,Tamezmoute,Zagora,6545940,Q20418359,1.52,False,geonames,agree
+08.587.03.39.,Tansifte,Zagora,6545761,Q27534891,1.4,False,geonames,agree
+08.587.07.11.,Bni Zoli,Zagora,6545941,Q20411580,1.18,False,geonames,agree
+08.587.07.13.,Bouzeroual,Zagora,6546597,Q20416135,0.16,False,geonames,agree
+08.587.07.15.,Errouha,Zagora,6545942,Q20386361,0.32,False,geonames,agree
+08.587.07.29.,Taftechna,Zagora,6545944,Q20418110,0.73,False,geonames,agree
+08.587.07.43.,Ternata,Zagora,6545946,Q20399282,14.34,False,geonames,agree
+08.587.07.45.,Tinzouline,Zagora,11912591,Q27535418,3.31,False,geonames,agree
+08.587.09.17.,Fezouata,Zagora,6545943,Q20408445,1.88,False,geonames,agree
+08.587.09.19.,Ktaoua,Zagora,6545906,Q17631609,1.18,False,geonames,agree
+08.587.09.23.,M'Hamid El Ghizlane,Zagora,6545907,Q1014625,24.9,False,geonames,agree
+08.587.09.33.,Tagounite,Zagora,11912587,Q3980137,16.26,False,geonames,agree
+08.587.09.35.,Tamegroute,Zagora,6545945,Q3110024,8.41,False,geonames,agree
+09.001.01.01.,Agadir (Mun.),Agadir-Ida -Ou-Tanane,11882684,Q170525,1.14,False,geonames,agree
+09.001.05.01.,Amskroud,Agadir-Ida -Ou-Tanane,11913272,Q2844501,4.06,False,geonames,agree
+09.001.05.09.,Drargua,Agadir-Ida -Ou-Tanane,6545569,Q542826,8.04,False,geonames,agree
+09.001.05.11.,Idmine,Agadir-Ida -Ou-Tanane,6545798,Q3147885,0.47,False,geonames,agree
+09.001.07.03.,Aourir,Agadir-Ida -Ou-Tanane,6545566,Q2544597,0.0,False,geonames,agree
+09.001.07.05.,Aqesri,Agadir-Ida -Ou-Tanane,6545567,Q2859111,15.77,False,geonames,agree
+09.001.07.07.,Aziar,Agadir-Ida -Ou-Tanane,6545568,Q2875129,0.62,False,geonames,agree
+09.001.07.15.,Imsouane,Agadir-Ida -Ou-Tanane,6545800,Q3149573,0.05,False,geonames,agree
+09.001.07.21.,Tadrart,Agadir-Ida -Ou-Tanane,6545423,Q3513742,1.5,False,geonames,agree
+09.001.07.23.,Taghazout,Agadir-Ida -Ou-Tanane,11913178,Q621472,14.55,False,geonames,agree
+09.001.07.25.,Tamri,Agadir-Ida -Ou-Tanane,11913177,Q3514885,7.43,False,geonames,agree
+09.001.07.29.,Tiqqi,Agadir-Ida -Ou-Tanane,6545759,Q3529288,4.19,False,geonames,agree
+09.163.01.03.,Ait Baha (Mun.),Chtouka- Ait Baha,11882687,Q2876468,0.37,False,geonames,agree
+09.163.01.11.,Biougra (Mun.),Chtouka- Ait Baha,6546196,Q662659,0.25,False,geonames,agree
+09.163.03.07.,Ait Ouadrim,Chtouka- Ait Baha,6545645,Q4699258,0.58,False,geonames,agree
+09.163.03.09.,Aouguenz,Chtouka- Ait Baha,6545646,Q4778811,1.98,False,geonames,agree
+09.163.03.13.,Hilala,Chtouka- Ait Baha,6545748,Q5760780,2.39,False,geonames,agree
+09.163.03.15.,Ida Ougnidif,Chtouka- Ait Baha,11913170,Q5987160,7.41,False,geonames,agree
+09.163.03.33.,Tanalt,Chtouka- Ait Baha,11913169,Q3514940,6.83,False,geonames,agree
+09.163.03.35.,Targua Ntouchka,Chtouka- Ait Baha,6545837,Q7685964,3.59,False,geonames,agree
+09.163.03.37.,Tassegdelt,Chtouka- Ait Baha,6545838,Q7687632,6.44,False,geonames,agree
+09.163.03.39.,Tizi Ntakoucht,Chtouka- Ait Baha,6545922,Q7810526,3.59,False,geonames,agree
+09.163.05.03.,Ait Milk,Chtouka- Ait Baha,6545591,Q4699254,1.82,False,geonames,agree
+09.163.05.11.,Belfaa,Chtouka- Ait Baha,6545878,Q4882219,7.21,False,geonames,agree
+09.163.05.19.,Inchaden,Chtouka- Ait Baha,6545923,Q6014369,0.59,False,geonames,agree
+09.163.05.21.,Massa,Chtouka- Ait Baha,11913165,Q3100282,1.72,False,geonames,agree
+09.163.05.31.,Sidi Ouassay,Chtouka- Ait Baha,6545924,Q12217738,4.14,False,geonames,agree
+09.163.07.01.,Ait Amira,Chtouka- Ait Baha,11913175,Q4699228,3.5,False,geonames,agree
+09.163.07.17.,Imi Mqourn,Chtouka- Ait Baha,11913172,Q6003965,3.12,False,geonames,agree
+09.163.07.23.,Ouad Essafa,Chtouka- Ait Baha,6545832,Q17013158,6.74,False,geonames,agree
+09.163.07.27.,Sidi Bibi,Chtouka- Ait Baha,6545925,Q7508668,1.31,False,geonames,agree
+09.273.01.05.,Ait Melloul (Mun.),Inezgane- Ait Melloul,6545664,Q2384142,0.35,False,geonames,agree
+09.273.01.13.,Dcheira El Jihadia (Mun.),Inezgane- Ait Melloul,6545935,Q3020034,0.57,False,geonames,agree
+09.273.01.15.,Inezgane (Mun.),Inezgane- Ait Melloul,6545936,Q2736030,1.17,False,geonames,agree
+09.273.01.17.,Lqliaa (Mun.),Inezgane- Ait Melloul,6545901,Q966350,6.8,False,geonames,agree
+09.273.05.19.,Oulad Dahou,Inezgane- Ait Melloul,6545902,Q12181179,0.92,False,geonames,agree
+09.273.05.27.,Temsia,Inezgane- Ait Melloul,6545903,Q600883,2.74,False,geonames,agree
+09.541.01.01.,Ait Iaaza (Mun.),Taroudannt,11882779,Q2876490,0.38,False,geonames,agree
+09.541.01.02.,Aoulouz (Mun.),Taroudannt,6546373,Q2858000,2.85,False,geonames,agree
+09.541.01.03.,El Guerdane (Mun.),Taroudannt,11882780,Q3049896,0.46,False,geonames,agree
+09.541.01.05.,Irherm (Mun.),Taroudannt,11882679,Q3154347,6.78,False,geonames,agree
+09.541.01.07.,Oulad Berhil (Mun.),Taroudannt,6545452,Q3358157,0.28,False,geonames,agree
+09.541.01.09.,Oulad Teima (Mun.),Taroudannt,11882681,Q785945,20.28,False,geonames,agree
+09.541.01.11.,Taliouine (Mun.),Taroudannt,6546459,Q1001873,0.66,False,geonames,agree
+09.541.01.13.,Taroudannt (Mun.),Taroudannt,11882682,Q762727,13.96,False,geonames,agree
+09.541.03.01.,Adar,Taroudannt,6546460,Q4680791,3.91,False,geonames,agree
+09.541.03.03.,Ait Abdallah,Taroudannt,11913273,Q4699230,9.68,False,geonames,agree
+09.541.03.05.,Amalou,Taroudannt,6546461,Q4739434,1.94,False,geonames,agree
+09.541.03.07.,Azaghar N'Irs,Taroudannt,6546462,Q4832115,7.4,False,geonames,agree
+09.541.03.09.,Imaouen,Taroudannt,6545415,Q8722892,4.26,False,geonames,agree
+09.541.03.11.,Imi N'Tayart,Taroudannt,6546463,Q6003982,6.09,False,geonames,agree
+09.541.03.13.,Nihit,Taroudannt,6546199,Q12249490,4.56,False,geonames,agree
+09.541.03.15.,Oualqadi,Taroudannt,11913276,Q7110173,4.03,False,geonames,agree
+09.541.03.17.,Sidi Boaal,Taroudannt,6545420,Q7508671,11.03,False,geonames,agree
+09.541.03.19.,Sidi Mzal,Taroudannt,6546200,Q7508799,4.99,False,geonames,agree
+09.541.03.21.,Tabia,Taroudannt,6546467,Q7673060,2.18,False,geonames,agree
+09.541.03.23.,Tataoute,Taroudannt,6546201,Q7687866,3.97,False,geonames,agree
+09.541.03.25.,Tindine,Taroudannt,6545421,Q7808055,3.71,False,geonames,agree
+09.541.03.27.,Tisfane,Taroudannt,6545749,Q7809554,4.45,False,geonames,agree
+09.541.03.29.,Toufelaazt,Taroudannt,6546464,Q7828757,1.15,False,geonames,agree
+09.541.03.31.,Toumliline,Taroudannt,6546465,Q3532931,0.5,False,geonames,agree
+09.541.04.09.,Arazane,Taroudannt,6546202,Q2859592,4.47,False,geonames,agree
+09.541.04.13.,El Faid,Taroudannt,11913291,Q5351260,12.68,False,geonames,agree
+09.541.04.17.,Ida Ou Gailal,Taroudannt,6546078,Q12181965,2.45,False,geonames,agree
+09.541.04.21.,Ida Ougoummad,Taroudannt,6546374,Q5987168,1.77,False,geonames,agree
+09.541.04.25.,Igoudar Mnabha,Taroudannt,6546375,Q5993936,4.5,False,geonames,agree
+09.541.04.29.,Lamhara,Taroudannt,6546468,Q6481809,3.85,False,geonames,agree
+09.541.04.33.,Oulad Aissa,Taroudannt,6545839,Q7110389,1.58,False,geonames,agree
+09.541.04.35.,Ouneine,Taroudannt,6545735,Q7110519,1.46,False,geonames,agree
+09.541.04.39.,Sidi Abdellah Ou Said,Taroudannt,10898778,Q7508613,119.67,True,wikidata,anchor
+09.541.04.47.,Sidi Ouaaziz,Taroudannt,6545829,Q11220738,6.93,False,geonames,agree
+09.541.04.49.,Tafingoult,Taroudannt,6545877,Q7674979,3.32,False,geonames,agree
+09.541.04.53.,Talgjount,Taroudannt,6545926,Q7679444,6.31,False,geonames,agree
+09.541.04.59.,Tigouga,Taroudannt,6545927,Q7801683,0.68,False,geonames,agree
+09.541.04.61.,Tinzart,Taroudannt,6545928,Q7808671,3.08,False,geonames,agree
+09.541.04.69.,Toughmart,Taroudannt,6545882,Q7828832,5.72,False,geonames,agree
+09.541.05.01.,Ahl Ramel,Taroudannt,6546469,Q4695161,3.13,False,geonames,agree
+09.541.05.03.,Argana,Taroudannt,11913282,Q2860899,6.78,False,geonames,agree
+09.541.05.05.,Assads,Taroudannt,6546471,Q4808335,1.55,False,geonames,agree
+09.541.05.07.,Bigoudine,Taroudannt,6546472,Q4907017,1.41,False,geonames,agree
+09.541.05.09.,Eddir,Taroudannt,6546473,Q5336609,3.5,False,geonames,agree
+09.541.05.11.,El Koudia El Beida,Taroudannt,6546474,Q5351492,1.39,False,geonames,agree
+09.541.05.13.,Imilmaiss,Taroudannt,6546475,Q12201237,2.61,False,geonames,agree
+09.541.05.15.,Issen,Taroudannt,6546476,Q17006602,0.95,False,geonames,agree
+09.541.05.17.,Lagfifat,Taroudannt,6546477,Q6472051,2.71,False,geonames,agree
+09.541.05.19.,Lakhnafif,Taroudannt,6545453,Q6479579,3.75,False,geonames,agree
+09.541.05.21.,Lamhadi,Taroudannt,6545454,Q6481808,5.84,False,geonames,agree
+09.541.05.23.,Machraa El Ain,Taroudannt,6545455,Q6723851,6.87,False,geonames,agree
+09.541.05.25.,Sidi Ahmed Ou Amar,Taroudannt,6546478,Q7508634,3.8,False,geonames,agree
+09.541.05.27.,Sidi Boumoussa,Taroudannt,6546479,Q7508691,1.78,False,geonames,agree
+09.541.05.29.,Sidi Moussa Lhamri,Taroudannt,6545456,Q7508798,2.74,False,geonames,agree
+09.541.05.31.,Talmakante,Taroudannt,6546204,Q7680244,0.81,False,geonames,agree
+09.541.05.33.,Tidsi Nissendalene,Taroudannt,6546205,Q12202273,2.63,False,geonames,agree
+09.541.07.01.,Agadir Melloul,Taroudannt,6546206,Q4690968,2.57,False,geonames,agree
+09.541.07.03.,Ahl Tifnoute,Taroudannt,6546480,Q4695164,3.71,False,geonames,agree
+09.541.07.05.,Askaouen,Taroudannt,6546481,Q4807124,4.55,False,geonames,agree
+09.541.07.07.,Assaisse,Taroudannt,6546482,Q4808359,5.24,False,geonames,agree
+09.541.07.09.,Assaki,Taroudannt,6546483,Q4808362,0.31,False,geonames,agree
+09.541.07.11.,Azrar,Taroudannt,6546484,Q4832907,0.87,False,geonames,agree
+09.541.07.13.,Iguidi,Taroudannt,6546376,Q5994457,5.26,False,geonames,agree
+09.541.07.15.,Sidi Hsaine,Taroudannt,6546062,Q7508739,3.19,False,geonames,agree
+09.541.07.17.,Taouyalte,Taroudannt,6546063,Q7684342,3.15,False,geonames,agree
+09.541.07.19.,Tassousfi,Taroudannt,6546064,Q7687659,4.61,False,geonames,agree
+09.541.07.21.,Tizgzaouine,Taroudannt,6546485,Q7810517,2.56,False,geonames,agree
+09.541.07.23.,Toubkal,Taroudannt,6546486,Q7828533,1.77,False,geonames,agree
+09.541.07.25.,Zagmouzen,Taroudannt,6546065,Q8064399,2.96,False,geonames,agree
+09.541.07.37.,Ouzioua,Taroudannt,6545865,Q7113174,0.31,False,geonames,agree
+09.541.07.65.,Tisrasse,Taroudannt,6545880,Q7809623,1.75,False,geonames,agree
+09.541.09.01.,Ahmar Laglalcha,Taroudannt,6545519,Q4695681,4.25,False,geonames,agree
+09.541.09.03.,Ait Igas,Taroudannt,6545520,Q4699252,5.53,False,geonames,agree
+09.541.09.05.,Ait Makhlouf,Taroudannt,6545521,Q4699256,0.43,False,geonames,agree
+09.541.09.11.,Bounrar,Taroudannt,6545751,Q4950036,4.72,False,geonames,agree
+09.541.09.15.,Freija,Taroudannt,11913292,Q5501405,6.59,False,geonames,agree
+09.541.09.19.,Ida Ou Moumen,Taroudannt,6546488,Q5987164,1.66,False,geonames,agree
+09.541.09.27.,Imoulass,Taroudannt,6546489,Q12182733,2.5,False,geonames,agree
+09.541.09.31.,Lamnizla,Taroudannt,6545840,Q6482123,4.01,False,geonames,agree
+09.541.09.43.,Sidi Borja,Taroudannt,6545842,Q11131837,2.27,False,geonames,agree
+09.541.09.45.,Sidi Dahmane,Taroudannt,6545843,Q7508712,0.09,False,geonames,agree
+09.541.09.51.,Tafraouten,Taroudannt,6545752,Q7674989,3.2,False,geonames,agree
+09.541.09.55.,Tamaloukte,Taroudannt,6545753,Q7680596,3.42,False,geonames,agree
+09.541.09.57.,Tazemmourt,Taroudannt,11913293,Q7690440,7.07,False,geonames,agree
+09.541.09.63.,Tiout,Taroudannt,6545929,Q1582100,2.54,False,geonames,agree
+09.541.09.71.,Zaouia Sidi Tahar,Taroudannt,6545930,Q8066336,4.7,False,geonames,agree
+09.551.01.01.,Akka (Mun.),Tata,6546550,Q2626422,11.35,False,geonames,agree
+09.551.01.03.,Fam El Hisn (Mun.),Tata,11882688,Q3064838,17.65,False,geonames,agree
+09.551.01.05.,Foum Zguid (Mun.),Tata,6546226,Q3079930,12.11,False,geonames,agree
+09.551.01.07.,Tata (Mun.),Tata,6545618,Q1780997,1.54,False,geonames,agree
+09.551.03.01.,Ait Ouabelli,Tata,11913161,Q6539686,20.59,False,geonames,agree
+09.551.03.05.,Tamanarte,Tata,11913160,Q27534311,4.1,False,geonames,agree
+09.551.03.07.,Tizounine,Tata,6546228,Q27536017,19.37,False,geonames,agree
+09.551.05.01.,Aguinane,Tata,6545620,Q27534310,8.85,False,geonames,agree
+09.551.05.03.,Akka Ighane,Tata,11913196,Q27536016,8.59,False,geonames,agree
+09.551.05.05.,Allougoum,Tata,11913195,Q27537406,34.45,True,geonames,review
+09.551.05.07.,Ibn Yacoub,Tata,6546552,Q12181861,4.91,False,geonames,agree
+09.551.05.09.,Tissint,Tata,6545653,Q7809653,23.61,False,geonames,agree
+09.551.05.11.,Tlite,Tata,6545900,Q12178335,6.74,False,geonames,agree
+09.551.07.03.,Issafen,Tata,6546231,Q27536014,2.86,False,geonames,agree
+09.551.07.05.,Oum El Guerdane,Tata,6546232,Q12180422,31.12,True,geonames,review
+09.551.07.07.,Tagmout,Tata,6546553,Q27537403,9.11,False,geonames,agree
+09.551.07.09.,Tigzmerte,Tata,6546554,Q12203664,10.3,False,geonames,agree
+09.551.07.11.,Tizaghte,Tata,6546555,Q12203601,14.21,False,geonames,agree
+09.581.01.05.,Tafraout (Mun.),Tiznit,6546238,Q1936239,2.77,False,geonames,agree
+09.581.01.07.,Tiznit (Mun.),Tiznit,6547047,Q587107,3.07,False,geonames,agree
+09.581.03.01.,Ait Issafen,Tiznit,6546582,Q4699247,5.49,False,geonames,agree
+09.581.03.03.,Anzi,Tiznit,11913203,Q2857902,4.97,False,geonames,agree
+09.581.03.05.,Arbaa Ait Ahmed,Tiznit,6545629,Q12179339,4.84,False,geonames,agree
+09.581.03.07.,Ida Ou Gougmar,Tiznit,11913202,Q15227854,7.5,False,geonames,agree
+09.581.03.09.,Sidi Ahmed Ou Moussa,Tiznit,6545615,Q12217590,6.87,False,geonames,agree
+09.581.03.11.,Tafraout El Mouloud,Tiznit,6546583,Q12202851,4.15,False,geonames,agree
+09.581.03.13.,Tighmi,Tiznit,11913204,Q12203630,2.55,False,geonames,agree
+09.581.03.15.,Tizoughrane,Tiznit,6546386,Q12203600,2.82,False,geonames,agree
+09.581.03.17.,Tnine Aday,Tiznit,6546387,Q6541542,3.55,False,geonames,agree
+09.581.09.01.,Afella Ighir,Tiznit,11913199,Q4688841,3.51,False,geonames,agree
+09.581.09.03.,Ait Ouafqa,Tiznit,6546510,Q4699260,3.47,False,geonames,agree
+09.581.09.05.,Ammelne,Tiznit,6546511,Q4747223,4.79,False,geonames,agree
+09.581.09.07.,Irigh N'Tahala,Tiznit,6546211,Q12182670,2.6,False,geonames,agree
+09.581.09.09.,Tarsouat,Tiznit,6546590,Q12201826,3.47,False,geonames,agree
+09.581.09.11.,Tassrirt,Tiznit,6546048,Q12201977,3.11,False,geonames,agree
+09.581.11.01.,Arbaa Rasmouka,Tiznit,6546049,Q4784587,4.41,False,geonames,agree
+09.581.11.03.,Arbaa Sahel,Tiznit,6546591,Q12179345,5.19,False,geonames,agree
+09.581.11.05.,Bounaamane,Tiznit,6546592,Q4949788,2.38,False,geonames,agree
+09.581.11.07.,El Maader El Kabir,Tiznit,6546593,Q5351532,1.56,False,geonames,agree
+09.581.11.09.,Ouijjane,Tiznit,6546096,Q7110344,1.67,False,geonames,agree
+09.581.11.11.,Reggada,Tiznit,6545904,Q3423400,6.4,False,geonames,agree
+09.581.11.13.,Sidi Bouabdelli,Tiznit,6546594,Q12217625,2.91,False,geonames,agree
+09.581.11.15.,Tnine Aglou,Tiznit,6546595,Q7810789,0.0,False,geonames,agree
+10.071.01.01.,Assa (Mun.),Assa-Zag,6545579,Q685870,11.03,False,geonames,agree
+10.071.03.01.,Aouint Lahna,Assa-Zag,6546497,Q25454445,11.12,False,geonames,agree
+10.071.03.03.,Aouint Yghomane,Assa-Zag,6546498,Q25454450,0.92,False,geonames,agree
+10.071.03.05.,Touizgui,Assa-Zag,6545581,Q27534356,17.18,False,geonames,agree
+10.071.05.03.,Labouirat,Assa-Zag,6545574,Q25454457,10.92,False,geonames,agree
+10.261.01.01.,Bouizakarne (Mun.),Guelmim,11912864,Q2921651,3.73,False,geonames,agree
+10.261.01.03.,Guelmim (Mun.),Guelmim,6546501,Q842806,0.46,False,geonames,agree
+10.261.03.01.,Aday,Guelmim,6546502,Q20386430,1.41,False,geonames,agree
+10.261.03.03.,Ait Boufoulen,Guelmim,6545617,Q20383289,0.49,False,geonames,agree
+10.261.03.05.,Amtdi,Guelmim,6546178,Q20396031,2.75,False,geonames,agree
+10.261.03.07.,Ifrane Atlas Saghir,Guelmim,11912863,Q2281695,5.59,False,geonames,agree
+10.261.03.09.,Tagante,Guelmim,6546504,Q20402193,3.62,False,geonames,agree
+10.261.03.11.,Taghjijt,Guelmim,11912861,Q3513834,19.19,False,geonames,agree
+10.261.03.13.,Timoulay,Guelmim,6545931,Q27535365,3.08,False,geonames,agree
+10.261.05.03.,Aferkat,Guelmim,6546506,Q20388298,5.62,False,geonames,agree
+10.261.05.21.,Tiglit,Guelmim,6545934,Q20406121,7.98,False,geonames,agree
+10.261.07.01.,Abaynou,Guelmim,6546505,Q20397736,6.54,False,geonames,agree
+10.261.07.07.,Echatea El Abied,Guelmim,6545598,Q20396057,7.04,False,geonames,agree
+10.261.07.11.,Labyar,Guelmim,6546209,Q12237102,2.06,False,geonames,agree
+10.261.07.13.,Laqsabi Tagoust,Guelmim,6546507,Q27537440,4.88,False,geonames,agree
+10.261.07.15.,Rass Oumlil,Guelmim,6545897,Q20403560,12.37,False,geonames,agree
+10.261.07.17.,Taliouine Assaka,Guelmim,6545899,Q27535400,3.14,False,geonames,agree
+10.261.07.19.,Targa Wassay,Guelmim,6545758,Q27534895,4.24,False,geonames,agree
+10.473.01.01.,Lakhsas (Mun.),Sidi Ifni,6545623,Q3216488,1.08,False,geonames,agree
+10.473.01.03.,Sidi Ifni (Mun.),Sidi Ifni,6545624,Q632361,1.37,False,geonames,agree
+10.473.05.01.,Arbaa Ait Abdellah,Sidi Ifni,6546585,Q4784585,7.22,False,geonames,agree
+10.473.05.03.,Imi N'Fast,Sidi Ifni,6546388,Q6003971,4.43,False,geonames,agree
+10.473.05.05.,Mesti,Sidi Ifni,6546586,Q3307088,4.39,False,geonames,agree
+10.473.05.07.,Mirleft,Sidi Ifni,11913185,Q3299405,6.98,False,geonames,agree
+10.473.05.09.,Sbouya,Sidi Ifni,6546389,Q3474906,6.55,False,geonames,agree
+10.473.05.11.,Tangarfa,Sidi Ifni,6546587,Q12202043,6.37,False,geonames,agree
+10.473.05.13.,Tioughza,Sidi Ifni,11913184,Q3529259,2.52,False,geonames,agree
+10.473.05.15.,Tnine Amellou,Sidi Ifni,6545893,Q7810790,2.72,False,geonames,agree
+10.473.07.01.,Ait Erkha,Sidi Ifni,6546588,Q4699235,0.0,False,geonames,agree
+10.473.07.03.,Anfeg,Sidi Ifni,6546589,Q4761784,5.29,False,geonames,agree
+10.473.07.05.,Boutrouch,Sidi Ifni,6546569,Q4950471,8.85,False,geonames,agree
+10.473.07.07.,Ibdar,Sidi Ifni,6546047,Q5983792,5.61,False,geonames,agree
+10.473.07.09.,Sebt Ennabour,Sidi Ifni,6546570,Q7442827,1.52,False,geonames,agree
+10.473.07.13.,Sidi H'Saine Ou Ali,Sidi Ifni,6546572,Q12217645,4.7,False,geonames,agree
+10.473.07.15.,Sidi M'Bark,Sidi Ifni,6546210,Q7508760,1.11,False,geonames,agree
+10.473.07.17.,Tighirt,Sidi Ifni,11913158,Q7801610,2.38,False,geonames,agree
+10.521.01.01.,Tan Tan (Mun.),Tan-Tan,6546224,Q936316,1.28,False,geonames,agree
+10.521.01.03.,El Ouatia (Mun.),Tan-Tan,6545522,Q3050142,1.5,False,geonames,agree
+10.521.03.01.,Msied,Tan-Tan,2542380,Q6930162,4.04,False,geonames,agree
+10.521.03.03.,Tilemzoun,Tan-Tan,11912785,Q7802128,15.59,False,geonames,agree
+10.521.05.03.,Ben Khlil,Tan-Tan,11912786,Q4885992,52.23,True,geonames,review
+10.521.05.05.,Chbika,Tan-Tan,6545663,Q5088731,27.03,True,geonames,review
+11.121.01.01.,Boujdour (Mun.),Boujdour,6546490,Q599897,14.6,False,geonames,agree
+11.121.03.03.,Jraifia,Boujdour,6545649,Q25454468,71.75,True,wikidata,review
+11.221.01.01.,Es-semara (Mun.),Es-Semara,11882785,Q842810,106.47,True,wikidata,review
+11.221.03.01.,Amgala,Es-Semara,11912840,Q109016773,172.32,True,wikidata,review
+11.221.03.03.,Haouza,Es-Semara,6545651,Q1584114,23.68,False,geonames,agree
+11.221.03.05.,Jdiriya,Es-Semara,6545652,Q1656837,63.61,True,wikidata,review
+11.221.03.07.,Sidi Ahmed Laaroussi,Es-Semara,6545661,Q27534267,33.5,True,wikidata,review
+11.321.01.03.,Laayoune (Mun.),Laâyoune,6545631,Q47837,13.97,False,geonames,agree
+11.321.03.05.,Foum El Oued,Laâyoune,6546492,Q25454472,28.19,True,wikidata,review
+11.537.01.05.,Tarfaya (Mun.),Tarfaya,6545632,Q988654,4.13,False,geonames,agree
+11.537.03.03.,Daoura,Tarfaya,6546494,Q1165464,13.8,False,geonames,agree
+11.537.03.05.,El Hagounia,Tarfaya,11912838,Q1324202,29.61,True,wikidata,review
+12.066.03.03.,Aghouinite,Aousserd,6546559,Q4692450,0.0,False,geonames,agree
+12.066.05.03.,Bir Gandouz,Aousserd,6545580,Q2637709,0.0,False,geonames,agree
+12.391.01.01.,Dakhla (Mun.),Oued Ed-Dahab,6546560,Q345204,14.48,False,geonames,agree
+12.391.05.01.,Bir Anzarane,Oued Ed-Dahab,6545634,Q4915523,22.15,False,geonames,agree
+12.391.05.03.,Gleibat El Foula,Oued Ed-Dahab,6545635,Q5567503,1.8,False,geonames,agree
+12.391.05.07.,Oum Dreyga,Oued Ed-Dahab,6545636,Q3850353,23.79,False,geonames,agree
+12.391.09.01.,El Argoub,Oued Ed-Dahab,6546233,Q259477,61.36,True,wikidata,review
+12.391.09.03.,Imlili,Oued Ed-Dahab,6546208,Q6004236,82.26,True,wikidata,review

@@ -9,6 +9,7 @@ GEOMETRY = PROCESSED / "geometry"
 INTERIM = DATA / "interim"
 SITE = ROOT / "site"
 CATALOG = ROOT / "catalog" / "variables.yaml"
+SEED_REVIEW = ROOT / "catalog" / "seed_review.csv"
 
 # raw inputs, relative to RAW (names chosen by fetch.py)
 R_ANNEX_2004 = RAW / "2004" / "pauvrete_developpement_2004.pdf"
@@ -16,9 +17,9 @@ R_CARTO = RAW / "2004" / "carto_pauvrete_communale_2004_2014.xlsx"
 R_APP_HTML = RAW / "2004_app" / "html"
 R_APP_INDEX = RAW / "2004_app" / "communes_index.csv"
 R_MPI = RAW / "2024" / "mpi_communes_2014_2024.xls"
-R_GADM_L4 = RAW / "gadm41_MAR" / "gadm41_MAR_4.shp"
 R_GEONAMES = [RAW / "geometry" / "MA.txt", RAW / "geometry" / "EH.txt"]
 R_NATURAL_EARTH = RAW / "geometry" / "ne_10m_admin_0_countries.zip"
+R_WIKIDATA = RAW / "geometry" / "wikidata_communes.csv"
 
 # processed outputs (tracked)
 P_INDICES_2004 = PROCESSED / "commune_indices_2004.csv"
@@ -30,9 +31,8 @@ P_GPKG = GEOMETRY / "communes.gpkg"
 P_GAL = GEOMETRY / "communes_queen.gal"
 P_UNMATCHED = GEOMETRY / "points_unmatched.csv"
 P_DUP_POINTS = GEOMETRY / "points_duplicate.csv"
-P_GEOCODED = GEOMETRY / "points_geonames.csv"
+P_SEEDS = GEOMETRY / "points_seeds.csv"
+P_CROSSCHECK = GEOMETRY / "points_crosscheck.csv"
 P_BOUNDARY = GEOMETRY / "boundary_mar_esh.gpkg"
 P_CONTEXT = GEOMETRY / "context_countries.gpkg"
 
-# intermediates derived from GADM, whose licence forbids redistribution: never tracked
-I_GADM_CENTROIDS = INTERIM / "gadm_l4_centroids.csv"
