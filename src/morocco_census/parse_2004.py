@@ -106,6 +106,30 @@ def grab(rows, label, col=2, startswith=False, after=None):
     return None
 
 
+def total(*vals):
+    return None if all(v is None for v in vals) else sum(v or 0 for v in vals)
+
+
+def fem(rows, label, after):
+    """Female count (effectif) from the 'Féminin' row that follows `label` within section `after`."""
+    seen = False
+    for i, r in enumerate(rows):
+        if not seen:
+            seen = r[0].strip().upper().startswith(after.upper())
+            continue
+        if r[0].strip().lower() == label.lower():
+            nxt = rows[i + 1] if i + 1 < len(rows) else None
+            if nxt and nxt[0].strip() == "Féminin":
+                return num(nxt[1]) or 0.0 if len(nxt) > 1 else 0.0
+            return None
+    return None
+
+
+def share(part, *whole):
+    tot = total(*whole)
+    return None if part is None or not tot else 100 * part / tot
+
+
 def parse_commune(code: str, html: Path = R_APP_HTML) -> dict | None:
     files = {p: html / f"{code}_{p}.html" for p in "dseh"}
     if not all(f.exists() for f in files.values()):
@@ -125,7 +149,10 @@ def parse_commune(code: str, html: Path = R_APP_HTML) -> dict | None:
     out["pct_no_education"] = grab(s, "Néant", 2, after="NIVEAU")
     out["pct_illiterate"] = grab(s, "Taux d'analphabétisme", 1, startswith=True)
     out["pct_no_lang_written"] = grab(s, "Aucune", 2, after="LANGUES PARLEES ET ECRITES")
-    out["pct_women_divorced"] = grab(s, "Divorcé", 2, startswith=True, after="ETAT MATRIMONIAL")
+    out["pct_women_divorced"] = share(
+        fem(s, "Divorcé", "ETAT MATRIMONIAL"),
+        *[fem(s, x, "ETAT MATRIMONIAL") for x in ("Célibataire", "Marié", "Veuf", "Divorcé")],
+    )
     out["pct_migrant_since99"] = grab(s, "Commune différente", 2, after="RESIDENCE EN 1999")
     out["activity_rate"] = grab(e, "Actifs", 2, startswith=True)
     out["pct_agriculture"] = grab(e, "Agriculture", 2, startswith=True)
@@ -136,6 +163,53 @@ def parse_commune(code: str, html: Path = R_APP_HTML) -> dict | None:
     out["pct_cellphone"] = grab(h, "Portable", 2, startswith=True, after="EQUIPEMENT DOMESTIQUE")
     out["pct_tv"] = grab(h, "Télévision", 2, after="EQUIPEMENT DOMESTIQUE")
     out["pct_slum"] = grab(h, "Maison sommaire ou bidonville", 2)
+    out["age_15_19"] = grab(d, "15 à 19 ans", 2)
+    out["age_20_24"] = grab(d, "20 à 24 ans", 2)
+    out["age_75plus"] = total(grab(d, "75 à 84 ans", 2), grab(d, "85 ans et plus", 2))
+    out["age_60plus"] = grab(d, "60 ans et plus", 2)
+    out["age_65plus"] = total(grab(d, "65 à 74 ans", 2), grab(d, "75 à 84 ans", 2), grab(d, "85 ans et plus", 2))
+    out["pct_single"] = grab(s, "Célibataire", 2, after="ETAT MATRIMONIAL")
+    out["pct_married"] = grab(s, "Marié", 2, after="ETAT MATRIMONIAL")
+    out["pct_divorced"] = grab(s, "Divorcé", 2, after="ETAT MATRIMONIAL")
+    out["pct_widowed"] = grab(s, "Veuf", 2, after="ETAT MATRIMONIAL")
+    out["edu_primary"] = grab(s, "Primaire", 2, after="NIVEAU")
+    out["edu_lower_secondary"] = grab(s, "Collégial", 2, after="NIVEAU")
+    out["edu_upper_secondary"] = grab(s, "Secondaire", 2, after="NIVEAU")
+    out["edu_higher"] = grab(s, "Universitaire", 2, after="NIVEAU")
+    out["lang_darija"] = grab(s, "Arabe dialectal", 2, after="LANGUES PARLEES")
+    out["lang_tachelhit"] = grab(s, "Tashlhit", 2, after="LANGUES PARLEES")
+    out["lang_tamazight"] = grab(s, "Tamazight", 2, after="LANGUES PARLEES")
+    out["lang_tarifit"] = grab(s, "Tarifit", 2, after="LANGUES PARLEES")
+    out["lang_hassania"] = grab(s, "Hsaynia", 2, after="LANGUES PARLEES")
+    out["lit_arabic_only"] = grab(s, "Arabe seul", 2, after="LANGUES PARLEES ET ECRITES")
+    out["lit_arabic_french"] = grab(s, "Arabe et Français seuls", 2, after="LANGUES PARLEES ET ECRITES")
+    out["pct_employer"] = grab(e, "Employeur", 2, after="SITUATION DANS LA PROFESSION")
+    out["pct_self_employed"] = grab(e, "Indépendant", 2, after="SITUATION DANS LA PROFESSION")
+    out["pct_public_employee"] = grab(e, "Salariés publiques", 2, after="SITUATION DANS LA PROFESSION")
+    out["pct_private_employee"] = grab(e, "Salariés privés", 2, after="SITUATION DANS LA PROFESSION")
+    out["pct_family_worker"] = grab(e, "Aide familiale", 2, after="SITUATION DANS LA PROFESSION")
+    out["pct_apprentice"] = grab(e, "Apprentie", 2, after="SITUATION DANS LA PROFESSION")
+    out["sec_industry"] = total(grab(e, "Mines", 2, after="BRANCHES"), grab(e, "Industrie", 2, after="BRANCHES"))
+    out["sec_utilities"] = grab(e, "Eau électricité et énergie", 2, after="BRANCHES")
+    out["sec_construction"] = grab(e, "B.T.P", 2, after="BRANCHES")
+    out["sec_trade"] = grab(e, "Commerce", 2, after="BRANCHES")
+    out["sec_transport"] = grab(e, "Transport et communication", 2, after="BRANCHES")
+    out["sec_services"] = grab(e, "Services", 2, after="BRANCHES")
+    out["sec_public"] = grab(e, "Administration", 2, after="BRANCHES")
+    out["sec_other"] = grab(e, "Activité exercée hors du Maroc", 2, startswith=True, after="BRANCHES")
+    out["dwell_villa"] = grab(h, "Villa, niveau de villa", 2)
+    out["dwell_apartment"] = grab(h, "Appartement", 2)
+    out["dwell_moroccan"] = total(grab(h, "Maison marocaine traditionnelle", 2), grab(h, "Maison marocaine moderne", 2))
+    out["dwell_rural"] = grab(h, "Habitation de type rural", 2)
+    out["dwell_other"] = grab(h, "Autres", 2, after="TYPES D'HABITATS")
+    # year of construction is published for urban households only: rural pages show empty counts and 0%
+    built = [grab(h, x, 1) for x in ("1995 à septembre 2004", "1975 à 1994", "1955 à 1974", "1954 ou avant")]
+    out["dwell_age_lt10"] = grab(h, "1995 à septembre 2004", 2) if total(*built) else None
+    out["pct_kitchen"] = grab(h, "Cuisine", 2, after="ELEMENT DE CONFORT")
+    out["pct_toilet"] = grab(h, "W.C.", 2, after="ELEMENT DE CONFORT")
+    out["road_distance"] = grab(h, "Distance moyenne (km)", 1) if grab(h, "Ménages ruraux", 1) else None
+    out["pct_landline"] = grab(h, "Téléphone Fixe", 2, after="EQUIPEMENT DOMESTIQUE")
+    out["pct_satellite"] = grab(h, "Parabole", 2, after="EQUIPEMENT DOMESTIQUE")
     return out
 
 

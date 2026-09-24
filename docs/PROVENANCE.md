@@ -37,6 +37,13 @@ changes daily).
 | Seed points | GADM 4.1 level 4 (not redistributed); GeoNames MA + EH (CC BY 4.0) | gadm.org; geonames.org |
 | Outline | Natural Earth 1:10m admin-0, Morocco + W. Sahara (public domain) | naturalearthdata.com |
 
+The 2014 and 2024 tables carry every both-sexes, both-milieux column of these workbooks (age structure,
+marital status, fertility, education, diplomas, languages, employment status, occupations, sectors, housing,
+sanitation, cooking fuel, equipment, distance to a paved road). The 2004 profiles are parsed for the concepts that
+also appear in 2014 or 2024; the 2004 year of construction is published for urban households only and is left
+empty for rural communes. Sex and urban/rural breakdowns (the Masculin/Féminin blocks and the 2024 milieu sheets)
+are not yet extracted.
+
 Other 2024 workbooks (transport, urban housing stock, economic establishments, douars, internal
 migration) are fetched but not yet extracted.
 

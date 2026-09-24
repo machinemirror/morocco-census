@@ -51,13 +51,125 @@ SPEC_2014 = {
     "pct_no_diploma": ("diplome_2014.xlsx", 15),
     "_pct_deug_licence": ("diplome_2014.xlsx", 12),
     "_pct_master_doct": ("diplome_2014.xlsx", 13),
+    "age_15_19": ("individus_2014.xlsx", 13),
+    "age_20_24": ("individus_2014.xlsx", 14),
+    "age_25_29": ("individus_2014.xlsx", 15),
+    "age_30_34": ("individus_2014.xlsx", 16),
+    "age_35_39": ("individus_2014.xlsx", 17),
+    "age_40_44": ("individus_2014.xlsx", 18),
+    "age_45_49": ("individus_2014.xlsx", 19),
+    "age_50_54": ("individus_2014.xlsx", 20),
+    "age_55_59": ("individus_2014.xlsx", 21),
+    "age_60_64": ("individus_2014.xlsx", 22),
+    "age_65_69": ("individus_2014.xlsx", 23),
+    "age_70_74": ("individus_2014.xlsx", 24),
+    "age_75plus": ("individus_2014.xlsx", 25),
+    "pct_disability": ("individus_2014.xlsx", 31),
+    "pct_single": ("individus_2014.xlsx", 26),
+    "pct_married": ("individus_2014.xlsx", 27),
+    "pct_divorced": ("individus_2014.xlsx", 28),
+    "pct_widowed": ("individus_2014.xlsx", 29),
+    "age_first_marriage": ("individus_2014.xlsx", 30),
+    "completed_fertility": ("individus_2014.xlsx", 32),
+    "school_enrolment": ("individus_2014.xlsx", 34),
+    "edu_preschool": ("individus_2014.xlsx", 41),
+    "edu_primary": ("individus_2014.xlsx", 42),
+    "edu_lower_secondary": ("individus_2014.xlsx", 43),
+    "edu_upper_secondary": ("individus_2014.xlsx", 44),
+    "edu_higher": ("individus_2014.xlsx", 45),
+    "dipl_primary": ("diplome_2014.xlsx", 9),
+    "dipl_lower_secondary": ("diplome_2014.xlsx", 10),
+    "dipl_upper_secondary": ("diplome_2014.xlsx", 11),
+    "dipl_bachelor": ("diplome_2014.xlsx", 12),
+    "dipl_master": ("diplome_2014.xlsx", 13),
+    "voc_specialised_technician": ("diplome_2014.xlsx", 16),
+    "voc_technician": ("diplome_2014.xlsx", 17),
+    "voc_qualification": ("diplome_2014.xlsx", 18),
+    "voc_specialisation": ("diplome_2014.xlsx", 19),
+    "voc_initiation": ("diplome_2014.xlsx", 20),
+    "pct_no_voc_diploma": ("diplome_2014.xlsx", 22),
+    "lang_darija": ("individus_2014.xlsx", 46),
+    "lang_tachelhit": ("individus_2014.xlsx", 47),
+    "lang_tamazight": ("individus_2014.xlsx", 48),
+    "lang_tarifit": ("individus_2014.xlsx", 49),
+    "lang_hassania": ("individus_2014.xlsx", 50),
+    "lit_arabic_only": ("individus_2014.xlsx", 36),
+    "lit_arabic_french": ("individus_2014.xlsx", 37),
+    "lit_arabic_french_english": ("individus_2014.xlsx", 38),
+    "lit_other": ("individus_2014.xlsx", 39),
+    "pct_employer": ("individus_2014.xlsx", 55),
+    "pct_self_employed": ("individus_2014.xlsx", 56),
+    "pct_public_employee": ("individus_2014.xlsx", 57),
+    "pct_private_employee": ("individus_2014.xlsx", 58),
+    "pct_family_worker": ("individus_2014.xlsx", 59),
+    "pct_apprentice": ("individus_2014.xlsx", 60),
+    "pct_partner": ("individus_2014.xlsx", 61),
+    "pct_status_other": ("individus_2014.xlsx", 62),
+    "occ_managers": ("activite_2014.xlsx", 9),
+    "occ_technicians": ("activite_2014.xlsx", 10),
+    "occ_clerks": ("activite_2014.xlsx", 11),
+    "occ_traders": ("activite_2014.xlsx", 12),
+    "occ_farmers": ("activite_2014.xlsx", 13),
+    "occ_craft": ("activite_2014.xlsx", 14),
+    "occ_agri_workers": ("activite_2014.xlsx", 15),
+    "occ_operators": ("activite_2014.xlsx", 16),
+    "occ_labourers": ("activite_2014.xlsx", 17),
+    "occ_unclassified": ("activite_2014.xlsx", 18),
+    "sec_industry": ("activite_2014.xlsx", 20),
+    "sec_utilities": ("activite_2014.xlsx", 21),
+    "sec_construction": ("activite_2014.xlsx", 22),
+    "sec_trade": ("activite_2014.xlsx", 23),
+    "sec_transport": ("activite_2014.xlsx", 24),
+    "sec_services": ("activite_2014.xlsx", 25),
+    "sec_public": ("activite_2014.xlsx", 26),
+    "sec_other": ("activite_2014.xlsx", 27),
+    "dwell_villa": ("menages_2014.xlsx", 12),
+    "dwell_apartment": ("menages_2014.xlsx", 13),
+    "dwell_moroccan": ("menages_2014.xlsx", 14),
+    "dwell_rural": ("menages_2014.xlsx", 16),
+    "dwell_other": ("menages_2014.xlsx", 17),
+    "persons_per_room": ("menages_2014.xlsx", 18),
+    "tenure_other": ("menages_2014.xlsx", 21),
+    "dwell_age_lt10": ("menages_2014.xlsx", 22),
+    "dwell_age_10_19": ("menages_2014.xlsx", 23),
+    "dwell_age_20_49": ("menages_2014.xlsx", 24),
+    "dwell_age_50plus": ("menages_2014.xlsx", 25),
+    "pct_kitchen": ("menages_2014.xlsx", 26),
+    "pct_toilet": ("menages_2014.xlsx", 27),
+    "pct_bathroom": ("menages_2014.xlsx", 28),
+    "sewer_public": ("menages_2014.xlsx", 31),
+    "sewer_septic": ("menages_2014.xlsx", 32),
+    "sewer_other": ("menages_2014.xlsx", 33),
+    "waste_bin": ("menages_2014.xlsx", 34),
+    "waste_truck": ("menages_2014.xlsx", 35),
+    "waste_other": ("menages_2014.xlsx", 36),
+    "cook_gas": ("menages_2014.xlsx", 37),
+    "cook_electricity": ("menages_2014.xlsx", 38),
+    "cook_charcoal": ("menages_2014.xlsx", 39),
+    "cook_wood": ("menages_2014.xlsx", 40),
+    "cook_dung": ("menages_2014.xlsx", 41),
+    "road_distance": ("menages_2014.xlsx", 50),
+    "pct_radio": ("menages_2014.xlsx", 43),
+    "pct_landline": ("menages_2014.xlsx", 45),
+    "pct_computer": ("menages_2014.xlsx", 47),
+    "pct_satellite": ("menages_2014.xlsx", 48),
+    "pct_fridge": ("menages_2014.xlsx", 49),
+    "isf": ("individus_2014.xlsx", 33),
+    "pct_no_education": ("individus_2014.xlsx", 40),
+    "pct_slum": ("menages_2014.xlsx", 15),
+    "pct_tv": ("menages_2014.xlsx", 42),
+}
+# {output_name: (file, [columns])}: shares summed across source columns
+SUMS_2014 = {
+    "age_60plus": ("individus_2014.xlsx", [22, 23, 24, 25]),
+    "age_65plus": ("individus_2014.xlsx", [23, 24, 25]),
 }
 POP_COL_2014 = 9  # menages_2014.xlsx: col8 = population légale, col9 = population municipale
 NAME_COL_2014, CODE_COL_2014 = 7, 6
 
 
 def extract_2014() -> tuple[pd.DataFrame, dict]:
-    files = {f for f, _ in SPEC_2014.values()} | {"menages_2014.xlsx"}
+    files = {f for f, _ in [*SPEC_2014.values(), *SUMS_2014.values()]} | {"menages_2014.xlsx", "individus_2014.xlsx"}
     raws = {f: pd.read_excel(RAW / f, sheet_name="Indic.Ensemble", header=None) for f in files}
 
     column_map = {}
@@ -83,6 +195,23 @@ def extract_2014() -> tuple[pd.DataFrame, dict]:
         out[out_name] = out["code14"].map(series)
         column_map[out_name] = f"{fname} col{col}: {header_label(df, col)}"
 
+    for out_name, (fname, cols) in SUMS_2014.items():
+        df = raws[fname]
+        code_f = df[CODE_COL_2014].astype(str)
+        mask_f = code_f.str.count(r"\.") == 4
+        series = pd.concat([to_num(df.loc[mask_f, c]) for c in cols], axis=1).sum(axis=1, min_count=1)
+        series.index = code_f[mask_f].values
+        out[out_name] = out["code14"].map(series)
+        column_map[out_name] = f"{fname} cols {cols}: summed"
+
+    ind = raws["individus_2014.xlsx"]
+    code_i = ind[CODE_COL_2014].astype(str)
+    mask_i = code_i.str.count(r"\.") == 4
+    female = to_num(ind.loc[mask_i, 117]) / to_num(ind.loc[mask_i, 9]) * 100
+    female.index = code_i[mask_i].values
+    out["pct_female"] = out["code14"].map(female)
+    column_map["pct_female"] = "individus_2014.xlsx col117 / col9: Féminin / Ensemble population municipale, x 100"
+
     out["pct_higher_ed"] = out["_pct_deug_licence"].fillna(0) + out["_pct_master_doct"].fillna(0)
     out.loc[out["_pct_deug_licence"].isna() & out["_pct_master_doct"].isna(), "pct_higher_ed"] = pd.NA
     out = out.drop(columns=["_pct_deug_licence", "_pct_master_doct"])
@@ -107,6 +236,53 @@ SPEC_2024 = {
         "activity_rate": 56,
         "unemployment_rate": 57,
         "pct_women_divorced": 149,
+        "age_15_19": 9,
+        "age_20_24": 10,
+        "age_25_29": 11,
+        "age_30_34": 12,
+        "age_35_39": 13,
+        "age_40_44": 14,
+        "age_45_49": 15,
+        "age_50_54": 16,
+        "age_55_59": 17,
+        "age_60_64": 18,
+        "age_65_69": 19,
+        "age_70_74": 20,
+        "age_75plus": 21,
+        "pct_disability": 30,
+        "pct_single": 23,
+        "pct_married": 24,
+        "pct_divorced": 25,
+        "pct_widowed": 26,
+        "age_first_marriage": 27,
+        "completed_fertility": 29,
+        "school_enrolment": 32,
+        "pct_illiterate_15plus": 36,
+        "edu_preschool": 43,
+        "edu_primary": 44,
+        "edu_lower_secondary": 45,
+        "edu_upper_secondary": 46,
+        "edu_higher": 47,
+        "lang_darija": 48,
+        "lang_tachelhit": 49,
+        "lang_tamazight": 50,
+        "lang_tarifit": 51,
+        "lang_hassania": 52,
+        "read_arabic": 38,
+        "read_tifinagh": 39,
+        "read_english": 40,
+        "read_french": 41,
+        "pct_employer": 59,
+        "pct_self_employed": 60,
+        "pct_public_employee": 61,
+        "pct_private_employee": 62,
+        "pct_family_worker": 63,
+        "pct_apprentice": 64,
+        "pct_partner": 65,
+        "pct_status_other": 66,
+        "pct_female": 5,
+        "isf": 28,
+        "pop_active_occupee": 58,
     },
     "Ménages": {
         "n_households": 3,
@@ -115,6 +291,41 @@ SPEC_2024 = {
         "pct_renter": 14,
         "pct_electricity": 23,
         "pct_water": 24,
+        "dwell_villa": 6,
+        "dwell_apartment": 7,
+        "dwell_moroccan": 8,
+        "dwell_rural": 10,
+        "dwell_other": 11,
+        "persons_per_room": 12,
+        "tenure_other": 15,
+        "dwell_age_lt10": 16,
+        "dwell_age_10_19": 17,
+        "dwell_age_20_49": 18,
+        "dwell_age_50plus": 19,
+        "pct_kitchen": 20,
+        "pct_toilet": 21,
+        "pct_bathroom": 22,
+        "sewer_public": 25,
+        "sewer_septic": 26,
+        "sewer_other": 27,
+        "waste_bin": 28,
+        "waste_truck": 29,
+        "cook_gas": 32,
+        "cook_electricity": 33,
+        "cook_charcoal": 34,
+        "cook_wood": 35,
+        "cook_other": 36,
+        "road_distance": 37,
+        "pct_slum": 9,
+    },
+}
+SUMS_2024 = {
+    "Population": {
+        "age_60plus": [18, 19, 20, 21],
+        "age_65plus": [19, 20, 21],
+    },
+    "Ménages": {
+        "waste_other": [30, 31],
     },
 }
 CODE_COL_2024, LABEL_COL_2024 = 0, 1
@@ -153,6 +364,16 @@ def extract_2024() -> tuple[pd.DataFrame, dict]:
             series.index = code_s[mask_s].astype("Int64").values
             out[out_name] = out["code24"].map(series)
             column_map[out_name] = f"indicateurs_demo_socioeco_2024.xlsx[{sheet}] col{col}: {header_label(df, col)}"
+
+    for sheet, spec in SUMS_2024.items():
+        df = sheets[sheet]
+        code_s = pd.to_numeric(df[CODE_COL_2024], errors="coerce")
+        mask_s = df[LABEL_COL_2024].astype(str).str.match(COMMUNE_LABEL_RE) & code_s.notna()
+        for out_name, cols in spec.items():
+            series = pd.concat([to_num(df.loc[mask_s, c]) for c in cols], axis=1).sum(axis=1, min_count=1)
+            series.index = code_s[mask_s].astype("Int64").values
+            out[out_name] = out["code24"].map(series)
+            column_map[out_name] = f"indicateurs_demo_socioeco_2024.xlsx[{sheet}] cols {cols}: summed"
 
     # every commune appears in both milieu sheets ('-' when empty), so presence says nothing: a commune is
     # urban (a municipality) when it has no rural population; matches 2014 '(Mun.)' status for all matched rows

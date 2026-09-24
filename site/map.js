@@ -79,6 +79,7 @@ const CITIES = [
 const YEARS = [2004, 2014, 2024];
 const CITY = /^\d+\.\d+\.\d+\.$/;
 
+const openThemes = new Set();
 let D, map, byId = {}, state = { ind: "pct_electricity", y: 2024, mode: "level", pair: [2014, 2024], hideImp: false,
   sel: null, base: true };
 const t = (k) => L[MC.lang][k] || k;
@@ -225,9 +226,11 @@ function detail() {
   const el = document.getElementById("detail");
   if (state.sel == null || !(state.sel in byId)) { el.hidden = true; return; }
   const i = byId[state.sel], u = D.units[i];
-  const rows = [];
+  const groups = [];
+  const curTheme = D.indicators[state.ind].theme;
   for (const th of Object.keys(D.themes)) {
-    const inds = Object.keys(D.indicators).filter(k => D.indicators[k].theme === th);
+    const inds = Object.keys(D.indicators).filter(k => D.indicators[k].theme === th)
+      .sort((a, b) => label(a).localeCompare(label(b)));
     const body = inds.map(k => {
       const cells = YEARS.map(y => {
         const v = D.values[`${k}|${y}`]?.[i];
@@ -236,7 +239,10 @@ function detail() {
       }).join("");
       return `<tr><td>${MC.esc(label(k))}</td>${cells}</tr>`;
     }).join("");
-    if (inds.length) rows.push(`<tr class="theme"><td colspan="4">${MC.esc(D.themes[th][MC.lang])}</td></tr>${body}`);
+    if (inds.length) groups.push(`<details data-th="${th}"${openThemes.has(th) || th === curTheme ? " open" : ""}>
+      <summary>${MC.esc(D.themes[th][MC.lang])} <span class="muted">${inds.length}</span></summary>
+      <table><thead><tr><th></th>${YEARS.map(y => `<th class="num">${y}</th>`).join("")}</tr></thead>
+      <tbody>${body}</tbody></table></details>`);
   }
   const flags = [];
   if (u.src04 && u.src04.startsWith("imputed")) flags.push(`2004: ${t("imputed")}`);
@@ -247,10 +253,10 @@ function detail() {
     <h3>${MC.esc(u.name)}</h3>
     <div class="meta">${MC.esc(u.prov)} · <code>${MC.esc(u.id)}</code>${CITY.test(u.id) ? " · " + t("city") : ""} · ${t("point")}: ${MC.esc(u.pt)}</div>
     ${flags.length ? `<div class="note" style="margin-bottom:.5rem">${flags.map(MC.esc).join("<br>")}</div>` : ""}
-    <div class="table-wrap" style="max-height:340px;overflow:auto">
-      <table><thead><tr><th>${t("allind")}</th>${YEARS.map(y => `<th class="num">${y}</th>`).join("")}</tr></thead>
-      <tbody>${rows.join("")}</tbody></table>
-    </div>`;
+    <div class="h">${t("allind")}</div>
+    <div class="groups">${groups.join("")}</div>`;
+  el.querySelectorAll("details").forEach(d => d.addEventListener("toggle", () =>
+    d.open ? openThemes.add(d.dataset.th) : openThemes.delete(d.dataset.th)));
   el.hidden = false;
 }
 

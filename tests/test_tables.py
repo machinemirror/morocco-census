@@ -77,3 +77,17 @@ def test_geometry():
     assert cells.unit.is_unique and set(cells.unit) == set(pts.unit)
     assert cells.geometry.is_valid.all()
     assert set(pts.pt_src) == {"gadm", "geonames"}
+
+
+def test_shares_and_2004_gaps():
+    t04 = pd.read_csv(P_COMMUNES[2004])
+    t14 = pd.read_csv(P_COMMUNES[2014])
+    t24 = pd.read_csv(P_COMMUNES[2024])
+    assert t14.pct_female.median() == pytest.approx(49.8, abs=0.5)
+    assert t24.pct_female.median() == pytest.approx(49.7, abs=0.5)
+    ages = [f"age_{a}_{a + 4}" for a in range(0, 75, 5)] + ["age_75plus"]
+    assert t24[ages].sum(axis=1).dropna().between(99, 101).mean() > 0.99
+    # construction year is published for urban households only; rural pages must not read as 0%
+    rural = t04.dwell_rural > 50
+    assert t04.loc[rural, "dwell_age_lt10"].isna().mean() > 0.95
+    assert t04.pct_women_divorced.between(0, 100).all()

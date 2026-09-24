@@ -13,9 +13,13 @@ themes:
   age: {en: Age structure, fr: Structure par âge, ar: البنية العمرية}
   fertility: {en: Fertility and mortality, fr: Fécondité et mortalité, ar: الخصوبة والوفيات}
   education: {en: Education and literacy, fr: Éducation et alphabétisation, ar: التعليم ومحو الأمية}
+  languages: {en: Languages, fr: "Langues", ar: اللغات}
   employment: {en: Employment, fr: Emploi, ar: الشغل}
+  occupation: {en: Occupations and sectors, fr: "Professions et secteurs d'activité", ar: المهن وقطاعات النشاط}
   family: {en: Marital status and migration, fr: État matrimonial et migration, ar: الحالة الزواجية والهجرة}
-  housing: {en: Housing and amenities, fr: Logement et équipements, ar: السكن والتجهيزات}
+  housing: {en: Housing, fr: Logement, ar: السكن}
+  sanitation: {en: Sanitation, energy and access, fr: "Assainissement, énergie et accès", ar: التطهير والطاقة والولوج}
+  equipment: {en: Household equipment, fr: "Équipement des ménages", ar: تجهيزات الأسر}
   poverty: {en: Poverty and human development, fr: Pauvreté et développement humain, ar: الفقر والتنمية البشرية}
 
 indicators:
@@ -97,6 +101,7 @@ indicators:
     ar: المؤشر التركيبي للخصوبة
     unit: children per woman
     definition: Children per woman implied by current age-specific fertility.
+    note: "2024 is HCP's 'indicateur conjoncturel de fécondité', the same measure under another name."
   birth_rate:
     theme: fertility
     en: Crude birth rate
@@ -119,13 +124,13 @@ indicators:
     unit: "%"
     definition: Share of the population aged 10 and over who cannot read and write.
   pct_no_lang_written:
-    theme: education
     en: Reads and writes no language
     fr: Ne lit et n'écrit aucune langue
     ar: لا يقرأ ولا يكتب أي لغة
     unit: "%"
     definition: Share answering 'Aucune' to languages read and written. This is the 'illiterate'
       variable of Lehnert (2021) and Lehnert & Smirnov (2024), distinct from the illiteracy rate.
+    theme: "languages"
   pct_no_education:
     theme: education
     en: No schooling
@@ -133,6 +138,8 @@ indicators:
     ar: بدون مستوى دراسي
     unit: "%"
     definition: Share of the population with no level of general education.
+    note: "2004 shares are of the population aged 25 and over; 2014 and 2024 are HCP's commune shares."
+    comparable: false
   pct_no_diploma:
     theme: education
     en: No diploma
@@ -173,21 +180,23 @@ indicators:
     unit: persons
     definition: Employed persons aged 15 and over.
   pct_agriculture:
-    theme: employment
     en: Employed in agriculture
     fr: Actifs occupés dans l'agriculture
     ar: النشيطون المشتغلون في الفلاحة
     unit: "%"
     definition: Share of employed persons working in agriculture, forestry and fishing.
+    theme: "occupation"
+    note: "2004 shares are of employed persons and unemployed persons who have worked before, by branch; 2014 shares are of employed persons aged 15 and over."
+    comparable: false
   pct_women_divorced:
     theme: family
-    en: Divorced
-    fr: Divorcé(e)s
-    ar: المطلقون والمطلقات
     unit: "%"
-    definition: Share 'Divorcé(e)' in the marital-status table.
-    note: The dissertation used this as a women-divorced measure; HCP's 2014 and 2024 columns are the
-      'Divorcé' category of the marital-status distribution.
+    en: "Divorced women"
+    fr: "Femmes divorcées"
+    ar: "النساء المطلقات"
+    definition: "Share of women aged 15 and over who are divorced."
+    note: "2004 is computed from the female counts of the marital-status table; 2014 and 2024 are HCP's female 'Divorcé' shares. The 2014 base is wider than 15 and over (see Divorced)."
+    comparable: false
   pct_migrant_since99:
     theme: family
     en: Moved in since 1999
@@ -224,26 +233,26 @@ indicators:
     unit: "%"
     definition: Share of households with running water.
   pct_cellphone:
-    theme: housing
     en: Mobile phone
     fr: Téléphone portable
     ar: الهاتف المحمول
     unit: "%"
     definition: Share of households with a mobile phone. Not published at commune level for 2024.
+    theme: "equipment"
   pct_internet:
-    theme: housing
     en: Internet
     fr: Internet
     ar: الإنترنت
     unit: "%"
     definition: Share of households with internet access. Not published at commune level for 2024.
+    theme: "equipment"
   pct_tv:
-    theme: housing
     en: Television
     fr: Télévision
     ar: التلفاز
     unit: "%"
     definition: Share of households with a television.
+    theme: "equipment"
   pct_slum:
     theme: housing
     en: Makeshift housing or slum
@@ -251,6 +260,7 @@ indicators:
     ar: مسكن بدائي أو صفيحي
     unit: "%"
     definition: Share of households living in a makeshift dwelling or slum.
+    note: "2014 category is 'Habitat sommaire'."
   idh:
     theme: poverty
     en: Human development index (IDH)
@@ -351,6 +361,859 @@ indicators:
     unit: "%"
     definition: Share of the population vulnerable to multidimensional poverty.
 
+  age_15_19:
+    theme: "age"
+    en: "Aged 15-19"
+    fr: "Âgés de 15-19 ans"
+    ar: "الفئة العمرية 15-19 سنة"
+    unit: "%"
+    definition: "Share of the population aged 15 to 19."
+  age_20_24:
+    theme: "age"
+    en: "Aged 20-24"
+    fr: "Âgés de 20-24 ans"
+    ar: "الفئة العمرية 20-24 سنة"
+    unit: "%"
+    definition: "Share of the population aged 20 to 24."
+  age_25_29:
+    theme: "age"
+    en: "Aged 25-29"
+    fr: "Âgés de 25-29 ans"
+    ar: "الفئة العمرية 25-29 سنة"
+    unit: "%"
+    definition: "Share of the population aged 25 to 29."
+  age_30_34:
+    theme: "age"
+    en: "Aged 30-34"
+    fr: "Âgés de 30-34 ans"
+    ar: "الفئة العمرية 30-34 سنة"
+    unit: "%"
+    definition: "Share of the population aged 30 to 34."
+  age_35_39:
+    theme: "age"
+    en: "Aged 35-39"
+    fr: "Âgés de 35-39 ans"
+    ar: "الفئة العمرية 35-39 سنة"
+    unit: "%"
+    definition: "Share of the population aged 35 to 39."
+  age_40_44:
+    theme: "age"
+    en: "Aged 40-44"
+    fr: "Âgés de 40-44 ans"
+    ar: "الفئة العمرية 40-44 سنة"
+    unit: "%"
+    definition: "Share of the population aged 40 to 44."
+  age_45_49:
+    theme: "age"
+    en: "Aged 45-49"
+    fr: "Âgés de 45-49 ans"
+    ar: "الفئة العمرية 45-49 سنة"
+    unit: "%"
+    definition: "Share of the population aged 45 to 49."
+  age_50_54:
+    theme: "age"
+    en: "Aged 50-54"
+    fr: "Âgés de 50-54 ans"
+    ar: "الفئة العمرية 50-54 سنة"
+    unit: "%"
+    definition: "Share of the population aged 50 to 54."
+  age_55_59:
+    theme: "age"
+    en: "Aged 55-59"
+    fr: "Âgés de 55-59 ans"
+    ar: "الفئة العمرية 55-59 سنة"
+    unit: "%"
+    definition: "Share of the population aged 55 to 59."
+  age_60_64:
+    theme: "age"
+    en: "Aged 60-64"
+    fr: "Âgés de 60-64 ans"
+    ar: "الفئة العمرية 60-64 سنة"
+    unit: "%"
+    definition: "Share of the population aged 60 to 64."
+  age_65_69:
+    theme: "age"
+    en: "Aged 65-69"
+    fr: "Âgés de 65-69 ans"
+    ar: "الفئة العمرية 65-69 سنة"
+    unit: "%"
+    definition: "Share of the population aged 65 to 69."
+  age_70_74:
+    theme: "age"
+    en: "Aged 70-74"
+    fr: "Âgés de 70-74 ans"
+    ar: "الفئة العمرية 70-74 سنة"
+    unit: "%"
+    definition: "Share of the population aged 70 to 74."
+  age_75plus:
+    theme: "age"
+    en: "Aged 75 and over"
+    fr: "Âgés de 75 ans et plus"
+    ar: "الفئة العمرية 75 سنة فأكثر"
+    unit: "%"
+    definition: "Share of the population aged 75 and over."
+  age_60plus:
+    theme: "age"
+    en: "Aged 60 and over"
+    fr: "Âgés de 60 ans et plus"
+    ar: "الفئة العمرية 60 سنة فأكثر"
+    unit: "%"
+    definition: "Share of the population aged 60 and over."
+  age_65plus:
+    theme: "age"
+    en: "Aged 65 and over"
+    fr: "Âgés de 65 ans et plus"
+    ar: "الفئة العمرية 65 سنة فأكثر"
+    unit: "%"
+    definition: "Share of the population aged 65 and over."
+  pct_disability:
+    theme: "population"
+    en: "Disability prevalence"
+    fr: "Taux de prévalence du handicap"
+    ar: "معدل انتشار الإعاقة"
+    unit: "%"
+    definition: "Share of the population living with a disability."
+  pct_single:
+    theme: "family"
+    en: "Never married"
+    fr: "Célibataires"
+    ar: "العزاب"
+    unit: "%"
+    definition: "Share never married in the marital-status distribution."
+    note: "2004 and 2024 are shares of the population aged 15 and over. HCP's 2014 commune table uses a wider base (never-married is about 53% at the median commune, against 31% in 2024), so 2014 levels are not comparable."
+    comparable: false
+  pct_married:
+    theme: "family"
+    en: "Married"
+    fr: "Marié(e)s"
+    ar: "المتزوجون"
+    unit: "%"
+    definition: "Share married in the marital-status distribution."
+    note: "2004 and 2024 are shares of the population aged 15 and over. HCP's 2014 commune table uses a wider base (never-married is about 53% at the median commune, against 31% in 2024), so 2014 levels are not comparable."
+    comparable: false
+  pct_divorced:
+    theme: "family"
+    en: "Divorced"
+    fr: "Divorcé(e)s"
+    ar: "المطلقون والمطلقات"
+    unit: "%"
+    definition: "Share divorced in the marital-status distribution, both sexes."
+    note: "2004 and 2024 are shares of the population aged 15 and over. HCP's 2014 commune table uses a wider base (never-married is about 53% at the median commune, against 31% in 2024), so 2014 levels are not comparable."
+    comparable: false
+  pct_widowed:
+    theme: "family"
+    en: "Widowed"
+    fr: "Veufs et veuves"
+    ar: "الأرامل"
+    unit: "%"
+    definition: "Share widowed in the marital-status distribution."
+    note: "2004 and 2024 are shares of the population aged 15 and over. HCP's 2014 commune table uses a wider base (never-married is about 53% at the median commune, against 31% in 2024), so 2014 levels are not comparable."
+    comparable: false
+  age_first_marriage:
+    theme: "family"
+    en: "Mean age at first marriage"
+    fr: "Âge moyen au premier mariage"
+    ar: "متوسط السن عند الزواج الأول"
+    unit: "years"
+    definition: "Mean age at first marriage."
+    note: "2024 is HCP's singulate mean age at marriage (âge moyen singulier au mariage)."
+  completed_fertility:
+    theme: "fertility"
+    en: "Completed fertility"
+    fr: "Descendance finale"
+    ar: "الخصوبة المكتملة"
+    unit: "children per woman"
+    definition: "Mean number of children born to women at the end of their reproductive years."
+    note: "2014 is the mean parity of women aged 45-49 (parité moyenne à 45-49 ans); 2024 is HCP's descendance finale."
+  school_enrolment:
+    theme: "education"
+    en: "School enrolment of young children"
+    fr: "Taux de scolarisation des jeunes enfants"
+    ar: "معدل تمدرس الأطفال الصغار"
+    unit: "%"
+    definition: "Share of primary-school-age children enrolled in school."
+    note: "2014 covers children aged 7-12; 2024 covers ages 6-11 in the 2023/24 school year."
+    comparable: false
+  pct_illiterate_15plus:
+    theme: "education"
+    en: "Illiteracy rate (15+)"
+    fr: "Taux d'analphabétisme (15 ans et plus)"
+    ar: "معدل الأمية (15 سنة فأكثر)"
+    unit: "%"
+    definition: "Share of the population aged 15 and over who cannot read and write."
+  edu_preschool:
+    theme: "education"
+    en: "Preschool level"
+    fr: "Niveau préscolaire"
+    ar: "المستوى الأولي"
+    unit: "%"
+    definition: "Share whose highest level of general education reached is preschool."
+    note: "2004 shares are of the population aged 25 and over; 2014 and 2024 are HCP's commune shares."
+    comparable: false
+  edu_primary:
+    theme: "education"
+    en: "Primary level"
+    fr: "Niveau primaire"
+    ar: "المستوى الابتدائي"
+    unit: "%"
+    definition: "Share whose highest level of general education reached is primary."
+    note: "2004 shares are of the population aged 25 and over; 2014 and 2024 are HCP's commune shares."
+    comparable: false
+  edu_lower_secondary:
+    theme: "education"
+    en: "Lower-secondary level"
+    fr: "Niveau secondaire collégial"
+    ar: "المستوى الثانوي الإعدادي"
+    unit: "%"
+    definition: "Share whose highest level of general education reached is lower-secondary."
+    note: "2004 shares are of the population aged 25 and over; 2014 and 2024 are HCP's commune shares."
+    comparable: false
+  edu_upper_secondary:
+    theme: "education"
+    en: "Upper-secondary level"
+    fr: "Niveau secondaire qualifiant"
+    ar: "المستوى الثانوي التأهيلي"
+    unit: "%"
+    definition: "Share whose highest level of general education reached is upper-secondary."
+    note: "2004 shares are of the population aged 25 and over; 2014 and 2024 are HCP's commune shares."
+    comparable: false
+  edu_higher:
+    theme: "education"
+    en: "Higher-education level"
+    fr: "Niveau supérieur"
+    ar: "المستوى العالي"
+    unit: "%"
+    definition: "Share whose highest level of general education reached is higher-education."
+    note: "2004 shares are of the population aged 25 and over; 2014 and 2024 are HCP's commune shares."
+    comparable: false
+  dipl_primary:
+    theme: "education"
+    en: "Highest diploma: primary"
+    fr: "Plus haut diplôme : primaire"
+    ar: "أعلى شهادة: الابتدائي"
+    unit: "%"
+    definition: "Share of the population aged 10 and over whose highest general-education diploma is primary."
+  dipl_lower_secondary:
+    theme: "education"
+    en: "Highest diploma: lower secondary"
+    fr: "Plus haut diplôme : secondaire collégial"
+    ar: "أعلى شهادة: الثانوي الإعدادي"
+    unit: "%"
+    definition: "Share of the population aged 10 and over whose highest general-education diploma is lower secondary."
+  dipl_upper_secondary:
+    theme: "education"
+    en: "Highest diploma: upper secondary"
+    fr: "Plus haut diplôme : secondaire qualifiant"
+    ar: "أعلى شهادة: الثانوي التأهيلي"
+    unit: "%"
+    definition: "Share of the population aged 10 and over whose highest general-education diploma is upper secondary."
+  dipl_bachelor:
+    theme: "education"
+    en: "Highest diploma: DEUG, licence or equivalent"
+    fr: "Plus haut diplôme : DEUG, licence ou équivalent"
+    ar: "أعلى شهادة: الإجازة أو ما يعادلها"
+    unit: "%"
+    definition: "Share of the population aged 10 and over whose highest general-education diploma is DEUG, licence or equivalent."
+  dipl_master:
+    theme: "education"
+    en: "Highest diploma: master, doctorate or equivalent"
+    fr: "Plus haut diplôme : master, doctorat ou équivalent"
+    ar: "أعلى شهادة: الماستر أو الدكتوراه أو ما يعادلهما"
+    unit: "%"
+    definition: "Share of the population aged 10 and over whose highest general-education diploma is master, doctorate or equivalent."
+  voc_specialised_technician:
+    theme: "education"
+    en: "Vocational diploma: specialised technician"
+    fr: "Diplôme professionnel : technicien spécialisé"
+    ar: "شهادة التكوين المهني: تقني متخصص"
+    unit: "%"
+    definition: "Share of the population aged 10 and over whose highest vocational diploma is specialised technician."
+  voc_technician:
+    theme: "education"
+    en: "Vocational diploma: technician or middle manager"
+    fr: "Diplôme professionnel : technicien ou cadre moyen"
+    ar: "شهادة التكوين المهني: تقني أو إطار متوسط"
+    unit: "%"
+    definition: "Share of the population aged 10 and over whose highest vocational diploma is technician or middle manager."
+  voc_qualification:
+    theme: "education"
+    en: "Vocational diploma: qualification"
+    fr: "Diplôme professionnel : qualification"
+    ar: "شهادة التكوين المهني: التأهيل"
+    unit: "%"
+    definition: "Share of the population aged 10 and over whose highest vocational diploma is qualification."
+  voc_specialisation:
+    theme: "education"
+    en: "Vocational diploma: specialisation"
+    fr: "Diplôme professionnel : spécialisation"
+    ar: "شهادة التكوين المهني: التخصص"
+    unit: "%"
+    definition: "Share of the population aged 10 and over whose highest vocational diploma is specialisation."
+  voc_initiation:
+    theme: "education"
+    en: "Vocational diploma: initiation"
+    fr: "Diplôme professionnel : initiation"
+    ar: "شهادة التكوين المهني: التأهيل الأولي"
+    unit: "%"
+    definition: "Share of the population aged 10 and over whose highest vocational diploma is initiation."
+  pct_no_voc_diploma:
+    theme: "education"
+    en: "No vocational diploma"
+    fr: "Sans diplôme de la formation professionnelle"
+    ar: "بدون شهادة في التكوين المهني"
+    unit: "%"
+    definition: "Share of the population aged 10 and over with no vocational-training diploma."
+  lang_darija:
+    theme: "languages"
+    en: "Speaks Darija"
+    fr: "Parle la darija"
+    ar: "يتحدث الدارجة"
+    unit: "%"
+    definition: "Share of the population using Darija; a person can use several languages."
+    note: "2004 counts languages spoken by the population aged 5 and over; 2014 and 2024 count local languages used (non-exclusive)."
+  lang_tachelhit:
+    theme: "languages"
+    en: "Speaks Tachelhit"
+    fr: "Parle le tachelhit"
+    ar: "يتحدث تاشلحيت"
+    unit: "%"
+    definition: "Share of the population using Tachelhit; a person can use several languages."
+    note: "2004 counts languages spoken by the population aged 5 and over; 2014 and 2024 count local languages used (non-exclusive)."
+  lang_tamazight:
+    theme: "languages"
+    en: "Speaks Tamazight"
+    fr: "Parle le tamazight"
+    ar: "يتحدث تامازيغت"
+    unit: "%"
+    definition: "Share of the population using Tamazight; a person can use several languages."
+    note: "2004 counts languages spoken by the population aged 5 and over; 2014 and 2024 count local languages used (non-exclusive)."
+  lang_tarifit:
+    theme: "languages"
+    en: "Speaks Tarifit"
+    fr: "Parle le tarifit"
+    ar: "يتحدث تاريفيت"
+    unit: "%"
+    definition: "Share of the population using Tarifit; a person can use several languages."
+    note: "2004 counts languages spoken by the population aged 5 and over; 2014 and 2024 count local languages used (non-exclusive)."
+  lang_hassania:
+    theme: "languages"
+    en: "Speaks Hassania"
+    fr: "Parle le hassania"
+    ar: "يتحدث الحسانية"
+    unit: "%"
+    definition: "Share of the population using Hassania; a person can use several languages."
+    note: "2004 counts languages spoken by the population aged 5 and over; 2014 and 2024 count local languages used (non-exclusive)."
+  lit_arabic_only:
+    theme: "languages"
+    en: "Reads and writes Arabic only"
+    fr: "Lit et écrit l'arabe seulement"
+    ar: "يقرأ ويكتب العربية فقط"
+    unit: "%"
+    definition: "Share reading and writing Arabic and no other language."
+    note: "2004 shares are of the whole population aged 10 and over (illiterate included); 2014 shares are of literate persons aged 10 and over."
+    comparable: false
+  lit_arabic_french:
+    theme: "languages"
+    en: "Reads and writes Arabic and French only"
+    fr: "Lit et écrit l'arabe et le français seulement"
+    ar: "يقرأ ويكتب العربية والفرنسية فقط"
+    unit: "%"
+    definition: "Share reading and writing Arabic and French and no other language."
+    note: "2004 shares are of the whole population aged 10 and over (illiterate included); 2014 shares are of literate persons aged 10 and over."
+    comparable: false
+  lit_arabic_french_english:
+    theme: "languages"
+    en: "Reads and writes Arabic, French and English"
+    fr: "Lit et écrit l'arabe, le français et l'anglais"
+    ar: "يقرأ ويكتب العربية والفرنسية والإنجليزية"
+    unit: "%"
+    definition: "Share of literate persons aged 10 and over reading and writing Arabic, French and English."
+  lit_other:
+    theme: "languages"
+    en: "Reads and writes other language combinations"
+    fr: "Lit et écrit d'autres combinaisons de langues"
+    ar: "يقرأ ويكتب توليفات لغوية أخرى"
+    unit: "%"
+    definition: "Share of literate persons aged 10 and over in any other language combination."
+  read_arabic:
+    theme: "languages"
+    en: "Literate in Arabic"
+    fr: "Lit et écrit l'arabe"
+    ar: "يقرأ ويكتب العربية"
+    unit: "%"
+    definition: "Share of literate persons aged 10 and over who read and write Arabic (non-exclusive)."
+  read_tifinagh:
+    theme: "languages"
+    en: "Literate in Amazigh (Tifinagh)"
+    fr: "Lit et écrit l'amazigh (tifinagh)"
+    ar: "يقرأ ويكتب الأمازيغية (تيفيناغ)"
+    unit: "%"
+    definition: "Share of literate persons aged 10 and over who read and write Amazigh (Tifinagh) (non-exclusive)."
+  read_english:
+    theme: "languages"
+    en: "Literate in English"
+    fr: "Lit et écrit l'anglais"
+    ar: "يقرأ ويكتب الإنجليزية"
+    unit: "%"
+    definition: "Share of literate persons aged 10 and over who read and write English (non-exclusive)."
+  read_french:
+    theme: "languages"
+    en: "Literate in French"
+    fr: "Lit et écrit le français"
+    ar: "يقرأ ويكتب الفرنسية"
+    unit: "%"
+    definition: "Share of literate persons aged 10 and over who read and write French (non-exclusive)."
+  pct_employer:
+    theme: "employment"
+    en: "Employers"
+    fr: "Employeurs"
+    ar: "المشغّلون"
+    unit: "%"
+    definition: "Share in employment status: employers."
+    note: "2004 and 2014 shares are of employed persons and unemployed persons who have worked before; 2024 shares are of employed persons aged 15 and over."
+    comparable: false
+  pct_self_employed:
+    theme: "employment"
+    en: "Self-employed"
+    fr: "Indépendants"
+    ar: "المستقلون"
+    unit: "%"
+    definition: "Share in employment status: self-employed."
+    note: "2004 and 2014 shares are of employed persons and unemployed persons who have worked before; 2024 shares are of employed persons aged 15 and over."
+    comparable: false
+  pct_public_employee:
+    theme: "employment"
+    en: "Public-sector employees"
+    fr: "Salariés du secteur public"
+    ar: "أجراء القطاع العام"
+    unit: "%"
+    definition: "Share in employment status: public-sector employees."
+    note: "2004 and 2014 shares are of employed persons and unemployed persons who have worked before; 2024 shares are of employed persons aged 15 and over."
+    comparable: false
+  pct_private_employee:
+    theme: "employment"
+    en: "Private-sector employees"
+    fr: "Salariés du secteur privé"
+    ar: "أجراء القطاع الخاص"
+    unit: "%"
+    definition: "Share in employment status: private-sector employees."
+    note: "2004 and 2014 shares are of employed persons and unemployed persons who have worked before; 2024 shares are of employed persons aged 15 and over."
+    comparable: false
+  pct_family_worker:
+    theme: "employment"
+    en: "Family workers"
+    fr: "Aides familiaux"
+    ar: "المساعدون العائليون"
+    unit: "%"
+    definition: "Share in employment status: family workers."
+    note: "2004 and 2014 shares are of employed persons and unemployed persons who have worked before; 2024 shares are of employed persons aged 15 and over."
+    comparable: false
+  pct_apprentice:
+    theme: "employment"
+    en: "Apprentices"
+    fr: "Apprentis"
+    ar: "المتدربون"
+    unit: "%"
+    definition: "Share in employment status: apprentices."
+    note: "2004 and 2014 shares are of employed persons and unemployed persons who have worked before; 2024 shares are of employed persons aged 15 and over."
+    comparable: false
+  pct_partner:
+    theme: "employment"
+    en: "Partners or cooperative members"
+    fr: "Associés ou coopérateurs"
+    ar: "الشركاء أو أعضاء التعاونيات"
+    unit: "%"
+    definition: "Share in employment status: partners or cooperative members."
+    note: "2004 and 2014 shares are of employed persons and unemployed persons who have worked before; 2024 shares are of employed persons aged 15 and over."
+    comparable: false
+  pct_status_other:
+    theme: "employment"
+    en: "Other employment status"
+    fr: "Autre situation dans la profession"
+    ar: "وضعية مهنية أخرى"
+    unit: "%"
+    definition: "Share in employment status: other employment status."
+    note: "2004 and 2014 shares are of employed persons and unemployed persons who have worked before; 2024 shares are of employed persons aged 15 and over."
+    comparable: false
+  occ_managers:
+    theme: "occupation"
+    en: "Legislators, officials and managers"
+    fr: "Membres des corps législatifs, responsables et cadres supérieurs"
+    ar: "أعضاء الهيئات التشريعية والمسؤولون والأطر العليا"
+    unit: "%"
+    definition: "Share of employed persons aged 15 and over in the major occupational group: legislators, officials and managers."
+  occ_technicians:
+    theme: "occupation"
+    en: "Technicians and associate professionals"
+    fr: "Techniciens et professions intermédiaires"
+    ar: "التقنيون والمهن الوسيطة"
+    unit: "%"
+    definition: "Share of employed persons aged 15 and over in the major occupational group: technicians and associate professionals."
+  occ_clerks:
+    theme: "occupation"
+    en: "Clerks"
+    fr: "Employés"
+    ar: "المستخدمون"
+    unit: "%"
+    definition: "Share of employed persons aged 15 and over in the major occupational group: clerks."
+  occ_traders:
+    theme: "occupation"
+    en: "Traders and commercial or financial intermediaries"
+    fr: "Commerçants et intermédiaires commerciaux et financiers"
+    ar: "التجار والوسطاء التجاريون والماليون"
+    unit: "%"
+    definition: "Share of employed persons aged 15 and over in the major occupational group: traders and commercial or financial intermediaries."
+  occ_farmers:
+    theme: "occupation"
+    en: "Farmers, fishers and foresters"
+    fr: "Exploitants agricoles, pêcheurs et forestiers"
+    ar: "المستغلون الفلاحيون والصيادون والحراجيون"
+    unit: "%"
+    definition: "Share of employed persons aged 15 and over in the major occupational group: farmers, fishers and foresters."
+  occ_craft:
+    theme: "occupation"
+    en: "Craft and related trades workers"
+    fr: "Artisans et ouvriers qualifiés des métiers artisanaux"
+    ar: "الحرفيون والعمال المؤهلون في المهن الحرفية"
+    unit: "%"
+    definition: "Share of employed persons aged 15 and over in the major occupational group: craft and related trades workers."
+  occ_agri_workers:
+    theme: "occupation"
+    en: "Agricultural and fishery labourers"
+    fr: "Ouvriers et manœuvres agricoles et de la pêche"
+    ar: "العمال واليد العاملة في الفلاحة والصيد"
+    unit: "%"
+    definition: "Share of employed persons aged 15 and over in the major occupational group: agricultural and fishery labourers."
+  occ_operators:
+    theme: "occupation"
+    en: "Plant and machine operators and assemblers"
+    fr: "Conducteurs d'installations et de machines et ouvriers de l'assemblage"
+    ar: "سائقو التجهيزات والآلات وعمال التركيب"
+    unit: "%"
+    definition: "Share of employed persons aged 15 and over in the major occupational group: plant and machine operators and assemblers."
+  occ_labourers:
+    theme: "occupation"
+    en: "Non-agricultural labourers and small trades"
+    fr: "Manœuvres non agricoles et travailleurs des petits métiers"
+    ar: "اليد العاملة غير الفلاحية وعمال المهن الصغرى"
+    unit: "%"
+    definition: "Share of employed persons aged 15 and over in the major occupational group: non-agricultural labourers and small trades."
+  occ_unclassified:
+    theme: "occupation"
+    en: "Occupation not classifiable"
+    fr: "Travailleurs ne pouvant être classés selon la profession"
+    ar: "عمال لا يمكن تصنيفهم حسب المهنة"
+    unit: "%"
+    definition: "Share of employed persons aged 15 and over in the major occupational group: occupation not classifiable."
+  sec_industry:
+    theme: "occupation"
+    en: "Mining and manufacturing"
+    fr: "Industries extractives et manufacturières"
+    ar: "الصناعات الاستخراجية والتحويلية"
+    unit: "%"
+    definition: "Share of employed persons working in: mining and manufacturing."
+    note: "2004 shares are of employed persons and unemployed persons who have worked before, by branch; 2014 shares are of employed persons aged 15 and over."
+    comparable: false
+  sec_utilities:
+    theme: "occupation"
+    en: "Water and electricity"
+    fr: "Eau et électricité"
+    ar: "الماء والكهرباء"
+    unit: "%"
+    definition: "Share of employed persons working in: water and electricity."
+    note: "2004 shares are of employed persons and unemployed persons who have worked before, by branch; 2014 shares are of employed persons aged 15 and over."
+    comparable: false
+  sec_construction:
+    theme: "occupation"
+    en: "Construction"
+    fr: "Bâtiment et travaux publics"
+    ar: "البناء والأشغال العمومية"
+    unit: "%"
+    definition: "Share of employed persons working in: construction."
+    note: "2004 shares are of employed persons and unemployed persons who have worked before, by branch; 2014 shares are of employed persons aged 15 and over."
+    comparable: false
+  sec_trade:
+    theme: "occupation"
+    en: "Trade and vehicle repair"
+    fr: "Commerce et réparation automobile"
+    ar: "التجارة وإصلاح المركبات"
+    unit: "%"
+    definition: "Share of employed persons working in: trade and vehicle repair."
+    note: "2004 shares are of employed persons and unemployed persons who have worked before, by branch; 2014 shares are of employed persons aged 15 and over."
+    comparable: false
+  sec_transport:
+    theme: "occupation"
+    en: "Transport, storage and communication"
+    fr: "Transport, entrepôt et communication"
+    ar: "النقل والتخزين والاتصال"
+    unit: "%"
+    definition: "Share of employed persons working in: transport, storage and communication."
+    note: "2004 shares are of employed persons and unemployed persons who have worked before, by branch; 2014 shares are of employed persons aged 15 and over."
+    comparable: false
+  sec_services:
+    theme: "occupation"
+    en: "Other market services"
+    fr: "Autres services marchands"
+    ar: "خدمات تجارية أخرى"
+    unit: "%"
+    definition: "Share of employed persons working in: other market services."
+    note: "2004 shares are of employed persons and unemployed persons who have worked before, by branch; 2014 shares are of employed persons aged 15 and over."
+    comparable: false
+  sec_public:
+    theme: "occupation"
+    en: "Public administration, education, health and social work"
+    fr: "Administration publique, éducation, santé et action sociale"
+    ar: "الإدارة العمومية والتعليم والصحة والعمل الاجتماعي"
+    unit: "%"
+    definition: "Share of employed persons working in: public administration, education, health and social work."
+    note: "2004 shares are of employed persons and unemployed persons who have worked before, by branch; 2014 shares are of employed persons aged 15 and over."
+    comparable: false
+  sec_other:
+    theme: "occupation"
+    en: "Extraterritorial or undeclared activity"
+    fr: "Activités extraterritoriales et non déclarées"
+    ar: "أنشطة خارج التراب الوطني أو غير مصرح بها"
+    unit: "%"
+    definition: "Share of employed persons working in: extraterritorial or undeclared activity."
+    note: "2004 shares are of employed persons and unemployed persons who have worked before, by branch; 2014 shares are of employed persons aged 15 and over."
+    comparable: false
+  dwell_villa:
+    theme: "housing"
+    en: "Villa"
+    fr: "Villa"
+    ar: "فيلا"
+    unit: "%"
+    definition: "Share of households living in a dwelling of type: villa."
+  dwell_apartment:
+    theme: "housing"
+    en: "Apartment"
+    fr: "Appartement"
+    ar: "شقة"
+    unit: "%"
+    definition: "Share of households living in a dwelling of type: apartment."
+  dwell_moroccan:
+    theme: "housing"
+    en: "Moroccan house"
+    fr: "Maison marocaine"
+    ar: "دار مغربية"
+    unit: "%"
+    definition: "Share of households living in a dwelling of type: moroccan house."
+    note: "2004 sums traditional and modern Moroccan houses."
+  dwell_rural:
+    theme: "housing"
+    en: "Rural-type dwelling"
+    fr: "Logement de type rural"
+    ar: "مسكن من النوع القروي"
+    unit: "%"
+    definition: "Share of households living in a dwelling of type: rural-type dwelling."
+  dwell_other:
+    theme: "housing"
+    en: "Other dwelling type"
+    fr: "Autre type de logement"
+    ar: "نوع آخر من المساكن"
+    unit: "%"
+    definition: "Share of households living in a dwelling of type: other dwelling type."
+  persons_per_room:
+    theme: "housing"
+    en: "Persons per room"
+    fr: "Personnes par pièce"
+    ar: "عدد الأشخاص في الغرفة"
+    unit: "persons per room"
+    definition: "Mean number of persons per habitable room (taux d'occupation)."
+  tenure_other:
+    theme: "housing"
+    en: "Other tenure"
+    fr: "Autre statut d'occupation"
+    ar: "وضعية سكن أخرى"
+    unit: "%"
+    definition: "Share of households that neither own nor rent their dwelling (free housing, employer housing and other)."
+  dwell_age_lt10:
+    theme: "housing"
+    en: "Dwelling under 10 years old"
+    fr: "Logement de moins de 10 ans"
+    ar: "مسكن عمره أقل من 10 سنوات"
+    unit: "%"
+    definition: "Share of households living in a dwelling under 10 years old."
+    note: "2004 is the share of dwellings built between 1995 and September 2004, published for urban households only."
+  dwell_age_10_19:
+    theme: "housing"
+    en: "Dwelling 10-19 years old"
+    fr: "Logement de 10 à 19 ans"
+    ar: "مسكن عمره من 10 إلى 19 سنة"
+    unit: "%"
+    definition: "Share of households living in a dwelling 10-19 years old."
+  dwell_age_20_49:
+    theme: "housing"
+    en: "Dwelling 20-49 years old"
+    fr: "Logement de 20 à 49 ans"
+    ar: "مسكن عمره من 20 إلى 49 سنة"
+    unit: "%"
+    definition: "Share of households living in a dwelling 20-49 years old."
+  dwell_age_50plus:
+    theme: "housing"
+    en: "Dwelling 50 years or older"
+    fr: "Logement de 50 ans et plus"
+    ar: "مسكن عمره 50 سنة فأكثر"
+    unit: "%"
+    definition: "Share of households living in a dwelling 50 years or older."
+  pct_kitchen:
+    theme: "housing"
+    en: "Kitchen"
+    fr: "Cuisine"
+    ar: "المطبخ"
+    unit: "%"
+    definition: "Share of households whose dwelling has a kitchen."
+  pct_toilet:
+    theme: "housing"
+    en: "Toilet"
+    fr: "W.-C."
+    ar: "المرحاض"
+    unit: "%"
+    definition: "Share of households whose dwelling has a toilet."
+  pct_bathroom:
+    theme: "housing"
+    en: "Bath or washroom"
+    fr: "Bain ou pièce d'eau"
+    ar: "حمام أو مرفق للاستحمام"
+    unit: "%"
+    definition: "Share of households whose dwelling has a bath or washroom."
+    note: "2014 counts a bath ('Bain'); 2024 a washroom ('Pièce d'eau')."
+    comparable: false
+  sewer_public:
+    theme: "sanitation"
+    en: "Public sewer"
+    fr: "Réseau public d'assainissement"
+    ar: "شبكة التطهير العمومية"
+    unit: "%"
+    definition: "Share of households whose waste water is disposed of by: public sewer."
+  sewer_septic:
+    theme: "sanitation"
+    en: "Septic tank"
+    fr: "Fosse septique"
+    ar: "حفرة صحية"
+    unit: "%"
+    definition: "Share of households whose waste water is disposed of by: septic tank."
+  sewer_other:
+    theme: "sanitation"
+    en: "Other waste-water disposal"
+    fr: "Autre évacuation des eaux usées"
+    ar: "طريقة أخرى لتصريف المياه العادمة"
+    unit: "%"
+    definition: "Share of households whose waste water is disposed of by: other waste-water disposal."
+  waste_bin:
+    theme: "sanitation"
+    en: "Municipal waste bin"
+    fr: "Bac à ordures de la commune"
+    ar: "حاوية النفايات الجماعية"
+    unit: "%"
+    definition: "Share of households disposing of household waste by: municipal waste bin."
+  waste_truck:
+    theme: "sanitation"
+    en: "Municipal or private collection truck"
+    fr: "Camion communal ou privé"
+    ar: "شاحنة جماعية أو خاصة"
+    unit: "%"
+    definition: "Share of households disposing of household waste by: municipal or private collection truck."
+  waste_other:
+    theme: "sanitation"
+    en: "Other waste disposal (incl. dumping)"
+    fr: "Autre évacuation des déchets (y compris dans la nature)"
+    ar: "طريقة أخرى للتخلص من النفايات (بما فيها الرمي في الطبيعة)"
+    unit: "%"
+    definition: "Share of households disposing of household waste otherwise than by bin or truck."
+    note: "2024 sums 'Dans la nature' and 'Autre'."
+  cook_gas:
+    theme: "sanitation"
+    en: "Cooks with gas"
+    fr: "Cuisson au gaz"
+    ar: "الطهي بالغاز"
+    unit: "%"
+    definition: "Share of households using this cooking fuel: gas."
+    note: "A household can use several fuels, so shares can sum to more than 100."
+  cook_electricity:
+    theme: "sanitation"
+    en: "Cooks with electricity"
+    fr: "Cuisson à l'électricité"
+    ar: "الطهي بالكهرباء"
+    unit: "%"
+    definition: "Share of households using this cooking fuel: electricity."
+    note: "A household can use several fuels, so shares can sum to more than 100."
+  cook_charcoal:
+    theme: "sanitation"
+    en: "Cooks with charcoal"
+    fr: "Cuisson au charbon"
+    ar: "الطهي بالفحم"
+    unit: "%"
+    definition: "Share of households using this cooking fuel: charcoal."
+    note: "A household can use several fuels, so shares can sum to more than 100."
+  cook_wood:
+    theme: "sanitation"
+    en: "Cooks with wood"
+    fr: "Cuisson au bois"
+    ar: "الطهي بالحطب"
+    unit: "%"
+    definition: "Share of households using this cooking fuel: wood."
+    note: "A household can use several fuels, so shares can sum to more than 100."
+  cook_dung:
+    theme: "sanitation"
+    en: "Cooks with animal dung"
+    fr: "Cuisson aux déchets animaux"
+    ar: "الطهي بفضلات الحيوانات"
+    unit: "%"
+    definition: "Share of households using this cooking fuel: animal dung."
+    note: "A household can use several fuels, so shares can sum to more than 100."
+  cook_other:
+    theme: "sanitation"
+    en: "Cooks with another fuel"
+    fr: "Cuisson avec un autre combustible"
+    ar: "الطهي بوقود آخر"
+    unit: "%"
+    definition: "Share of households using this cooking fuel: another fuel."
+    note: "A household can use several fuels, so shares can sum to more than 100."
+  road_distance:
+    theme: "sanitation"
+    en: "Distance to a paved road"
+    fr: "Distance à la route goudronnée"
+    ar: "المسافة إلى الطريق المعبدة"
+    unit: "km"
+    definition: "Mean distance from rural households' dwellings to the nearest paved road."
+    note: "Rural households only; urban communes have no value."
+  pct_radio:
+    theme: "equipment"
+    en: "Radio"
+    fr: "Radio"
+    ar: "المذياع"
+    unit: "%"
+    definition: "Share of households with a radio."
+  pct_landline:
+    theme: "equipment"
+    en: "Landline telephone"
+    fr: "Téléphone fixe"
+    ar: "الهاتف الثابت"
+    unit: "%"
+    definition: "Share of households with a landline telephone."
+  pct_computer:
+    theme: "equipment"
+    en: "Computer"
+    fr: "Ordinateur"
+    ar: "الحاسوب"
+    unit: "%"
+    definition: "Share of households with a computer."
+  pct_satellite:
+    theme: "equipment"
+    en: "Satellite dish"
+    fr: "Parabole"
+    ar: "الصحن الهوائي"
+    unit: "%"
+    definition: "Share of households with a satellite dish."
+  pct_fridge:
+    theme: "equipment"
+    en: "Refrigerator"
+    fr: "Réfrigérateur"
+    ar: "الثلاجة"
+    unit: "%"
+    definition: "Share of households with a refrigerator."
+
 sources:
   app2004:
     title: HCP, Maroc en Chiffres (RGPH 2004 commune profiles)
@@ -410,7 +1273,7 @@ datasets:
       pct_no_education: {indicator: pct_no_education, from: "Socio-culturel: NIVEAU D'INSTRUCTION, Néant (%)"}
       pct_illiterate: {indicator: pct_illiterate, from: "Socio-culturel: Taux d'analphabétisme"}
       pct_no_lang_written: {indicator: pct_no_lang_written, from: "Socio-culturel: LANGUES PARLEES ET ECRITES, Aucune (%)"}
-      pct_women_divorced: {indicator: pct_women_divorced, from: "Socio-culturel: ETAT MATRIMONIAL, Divorcé (%)"}
+      pct_women_divorced: {indicator: pct_women_divorced, from: "Socio-culturel: ETAT MATRIMONIAL, Divorcé Féminin / sum of the four Féminin rows (effectifs)"}
       pct_migrant_since99: {indicator: pct_migrant_since99, from: "Socio-culturel: RESIDENCE EN 1999, Commune différente (%)"}
       activity_rate: {indicator: activity_rate, from: "Économie: Actifs (%)"}
       pct_agriculture: {indicator: pct_agriculture, from: "Économie: Agriculture (%)"}
@@ -421,6 +1284,51 @@ datasets:
       pct_cellphone: {indicator: pct_cellphone, from: "Habitat: EQUIPEMENT DOMESTIQUE, Portable (%)"}
       pct_tv: {indicator: pct_tv, from: "Habitat: EQUIPEMENT DOMESTIQUE, Télévision (%)"}
       pct_slum: {indicator: pct_slum, from: "Habitat: Maison sommaire ou bidonville (%)"}
+      age_15_19: {indicator: age_15_19, from: "Démographie: 15 à 19 ans (%)"}
+      age_20_24: {indicator: age_20_24, from: "Démographie: 20 à 24 ans (%)"}
+      age_75plus: {indicator: age_75plus, from: "Démographie: 75 à 84 ans + 85 ans et plus (%)"}
+      age_60plus: {indicator: age_60plus, from: "Démographie: 60 ans et plus (%)"}
+      age_65plus: {indicator: age_65plus, from: "Démographie: 65 à 74 + 75 à 84 + 85 ans et plus (%)"}
+      pct_single: {indicator: pct_single, from: "Socio-culturel: ETAT MATRIMONIAL, Célibataire (%)"}
+      pct_married: {indicator: pct_married, from: "Socio-culturel: ETAT MATRIMONIAL, Marié (%)"}
+      pct_divorced: {indicator: pct_divorced, from: "Socio-culturel: ETAT MATRIMONIAL, Divorcé (%)"}
+      pct_widowed: {indicator: pct_widowed, from: "Socio-culturel: ETAT MATRIMONIAL, Veuf (%)"}
+      edu_primary: {indicator: edu_primary, from: "Socio-culturel: NIVEAU D'INSTRUCTION, Primaire (%)"}
+      edu_lower_secondary: {indicator: edu_lower_secondary, from: "Socio-culturel: NIVEAU D'INSTRUCTION, Collégial (%)"}
+      edu_upper_secondary: {indicator: edu_upper_secondary, from: "Socio-culturel: NIVEAU D'INSTRUCTION, Secondaire (%)"}
+      edu_higher: {indicator: edu_higher, from: "Socio-culturel: NIVEAU D'INSTRUCTION, Universitaire (%)"}
+      lang_darija: {indicator: lang_darija, from: "Socio-culturel: LANGUES PARLEES, Arabe dialectal (%)"}
+      lang_tachelhit: {indicator: lang_tachelhit, from: "Socio-culturel: LANGUES PARLEES, Tashlhit (%)"}
+      lang_tamazight: {indicator: lang_tamazight, from: "Socio-culturel: LANGUES PARLEES, Tamazight (%)"}
+      lang_tarifit: {indicator: lang_tarifit, from: "Socio-culturel: LANGUES PARLEES, Tarifit (%)"}
+      lang_hassania: {indicator: lang_hassania, from: "Socio-culturel: LANGUES PARLEES, Hsaynia (%)"}
+      lit_arabic_only: {indicator: lit_arabic_only, from: "Socio-culturel: LANGUES PARLEES ET ECRITES, Arabe seul (%)"}
+      lit_arabic_french: {indicator: lit_arabic_french, from: "Socio-culturel: LANGUES PARLEES ET ECRITES, Arabe et Français seuls (%)"}
+      pct_employer: {indicator: pct_employer, from: "Économie: SITUATION DANS LA PROFESSION, Employeur (%)"}
+      pct_self_employed: {indicator: pct_self_employed, from: "Économie: SITUATION DANS LA PROFESSION, Indépendant (%)"}
+      pct_public_employee: {indicator: pct_public_employee, from: "Économie: SITUATION DANS LA PROFESSION, Salariés publiques (%)"}
+      pct_private_employee: {indicator: pct_private_employee, from: "Économie: SITUATION DANS LA PROFESSION, Salariés privés (%)"}
+      pct_family_worker: {indicator: pct_family_worker, from: "Économie: SITUATION DANS LA PROFESSION, Aide familiale (%)"}
+      pct_apprentice: {indicator: pct_apprentice, from: "Économie: SITUATION DANS LA PROFESSION, Apprentie (%)"}
+      sec_industry: {indicator: sec_industry, from: "Économie: BRANCHES, Mines + Industrie (%)"}
+      sec_utilities: {indicator: sec_utilities, from: "Économie: BRANCHES, Eau électricité et énergie (%)"}
+      sec_construction: {indicator: sec_construction, from: "Économie: BRANCHES, B.T.P (%)"}
+      sec_trade: {indicator: sec_trade, from: "Économie: BRANCHES, Commerce (%)"}
+      sec_transport: {indicator: sec_transport, from: "Économie: BRANCHES, Transport et communication (%)"}
+      sec_services: {indicator: sec_services, from: "Économie: BRANCHES, Services (%)"}
+      sec_public: {indicator: sec_public, from: "Économie: BRANCHES, Administration (%)"}
+      sec_other: {indicator: sec_other, from: "Économie: BRANCHES, Activité exercée hors du Maroc et N-D (%)"}
+      dwell_villa: {indicator: dwell_villa, from: "Habitat: Villa, niveau de villa (%)"}
+      dwell_apartment: {indicator: dwell_apartment, from: "Habitat: Appartement (%)"}
+      dwell_moroccan: {indicator: dwell_moroccan, from: "Habitat: Maison marocaine traditionnelle + moderne (%)"}
+      dwell_rural: {indicator: dwell_rural, from: "Habitat: Habitation de type rural (%)"}
+      dwell_other: {indicator: dwell_other, from: "Habitat: TYPES D'HABITATS, Autres (%)"}
+      dwell_age_lt10: {indicator: dwell_age_lt10, from: "Habitat: ANNEE DE CONSTRUCTION, 1995 à septembre 2004 (%)"}
+      pct_kitchen: {indicator: pct_kitchen, from: "Habitat: ELEMENT DE CONFORT, Cuisine (%)"}
+      pct_toilet: {indicator: pct_toilet, from: "Habitat: ELEMENT DE CONFORT, W.C. (%)"}
+      road_distance: {indicator: road_distance, from: "Habitat: DISTANCE A LA ROUTE GOUDRONEE, Distance moyenne (km)"}
+      pct_landline: {indicator: pct_landline, from: "Habitat: EQUIPEMENT DOMESTIQUE, Téléphone Fixe (%)"}
+      pct_satellite: {indicator: pct_satellite, from: "Habitat: EQUIPEMENT DOMESTIQUE, Parabole (%)"}
 
   - id: communes_2014
     file: communes_2014.csv
@@ -457,6 +1365,116 @@ datasets:
       pct_sector_agri: {indicator: pct_agriculture, from: "activite_2014.xlsx col 19: Agriculture, sylviculture et pêche", source: activite2014}
       pct_no_diploma: {indicator: pct_no_diploma, from: "diplome_2014.xlsx col 15: Sans diplôme", source: diplome2014}
       pct_higher_ed: {indicator: pct_higher_ed, from: "diplome_2014.xlsx col 12 + col 13: DEUG/Licence + Master/Doctorat", source: diplome2014}
+      age_15_19: {indicator: age_15_19, from: "individus_2014.xlsx col 13: 15-19 ans", source: individus2014}
+      age_20_24: {indicator: age_20_24, from: "individus_2014.xlsx col 14: 20-24 ans", source: individus2014}
+      age_25_29: {indicator: age_25_29, from: "individus_2014.xlsx col 15: 25-29 ans", source: individus2014}
+      age_30_34: {indicator: age_30_34, from: "individus_2014.xlsx col 16: 30-34 ans", source: individus2014}
+      age_35_39: {indicator: age_35_39, from: "individus_2014.xlsx col 17: 35-39 ans", source: individus2014}
+      age_40_44: {indicator: age_40_44, from: "individus_2014.xlsx col 18: 40-44 ans", source: individus2014}
+      age_45_49: {indicator: age_45_49, from: "individus_2014.xlsx col 19: 45-49 ans", source: individus2014}
+      age_50_54: {indicator: age_50_54, from: "individus_2014.xlsx col 20: 50-54 ans", source: individus2014}
+      age_55_59: {indicator: age_55_59, from: "individus_2014.xlsx col 21: 55-59 ans", source: individus2014}
+      age_60_64: {indicator: age_60_64, from: "individus_2014.xlsx col 22: 60-64 ans", source: individus2014}
+      age_65_69: {indicator: age_65_69, from: "individus_2014.xlsx col 23: 65-69 ans", source: individus2014}
+      age_70_74: {indicator: age_70_74, from: "individus_2014.xlsx col 24: 70-74 ans", source: individus2014}
+      age_75plus: {indicator: age_75plus, from: "individus_2014.xlsx col 25: 75 ans et plus", source: individus2014}
+      age_60plus: {indicator: age_60plus, from: "individus_2014.xlsx cols 22 + 23 + 24 + 25: 60-64 ans + 65-69 ans + 70-74 ans + 75 ans et plus", source: individus2014}
+      age_65plus: {indicator: age_65plus, from: "individus_2014.xlsx cols 23 + 24 + 25: 65-69 ans + 70-74 ans + 75 ans et plus", source: individus2014}
+      pct_disability: {indicator: pct_disability, from: "individus_2014.xlsx col 31: Taux de prévalence du handicap", source: individus2014}
+      pct_single: {indicator: pct_single, from: "individus_2014.xlsx col 26: Célibataire", source: individus2014}
+      pct_married: {indicator: pct_married, from: "individus_2014.xlsx col 27: Marié", source: individus2014}
+      pct_divorced: {indicator: pct_divorced, from: "individus_2014.xlsx col 28: Divorcé", source: individus2014}
+      pct_widowed: {indicator: pct_widowed, from: "individus_2014.xlsx col 29: Veuf", source: individus2014}
+      age_first_marriage: {indicator: age_first_marriage, from: "individus_2014.xlsx col 30: Âge moyen au premier mariage", source: individus2014}
+      completed_fertility: {indicator: completed_fertility, from: "individus_2014.xlsx col 32: Parité moyenne à 45-49 ans", source: individus2014}
+      school_enrolment: {indicator: school_enrolment, from: "individus_2014.xlsx col 34: Taux de scolarisation des enfants âgés de 7 à 12 ans", source: individus2014}
+      edu_preschool: {indicator: edu_preschool, from: "individus_2014.xlsx col 41: Préscolaire", source: individus2014}
+      edu_primary: {indicator: edu_primary, from: "individus_2014.xlsx col 42: Primaire", source: individus2014}
+      edu_lower_secondary: {indicator: edu_lower_secondary, from: "individus_2014.xlsx col 43: Secondaire collégial", source: individus2014}
+      edu_upper_secondary: {indicator: edu_upper_secondary, from: "individus_2014.xlsx col 44: Secondaire qualifiant", source: individus2014}
+      edu_higher: {indicator: edu_higher, from: "individus_2014.xlsx col 45: Supérieur", source: individus2014}
+      dipl_primary: {indicator: dipl_primary, from: "diplome_2014.xlsx col 9: Primaire", source: diplome2014}
+      dipl_lower_secondary: {indicator: dipl_lower_secondary, from: "diplome_2014.xlsx col 10: Secondaire collégial", source: diplome2014}
+      dipl_upper_secondary: {indicator: dipl_upper_secondary, from: "diplome_2014.xlsx col 11: Secondaire qualifiant", source: diplome2014}
+      dipl_bachelor: {indicator: dipl_bachelor, from: "diplome_2014.xlsx col 12: DEUG, Licence ou équivalent", source: diplome2014}
+      dipl_master: {indicator: dipl_master, from: "diplome_2014.xlsx col 13: Master, Doctorat ou équivalent", source: diplome2014}
+      voc_specialised_technician: {indicator: voc_specialised_technician, from: "diplome_2014.xlsx col 16: Technicien spécialisé", source: diplome2014}
+      voc_technician: {indicator: voc_technician, from: "diplome_2014.xlsx col 17: Technicien ou Cadre moyen", source: diplome2014}
+      voc_qualification: {indicator: voc_qualification, from: "diplome_2014.xlsx col 18: Qualification professionnelle", source: diplome2014}
+      voc_specialisation: {indicator: voc_specialisation, from: "diplome_2014.xlsx col 19: Spécialisation professionnelle", source: diplome2014}
+      voc_initiation: {indicator: voc_initiation, from: "diplome_2014.xlsx col 20: Initiation professionnelle", source: diplome2014}
+      pct_no_voc_diploma: {indicator: pct_no_voc_diploma, from: "diplome_2014.xlsx col 22: Sans diplôme (FP)", source: diplome2014}
+      lang_darija: {indicator: lang_darija, from: "individus_2014.xlsx col 46: Darija", source: individus2014}
+      lang_tachelhit: {indicator: lang_tachelhit, from: "individus_2014.xlsx col 47: Tachelhit", source: individus2014}
+      lang_tamazight: {indicator: lang_tamazight, from: "individus_2014.xlsx col 48: Tamazight", source: individus2014}
+      lang_tarifit: {indicator: lang_tarifit, from: "individus_2014.xlsx col 49: Tarifit", source: individus2014}
+      lang_hassania: {indicator: lang_hassania, from: "individus_2014.xlsx col 50: Hassania", source: individus2014}
+      lit_arabic_only: {indicator: lit_arabic_only, from: "individus_2014.xlsx col 36: Arabe seule", source: individus2014}
+      lit_arabic_french: {indicator: lit_arabic_french, from: "individus_2014.xlsx col 37: Arabe et français seules", source: individus2014}
+      lit_arabic_french_english: {indicator: lit_arabic_french_english, from: "individus_2014.xlsx col 38: Arabe, français et anglais", source: individus2014}
+      lit_other: {indicator: lit_other, from: "individus_2014.xlsx col 39: Autres", source: individus2014}
+      pct_employer: {indicator: pct_employer, from: "individus_2014.xlsx col 55: Employeur", source: individus2014}
+      pct_self_employed: {indicator: pct_self_employed, from: "individus_2014.xlsx col 56: Indépendant", source: individus2014}
+      pct_public_employee: {indicator: pct_public_employee, from: "individus_2014.xlsx col 57: Salarié dans le secteur public", source: individus2014}
+      pct_private_employee: {indicator: pct_private_employee, from: "individus_2014.xlsx col 58: Salarié dans le secteur privé", source: individus2014}
+      pct_family_worker: {indicator: pct_family_worker, from: "individus_2014.xlsx col 59: Aide familiale", source: individus2014}
+      pct_apprentice: {indicator: pct_apprentice, from: "individus_2014.xlsx col 60: Apprenti", source: individus2014}
+      pct_partner: {indicator: pct_partner, from: "individus_2014.xlsx col 61: Associé ou partenaire", source: individus2014}
+      pct_status_other: {indicator: pct_status_other, from: "individus_2014.xlsx col 62: Autre", source: individus2014}
+      occ_managers: {indicator: occ_managers, from: "activite_2014.xlsx col 9: Membres des corps législatifs, élus locaux, responsables hiérarchiques de la fonction publique, directeurs et cadres de direction d'entreprises, cadres supérieurs et membres des professions libérales", source: activite2014}
+      occ_technicians: {indicator: occ_technicians, from: "activite_2014.xlsx col 10: Techniciens et professions intermédiaires", source: activite2014}
+      occ_clerks: {indicator: occ_clerks, from: "activite_2014.xlsx col 11: Employés", source: activite2014}
+      occ_traders: {indicator: occ_traders, from: "activite_2014.xlsx col 12: Commerçants et intermédiaires commerciaux et financiers", source: activite2014}
+      occ_farmers: {indicator: occ_farmers, from: "activite_2014.xlsx col 13: Exploitants agricoles, pêcheurs de poissons et d'autres espèces aquatiques, forestiers, chasseurs et travailleurs assimilés", source: activite2014}
+      occ_craft: {indicator: occ_craft, from: "activite_2014.xlsx col 14: Artisans et ouvriers qualifiés des métiers artisanaux (non compris les ouvriers de l'agriculture)", source: activite2014}
+      occ_agri_workers: {indicator: occ_agri_workers, from: "activite_2014.xlsx col 15: Ouvriers et manœuvres agricoles et de la pêche (y compris les ouvriers qualifiés)", source: activite2014}
+      occ_operators: {indicator: occ_operators, from: "activite_2014.xlsx col 16: Conducteurs d'installations et de machines et ouvriers de l'assemblage", source: activite2014}
+      occ_labourers: {indicator: occ_labourers, from: "activite_2014.xlsx col 17: Manœuvres non agricoles, manutentionnaires et travailleurs des petits métiers", source: activite2014}
+      occ_unclassified: {indicator: occ_unclassified, from: "activite_2014.xlsx col 18: Travailleurs ne pouvant être classés selon la profession", source: activite2014}
+      sec_industry: {indicator: sec_industry, from: "activite_2014.xlsx col 20: Industrie extractives et manufacturières", source: activite2014}
+      sec_utilities: {indicator: sec_utilities, from: "activite_2014.xlsx col 21: Eau et électricité", source: activite2014}
+      sec_construction: {indicator: sec_construction, from: "activite_2014.xlsx col 22: Construction", source: activite2014}
+      sec_trade: {indicator: sec_trade, from: "activite_2014.xlsx col 23: Commerce, réparation d'automobiles et de motocycles", source: activite2014}
+      sec_transport: {indicator: sec_transport, from: "activite_2014.xlsx col 24: Transport, entrepôt et communication", source: activite2014}
+      sec_services: {indicator: sec_services, from: "activite_2014.xlsx col 25: Autres services marchands", source: activite2014}
+      sec_public: {indicator: sec_public, from: "activite_2014.xlsx col 26: Administration publique, éducation, santé et action sociale", source: activite2014}
+      sec_other: {indicator: sec_other, from: "activite_2014.xlsx col 27: Activités extraterritoriales et non déclarées", source: activite2014}
+      dwell_villa: {indicator: dwell_villa, from: "menages_2014.xlsx col 12: 3.24515407644768", source: menages2014}
+      dwell_apartment: {indicator: dwell_apartment, from: "menages_2014.xlsx col 13: 11.5969853028795", source: menages2014}
+      dwell_moroccan: {indicator: dwell_moroccan, from: "menages_2014.xlsx col 14: 56.8121338699763", source: menages2014}
+      dwell_rural: {indicator: dwell_rural, from: "menages_2014.xlsx col 16: 22.80541566322", source: menages2014}
+      dwell_other: {indicator: dwell_other, from: "menages_2014.xlsx col 17: 1.03568135840591", source: menages2014}
+      persons_per_room: {indicator: persons_per_room, from: "menages_2014.xlsx col 18: 1.42624340551166", source: menages2014}
+      tenure_other: {indicator: tenure_other, from: "menages_2014.xlsx col 21: 9.23873861328161", source: menages2014}
+      dwell_age_lt10: {indicator: dwell_age_lt10, from: "menages_2014.xlsx col 22: 20.1282661495925", source: menages2014}
+      dwell_age_10_19: {indicator: dwell_age_10_19, from: "menages_2014.xlsx col 23: 22.164197471917", source: menages2014}
+      dwell_age_20_49: {indicator: dwell_age_20_49, from: "menages_2014.xlsx col 24: 37.3933435513199", source: menages2014}
+      dwell_age_50plus: {indicator: dwell_age_50plus, from: "menages_2014.xlsx col 25: 20.3141928271704", source: menages2014}
+      pct_kitchen: {indicator: pct_kitchen, from: "menages_2014.xlsx col 26: 93.4693562606609", source: menages2014}
+      pct_toilet: {indicator: pct_toilet, from: "menages_2014.xlsx col 27: 93.6508898527982", source: menages2014}
+      pct_bathroom: {indicator: pct_bathroom, from: "menages_2014.xlsx col 28: 54.0372041136883", source: menages2014}
+      sewer_public: {indicator: sewer_public, from: "menages_2014.xlsx col 31: 58.9498785458888", source: menages2014}
+      sewer_septic: {indicator: sewer_septic, from: "menages_2014.xlsx col 32: 23.1752229508936", source: menages2014}
+      sewer_other: {indicator: sewer_other, from: "menages_2014.xlsx col 33: 17.8748985032174", source: menages2014}
+      waste_bin: {indicator: waste_bin, from: "menages_2014.xlsx col 34: 46.0792525354393", source: menages2014}
+      waste_truck: {indicator: waste_truck, from: "menages_2014.xlsx col 35: 19.3068328063925", source: menages2014}
+      waste_other: {indicator: waste_other, from: "menages_2014.xlsx col 36: 34.6139146581681", source: menages2014}
+      cook_gas: {indicator: cook_gas, from: "menages_2014.xlsx col 37: 96.8645410393341", source: menages2014}
+      cook_electricity: {indicator: cook_electricity, from: "menages_2014.xlsx col 38: 4.84095716213788", source: menages2014}
+      cook_charcoal: {indicator: cook_charcoal, from: "menages_2014.xlsx col 39: 1.490058752748", source: menages2014}
+      cook_wood: {indicator: cook_wood, from: "menages_2014.xlsx col 40: 10.2300502006041", source: menages2014}
+      cook_dung: {indicator: cook_dung, from: "menages_2014.xlsx col 41: 4.32358962183122", source: menages2014}
+      road_distance: {indicator: road_distance, from: "menages_2014.xlsx col 50: 3.04964689452437", source: menages2014}
+      pct_radio: {indicator: pct_radio, from: "menages_2014.xlsx col 43: 52.6206179417258", source: menages2014}
+      pct_landline: {indicator: pct_landline, from: "menages_2014.xlsx col 45: 13.4601198466335", source: menages2014}
+      pct_computer: {indicator: pct_computer, from: "menages_2014.xlsx col 47: 25.4154454185874", source: menages2014}
+      pct_satellite: {indicator: pct_satellite, from: "menages_2014.xlsx col 48: 84.0246204976704", source: menages2014}
+      pct_fridge: {indicator: pct_fridge, from: "menages_2014.xlsx col 49: 85.1060590486737", source: menages2014}
+      pct_female: {indicator: pct_female, from: "individus_2014.xlsx col 117 / col 9 x 100: Féminin population municipale / Ensemble", source: individus2014}
+      isf: {indicator: isf, from: "individus_2014.xlsx col 33: Indice synthétique de fécondité", source: individus2014}
+      pct_no_education: {indicator: pct_no_education, from: "individus_2014.xlsx col 40: Néant", source: individus2014}
+      pct_slum: {indicator: pct_slum, from: "menages_2014.xlsx col 15: 4.50462972907045", source: menages2014}
+      pct_tv: {indicator: pct_tv, from: "menages_2014.xlsx col 42: 92.5237470201389", source: menages2014}
       is_urban: {indicator: is_urban, from: "name suffix '(Mun.)' or '(Arrond.)'", source: menages2014}
       pop_share: {indicator: pop_share, from: "population14 / national sum x 100", source: menages2014}
 
@@ -490,6 +1508,82 @@ datasets:
       pct_renter: {indicator: pct_renter, from: "Ménages col 14: Locataire"}
       pct_electricity: {indicator: pct_electricity, from: "Ménages col 23: Électricité"}
       pct_water: {indicator: pct_water, from: "Ménages col 24: Eau courante"}
+      age_15_19: {indicator: age_15_19, from: "Population col 9: 15-19 ans"}
+      age_20_24: {indicator: age_20_24, from: "Population col 10: 20-24 ans"}
+      age_25_29: {indicator: age_25_29, from: "Population col 11: 25-29 ans"}
+      age_30_34: {indicator: age_30_34, from: "Population col 12: 30-34 ans"}
+      age_35_39: {indicator: age_35_39, from: "Population col 13: 35-39 ans"}
+      age_40_44: {indicator: age_40_44, from: "Population col 14: 40-44 ans"}
+      age_45_49: {indicator: age_45_49, from: "Population col 15: 45-49 ans"}
+      age_50_54: {indicator: age_50_54, from: "Population col 16: 50-54 ans"}
+      age_55_59: {indicator: age_55_59, from: "Population col 17: 55-59 ans"}
+      age_60_64: {indicator: age_60_64, from: "Population col 18: 60-64 ans"}
+      age_65_69: {indicator: age_65_69, from: "Population col 19: 65-69 ans"}
+      age_70_74: {indicator: age_70_74, from: "Population col 20: 70-74 ans"}
+      age_75plus: {indicator: age_75plus, from: "Population col 21: 75 ans ou plus"}
+      age_60plus: {indicator: age_60plus, from: "Population cols 18 + 19 + 20 + 21: 60-64 ans + 65-69 ans + 70-74 ans + 75 ans ou plus"}
+      age_65plus: {indicator: age_65plus, from: "Population cols 19 + 20 + 21: 65-69 ans + 70-74 ans + 75 ans ou plus"}
+      pct_disability: {indicator: pct_disability, from: "Population col 30: Taux de prévalence du handicap (%)"}
+      pct_single: {indicator: pct_single, from: "Population col 23: Célibataire"}
+      pct_married: {indicator: pct_married, from: "Population col 24: Marié.e"}
+      pct_divorced: {indicator: pct_divorced, from: "Population col 25: Divorcé.e"}
+      pct_widowed: {indicator: pct_widowed, from: "Population col 26: Veuf.ve"}
+      age_first_marriage: {indicator: age_first_marriage, from: "Population col 27: Âge moyen singulier au mariage"}
+      completed_fertility: {indicator: completed_fertility, from: "Population col 29: Descendance finale des femmes"}
+      school_enrolment: {indicator: school_enrolment, from: "Population col 32: Taux de scolarisation des 6-11 ans en 2023/2024 (%)"}
+      pct_illiterate_15plus: {indicator: pct_illiterate_15plus, from: "Population col 36: Taux d'analphabétisme des 15 ans et plus (%)"}
+      edu_preschool: {indicator: edu_preschool, from: "Population col 43: Préscolaire"}
+      edu_primary: {indicator: edu_primary, from: "Population col 44: Primaire"}
+      edu_lower_secondary: {indicator: edu_lower_secondary, from: "Population col 45: Secondaire collégial"}
+      edu_upper_secondary: {indicator: edu_upper_secondary, from: "Population col 46: Secondaire qualifiant"}
+      edu_higher: {indicator: edu_higher, from: "Population col 47: Supérieur"}
+      lang_darija: {indicator: lang_darija, from: "Population col 48: Darija"}
+      lang_tachelhit: {indicator: lang_tachelhit, from: "Population col 49: Tachelhit"}
+      lang_tamazight: {indicator: lang_tamazight, from: "Population col 50: Tamazight"}
+      lang_tarifit: {indicator: lang_tarifit, from: "Population col 51: Tarifit"}
+      lang_hassania: {indicator: lang_hassania, from: "Population col 52: Hassania"}
+      read_arabic: {indicator: read_arabic, from: "Population col 38: Arabe"}
+      read_tifinagh: {indicator: read_tifinagh, from: "Population col 39: Amazigh (Tifinagh)"}
+      read_english: {indicator: read_english, from: "Population col 40: Anglais"}
+      read_french: {indicator: read_french, from: "Population col 41: Français"}
+      pct_employer: {indicator: pct_employer, from: "Population col 59: Employeur"}
+      pct_self_employed: {indicator: pct_self_employed, from: "Population col 60: Indépendant"}
+      pct_public_employee: {indicator: pct_public_employee, from: "Population col 61: Salarié du secteur public"}
+      pct_private_employee: {indicator: pct_private_employee, from: "Population col 62: Salarié du secteur privé"}
+      pct_family_worker: {indicator: pct_family_worker, from: "Population col 63: Aide familial"}
+      pct_apprentice: {indicator: pct_apprentice, from: "Population col 64: Apprenti"}
+      pct_partner: {indicator: pct_partner, from: "Population col 65: Coopérateur/Associé"}
+      pct_status_other: {indicator: pct_status_other, from: "Population col 66: Autre"}
+      dwell_villa: {indicator: dwell_villa, from: "Ménages col 6: 1.9"}
+      dwell_apartment: {indicator: dwell_apartment, from: "Ménages col 7: 16.6"}
+      dwell_moroccan: {indicator: dwell_moroccan, from: "Ménages col 8: 58.8"}
+      dwell_rural: {indicator: dwell_rural, from: "Ménages col 10: 18.4"}
+      dwell_other: {indicator: dwell_other, from: "Ménages col 11: 1.2"}
+      persons_per_room: {indicator: persons_per_room, from: "Ménages col 12: 1.4"}
+      tenure_other: {indicator: tenure_other, from: "Ménages col 15: 10.8"}
+      dwell_age_lt10: {indicator: dwell_age_lt10, from: "Ménages col 16: 22"}
+      dwell_age_10_19: {indicator: dwell_age_10_19, from: "Ménages col 17: 28.8"}
+      dwell_age_20_49: {indicator: dwell_age_20_49, from: "Ménages col 18: 35.9"}
+      dwell_age_50plus: {indicator: dwell_age_50plus, from: "Ménages col 19: 13.3"}
+      pct_kitchen: {indicator: pct_kitchen, from: "Ménages col 20: 96.3"}
+      pct_toilet: {indicator: pct_toilet, from: "Ménages col 21: 97.3"}
+      pct_bathroom: {indicator: pct_bathroom, from: "Ménages col 22: 63.1"}
+      sewer_public: {indicator: sewer_public, from: "Ménages col 25: 65.4"}
+      sewer_septic: {indicator: sewer_septic, from: "Ménages col 26: 17"}
+      sewer_other: {indicator: sewer_other, from: "Ménages col 27: 17.6"}
+      waste_bin: {indicator: waste_bin, from: "Ménages col 28: 56.5"}
+      waste_truck: {indicator: waste_truck, from: "Ménages col 29: 15"}
+      waste_other: {indicator: waste_other, from: "Ménages cols 30 + 31: 26.6 + 1.9"}
+      cook_gas: {indicator: cook_gas, from: "Ménages col 32: 95.2"}
+      cook_electricity: {indicator: cook_electricity, from: "Ménages col 33: 0.4"}
+      cook_charcoal: {indicator: cook_charcoal, from: "Ménages col 34: 0.2"}
+      cook_wood: {indicator: cook_wood, from: "Ménages col 35: 4"}
+      cook_other: {indicator: cook_other, from: "Ménages col 36: 0.2"}
+      road_distance: {indicator: road_distance, from: "Ménages col 37: 1.5"}
+      pct_female: {indicator: pct_female, from: "Population col 5: Féminin"}
+      isf: {indicator: isf, from: "Population col 28: Indicateur conjoncturel de fécondité"}
+      pct_slum: {indicator: pct_slum, from: "Ménages col 9: 3"}
+      pop_active_occupee: {indicator: pop_active_occupee, from: "Population col 58: Population active occupée de 15 ans et plus"}
       is_urban: {indicator: is_urban, from: "Population_Rurale col 3 empty (no rural population)"}
       pop_share: {indicator: pop_share, from: "population24 / national sum x 100"}
 

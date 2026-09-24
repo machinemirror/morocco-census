@@ -49,7 +49,7 @@ def keyed_tables() -> dict[str, tuple[pd.DataFrame, str]]:
     cw["code24"] = pd.to_numeric(cw.code24).astype("Int64")
     by14 = cw.set_index("code14").unit
 
-    t14 = pd.read_csv(P_COMMUNES[2014], dtype={"code14": str})
+    t14 = pd.read_csv(P_COMMUNES[2014], dtype={"code14": str}).copy()  # consolidate blocks before adding columns
     t14["unit"] = t14.code14.map(by14)
 
     app = pd.read_csv(P_CROSSWALK_APP, dtype=str).set_index("app_code").code14
