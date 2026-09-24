@@ -1,0 +1,540 @@
+# Catalogue of every published column.
+#
+# indicators: concepts that can be mapped. A concept observed in several censuses has one
+#   entry; the columns that measure it point here with `indicator:` and carry the vintage.
+# datasets: one entry per published table. Every column is listed. A column either points to
+#   an indicator (and gives its vintage and exact source), or describes itself (identifiers).
+# `comparable: false` or a `note` flags a definitional break between vintages.
+# `agg: sum` marks counts, summed when communes are merged into a map unit; everything else is a
+#   population-weighted mean (flags: max).
+
+themes:
+  population: {en: Population, fr: Population}
+  age: {en: Age structure, fr: Structure par âge}
+  fertility: {en: Fertility and mortality, fr: Fécondité et mortalité}
+  education: {en: Education and literacy, fr: Éducation et alphabétisation}
+  employment: {en: Employment, fr: Emploi}
+  family: {en: Marital status and migration, fr: État matrimonial et migration}
+  housing: {en: Housing and amenities, fr: Logement et équipements}
+  poverty: {en: Poverty and human development, fr: Pauvreté et développement humain}
+
+indicators:
+  population:
+    agg: sum
+    theme: population
+    en: Population
+    fr: Population
+    unit: persons
+    definition: Resident population of the commune.
+    note: 2004 is the app's 'Population totale'; 2014 and 2024 are 'population municipale' (excludes
+      the population comptée à part, e.g. barracks and boarding schools).
+  pop_share:
+    agg: sum
+    theme: population
+    en: Share of national population
+    fr: Part de la population nationale
+    unit: "%"
+    definition: Commune population divided by the sum over all commune rows, times 100.
+  is_urban:
+    theme: population
+    en: Urban commune
+    fr: Commune urbaine
+    unit: flag
+    definition: 1 for municipalities and arrondissements, 0 for rural communes.
+    note: 2014 uses the '(Mun.)'/'(Arrond.)' suffix of HCP's commune name; 2024 flags communes with no
+      rural population. The two agree for every commune matched across both censuses; 2024 has fewer
+      urban units because the six arrondissement cities are single communes there.
+  n_households:
+    agg: sum
+    theme: population
+    en: Households
+    fr: Ménages
+    unit: households
+    definition: Number of ordinary households.
+  hh_size_avg:
+    theme: population
+    en: Average household size
+    fr: Taille moyenne des ménages
+    unit: persons
+    definition: Persons per ordinary household.
+  pct_female:
+    theme: population
+    en: Female share
+    fr: Part des femmes
+    unit: "%"
+    definition: Women as a share of the population.
+  age_0_4:
+    theme: age
+    en: Aged 0-4
+    fr: Âgés de 0-4 ans
+    unit: "%"
+    definition: Share of the population aged 0 to 4.
+  age_5_9:
+    theme: age
+    en: Aged 5-9
+    fr: Âgés de 5-9 ans
+    unit: "%"
+    definition: Share of the population aged 5 to 9.
+  age_10_14:
+    theme: age
+    en: Aged 10-14
+    fr: Âgés de 10-14 ans
+    unit: "%"
+    definition: Share of the population aged 10 to 14.
+  isf:
+    theme: fertility
+    en: Total fertility rate
+    fr: Indice synthétique de fécondité
+    unit: children per woman
+    definition: Children per woman implied by current age-specific fertility.
+  birth_rate:
+    theme: fertility
+    en: Crude birth rate
+    fr: Taux de natalité
+    unit: per 1,000
+    definition: Live births per 1,000 population.
+  infant_mortality:
+    theme: fertility
+    en: Infant mortality rate
+    fr: Taux de mortalité infantile
+    unit: per 1,000 births
+    definition: Deaths under age one per 1,000 live births.
+  pct_illiterate:
+    theme: education
+    en: Illiteracy rate
+    fr: Taux d'analphabétisme
+    unit: "%"
+    definition: Share of the population aged 10 and over who cannot read and write.
+  pct_no_lang_written:
+    theme: education
+    en: Reads and writes no language
+    fr: Ne lit et n'écrit aucune langue
+    unit: "%"
+    definition: Share answering 'Aucune' to languages read and written. This is the 'illiterate'
+      variable of Lehnert (2021) and Lehnert & Smirnov (2024), distinct from the illiteracy rate.
+  pct_no_education:
+    theme: education
+    en: No schooling
+    fr: Aucun niveau d'études
+    unit: "%"
+    definition: Share of the population with no level of general education.
+  pct_no_diploma:
+    theme: education
+    en: No diploma
+    fr: Sans diplôme
+    unit: "%"
+    definition: Share of the population holding no diploma.
+  pct_higher_ed:
+    theme: education
+    en: Higher-education diploma
+    fr: Diplôme de l'enseignement supérieur
+    unit: "%"
+    definition: DEUG/Licence plus Master/Doctorat (or equivalent), summed.
+  activity_rate:
+    theme: employment
+    en: Activity rate
+    fr: Taux d'activité
+    unit: "%"
+    definition: Economically active population as a share of the working-age population.
+    note: 2004 is the share 'Actifs' in the app's activity table; 2014 is the 'taux net d'activité';
+      2024 is the activity rate of those aged 15 and over. Bases differ, so compare levels with care.
+    comparable: false
+  unemployment_rate:
+    theme: employment
+    en: Unemployment rate
+    fr: Taux de chômage
+    unit: "%"
+    definition: Unemployed as a share of the active population.
+  pop_active_occupee:
+    agg: sum
+    theme: employment
+    en: Employed population (15+)
+    fr: Population active occupée (15 ans et plus)
+    unit: persons
+    definition: Employed persons aged 15 and over.
+  pct_agriculture:
+    theme: employment
+    en: Employed in agriculture
+    fr: Actifs occupés dans l'agriculture
+    unit: "%"
+    definition: Share of employed persons working in agriculture, forestry and fishing.
+  pct_women_divorced:
+    theme: family
+    en: Divorced
+    fr: Divorcé(e)s
+    unit: "%"
+    definition: Share 'Divorcé(e)' in the marital-status table.
+    note: The dissertation used this as a women-divorced measure; HCP's 2014 and 2024 columns are the
+      'Divorcé' category of the marital-status distribution.
+  pct_migrant_since99:
+    theme: family
+    en: Moved in since 1999
+    fr: Résidait dans une autre commune en 1999
+    unit: "%"
+    definition: Share whose 1999 residence was a different commune.
+  pct_owner:
+    theme: housing
+    en: Owner-occupied households
+    fr: Ménages propriétaires
+    unit: "%"
+    definition: Share of households owning their dwelling.
+  pct_renter:
+    theme: housing
+    en: Renting households
+    fr: Ménages locataires
+    unit: "%"
+    definition: Share of households renting their dwelling.
+  pct_electricity:
+    theme: housing
+    en: Electricity
+    fr: Électricité
+    unit: "%"
+    definition: Share of households with electricity.
+  pct_water:
+    theme: housing
+    en: Piped water
+    fr: Eau courante
+    unit: "%"
+    definition: Share of households with running water.
+  pct_cellphone:
+    theme: housing
+    en: Mobile phone
+    fr: Téléphone portable
+    unit: "%"
+    definition: Share of households with a mobile phone. Not published at commune level for 2024.
+  pct_internet:
+    theme: housing
+    en: Internet
+    fr: Internet
+    unit: "%"
+    definition: Share of households with internet access. Not published at commune level for 2024.
+  pct_tv:
+    theme: housing
+    en: Television
+    fr: Télévision
+    unit: "%"
+    definition: Share of households with a television.
+  pct_slum:
+    theme: housing
+    en: Makeshift housing or slum
+    fr: Maison sommaire ou bidonville
+    unit: "%"
+    definition: Share of households living in a makeshift dwelling or slum.
+  idh:
+    theme: poverty
+    en: Human development index (IDH)
+    fr: Indice de développement humain (IDH)
+    unit: index 0-1
+    definition: HCP's commune human development index (education, health, standard of living).
+  ids:
+    theme: poverty
+    en: Social development index (IDS)
+    fr: Indice de développement social (IDS)
+    unit: index 0-1
+    definition: HCP's commune social development index. Not computed for urban municipalities (390 missing).
+  poverty_rate:
+    theme: poverty
+    en: Monetary poverty rate
+    fr: Taux de pauvreté
+    unit: "%"
+    definition: Share of the population below the monetary poverty line (small-area estimate).
+  vulnerability_monetary:
+    theme: poverty
+    en: Monetary vulnerability
+    fr: Taux de vulnérabilité
+    unit: "%"
+    definition: Share of the population between the poverty line and 1.5 times it.
+  poverty_severity:
+    theme: poverty
+    en: Poverty severity
+    fr: Sévérité de la pauvreté
+    unit: index
+    definition: Squared poverty gap (FGT2).
+  inequality:
+    theme: poverty
+    en: Inequality
+    fr: Inégalité
+    unit: index
+    definition: Inequality index as printed in HCP's 2004 annex.
+  mpi_carto:
+    theme: poverty
+    en: Multidimensional poverty index (poverty map)
+    fr: Indice de pauvreté multidimensionnelle (carte de la pauvreté)
+    unit: "%"
+    definition: MPI (H x A) from HCP's 2004-2014 commune poverty map, expressed in percent.
+    note: Not the same methodology or scale as the 2014/2024 MPI database; do not mix the two series.
+  mpi_rate_carto:
+    theme: poverty
+    en: Multidimensional poverty rate (poverty map)
+    fr: Taux de pauvreté multidimensionnelle (carte de la pauvreté)
+    unit: "%"
+    definition: Headcount H from HCP's 2004-2014 poverty map.
+  mpi_intensity_carto:
+    theme: poverty
+    en: Intensity of deprivation (poverty map)
+    fr: Intensité de privation des pauvres (carte de la pauvreté)
+    unit: "%"
+    definition: Average deprivation share A among the poor, 2004-2014 poverty map.
+  poverty_global_carto:
+    theme: poverty
+    en: Overall poverty rate (poverty map)
+    fr: Taux de pauvreté globale (carte de la pauvreté)
+    unit: "%"
+    definition: Share poor in monetary or multidimensional terms, 2014 poverty map.
+  mpi:
+    theme: poverty
+    en: Multidimensional poverty index
+    fr: Indice de pauvreté multidimensionnelle (MPI)
+    unit: index 0-1
+    definition: MPI = H x A from HCP's May-2025 database, computed on the same basis for 2014 and 2024.
+  mpi_rate:
+    theme: poverty
+    en: Multidimensional poverty rate
+    fr: Taux de pauvreté multidimensionnelle
+    unit: "%"
+    definition: Headcount H, share of the population in multidimensional poverty.
+  mpi_intensity:
+    theme: poverty
+    en: Intensity of multidimensional poverty
+    fr: Intensité de la pauvreté multidimensionnelle
+    unit: "%"
+    definition: Average deprivation share A among the multidimensionally poor.
+  vulnerability:
+    theme: poverty
+    en: Vulnerability to multidimensional poverty
+    fr: Taux de vulnérabilité à la pauvreté
+    unit: "%"
+    definition: Share of the population vulnerable to multidimensional poverty.
+
+sources:
+  app2004:
+    title: HCP, Maroc en Chiffres (RGPH 2004 commune profiles)
+    url: https://applications-web.hcp.ma/hpmc/frmmarocenchiffres.aspx
+  annex2004:
+    title: HCP (2004), Pauvreté, développement humain et développement social au Maroc, Annexe 2
+    url: https://www.hcp.ma/file/231444/
+  carto:
+    title: HCP, Cartographie de la pauvreté multidimensionnelle communale 2004 et 2014
+    url: https://www.hcp.ma/file/231434/
+  mpi2025:
+    title: HCP (May 2025), Base de données de la cartographie de la pauvreté multidimensionnelle, RGPH 2014 et 2024
+    url: https://www.hcp.ma/file/245096/
+  menages2014:
+    title: HCP, RGPH 2014 Indicateurs communaux - Ménages
+    url: https://rgph2014.hcp.ma/file/190480/
+  individus2014:
+    title: HCP, RGPH 2014 Indicateurs communaux - Individus
+    url: https://rgph2014.hcp.ma/file/190479/
+  activite2014:
+    title: HCP, RGPH 2014 La profession et l'activité économique - niveau communal
+    url: https://www.hcp.ma/file/230028/
+  diplome2014:
+    title: HCP, RGPH 2014 Le diplôme - niveau communal
+    url: https://www.hcp.ma/file/230031/
+  poplegale2014:
+    title: HCP, RGPH 2014 Population légale (12-region cut)
+    url: https://rgph2014.hcp.ma/file/166326/
+  indicateurs2024:
+    title: HCP, RGPH 2024 Indicateurs démographiques et socio-économiques
+    url: https://www.hcp.ma/file/242671/
+
+datasets:
+  - id: communes_2004
+    file: communes_2004.csv
+    vintage: 2004
+    key: app_code
+    en: RGPH 2004 commune profiles
+    fr: Profils communaux RGPH 2004
+    description: One row per commune on the pre-2015 16-region map, parsed from the four profile pages
+      (démographie, socio-culturel, économie, habitat) of HCP's Maroc en Chiffres application.
+    source: app2004
+    columns:
+      app_code: {en: App commune code, fr: Code commune (application), unit: code,
+                 definition: 10-digit commune code of the Maroc en Chiffres app; join to code14 via crosswalk_app2004.}
+      population04: {indicator: population, from: "Démographie: Population totale (effectif)"}
+      pct_female: {indicator: pct_female, from: "Démographie: SEXE, Féminin (%)"}
+      age_0_4: {indicator: age_0_4, from: "Démographie: Moins de 5 ans (%)"}
+      age_5_9: {indicator: age_5_9, from: "Démographie: 5 à 9 ans (%)"}
+      age_10_14: {indicator: age_10_14, from: "Démographie: 10 à 14 ans (%)"}
+      isf: {indicator: isf, from: "Démographie: Indice synthétique de fécondité"}
+      birth_rate: {indicator: birth_rate, from: "Démographie: Taux de natalité"}
+      infant_mortality: {indicator: infant_mortality, from: "Démographie: Taux de mortalité infantile"}
+      hh_size_avg: {indicator: hh_size_avg, from: "Démographie: Taille moyenne du ménage"}
+      n_households: {indicator: n_households, from: "Démographie: Ménages total"}
+      pct_no_education: {indicator: pct_no_education, from: "Socio-culturel: NIVEAU D'INSTRUCTION, Néant (%)"}
+      pct_illiterate: {indicator: pct_illiterate, from: "Socio-culturel: Taux d'analphabétisme"}
+      pct_no_lang_written: {indicator: pct_no_lang_written, from: "Socio-culturel: LANGUES PARLEES ET ECRITES, Aucune (%)"}
+      pct_women_divorced: {indicator: pct_women_divorced, from: "Socio-culturel: ETAT MATRIMONIAL, Divorcé (%)"}
+      pct_migrant_since99: {indicator: pct_migrant_since99, from: "Socio-culturel: RESIDENCE EN 1999, Commune différente (%)"}
+      activity_rate: {indicator: activity_rate, from: "Économie: Actifs (%)"}
+      pct_agriculture: {indicator: pct_agriculture, from: "Économie: Agriculture (%)"}
+      pct_owner: {indicator: pct_owner, from: "Habitat: Ménages propriétaires (%)"}
+      pct_renter: {indicator: pct_renter, from: "Habitat: Ménages locataires (%)"}
+      pct_electricity: {indicator: pct_electricity, from: "Habitat: ELEMENT DE CONFORT, Electricité (%)"}
+      pct_water: {indicator: pct_water, from: "Habitat: ELEMENT DE CONFORT, Eau courante (%)"}
+      pct_cellphone: {indicator: pct_cellphone, from: "Habitat: EQUIPEMENT DOMESTIQUE, Portable (%)"}
+      pct_tv: {indicator: pct_tv, from: "Habitat: EQUIPEMENT DOMESTIQUE, Télévision (%)"}
+      pct_slum: {indicator: pct_slum, from: "Habitat: Maison sommaire ou bidonville (%)"}
+
+  - id: communes_2014
+    file: communes_2014.csv
+    vintage: 2014
+    key: code14
+    en: RGPH 2014 commune indicators
+    fr: Indicateurs communaux RGPH 2014
+    description: One row per commune, municipality or arrondissement (1,538), sheet Indic.Ensemble of HCP's
+      four commune-level workbooks, keyed by HCP's dotted geographic code on the 12-region map.
+    source: menages2014
+    columns:
+      code14: {en: Commune code (2014), fr: Code géographique (2014), unit: code,
+               definition: "HCP dotted code region.province.cercle.commune. (e.g. 01.051.01.01.); the crosswalk spine."}
+      name14: {en: Commune name (2014), fr: Nom de la commune (2014), unit: text,
+               definition: "HCP label; '(Mun.)' marks municipalities, '(Arrond.)' arrondissements."}
+      population14: {indicator: population, from: "menages_2014.xlsx col 9: Population municipale", source: menages2014}
+      n_households: {indicator: n_households, from: "menages_2014.xlsx col 10: Ménage", source: menages2014}
+      hh_size_avg: {indicator: hh_size_avg, from: "menages_2014.xlsx col 11: Taille moyenne", source: menages2014}
+      pct_owner: {indicator: pct_owner, from: "menages_2014.xlsx col 19: Statut d'occupation, Propriétaire", source: menages2014}
+      pct_renter: {indicator: pct_renter, from: "menages_2014.xlsx col 20: Locataire", source: menages2014}
+      pct_electricity: {indicator: pct_electricity, from: "menages_2014.xlsx col 29: Électricité", source: menages2014}
+      pct_water: {indicator: pct_water, from: "menages_2014.xlsx col 30: Eau courante", source: menages2014}
+      pct_cellphone: {indicator: pct_cellphone, from: "menages_2014.xlsx col 44: Téléphone portable", source: menages2014}
+      pct_internet: {indicator: pct_internet, from: "menages_2014.xlsx col 46: Internet", source: menages2014}
+      age_0_4: {indicator: age_0_4, from: "individus_2014.xlsx col 10: groupe d'âges quinquennal 0-4 ans", source: individus2014}
+      age_5_9: {indicator: age_5_9, from: "individus_2014.xlsx col 11: 5-9 ans", source: individus2014}
+      age_10_14: {indicator: age_10_14, from: "individus_2014.xlsx col 12: 10-14 ans", source: individus2014}
+      pct_illiterate: {indicator: pct_illiterate, from: "individus_2014.xlsx col 35: Taux d'analphabétisme", source: individus2014}
+      activity_rate: {indicator: activity_rate, from: "individus_2014.xlsx col 53: Taux net d'activité", source: individus2014}
+      unemployment_rate: {indicator: unemployment_rate, from: "individus_2014.xlsx col 54: Taux de chômage", source: individus2014}
+      pct_women_divorced: {indicator: pct_women_divorced, from: "individus_2014.xlsx col 136: Divorcé", source: individus2014}
+      pop_active_occupee: {indicator: pop_active_occupee, from: "activite_2014.xlsx col 8: Population active occupée âgée de 15 ans et plus", source: activite2014}
+      pct_sector_agri: {indicator: pct_agriculture, from: "activite_2014.xlsx col 19: Agriculture, sylviculture et pêche", source: activite2014}
+      pct_no_diploma: {indicator: pct_no_diploma, from: "diplome_2014.xlsx col 15: Sans diplôme", source: diplome2014}
+      pct_higher_ed: {indicator: pct_higher_ed, from: "diplome_2014.xlsx col 12 + col 13: DEUG/Licence + Master/Doctorat", source: diplome2014}
+      is_urban: {indicator: is_urban, from: "name suffix '(Mun.)' or '(Arrond.)'", source: menages2014}
+      pop_share: {indicator: pop_share, from: "population14 / national sum x 100", source: menages2014}
+
+  - id: communes_2024
+    file: communes_2024.csv
+    vintage: 2024
+    key: code24
+    en: RGPH 2024 commune indicators
+    fr: Indicateurs communaux RGPH 2024
+    description: One row per commune (1,503, including the Western Sahara communes), sheets Population and
+      Ménages of HCP's 2024 demographic and socio-economic indicators workbook. The six largest cities
+      appear as single communes, not arrondissements.
+    source: indicateurs2024
+    columns:
+      code24: {en: Commune code (2024), fr: Code géographique (2024), unit: code,
+               definition: HCP numeric geographic code; joins to the crosswalk's code24.}
+      name24: {en: Commune name (2024), fr: Nom de la commune (2024), unit: text, definition: "HCP label ('Commune de ...')."}
+      population24: {indicator: population, from: "Population col 3: Population municipale"}
+      age_0_4: {indicator: age_0_4, from: "Population col 6: Âge quinquennal 0-4 ans"}
+      age_5_9: {indicator: age_5_9, from: "Population col 7: 5-9 ans"}
+      age_10_14: {indicator: age_10_14, from: "Population col 8: 10-14 ans"}
+      pct_illiterate: {indicator: pct_illiterate, from: "Population col 34: Taux d'analphabétisme des 10 ans et plus"}
+      pct_no_education: {indicator: pct_no_education, from: "Population col 42: Aucun niveau d'études"}
+      activity_rate: {indicator: activity_rate, from: "Population col 56: Taux d'activité des 15 ans et plus"}
+      unemployment_rate: {indicator: unemployment_rate, from: "Population col 57: Taux de chômage"}
+      pct_women_divorced: {indicator: pct_women_divorced, from: "Population col 149: Divorcé.e"}
+      n_households: {indicator: n_households, from: "Ménages col 3: Ménages population"}
+      hh_size_avg: {indicator: hh_size_avg, from: "Ménages col 4: Taille moyenne des ménages"}
+      pct_owner: {indicator: pct_owner, from: "Ménages col 13: Statut d'occupation, Propriétaire"}
+      pct_renter: {indicator: pct_renter, from: "Ménages col 14: Locataire"}
+      pct_electricity: {indicator: pct_electricity, from: "Ménages col 23: Électricité"}
+      pct_water: {indicator: pct_water, from: "Ménages col 24: Eau courante"}
+      is_urban: {indicator: is_urban, from: "Population_Rurale col 3 empty (no rural population)"}
+      pop_share: {indicator: pop_share, from: "population24 / national sum x 100"}
+
+  - id: commune_indices_2004
+    file: commune_indices_2004.csv
+    vintage: 2004
+    key: label
+    en: 2004 commune poverty and development indices
+    fr: Indices communaux de pauvreté et de développement 2004
+    description: Annexe 2 of HCP's 2004 poverty and human-development volume, parsed from the PDF.
+      One row per printed commune (1,677); labels carry a province prefix.
+    source: annex2004
+    columns:
+      page: {en: PDF page, fr: Page du PDF, unit: page, definition: Page of the source PDF.}
+      region: {en: Region (2004), fr: Région (2004), unit: text, definition: Region from the page header (16-region map).}
+      label: {en: Printed label, fr: Libellé imprimé, unit: text, definition: "'Province Commune' label as printed."}
+      taux_pauvrete: {indicator: poverty_rate, vintage: 2004, from: "Taux de pauvreté"}
+      vulnerabilite: {indicator: vulnerability_monetary, vintage: 2004, from: "Vulnérabilité"}
+      severite: {indicator: poverty_severity, vintage: 2004, from: "Sévérité"}
+      inegalite: {indicator: inequality, vintage: 2004, from: "Inégalité"}
+      idh: {indicator: idh, vintage: 2004, from: "Indice de développement humain"}
+      ids: {indicator: ids, vintage: 2004, from: "Indice de développement social"}
+
+  - id: panel_commune
+    file: panel_commune.csv
+    key: code14
+    en: Three-census commune panel
+    fr: Panel communal des trois recensements
+    description: One row per 2014 commune (1,538) plus six population-weighted city aggregates for the
+      arrondissement cities. Values missing after post-2004 reorganisations are imputed from the
+      same cercle (fallback province), population-weighted, and flagged in src04/src14/src24.
+    columns:
+      code14: {en: Commune code (2014), fr: Code géographique (2014), unit: code, definition: Crosswalk spine key.}
+      name14: {en: Commune name (2014), fr: Nom de la commune (2014), unit: text, definition: "HCP 2014 label; 'CITY ...' for city aggregates."}
+      prov14: {en: Province (2014), fr: Province (2014), unit: text, definition: Province or préfecture on the 12-region map.}
+      name_carto: {en: Name in the poverty map, fr: Nom dans la carte de la pauvreté, unit: text, definition: Matched commune name in the 2004-2014 poverty map.}
+      code24: {en: Commune code (2024), fr: Code géographique (2024), unit: code, definition: Matched 2024 code.}
+      name24: {en: Commune name (2024), fr: Nom de la commune (2024), unit: text, definition: Matched 2024 label.}
+      label04: {en: 2004 annex label, fr: Libellé de l'annexe 2004, unit: text, definition: Matched label in commune_indices_2004.}
+      src04: {en: 2004 value provenance, fr: Provenance des valeurs 2004, unit: flag,
+              definition: "direct | fuzzy (name match) | imputed_cercle | imputed_province."}
+      src14: {en: 2014 MPI provenance, fr: Provenance MPI 2014, unit: flag, definition: "empty = direct; imputed_cercle | imputed_province."}
+      src24: {en: 2024 MPI provenance, fr: Provenance MPI 2024, unit: flag, definition: "empty = direct; imputed_cercle | imputed_province."}
+      idh04: {indicator: idh, vintage: 2004, source: annex2004, from: "Annexe 2: IDH"}
+      taux_pauvrete04: {indicator: poverty_rate, vintage: 2004, source: annex2004, from: "Annexe 2: Taux de pauvreté"}
+      vulnerabilite04: {indicator: vulnerability_monetary, vintage: 2004, source: annex2004, from: "Annexe 2: Vulnérabilité"}
+      severite04: {indicator: poverty_severity, vintage: 2004, source: annex2004, from: "Annexe 2: Sévérité"}
+      inegalite04: {indicator: inequality, vintage: 2004, source: annex2004, from: "Annexe 2: Inégalité"}
+      ids04: {indicator: ids, vintage: 2004, source: annex2004, from: "Annexe 2: IDS"}
+      mpi_rate04c: {indicator: mpi_rate_carto, vintage: 2004, source: carto, from: "col 6: Taux de pauvreté multidimensionnelle 2004"}
+      mpi_idx04c: {indicator: mpi_carto, vintage: 2004, source: carto, from: "col 7: Indice de pauvreté multidimensionnelle 2004"}
+      mpi_int04c: {indicator: mpi_intensity_carto, vintage: 2004, source: carto, from: "col 8: Intensité de privation des pauvres 2004"}
+      mpi_rate14c: {indicator: mpi_rate_carto, vintage: 2014, source: carto, from: "col 3: Taux de pauvreté multidimensionnelle 2014"}
+      mpi_idx14c: {indicator: mpi_carto, vintage: 2014, source: carto, from: "col 4: Indice de pauvreté multidimensionnelle 2014"}
+      mpi_int14c: {indicator: mpi_intensity_carto, vintage: 2014, source: carto, from: "col 5: Intensité de privation des pauvres 2014"}
+      pov_glob14c: {indicator: poverty_global_carto, vintage: 2014, source: carto, from: "col 16: Taux de pauvreté globale 2014"}
+      mpi2014: {indicator: mpi, vintage: 2014, source: mpi2025, from: "Ensemble col 4: MPI = H*A"}
+      mpi2024: {indicator: mpi, vintage: 2024, source: mpi2025, from: "Ensemble col 4: MPI = H*A"}
+      mpi_rate2014: {indicator: mpi_rate, vintage: 2014, source: mpi2025, from: "Ensemble col 5: Taux de pauvreté (H)"}
+      mpi_rate2024: {indicator: mpi_rate, vintage: 2024, source: mpi2025, from: "Ensemble col 5: Taux de pauvreté (H)"}
+      mpi_intensity2014: {indicator: mpi_intensity, vintage: 2014, source: mpi2025, from: "Ensemble col 6: Intensité (A)"}
+      mpi_intensity2024: {indicator: mpi_intensity, vintage: 2024, source: mpi2025, from: "Ensemble col 6: Intensité (A)"}
+      vulnerability2014: {indicator: vulnerability, vintage: 2014, source: mpi2025, from: "Ensemble col 7: Taux de vulnérabilité"}
+      vulnerability2024: {indicator: vulnerability, vintage: 2024, source: mpi2025, from: "Ensemble col 7: Taux de vulnérabilité"}
+      menages14: {indicator: n_households, vintage: 2014, source: poplegale2014, from: "Population légale 2014: Ménages"}
+      population14: {indicator: population, vintage: 2014, source: poplegale2014, from: "Population légale 2014: Population"}
+      level: {en: Row level, fr: Niveau, unit: flag, definition: "commune | city (aggregate of arrondissements)."}
+      cercle: {en: Cercle code (2014), fr: Code du cercle (2014), unit: code, definition: First three segments of code14; imputation group.}
+
+  - id: crosswalk_communes
+    file: crosswalk_communes.csv
+    key: code14
+    en: Commune crosswalk 2004-2014-2024
+    fr: Table de correspondance communale 2004-2014-2024
+    description: The 2014 commune list linked to the 2004 annex labels, the poverty-map names and the 2024 codes.
+      Full three-census match for 1,466 of 1,538 communes (95.3%); the rest are post-2004 reorganisations.
+    columns:
+      code14: {en: Commune code (2014), fr: Code géographique (2014), unit: code, definition: Spine key.}
+      name14: {en: Commune name (2014), fr: Nom de la commune (2014), unit: text, definition: HCP 2014 label.}
+      prov14: {en: Province (2014), fr: Province (2014), unit: text, definition: Province or préfecture.}
+      name_carto: {en: Name in the poverty map, fr: Nom dans la carte de la pauvreté, unit: text, definition: Matched name.}
+      code24: {en: Commune code (2024), fr: Code géographique (2024), unit: code, definition: Matched 2024 code.}
+      name24: {en: Commune name (2024), fr: Nom de la commune (2024), unit: text, definition: Matched 2024 label.}
+      label04: {en: 2004 annex label, fr: Libellé de l'annexe 2004, unit: text, definition: Matched 2004 label.}
+      idh04: {indicator: idh, vintage: 2004, source: annex2004, from: "Annexe 2: IDH (copied for convenience)"}
+      src04: {en: 2004 match type, fr: Type d'appariement 2004, unit: flag, definition: "direct | fuzzy | empty (unmatched)."}
+
+  - id: crosswalk_app2004
+    file: crosswalk_app2004.csv
+    key: code14
+    en: 2004 app code crosswalk
+    fr: Correspondance des codes de l'application 2004
+    description: Links the Maroc en Chiffres app codes (communes_2004) to the 2014 spine, 1,478 of 1,538.
+    columns:
+      code14: {en: Commune code (2014), fr: Code géographique (2014), unit: code, definition: Spine key.}
+      app_code: {en: App commune code (2004), fr: Code commune (application 2004), unit: code, definition: Key of communes_2004.}

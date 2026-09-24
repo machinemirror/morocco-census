@@ -26,6 +26,7 @@ from .config import (
     I_GADM_CENTROIDS,
     INTERIM,
     P_BOUNDARY,
+    P_CONTEXT,
     P_CROSSWALK,
     P_DUP_POINTS,
     P_GAL,
@@ -54,6 +55,9 @@ def boundary() -> gpd.GeoDataFrame:
     ne = gpd.read_file(f"zip://{R_NATURAL_EARTH}")
     b = gpd.GeoDataFrame(geometry=[ne[ne.ADM0_A3.isin(["MAR", "SAH"])].union_all()], crs=4326)
     b.to_file(P_BOUNDARY, driver="GPKG")
+    # neighbouring land for map context, so the site needs no third-party basemap
+    ctx = ne[~ne.ADM0_A3.isin(["MAR", "SAH"])].clip((-24, 16, 6, 42))
+    ctx[["ADM0_A3", "NAME", "geometry"]].to_file(P_CONTEXT, driver="GPKG")
     return b
 
 

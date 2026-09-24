@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>morocco-census · Map</title>
+<meta name="description" content="Commune-level Moroccan census data (RGPH 2004, 2014, 2024): interactive map, catalogue and downloads.">
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<link rel="stylesheet" href="style.css">
+<style>
+  html, body { height: 100%; }
+  body { display: flex; flex-direction: column; }
+  .app { flex: 1; display: grid; grid-template-columns: 360px 1fr; min-height: 0; }
+  .side {
+    background: var(--surface); border-right: 1px solid var(--line); overflow-y: auto;
+    padding: 1rem 16px 1.5rem; display: flex; flex-direction: column; gap: 0.9rem;
+  }
+  .side label.h { display: block; font-size: 0.78rem; font-weight: 600; color: var(--text-2); margin-bottom: 0.3rem;
+                  text-transform: uppercase; letter-spacing: 0.04em; }
+  #map { position: relative; min-height: 0; background: var(--sea); }
+  .legend { display: flex; flex-direction: column; gap: 0.3rem; }
+  .legend .bar { display: flex; gap: 2px; }
+  .legend .bar span { flex: 1; height: 12px; border-radius: 2px; }
+  .legend .ticks { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-2);
+                   font-variant-numeric: tabular-nums; }
+  .legend .nd { display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; color: var(--text-3); }
+  .legend .nd i { width: 14px; height: 10px; border-radius: 2px; background: var(--nodata); display: inline-block; }
+  .ind-title { font-weight: 620; font-size: 1.02rem; }
+  .def { font-size: 0.85rem; color: var(--text-2); }
+  .tip {
+    position: absolute; pointer-events: none; z-index: 5; background: var(--surface); color: var(--text);
+    border: 1px solid var(--line); border-radius: 6px; padding: 0.4rem 0.55rem; font-size: 0.82rem;
+    box-shadow: 0 4px 16px rgb(0 0 0 / 0.14); max-width: 260px; line-height: 1.35;
+  }
+  .tip b { font-weight: 620; }
+  .tip .v { font-size: 1.05rem; font-weight: 650; font-variant-numeric: tabular-nums; }
+  .caveat {
+    position: absolute; left: 10px; bottom: 28px; z-index: 4; max-width: min(420px, calc(100% - 20px));
+    background: var(--surface); border: 1px solid var(--warn-line); border-left: 4px solid var(--warn-line);
+    border-radius: 6px; padding: 0.4rem 0.6rem; font-size: 0.78rem; color: var(--text-2);
+  }
+  .detail h3 { font-size: 1rem; margin: 0; }
+  .detail .meta { font-size: 0.8rem; color: var(--text-3); margin-bottom: 0.5rem; }
+  .detail table { font-size: 0.8rem; }
+  .detail th, .detail td { padding: 0.3rem 0.4rem; }
+  .detail td.cur { font-weight: 650; }
+  .detail tr.theme td { background: var(--surface-2); font-weight: 600; color: var(--text-2); font-size: 0.75rem;
+                        text-transform: uppercase; letter-spacing: 0.04em; }
+  .row { display: flex; gap: 0.5rem; align-items: center; font-size: 0.86rem; color: var(--text-2); }
+  .row input { accent-color: var(--accent); }
+  .maplibregl-ctrl-attrib { font-size: 10px; }
+  @media (max-width: 760px) {
+    .app { grid-template-columns: 1fr; grid-template-rows: 62vh auto; }
+    #map { order: -1; }
+    .caveat { font-size: 0.7rem; bottom: 22px; padding: 0.25rem 0.45rem; }
+    .side { border-right: 0; border-top: 1px solid var(--line); overflow: visible; }
+    body { height: auto; }
+  }
+</style>
+</head>
+<body>
+<header class="topbar"></header>
+<div class="app">
+  <aside class="side">
+    <div>
+      <label class="h" for="ind" data-t="indicator">Indicator</label>
+      <select id="ind"></select>
+    </div>
+    <div>
+      <label class="h" data-t="view">View</label>
+      <div class="seg" id="mode">
+        <button data-m="level" aria-pressed="true" data-t="level">Level</button>
+        <button data-m="change" aria-pressed="false" data-t="change">Change</button>
+      </div>
+    </div>
+    <div>
+      <label class="h" data-t="census">Census</label>
+      <div class="seg" id="years"></div>
+    </div>
+    <div class="legend" id="legend"></div>
+    <div>
+      <div class="ind-title" id="ind-title"></div>
+      <div class="def" id="ind-def"></div>
+      <div class="note" id="ind-note" hidden></div>
+    </div>
+    <label class="row" id="imp-row" hidden><input type="checkbox" id="imp"> <span data-t="hideImputed">Hide imputed values</span></label>
+    <div>
+      <label class="h" for="q" data-t="find">Find a commune</label>
+      <input id="q" type="search" list="communes" autocomplete="off" placeholder="Taroudant, Anfa, Dakhla…">
+      <datalist id="communes"></datalist>
+    </div>
+    <div class="detail" id="detail" hidden></div>
+  </aside>
+  <main id="map">
+    <div class="caveat" data-t="caveat">Commune shapes are Thiessen approximations built from one point per commune;
+      HCP publishes no commune boundaries. Shapes show roughly where a commune is, not its true extent.</div>
+  </main>
+</div>
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script src="common.js"></script>
+<script src="map.js"></script>
+</body>
+</html>

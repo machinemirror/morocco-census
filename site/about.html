@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>morocco-census · About</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .page { max-width: 780px; }
+  li { margin-bottom: 0.4rem; }
+  .page ul { padding-left: 1.2rem; }
+</style>
+</head>
+<body>
+<header class="topbar"></header>
+<div class="page">
+  <h1>About the data</h1>
+  <p class="lede">Morocco's Haut-Commissariat au Plan (HCP) publishes census results by commune, but each census
+    uses its own codes, its own commune list and, before 2015, a different regional map. This project puts the
+    2004, 2014 and 2024 censuses (RGPH) on a common commune key, so the same place can be followed across twenty
+    years, and adds approximate commune shapes so the data can be mapped.</p>
+
+  <h2>What is here</h2>
+  <ul>
+    <li><b>Per-census tables</b> in HCP's own units: 1,689 communes in 2004 (16-region map), 1,538 in 2014, 1,503 in 2024.</li>
+    <li><b>A crosswalk</b> linking the 2014 commune list to the 2004 and 2024 lists: 1,466 of 1,538 communes (95.3%)
+      are matched in all three censuses. The rest are communes created or merged after 2004.</li>
+    <li><b>A three-census panel</b> of HCP's poverty and development indices (2004 IDH, IDS and monetary poverty;
+      multidimensional poverty for 2004, 2014 and 2024). Where a commune did not exist in an earlier census, its value
+      is imputed from the same cercle (population-weighted) and <b>flagged</b> in <code>src04</code>/<code>src14</code>/<code>src24</code>.</li>
+    <li><b>Approximate geometry</b>: Thiessen cells and seed points, with queen-contiguity weights.</li>
+  </ul>
+
+  <h2>How it was built</h2>
+  <p>Everything is rebuilt from HCP's published files by the code in the
+    <a href="https://github.com/machinemirror/morocco-census">repository</a>: <code>uv run mc fetch</code> downloads
+    the raw files and checks them against <code>data/raw/manifest.json</code>, and <code>uv run mc all</code> rebuilds
+    every table, the geometry and this site. The 2004 commune profiles come from HCP's
+    <a href="https://applications-web.hcp.ma/hpmc/frmmarocenchiffres.aspx">Maroc en Chiffres</a> application
+    (<code>mc crawl-2004</code>); the 2004 indices from Annexe 2 of HCP's 2004 poverty volume; the 2014 and 2024
+    indicators from HCP's commune-level workbooks; multidimensional poverty from HCP's 2004–2014 poverty map and its
+    May-2025 database. Full provenance, with file checksums, is in the repository's <code>docs/</code>.</p>
+
+  <h2>Commune shapes</h2>
+  <p>HCP publishes no commune boundaries, and none were provided on request. Each commune therefore gets one seed
+    point, from GADM 4.1 level-4 polygons where GADM has the commune and from the GeoNames gazetteer otherwise, and
+    the country is divided into the cells nearest each point. The cells show roughly where a commune is, not its true
+    extent or area; do not compute densities from them. The outline is Natural Earth. GADM data themselves are not
+    redistributed.</p>
+
+  <h2>Known gaps</h2>
+  <ul>
+    <li>28 communes have no seed point yet and are missing from the map (listed in <code>points_unmatched.csv</code>);
+      their data are in the tables.</li>
+    <li>In 2014 the six largest cities are split into 41 arrondissements; in 2024 they are single communes. The map
+      merges the arrondissements into one city cell (sums for counts, population-weighted means for rates); the
+      tables keep them separate.</li>
+    <li>4 communes in the 2024 indicators file (My Idriss Zerhoun, Ourtzarh, Kelâat Sraghna, Sidi Abdellah Ou Belaid)
+      are not yet linked to the 2014 list.</li>
+    <li>Some indicators change definition between censuses (activity rate, urban status); the catalogue flags them.
+      The poverty-map MPI (2004, 2014) and the 2025 MPI database (2014, 2024) use different methods and scales; do not
+      join the two series.</li>
+    <li>Western Sahara: RGPH 2024 covers the communes of the Laâyoune-Sakia El Hamra and Dakhla-Oued Ed-Dahab regions and
+      they are included as HCP reports them. Inclusion follows the source statistics and implies no position on the
+      territory's status.</li>
+  </ul>
+
+  <h2>Licence and citation</h2>
+  <p>Code: MIT. Derived tables, crosswalks, catalogue and geometry: <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+    The underlying statistics are HCP's; cite HCP as the original source and this project for the harmonization.
+    Raw HCP files are not redistributed here.</p>
+  <p class="small">Lehnert, M. R. (2026). <i>morocco-census: commune-level RGPH 2004, 2014 and 2024</i>.
+    <a href="https://github.com/machinemirror/morocco-census">github.com/machinemirror/morocco-census</a>.
+    The harmonization began with Lehnert (2021), <i>Spatial Data Science: Theory and Methods with Applications to
+    Human Development in Morocco</i> (Ph.D. dissertation, University of Toledo), and Lehnert &amp; Smirnov (2024),
+    Human development in Morocco: out-of-sample prediction using spatial econometrics and RandomForest,
+    <i>African Geographical Review</i> 43(1):60–79,
+    <a href="https://doi.org/10.1080/19376812.2022.2107547">doi:10.1080/19376812.2022.2107547</a>.</p>
+
+  <h2>Contact</h2>
+  <p>Corrections and questions: <a href="https://github.com/machinemirror/morocco-census/issues">GitHub issues</a>.</p>
+</div>
+<footer class="site">Source statistics © Haut-Commissariat au Plan, Royaume du Maroc</footer>
+<script src="common.js"></script>
+<script>MC.header("about");</script>
+</body>
+</html>

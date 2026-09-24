@@ -32,6 +32,7 @@ P_UNMATCHED = GEOMETRY / "points_unmatched.csv"
 P_DUP_POINTS = GEOMETRY / "points_duplicate.csv"
 P_GEOCODED = GEOMETRY / "points_geonames.csv"
 P_BOUNDARY = GEOMETRY / "boundary_mar_esh.gpkg"
+P_CONTEXT = GEOMETRY / "context_countries.gpkg"
 
 # intermediates derived from GADM, whose licence forbids redistribution: never tracked
 I_GADM_CENTROIDS = INTERIM / "gadm_l4_centroids.csv"

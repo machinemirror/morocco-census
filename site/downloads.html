@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>morocco-census · Downloads</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .bundle { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; margin: 1.2rem 0 0.5rem; }
+  .btn { display: inline-block; background: var(--accent); color: var(--accent-ink); text-decoration: none; font-weight: 600;
+         padding: 0.55rem 1rem; border-radius: 6px; }
+  .fmt { display: inline-flex; gap: 0.35rem; flex-wrap: wrap; }
+  .fmt a { font-size: 0.82rem; text-decoration: none; border: 1px solid var(--line); border-radius: 5px; padding: 0.1rem 0.45rem; }
+  .fmt a:hover { background: var(--surface-2); }
+  pre { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 0.8rem 1rem;
+        overflow-x: auto; font-size: 0.84rem; }
+</style>
+</head>
+<body>
+<header class="topbar"></header>
+<div class="page">
+  <h1 data-t="title">Downloads</h1>
+  <p class="lede" data-t="lede">All tables are commune-level, UTF-8 CSV and Parquet. Codes are text: keep leading zeros
+    (app_code) and trailing dots (code14) when you open them in a spreadsheet.</p>
+  <div class="bundle">
+    <a class="btn" id="bundle" href="#">Download everything (.zip)</a>
+    <span class="muted small" id="bundle-meta"></span>
+  </div>
+
+  <h2 data-t="tables">Tables</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th data-t="h-table">Table</th><th class="num" data-t="h-rows">Rows</th><th class="num" data-t="h-cols">Columns</th><th data-t="h-files">Files</th></tr></thead>
+    <tbody id="tables"></tbody></table></div>
+
+  <h2 data-t="geo">Geometry</h2>
+  <div class="note" style="margin-bottom:.8rem" data-t="geo-note">Commune shapes are Thiessen (Voronoi) cells around one
+    seed point per commune, clipped to the national outline. They are approximations for mapping and neighbour
+    relations, not administrative boundaries. 1,475 map units: the 41 arrondissements are merged into 6 cities and
+    28 communes have no seed point yet.</div>
+  <div class="table-wrap"><table><tbody id="geo"></tbody></table></div>
+
+  <h2 data-t="code">Use from code</h2>
+  <pre id="snippet"></pre>
+
+  <h2 data-t="cite">Cite</h2>
+  <p class="small" id="cite"></p>
+</div>
+<footer class="site">Derived data CC BY 4.0 · source statistics © HCP, Royaume du Maroc ·
+  <a href="https://github.com/machinemirror/morocco-census">GitHub</a></footer>
+<script src="common.js"></script>
+<script>
+const L = {
+  en: { title: "Downloads", lede: "All tables are commune-level, UTF-8 CSV and Parquet. Codes are text: keep leading zeros (app_code) and trailing dots (code14) when you open them in a spreadsheet.",
+        tables: "Tables", "h-table": "Table", "h-rows": "Rows", "h-cols": "Columns", "h-files": "Files", geo: "Geometry",
+        "geo-note": "Commune shapes are Thiessen (Voronoi) cells around one seed point per commune, clipped to the national outline. They are approximations for mapping and neighbour relations, not administrative boundaries. 1,475 map units: the 41 arrondissements are merged into 6 cities and 28 communes have no seed point yet.",
+        code: "Use from code", cite: "Cite", all: "Download everything (.zip)",
+        g: { "communes.gpkg": "GeoPackage: layers thiessen (cells) and points (seed points)", "communes_thiessen.geojson": "Thiessen cells, GeoJSON",
+             "communes_points.geojson": "Seed points, GeoJSON", "communes_queen.gal": "Queen-contiguity spatial weights (GAL, cell order of the GeoPackage)",
+             "boundary_mar_esh.gpkg": "National outline used for clipping (Natural Earth)", "data_dictionary.csv": "Data dictionary: every column, definition and source" } },
+  fr: { title: "Téléchargements", lede: "Toutes les tables sont au niveau communal, en CSV UTF-8 et Parquet. Les codes sont du texte : conserver les zéros initiaux (app_code) et les points finaux (code14) dans un tableur.",
+        tables: "Tables", "h-table": "Table", "h-rows": "Lignes", "h-cols": "Colonnes", "h-files": "Fichiers", geo: "Géométrie",
+        "geo-note": "Les contours sont des cellules de Thiessen (Voronoï) autour d'un point par commune, découpées selon le contour national. Ce sont des approximations pour la cartographie et le voisinage, pas des limites administratives. 1 475 unités : les 41 arrondissements sont regroupés en 6 villes et 28 communes n'ont pas encore de point.",
+        code: "Utilisation en code", cite: "Citer", all: "Tout télécharger (.zip)",
+        g: { "communes.gpkg": "GeoPackage : couches thiessen (cellules) et points", "communes_thiessen.geojson": "Cellules de Thiessen, GeoJSON",
+             "communes_points.geojson": "Points des communes, GeoJSON", "communes_queen.gal": "Matrice de contiguïté (reine), format GAL",
+             "boundary_mar_esh.gpkg": "Contour national utilisé pour le découpage (Natural Earth)", "data_dictionary.csv": "Dictionnaire des données : chaque colonne, définition et source" } },
+};
+let C;
+const t = k => L[MC.lang][k];
+const link = (f) => `<a href="data/downloads/${f}">${f.split(".").pop()}</a> <span class="muted small">${MC.bytes(C.sizes[f] || 0)}</span>`;
+function render() {
+  document.querySelectorAll("[data-t]").forEach(el => (el.textContent = t(el.dataset.t)));
+  const bundle = Object.keys(C.sizes).find(f => f.endsWith(".zip"));
+  const b = document.getElementById("bundle");
+  b.href = "data/downloads/" + bundle; b.textContent = t("all");
+  document.getElementById("bundle-meta").textContent = `${bundle} · ${MC.bytes(C.sizes[bundle])} · v${C.version}`;
+  document.getElementById("tables").innerHTML = C.files.map(f => `<tr>
+    <td><b>${MC.esc(f[MC.lang])}</b><div class="muted small"><code>${f.stem}</code></div></td>
+    <td class="num">${f.rows.toLocaleString()}</td><td class="num">${f.cols}</td>
+    <td><span class="fmt">${f.formats.map(x => link(`${f.stem}.${x}`)).join("")}</span></td></tr>`).join("");
+  document.getElementById("geo").innerHTML = Object.entries(t("g")).map(([f, d]) =>
+    `<tr><td>${MC.esc(d)}<div class="muted small"><code>${f}</code></div></td><td><span class="fmt">${link(f)}</span></td></tr>`).join("");
+  const base = new URL("data/downloads/", location.href).href;
+  document.getElementById("snippet").textContent =
+`# Python
+import pandas as pd, geopandas as gpd
+panel = pd.read_csv("${base}panel_commune.csv", dtype={"code14": str})
+cells = gpd.read_file("${base}communes.gpkg", layer="thiessen")
+
+# R
+panel <- read.csv("${base}panel_commune.csv", colClasses = c(code14 = "character"))`;
+  document.getElementById("cite").innerHTML =
+    `Lehnert, M. R. (2026). <i>morocco-census: commune-level RGPH 2004, 2014 and 2024</i> (v${C.version}). ` +
+    `<a href="https://github.com/machinemirror/morocco-census">github.com/machinemirror/morocco-census</a>. ` +
+    `Source statistics: Haut-Commissariat au Plan, Recensement Général de la Population et de l'Habitat 2004, 2014, 2024.`;
+}
+MC.header("downloads");
+fetch("data/catalog.json").then(r => r.json()).then(c => { C = c; render(); MC.onLang(render); });
+</script>
+</body>
+</html>
