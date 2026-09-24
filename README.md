@@ -2,14 +2,14 @@
 
 Commune-level data from Morocco's three most recent censuses (RGPH 2004, 2014 and 2024),
 harmonized on one commune key, with approximate commune shapes, a catalogue of every variable,
-and an interactive map.
+and an interactive map in English, French and Arabic (226 indicators, 385 indicator-census series).
 
 **Site:** https://machinemirror.github.io/morocco-census/ — map, catalogue, downloads.
 
 | | 2004 | 2014 | 2024 |
 |---|---|---|---|
 | Communes in HCP's tables | 1,689 | 1,538 | 1,503 |
-| Commune variables | 24 | 22 | 17 |
+| Commune variables | 69 | 132 | 163 |
 | Poverty / development indices | IDH, IDS, poverty, MPI (poverty map) | MPI (both series) | MPI |
 | Linked to the 2014 list | 1,473 (annex) · 1,478 (profiles) | spine | 1,529 |
 
@@ -33,6 +33,8 @@ Everything published is in [`data/processed/`](data/processed) and described col
 | `crosswalk_app2004.csv` | 1,478 | `code14` | 2014 ↔ 2004 profile codes |
 | `geometry/communes.gpkg` | 1,497 | `unit` | Thiessen cells + seed points (approximate, see below) |
 | `geometry/communes_queen.gal` | 1,497 | | queen-contiguity weights |
+| `geometry/hcp_communes_2024.gpkg` | 1,503 | `unit` | HCP's own 2024 boundaries (optional map layer; not in the download bundle) |
+| `validation.json` | | | populations against HCP's legal population, linkage and seed-point checks |
 
 Read codes as text: `app_code` has leading zeros and `code14` ends with a dot.
 
@@ -63,6 +65,7 @@ python -m http.server -d site
 `uv run pytest` checks the published tables, the catalogue and the site export; it needs no raw data.
 Corrections and additions are welcome: see [CONTRIBUTING.md](CONTRIBUTING.md).
 [`docs/PROVENANCE.md`](docs/PROVENANCE.md) documents every step, match rate and imputation.
+Open work is listed in [`docs/ROADMAP.md`](docs/ROADMAP.md).
 
 ## Licence and citation
 
