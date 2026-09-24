@@ -1,6 +1,6 @@
 # Roadmap
 
-Open work as of release 2026.9.2, roughly in priority order.
+Open work as of release 2026.9.3, roughly in priority order.
 
 ## Decisions for the maintainer
 
