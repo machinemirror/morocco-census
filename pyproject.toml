@@ -1,6 +1,6 @@
 [project]
 name = "morocco-census"
-version = "2026.9.0"
+version = "2026.9.1"
 description = "Commune-level Moroccan census data (RGPH 2004, 2014, 2024): harmonized tables, crosswalks, approximate commune geometry, and a static viewer"
 readme = "README.md"
 license = "MIT"
