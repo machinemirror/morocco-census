@@ -40,10 +40,10 @@
   <div class="table-wrap"><table><tbody id="geo"></tbody></table></div>
 
   <h2 data-t="code">Use from code</h2>
-  <pre id="snippet"></pre>
+  <pre id="snippet" dir="ltr"></pre>
 
   <h2 data-t="cite">Cite</h2>
-  <p class="small" id="cite"></p>
+  <p class="small" id="cite" dir="ltr"></p>
 </div>
 <footer class="site">Derived data CC BY 4.0 · source statistics © HCP, Royaume du Maroc ·
   <a href="https://github.com/machinemirror/morocco-census">GitHub</a></footer>
@@ -64,6 +64,13 @@ const L = {
         g: { "communes.gpkg": "GeoPackage : couches thiessen (cellules) et points", "communes_thiessen.geojson": "Cellules de Thiessen, GeoJSON",
              "communes_points.geojson": "Points des communes, GeoJSON", "communes_queen.gal": "Matrice de contiguïté (reine), format GAL",
              "boundary_mar_esh.gpkg": "Contour national utilisé pour le découpage (Natural Earth)", "data_dictionary.csv": "Dictionnaire des données : chaque colonne, définition et source" } },
+  ar: { title: "التحميلات", lede: "جميع الجداول على مستوى الجماعة، بصيغتي CSV وParquet، بترميز UTF-8. الرموز نصوص: احتفظ بالأصفار في البداية (app_code) وبالنقاط في النهاية (code14) عند فتحها في جدول بيانات.",
+        tables: "الجداول", "h-table": "الجدول", "h-rows": "الصفوف", "h-cols": "الأعمدة", "h-files": "الملفات", geo: "المعطيات الجغرافية",
+        "geo-note": "أشكال الجماعات خلايا ثيسن (فورونوي) حول نقطة واحدة لكل جماعة، مقصوصة وفق الحدود الوطنية. هي تقريبات لأغراض الخرائط وعلاقات الجوار، وليست حدوداً إدارية. 1475 وحدة: دُمجت المقاطعات الـ41 في 6 مدن، و28 جماعة ليست لها نقطة بعد.",
+        code: "الاستعمال في البرمجة", cite: "الاستشهاد", all: "تحميل الكل بصيغة ZIP",
+        g: { "communes.gpkg": "GeoPackage: طبقتا thiessen (الخلايا) وpoints (النقاط)", "communes_thiessen.geojson": "خلايا ثيسن، GeoJSON",
+             "communes_points.geojson": "نقاط الجماعات، GeoJSON", "communes_queen.gal": "مصفوفة التجاور (نوع الملكة)، صيغة GAL",
+             "boundary_mar_esh.gpkg": "الحدود الوطنية المستعملة للقص (Natural Earth)", "data_dictionary.csv": "قاموس المعطيات: كل عمود وتعريفه ومصدره" } },
 };
 let C;
 const t = k => L[MC.lang][k];
@@ -77,9 +84,9 @@ function render() {
   document.getElementById("tables").innerHTML = C.files.map(f => `<tr>
     <td><b>${MC.esc(f[MC.lang])}</b><div class="muted small"><code>${f.stem}</code></div></td>
     <td class="num">${f.rows.toLocaleString()}</td><td class="num">${f.cols}</td>
-    <td><span class="fmt">${f.formats.map(x => link(`${f.stem}.${x}`)).join("")}</span></td></tr>`).join("");
+    <td><span class="fmt" dir="ltr">${f.formats.map(x => link(`${f.stem}.${x}`)).join("")}</span></td></tr>`).join("");
   document.getElementById("geo").innerHTML = Object.entries(t("g")).map(([f, d]) =>
-    `<tr><td>${MC.esc(d)}<div class="muted small"><code>${f}</code></div></td><td><span class="fmt">${link(f)}</span></td></tr>`).join("");
+    `<tr><td>${MC.esc(d)}<div class="muted small"><code>${f}</code></div></td><td><span class="fmt" dir="ltr">${link(f)}</span></td></tr>`).join("");
   const base = new URL("data/downloads/", location.href).href;
   document.getElementById("snippet").textContent =
 `# Python

@@ -18,6 +18,9 @@
   --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   color-scheme: light;
 }
+/* Inter has no Arabic; letter-spacing breaks Arabic joining */
+:root:lang(ar) { --font: system-ui, -apple-system, "Segoe UI", "Noto Sans Arabic", Tahoma, sans-serif; }
+:lang(ar) * { letter-spacing: 0 !important; }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #121211;
@@ -112,19 +115,19 @@ input[type="search"]:focus, select:focus, button:focus-visible { outline: 2px so
 
 .seg { display: flex; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
 .seg button {
-  flex: 1; font: inherit; font-size: 0.88rem; border: 0; border-right: 1px solid var(--line);
+  flex: 1; font: inherit; font-size: 0.88rem; border: 0; border-inline-end: 1px solid var(--line);
   background: var(--surface); color: var(--text-2); padding: 0.35rem 0.3rem; cursor: pointer;
 }
-.seg button:last-child { border-right: 0; }
+.seg button:last-child { border-inline-end: 0; }
 .seg button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); font-weight: 600; }
 .seg button:disabled { color: var(--text-3); opacity: 0.45; cursor: not-allowed; }
 
 .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
 table { border-collapse: collapse; width: 100%; font-size: 0.88rem; }
-th, td { text-align: left; padding: 0.45rem 0.65rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+th, td { text-align: start; padding: 0.45rem 0.65rem; border-bottom: 1px solid var(--line); vertical-align: top; }
 th { font-weight: 600; color: var(--text-2); background: var(--surface-2); position: sticky; top: 0; }
 tbody tr:last-child td { border-bottom: 0; }
-td.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+td.num { text-align: end; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .tag {
   display: inline-block; font-size: 0.75rem; padding: 0.05rem 0.4rem; border-radius: 4px;
   background: var(--surface-2); color: var(--text-2); border: 1px solid var(--line); white-space: nowrap;

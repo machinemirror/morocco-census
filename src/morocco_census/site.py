@@ -104,7 +104,7 @@ def map_data(cat: dict, cells: gpd.GeoDataFrame) -> dict:
         values[f"{ind}|{year}"] = rounded(s, spec)
         entry = indicators.setdefault(
             ind,
-            {k: spec.get(k) for k in ("theme", "en", "fr", "unit", "agg", "definition", "note")}
+            {k: spec.get(k) for k in ("theme", "en", "fr", "ar", "unit", "agg", "definition", "note")}
             | {"comparable": spec.get("comparable", True), "vintages": {}},
         )
         entry["vintages"][year] = {"dataset": ds, "column": col, "n": int(s.notna().sum())}
@@ -164,6 +164,7 @@ def downloads(cat: dict, cells: gpd.GeoDataFrame, dest) -> list[dict]:
                 "dataset": ds["id"],
                 "en": ds["en"],
                 "fr": ds["fr"],
+                "ar": ds["ar"],
                 "rows": len(df),
                 "cols": df.shape[1],
                 "formats": ["csv", "parquet"],

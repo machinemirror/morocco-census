@@ -19,10 +19,35 @@ const L = {
     fuzzy: "valeurs 2004 appariées par similarité de nom", point: "point d'ancrage", allind: "Tous les indicateurs",
     city: "ville (arrondissements agrégés)", communes: "communes",
   },
+  ar: {
+    indicator: "المؤشر", view: "العرض", level: "المستوى", change: "التطور", census: "الإحصاء",
+    find: "البحث عن جماعة", hideImputed: "إخفاء القيم المقدّرة",
+    nodata: "لا توجد معطيات", decrease: "انخفاض", increase: "ارتفاع", rural: "قروية", urban: "حضرية",
+    caveat: "أشكال الجماعات تقريبية (مضلعات ثيسن) مبنية انطلاقاً من نقطة واحدة لكل جماعة، إذ لا تنشر المندوبية السامية للتخطيط حدود الجماعات. تبيّن الأشكال الموقع التقريبي للجماعة لا امتدادها الحقيقي.",
+    noncomp: "تختلف التعاريف بين الإحصاءات؛ يُرجى قراءة التطور بحذر.",
+    imputed: "مقدّرة انطلاقاً من الجماعات المجاورة (بسبب إعادة التقسيم بعد 2004)",
+    fuzzy: "قيم 2004 مُطابَقة على أساس تشابه الأسماء", point: "نقطة الارتكاز", allind: "جميع المؤشرات",
+    city: "مدينة (مقاطعات مجمّعة)", communes: "جماعة",
+  },
 };
-const SEQ = ["#cde2fb", "#9ec5f4", "#6da7ec", "#3987e5", "#256abf", "#184f95", "#0d366b"];
-const DIV = ["#184f95", "#3987e5", "#9ec5f4", "#f0efec", "#f3b3aa", "#e36f65", "#a8322c"];
-const FLAG = ["#b7d3f6", "#256abf"];
+// Colour-blind-safe ramps: viridis (reversed, so more = darker) and ColorBrewer PuOr.
+const SEQ = ["#fde725", "#90d743", "#35b779", "#21918c", "#31688e", "#443983", "#440154"];
+const DIV = ["#b35806", "#f1a340", "#fee0b6", "#f7f7f7", "#d8daeb", "#998ec3", "#542788"];
+const FLAG = ["#90d743", "#31688e"];
+// Orientation labels: [en, fr, ar, lon, lat, tier (1 always, 2 from zoom 6), label side]. Coastal labels sit over the sea.
+const CITIES = [
+  ["Rabat", "Rabat", "الرباط", -6.8417, 34.0209, 1, "w"], ["Casablanca", "Casablanca", "الدار البيضاء", -7.5898, 33.5731, 1, "w"],
+  ["Fez", "Fès", "فاس", -5.0003, 34.0331, 1], ["Marrakesh", "Marrakech", "مراكش", -7.9811, 31.6295, 1],
+  ["Tangier", "Tanger", "طنجة", -5.834, 35.7595, 1, "w"], ["Agadir", "Agadir", "أكادير", -9.5981, 30.4278, 1, "w"],
+  ["Oujda", "Oujda", "وجدة", -1.9086, 34.6814, 1], ["Laâyoune", "Laâyoune", "العيون", -13.1625, 27.1253, 1, "w"],
+  ["Dakhla", "Dakhla", "الداخلة", -15.958, 23.6848, 1, "w"], ["Meknes", "Meknès", "مكناس", -5.5473, 33.8935, 2],
+  ["Kenitra", "Kénitra", "القنيطرة", -6.5802, 34.261, 2, "w"], ["Tetouan", "Tétouan", "تطوان", -5.3626, 35.5889, 2],
+  ["Nador", "Nador", "الناظور", -2.9335, 35.1681, 2], ["Beni Mellal", "Béni Mellal", "بني ملال", -6.3498, 32.3373, 2],
+  ["Errachidia", "Errachidia", "الرشيدية", -4.4245, 31.9314, 2], ["Ouarzazate", "Ouarzazate", "ورزازات", -6.8934, 30.9189, 2],
+  ["Guelmim", "Guelmim", "كلميم", -10.0574, 28.987, 2], ["Safi", "Safi", "آسفي", -9.2372, 32.2994, 2, "w"],
+  ["El Jadida", "El Jadida", "الجديدة", -8.5007, 33.2316, 2, "w"], ["Al Hoceima", "Al Hoceïma", "الحسيمة", -3.9372, 35.2517, 2],
+  ["Essaouira", "Essaouira", "الصويرة", -9.7595, 31.5085, 2, "w"],
+];
 const YEARS = [2004, 2014, 2024];
 const CITY = /^\d+\.\d+\.\d+\.$/;
 
@@ -147,7 +172,7 @@ function controls() {
   const yrs = document.getElementById("years");
   yrs.innerHTML = state.mode === "level"
     ? YEARS.map(y => `<button data-y="${y}" aria-pressed="${y === state.y}" ${v.includes(y) ? "" : "disabled"}>${y}</button>`).join("")
-    : ps.map(p => `<button data-p="${p.join("-")}" aria-pressed="${p.join() === state.pair.join()}">${p[0]}→${p[1]}</button>`).join("");
+    : ps.map(p => `<button dir="ltr" data-p="${p.join("-")}" aria-pressed="${p.join() === state.pair.join()}">${p[0]}→${p[1]}</button>`).join("");
   yrs.querySelectorAll("button").forEach(b => b.onclick = () => {
     if (b.dataset.y) state.y = +b.dataset.y; else state.pair = b.dataset.p.split("-").map(Number);
     controls(); paint(); detail();
@@ -265,8 +290,11 @@ async function main() {
         { id: "outline", type: "line", source: "outline", paint: { "line-color": css("--text-3"), "line-width": 0.8 } },
         { id: "cells-hover", type: "line", source: "cells", paint: {
           "line-color": css("--text"), "line-width": ["case", ["boolean", ["feature-state", "hover"], false], 1.6, 0] } },
+        // halo + ink rather than a hue, so the selection never collides with a ramp colour
+        { id: "cells-sel-halo", type: "line", source: "cells", paint: {
+          "line-color": css("--surface"), "line-width": ["case", ["boolean", ["feature-state", "sel"], false], 5, 0] } },
         { id: "cells-sel", type: "line", source: "cells", paint: {
-          "line-color": "#eb6834", "line-width": ["case", ["boolean", ["feature-state", "sel"], false], 2.5, 0] } },
+          "line-color": css("--text"), "line-width": ["case", ["boolean", ["feature-state", "sel"], false], 2.2, 0] } },
       ],
     },
     bounds: [[-17.2, 20.7], [-0.9, 36.0]],
@@ -278,8 +306,21 @@ async function main() {
   tip.id = "tip"; tip.className = "tip"; tip.hidden = true;
   document.getElementById("map").appendChild(tip);
 
+  // HTML markers render Arabic natively; a symbol layer would need glyphs and the RTL text plugin
+  const cityEls = CITIES.map(([en, fr, ar, lon, lat, tier, side]) => {
+    const el = document.createElement("div");
+    el.className = `city t${tier}${side === "w" ? " w" : ""}`;
+    el.dataset.en = en; el.dataset.fr = fr; el.dataset.ar = ar;
+    new maplibregl.Marker({ element: el, anchor: side === "w" ? "right" : "left" }).setLngLat([lon, lat]).addTo(map);
+    return el;
+  });
+  const cityNames = () => cityEls.forEach(el => (el.innerHTML = `<i></i><span>${MC.esc(el.dataset[MC.lang])}</span>`));
+  const cityZoom = () => document.getElementById("map").classList.toggle("zoomed", map.getZoom() >= 6);
+  cityNames(); map.on("zoom", cityZoom);
+  MC.onLang(cityNames);
+
   map.on("load", () => {
-    controls(); paint(); if (state.sel) select(state.sel, true);
+    cityZoom(); controls(); paint(); if (state.sel) select(state.sel, true);
     let hover = null;
     map.on("mousemove", "cells-fill", (e) => {
       map.getCanvas().style.cursor = "pointer";

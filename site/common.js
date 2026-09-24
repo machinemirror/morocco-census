@@ -1,11 +1,13 @@
-// Shared chrome: nav, EN/FR switch (remembered per browser), small helpers.
+// Shared chrome: nav, EN/FR/AR switch (remembered per browser), small helpers.
 const MC = (() => {
   const T = {
     en: { map: "Map", catalogue: "Catalogue", downloads: "Downloads", about: "About", tag: "Moroccan census by commune" },
     fr: { map: "Carte", catalogue: "Catalogue", downloads: "Téléchargements", about: "À propos", tag: "Recensement marocain par commune" },
+    ar: { map: "الخريطة", catalogue: "الفهرس", downloads: "التحميلات", about: "حول المشروع", tag: "الإحصاء العام للسكان والسكنى حسب الجماعة" },
   };
   let lang = "en";
-  try { lang = localStorage.getItem("mc-lang") || (navigator.language || "").startsWith("fr") && "fr" || "en"; } catch (e) {}
+  try { lang = localStorage.getItem("mc-lang") || ["fr", "ar"].find(l => (navigator.language || "").startsWith(l)) || "en"; } catch (e) {}
+  if (!T[lang]) lang = "en";
   const listeners = [];
 
   function header(active) {
@@ -21,9 +23,11 @@ const MC = (() => {
       <div class="lang" role="group" aria-label="Language">
         <button data-l="en" aria-pressed="${lang === "en"}">EN</button>
         <button data-l="fr" aria-pressed="${lang === "fr"}">FR</button>
+        <button data-l="ar" aria-pressed="${lang === "ar"}" lang="ar" title="العربية">ع</button>
       </div>`;
     el.querySelectorAll(".lang button").forEach(b => b.onclick = () => setLang(b.dataset.l, active));
     document.documentElement.lang = lang;
+    document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
   }
 
   function setLang(l, active) {
@@ -33,11 +37,12 @@ const MC = (() => {
     listeners.forEach(f => f(l));
   }
 
-  const nf = (d) => new Intl.NumberFormat(lang === "fr" ? "fr-FR" : "en-US", { maximumFractionDigits: d });
+  // ar-MA: Morocco writes Arabic text with Western digits
+  const nf = (d) => new Intl.NumberFormat({ fr: "fr-FR", ar: "ar-MA" }[lang] || "en-US", { maximumFractionDigits: d });
   function fmt(v, unit, agg) {
     if (v === null || v === undefined || Number.isNaN(v)) return "—";
     if (agg === "sum" && unit !== "%") return nf(0).format(v);
-    if (unit === "flag") return v ? (lang === "fr" ? "oui" : "yes") : (lang === "fr" ? "non" : "no");
+    if (unit === "flag") return { en: ["no", "yes"], fr: ["non", "oui"], ar: ["لا", "نعم"] }[lang][v ? 1 : 0];
     const a = Math.abs(v);
     return nf(a >= 100 ? 0 : a >= 10 ? 1 : a >= 1 ? 2 : 3).format(v);
   }

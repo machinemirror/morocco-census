@@ -12,7 +12,7 @@
   body { display: flex; flex-direction: column; }
   .app { flex: 1; display: grid; grid-template-columns: 360px 1fr; min-height: 0; }
   .side {
-    background: var(--surface); border-right: 1px solid var(--line); overflow-y: auto;
+    background: var(--surface); border-inline-end: 1px solid var(--line); overflow-y: auto;
     padding: 1rem 16px 1.5rem; display: flex; flex-direction: column; gap: 0.9rem;
   }
   .side label.h { display: block; font-size: 0.78rem; font-weight: 600; color: var(--text-2); margin-bottom: 0.3rem;
@@ -35,8 +35,8 @@
   .tip b { font-weight: 620; }
   .tip .v { font-size: 1.05rem; font-weight: 650; font-variant-numeric: tabular-nums; }
   .caveat {
-    position: absolute; left: 10px; bottom: 28px; z-index: 4; max-width: min(420px, calc(100% - 20px));
-    background: var(--surface); border: 1px solid var(--warn-line); border-left: 4px solid var(--warn-line);
+    position: absolute; inset-inline-start: 10px; bottom: 28px; z-index: 4; max-width: min(420px, calc(100% - 20px));
+    background: var(--surface); border: 1px solid var(--warn-line); border-inline-start: 4px solid var(--warn-line);
     border-radius: 6px; padding: 0.4rem 0.6rem; font-size: 0.78rem; color: var(--text-2);
   }
   .detail h3 { font-size: 1rem; margin: 0; }
@@ -49,11 +49,20 @@
   .row { display: flex; gap: 0.5rem; align-items: center; font-size: 0.86rem; color: var(--text-2); }
   .row input { accent-color: var(--accent); }
   .maplibregl-ctrl-attrib { font-size: 10px; }
+  /* direction: ltr keeps the dot on the anchored edge whatever the page direction */
+  .city { pointer-events: none; display: flex; align-items: center; gap: 3px; direction: ltr; white-space: nowrap; }
+  .city.w { flex-direction: row-reverse; }
+  .city i { width: 6px; height: 6px; border-radius: 50%; background: var(--text); box-shadow: 0 0 0 1.5px var(--surface); }
+  .city span { font-size: 0.72rem; font-weight: 600; color: var(--text); line-height: 1.25; padding: 0 4px;
+               border-radius: 3px; background: color-mix(in srgb, var(--surface) 82%, transparent); }
+  .city.t2 { display: none; }
+  .city.t2 span { font-weight: 500; }
+  #map.zoomed .city.t2 { display: flex; }
   @media (max-width: 760px) {
     .app { grid-template-columns: 1fr; grid-template-rows: 62vh auto; }
     #map { order: -1; }
     .caveat { font-size: 0.7rem; bottom: 22px; padding: 0.25rem 0.45rem; }
-    .side { border-right: 0; border-top: 1px solid var(--line); overflow: visible; }
+    .side { border-inline-end: 0; border-top: 1px solid var(--line); overflow: visible; }
     body { height: auto; }
   }
 </style>
@@ -80,8 +89,8 @@
     <div class="legend" id="legend"></div>
     <div>
       <div class="ind-title" id="ind-title"></div>
-      <div class="def" id="ind-def"></div>
-      <div class="note" id="ind-note" hidden></div>
+      <div class="def" id="ind-def" dir="auto"></div>
+      <div class="note" id="ind-note" dir="auto" hidden></div>
     </div>
     <label class="row" id="imp-row" hidden><input type="checkbox" id="imp"> <span data-t="hideImputed">Hide imputed values</span></label>
     <div>

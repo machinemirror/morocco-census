@@ -28,11 +28,13 @@ def problems(cat: dict) -> list[str]:
                 if spec.get("source") and spec["source"] not in cat["sources"]:
                     out.append(f"{ds['id']}.{c}: unknown source {spec['source']}")
             else:
-                out += [f"{ds['id']}.{c}: missing {k}" for k in ("en", "fr", "unit", "definition") if k not in spec]
+                out += [
+                    f"{ds['id']}.{c}: missing {k}" for k in ("en", "fr", "ar", "unit", "definition") if k not in spec
+                ]
     for i, ind in cat["indicators"].items():
         if ind["theme"] not in cat["themes"]:
             out.append(f"indicator {i}: unknown theme {ind['theme']}")
-        out += [f"indicator {i}: missing {k}" for k in ("en", "fr", "unit", "definition") if k not in ind]
+        out += [f"indicator {i}: missing {k}" for k in ("en", "fr", "ar", "unit", "definition") if k not in ind]
     return out
 
 
@@ -53,6 +55,7 @@ def columns(cat: dict) -> pd.DataFrame:
                     "theme": cat["themes"][ind["theme"]]["en"] if ind else "Identifier",
                     "label_en": ind.get("en") or spec.get("en"),
                     "label_fr": ind.get("fr") or spec.get("fr"),
+                    "label_ar": ind.get("ar") or spec.get("ar"),
                     "unit": ind.get("unit") or spec.get("unit"),
                     "definition": ind.get("definition") or spec.get("definition"),
                     "note": ind.get("note", ""),
