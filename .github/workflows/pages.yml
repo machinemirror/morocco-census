@@ -18,6 +18,11 @@ jobs:
       - uses: astral-sh/setup-uv@v6
       - run: uv sync --locked
       - run: uv run mc site
+      - name: Stamp asset URLs with the commit so browsers refetch after each deploy
+        run: |
+          v=${GITHUB_SHA::7}
+          sed -i -E "s/(href|src)=\"(style\.css|common\.js|map\.js)\"/\1=\"\2?v=$v\"/g" site/*.html
+          sed -i -E "s#\"data/([a-z_]+\.(json|geojson))\"#\"data/\1?v=$v\"#g" site/*.html site/*.js
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site
