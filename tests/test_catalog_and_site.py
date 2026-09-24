@@ -37,7 +37,7 @@ def test_map_data(exported):
         assert set(ind["vintages"]) == {2004, 2014, 2024} or set(ind["vintages"]) == {"2004", "2014", "2024"}
     values = {}
     for f in (exported / "map").glob("*.json"):
-        if f.name != "index.json":
+        if f.name != "index.json" and f.name.count(".") == 1:
             values |= json.loads(f.read_text())
     assert {ind["group"] for ind in d["indicators"].values()} == set(d["groups"])
     assert sum(1 for ind in d["indicators"].values() if ind.get("fr") and ind.get("ar")) == 48
@@ -49,6 +49,13 @@ def test_map_data(exported):
     assert all(d["units"]["name_fr"]) and all(d["units"]["name_ar"])
     hh = values["hh_size_avg|2014"][i]
     assert 3 < hh < 6  # a mean, not a sum over arrondissements
+    slices = {ind: set(x["slices"]) for ind, x in d["indicators"].items()}
+    assert slices["pct_electricity"] == {"urban", "rural"}
+    assert slices["pct_married"] == {"urban", "rural", "male", "female"}
+    for ind, sls in slices.items():
+        for sl in sls:
+            v = json.loads((exported / "map" / f"{d['indicators'][ind]['theme']}.{sl}.json").read_text())
+            assert all(len(v[f"{ind}|{y}"]) == n for y in (2004, 2014, 2024))
 
 
 def test_geojson_aligns_with_units(exported):
@@ -63,6 +70,7 @@ def test_downloads(exported):
     for f in c["files"]:
         assert {f"{f['stem']}.csv", f"{f['stem']}.parquet"} <= names
     assert {"communes.gpkg", "communes_queen.gal", "data_dictionary.csv"} <= names
+    assert {"hcp_communes_2024.gpkg", "hcp_communes_2024.geojson", "hcp_communes_2024_queen.gal"} <= names
 
 
 def test_hcp_boundary_layer(exported):

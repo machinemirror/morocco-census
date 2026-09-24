@@ -75,7 +75,8 @@ municipalities, 41 arrondissements).
 | 2004 annex | 1,473 | 1,405 direct, 68 mutual-best fuzzy (rapidfuzz ≥ 82) |
 | All three censuses | 1,473 (95.8%) | the rest are communes created or merged after 2004 |
 
-**2004 app codes** (`crosswalk_app2004.csv`): 1,528 of 1,538 communes, one row per app unit with its `link` type.
+**2004 app codes** (`crosswalk_app2004.csv`): 1,534 of 1,538 communes, one row per app unit and 2014 commune, with its
+`link` type and `weight`.
 
 - The app reports a rural commune (code ending 2) apart from its autonomous centres (3-5, same first 9 digits): disjoint
   populations (all app units sum to the 2004 national total) that HCP's 2014 commune covers together. A centre named
@@ -84,17 +85,22 @@ municipalities, 41 arrondissements).
 - Matching: exact space-insensitive name + province, then unique name (1,467 `exact`); province-constrained
   mutual-best fuzzy ≥ 85 (31 `fuzzy`); for provinces created after 2004 (Driouch, Fquih Ben Salah, Sidi Slimane...),
   mutual-best fuzzy within the 2004 provinces their linked communes came from (13 `province_split`).
-- `catalog/link_review.csv` (27 `review`): merges (Ain Johra + Sidi Boukhalkhal, Ain Nzagh + Tamadroust), renames
+- `catalog/link_review.csv` (29 `review`, 8 `split`): merges (Ain Johra + Sidi Boukhalkhal, Ain Nzagh + Tamadroust), renames
   (Lkhaloua → Had Al Gharbia), rural remainders renamed when their centre became a municipality (Driouch → Mtalssa,
   Tahannaout → Aghouatim, Sidi Bou Othmane → Jbilate, Sidi Bouknadel → Ameur) and absorptions (Amalou Ighriben into
-  Khenifra). Each is decided on 2004-2014 population and on where the GeoNames point of the 2004 unit falls in HCP's
+  Khenifra), and Soualem, whose rural remainder kept its commune number as Soualem Trifiya while its centre became Had
+  Soualem. Each is decided on 2004-2014 population and on where the GeoNames point of the 2004 unit falls in HCP's
   2024 polygons, and states its evidence.
+- Splits: an app unit listed twice in the review was divided after 2004 (Taghramt → + Belyounech, Ben Mansour → + Sidi
+  Mohamed Ben Mansour, Ameur Seflia → + Ameur Chamalia, Bouguedra → + Chahda). The parent is the neighbour, in HCP's
+  polygons, whose 2004-2014 population fell while the child appeared, and with the child added its ratio returns to
+  the provincial norm. Each part carries the unit's 2004 rates; its counts are shared by the parts' 2014 population
+  (`weight`).
 - Several app units sharing a 2014 commune are combined like arrondissements into cities: sums for counts,
   population- or household-weighted means for rates.
-- Not linked: 10 communes created after 2004 from part of another (Had Soualem, Soualem Trifiya, Oulad Ziyane, Ameur
-  Chamalia, Sidi Mohamed Ben Mansour, Ait Ali ou Lahcen, Belyounech, Ain Chair, Chahda, Oulad Azzouz in Nouaceur) and
-  3 app units split between 2014 communes (Ain Dorbane, Lakhiaita, Soualem): apportioning their values would need
-  assumptions.
+- Not linked: Ain Chair, Ait Ali ou Lahcen, Oulad Ziyane and Oulad Azzouz (Nouaceur), created after 2004 with no
+  neighbour whose population shows a loss; and the app units Ain Dorbane (population says Ben Ahmed, the 2014 name says
+  Ain Dorbane-Lahlaf) and Lakhiaita (Oulad Ziyane by population, Sahel Oulad H'Riz by location).
 
 ## Imputation (panel only)
 
@@ -172,7 +178,7 @@ byte-for-byte and its tessellation to within 2e-5 m² per cell. Deliberate chang
    town, is corrected. Against the 1,473 units placed in both releases the median shift is 3.0 km;
    12 move more than 50 km, all Saharan communes, reviewed disagreements or corrected errors.
 
-## HCP 2024 boundaries (optional map layer)
+## HCP 2024 boundaries (the map's default layer)
 
 HCP's RGPH 2024 results platform (https://resultats2024.rgphapps.ma, Apache Superset) draws commune boundaries from 75
 per-province GeoJSON files served as static assets. `mc fetch` finds their current hashed names in the platform's
@@ -184,12 +190,37 @@ country-map bundle and records each file in the manifest. The files declare CRS8
 - `geometry.hcp_boundaries()` dissolves centres into their rural commune and arrondissements into their city, giving
   1,503 map units (the 1,502 Thiessen units plus 1 commune with no seed point), coverage-simplified at 100 m, in
   `geometry/hcp_communes_2024.gpkg`.
-- The layer is not in the download bundle: HCP's terms allow reuse with attribution, but no licence for the geometry as
-  data is stated.
+- Redistributed in the download bundle (GeoPackage, GeoJSON) with attribution to HCP, whose terms allow reuse with
+  attribution.
+- Weights (`geometry/hcp_communes_2024_queen.gal`): queen contiguity with a 50 m tolerance, since the per-province
+  files leave hairline gaps along province borders (strict queen isolates 12 communes); 1,503 units, mean 5.63
+  neighbours, no islands.
 - Reliability by census on these boundaries: 2014 exact (same codes); 2024 through the crosswalk (every commune,
-  cities from their arrondissements); 2004 through the app crosswalk (1,528 communes; rural communes with their
-  centres, reviewed merges and renames as above). 2004-2014 population growth across linked communes has a median
+  cities from their arrondissements); 2004 through the app crosswalk (1,534 communes; rural communes with their
+  centres, reviewed merges, renames and splits as above). 2004-2014 population growth across linked communes has a median
   ratio of 1.02; the largest drops are Saharan communes, whose census coverage differs between rounds.
+
+## Urban/rural and male/female breakdowns
+
+- 2014 (`communes_2014_milieu.csv`, `communes_2014_sex.csv`): the `Indic.Urbain` and `Indic.Rural` sheets of the four
+  workbooks repeat the `Indic.Ensemble` layout; the individus, activité and diplôme workbooks repeat their both-sexes
+  columns in a male then a female block (offsets 54, 20 and 15 columns). Household variables have no sex breakdown;
+  fertility is female by definition and stays in `communes_2014.csv`. The four Oued Ed-Dahab communes HCP gives as
+  "pm" have no sex rows.
+- 2024 (`communes_2024_milieu.csv`, `communes_2024_sex.csv`): `Population_Urbaine`/`Population_Rurale` and
+  `Ménages_Urbains`/`Ménages_Ruraux` repeat the layout of the both-milieux sheets. The male and female blocks of the
+  Population sheet omit some columns (fertility is female-only), so each both-sexes column is matched to its block
+  column by group and category header, in order. The other 2024 workbooks are not broken down.
+- 2004: urban/rural from the app units (`milieu04` in `communes_2004.csv`): rural communes (code ending 2) are rural;
+  municipalities, arrondissements and autonomous centres are urban, 16,339,561 people against HCP's 2004 urban total of
+  16,463,634 (99.2%). Male/female (`communes_2004_sex.csv`) from the female counts under each category: each section's
+  base is the sum of its categories by sex (marital status 15+, education 25+, status in employment), ages are shares
+  of each sex's population, and male youth illiteracy (15-24) follows from HCP's total and female rates and the 15-24
+  population by sex. Spoken languages and activity have no female counts in a usable base.
+- Checks (`validation.json`, `slices`): urban + rural and male + female populations equal each commune's population
+  in every commune with data.
+- The map offers a breakdown for an indicator only where all three censuses have it: urban/rural for 49 of the 50
+  (road distance is rural only), male/female for 25.
 
 ## Names and labels in French and Arabic
 

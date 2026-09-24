@@ -13,7 +13,7 @@ import re
 
 import pandas as pd
 
-from .config import P_COMMUNES, P_CROSSWALK, RAW
+from .config import P_COMMUNES, P_CROSSWALK, P_SLICES, RAW
 
 NA_TOKENS = {"pm", "-", "..", "...", "n.d.", "nd", "na", "n/a", ""}
 
@@ -558,11 +558,140 @@ def extras_2024(out: pd.DataFrame, column_map: dict) -> pd.DataFrame:
     return pd.concat([out, pd.DataFrame(cols)], axis=1)
 
 
+# Urban/rural and male/female slices. HCP's milieu sheets repeat the full layout; within a sheet, the individual
+# workbooks of 2014 repeat their columns in a male then a female block at a fixed offset.
+MILIEU_SHEETS_2014 = {"urban": "Indic.Urbain", "rural": "Indic.Rural"}
+SEX_OFFSET_2014 = {"individus_2014.xlsx": 54, "activite_2014.xlsx": 20, "diplome_2014.xlsx": 15}
+BOTH_SEXES_2014 = {"individus_2014.xlsx": range(9, 63), "activite_2014.xlsx": range(8, 28), "diplome_2014.xlsx": range(8, 23)}
+MILIEU_SHEETS_2024 = {
+    "urban": {"Population": "Population_Urbaine", "Ménages": "Ménages_Urbains"},
+    "rural": {"Population": "Population_Rurale", "Ménages": "Ménages_Ruraux"},
+}
+SEXES = ("male", "female")
+
+
+def by_code14(df: pd.DataFrame, col: int) -> pd.Series:
+    code = df[CODE_COL_2014].astype(str)
+    m = code.str.count(r"\.") == 4
+    return to_num(df.loc[m, col]).set_axis(code[m].values).groupby(level=0).first()
+
+
+def slice_2014(raws: dict, shift) -> pd.DataFrame:
+    """SPEC_2014 variables from one set of sheets; shift(file, column) is the column to read, None to skip."""
+    cols = {}
+    for name, (f, c) in SPEC_2014.items():
+        if (c2 := shift(f, c)) is not None:
+            cols[name] = by_code14(raws[f], c2)
+    for name, (f, cs) in SUMS_2014.items():
+        if None not in (moved := [shift(f, c) for c in cs]):
+            cols[name] = pd.concat([by_code14(raws[f], c) for c in moved], axis=1).sum(axis=1, min_count=1)
+    out = pd.DataFrame(cols)
+    if {"_pct_deug_licence", "_pct_master_doct"} <= set(out):
+        higher = out[["_pct_deug_licence", "_pct_master_doct"]]
+        out["pct_higher_ed"] = higher.sum(axis=1, min_count=1)
+        out = out.drop(columns=higher.columns)
+    return out
+
+
+def slices_2014() -> tuple[pd.DataFrame, pd.DataFrame]:
+    files = [f for f in {f for f, _ in SPEC_2014.values()}]
+    milieu = []
+    for m, sheet in MILIEU_SHEETS_2014.items():
+        raws = {f: pd.read_excel(RAW / f, sheet_name=sheet, header=None) for f in files}
+        t = slice_2014(raws, lambda f, c: c)
+        ind = raws["individus_2014.xlsx"]
+        t.insert(0, "population14", by_code14(raws["menages_2014.xlsx"], POP_COL_2014))
+        t.insert(1, "pct_female", by_code14(ind, 117) / by_code14(ind, 9) * 100)
+        milieu.append(t.assign(milieu=m))
+    raws = {f: pd.read_excel(RAW / f, sheet_name="Indic.Ensemble", header=None) for f in files}
+    sex = []
+    for k, s in enumerate(SEXES, start=1):
+        shift = lambda f, c, k=k: c + k * SEX_OFFSET_2014[f] if c in BOTH_SEXES_2014.get(f, ()) else None
+        t = slice_2014(raws, shift)
+        t = t.drop(columns=["isf", "completed_fertility"])  # female by definition: the both-sexes value
+        t.insert(0, "population14", by_code14(raws["individus_2014.xlsx"], POP_COL_2014 + k * 54))
+        sex.append(t.assign(sex=s))
+
+    base = raws["menages_2014.xlsx"]
+    code = base[CODE_COL_2014].astype(str)
+    communes = set(code[(code.str.count(r"\.") == 4) & base[4].notna()])  # as in extract_2014
+
+    def tidy(frames, key):
+        t = pd.concat(frames).rename_axis("code14").reset_index()
+        t = t[t.population14.gt(0) & t.code14.isin(communes)]  # a municipality has no rural rows, and vice versa
+        return t[["code14", key, *[c for c in t if c not in ("code14", key)]]].sort_values(["code14", key])
+
+    return tidy(milieu, "milieu"), tidy(sex, "sex")
+
+
+def sex_columns_2024(df: pd.DataFrame, sex: str) -> dict[int, int]:
+    """Both-sexes column -> the same indicator's column in the male or female block. The blocks differ (fertility
+    is female-only), so columns are aligned by header in order; a group header shows only on its first column."""
+    start = {"male": 68, "female": 129}[sex]
+    end = {"male": 128, "female": df.shape[1]}[sex]
+    # row 0 names the block ('Sexe : Masculin'), row 1 the group, row 2 the category
+    group, heads = "", {}
+    for c in range(3, end):
+        if pd.notna(df.iloc[1, c]):
+            group = str(df.iloc[1, c]).strip()
+        cat = str(df.iloc[2, c]).strip() if pd.notna(df.iloc[2, c]) else ""
+        heads[c] = f"{group} | {cat}"
+    both = [c for c in range(3, 67)]
+    block = list(range(start, end))
+    out, j = {}, 0
+    for c in both:
+        for k in range(j, len(block)):
+            if heads[block[k]] == heads[c]:
+                out[c], j = block[k], k + 1
+                break
+    return out
+
+
+def slices_2024() -> tuple[pd.DataFrame, pd.DataFrame]:
+    f = RAW / "indicateurs_demo_socioeco_2024.xlsx"
+
+    def read(sheets: dict, colmap=None) -> pd.DataFrame:
+        cols = {}
+        for sheet, spec in SPEC_2024.items():
+            df = commune_rows(pd.read_excel(f, sheet_name=sheets[sheet], header=None))
+            for name, c in spec.items():
+                c2 = c if colmap is None else colmap.get(c) if sheet == "Population" else None
+                if c2 is not None:
+                    cols[name] = to_num(df[c2])
+            for name, cs in SUMS_2024.get(sheet, {}).items():
+                moved = cs if colmap is None else [colmap.get(c) if sheet == "Population" else None for c in cs]
+                if None not in moved:
+                    cols[name] = pd.concat([to_num(df[c]) for c in moved], axis=1).sum(axis=1, min_count=1)
+            if sheet == "Population":
+                cols = {"population24": to_num(df[POP_COL_2024 if colmap is None else colmap[POP_COL_2024]]), **cols}
+        return pd.DataFrame(cols)
+
+    milieu = [read(sheets).assign(milieu=m) for m, sheets in MILIEU_SHEETS_2024.items()]
+    pop = pd.read_excel(f, sheet_name="Population", header=None)
+    sex = [
+        read({"Population": "Population", "Ménages": "Ménages"}, sex_columns_2024(pop, s))
+        .drop(columns=["isf", "completed_fertility"], errors="ignore")  # female by definition
+        .assign(sex=s)
+        for s in SEXES
+    ]
+
+    def tidy(frames, key):
+        t = pd.concat(frames).rename_axis("code24").reset_index()
+        t = t[t.population24 > 0]
+        return t[["code24", key, *[c for c in t if c not in ("code24", key)]]].sort_values(["code24", key])
+
+    return tidy(milieu, "milieu"), tidy(sex, "sex")
+
+
 def main() -> tuple[dict, dict]:
     df14, cmap14 = extract_2014()
     df24, cmap24 = extract_2024()
     df14.to_csv(P_COMMUNES[2014], index=False)
     df24.to_csv(P_COMMUNES[2024], index=False)
+    for year, (milieu, sex) in ((2014, slices_2014()), (2024, slices_2024())):
+        milieu.to_csv(P_SLICES[year, "milieu"], index=False)
+        sex.to_csv(P_SLICES[year, "sex"], index=False)
+        print(f"{year} slices: {len(milieu)} urban/rural rows, {len(sex)} male/female rows")
     cw = pd.read_csv(P_CROSSWALK)
     m14 = df14.code14.isin(set(cw.code14)).sum()
     m24 = df24.code24.isin(set(pd.to_numeric(cw.code24, errors="coerce").dropna().astype("Int64"))).sum()

@@ -26,12 +26,15 @@ R_WIKIDATA = RAW / "geometry" / "wikidata_communes.csv"
 # processed outputs (tracked)
 P_INDICES_2004 = PROCESSED / "commune_indices_2004.csv"
 P_COMMUNES = {y: PROCESSED / f"communes_{y}.csv" for y in (2004, 2014, 2024)}
+# urban/rural and male/female slices of the commune tables, one row per commune and slice
+P_SLICES = {(y, k): PROCESSED / f"communes_{y}_{k}.csv" for y in (2004, 2014, 2024) for k in ("milieu", "sex")}
 P_CROSSWALK = PROCESSED / "crosswalk_communes.csv"
 P_CROSSWALK_APP = PROCESSED / "crosswalk_app2004.csv"
 P_PANEL = PROCESSED / "panel_commune.csv"
 P_GPKG = GEOMETRY / "communes.gpkg"
-# HCP's own 2024 boundaries, from its RGPH 2024 results platform; an optional map layer, not in the bundle
+# HCP's own 2024 boundaries, from its RGPH 2024 results platform: the default map layer
 P_HCP_GPKG = GEOMETRY / "hcp_communes_2024.gpkg"
+P_HCP_GAL = GEOMETRY / "hcp_communes_2024_queen.gal"
 R_HCP_BOUNDARIES = RAW / "hcp_boundaries_2024"
 P_GAL = GEOMETRY / "communes_queen.gal"
 P_UNMATCHED = GEOMETRY / "points_unmatched.csv"

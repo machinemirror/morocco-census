@@ -50,9 +50,11 @@
 const L = {
   en: { title: "Downloads", lede: "All tables are commune-level, UTF-8 CSV and Parquet. Codes are text: keep leading zeros (app_code) and trailing dots (code14) when you open them in a spreadsheet.",
         tables: "Tables", "h-table": "Table", "h-rows": "Rows", "h-cols": "Columns", "h-files": "Files", geo: "Geometry",
-        "geo-note": "Commune shapes are Thiessen (Voronoi) cells around one seed point per commune, clipped to the national outline. They are approximations for mapping and neighbour relations, not administrative boundaries. 1,502 map units: the 41 arrondissements are merged into 6 cities, and one commune (Sidi Mohamed Ben Mansour) has no seed point yet.",
+        "geo-note": "HCP's own commune boundaries from its RGPH 2024 results platform (1,503 map units: the 41 arrondissements are merged into 6 cities), keyed by the 2014 commune code; reuse with attribution to HCP. Also approximate Thiessen (Voronoi) cells around one seed point per commune, built only from openly licensed inputs (1,502 units; Sidi Mohamed Ben Mansour has no seed point).",
         code: "Use from code", cite: "Cite", all: "Download everything (.zip)",
-        g: { "communes.gpkg": "GeoPackage: layers thiessen (cells) and points (seed points)", "communes_thiessen.geojson": "Thiessen cells, GeoJSON",
+        g: { "hcp_communes_2024.gpkg": "HCP 2024 commune boundaries, GeoPackage", "hcp_communes_2024.geojson": "HCP 2024 commune boundaries, GeoJSON",
+             "hcp_communes_2024_queen.gal": "Queen-contiguity weights on the HCP boundaries (GAL, 50 m tolerance for gaps along province borders)",
+             "communes.gpkg": "GeoPackage: layers thiessen (cells) and points (seed points)", "communes_thiessen.geojson": "Thiessen cells, GeoJSON",
              "communes_points.geojson": "Seed points, GeoJSON", "communes_queen.gal": "Queen-contiguity spatial weights (GAL, cell order of the GeoPackage)",
              "boundary_mar_esh.gpkg": "National outline used for clipping (Natural Earth)", "data_dictionary.csv": "Data dictionary: every column, definition and source" } },
 };

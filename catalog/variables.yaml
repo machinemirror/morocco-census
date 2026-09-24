@@ -1578,6 +1578,7 @@ datasets:
     source: app2004
     columns:
       app_code: {en: App commune code, unit: code, definition: 10-digit commune code of the Maroc en Chiffres app; join to code14 via crosswalk_app2004.}
+      milieu04: {en: Milieu (2004 unit), unit: text, definition: "urban for municipalities (MU), arrondissements (AR) and autonomous centres (AC); rural for rural communes (CR). The app reports a rural commune apart from its centres, so a 2014 commune's 2004 urban and rural values come from its units of each kind. These units hold 16,339,561 urban residents, 99.2% of HCP's 2004 urban total."}
       population04: {indicator: population, from: "Démographie: Population totale (effectif)"}
       pct_female: {indicator: pct_female, from: "Démographie: SEXE, Féminin (%)"}
       age_0_4: {indicator: age_0_4, from: "Démographie: Moins de 5 ans (%)"}
@@ -1967,6 +1968,446 @@ datasets:
       dist_health: {indicator: dist_health, from: "population_menages_douars_2024.xlsx[خصائص الأسر] col 23: Distance moyenne au centre de santé/hôpital (km)", source: douars2024}
       is_urban: {indicator: is_urban, from: "Population_Rurale col 3 empty (no rural population)"}
       pop_share: {indicator: pop_share, from: "population24 / national sum x 100"}
+  - id: communes_2004_sex
+    file: communes_2004_sex.csv
+    vintage: 2004
+    slice: sex
+    key: app_code, sex
+    en: RGPH 2004 commune profiles by sex
+    description: Male and female rates of the 2004 profiles, from the female counts the pages give under each category; male = all minus female. Each section's base is the sum of its categories (marital status 15+, education 25+, status in employment); ages are shares of each sex's population; youth illiteracy (15-24) is HCP's female rate, and the male rate follows from the 15-24 population by sex.
+    source: app2004
+    columns:
+      app_code: {en: App commune code, unit: code, definition: 10-digit commune code of the Maroc en Chiffres app; join to code14 via crosswalk_app2004.}
+      sex: {en: Sex, unit: text, definition: male | female}
+      population04: {indicator: population}
+      pct_single: {indicator: pct_single}
+      pct_married: {indicator: pct_married}
+      pct_widowed: {indicator: pct_widowed}
+      pct_divorced: {indicator: pct_divorced}
+      pct_no_education: {indicator: pct_no_education}
+      edu_primary: {indicator: edu_primary}
+      edu_lower_secondary: {indicator: edu_lower_secondary}
+      edu_upper_secondary: {indicator: edu_upper_secondary}
+      edu_higher: {indicator: edu_higher}
+      pct_employer: {indicator: pct_employer}
+      pct_self_employed: {indicator: pct_self_employed}
+      pct_public_employee: {indicator: pct_public_employee}
+      pct_private_employee: {indicator: pct_private_employee}
+      pct_family_worker: {indicator: pct_family_worker}
+      pct_apprentice: {indicator: pct_apprentice}
+      age_0_4: {indicator: age_0_4}
+      age_5_9: {indicator: age_5_9}
+      age_10_14: {indicator: age_10_14}
+      age_15_19: {indicator: age_15_19}
+      age_20_24: {indicator: age_20_24}
+      age_60plus: {indicator: age_60plus}
+      age_65plus: {indicator: age_65plus}
+      age_75plus: {indicator: age_75plus}
+      pct_illiterate: {indicator: pct_illiterate}
+  - id: communes_2014_milieu
+    file: communes_2014_milieu.csv
+    vintage: 2014
+    slice: milieu
+    key: code14, milieu
+    en: RGPH 2014 commune indicators by milieu
+    description: The communes_2014 variables from the Indic.Urbain and Indic.Rural sheets of the same workbooks (same columns). A municipality has only urban rows; a rural commune has rural rows and, where it contains an urban centre, urban rows.
+    source: menages2014
+    columns:
+      code14: {en: Commune code (2014), unit: code, definition: "HCP dotted code region.province.cercle.commune. (e.g. 01.051.01.01.); the crosswalk spine."}
+      milieu: {en: Milieu, unit: text, definition: urban | rural}
+      population14: {indicator: population, from: "menages_2014.xlsx col 9: Population municipale", source: menages2014}
+      pct_female: {indicator: pct_female, from: "individus_2014.xlsx col 117 / col 9 x 100: Féminin population municipale / Ensemble", source: individus2014}
+      n_households: {indicator: n_households, from: "menages_2014.xlsx col 10: Ménage", source: menages2014}
+      hh_size_avg: {indicator: hh_size_avg, from: "menages_2014.xlsx col 11: Taille moyenne", source: menages2014}
+      pct_owner: {indicator: pct_owner, from: "menages_2014.xlsx col 19: Statut d'occupation, Propriétaire", source: menages2014}
+      pct_renter: {indicator: pct_renter, from: "menages_2014.xlsx col 20: Locataire", source: menages2014}
+      pct_electricity: {indicator: pct_electricity, from: "menages_2014.xlsx col 29: Électricité", source: menages2014}
+      pct_water: {indicator: pct_water, from: "menages_2014.xlsx col 30: Eau courante", source: menages2014}
+      pct_cellphone: {indicator: pct_cellphone, from: "menages_2014.xlsx col 44: Téléphone portable", source: menages2014}
+      pct_internet: {indicator: pct_internet, from: "menages_2014.xlsx col 46: Internet", source: menages2014}
+      age_0_4: {indicator: age_0_4, from: "individus_2014.xlsx col 10: groupe d'âges quinquennal 0-4 ans", source: individus2014}
+      age_5_9: {indicator: age_5_9, from: "individus_2014.xlsx col 11: 5-9 ans", source: individus2014}
+      age_10_14: {indicator: age_10_14, from: "individus_2014.xlsx col 12: 10-14 ans", source: individus2014}
+      pct_illiterate: {indicator: pct_illiterate, from: "individus_2014.xlsx col 35: Taux d'analphabétisme", source: individus2014}
+      activity_rate: {indicator: activity_rate, from: "individus_2014.xlsx col 53: Taux net d'activité", source: individus2014}
+      unemployment_rate: {indicator: unemployment_rate, from: "individus_2014.xlsx col 54: Taux de chômage", source: individus2014}
+      pct_women_divorced: {indicator: pct_women_divorced, from: "individus_2014.xlsx col 136: Divorcé", source: individus2014}
+      pop_active_occupee: {indicator: pop_active_occupee, from: "activite_2014.xlsx col 8: Population active occupée âgée de 15 ans et plus", source: activite2014}
+      pct_agriculture: {indicator: pct_agriculture, from: "activite_2014.xlsx col 19: Agriculture, sylviculture et pêche", source: activite2014}
+      pct_no_diploma: {indicator: pct_no_diploma, from: "diplome_2014.xlsx col 15: Sans diplôme", source: diplome2014}
+      age_15_19: {indicator: age_15_19, from: "individus_2014.xlsx col 13: 15-19 ans", source: individus2014}
+      age_20_24: {indicator: age_20_24, from: "individus_2014.xlsx col 14: 20-24 ans", source: individus2014}
+      age_25_29: {indicator: age_25_29, from: "individus_2014.xlsx col 15: 25-29 ans", source: individus2014}
+      age_30_34: {indicator: age_30_34, from: "individus_2014.xlsx col 16: 30-34 ans", source: individus2014}
+      age_35_39: {indicator: age_35_39, from: "individus_2014.xlsx col 17: 35-39 ans", source: individus2014}
+      age_40_44: {indicator: age_40_44, from: "individus_2014.xlsx col 18: 40-44 ans", source: individus2014}
+      age_45_49: {indicator: age_45_49, from: "individus_2014.xlsx col 19: 45-49 ans", source: individus2014}
+      age_50_54: {indicator: age_50_54, from: "individus_2014.xlsx col 20: 50-54 ans", source: individus2014}
+      age_55_59: {indicator: age_55_59, from: "individus_2014.xlsx col 21: 55-59 ans", source: individus2014}
+      age_60_64: {indicator: age_60_64, from: "individus_2014.xlsx col 22: 60-64 ans", source: individus2014}
+      age_65_69: {indicator: age_65_69, from: "individus_2014.xlsx col 23: 65-69 ans", source: individus2014}
+      age_70_74: {indicator: age_70_74, from: "individus_2014.xlsx col 24: 70-74 ans", source: individus2014}
+      age_75plus: {indicator: age_75plus, from: "individus_2014.xlsx col 25: 75 ans et plus", source: individus2014}
+      pct_disability: {indicator: pct_disability, from: "individus_2014.xlsx col 31: Taux de prévalence du handicap", source: individus2014}
+      pct_single: {indicator: pct_single, from: "individus_2014.xlsx col 26: Célibataire", source: individus2014}
+      pct_married: {indicator: pct_married, from: "individus_2014.xlsx col 27: Marié", source: individus2014}
+      pct_divorced: {indicator: pct_divorced, from: "individus_2014.xlsx col 28: Divorcé", source: individus2014}
+      pct_widowed: {indicator: pct_widowed, from: "individus_2014.xlsx col 29: Veuf", source: individus2014}
+      age_first_marriage: {indicator: age_first_marriage, from: "individus_2014.xlsx col 30: Âge moyen au premier mariage", source: individus2014}
+      completed_fertility: {indicator: completed_fertility, from: "individus_2014.xlsx col 32: Parité moyenne à 45-49 ans", source: individus2014}
+      school_enrolment: {indicator: school_enrolment, from: "individus_2014.xlsx col 34: Taux de scolarisation des enfants âgés de 7 à 12 ans", source: individus2014}
+      edu_preschool: {indicator: edu_preschool, from: "individus_2014.xlsx col 41: Préscolaire", source: individus2014}
+      edu_primary: {indicator: edu_primary, from: "individus_2014.xlsx col 42: Primaire", source: individus2014}
+      edu_lower_secondary: {indicator: edu_lower_secondary, from: "individus_2014.xlsx col 43: Secondaire collégial", source: individus2014}
+      edu_upper_secondary: {indicator: edu_upper_secondary, from: "individus_2014.xlsx col 44: Secondaire qualifiant", source: individus2014}
+      edu_higher: {indicator: edu_higher, from: "individus_2014.xlsx col 45: Supérieur", source: individus2014}
+      dipl_primary: {indicator: dipl_primary, from: "diplome_2014.xlsx col 9: Primaire", source: diplome2014}
+      dipl_lower_secondary: {indicator: dipl_lower_secondary, from: "diplome_2014.xlsx col 10: Secondaire collégial", source: diplome2014}
+      dipl_upper_secondary: {indicator: dipl_upper_secondary, from: "diplome_2014.xlsx col 11: Secondaire qualifiant", source: diplome2014}
+      dipl_bachelor: {indicator: dipl_bachelor, from: "diplome_2014.xlsx col 12: DEUG, Licence ou équivalent", source: diplome2014}
+      dipl_master: {indicator: dipl_master, from: "diplome_2014.xlsx col 13: Master, Doctorat ou équivalent", source: diplome2014}
+      voc_specialised_technician: {indicator: voc_specialised_technician, from: "diplome_2014.xlsx col 16: Technicien spécialisé", source: diplome2014}
+      voc_technician: {indicator: voc_technician, from: "diplome_2014.xlsx col 17: Technicien ou Cadre moyen", source: diplome2014}
+      voc_qualification: {indicator: voc_qualification, from: "diplome_2014.xlsx col 18: Qualification professionnelle", source: diplome2014}
+      voc_specialisation: {indicator: voc_specialisation, from: "diplome_2014.xlsx col 19: Spécialisation professionnelle", source: diplome2014}
+      voc_initiation: {indicator: voc_initiation, from: "diplome_2014.xlsx col 20: Initiation professionnelle", source: diplome2014}
+      pct_no_voc_diploma: {indicator: pct_no_voc_diploma, from: "diplome_2014.xlsx col 22: Sans diplôme (FP)", source: diplome2014}
+      lang_darija: {indicator: lang_darija, from: "individus_2014.xlsx col 46: Darija", source: individus2014}
+      lang_tachelhit: {indicator: lang_tachelhit, from: "individus_2014.xlsx col 47: Tachelhit", source: individus2014}
+      lang_tamazight: {indicator: lang_tamazight, from: "individus_2014.xlsx col 48: Tamazight", source: individus2014}
+      lang_tarifit: {indicator: lang_tarifit, from: "individus_2014.xlsx col 49: Tarifit", source: individus2014}
+      lang_hassania: {indicator: lang_hassania, from: "individus_2014.xlsx col 50: Hassania", source: individus2014}
+      lit_arabic_only: {indicator: lit_arabic_only, from: "individus_2014.xlsx col 36: Arabe seule", source: individus2014}
+      lit_arabic_french: {indicator: lit_arabic_french, from: "individus_2014.xlsx col 37: Arabe et français seules", source: individus2014}
+      lit_arabic_french_english: {indicator: lit_arabic_french_english, from: "individus_2014.xlsx col 38: Arabe, français et anglais", source: individus2014}
+      lit_other: {indicator: lit_other, from: "individus_2014.xlsx col 39: Autres", source: individus2014}
+      pct_employer: {indicator: pct_employer, from: "individus_2014.xlsx col 55: Employeur", source: individus2014}
+      pct_self_employed: {indicator: pct_self_employed, from: "individus_2014.xlsx col 56: Indépendant", source: individus2014}
+      pct_public_employee: {indicator: pct_public_employee, from: "individus_2014.xlsx col 57: Salarié dans le secteur public", source: individus2014}
+      pct_private_employee: {indicator: pct_private_employee, from: "individus_2014.xlsx col 58: Salarié dans le secteur privé", source: individus2014}
+      pct_family_worker: {indicator: pct_family_worker, from: "individus_2014.xlsx col 59: Aide familiale", source: individus2014}
+      pct_apprentice: {indicator: pct_apprentice, from: "individus_2014.xlsx col 60: Apprenti", source: individus2014}
+      pct_partner: {indicator: pct_partner, from: "individus_2014.xlsx col 61: Associé ou partenaire", source: individus2014}
+      pct_status_other: {indicator: pct_status_other, from: "individus_2014.xlsx col 62: Autre", source: individus2014}
+      occ_managers: {indicator: occ_managers, from: "activite_2014.xlsx col 9: Membres des corps législatifs, élus locaux, responsables hiérarchiques de la fonction publique, directeurs et cadres de direction d'entreprises, cadres supérieurs et membres des professions libérales", source: activite2014}
+      occ_technicians: {indicator: occ_technicians, from: "activite_2014.xlsx col 10: Techniciens et professions intermédiaires", source: activite2014}
+      occ_clerks: {indicator: occ_clerks, from: "activite_2014.xlsx col 11: Employés", source: activite2014}
+      occ_traders: {indicator: occ_traders, from: "activite_2014.xlsx col 12: Commerçants et intermédiaires commerciaux et financiers", source: activite2014}
+      occ_farmers: {indicator: occ_farmers, from: "activite_2014.xlsx col 13: Exploitants agricoles, pêcheurs de poissons et d'autres espèces aquatiques, forestiers, chasseurs et travailleurs assimilés", source: activite2014}
+      occ_craft: {indicator: occ_craft, from: "activite_2014.xlsx col 14: Artisans et ouvriers qualifiés des métiers artisanaux (non compris les ouvriers de l'agriculture)", source: activite2014}
+      occ_agri_workers: {indicator: occ_agri_workers, from: "activite_2014.xlsx col 15: Ouvriers et manœuvres agricoles et de la pêche (y compris les ouvriers qualifiés)", source: activite2014}
+      occ_operators: {indicator: occ_operators, from: "activite_2014.xlsx col 16: Conducteurs d'installations et de machines et ouvriers de l'assemblage", source: activite2014}
+      occ_labourers: {indicator: occ_labourers, from: "activite_2014.xlsx col 17: Manœuvres non agricoles, manutentionnaires et travailleurs des petits métiers", source: activite2014}
+      occ_unclassified: {indicator: occ_unclassified, from: "activite_2014.xlsx col 18: Travailleurs ne pouvant être classés selon la profession", source: activite2014}
+      sec_industry: {indicator: sec_industry, from: "activite_2014.xlsx col 20: Industrie extractives et manufacturières", source: activite2014}
+      sec_utilities: {indicator: sec_utilities, from: "activite_2014.xlsx col 21: Eau et électricité", source: activite2014}
+      sec_construction: {indicator: sec_construction, from: "activite_2014.xlsx col 22: Construction", source: activite2014}
+      sec_trade: {indicator: sec_trade, from: "activite_2014.xlsx col 23: Commerce, réparation d'automobiles et de motocycles", source: activite2014}
+      sec_transport: {indicator: sec_transport, from: "activite_2014.xlsx col 24: Transport, entrepôt et communication", source: activite2014}
+      sec_services: {indicator: sec_services, from: "activite_2014.xlsx col 25: Autres services marchands", source: activite2014}
+      sec_public: {indicator: sec_public, from: "activite_2014.xlsx col 26: Administration publique, éducation, santé et action sociale", source: activite2014}
+      sec_other: {indicator: sec_other, from: "activite_2014.xlsx col 27: Activités extraterritoriales et non déclarées", source: activite2014}
+      dwell_villa: {indicator: dwell_villa, from: "menages_2014.xlsx col 12: 3.24515407644768", source: menages2014}
+      dwell_apartment: {indicator: dwell_apartment, from: "menages_2014.xlsx col 13: 11.5969853028795", source: menages2014}
+      dwell_moroccan: {indicator: dwell_moroccan, from: "menages_2014.xlsx col 14: 56.8121338699763", source: menages2014}
+      dwell_rural: {indicator: dwell_rural, from: "menages_2014.xlsx col 16: 22.80541566322", source: menages2014}
+      dwell_other: {indicator: dwell_other, from: "menages_2014.xlsx col 17: 1.03568135840591", source: menages2014}
+      persons_per_room: {indicator: persons_per_room, from: "menages_2014.xlsx col 18: 1.42624340551166", source: menages2014}
+      tenure_other: {indicator: tenure_other, from: "menages_2014.xlsx col 21: 9.23873861328161", source: menages2014}
+      dwell_age_lt10: {indicator: dwell_age_lt10, from: "menages_2014.xlsx col 22: 20.1282661495925", source: menages2014}
+      dwell_age_10_19: {indicator: dwell_age_10_19, from: "menages_2014.xlsx col 23: 22.164197471917", source: menages2014}
+      dwell_age_20_49: {indicator: dwell_age_20_49, from: "menages_2014.xlsx col 24: 37.3933435513199", source: menages2014}
+      dwell_age_50plus: {indicator: dwell_age_50plus, from: "menages_2014.xlsx col 25: 20.3141928271704", source: menages2014}
+      pct_kitchen: {indicator: pct_kitchen, from: "menages_2014.xlsx col 26: 93.4693562606609", source: menages2014}
+      pct_toilet: {indicator: pct_toilet, from: "menages_2014.xlsx col 27: 93.6508898527982", source: menages2014}
+      pct_bathroom: {indicator: pct_bathroom, from: "menages_2014.xlsx col 28: 54.0372041136883", source: menages2014}
+      sewer_public: {indicator: sewer_public, from: "menages_2014.xlsx col 31: 58.9498785458888", source: menages2014}
+      sewer_septic: {indicator: sewer_septic, from: "menages_2014.xlsx col 32: 23.1752229508936", source: menages2014}
+      sewer_other: {indicator: sewer_other, from: "menages_2014.xlsx col 33: 17.8748985032174", source: menages2014}
+      waste_bin: {indicator: waste_bin, from: "menages_2014.xlsx col 34: 46.0792525354393", source: menages2014}
+      waste_truck: {indicator: waste_truck, from: "menages_2014.xlsx col 35: 19.3068328063925", source: menages2014}
+      waste_other: {indicator: waste_other, from: "menages_2014.xlsx col 36: 34.6139146581681", source: menages2014}
+      cook_gas: {indicator: cook_gas, from: "menages_2014.xlsx col 37: 96.8645410393341", source: menages2014}
+      cook_electricity: {indicator: cook_electricity, from: "menages_2014.xlsx col 38: 4.84095716213788", source: menages2014}
+      cook_charcoal: {indicator: cook_charcoal, from: "menages_2014.xlsx col 39: 1.490058752748", source: menages2014}
+      cook_wood: {indicator: cook_wood, from: "menages_2014.xlsx col 40: 10.2300502006041", source: menages2014}
+      cook_dung: {indicator: cook_dung, from: "menages_2014.xlsx col 41: 4.32358962183122", source: menages2014}
+      road_distance: {indicator: road_distance, from: "menages_2014.xlsx col 50: 3.04964689452437", source: menages2014}
+      pct_radio: {indicator: pct_radio, from: "menages_2014.xlsx col 43: 52.6206179417258", source: menages2014}
+      pct_landline: {indicator: pct_landline, from: "menages_2014.xlsx col 45: 13.4601198466335", source: menages2014}
+      pct_computer: {indicator: pct_computer, from: "menages_2014.xlsx col 47: 25.4154454185874", source: menages2014}
+      pct_satellite: {indicator: pct_satellite, from: "menages_2014.xlsx col 48: 84.0246204976704", source: menages2014}
+      pct_fridge: {indicator: pct_fridge, from: "menages_2014.xlsx col 49: 85.1060590486737", source: menages2014}
+      isf: {indicator: isf, from: "individus_2014.xlsx col 33: Indice synthétique de fécondité", source: individus2014}
+      pct_no_education: {indicator: pct_no_education, from: "individus_2014.xlsx col 40: Néant", source: individus2014}
+      pct_slum: {indicator: pct_slum, from: "menages_2014.xlsx col 15: 4.50462972907045", source: menages2014}
+      pct_tv: {indicator: pct_tv, from: "menages_2014.xlsx col 42: 92.5237470201389", source: menages2014}
+      age_60plus: {indicator: age_60plus, from: "individus_2014.xlsx cols 22 + 23 + 24 + 25: 60-64 ans + 65-69 ans + 70-74 ans + 75 ans et plus", source: individus2014}
+      age_65plus: {indicator: age_65plus, from: "individus_2014.xlsx cols 23 + 24 + 25: 65-69 ans + 70-74 ans + 75 ans et plus", source: individus2014}
+      pct_higher_ed: {indicator: pct_higher_ed, from: "diplome_2014.xlsx col 12 + col 13: DEUG/Licence + Master/Doctorat", source: diplome2014}
+  - id: communes_2014_sex
+    file: communes_2014_sex.csv
+    vintage: 2014
+    slice: sex
+    key: code14, sex
+    en: RGPH 2014 commune indicators by sex
+    description: The individual-level communes_2014 variables from the male and female blocks of the individus, activité and diplôme workbooks (same columns shifted by the block width). Household variables have no sex breakdown; fertility is female by definition and is left to communes_2014.
+    source: menages2014
+    columns:
+      code14: {en: Commune code (2014), unit: code, definition: "HCP dotted code region.province.cercle.commune. (e.g. 01.051.01.01.); the crosswalk spine."}
+      sex: {en: Sex, unit: text, definition: male | female}
+      population14: {indicator: population, source: menages2014}
+      age_0_4: {indicator: age_0_4, source: individus2014}
+      age_5_9: {indicator: age_5_9, source: individus2014}
+      age_10_14: {indicator: age_10_14, source: individus2014}
+      pct_illiterate: {indicator: pct_illiterate, source: individus2014}
+      activity_rate: {indicator: activity_rate, source: individus2014}
+      unemployment_rate: {indicator: unemployment_rate, source: individus2014}
+      pop_active_occupee: {indicator: pop_active_occupee, source: activite2014}
+      pct_agriculture: {indicator: pct_agriculture, source: activite2014}
+      pct_no_diploma: {indicator: pct_no_diploma, source: diplome2014}
+      age_15_19: {indicator: age_15_19, source: individus2014}
+      age_20_24: {indicator: age_20_24, source: individus2014}
+      age_25_29: {indicator: age_25_29, source: individus2014}
+      age_30_34: {indicator: age_30_34, source: individus2014}
+      age_35_39: {indicator: age_35_39, source: individus2014}
+      age_40_44: {indicator: age_40_44, source: individus2014}
+      age_45_49: {indicator: age_45_49, source: individus2014}
+      age_50_54: {indicator: age_50_54, source: individus2014}
+      age_55_59: {indicator: age_55_59, source: individus2014}
+      age_60_64: {indicator: age_60_64, source: individus2014}
+      age_65_69: {indicator: age_65_69, source: individus2014}
+      age_70_74: {indicator: age_70_74, source: individus2014}
+      age_75plus: {indicator: age_75plus, source: individus2014}
+      pct_disability: {indicator: pct_disability, source: individus2014}
+      pct_single: {indicator: pct_single, source: individus2014}
+      pct_married: {indicator: pct_married, source: individus2014}
+      pct_divorced: {indicator: pct_divorced, source: individus2014}
+      pct_widowed: {indicator: pct_widowed, source: individus2014}
+      age_first_marriage: {indicator: age_first_marriage, source: individus2014}
+      school_enrolment: {indicator: school_enrolment, source: individus2014}
+      edu_preschool: {indicator: edu_preschool, source: individus2014}
+      edu_primary: {indicator: edu_primary, source: individus2014}
+      edu_lower_secondary: {indicator: edu_lower_secondary, source: individus2014}
+      edu_upper_secondary: {indicator: edu_upper_secondary, source: individus2014}
+      edu_higher: {indicator: edu_higher, source: individus2014}
+      dipl_primary: {indicator: dipl_primary, source: diplome2014}
+      dipl_lower_secondary: {indicator: dipl_lower_secondary, source: diplome2014}
+      dipl_upper_secondary: {indicator: dipl_upper_secondary, source: diplome2014}
+      dipl_bachelor: {indicator: dipl_bachelor, source: diplome2014}
+      dipl_master: {indicator: dipl_master, source: diplome2014}
+      voc_specialised_technician: {indicator: voc_specialised_technician, source: diplome2014}
+      voc_technician: {indicator: voc_technician, source: diplome2014}
+      voc_qualification: {indicator: voc_qualification, source: diplome2014}
+      voc_specialisation: {indicator: voc_specialisation, source: diplome2014}
+      voc_initiation: {indicator: voc_initiation, source: diplome2014}
+      pct_no_voc_diploma: {indicator: pct_no_voc_diploma, source: diplome2014}
+      lang_darija: {indicator: lang_darija, source: individus2014}
+      lang_tachelhit: {indicator: lang_tachelhit, source: individus2014}
+      lang_tamazight: {indicator: lang_tamazight, source: individus2014}
+      lang_tarifit: {indicator: lang_tarifit, source: individus2014}
+      lang_hassania: {indicator: lang_hassania, source: individus2014}
+      lit_arabic_only: {indicator: lit_arabic_only, source: individus2014}
+      lit_arabic_french: {indicator: lit_arabic_french, source: individus2014}
+      lit_arabic_french_english: {indicator: lit_arabic_french_english, source: individus2014}
+      lit_other: {indicator: lit_other, source: individus2014}
+      pct_employer: {indicator: pct_employer, source: individus2014}
+      pct_self_employed: {indicator: pct_self_employed, source: individus2014}
+      pct_public_employee: {indicator: pct_public_employee, source: individus2014}
+      pct_private_employee: {indicator: pct_private_employee, source: individus2014}
+      pct_family_worker: {indicator: pct_family_worker, source: individus2014}
+      pct_apprentice: {indicator: pct_apprentice, source: individus2014}
+      pct_partner: {indicator: pct_partner, source: individus2014}
+      pct_status_other: {indicator: pct_status_other, source: individus2014}
+      occ_managers: {indicator: occ_managers, source: activite2014}
+      occ_technicians: {indicator: occ_technicians, source: activite2014}
+      occ_clerks: {indicator: occ_clerks, source: activite2014}
+      occ_traders: {indicator: occ_traders, source: activite2014}
+      occ_farmers: {indicator: occ_farmers, source: activite2014}
+      occ_craft: {indicator: occ_craft, source: activite2014}
+      occ_agri_workers: {indicator: occ_agri_workers, source: activite2014}
+      occ_operators: {indicator: occ_operators, source: activite2014}
+      occ_labourers: {indicator: occ_labourers, source: activite2014}
+      occ_unclassified: {indicator: occ_unclassified, source: activite2014}
+      sec_industry: {indicator: sec_industry, source: activite2014}
+      sec_utilities: {indicator: sec_utilities, source: activite2014}
+      sec_construction: {indicator: sec_construction, source: activite2014}
+      sec_trade: {indicator: sec_trade, source: activite2014}
+      sec_transport: {indicator: sec_transport, source: activite2014}
+      sec_services: {indicator: sec_services, source: activite2014}
+      sec_public: {indicator: sec_public, source: activite2014}
+      sec_other: {indicator: sec_other, source: activite2014}
+      pct_no_education: {indicator: pct_no_education, source: individus2014}
+      age_60plus: {indicator: age_60plus, source: individus2014}
+      age_65plus: {indicator: age_65plus, source: individus2014}
+      pct_higher_ed: {indicator: pct_higher_ed, source: diplome2014}
+  - id: communes_2024_milieu
+    file: communes_2024_milieu.csv
+    vintage: 2024
+    slice: milieu
+    key: code24, milieu
+    en: RGPH 2024 commune indicators by milieu
+    description: The communes_2024 variables of the indicators workbook from its Population_Urbaine/Population_Rurale and Ménages_Urbains/Ménages_Ruraux sheets (same columns). The other 2024 workbooks (commuting, migration, establishments, douars) are not included.
+    source: indicateurs2024
+    columns:
+      code24: {en: Commune code (2024), unit: code, definition: HCP numeric geographic code; joins to the crosswalk's code24.}
+      milieu: {en: Milieu, unit: text, definition: urban | rural}
+      population24: {indicator: population, from: "Population col 3: Population municipale"}
+      age_0_4: {indicator: age_0_4, from: "Population col 6: Âge quinquennal 0-4 ans"}
+      age_5_9: {indicator: age_5_9, from: "Population col 7: 5-9 ans"}
+      age_10_14: {indicator: age_10_14, from: "Population col 8: 10-14 ans"}
+      pct_illiterate: {indicator: pct_illiterate, from: "Population col 34: Taux d'analphabétisme des 10 ans et plus"}
+      pct_no_education: {indicator: pct_no_education, from: "Population col 42: Aucun niveau d'études"}
+      activity_rate: {indicator: activity_rate, from: "Population col 56: Taux d'activité des 15 ans et plus"}
+      unemployment_rate: {indicator: unemployment_rate, from: "Population col 57: Taux de chômage"}
+      pct_women_divorced: {indicator: pct_women_divorced, from: "Population col 149: Divorcé.e"}
+      age_15_19: {indicator: age_15_19, from: "Population col 9: 15-19 ans"}
+      age_20_24: {indicator: age_20_24, from: "Population col 10: 20-24 ans"}
+      age_25_29: {indicator: age_25_29, from: "Population col 11: 25-29 ans"}
+      age_30_34: {indicator: age_30_34, from: "Population col 12: 30-34 ans"}
+      age_35_39: {indicator: age_35_39, from: "Population col 13: 35-39 ans"}
+      age_40_44: {indicator: age_40_44, from: "Population col 14: 40-44 ans"}
+      age_45_49: {indicator: age_45_49, from: "Population col 15: 45-49 ans"}
+      age_50_54: {indicator: age_50_54, from: "Population col 16: 50-54 ans"}
+      age_55_59: {indicator: age_55_59, from: "Population col 17: 55-59 ans"}
+      age_60_64: {indicator: age_60_64, from: "Population col 18: 60-64 ans"}
+      age_65_69: {indicator: age_65_69, from: "Population col 19: 65-69 ans"}
+      age_70_74: {indicator: age_70_74, from: "Population col 20: 70-74 ans"}
+      age_75plus: {indicator: age_75plus, from: "Population col 21: 75 ans ou plus"}
+      pct_disability: {indicator: pct_disability, from: "Population col 30: Taux de prévalence du handicap (%)"}
+      pct_single: {indicator: pct_single, from: "Population col 23: Célibataire"}
+      pct_married: {indicator: pct_married, from: "Population col 24: Marié.e"}
+      pct_divorced: {indicator: pct_divorced, from: "Population col 25: Divorcé.e"}
+      pct_widowed: {indicator: pct_widowed, from: "Population col 26: Veuf.ve"}
+      age_first_marriage: {indicator: age_first_marriage, from: "Population col 27: Âge moyen singulier au mariage"}
+      completed_fertility: {indicator: completed_fertility, from: "Population col 29: Descendance finale des femmes"}
+      school_enrolment: {indicator: school_enrolment, from: "Population col 32: Taux de scolarisation des 6-11 ans en 2023/2024 (%)"}
+      pct_illiterate_15plus: {indicator: pct_illiterate_15plus, from: "Population col 36: Taux d'analphabétisme des 15 ans et plus (%)"}
+      edu_preschool: {indicator: edu_preschool, from: "Population col 43: Préscolaire"}
+      edu_primary: {indicator: edu_primary, from: "Population col 44: Primaire"}
+      edu_lower_secondary: {indicator: edu_lower_secondary, from: "Population col 45: Secondaire collégial"}
+      edu_upper_secondary: {indicator: edu_upper_secondary, from: "Population col 46: Secondaire qualifiant"}
+      edu_higher: {indicator: edu_higher, from: "Population col 47: Supérieur"}
+      lang_darija: {indicator: lang_darija, from: "Population col 48: Darija"}
+      lang_tachelhit: {indicator: lang_tachelhit, from: "Population col 49: Tachelhit"}
+      lang_tamazight: {indicator: lang_tamazight, from: "Population col 50: Tamazight"}
+      lang_tarifit: {indicator: lang_tarifit, from: "Population col 51: Tarifit"}
+      lang_hassania: {indicator: lang_hassania, from: "Population col 52: Hassania"}
+      read_arabic: {indicator: read_arabic, from: "Population col 38: Arabe"}
+      read_tifinagh: {indicator: read_tifinagh, from: "Population col 39: Amazigh (Tifinagh)"}
+      read_english: {indicator: read_english, from: "Population col 40: Anglais"}
+      read_french: {indicator: read_french, from: "Population col 41: Français"}
+      pct_employer: {indicator: pct_employer, from: "Population col 59: Employeur"}
+      pct_self_employed: {indicator: pct_self_employed, from: "Population col 60: Indépendant"}
+      pct_public_employee: {indicator: pct_public_employee, from: "Population col 61: Salarié du secteur public"}
+      pct_private_employee: {indicator: pct_private_employee, from: "Population col 62: Salarié du secteur privé"}
+      pct_family_worker: {indicator: pct_family_worker, from: "Population col 63: Aide familial"}
+      pct_apprentice: {indicator: pct_apprentice, from: "Population col 64: Apprenti"}
+      pct_partner: {indicator: pct_partner, from: "Population col 65: Coopérateur/Associé"}
+      pct_status_other: {indicator: pct_status_other, from: "Population col 66: Autre"}
+      pct_female: {indicator: pct_female, from: "Population col 5: Féminin"}
+      isf: {indicator: isf, from: "Population col 28: Indicateur conjoncturel de fécondité"}
+      pop_active_occupee: {indicator: pop_active_occupee, from: "Population col 58: Population active occupée de 15 ans et plus"}
+      age_60plus: {indicator: age_60plus, from: "Population cols 18 + 19 + 20 + 21: 60-64 ans + 65-69 ans + 70-74 ans + 75 ans ou plus"}
+      age_65plus: {indicator: age_65plus, from: "Population cols 19 + 20 + 21: 65-69 ans + 70-74 ans + 75 ans ou plus"}
+      n_households: {indicator: n_households, from: "Ménages col 3: Ménages population"}
+      hh_size_avg: {indicator: hh_size_avg, from: "Ménages col 4: Taille moyenne des ménages"}
+      pct_owner: {indicator: pct_owner, from: "Ménages col 13: Statut d'occupation, Propriétaire"}
+      pct_renter: {indicator: pct_renter, from: "Ménages col 14: Locataire"}
+      pct_electricity: {indicator: pct_electricity, from: "Ménages col 23: Électricité"}
+      pct_water: {indicator: pct_water, from: "Ménages col 24: Eau courante"}
+      dwell_villa: {indicator: dwell_villa, from: "Ménages col 6: 1.9"}
+      dwell_apartment: {indicator: dwell_apartment, from: "Ménages col 7: 16.6"}
+      dwell_moroccan: {indicator: dwell_moroccan, from: "Ménages col 8: 58.8"}
+      dwell_rural: {indicator: dwell_rural, from: "Ménages col 10: 18.4"}
+      dwell_other: {indicator: dwell_other, from: "Ménages col 11: 1.2"}
+      persons_per_room: {indicator: persons_per_room, from: "Ménages col 12: 1.4"}
+      tenure_other: {indicator: tenure_other, from: "Ménages col 15: 10.8"}
+      dwell_age_lt10: {indicator: dwell_age_lt10, from: "Ménages col 16: 22"}
+      dwell_age_10_19: {indicator: dwell_age_10_19, from: "Ménages col 17: 28.8"}
+      dwell_age_20_49: {indicator: dwell_age_20_49, from: "Ménages col 18: 35.9"}
+      dwell_age_50plus: {indicator: dwell_age_50plus, from: "Ménages col 19: 13.3"}
+      pct_kitchen: {indicator: pct_kitchen, from: "Ménages col 20: 96.3"}
+      pct_toilet: {indicator: pct_toilet, from: "Ménages col 21: 97.3"}
+      pct_bathroom: {indicator: pct_bathroom, from: "Ménages col 22: 63.1"}
+      sewer_public: {indicator: sewer_public, from: "Ménages col 25: 65.4"}
+      sewer_septic: {indicator: sewer_septic, from: "Ménages col 26: 17"}
+      sewer_other: {indicator: sewer_other, from: "Ménages col 27: 17.6"}
+      waste_bin: {indicator: waste_bin, from: "Ménages col 28: 56.5"}
+      waste_truck: {indicator: waste_truck, from: "Ménages col 29: 15"}
+      cook_gas: {indicator: cook_gas, from: "Ménages col 32: 95.2"}
+      cook_electricity: {indicator: cook_electricity, from: "Ménages col 33: 0.4"}
+      cook_charcoal: {indicator: cook_charcoal, from: "Ménages col 34: 0.2"}
+      cook_wood: {indicator: cook_wood, from: "Ménages col 35: 4"}
+      cook_other: {indicator: cook_other, from: "Ménages col 36: 0.2"}
+      road_distance: {indicator: road_distance, from: "Ménages col 37: 1.5"}
+      pct_slum: {indicator: pct_slum, from: "Ménages col 9: 3"}
+      waste_other: {indicator: waste_other, from: "Ménages cols 30 + 31: 26.6 + 1.9"}
+  - id: communes_2024_sex
+    file: communes_2024_sex.csv
+    vintage: 2024
+    slice: sex
+    key: code24, sex
+    en: RGPH 2024 commune indicators by sex
+    description: The individual-level communes_2024 variables from the male and female blocks of the Population sheet, matched to the both-sexes columns by header. Household variables have no sex breakdown; fertility is left to communes_2024.
+    source: indicateurs2024
+    columns:
+      code24: {en: Commune code (2024), unit: code, definition: HCP numeric geographic code; joins to the crosswalk's code24.}
+      sex: {en: Sex, unit: text, definition: male | female}
+      population24: {indicator: population}
+      age_0_4: {indicator: age_0_4}
+      age_5_9: {indicator: age_5_9}
+      age_10_14: {indicator: age_10_14}
+      pct_illiterate: {indicator: pct_illiterate}
+      pct_no_education: {indicator: pct_no_education}
+      activity_rate: {indicator: activity_rate}
+      unemployment_rate: {indicator: unemployment_rate}
+      age_15_19: {indicator: age_15_19}
+      age_20_24: {indicator: age_20_24}
+      age_25_29: {indicator: age_25_29}
+      age_30_34: {indicator: age_30_34}
+      age_35_39: {indicator: age_35_39}
+      age_40_44: {indicator: age_40_44}
+      age_45_49: {indicator: age_45_49}
+      age_50_54: {indicator: age_50_54}
+      age_55_59: {indicator: age_55_59}
+      age_60_64: {indicator: age_60_64}
+      age_65_69: {indicator: age_65_69}
+      age_70_74: {indicator: age_70_74}
+      age_75plus: {indicator: age_75plus}
+      pct_disability: {indicator: pct_disability}
+      pct_single: {indicator: pct_single}
+      pct_married: {indicator: pct_married}
+      pct_divorced: {indicator: pct_divorced}
+      pct_widowed: {indicator: pct_widowed}
+      age_first_marriage: {indicator: age_first_marriage}
+      school_enrolment: {indicator: school_enrolment}
+      pct_illiterate_15plus: {indicator: pct_illiterate_15plus}
+      edu_preschool: {indicator: edu_preschool}
+      edu_primary: {indicator: edu_primary}
+      edu_lower_secondary: {indicator: edu_lower_secondary}
+      edu_upper_secondary: {indicator: edu_upper_secondary}
+      edu_higher: {indicator: edu_higher}
+      lang_darija: {indicator: lang_darija}
+      lang_tachelhit: {indicator: lang_tachelhit}
+      lang_tamazight: {indicator: lang_tamazight}
+      lang_tarifit: {indicator: lang_tarifit}
+      lang_hassania: {indicator: lang_hassania}
+      read_arabic: {indicator: read_arabic}
+      read_tifinagh: {indicator: read_tifinagh}
+      read_english: {indicator: read_english}
+      read_french: {indicator: read_french}
+      pct_employer: {indicator: pct_employer}
+      pct_self_employed: {indicator: pct_self_employed}
+      pct_public_employee: {indicator: pct_public_employee}
+      pct_private_employee: {indicator: pct_private_employee}
+      pct_family_worker: {indicator: pct_family_worker}
+      pct_apprentice: {indicator: pct_apprentice}
+      pct_partner: {indicator: pct_partner}
+      pct_status_other: {indicator: pct_status_other}
+      pop_active_occupee: {indicator: pop_active_occupee}
+      age_60plus: {indicator: age_60plus}
+      age_65plus: {indicator: age_65plus}
 
   - id: commune_indices_2004
     file: commune_indices_2004.csv
@@ -2046,10 +2487,11 @@ datasets:
 
   - id: crosswalk_app2004
     file: crosswalk_app2004.csv
-    key: app_code
+    key: app_code, code14
     en: 2004 app code crosswalk
-    description: Links the Maroc en Chiffres app codes (communes_2004) to the 2014 spine, 1,528 of 1,538 communes. Several app units can share a 2014 commune (a rural commune and its autonomous centres, or communes merged after 2004); their values are population-weighted when combined.
+    description: Links the Maroc en Chiffres app codes (communes_2004) to the 2014 spine, 1,534 of 1,538 communes. Several app units can share a 2014 commune (a rural commune and its autonomous centres, or communes merged after 2004), and an app unit split after 2004 appears once per part; values are combined population-weighted, counts shared by `weight`.
     columns:
       code14: {en: Commune code (2014), unit: code, definition: Spine key; repeats where several 2004 units form one 2014 commune.}
-      app_code: {en: App commune code (2004), unit: code, definition: Key of communes_2004.}
-      link: {en: Link type, unit: text, definition: "exact (name and province) | fuzzy (name similarity within a province) | province_split (2014 province created after 2004, matched within its 2004 provinces) | centre (autonomous centre joined to its rural commune) | review (catalog/link_review.csv: merges, renames and absorptions after 2004)."}
+      app_code: {en: App commune code (2004), unit: code, definition: Key of communes_2004; repeats where a 2004 unit was split after 2004.}
+      link: {en: Link type, unit: text, definition: "exact (name and province) | fuzzy (name similarity within a province) | province_split (2014 province created after 2004, matched within its 2004 provinces) | centre (autonomous centre joined to its rural commune) | review (catalog/link_review.csv: merges, renames and absorptions after 2004) | split (a 2004 unit divided between 2014 communes, catalog/link_review.csv)."}
+      weight: {en: Share of the 2004 unit, unit: share, definition: "Share of the 2004 unit's counts that belongs to this 2014 commune: 1, or for a split its share of the parts' 2014 population. Rates are carried unchanged to every part."}

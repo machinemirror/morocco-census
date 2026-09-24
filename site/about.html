@@ -25,8 +25,10 @@
   <ul>
     <li><b>Per-census tables</b> in HCP's own units: 1,689 communes in 2004 (16-region map), 1,538 in 2014, 1,503 in 2024.</li>
     <li><b>A crosswalk</b> linking the 2014 commune list to the 2004 and 2024 lists. All 1,538 communes are linked to
-      2024, and 1,528 to the 2004 commune profiles. The 10 without a 2004 link were carved out of a larger commune
-      after 2004.</li>
+      2024, and 1,534 to the 2004 commune profiles.</li>
+    <li><b>Urban/rural and male/female breakdowns</b> of the commune tables: HCP's milieu sheets and sex blocks for 2014
+      and 2024; for 2004, the profiles' female counts, and the profiles' own split of each rural commune from its
+      urban centres.</li>
     <li><b>A three-census panel</b> of HCP's poverty and development indices (2004 IDH, IDS and monetary poverty;
       multidimensional poverty for 2004, 2014 and 2024). Where a commune did not exist in an earlier census, its value
       is imputed from the same cercle (population-weighted) and <b>flagged</b> in <code>src04</code>/<code>src14</code>/<code>src24</code>.</li>
@@ -35,7 +37,14 @@
 
   <h2>The map</h2>
   <p>The map shows the 50 indicators observed in all three censuses, so that change can be read from one census to the
-    next. The other indicators, observed in one or two censuses, are in the downloads and listed in the catalogue.</p>
+    next. The other indicators, observed in one or two censuses, are in the downloads and listed in the catalogue.
+    <i>Population</i> switches the map to the urban or rural part of each commune (49 indicators) or to men or women
+    (25: age, marital status, education, youth illiteracy, status in employment); a breakdown is offered only where
+    all three censuses have it. Households have no sex breakdown.</p>
+  <p>2004 urban and rural values come from the 2004 profiles themselves, which report each rural commune apart from
+    its autonomous centres: municipalities, arrondissements and centres count as urban. They hold 16.3 million people,
+    99.2% of HCP's 2004 urban total. 2004 male and female rates are computed from the female counts the profiles give
+    under each category; youth illiteracy is for ages 15 to 24, as HCP published it in 2004.</p>
   <p>The map can be read in English, French or Arabic. In French and Arabic, commune and province names are HCP's
     own, from its 2024 legal population list, and indicator labels are HCP's own wording; the catalogue gives the
     source of each. Where HCP publishes no Arabic label for an indicator, its French label is shown. Definitions,
@@ -54,10 +63,10 @@
     May-2025 database. Full provenance, with file checksums, is in the repository's <code>docs/</code>.</p>
 
   <h2>Commune shapes</h2>
-  <p>HCP does not distribute commune boundaries as a dataset, and none were provided on request. Its RGPH 2024 results
-    platform does draw them, and the map offers them as an optional layer (<i>HCP 2024 boundaries</i>). Their licence for
-    reuse as data is not stated, so the default map and the downloads use approximations built only from openly licensed
-    inputs. Each commune gets one seed
+  <p>The map draws HCP's own commune boundaries, from its RGPH 2024 results platform; they are in the downloads with
+    queen-contiguity weights, and should be credited to HCP. HCP publishes them per province, and their edges leave
+    hairline gaps along province borders, so the weights allow 50 m of tolerance.</p>
+  <p>An alternative layer, <i>Approximate</i>, is built only from openly licensed inputs. Each commune gets one seed
     point from the GeoNames gazetteer, or from Wikidata where GeoNames lacks the commune, and the country is divided
     into the cells nearest each point. Where both place a commune more than 25 km apart, the choice between them is
     recorded in <code>catalog/seed_review.csv</code>. The cells show roughly where a commune is, not its true
@@ -68,21 +77,22 @@
     commune apart from its autonomous centres (its small towns); since 2014 HCP counts them together, so a 2014
     commune's 2004 value combines them, population-weighted. Communes merged after 2004 are combined the same way,
     and renames are followed; each such decision is recorded, with its population and location evidence, in
-    <code>catalog/link_review.csv</code>. The 10 communes with no 2004 link have no 2004 value.</p>
+    <code>catalog/link_review.csv</code>. Where a commune was split after 2004, each part carries the 2004 rates of the
+    commune it came from, and 2004 counts are shared by the parts' 2014 population (Taghramt and Belyounech, Ben
+    Mansour and Sidi Mohamed Ben Mansour, Ameur Seflia and Ameur Chamalia, Bouguedra and Chahda).</p>
 
   <h2>Known gaps</h2>
   <ul>
-    <li>One commune (Sidi Mohamed Ben Mansour, Kénitra) has no seed point yet and no Thiessen cell
-      (<code>points_unmatched.csv</code>); it appears with the HCP 2024 boundaries layer, and its data are in the
-      tables. Five others are placed from gazetteer spellings recorded in <code>catalog/seed_names.csv</code>.</li>
+    <li>One commune (Sidi Mohamed Ben Mansour, Kénitra) has no seed point and so no Thiessen cell
+      (<code>points_unmatched.csv</code>); it has its HCP boundary. Five others are placed from gazetteer spellings recorded in <code>catalog/seed_names.csv</code>.</li>
     <li>In 2014 the six largest cities are split into 41 arrondissements; in 2024 they are single communes. The map
       merges the arrondissements into one city cell (sums for counts, population-weighted means for rates); the
       tables keep them separate.</li>
-    <li>10 communes created after 2004 from part of another commune (Had Soualem, Soualem Trifiya, Oulad Ziyane,
-      Ameur Chamalia, Sidi Mohamed Ben Mansour and five more) have no 2004 value, and three 2004 communes (Ain Dorbane,
-      Lakhiaita, Soualem) are not linked, since splitting their values would need assumptions.</li>
-    <li>Only both-sexes, both-milieux values are published so far; HCP's breakdowns by sex and by urban/rural
-      milieu are not yet extracted.</li>
+    <li>Four communes created after 2004 (Ain Chair, Ait Ali ou Lahcen, Oulad Ziyane, Oulad Azzouz in Nouaceur) have no
+      2004 value: no neighbour's population shows which commune they came from. Two 2004 communes (Ain Dorbane,
+      Lakhiaita) are not linked, their population and location pointing to different 2014 communes.</li>
+    <li>The breakdowns cover the indicators workbooks; the other 2024 workbooks (commuting, migration, urban housing,
+      establishments, douars) and the poverty indices are published for the whole commune only.</li>
     <li>Some indicators change definition between censuses (activity rate, urban status); the catalogue flags them.
       The poverty-map MPI (2004, 2014) and the 2025 MPI database (2014, 2024) use different methods and scales; do not
       join the two series.</li>

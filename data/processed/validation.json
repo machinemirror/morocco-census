@@ -110,13 +110,14 @@
   "linkage": {
     "spine_2014": 1538,
     "linked_2004_annex": 1473,
-    "linked_2004_profiles": 1528,
+    "linked_2004_profiles": 1534,
     "profile_links": {
-      "exact": 1467,
+      "exact": 1463,
       "centre": 147,
       "fuzzy": 31,
-      "review": 27,
-      "province_split": 13
+      "review": 29,
+      "province_split": 13,
+      "split": 8
     },
     "linked_2024": 1538,
     "linked_all_three": 1473,
@@ -154,6 +155,38 @@
       "agree": 1337,
       "review": 35,
       "anchor": 2
+    }
+  },
+  "slices": {
+    "2014": {
+      "milieu": {
+        "communes": 1534,
+        "sum_equals_total": 1534
+      },
+      "sex": {
+        "communes": 1534,
+        "sum_equals_total": 1534
+      }
+    },
+    "2024": {
+      "milieu": {
+        "communes": 1503,
+        "sum_equals_total": 1503
+      },
+      "sex": {
+        "communes": 1499,
+        "sum_equals_total": 1499
+      }
+    },
+    "2004": {
+      "milieu": {
+        "rural": 13340508,
+        "urban": 16339561
+      },
+      "sex": {
+        "units": 1689,
+        "sum_equals_total": 1689
+      }
     }
   }
 }

@@ -15,7 +15,17 @@ import unicodedata
 import pandas as pd
 from rapidfuzz import fuzz, process
 
-from .config import LINK_REVIEW, P_CROSSWALK, P_CROSSWALK_APP, P_INDICES_2004, R_APP_INDEX, R_CARTO, R_MPI, RAW
+from .config import (
+    LINK_REVIEW,
+    P_COMMUNES,
+    P_CROSSWALK,
+    P_CROSSWALK_APP,
+    P_INDICES_2004,
+    R_APP_INDEX,
+    R_CARTO,
+    R_MPI,
+    RAW,
+)
 
 
 def norm(s: str) -> str:
@@ -295,15 +305,24 @@ def app2004(threshold: int = 85, out_path=P_CROSSWALK_APP) -> pd.DataFrame:
         ignore_index=True,
     )
     # merges, renames and absorptions after 2004, decided on population and GeoNames location
+    # an app unit listed more than once was split after 2004: its counts are shared by 2014 population, its rates
+    # are carried to every part
     review = pd.read_csv(LINK_REVIEW, dtype=str)
+    pop14 = pd.read_csv(P_COMMUNES[2014], dtype={"code14": str}).set_index("code14").population14
+    review["weight"] = review.code14.map(pop14) / review.groupby("app_code").code14.transform(lambda c: pop14[c].sum())
+    split = review.app_code.duplicated(keep=False)
     out = pd.concat(
-        [out[~out.app_code.isin(review.app_code)], review[["code14", "app_code"]].assign(link="review")],
+        [
+            out[~out.app_code.isin(review.app_code)].assign(weight=1.0),
+            review[["code14", "app_code", "weight"]].assign(link=split.map({True: "split", False: "review"})),
+        ],
         ignore_index=True,
     )
-    assert out.app_code.is_unique and out.code14.isin(spine.code14).all()
+    out["weight"] = out.weight.round(4)
+    assert out.groupby("app_code").weight.sum().round(3).eq(1).all() and out.code14.isin(spine.code14).all()
     out.to_csv(out_path, index=False)
     print(
         f"app2004: exact {n_exact} + fuzzy {n_fuzzy} + province split {n_split} + centres {len(extra)}, "
-        f"{len(review)} reviewed; {out.code14.nunique()}/{len(spine)} communes linked"
+        f"{(~split).sum()} reviewed, {split.sum()} split rows; {out.code14.nunique()}/{len(spine)} communes linked"
     )
     return out

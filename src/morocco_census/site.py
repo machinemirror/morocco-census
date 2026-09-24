@@ -21,8 +21,10 @@ from .config import (
     P_CROSSWALK_APP,
     P_GAL,
     P_GPKG,
+    P_HCP_GAL,
     P_HCP_GPKG,
     P_PANEL,
+    P_SLICES,
     PROCESSED,
     SITE,
 )
@@ -54,9 +56,11 @@ def keyed_tables() -> dict[str, tuple[pd.DataFrame, str]]:
     t14 = pd.read_csv(P_COMMUNES[2014], dtype={"code14": str}).copy()  # consolidate blocks before adding columns
     t14["unit"] = t14.code14.map(by14)
 
-    app = pd.read_csv(P_CROSSWALK_APP, dtype=str).set_index("app_code").code14
-    t04 = pd.read_csv(P_COMMUNES[2004], dtype={"app_code": str}).copy()
-    t04["unit"] = t04.app_code.map(app).map(by14)
+    # one row per link: a 2004 unit split after 2004 appears once per part, with the part's share as link_weight
+    app = pd.read_csv(P_CROSSWALK_APP, dtype={"app_code": str, "code14": str})
+    t04 = pd.read_csv(P_COMMUNES[2004], dtype={"app_code": str}).merge(app[["app_code", "code14", "weight"]], on="app_code")
+    t04 = t04.rename(columns={"weight": "link_weight"})
+    t04["unit"] = t04.code14.map(by14)
 
     by24 = cw.dropna(subset=["code24"]).drop_duplicates("code24").set_index("code24").unit
     by24 = pd.concat([by24, pd.Series({c24: u for u, (_, c24) in CITIES.items()})])
@@ -66,21 +70,33 @@ def keyed_tables() -> dict[str, tuple[pd.DataFrame, str]]:
     panel = pd.read_csv(P_PANEL, dtype={"code14": str})
     panel = panel[panel.level == "commune"].copy()
     panel["unit"] = panel.code14.map(by14)
+
+    s04 = pd.read_csv(P_SLICES[2004, "sex"], dtype={"app_code": str}).merge(
+        app[["app_code", "code14", "weight"]], on="app_code"
+    )
+    s04 = s04.rename(columns={"weight": "link_weight"}).assign(unit=lambda d: d.code14.map(by14))
+    slices = {"communes_2004_sex": (s04, "population04")}
+    for kind in ("milieu", "sex"):
+        t = pd.read_csv(P_SLICES[2014, kind], dtype={"code14": str}).copy()  # consolidate blocks before adding columns
+        slices[f"communes_2014_{kind}"] = (t.assign(unit=t.code14.map(by14)), "population14")
+        t = pd.read_csv(P_SLICES[2024, kind])
+        slices[f"communes_2024_{kind}"] = (t.assign(unit=t.code24.map(by24)), "population24")
     return {
         "communes_2004": (t04, "population04"),
         "communes_2014": (t14, "population14"),
         "communes_2024": (t24, "population24"),
         "panel_commune": (panel, "population14"),
-    }
+    } | slices
 
 
 def aggregate(df: pd.DataFrame, col: str, weight: str, spec: dict) -> pd.Series:
     d = df.dropna(subset=["unit"])
+    share = d["link_weight"] if "link_weight" in d else pd.Series(1.0, index=d.index)
     if spec.get("agg") == "sum":
-        return d.groupby("unit")[col].sum(min_count=1)
+        return (d[col] * share).groupby(d.unit).sum(min_count=1)
     if spec["unit"] == "flag":
         return d.groupby("unit")[col].max()
-    w = d[weight].where(d[col].notna(), 0).fillna(0)
+    w = (d[weight] * share).where(d[col].notna(), 0).fillna(0)
     num = (d[col] * w).groupby(d.unit).sum(min_count=1)
     den = w.groupby(d.unit).sum()
     plain = d.groupby("unit")[col].mean()  # communes with no weight still get a value
@@ -139,21 +155,47 @@ def map_data(cat: dict, uf: pd.DataFrame) -> dict:
     shown = catalog.on_map(cat)
     group_of = {th: g for g, spec in cat["map_groups"].items() for th in spec["themes"]}
     values, indicators = {}, {}
+
+    def series(ds: str, col: str, spec: dict, rows=None) -> list:
+        df, weight = tables[ds]
+        if rows is not None:
+            df = df[rows(df)]
+        if spec.get("weight") == "households" and "n_households" in df:
+            weight = "n_households"
+        return aggregate(df, col, weight, spec).reindex(units)
+
     for (ind, year), (ds, col) in sorted(catalog.series(cat).items()):
         if ind not in shown:
             continue
-        df, weight = tables[ds]
         spec = cat["indicators"][ind]
-        if spec.get("weight") == "households" and "n_households" in df:
-            weight = "n_households"
-        s = aggregate(df, col, weight, spec).reindex(units)
+        s = series(ds, col, spec)
         values.setdefault(spec["theme"], {})[f"{ind}|{year}"] = rounded(s, spec)
         entry = indicators.setdefault(
             ind,
             {k: spec[k] for k in ("theme", "en", "fr", "ar", "unit", "agg", "definition", "note") if k in spec}
-            | {"group": group_of[spec["theme"]], "comparable": spec.get("comparable", True), "vintages": {}},
+            | {"group": group_of[spec["theme"]], "comparable": spec.get("comparable", True), "vintages": {}, "slices": []},
         )
         entry["vintages"][year] = {"dataset": ds, "column": col, "n": int(s.notna().sum())}
+
+    # urban/rural and male/female views: an indicator gets a view only where all three censuses have it
+    by_slice = {}
+    for (ind, year, sl), (ds, col) in catalog.slice_series(cat).items():
+        by_slice.setdefault((ind, sl), {})[year] = (ds, col)
+    for (ind, sl), years in sorted(by_slice.items()):
+        if ind not in shown or set(years) != {2004, 2014, 2024}:
+            continue
+        spec = cat["indicators"][ind]
+        kind = catalog.SLICES[sl]
+        got = {}
+        for year, (ds, col) in years.items():
+            key = "milieu04" if ds == "communes_2004" else kind
+            s = series(ds, col, spec, lambda d, key=key, sl=sl: d[key] == sl)
+            if s.notna().sum() == 0:
+                break
+            got[f"{ind}|{year}"] = rounded(s, spec)
+        else:
+            values.setdefault(f"{spec['theme']}.{sl}", {}).update(got)
+            indicators[ind]["slices"].append(sl)
 
     names = hcp_names(units)
     provs = pd.DataFrame({"en": uf.prov14.values, "fr": names.prov_fr.values, "ar": names.prov_ar.values})
@@ -214,6 +256,9 @@ def downloads(cat: dict, cells: gpd.GeoDataFrame, dest) -> list[dict]:
                 "stem": ds["file"].removesuffix(".csv"),
             }
         )
+    shutil.copy(P_HCP_GPKG, dest / "hcp_communes_2024.gpkg")
+    shutil.copy(P_HCP_GAL, dest / "hcp_communes_2024_queen.gal")
+    write_geojson(gpd.read_file(P_HCP_GPKG), dest / "hcp_communes_2024.geojson", 5)
     shutil.copy(P_GPKG, dest / "communes.gpkg")
     shutil.copy(P_GAL, dest / "communes_queen.gal")
     shutil.copy(P_BOUNDARY, dest / "boundary_mar_esh.gpkg")

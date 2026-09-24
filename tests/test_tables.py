@@ -14,6 +14,7 @@ from morocco_census.config import (
     P_INDICES_2004,
     P_PANEL,
     P_SEEDS,
+    P_SLICES,
     SEED_NAMES,
     SEED_REVIEW,
 )
@@ -51,20 +52,23 @@ def test_crosswalk_coverage(cw):
 
 
 def test_app_crosswalk(cw):
-    app = pd.read_csv(P_CROSSWALK_APP, dtype=str)
-    assert app.app_code.is_unique and set(app.code14) <= set(cw.code14)
-    assert app.code14.nunique() >= 1528
-    assert set(app.link) == {"exact", "fuzzy", "province_split", "centre", "review"}
+    app = pd.read_csv(P_CROSSWALK_APP, dtype={"app_code": str, "code14": str})
+    assert set(app.code14) <= set(cw.code14) and not app.duplicated(["app_code", "code14"]).any()
+    assert app.groupby("app_code").weight.sum().round(3).eq(1).all()  # a split unit's parts share its counts
+    assert set(app.app_code[app.weight < 1]) == set(app.app_code[app.link == "split"])
+    assert app.code14.nunique() >= 1534
+    assert set(app.link) == {"exact", "fuzzy", "province_split", "centre", "review", "split"}
     # a centre (milieu digit 3-5) shares its rural commune's link, unless a review moved that commune (the rural
     # remainder renamed when the centre became a municipality)
     review = pd.read_csv(LINK_REVIEW, dtype=str)
-    by_code = app.set_index("app_code").code14
+    by_code = app[app.link != "split"].set_index("app_code").code14
     centres = app[app.link == "centre"]
     parent = centres.app_code.str[:9] + "2"
     kept = ~parent.isin(review.app_code)
     assert (centres.code14[kept].to_numpy() == parent[kept].map(by_code).to_numpy()).all()
-    assert review.app_code.is_unique and review.evidence.notna().all()
-    assert (by_code[review.app_code].to_numpy() == review.code14.to_numpy()).all()
+    assert review.evidence.notna().all() and not review.duplicated(["app_code", "code14"]).any()
+    linked = set(zip(app.app_code, app.code14))
+    assert all(pair in linked for pair in zip(review.app_code, review.code14))
 
 
 def test_panel(panel):
@@ -112,6 +116,29 @@ def test_seed_review():
     assert check.loc[check.flag, "decided_by"].isin(["review", "anchor"]).all()
     seeds = pd.read_csv(P_SEEDS, dtype={"unit": str}).set_index("unit")
     assert (seeds.loc[review.unit, "pt_src"].to_numpy() == review.source.to_numpy()).all()
+
+
+@pytest.mark.parametrize("year,key", [(2014, "code14"), (2024, "code24")])
+def test_slices_add_up(year, key):
+    pop = f"population{str(year)[2:]}"
+    total = pd.read_csv(P_COMMUNES[year], dtype={key: str}).set_index(key)[pop]
+    for kind, values in (("milieu", {"urban", "rural"}), ("sex", {"male", "female"})):
+        t = pd.read_csv(P_SLICES[year, kind], dtype={key: str})
+        assert set(t[kind]) == values and not t.duplicated([key, kind]).any()
+        parts = t.groupby(key)[pop].sum()
+        assert (parts == total.reindex(parts.index)).all()
+    widowed = pd.read_csv(P_SLICES[year, "sex"]).groupby("sex").pct_widowed.median()
+    assert widowed["female"] > widowed["male"]
+
+
+def test_2004_slices():
+    t04 = pd.read_csv(P_COMMUNES[2004], dtype={"app_code": str}).set_index("app_code")
+    assert t04.milieu04.eq("rural").eq(t04.index.str.endswith("2")).all()
+    assert abs(t04.population04[t04.milieu04 == "urban"].sum() / 16463634 - 1) < 0.01  # HCP's 2004 urban total
+    sex = pd.read_csv(P_SLICES[2004, "sex"], dtype={"app_code": str})
+    assert (sex.groupby("app_code").population04.sum() == t04.population04.reindex(sex.app_code.unique())).all()
+    marital = sex[["pct_single", "pct_married", "pct_divorced", "pct_widowed"]].sum(axis=1)
+    assert marital[marital > 0].between(99.9, 100.1).all()
 
 
 def test_seed_names_place_their_units():

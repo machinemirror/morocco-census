@@ -34,6 +34,7 @@ from .config import (
     P_DUP_POINTS,
     P_GAL,
     P_GPKG,
+    P_HCP_GAL,
     P_HCP_GPKG,
     P_SEEDS,
     P_UNMATCHED,
@@ -48,6 +49,7 @@ from .crosswalk import norm, norm_app
 
 UTM = 32629
 HCP_SIMPLIFY_M = 100
+HCP_GAP_M = 50  # the per-province files leave hairline gaps along province borders
 KM_PER_DEG = 111.0
 MIN_RADIUS_DEG = 0.5  # ~55 km: floor on the province search radius
 MAX_RADIUS_DEG = 3.0  # ~330 km: one stray first-pass match must not open a whole region
@@ -367,5 +369,13 @@ def hcp_boundaries() -> gpd.GeoDataFrame:
     out["geometry"] = out.geometry.buffer(0)  # reprojection can collapse a sliver ring to too few points
     P_HCP_GPKG.unlink(missing_ok=True)
     out.to_file(P_HCP_GPKG, layer="communes", driver="GPKG")
-    print(f"HCP 2024 boundaries: {len(frames)} provinces, {len(g)} polygons -> {len(out)} map units")
+    # queen contiguity, tolerant of those gaps (strict queen leaves 12 communes without neighbours)
+    w = psw.fuzzy_contiguity(out.to_crs(UTM), buffering=True, buffer=HCP_GAP_M)
+    f = psopen(str(P_HCP_GAL), "w")
+    f.write(w)
+    f.close()
+    print(
+        f"HCP 2024 boundaries: {len(frames)} provinces, {len(g)} polygons -> {len(out)} map units; "
+        f"weights mean {pd.Series(w.cardinalities).mean():.2f} neighbours, {len(w.islands)} islands"
+    )
     return out

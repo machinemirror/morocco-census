@@ -17,6 +17,7 @@ from .config import (
     P_CROSSWALK_APP,
     P_PANEL,
     P_SEEDS,
+    P_SLICES,
     P_UNMATCHED,
     PROCESSED,
     RAW,
@@ -70,6 +71,25 @@ def reconcile(year: int, key: str, name: str, pop: str, legal: tuple[pd.DataFram
     }
 
 
+def slices() -> dict:
+    """Urban + rural and male + female populations against each commune's total."""
+    out = {}
+    for year, key in ((2014, "code14"), (2024, "code24")):
+        pop = f"population{str(year)[2:]}"
+        total = pd.read_csv(P_COMMUNES[year], dtype={key: str}).set_index(key)[pop]
+        out[str(year)] = {}
+        for kind in ("milieu", "sex"):
+            parts = pd.read_csv(P_SLICES[year, kind], dtype={key: str}).groupby(key)[pop].sum().reindex(total.index)
+            out[str(year)][kind] = {"communes": int(parts.notna().sum()), "sum_equals_total": int((parts == total).sum())}
+    t04 = pd.read_csv(P_COMMUNES[2004], dtype={"app_code": str}).set_index("app_code")
+    sex = pd.read_csv(P_SLICES[2004, "sex"], dtype={"app_code": str}).groupby("app_code").population04.sum()
+    out["2004"] = {
+        "milieu": {k: int(v) for k, v in t04.groupby("milieu04").population04.sum().items()},
+        "sex": {"units": int(sex.notna().sum()), "sum_equals_total": int((sex == t04.population04).sum())},
+    }
+    return out
+
+
 def main() -> dict:
     cw = pd.read_csv(P_CROSSWALK, dtype=str)
     app = pd.read_csv(P_CROSSWALK_APP, dtype=str)
@@ -112,6 +132,7 @@ def main() -> dict:
             "decided_by": {k: int(v) for k, v in check.decided_by.value_counts().items()},
         },
     }
+    out["slices"] = slices()
     P_VALIDATION.write_text(json.dumps(out, indent=2, ensure_ascii=False) + "\n")
     p = out["population"]
     for y in p:

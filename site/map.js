@@ -1,6 +1,7 @@
 const L = {
   en: {
-    indicator: "Indicator", view: "View", level: "Level", change: "Change", census: "Census",
+    indicator: "Indicator", view: "View", level: "Level", change: "Change", census: "Census", population: "Population",
+    s_all: "All", s_urban: "Urban", s_rural: "Rural", s_male: "Men", s_female: "Women",
     find: "Find a commune",
     nodata: "No data", decrease: "decrease", increase: "increase", rural: "Rural", urban: "Urban",
     caveat: "Commune shapes are approximate Thiessen cells built from one point per commune, not administrative boundaries. They show roughly where a commune is, not its true extent.",
@@ -11,14 +12,17 @@ const L = {
     city: "city (arrondissements combined)", communes: "communes",
   },
   fr: {
-    indicator: "Indicateur", view: "Affichage", level: "Niveau", change: "Évolution", census: "Recensement",
+    indicator: "Indicateur", view: "Affichage", level: "Niveau", change: "Évolution", census: "Recensement", population: "Population",
+    // HCP's own terms for the breakdowns (RGPH 2024 results platform)
+    s_all: "Ensemble", s_urban: "Urbain", s_rural: "Rural", s_male: "Masculin", s_female: "Féminin",
     find: "Trouver une commune",
     nodata: "Pas de donnée", decrease: "baisse", increase: "hausse", rural: "Rurale", urban: "Urbaine",
     shapes: "Contours", gThiessen: "Approximatifs", gHcp: "Limites HCP 2024",
     point: "point d'ancrage", allind: "Tous les indicateurs", communes: "communes",
   },
   ar: {
-    indicator: "المؤشر", view: "العرض", level: "المستوى", change: "التطور", census: "الإحصاء",
+    indicator: "المؤشر", view: "العرض", level: "المستوى", change: "التطور", census: "الإحصاء", population: "السكان",
+    s_all: "المجموع", s_urban: "الوسط الحضري", s_rural: "الوسط القروي", s_male: "الذكور", s_female: "الإناث",
     find: "البحث عن جماعة",
     nodata: "لا توجد معطيات", decrease: "انخفاض", increase: "ارتفاع", rural: "قروية", urban: "حضرية",
     shapes: "الأشكال", gThiessen: "تقريبية", gHcp: "حدود المندوبية 2024",
@@ -76,7 +80,7 @@ const YEARS = [2004, 2014, 2024];
 const CITY = /^\d+\.\d+\.\d+\.$/;
 
 const openGroups = new Set();
-let D, map, byId = {}, loaded = {}, state = { geom: "thiessen", ind: "pct_electricity", y: 2024, mode: "level", pair: [2014, 2024],
+let D, map, byId = {}, loaded = {}, state = { geom: "hcp", slice: "all", ind: "pct_electricity", y: 2024, mode: "level", pair: [2014, 2024],
   sel: null, base: true };
 // English wherever a string has no French or Arabic (definitions, notes and caveats are English only)
 const t = (k) => L[MC.lang][k] || L.en[k] || k;
@@ -95,13 +99,15 @@ function readHash() {
   if (h.get("m")) state.mode = h.get("m");
   if (h.get("p")) state.pair = h.get("p").split("-").map(Number);
   if (h.get("c")) state.sel = h.get("c");
-  if (h.get("g") === "hcp") state.geom = "hcp";
+  if (h.get("g") === "thiessen") state.geom = "thiessen";
+  if (SLICES.includes(h.get("s"))) state.slice = h.get("s");
 }
 function writeHash() {
   const h = new URLSearchParams({ i: state.ind, m: state.mode });
   if (state.mode === "level") h.set("y", state.y); else h.set("p", state.pair.join("-"));
   if (state.sel) h.set("c", state.sel);
-  if (state.geom === "hcp") h.set("g", "hcp");
+  if (state.geom === "thiessen") h.set("g", "thiessen");
+  if (state.slice !== "all") h.set("s", state.slice);
   history.replaceState(null, "", "#" + h.toString());
 }
 
@@ -111,13 +117,20 @@ function pairs(ind) {
   for (let a = 0; a < v.length; a++) for (let b = a + 1; b < v.length; b++) out.push([v[a], v[b]]);
   return out;
 }
-// values are split by catalogue theme; a map group can gather several
-const loadGroup = (g) => Promise.all(Object.values(D.indicators).filter(x => x.group === g).map(x => loadTheme(x.theme)));
-function loadTheme(th) {
-  return (loaded[th] ||= fetch(`data/map/${th}.json`).then(r => r.json()).then(v => Object.assign(D.values, v)));
+// the whole population, or one of HCP's breakdowns; an indicator offers a breakdown only where all three censuses do
+const SLICES = ["all", "urban", "rural", "male", "female"];
+const has = (ind, sl = state.slice) => sl === "all" || D.indicators[ind].slices.includes(sl);
+const key = (ind, y, sl = state.slice) => `${sl}:${ind}|${y}`;
+// values are split by catalogue theme and breakdown; a map group can gather several themes
+const loadGroup = (g) => Promise.all(Object.keys(D.indicators)
+  .filter(k => D.indicators[k].group === g && has(k)).map(k => loadTheme(D.indicators[k].theme)));
+function loadTheme(th, sl = state.slice) {
+  const f = sl === "all" ? th : `${th}.${sl}`;
+  return (loaded[f] ||= fetch(`data/map/${f}.json`).then(r => r.json())
+    .then(v => Object.entries(v).forEach(([k, x]) => (D.values[`${sl}:${k}`] = x))));
 }
 function series(ind, y) {
-  return D.values[`${ind}|${y}`] || [];
+  return D.values[key(ind, y)] || [];
 }
 function current() {
   if (state.mode === "level") return series(state.ind, state.y);
@@ -183,13 +196,16 @@ function legend(c) {
 function controls() {
   const sel = document.getElementById("ind");
   const byGroup = {};
-  Object.entries(D.indicators).forEach(([k, v]) => (byGroup[v.group] ||= []).push(k));
+  Object.entries(D.indicators).filter(([k]) => has(k)).forEach(([k, v]) => (byGroup[v.group] ||= []).push(k));
   sel.innerHTML = Object.keys(D.groups).filter(g => byGroup[g]).map(g =>
     `<optgroup label="${MC.esc(groupName(g))}">${byGroup[g]
       .sort((a, b) => label(a).localeCompare(label(b)))
       .map(k => `<option value="${k}">${MC.esc(label(k))}</option>`).join("")}</optgroup>`
   ).join("");
   sel.value = state.ind;
+  document.getElementById("slice").innerHTML = SLICES.map(sl =>
+    `<button data-s="${sl}" aria-pressed="${sl === state.slice}">${t(`s_${sl}`)}</button>`).join("");
+  document.querySelectorAll("#slice button").forEach(b => b.onclick = () => setSlice(b.dataset.s));
 
   const v = vintages(state.ind);
   if (state.mode === "change" && v.length < 2) state.mode = "level";
@@ -238,6 +254,15 @@ async function setGeom(g) {
   controls(); writeHash();
 }
 
+// a breakdown the current indicator lacks falls back to the first indicator that has it
+async function setSlice(sl) {
+  if (sl === state.slice) return;
+  state.slice = sl;
+  if (!has(state.ind)) state.ind = Object.keys(D.indicators).find(k => has(k));
+  await loadTheme(D.indicators[state.ind].theme);
+  controls(); paint(); detail();
+}
+
 function detail() {
   const el = document.getElementById("detail");
   if (state.sel == null || !(state.sel in byId)) { el.hidden = true; return; }
@@ -245,13 +270,13 @@ function detail() {
   const groups = [];
   const curGroup = D.indicators[state.ind].group;
   for (const g of Object.keys(D.groups)) {
-    const inds = Object.keys(D.indicators).filter(k => D.indicators[k].group === g)
+    const inds = Object.keys(D.indicators).filter(k => D.indicators[k].group === g && has(k))
       .sort((a, b) => label(a).localeCompare(label(b)));
     const open = openGroups.has(g) || g === curGroup;
-    if (open && inds.some(k => !D.values[`${k}|2024`])) loadGroup(g).then(detail);
+    if (open && inds.some(k => !D.values[key(k, 2024)])) loadGroup(g).then(detail);
     const body = inds.map(k => {
       const cells = YEARS.map(y => {
-        const v = D.values[`${k}|${y}`]?.[i];
+        const v = D.values[key(k, y)]?.[i];
         const cur = k === state.ind && (state.mode === "level" ? y === state.y : state.pair.includes(y));
         return `<td class="num${cur ? " cur" : ""}">${F(v, k)}</td>`;
       }).join("");
@@ -311,13 +336,14 @@ const dark = () => document.documentElement.dataset.theme === "dark" ||
 async function main() {
   MC.header("map");
   const [d, cells, outline, context] = await Promise.all(
-    ["data/map/index.json", "data/communes.geojson", "data/outline.geojson", "data/context.geojson"]
+    ["data/map/index.json", "data/communes_hcp2024.geojson", "data/outline.geojson", "data/context.geojson"]
     .map(u => fetch(u).then(r => r.json())));
   const cols = d.units;
   D = { ...d, values: {}, units: cols.id.map((_, i) => Object.fromEntries(Object.keys(cols).map(k => [k, cols[k][i]]))) };
-  shapes.thiessen = cells;
+  shapes.hcp = cells;
   D.units.forEach((u, i) => (byId[u.id] = i));
   readHash();
+  if (!has(state.ind)) state.slice = "all";
   await loadTheme(D.indicators[state.ind].theme);
   const datalist = () => (document.getElementById("communes").innerHTML = D.units
     .map(u => `<option value="${MC.esc(uname(u))} — ${MC.esc(pname(u))}"></option>`).join(""));
@@ -377,7 +403,7 @@ async function main() {
 
   map.on("load", () => {
     cityZoom(); controls(); paint(); if (state.sel) select(state.sel, true);
-    if (state.geom === "hcp") setGeom("hcp");
+    if (state.geom === "thiessen") setGeom("thiessen");
     let hover = null;
     map.on("mousemove", "cells-fill", (e) => {
       map.getCanvas().style.cursor = "pointer";

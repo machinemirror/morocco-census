@@ -1,9 +1,10 @@
 # morocco-census
 
 Commune-level data from Morocco's three most recent censuses (RGPH 2004, 2014 and 2024),
-harmonized on one commune key, with approximate commune shapes, a catalogue of every variable,
-and an interactive map (226 indicators, 385 indicator-census series; the map shows the 50 observed in all three
-censuses, readable in English, French or Arabic with HCP's own place names and labels).
+harmonized on one commune key, with HCP's commune boundaries, urban/rural and male/female breakdowns, a catalogue
+of every variable, and an interactive map (226 indicators, 385 indicator-census series; the map shows the 50
+observed in all three censuses, by urban/rural for 49 and by sex for 25, readable in English, French or Arabic with
+HCP's own place names and labels).
 
 **Site:** https://machinemirror.github.io/morocco-census/ — map, catalogue, downloads.
 
@@ -12,11 +13,11 @@ censuses, readable in English, French or Arabic with HCP's own place names and l
 | Communes in HCP's tables | 1,689 | 1,538 | 1,503 |
 | Commune variables | 69 | 132 | 166 |
 | Poverty / development indices | IDH, IDS, poverty, MPI (poverty map) | MPI (both series) | MPI |
-| Linked to the 2014 list | 1,473 (annex) · 1,528 (profiles) | spine | 1,538 |
+| Linked to the 2014 list | 1,473 (annex) · 1,534 (profiles) | spine | 1,538 |
 
-1,528 of the 1,538 2014 communes have 2004 profile values and all have 2024 values; the other 10 were created after
-2004 from part of another commune. 1,473 (95.8%) are also matched to the 2004 poverty annex. Imputed values are
-flagged, never silent.
+1,534 of the 1,538 2014 communes have 2004 profile values and all have 2024 values; four created after 2004 have no
+clear parent commune. 1,473 (95.8%) are also matched to the 2004 poverty annex. Imputed values are flagged, never
+silent.
 
 ## Data
 
@@ -28,14 +29,18 @@ Everything published is in [`data/processed/`](data/processed) and described col
 |---|---|---|---|
 | `communes_2004.csv` | 1,689 | `app_code` | RGPH 2004 commune profiles (HCP Maroc en Chiffres) |
 | `communes_2014.csv` | 1,538 | `code14` | RGPH 2014 commune indicators |
-| `communes_2024.csv` | 1,503 | `code24` | RGPH 2024 commune indicators |
+| `communes_2024.csv` | 1,503 | `code24` | RGPH 2024 commune indicators, with HCP's French and Arabic names |
+| `communes_2004_sex.csv` | 3,378 | `app_code`, `sex` | 2004 profiles by sex, from the pages' female counts |
+| `communes_2014_milieu.csv`, `communes_2024_milieu.csv` | 1,680 · 1,663 | code, `milieu` | urban and rural parts of each commune (HCP's milieu sheets) |
+| `communes_2014_sex.csv`, `communes_2024_sex.csv` | 3,066 · 2,997 | code, `sex` | individual-level indicators by sex |
 | `commune_indices_2004.csv` | 1,677 | `label` | 2004 poverty, vulnerability, IDH, IDS |
 | `panel_commune.csv` | 1,544 | `code14` | three-census poverty/development panel, with provenance flags |
 | `crosswalk_communes.csv` | 1,538 | `code14` | 2014 ↔ 2004 annex ↔ poverty map ↔ 2024 codes |
-| `crosswalk_app2004.csv` | 1,685 | `app_code` | 2004 profile codes → 2014 communes (1,528), with link type |
-| `geometry/communes.gpkg` | 1,502 | `unit` | Thiessen cells + seed points (approximate, see below) |
-| `geometry/communes_queen.gal` | 1,502 | | queen-contiguity weights |
-| `geometry/hcp_communes_2024.gpkg` | 1,503 | `unit` | HCP's own 2024 boundaries (optional map layer; not in the download bundle) |
+| `crosswalk_app2004.csv` | 1,691 | `app_code`, `code14` | 2004 profile codes → 2014 communes (1,534), with link type and split weight |
+| `geometry/hcp_communes_2024.gpkg` | 1,503 | `unit` | HCP's own 2024 commune boundaries (the map's default layer) |
+| `geometry/hcp_communes_2024_queen.gal` | 1,503 | | queen-contiguity weights on HCP's boundaries |
+| `geometry/communes.gpkg` | 1,502 | `unit` | Thiessen cells + seed points (approximate, openly licensed inputs only) |
+| `geometry/communes_queen.gal` | 1,502 | | queen-contiguity weights on the cells |
 | `validation.json` | | | populations against HCP's legal population, linkage and seed-point checks |
 
 Read codes as text: `app_code` has leading zeros and `code14` ends with a dot.
@@ -46,12 +51,12 @@ base = "https://raw.githubusercontent.com/machinemirror/morocco-census/main/data
 panel = pd.read_csv(base + "panel_commune.csv", dtype={"code14": str})
 ```
 
-### Commune shapes are approximate
+### Commune shapes
 
-HCP does not distribute commune boundaries as a dataset (its RGPH 2024 results platform draws them; the site offers
-them as an optional layer, not in the downloads, as their reuse licence is not stated). Each commune gets one seed point (GeoNames, else Wikidata) and
-the country is split into Thiessen cells around them. The cells show where a commune is, not its
-extent: do not compute areas or densities from them.
+The boundaries are HCP's own, from its RGPH 2024 results platform, redistributed with attribution to HCP; they are
+keyed by the 2014 commune code, so every commune of every census has a polygon. The Thiessen cells are an
+alternative built only from openly licensed gazetteers (one seed point per commune, GeoNames else Wikidata): they
+show where a commune is, not its extent, so do not compute areas or densities from them.
 
 ## Rebuild
 

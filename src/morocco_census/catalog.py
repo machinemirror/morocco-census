@@ -89,9 +89,26 @@ def series(cat: dict) -> dict[tuple[str, int], tuple[str, str]]:
     """(indicator, vintage) -> (dataset id, column), preferring per-vintage tables over the panel."""
     out = {}
     for ds in sorted(cat["datasets"], key=lambda d: d.get("vintage") is None):
-        if ds["id"] in ("crosswalk_communes", "commune_indices_2004"):
-            continue  # the panel carries these values keyed to the spine
+        if ds["id"] in ("crosswalk_communes", "commune_indices_2004") or "slice" in ds:
+            continue  # the panel carries these values keyed to the spine; slices are in slice_series
         for c, spec in ds["columns"].items():
             if "indicator" in spec:
                 out.setdefault((spec["indicator"], int(spec.get("vintage") or ds["vintage"])), (ds["id"], c))
+    return out
+
+
+SLICES = {"urban": "milieu", "rural": "milieu", "male": "sex", "female": "sex"}
+
+
+def slice_series(cat: dict) -> dict[tuple[str, int, str], tuple[str, str]]:
+    """(indicator, vintage, slice) -> (dataset id, column). A slice table repeats its parent's column names; 2004
+    urban/rural comes from the profiles themselves, whose units are either urban or rural (milieu04)."""
+    ids = {d["id"]: d for d in cat["datasets"]}
+    out = {}
+    for (ind, year), (ds, col) in series(cat).items():
+        for s, kind in SLICES.items():
+            if ds == "communes_2004" and kind == "milieu":
+                out[ind, year, s] = (ds, col)
+            elif (sd := ids.get(f"{ds}_{kind}")) and col in sd["columns"]:
+                out[ind, year, s] = (sd["id"], col)
     return out
