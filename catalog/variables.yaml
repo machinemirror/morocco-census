@@ -16,10 +16,15 @@ themes:
   languages: {en: Languages, fr: "Langues", ar: اللغات}
   employment: {en: Employment, fr: Emploi, ar: الشغل}
   occupation: {en: Occupations and sectors, fr: "Professions et secteurs d'activité", ar: المهن وقطاعات النشاط}
-  family: {en: Marital status and migration, fr: État matrimonial et migration, ar: الحالة الزواجية والهجرة}
+  commuting: {en: "Commuting", fr: "Déplacements domicile-travail", ar: "التنقل بين السكن ومقر العمل"}
+  establishments: {en: "Economic establishments", fr: "Établissements économiques", ar: "المؤسسات الاقتصادية"}
+  family: {en: Marital status, fr: État matrimonial, ar: الحالة الزواجية}
+  migration: {en: "Migration", fr: "Migration", ar: "الهجرة"}
   housing: {en: Housing, fr: Logement, ar: السكن}
+  urban_housing: {en: "Urban housing stock", fr: "Parc de logements urbains", ar: "الرصيد السكني الحضري"}
   sanitation: {en: "Sanitation, energy and access", fr: "Assainissement, énergie et accès", ar: التطهير والطاقة والولوج}
   equipment: {en: Household equipment, fr: "Équipement des ménages", ar: تجهيزات الأسر}
+  rural_settlement: {en: "Rural douars", fr: "Douars ruraux", ar: "الدواوير القروية"}
   poverty: {en: Poverty and human development, fr: Pauvreté et développement humain, ar: الفقر والتنمية البشرية}
 
 indicators:
@@ -31,8 +36,12 @@ indicators:
     ar: السكان
     unit: persons
     definition: Resident population of the commune.
+    definition_fr: "Population résidente de la commune."
+    definition_ar: "السكان المقيمون بالجماعة."
     note: 2004 is the app's 'Population totale'; 2014 and 2024 are 'population municipale' (excludes
       the population comptée à part, e.g. barracks and boarding schools).
+    note_fr: "Pour 2004, 'Population totale' de l'application ; pour 2014 et 2024, 'population municipale' (hors population comptée à part, par exemple casernes et internats)."
+    note_ar: "قيمة 2004 هي «مجموع السكان» في التطبيق (Population totale)؛ وقيمتا 2014 و2024 هما «السكان البلديون» (population municipale)، أي دون احتساب السكان المحسوبين على حدة (population comptée à part)، مثل الثكنات والداخليات."
   pop_share:
     agg: sum
     theme: population
@@ -41,6 +50,8 @@ indicators:
     ar: الحصة من سكان المملكة
     unit: "%"
     definition: Commune population divided by the sum over all commune rows, times 100.
+    definition_fr: "Population de la commune divisée par la somme de toutes les lignes de communes, multipliée par 100."
+    definition_ar: "سكان الجماعة مقسومين على مجموع سكان كل صفوف الجماعات، مضروبا في 100."
   is_urban:
     theme: population
     en: Urban commune
@@ -48,9 +59,13 @@ indicators:
     ar: جماعة حضرية
     unit: flag
     definition: 1 for municipalities and arrondissements, 0 for rural communes.
+    definition_fr: "1 pour les municipalités et les arrondissements, 0 pour les communes rurales."
+    definition_ar: "1 للبلديات والمقاطعات، و0 للجماعات القروية."
     note: 2014 uses the '(Mun.)'/'(Arrond.)' suffix of HCP's commune name; 2024 flags communes with no
       rural population. The two agree for every commune matched across both censuses; 2024 has fewer
       urban units because the six arrondissement cities are single communes there.
+    note_fr: "En 2014, d'après le suffixe '(Mun.)'/'(Arrond.)' du nom de commune du HCP ; en 2024, sont signalées les communes sans population rurale. Les deux concordent pour toutes les communes appariées entre les deux recensements ; 2024 compte moins d'unités urbaines car les six villes à arrondissements y sont des communes uniques."
+    note_ar: "تعتمد سنة 2014 على اللاحقة «(Mun.)» أو «(Arrond.)» في اسم الجماعة لدى المندوبية السامية للتخطيط؛ وتصنّف سنة 2024 كحضرية الجماعات التي لا يوجد بها سكان قرويون. ويتطابق التصنيفان في كل الجماعات المتقابلة بين الإحصاءين؛ ويقل عدد الوحدات الحضرية في 2024 لأن المدن الست المقسمة إلى مقاطعات تظهر فيها كجماعات موحدة."
   n_households:
     agg: sum
     theme: population
@@ -59,6 +74,8 @@ indicators:
     ar: الأسر
     unit: households
     definition: Number of ordinary households.
+    definition_fr: "Nombre de ménages ordinaires."
+    definition_ar: "عدد الأسر العادية."
   hh_size_avg:
     weight: households
     theme: population
@@ -67,6 +84,8 @@ indicators:
     ar: متوسط حجم الأسرة
     unit: persons
     definition: Persons per ordinary household.
+    definition_fr: "Nombre de personnes par ménage ordinaire."
+    definition_ar: "عدد الأفراد في الأسرة العادية."
   pct_female:
     theme: population
     en: Female share
@@ -74,7 +93,11 @@ indicators:
     ar: نسبة الإناث
     unit: "%"
     definition: Women as a share of the population.
+    definition_fr: "Part des femmes dans la population."
+    definition_ar: "نسبة النساء من مجموع السكان."
     note: "2014 is computed from HCP's female and total population municipale."
+    note_fr: "Pour 2014, calculé à partir de la population municipale féminine et totale du HCP."
+    note_ar: "حُسبت قيمة 2014 انطلاقا من عدد الإناث ومجموع السكان البلديين (population municipale) لدى المندوبية السامية للتخطيط."
   age_0_4:
     theme: age
     en: Aged 0-4
@@ -82,6 +105,8 @@ indicators:
     ar: الفئة العمرية 0-4 سنوات
     unit: "%"
     definition: Share of the population aged 0 to 4.
+    definition_fr: "Part de la population âgée de 0 à 4 ans."
+    definition_ar: "نسبة السكان البالغين من العمر 0 إلى 4 سنوات."
   age_5_9:
     theme: age
     en: Aged 5-9
@@ -89,6 +114,8 @@ indicators:
     ar: الفئة العمرية 5-9 سنوات
     unit: "%"
     definition: Share of the population aged 5 to 9.
+    definition_fr: "Part de la population âgée de 5 à 9 ans."
+    definition_ar: "نسبة السكان البالغين من العمر 5 إلى 9 سنوات."
   age_10_14:
     theme: age
     en: Aged 10-14
@@ -96,6 +123,8 @@ indicators:
     ar: الفئة العمرية 10-14 سنة
     unit: "%"
     definition: Share of the population aged 10 to 14.
+    definition_fr: "Part de la population âgée de 10 à 14 ans."
+    definition_ar: "نسبة السكان البالغين من العمر 10 إلى 14 سنة."
   isf:
     theme: fertility
     en: Total fertility rate
@@ -103,7 +132,11 @@ indicators:
     ar: المؤشر التركيبي للخصوبة
     unit: children per woman
     definition: "Mean number of live births a woman would have at the fertility rates of the 12 months before the census."
+    definition_fr: "Nombre moyen de naissances vivantes qu'aurait une femme selon les taux de fécondité des 12 mois précédant le recensement."
+    definition_ar: "متوسط عدد المواليد الأحياء الذين ستنجبهم المرأة وفق معدلات الخصوبة المسجلة خلال 12 شهرا السابقة للإحصاء."
     note: "2024 is HCP's 'indicateur conjoncturel de fécondité', the same measure under another name."
+    note_fr: "Pour 2024 : 'indicateur conjoncturel de fécondité' du HCP, même mesure sous un autre nom."
+    note_ar: "قيمة 2024 هي «المؤشر الظرفي للخصوبة» لدى المندوبية السامية للتخطيط (indicateur conjoncturel de fécondité)، وهو المقياس نفسه تحت تسمية أخرى."
   birth_rate:
     theme: fertility
     en: Crude birth rate
@@ -111,6 +144,8 @@ indicators:
     ar: معدل الولادات
     unit: per 1,000
     definition: Live births per 1,000 population.
+    definition_fr: "Naissances vivantes pour 1 000 habitants."
+    definition_ar: "عدد المواليد الأحياء لكل 1000 نسمة."
   infant_mortality:
     theme: fertility
     en: Infant mortality rate
@@ -118,6 +153,8 @@ indicators:
     ar: معدل وفيات الرضع
     unit: per 1,000 births
     definition: Deaths under age one per 1,000 live births.
+    definition_fr: "Décès d'enfants de moins d'un an pour 1 000 naissances vivantes."
+    definition_ar: "عدد الوفيات دون سن السنة الواحدة لكل 1000 مولود حي."
   pct_illiterate:
     theme: education
     en: Illiteracy rate
@@ -125,14 +162,18 @@ indicators:
     ar: معدل الأمية
     unit: "%"
     definition: Share of the population aged 10 and over who cannot read and write.
+    definition_fr: "Part de la population âgée de 10 ans et plus ne sachant ni lire ni écrire."
+    definition_ar: "نسبة السكان البالغين 10 سنوات فأكثر الذين لا يعرفون القراءة والكتابة."
   pct_no_lang_written:
+    theme: "languages"
     en: Reads and writes no language
     fr: Ne lit et n'écrit aucune langue
     ar: لا يقرأ ولا يكتب أي لغة
     unit: "%"
     definition: Share answering 'Aucune' to languages read and written. This is the 'illiterate'
       variable of Lehnert (2021) and Lehnert & Smirnov (2024), distinct from the illiteracy rate.
-    theme: "languages"
+    definition_fr: "Part ayant répondu 'Aucune' aux langues lues et écrites. Il s'agit de la variable 'illiterate' de Lehnert (2021) et de Lehnert & Smirnov (2024), distincte du taux d'analphabétisme."
+    definition_ar: "نسبة الذين أجابوا «لا شيء» (Aucune) عن سؤال اللغات المقروءة والمكتوبة. وهو متغير «illiterate» لدى Lehnert (2021) وLehnert & Smirnov (2024)، وهو مختلف عن معدل الأمية."
   pct_no_education:
     theme: education
     en: No schooling
@@ -140,7 +181,11 @@ indicators:
     ar: بدون مستوى دراسي
     unit: "%"
     definition: "Share of the population with no level of general education."
+    definition_fr: "Part de la population n'ayant aucun niveau d'enseignement général."
+    definition_ar: "نسبة السكان الذين ليس لهم أي مستوى دراسي في التعليم العام."
     note: "2004 is a share of the population aged 25 and over, and HCP's 2004 levels sum to about 96% (a category is not published); 2014 and 2024 are HCP's commune shares on a wider base, so 2004 levels are not comparable."
+    note_fr: "En 2004, part de la population âgée de 25 ans et plus ; les niveaux 2004 du HCP totalisent environ 96 % (une catégorie n'est pas publiée). En 2014 et 2024, parts communales du HCP sur une base plus large : les niveaux de 2004 ne sont donc pas comparables."
+    note_ar: "قيمة 2004 نسبة من السكان البالغين 25 سنة فأكثر، ومجموع مستويات 2004 لدى المندوبية السامية للتخطيط يقارب 96% (فئة واحدة غير منشورة)؛ أما قيمتا 2014 و2024 فهما نسب المندوبية على مستوى الجماعة على قاعدة أوسع، لذا فمستويات 2004 غير قابلة للمقارنة."
     comparable: false
   pct_no_diploma:
     theme: education
@@ -149,6 +194,8 @@ indicators:
     ar: بدون شهادة
     unit: "%"
     definition: "Share of the population aged 10 and over with no general-education diploma."
+    definition_fr: "Part de la population âgée de 10 ans et plus sans diplôme de l'enseignement général."
+    definition_ar: "نسبة السكان البالغين 10 سنوات فأكثر الذين لا يتوفرون على أي شهادة في التعليم العام."
   pct_higher_ed:
     theme: education
     en: Higher-education diploma
@@ -156,6 +203,8 @@ indicators:
     ar: شهادة التعليم العالي
     unit: "%"
     definition: "Share of the population aged 10 and over whose highest diploma is a DEUG, licence, master, doctorate or equivalent (sum of the two diploma indicators)."
+    definition_fr: "Part de la population âgée de 10 ans et plus dont le plus haut diplôme est un DEUG, une licence, un master, un doctorat ou équivalent (somme des deux indicateurs de diplôme)."
+    definition_ar: "نسبة السكان البالغين 10 سنوات فأكثر الذين أعلى شهادة لديهم هي DEUG أو الإجازة أو الماستر أو الدكتوراه أو ما يعادلها (مجموع مؤشري الشهادتين)."
   activity_rate:
     theme: employment
     en: Activity rate
@@ -163,8 +212,12 @@ indicators:
     ar: معدل النشاط
     unit: "%"
     definition: Economically active population as a share of the working-age population.
+    definition_fr: "Population active rapportée à la population en âge de travailler."
+    definition_ar: "نسبة السكان النشيطين من السكان في سن النشاط."
     note: 2004 is the share 'Actifs' in the app's activity table; 2014 is the 'taux net d'activité';
       2024 is the activity rate of those aged 15 and over. Bases differ, so compare levels with care.
+    note_fr: "En 2004, part des 'Actifs' dans le tableau d'activité de l'application ; en 2014, 'taux net d'activité' ; en 2024, taux d'activité des 15 ans et plus. Les bases diffèrent : comparer les niveaux avec prudence."
+    note_ar: "قيمة 2004 هي نسبة «النشيطين» (Actifs) في جدول النشاط بالتطبيق؛ وقيمة 2014 هي «معدل النشاط الصافي» (taux net d'activité)؛ وقيمة 2024 هي معدل نشاط السكان البالغين 15 سنة فأكثر. تختلف القواعد، لذا ينبغي الحذر عند مقارنة المستويات."
     comparable: false
   unemployment_rate:
     theme: employment
@@ -173,6 +226,8 @@ indicators:
     ar: معدل البطالة
     unit: "%"
     definition: "Unemployed persons as a share of the active population aged 15 and over."
+    definition_fr: "Chômeurs rapportés à la population active âgée de 15 ans et plus."
+    definition_ar: "نسبة العاطلين من السكان النشيطين البالغين 15 سنة فأكثر."
   pop_active_occupee:
     agg: sum
     theme: employment
@@ -181,6 +236,8 @@ indicators:
     ar: السكان النشيطون المشتغلون (15 سنة فأكثر)
     unit: persons
     definition: Employed persons aged 15 and over.
+    definition_fr: "Actifs occupés âgés de 15 ans et plus."
+    definition_ar: "النشيطون المشتغلون البالغون 15 سنة فأكثر."
   pct_agriculture:
     theme: "occupation"
     en: "Agriculture, forestry and fishing"
@@ -188,24 +245,34 @@ indicators:
     ar: "الفلاحة والغابات والصيد البحري"
     unit: "%"
     definition: "Share of employed persons working in agriculture, forestry and fishing."
+    definition_fr: "Part des actifs occupés travaillant dans l'agriculture, la sylviculture et la pêche."
+    definition_ar: "نسبة النشيطين المشتغلين في الفلاحة والغابات والصيد البحري."
     note: "2004 is a share of employed persons plus unemployed persons who have worked before; 2014 is a share of employed persons aged 15 and over."
+    note_fr: "En 2004, part des actifs occupés et des chômeurs ayant déjà travaillé ; en 2014, part des actifs occupés âgés de 15 ans et plus."
+    note_ar: "قيمة 2004 نسبة من النشيطين المشتغلين مضافا إليهم العاطلين الذين سبق لهم أن اشتغلوا؛ وقيمة 2014 نسبة من النشيطين المشتغلين البالغين 15 سنة فأكثر."
     comparable: false
   pct_women_divorced:
     theme: family
-    unit: "%"
     en: "Divorced women"
     fr: "Femmes divorcées"
     ar: "النساء المطلقات"
+    unit: "%"
     definition: "Share of women aged 15 and over who are divorced."
+    definition_fr: "Part des femmes âgées de 15 ans et plus qui sont divorcées."
+    definition_ar: "نسبة النساء المطلقات من النساء البالغات 15 سنة فأكثر."
     note: "2004 is computed from the female counts of the marital-status table; 2014 and 2024 are HCP's female 'Divorcé' shares. The 2014 base is wider than 15 and over (see Divorced)."
+    note_fr: "En 2004, calculé à partir des effectifs féminins du tableau de l'état matrimonial ; en 2014 et 2024, parts féminines 'Divorcé' du HCP. La base de 2014 est plus large que les 15 ans et plus (voir Divorcé(e)s)."
+    note_ar: "حُسبت قيمة 2004 انطلاقا من أعداد الإناث في جدول الحالة الزواجية؛ وقيمتا 2014 و2024 هما نسب «المطلقات» (Divorcé) لدى المندوبية السامية للتخطيط. قاعدة 2014 أوسع من فئة 15 سنة فأكثر (انظر المطلقون والمطلقات)."
     comparable: false
   pct_migrant_since99:
-    theme: family
+    theme: migration
     en: Moved in since 1999
     fr: Résidait dans une autre commune en 1999
     ar: كان يقيم في جماعة أخرى سنة 1999
     unit: "%"
     definition: Share whose 1999 residence was a different commune.
+    definition_fr: "Part dont la résidence en 1999 se trouvait dans une autre commune."
+    definition_ar: "نسبة الذين كانوا يقيمون سنة 1999 في جماعة أخرى."
   pct_owner:
     weight: households
     theme: housing
@@ -214,6 +281,8 @@ indicators:
     ar: الأسر المالكة
     unit: "%"
     definition: Share of households owning their dwelling.
+    definition_fr: "Part des ménages propriétaires de leur logement."
+    definition_ar: "نسبة الأسر المالكة لمسكنها."
   pct_renter:
     weight: households
     theme: housing
@@ -222,6 +291,8 @@ indicators:
     ar: الأسر المكترية
     unit: "%"
     definition: Share of households renting their dwelling.
+    definition_fr: "Part des ménages locataires de leur logement."
+    definition_ar: "نسبة الأسر المكترية لمسكنها."
   pct_electricity:
     weight: households
     theme: housing
@@ -230,7 +301,11 @@ indicators:
     ar: الكهرباء
     unit: "%"
     definition: Share of households with electricity.
+    definition_fr: "Part des ménages disposant de l'électricité."
+    definition_ar: "نسبة الأسر التي تتوفر على الكهرباء."
     note: "2024 counts households connected to the public grid or lit by solar power or a generator."
+    note_fr: "En 2024, sont comptés les ménages raccordés au réseau public ou éclairés à l'énergie solaire ou par un groupe électrogène."
+    note_ar: "تحتسب قيمة 2024 الأسر المرتبطة بالشبكة العمومية أو التي تستعمل الطاقة الشمسية أو مولدا كهربائيا للإنارة."
   pct_water:
     weight: households
     theme: housing
@@ -239,6 +314,8 @@ indicators:
     ar: الماء الجاري
     unit: "%"
     definition: "Share of households whose dwelling is connected to a piped water network."
+    definition_fr: "Part des ménages dont le logement est raccordé à un réseau de distribution d'eau courante."
+    definition_ar: "نسبة الأسر التي يرتبط مسكنها بشبكة الماء الجاري."
   pct_cellphone:
     weight: households
     theme: "equipment"
@@ -247,7 +324,11 @@ indicators:
     ar: الهاتف المحمول
     unit: "%"
     definition: "Share of households with a mobile phone."
+    definition_fr: "Part des ménages disposant d'un téléphone portable."
+    definition_ar: "نسبة الأسر التي تتوفر على هاتف محمول."
     note: "Household equipment is not published at commune level for 2024."
+    note_fr: "L'équipement des ménages n'est pas publié au niveau communal pour 2024."
+    note_ar: "تجهيزات الأسر غير منشورة على مستوى الجماعة بالنسبة لسنة 2024."
   pct_internet:
     weight: households
     theme: "equipment"
@@ -256,7 +337,11 @@ indicators:
     ar: الإنترنت
     unit: "%"
     definition: "Share of households with internet access."
+    definition_fr: "Part des ménages ayant accès à internet."
+    definition_ar: "نسبة الأسر التي تتوفر على الولوج إلى الإنترنت."
     note: "Household equipment is not published at commune level for 2024."
+    note_fr: "L'équipement des ménages n'est pas publié au niveau communal pour 2024."
+    note_ar: "تجهيزات الأسر غير منشورة على مستوى الجماعة بالنسبة لسنة 2024."
   pct_tv:
     weight: households
     theme: "equipment"
@@ -265,7 +350,11 @@ indicators:
     ar: التلفاز
     unit: "%"
     definition: "Share of households with a television."
+    definition_fr: "Part des ménages disposant d'un téléviseur."
+    definition_ar: "نسبة الأسر التي تتوفر على جهاز تلفاز."
     note: "Household equipment is not published at commune level for 2024."
+    note_fr: "L'équipement des ménages n'est pas publié au niveau communal pour 2024."
+    note_ar: "تجهيزات الأسر غير منشورة على مستوى الجماعة بالنسبة لسنة 2024."
   pct_slum:
     theme: housing
     en: Makeshift housing or slum
@@ -273,7 +362,11 @@ indicators:
     ar: مسكن بدائي أو صفيحي
     unit: "%"
     definition: "Share of households living in a makeshift dwelling or a slum (maison sommaire, bidonville)."
+    definition_fr: "Part des ménages vivant dans une maison sommaire ou un bidonville."
+    definition_ar: "نسبة الأسر القاطنة في مسكن بدائي أو صفيحي (maison sommaire, bidonville)."
     note: "2014 category is 'Habitat sommaire'. In 89 communes HCP's 2004 dwelling-type shares sum to less than 100% as published."
+    note_fr: "En 2014, la catégorie est 'Habitat sommaire'. Dans 89 communes, les parts des types de logement de 2004 publiées par le HCP totalisent moins de 100 %."
+    note_ar: "فئة 2014 هي «السكن البدائي» (Habitat sommaire). وفي 89 جماعة يقل مجموع نسب أنواع المساكن لسنة 2004 كما نشرتها المندوبية السامية للتخطيط عن 100%."
   idh:
     theme: poverty
     en: Human development index (IDH)
@@ -281,6 +374,8 @@ indicators:
     ar: مؤشر التنمية البشرية
     unit: index 0-1
     definition: HCP's commune human development index (education, health, standard of living).
+    definition_fr: "Indice de développement humain communal du HCP (éducation, santé, niveau de vie)."
+    definition_ar: "مؤشر التنمية البشرية على مستوى الجماعة لدى المندوبية السامية للتخطيط (التعليم والصحة ومستوى المعيشة)."
   ids:
     theme: poverty
     en: Social development index (IDS)
@@ -288,6 +383,8 @@ indicators:
     ar: مؤشر التنمية الاجتماعية
     unit: index 0-1
     definition: HCP's commune social development index. Not computed for urban municipalities (390 missing).
+    definition_fr: "Indice de développement social communal du HCP. Non calculé pour les municipalités urbaines (390 valeurs manquantes)."
+    definition_ar: "مؤشر التنمية الاجتماعية على مستوى الجماعة لدى المندوبية السامية للتخطيط. لا يُحتسب للبلديات الحضرية (390 قيمة مفقودة)."
   poverty_rate:
     theme: poverty
     en: Monetary poverty rate
@@ -295,6 +392,8 @@ indicators:
     ar: معدل الفقر
     unit: "%"
     definition: Share of the population below the monetary poverty line (small-area estimate).
+    definition_fr: "Part de la population sous le seuil de pauvreté monétaire (estimation sur petits domaines)."
+    definition_ar: "نسبة السكان الموجودين تحت خط الفقر النقدي (تقدير على مستوى المجالات الصغرى)."
   vulnerability_monetary:
     theme: poverty
     en: Monetary vulnerability
@@ -302,6 +401,8 @@ indicators:
     ar: معدل الهشاشة
     unit: "%"
     definition: Share of the population between the poverty line and 1.5 times it.
+    definition_fr: "Part de la population située entre le seuil de pauvreté et 1,5 fois ce seuil."
+    definition_ar: "نسبة السكان الذين يقع مستوى عيشهم بين خط الفقر و1.5 مرة هذا الخط."
   poverty_severity:
     theme: poverty
     en: Poverty severity
@@ -309,6 +410,8 @@ indicators:
     ar: حدة الفقر
     unit: index
     definition: Squared poverty gap (FGT2).
+    definition_fr: "Écart de pauvreté au carré (FGT2)."
+    definition_ar: "مربع فجوة الفقر (FGT2)."
   inequality:
     theme: poverty
     en: Inequality
@@ -316,6 +419,8 @@ indicators:
     ar: مؤشر اللامساواة
     unit: index
     definition: Inequality index as printed in HCP's 2004 annex.
+    definition_fr: "Indice d'inégalité tel qu'imprimé dans l'annexe 2004 du HCP."
+    definition_ar: "مؤشر اللامساواة كما ورد في ملحق 2004 للمندوبية السامية للتخطيط."
   mpi_carto:
     theme: poverty
     en: Multidimensional poverty index (poverty map)
@@ -323,7 +428,11 @@ indicators:
     ar: مؤشر الفقر متعدد الأبعاد (خريطة الفقر)
     unit: "%"
     definition: MPI (H x A) from HCP's 2004-2014 commune poverty map, expressed in percent.
+    definition_fr: "IPM (H x A) issu de la carte communale de la pauvreté 2004-2014 du HCP, exprimé en pourcentage."
+    definition_ar: "مؤشر الفقر متعدد الأبعاد MPI (H x A) من خريطة الفقر الجماعية 2004-2014 للمندوبية السامية للتخطيط، معبرا عنه بالنسبة المئوية."
     note: Not the same methodology or scale as the 2014/2024 MPI database; do not mix the two series.
+    note_fr: "Méthodologie et échelle différentes de celles de la base de données MPI 2014/2024 ; ne pas combiner les deux séries."
+    note_ar: "ليس بنفس المنهجية ولا بنفس السلم المعتمدين في قاعدة بيانات MPI لسنتي 2014/2024؛ لا ينبغي الخلط بين السلسلتين."
   mpi_rate_carto:
     theme: poverty
     en: Multidimensional poverty rate (poverty map)
@@ -331,6 +440,8 @@ indicators:
     ar: معدل الفقر متعدد الأبعاد (خريطة الفقر)
     unit: "%"
     definition: Headcount H from HCP's 2004-2014 poverty map.
+    definition_fr: "Incidence H issue de la carte de la pauvreté 2004-2014 du HCP."
+    definition_ar: "نسبة الفقراء H من خريطة الفقر 2004-2014 للمندوبية السامية للتخطيط."
   mpi_intensity_carto:
     theme: poverty
     en: Intensity of deprivation (poverty map)
@@ -338,6 +449,8 @@ indicators:
     ar: شدة الحرمان لدى الفقراء (خريطة الفقر)
     unit: "%"
     definition: Average deprivation share A among the poor, 2004-2014 poverty map.
+    definition_fr: "Part moyenne des privations A parmi les pauvres, carte de la pauvreté 2004-2014."
+    definition_ar: "متوسط نسبة الحرمان A لدى الفقراء، خريطة الفقر 2004-2014."
   poverty_global_carto:
     theme: poverty
     en: Overall poverty rate (poverty map)
@@ -345,6 +458,8 @@ indicators:
     ar: معدل الفقر الإجمالي (خريطة الفقر)
     unit: "%"
     definition: Share poor in monetary or multidimensional terms, 2014 poverty map.
+    definition_fr: "Part des pauvres au sens monétaire ou multidimensionnel, carte de la pauvreté 2014."
+    definition_ar: "نسبة الفقراء نقديا أو متعدد الأبعاد، خريطة الفقر 2014."
   mpi:
     theme: poverty
     en: Multidimensional poverty index
@@ -352,6 +467,8 @@ indicators:
     ar: مؤشر الفقر متعدد الأبعاد (MPI)
     unit: index 0-1
     definition: MPI = H x A from HCP's May-2025 database, computed on the same basis for 2014 and 2024.
+    definition_fr: "IPM = H x A issu de la base de données du HCP de mai 2025, calculé sur la même base pour 2014 et 2024."
+    definition_ar: "MPI = H x A من قاعدة بيانات المندوبية السامية للتخطيط الصادرة في ماي 2025، محسوبا على الأساس نفسه لسنتي 2014 و2024."
   mpi_rate:
     theme: poverty
     en: Multidimensional poverty rate
@@ -359,6 +476,8 @@ indicators:
     ar: معدل الفقر متعدد الأبعاد
     unit: "%"
     definition: Headcount H, share of the population in multidimensional poverty.
+    definition_fr: "Incidence H, part de la population en situation de pauvreté multidimensionnelle."
+    definition_ar: "نسبة الفقراء H، أي نسبة السكان الذين يعانون من الفقر متعدد الأبعاد."
   mpi_intensity:
     theme: poverty
     en: Intensity of multidimensional poverty
@@ -366,6 +485,8 @@ indicators:
     ar: شدة الفقر متعدد الأبعاد
     unit: "%"
     definition: Average deprivation share A among the multidimensionally poor.
+    definition_fr: "Part moyenne des privations A parmi les pauvres au sens multidimensionnel."
+    definition_ar: "متوسط نسبة الحرمان A لدى الفقراء متعددي الأبعاد."
   vulnerability:
     theme: poverty
     en: Vulnerability to multidimensional poverty
@@ -374,6 +495,8 @@ indicators:
     unit: "%"
     definition: Share of the population vulnerable to multidimensional poverty.
 
+    definition_fr: "Part de la population vulnérable à la pauvreté multidimensionnelle."
+    definition_ar: "نسبة السكان المعرضين للفقر متعدد الأبعاد."
   age_15_19:
     theme: "age"
     en: "Aged 15-19"
@@ -381,6 +504,8 @@ indicators:
     ar: "الفئة العمرية 15-19 سنة"
     unit: "%"
     definition: "Share of the population aged 15 to 19."
+    definition_fr: "Part de la population âgée de 15 à 19 ans."
+    definition_ar: "نسبة السكان البالغين من العمر 15 إلى 19 سنة."
   age_20_24:
     theme: "age"
     en: "Aged 20-24"
@@ -388,6 +513,8 @@ indicators:
     ar: "الفئة العمرية 20-24 سنة"
     unit: "%"
     definition: "Share of the population aged 20 to 24."
+    definition_fr: "Part de la population âgée de 20 à 24 ans."
+    definition_ar: "نسبة السكان البالغين من العمر 20 إلى 24 سنة."
   age_25_29:
     theme: "age"
     en: "Aged 25-29"
@@ -395,6 +522,8 @@ indicators:
     ar: "الفئة العمرية 25-29 سنة"
     unit: "%"
     definition: "Share of the population aged 25 to 29."
+    definition_fr: "Part de la population âgée de 25 à 29 ans."
+    definition_ar: "نسبة السكان البالغين من العمر 25 إلى 29 سنة."
   age_30_34:
     theme: "age"
     en: "Aged 30-34"
@@ -402,6 +531,8 @@ indicators:
     ar: "الفئة العمرية 30-34 سنة"
     unit: "%"
     definition: "Share of the population aged 30 to 34."
+    definition_fr: "Part de la population âgée de 30 à 34 ans."
+    definition_ar: "نسبة السكان البالغين من العمر 30 إلى 34 سنة."
   age_35_39:
     theme: "age"
     en: "Aged 35-39"
@@ -409,6 +540,8 @@ indicators:
     ar: "الفئة العمرية 35-39 سنة"
     unit: "%"
     definition: "Share of the population aged 35 to 39."
+    definition_fr: "Part de la population âgée de 35 à 39 ans."
+    definition_ar: "نسبة السكان البالغين من العمر 35 إلى 39 سنة."
   age_40_44:
     theme: "age"
     en: "Aged 40-44"
@@ -416,6 +549,8 @@ indicators:
     ar: "الفئة العمرية 40-44 سنة"
     unit: "%"
     definition: "Share of the population aged 40 to 44."
+    definition_fr: "Part de la population âgée de 40 à 44 ans."
+    definition_ar: "نسبة السكان البالغين من العمر 40 إلى 44 سنة."
   age_45_49:
     theme: "age"
     en: "Aged 45-49"
@@ -423,6 +558,8 @@ indicators:
     ar: "الفئة العمرية 45-49 سنة"
     unit: "%"
     definition: "Share of the population aged 45 to 49."
+    definition_fr: "Part de la population âgée de 45 à 49 ans."
+    definition_ar: "نسبة السكان البالغين من العمر 45 إلى 49 سنة."
   age_50_54:
     theme: "age"
     en: "Aged 50-54"
@@ -430,6 +567,8 @@ indicators:
     ar: "الفئة العمرية 50-54 سنة"
     unit: "%"
     definition: "Share of the population aged 50 to 54."
+    definition_fr: "Part de la population âgée de 50 à 54 ans."
+    definition_ar: "نسبة السكان البالغين من العمر 50 إلى 54 سنة."
   age_55_59:
     theme: "age"
     en: "Aged 55-59"
@@ -437,6 +576,8 @@ indicators:
     ar: "الفئة العمرية 55-59 سنة"
     unit: "%"
     definition: "Share of the population aged 55 to 59."
+    definition_fr: "Part de la population âgée de 55 à 59 ans."
+    definition_ar: "نسبة السكان البالغين من العمر 55 إلى 59 سنة."
   age_60_64:
     theme: "age"
     en: "Aged 60-64"
@@ -444,6 +585,8 @@ indicators:
     ar: "الفئة العمرية 60-64 سنة"
     unit: "%"
     definition: "Share of the population aged 60 to 64."
+    definition_fr: "Part de la population âgée de 60 à 64 ans."
+    definition_ar: "نسبة السكان البالغين من العمر 60 إلى 64 سنة."
   age_65_69:
     theme: "age"
     en: "Aged 65-69"
@@ -451,6 +594,8 @@ indicators:
     ar: "الفئة العمرية 65-69 سنة"
     unit: "%"
     definition: "Share of the population aged 65 to 69."
+    definition_fr: "Part de la population âgée de 65 à 69 ans."
+    definition_ar: "نسبة السكان البالغين من العمر 65 إلى 69 سنة."
   age_70_74:
     theme: "age"
     en: "Aged 70-74"
@@ -458,6 +603,8 @@ indicators:
     ar: "الفئة العمرية 70-74 سنة"
     unit: "%"
     definition: "Share of the population aged 70 to 74."
+    definition_fr: "Part de la population âgée de 70 à 74 ans."
+    definition_ar: "نسبة السكان البالغين من العمر 70 إلى 74 سنة."
   age_75plus:
     theme: "age"
     en: "Aged 75 and over"
@@ -465,6 +612,8 @@ indicators:
     ar: "الفئة العمرية 75 سنة فأكثر"
     unit: "%"
     definition: "Share of the population aged 75 and over."
+    definition_fr: "Part de la population âgée de 75 ans et plus."
+    definition_ar: "نسبة السكان البالغين 75 سنة فأكثر."
   age_60plus:
     theme: "age"
     en: "Aged 60 and over"
@@ -472,6 +621,8 @@ indicators:
     ar: "الفئة العمرية 60 سنة فأكثر"
     unit: "%"
     definition: "Share of the population aged 60 and over."
+    definition_fr: "Part de la population âgée de 60 ans et plus."
+    definition_ar: "نسبة السكان البالغين 60 سنة فأكثر."
   age_65plus:
     theme: "age"
     en: "Aged 65 and over"
@@ -479,6 +630,8 @@ indicators:
     ar: "الفئة العمرية 65 سنة فأكثر"
     unit: "%"
     definition: "Share of the population aged 65 and over."
+    definition_fr: "Part de la population âgée de 65 ans et plus."
+    definition_ar: "نسبة السكان البالغين 65 سنة فأكثر."
   pct_disability:
     theme: "population"
     en: "Disability prevalence"
@@ -486,6 +639,8 @@ indicators:
     ar: "معدل انتشار الإعاقة"
     unit: "%"
     definition: "Share of the population with a total incapacity or much difficulty in at least one of six functional domains (sight, hearing, mobility, communication, memory, self-care)."
+    definition_fr: "Part de la population présentant une incapacité totale ou une grande difficulté dans au moins un des six domaines fonctionnels (vue, ouïe, mobilité, communication, mémoire, soins personnels)."
+    definition_ar: "نسبة السكان الذين يعانون من عجز كلي أو صعوبة كبيرة في مجال واحد على الأقل من المجالات الوظيفية الستة (البصر، السمع، الحركة، التواصل، التذكر، العناية الذاتية)."
   pct_single:
     theme: "family"
     en: "Never married"
@@ -493,7 +648,11 @@ indicators:
     ar: "العزاب"
     unit: "%"
     definition: "Share never married in the marital-status distribution."
+    definition_fr: "Part des célibataires dans la répartition selon l'état matrimonial."
+    definition_ar: "نسبة العزاب في توزيع السكان حسب الحالة الزواجية."
     note: "2004 and 2024 are shares of the population aged 15 and over. HCP's 2014 commune table uses a wider base (never-married is about 53% at the median commune, against 31% in 2024), so 2014 levels are not comparable."
+    note_fr: "En 2004 et 2024, parts de la population âgée de 15 ans et plus. Le tableau communal 2014 du HCP utilise une base plus large (environ 53 % de célibataires dans la commune médiane, contre 31 % en 2024) : les niveaux de 2014 ne sont donc pas comparables."
+    note_ar: "قيمتا 2004 و2024 نسبتان من السكان البالغين 15 سنة فأكثر. ويعتمد جدول 2014 الجماعي للمندوبية السامية للتخطيط قاعدة أوسع (تبلغ نسبة العزاب نحو 53% في الجماعة الوسيطة، مقابل 31% سنة 2024)، لذا فمستويات 2014 غير قابلة للمقارنة."
     comparable: false
   pct_married:
     theme: "family"
@@ -502,7 +661,11 @@ indicators:
     ar: "المتزوجون"
     unit: "%"
     definition: "Share married in the marital-status distribution."
+    definition_fr: "Part des marié(e)s dans la répartition selon l'état matrimonial."
+    definition_ar: "نسبة المتزوجين في توزيع السكان حسب الحالة الزواجية."
     note: "2004 and 2024 are shares of the population aged 15 and over. HCP's 2014 commune table uses a wider base (never-married is about 53% at the median commune, against 31% in 2024), so 2014 levels are not comparable."
+    note_fr: "En 2004 et 2024, parts de la population âgée de 15 ans et plus. Le tableau communal 2014 du HCP utilise une base plus large (environ 53 % de célibataires dans la commune médiane, contre 31 % en 2024) : les niveaux de 2014 ne sont donc pas comparables."
+    note_ar: "قيمتا 2004 و2024 نسبتان من السكان البالغين 15 سنة فأكثر. ويعتمد جدول 2014 الجماعي للمندوبية السامية للتخطيط قاعدة أوسع (تبلغ نسبة العزاب نحو 53% في الجماعة الوسيطة، مقابل 31% سنة 2024)، لذا فمستويات 2014 غير قابلة للمقارنة."
     comparable: false
   pct_divorced:
     theme: "family"
@@ -511,7 +674,11 @@ indicators:
     ar: "المطلقون والمطلقات"
     unit: "%"
     definition: "Share divorced in the marital-status distribution, both sexes."
+    definition_fr: "Part des divorcé(e)s dans la répartition selon l'état matrimonial, deux sexes confondus."
+    definition_ar: "نسبة المطلقين في توزيع السكان حسب الحالة الزواجية، للجنسين معا."
     note: "2004 and 2024 are shares of the population aged 15 and over. HCP's 2014 commune table uses a wider base (never-married is about 53% at the median commune, against 31% in 2024), so 2014 levels are not comparable."
+    note_fr: "En 2004 et 2024, parts de la population âgée de 15 ans et plus. Le tableau communal 2014 du HCP utilise une base plus large (environ 53 % de célibataires dans la commune médiane, contre 31 % en 2024) : les niveaux de 2014 ne sont donc pas comparables."
+    note_ar: "قيمتا 2004 و2024 نسبتان من السكان البالغين 15 سنة فأكثر. ويعتمد جدول 2014 الجماعي للمندوبية السامية للتخطيط قاعدة أوسع (تبلغ نسبة العزاب نحو 53% في الجماعة الوسيطة، مقابل 31% سنة 2024)، لذا فمستويات 2014 غير قابلة للمقارنة."
     comparable: false
   pct_widowed:
     theme: "family"
@@ -520,7 +687,11 @@ indicators:
     ar: "الأرامل"
     unit: "%"
     definition: "Share widowed in the marital-status distribution."
+    definition_fr: "Part des veufs et veuves dans la répartition selon l'état matrimonial."
+    definition_ar: "نسبة الأرامل في توزيع السكان حسب الحالة الزواجية."
     note: "2004 and 2024 are shares of the population aged 15 and over. HCP's 2014 commune table uses a wider base (never-married is about 53% at the median commune, against 31% in 2024), so 2014 levels are not comparable."
+    note_fr: "En 2004 et 2024, parts de la population âgée de 15 ans et plus. Le tableau communal 2014 du HCP utilise une base plus large (environ 53 % de célibataires dans la commune médiane, contre 31 % en 2024) : les niveaux de 2014 ne sont donc pas comparables."
+    note_ar: "قيمتا 2004 و2024 نسبتان من السكان البالغين 15 سنة فأكثر. ويعتمد جدول 2014 الجماعي للمندوبية السامية للتخطيط قاعدة أوسع (تبلغ نسبة العزاب نحو 53% في الجماعة الوسيطة، مقابل 31% سنة 2024)، لذا فمستويات 2014 غير قابلة للمقارنة."
     comparable: false
   age_first_marriage:
     theme: "family"
@@ -529,7 +700,11 @@ indicators:
     ar: "متوسط السن عند الزواج الأول"
     unit: "years"
     definition: "Mean age at first marriage, both sexes."
+    definition_fr: "Âge moyen au premier mariage, deux sexes confondus."
+    definition_ar: "متوسط السن عند الزواج الأول، للجنسين معا."
     note: "2024 is HCP's singulate mean age at marriage (âge moyen singulier au mariage): the mean years spent single by people who married before 55."
+    note_fr: "Pour 2024, âge moyen singulier au mariage du HCP : nombre moyen d'années passées en célibat par les personnes mariées avant 55 ans."
+    note_ar: "قيمة 2024 هي متوسط السن عند الزواج الأول المحسوب بطريقة العزوبة لدى المندوبية السامية للتخطيط (âge moyen singulier au mariage): متوسط عدد السنوات التي قضاها في العزوبة الأشخاص الذين تزوجوا قبل سن 55."
   completed_fertility:
     theme: "fertility"
     en: "Completed fertility"
@@ -537,7 +712,11 @@ indicators:
     ar: "الخصوبة المكتملة"
     unit: "children per woman"
     definition: "Mean number of live births to women aged 45-49, at the end of their reproductive years."
+    definition_fr: "Nombre moyen de naissances vivantes des femmes âgées de 45-49 ans, en fin de vie féconde."
+    definition_ar: "متوسط عدد المواليد الأحياء لدى النساء البالغات 45-49 سنة، في نهاية فترة الإنجاب."
     note: "2014 is HCP's mean parity at 45-49 (parité moyenne à 45-49 ans); 2024 is its descendance finale, computed for the same age group."
+    note_fr: "Pour 2014, parité moyenne à 45-49 ans du HCP ; pour 2024, sa descendance finale, calculée pour le même groupe d'âge."
+    note_ar: "قيمة 2014 هي متوسط عدد الولادات عند 45-49 سنة لدى المندوبية السامية للتخطيط (parité moyenne à 45-49 ans)؛ وقيمة 2024 هي الخصوبة المكتملة (descendance finale)، محسوبا للفئة العمرية نفسها."
   school_enrolment:
     theme: "education"
     en: "School enrolment of young children"
@@ -545,7 +724,11 @@ indicators:
     ar: "معدل تمدرس الأطفال الصغار"
     unit: "%"
     definition: "Share of children aged 7-12 at the census date who were enrolled in school."
+    definition_fr: "Part des enfants âgés de 7-12 ans à la date du recensement qui étaient scolarisés."
+    definition_ar: "نسبة الأطفال البالغين 7-12 سنة في تاريخ الإحصاء المسجلين بالمدرسة."
     note: "HCP labels the 2024 group by age during the 2023/24 school year (6-11), which is the 7-12 group at the census date."
+    note_fr: "Le HCP désigne le groupe de 2024 par l'âge au cours de l'année scolaire 2023/24 (6-11 ans), ce qui correspond au groupe des 7-12 ans à la date du recensement."
+    note_ar: "تصنف المندوبية السامية للتخطيط فئة 2024 حسب السن خلال السنة الدراسية 2023/24 (6-11)، وهي الفئة 7-12 في تاريخ الإحصاء."
   pct_illiterate_15plus:
     theme: "education"
     en: "Illiteracy rate (15+)"
@@ -553,6 +736,8 @@ indicators:
     ar: "معدل الأمية (15 سنة فأكثر)"
     unit: "%"
     definition: "Share of the population aged 15 and over who cannot read and write."
+    definition_fr: "Part de la population âgée de 15 ans et plus ne sachant ni lire ni écrire."
+    definition_ar: "نسبة السكان البالغين 15 سنة فأكثر الذين لا يعرفون القراءة والكتابة."
   edu_preschool:
     theme: "education"
     en: "Preschool level"
@@ -560,6 +745,8 @@ indicators:
     ar: "المستوى الأولي"
     unit: "%"
     definition: "Share of the population whose highest level of general education is preschool."
+    definition_fr: "Part de la population dont le plus haut niveau d'enseignement général est le préscolaire."
+    definition_ar: "نسبة السكان الذين أعلى مستوى دراسي لهم في التعليم العام هو التعليم الأولي."
   edu_primary:
     theme: "education"
     en: "Primary level"
@@ -567,7 +754,11 @@ indicators:
     ar: "المستوى الابتدائي"
     unit: "%"
     definition: "Share of the population whose highest level of general education is primary school."
+    definition_fr: "Part de la population dont le plus haut niveau d'enseignement général est le primaire."
+    definition_ar: "نسبة السكان الذين أعلى مستوى دراسي لهم في التعليم العام هو التعليم الابتدائي."
     note: "2004 is a share of the population aged 25 and over, and HCP's 2004 levels sum to about 96% (a category is not published); 2014 and 2024 are HCP's commune shares on a wider base, so 2004 levels are not comparable."
+    note_fr: "En 2004, part de la population âgée de 25 ans et plus ; les niveaux 2004 du HCP totalisent environ 96 % (une catégorie n'est pas publiée). En 2014 et 2024, parts communales du HCP sur une base plus large : les niveaux de 2004 ne sont donc pas comparables."
+    note_ar: "قيمة 2004 نسبة من السكان البالغين 25 سنة فأكثر، ومجموع مستويات 2004 لدى المندوبية السامية للتخطيط يقارب 96% (فئة واحدة غير منشورة)؛ أما قيمتا 2014 و2024 فهما نسب المندوبية على مستوى الجماعة على قاعدة أوسع، لذا فمستويات 2004 غير قابلة للمقارنة."
     comparable: false
   edu_lower_secondary:
     theme: "education"
@@ -576,7 +767,11 @@ indicators:
     ar: "المستوى الثانوي الإعدادي"
     unit: "%"
     definition: "Share of the population whose highest level of general education is lower-secondary school (collège)."
+    definition_fr: "Part de la population dont le plus haut niveau d'enseignement général est le secondaire collégial (collège)."
+    definition_ar: "نسبة السكان الذين أعلى مستوى دراسي لهم في التعليم العام هو الثانوي الإعدادي (collège)."
     note: "2004 is a share of the population aged 25 and over, and HCP's 2004 levels sum to about 96% (a category is not published); 2014 and 2024 are HCP's commune shares on a wider base, so 2004 levels are not comparable."
+    note_fr: "En 2004, part de la population âgée de 25 ans et plus ; les niveaux 2004 du HCP totalisent environ 96 % (une catégorie n'est pas publiée). En 2014 et 2024, parts communales du HCP sur une base plus large : les niveaux de 2004 ne sont donc pas comparables."
+    note_ar: "قيمة 2004 نسبة من السكان البالغين 25 سنة فأكثر، ومجموع مستويات 2004 لدى المندوبية السامية للتخطيط يقارب 96% (فئة واحدة غير منشورة)؛ أما قيمتا 2014 و2024 فهما نسب المندوبية على مستوى الجماعة على قاعدة أوسع، لذا فمستويات 2004 غير قابلة للمقارنة."
     comparable: false
   edu_upper_secondary:
     theme: "education"
@@ -585,7 +780,11 @@ indicators:
     ar: "المستوى الثانوي التأهيلي"
     unit: "%"
     definition: "Share of the population whose highest level of general education is upper-secondary school (lycée)."
+    definition_fr: "Part de la population dont le plus haut niveau d'enseignement général est le secondaire qualifiant (lycée)."
+    definition_ar: "نسبة السكان الذين أعلى مستوى دراسي لهم في التعليم العام هو الثانوي التأهيلي (lycée)."
     note: "2004 is a share of the population aged 25 and over, and HCP's 2004 levels sum to about 96% (a category is not published); 2014 and 2024 are HCP's commune shares on a wider base, so 2004 levels are not comparable."
+    note_fr: "En 2004, part de la population âgée de 25 ans et plus ; les niveaux 2004 du HCP totalisent environ 96 % (une catégorie n'est pas publiée). En 2014 et 2024, parts communales du HCP sur une base plus large : les niveaux de 2004 ne sont donc pas comparables."
+    note_ar: "قيمة 2004 نسبة من السكان البالغين 25 سنة فأكثر، ومجموع مستويات 2004 لدى المندوبية السامية للتخطيط يقارب 96% (فئة واحدة غير منشورة)؛ أما قيمتا 2014 و2024 فهما نسب المندوبية على مستوى الجماعة على قاعدة أوسع، لذا فمستويات 2004 غير قابلة للمقارنة."
     comparable: false
   edu_higher:
     theme: "education"
@@ -594,7 +793,11 @@ indicators:
     ar: "المستوى العالي"
     unit: "%"
     definition: "Share of the population whose highest level of general education is higher education."
+    definition_fr: "Part de la population dont le plus haut niveau d'enseignement général est le supérieur."
+    definition_ar: "نسبة السكان الذين أعلى مستوى دراسي لهم في التعليم العام هو التعليم العالي."
     note: "2004 is a share of the population aged 25 and over, and HCP's 2004 levels sum to about 96% (a category is not published); 2014 and 2024 are HCP's commune shares on a wider base, so 2004 levels are not comparable."
+    note_fr: "En 2004, part de la population âgée de 25 ans et plus ; les niveaux 2004 du HCP totalisent environ 96 % (une catégorie n'est pas publiée). En 2014 et 2024, parts communales du HCP sur une base plus large : les niveaux de 2004 ne sont donc pas comparables."
+    note_ar: "قيمة 2004 نسبة من السكان البالغين 25 سنة فأكثر، ومجموع مستويات 2004 لدى المندوبية السامية للتخطيط يقارب 96% (فئة واحدة غير منشورة)؛ أما قيمتا 2014 و2024 فهما نسب المندوبية على مستوى الجماعة على قاعدة أوسع، لذا فمستويات 2004 غير قابلة للمقارنة."
     comparable: false
   dipl_primary:
     theme: "education"
@@ -603,6 +806,8 @@ indicators:
     ar: "أعلى شهادة: الابتدائي"
     unit: "%"
     definition: "Share of the population aged 10 and over whose highest general-education diploma is primary."
+    definition_fr: "Part de la population âgée de 10 ans et plus dont le plus haut diplôme de l'enseignement général est de niveau primaire."
+    definition_ar: "نسبة السكان البالغين 10 سنوات فأكثر الذين أعلى شهادة لهم في التعليم العام هي شهادة الابتدائي."
   dipl_lower_secondary:
     theme: "education"
     en: "Highest diploma: lower secondary"
@@ -610,6 +815,8 @@ indicators:
     ar: "أعلى شهادة: الثانوي الإعدادي"
     unit: "%"
     definition: "Share of the population aged 10 and over whose highest general-education diploma is lower secondary."
+    definition_fr: "Part de la population âgée de 10 ans et plus dont le plus haut diplôme de l'enseignement général est de niveau secondaire collégial."
+    definition_ar: "نسبة السكان البالغين 10 سنوات فأكثر الذين أعلى شهادة لهم في التعليم العام هي شهادة الثانوي الإعدادي."
   dipl_upper_secondary:
     theme: "education"
     en: "Highest diploma: upper secondary"
@@ -617,6 +824,8 @@ indicators:
     ar: "أعلى شهادة: الثانوي التأهيلي"
     unit: "%"
     definition: "Share of the population aged 10 and over whose highest general-education diploma is upper secondary."
+    definition_fr: "Part de la population âgée de 10 ans et plus dont le plus haut diplôme de l'enseignement général est de niveau secondaire qualifiant."
+    definition_ar: "نسبة السكان البالغين 10 سنوات فأكثر الذين أعلى شهادة لهم في التعليم العام هي شهادة الثانوي التأهيلي."
   dipl_bachelor:
     theme: "education"
     en: "Highest diploma: DEUG, licence or equivalent"
@@ -624,6 +833,8 @@ indicators:
     ar: "أعلى شهادة: الإجازة أو ما يعادلها"
     unit: "%"
     definition: "Share of the population aged 10 and over whose highest general-education diploma is DEUG, licence or equivalent."
+    definition_fr: "Part de la population âgée de 10 ans et plus dont le plus haut diplôme de l'enseignement général est un DEUG, une licence ou équivalent."
+    definition_ar: "نسبة السكان البالغين 10 سنوات فأكثر الذين أعلى شهادة لهم في التعليم العام هي DEUG أو الإجازة أو ما يعادلهما."
   dipl_master:
     theme: "education"
     en: "Highest diploma: master, doctorate or equivalent"
@@ -631,6 +842,8 @@ indicators:
     ar: "أعلى شهادة: الماستر أو الدكتوراه أو ما يعادلهما"
     unit: "%"
     definition: "Share of the population aged 10 and over whose highest general-education diploma is master, doctorate or equivalent."
+    definition_fr: "Part de la population âgée de 10 ans et plus dont le plus haut diplôme de l'enseignement général est un master, un doctorat ou équivalent."
+    definition_ar: "نسبة السكان البالغين 10 سنوات فأكثر الذين أعلى شهادة لهم في التعليم العام هي الماستر أو الدكتوراه أو ما يعادلهما."
   voc_specialised_technician:
     theme: "education"
     en: "Vocational diploma: specialised technician"
@@ -638,6 +851,8 @@ indicators:
     ar: "شهادة التكوين المهني: تقني متخصص"
     unit: "%"
     definition: "Share of the population aged 10 and over whose highest vocational-training diploma is specialised technician (technicien spécialisé)."
+    definition_fr: "Part de la population âgée de 10 ans et plus dont le plus haut diplôme de la formation professionnelle est celui de technicien spécialisé."
+    definition_ar: "نسبة السكان البالغين 10 سنوات فأكثر الذين أعلى شهادة لهم في التكوين المهني هي تقني متخصص (technicien spécialisé)."
   voc_technician:
     theme: "education"
     en: "Vocational diploma: technician or middle manager"
@@ -645,6 +860,8 @@ indicators:
     ar: "شهادة التكوين المهني: تقني أو إطار متوسط"
     unit: "%"
     definition: "Share of the population aged 10 and over whose highest vocational-training diploma is technician or middle manager."
+    definition_fr: "Part de la population âgée de 10 ans et plus dont le plus haut diplôme de la formation professionnelle est celui de technicien ou de cadre moyen."
+    definition_ar: "نسبة السكان البالغين 10 سنوات فأكثر الذين أعلى شهادة لهم في التكوين المهني هي تقني أو إطار متوسط."
   voc_qualification:
     theme: "education"
     en: "Vocational diploma: qualification"
@@ -652,6 +869,8 @@ indicators:
     ar: "شهادة التكوين المهني: التأهيل"
     unit: "%"
     definition: "Share of the population aged 10 and over whose highest vocational-training diploma is qualification (qualification professionnelle)."
+    definition_fr: "Part de la population âgée de 10 ans et plus dont le plus haut diplôme de la formation professionnelle est celui de qualification (qualification professionnelle)."
+    definition_ar: "نسبة السكان البالغين 10 سنوات فأكثر الذين أعلى شهادة لهم في التكوين المهني هي التأهيل المهني (qualification professionnelle)."
   voc_specialisation:
     theme: "education"
     en: "Vocational diploma: specialisation"
@@ -659,6 +878,8 @@ indicators:
     ar: "شهادة التكوين المهني: التخصص"
     unit: "%"
     definition: "Share of the population aged 10 and over whose highest vocational-training diploma is specialisation (spécialisation professionnelle)."
+    definition_fr: "Part de la population âgée de 10 ans et plus dont le plus haut diplôme de la formation professionnelle est celui de spécialisation (spécialisation professionnelle)."
+    definition_ar: "نسبة السكان البالغين 10 سنوات فأكثر الذين أعلى شهادة لهم في التكوين المهني هي التخصص المهني (spécialisation professionnelle)."
   voc_initiation:
     theme: "education"
     en: "Vocational diploma: initiation"
@@ -666,6 +887,8 @@ indicators:
     ar: "شهادة التكوين المهني: الاستئناس المهني"
     unit: "%"
     definition: "Share of the population aged 10 and over whose highest vocational-training diploma is initiation (initiation professionnelle)."
+    definition_fr: "Part de la population âgée de 10 ans et plus dont le plus haut diplôme de la formation professionnelle est celui d'initiation (initiation professionnelle)."
+    definition_ar: "نسبة السكان البالغين 10 سنوات فأكثر الذين أعلى شهادة لهم في التكوين المهني هي الاستئناس المهني (initiation professionnelle)."
   pct_no_voc_diploma:
     theme: "education"
     en: "No vocational diploma"
@@ -673,6 +896,8 @@ indicators:
     ar: "بدون شهادة في التكوين المهني"
     unit: "%"
     definition: "Share of the population aged 10 and over with no vocational-training diploma."
+    definition_fr: "Part de la population âgée de 10 ans et plus sans diplôme de la formation professionnelle."
+    definition_ar: "نسبة السكان البالغين 10 سنوات فأكثر الذين لا يتوفرون على أي شهادة في التكوين المهني."
   lang_darija:
     theme: "languages"
     en: "Speaks Darija"
@@ -680,7 +905,11 @@ indicators:
     ar: "يتحدث الدارجة"
     unit: "%"
     definition: "Share of the population who speak Darija (Moroccan Arabic)."
+    definition_fr: "Part de la population parlant la darija (arabe marocain)."
+    definition_ar: "نسبة السكان الذين يتحدثون الدارجة (العربية المغربية)."
     note: "2004 counts languages spoken by the population aged 5 and over; 2014 and 2024 count local languages used. A person can use several languages."
+    note_fr: "En 2004, langues parlées par la population âgée de 5 ans et plus ; en 2014 et 2024, langues locales utilisées. Une personne peut utiliser plusieurs langues."
+    note_ar: "تحتسب قيمة 2004 اللغات التي يتحدثها السكان البالغون 5 سنوات فأكثر؛ وتحتسب قيمتا 2014 و2024 اللغات المحلية المستعملة. يمكن للشخص الواحد أن يستعمل عدة لغات."
   lang_tachelhit:
     theme: "languages"
     en: "Speaks Tachelhit"
@@ -688,7 +917,11 @@ indicators:
     ar: "يتحدث تاشلحيت"
     unit: "%"
     definition: "Share of the population who speak Tachelhit."
+    definition_fr: "Part de la population parlant le tachelhit."
+    definition_ar: "نسبة السكان الذين يتحدثون تاشلحيت."
     note: "2004 counts languages spoken by the population aged 5 and over; 2014 and 2024 count local languages used. A person can use several languages."
+    note_fr: "En 2004, langues parlées par la population âgée de 5 ans et plus ; en 2014 et 2024, langues locales utilisées. Une personne peut utiliser plusieurs langues."
+    note_ar: "تحتسب قيمة 2004 اللغات التي يتحدثها السكان البالغون 5 سنوات فأكثر؛ وتحتسب قيمتا 2014 و2024 اللغات المحلية المستعملة. يمكن للشخص الواحد أن يستعمل عدة لغات."
   lang_tamazight:
     theme: "languages"
     en: "Speaks Tamazight"
@@ -696,7 +929,11 @@ indicators:
     ar: "يتحدث تامازيغت"
     unit: "%"
     definition: "Share of the population who speak Tamazight."
+    definition_fr: "Part de la population parlant le tamazight."
+    definition_ar: "نسبة السكان الذين يتحدثون تامازيغت."
     note: "2004 counts languages spoken by the population aged 5 and over; 2014 and 2024 count local languages used. A person can use several languages."
+    note_fr: "En 2004, langues parlées par la population âgée de 5 ans et plus ; en 2014 et 2024, langues locales utilisées. Une personne peut utiliser plusieurs langues."
+    note_ar: "تحتسب قيمة 2004 اللغات التي يتحدثها السكان البالغون 5 سنوات فأكثر؛ وتحتسب قيمتا 2014 و2024 اللغات المحلية المستعملة. يمكن للشخص الواحد أن يستعمل عدة لغات."
   lang_tarifit:
     theme: "languages"
     en: "Speaks Tarifit"
@@ -704,7 +941,11 @@ indicators:
     ar: "يتحدث تاريفيت"
     unit: "%"
     definition: "Share of the population who speak Tarifit."
+    definition_fr: "Part de la population parlant le tarifit."
+    definition_ar: "نسبة السكان الذين يتحدثون تاريفيت."
     note: "2004 counts languages spoken by the population aged 5 and over; 2014 and 2024 count local languages used. A person can use several languages."
+    note_fr: "En 2004, langues parlées par la population âgée de 5 ans et plus ; en 2014 et 2024, langues locales utilisées. Une personne peut utiliser plusieurs langues."
+    note_ar: "تحتسب قيمة 2004 اللغات التي يتحدثها السكان البالغون 5 سنوات فأكثر؛ وتحتسب قيمتا 2014 و2024 اللغات المحلية المستعملة. يمكن للشخص الواحد أن يستعمل عدة لغات."
   lang_hassania:
     theme: "languages"
     en: "Speaks Hassania"
@@ -712,7 +953,11 @@ indicators:
     ar: "يتحدث الحسانية"
     unit: "%"
     definition: "Share of the population who speak Hassania."
+    definition_fr: "Part de la population parlant le hassania."
+    definition_ar: "نسبة السكان الذين يتحدثون الحسانية."
     note: "2004 counts languages spoken by the population aged 5 and over; 2014 and 2024 count local languages used. A person can use several languages."
+    note_fr: "En 2004, langues parlées par la population âgée de 5 ans et plus ; en 2014 et 2024, langues locales utilisées. Une personne peut utiliser plusieurs langues."
+    note_ar: "تحتسب قيمة 2004 اللغات التي يتحدثها السكان البالغون 5 سنوات فأكثر؛ وتحتسب قيمتا 2014 و2024 اللغات المحلية المستعملة. يمكن للشخص الواحد أن يستعمل عدة لغات."
   lit_arabic_only:
     theme: "languages"
     en: "Reads and writes Arabic only"
@@ -720,7 +965,11 @@ indicators:
     ar: "يقرأ ويكتب العربية فقط"
     unit: "%"
     definition: "Share reading and writing Arabic and no other language."
+    definition_fr: "Part lisant et écrivant l'arabe et aucune autre langue."
+    definition_ar: "نسبة الذين يقرؤون ويكتبون العربية دون أي لغة أخرى."
     note: "2004 shares are of the whole population aged 10 and over (illiterate included); 2014 shares are of literate persons aged 10 and over."
+    note_fr: "En 2004, parts de l'ensemble de la population âgée de 10 ans et plus (analphabètes compris) ; en 2014, parts des personnes alphabétisées âgées de 10 ans et plus."
+    note_ar: "نسب 2004 محسوبة من مجموع السكان البالغين 10 سنوات فأكثر (بما فيهم الأميون)؛ ونسب 2014 محسوبة من المتعلمين البالغين 10 سنوات فأكثر."
     comparable: false
   lit_arabic_french:
     theme: "languages"
@@ -729,7 +978,11 @@ indicators:
     ar: "يقرأ ويكتب العربية والفرنسية فقط"
     unit: "%"
     definition: "Share reading and writing Arabic and French and no other language."
+    definition_fr: "Part lisant et écrivant l'arabe et le français et aucune autre langue."
+    definition_ar: "نسبة الذين يقرؤون ويكتبون العربية والفرنسية دون أي لغة أخرى."
     note: "2004 shares are of the whole population aged 10 and over (illiterate included); 2014 shares are of literate persons aged 10 and over."
+    note_fr: "En 2004, parts de l'ensemble de la population âgée de 10 ans et plus (analphabètes compris) ; en 2014, parts des personnes alphabétisées âgées de 10 ans et plus."
+    note_ar: "نسب 2004 محسوبة من مجموع السكان البالغين 10 سنوات فأكثر (بما فيهم الأميون)؛ ونسب 2014 محسوبة من المتعلمين البالغين 10 سنوات فأكثر."
     comparable: false
   lit_arabic_french_english:
     theme: "languages"
@@ -738,6 +991,8 @@ indicators:
     ar: "يقرأ ويكتب العربية والفرنسية والإنجليزية"
     unit: "%"
     definition: "Share of literate persons aged 10 and over who read and write Arabic, French and English."
+    definition_fr: "Part des personnes alphabétisées âgées de 10 ans et plus qui lisent et écrivent l'arabe, le français et l'anglais."
+    definition_ar: "نسبة المتعلمين البالغين 10 سنوات فأكثر الذين يقرؤون ويكتبون العربية والفرنسية والإنجليزية."
   lit_other:
     theme: "languages"
     en: "Reads and writes other language combinations"
@@ -745,6 +1000,8 @@ indicators:
     ar: "يقرأ ويكتب توليفات لغوية أخرى"
     unit: "%"
     definition: "Share of literate persons aged 10 and over who read and write any other combination of languages."
+    definition_fr: "Part des personnes alphabétisées âgées de 10 ans et plus qui lisent et écrivent toute autre combinaison de langues."
+    definition_ar: "نسبة المتعلمين البالغين 10 سنوات فأكثر الذين يقرؤون ويكتبون أي توليفة أخرى من اللغات."
   read_arabic:
     theme: "languages"
     en: "Literate in Arabic"
@@ -752,6 +1009,8 @@ indicators:
     ar: "يقرأ ويكتب العربية"
     unit: "%"
     definition: "Share of literate persons aged 10 and over who read and write Arabic (non-exclusive)."
+    definition_fr: "Part des personnes alphabétisées âgées de 10 ans et plus qui lisent et écrivent l'arabe (non exclusif)."
+    definition_ar: "نسبة المتعلمين البالغين 10 سنوات فأكثر الذين يقرؤون ويكتبون العربية (غير حصري)."
   read_tifinagh:
     theme: "languages"
     en: "Literate in Amazigh (Tifinagh)"
@@ -759,6 +1018,8 @@ indicators:
     ar: "يقرأ ويكتب الأمازيغية (تيفيناغ)"
     unit: "%"
     definition: "Share of literate persons aged 10 and over who read and write Amazigh (Tifinagh) (non-exclusive)."
+    definition_fr: "Part des personnes alphabétisées âgées de 10 ans et plus qui lisent et écrivent l'amazigh (tifinagh) (non exclusif)."
+    definition_ar: "نسبة المتعلمين البالغين 10 سنوات فأكثر الذين يقرؤون ويكتبون الأمازيغية (تيفيناغ) (غير حصري)."
   read_english:
     theme: "languages"
     en: "Literate in English"
@@ -766,6 +1027,8 @@ indicators:
     ar: "يقرأ ويكتب الإنجليزية"
     unit: "%"
     definition: "Share of literate persons aged 10 and over who read and write English (non-exclusive)."
+    definition_fr: "Part des personnes alphabétisées âgées de 10 ans et plus qui lisent et écrivent l'anglais (non exclusif)."
+    definition_ar: "نسبة المتعلمين البالغين 10 سنوات فأكثر الذين يقرؤون ويكتبون الإنجليزية (غير حصري)."
   read_french:
     theme: "languages"
     en: "Literate in French"
@@ -773,6 +1036,8 @@ indicators:
     ar: "يقرأ ويكتب الفرنسية"
     unit: "%"
     definition: "Share of literate persons aged 10 and over who read and write French (non-exclusive)."
+    definition_fr: "Part des personnes alphabétisées âgées de 10 ans et plus qui lisent et écrivent le français (non exclusif)."
+    definition_ar: "نسبة المتعلمين البالغين 10 سنوات فأكثر الذين يقرؤون ويكتبون الفرنسية (غير حصري)."
   pct_employer:
     theme: "employment"
     en: "Employers"
@@ -780,7 +1045,11 @@ indicators:
     ar: "المشغّلون"
     unit: "%"
     definition: "Share of workers who are employers (working on their own account with at least one permanent employee)."
+    definition_fr: "Part des actifs ayant le statut d'employeur (travaillant pour leur propre compte avec au moins un salarié permanent)."
+    definition_ar: "نسبة المشغّلين من بين النشيطين (يعملون لحسابهم الخاص ويشغّلون أجيرا دائما واحدا على الأقل)."
     note: "2004 and 2014 are shares of employed persons plus unemployed persons who have worked before; 2024 is a share of employed persons aged 15 and over."
+    note_fr: "En 2004 et 2014, parts des actifs occupés et des chômeurs ayant déjà travaillé ; en 2024, part des actifs occupés âgés de 15 ans et plus."
+    note_ar: "قيمتا 2004 و2014 نسبتان من النشيطين المشتغلين مضافا إليهم العاطلين الذين سبق لهم أن اشتغلوا؛ وقيمة 2024 نسبة من النشيطين المشتغلين البالغين 15 سنة فأكثر."
     comparable: false
   pct_self_employed:
     theme: "employment"
@@ -789,7 +1058,11 @@ indicators:
     ar: "المستقلون"
     unit: "%"
     definition: "Share of workers who are self-employed (working on their own account with no permanent employee)."
+    definition_fr: "Part des actifs indépendants (travaillant pour leur propre compte sans salarié permanent)."
+    definition_ar: "نسبة المستقلين من بين النشيطين (يعملون لحسابهم الخاص دون أي أجير دائم)."
     note: "2004 and 2014 are shares of employed persons plus unemployed persons who have worked before; 2024 is a share of employed persons aged 15 and over."
+    note_fr: "En 2004 et 2014, parts des actifs occupés et des chômeurs ayant déjà travaillé ; en 2024, part des actifs occupés âgés de 15 ans et plus."
+    note_ar: "قيمتا 2004 و2014 نسبتان من النشيطين المشتغلين مضافا إليهم العاطلين الذين سبق لهم أن اشتغلوا؛ وقيمة 2024 نسبة من النشيطين المشتغلين البالغين 15 سنة فأكثر."
     comparable: false
   pct_public_employee:
     theme: "employment"
@@ -798,7 +1071,11 @@ indicators:
     ar: "أجراء القطاع العام"
     unit: "%"
     definition: "Share of workers who are public-sector employees."
+    definition_fr: "Part des actifs salariés du secteur public."
+    definition_ar: "نسبة أجراء القطاع العام من بين النشيطين."
     note: "2004 and 2014 are shares of employed persons plus unemployed persons who have worked before; 2024 is a share of employed persons aged 15 and over."
+    note_fr: "En 2004 et 2014, parts des actifs occupés et des chômeurs ayant déjà travaillé ; en 2024, part des actifs occupés âgés de 15 ans et plus."
+    note_ar: "قيمتا 2004 و2014 نسبتان من النشيطين المشتغلين مضافا إليهم العاطلين الذين سبق لهم أن اشتغلوا؛ وقيمة 2024 نسبة من النشيطين المشتغلين البالغين 15 سنة فأكثر."
     comparable: false
   pct_private_employee:
     theme: "employment"
@@ -807,7 +1084,11 @@ indicators:
     ar: "أجراء القطاع الخاص"
     unit: "%"
     definition: "Share of workers who are private-sector employees."
+    definition_fr: "Part des actifs salariés du secteur privé."
+    definition_ar: "نسبة أجراء القطاع الخاص من بين النشيطين."
     note: "2004 and 2014 are shares of employed persons plus unemployed persons who have worked before; 2024 is a share of employed persons aged 15 and over."
+    note_fr: "En 2004 et 2014, parts des actifs occupés et des chômeurs ayant déjà travaillé ; en 2024, part des actifs occupés âgés de 15 ans et plus."
+    note_ar: "قيمتا 2004 و2014 نسبتان من النشيطين المشتغلين مضافا إليهم العاطلين الذين سبق لهم أن اشتغلوا؛ وقيمة 2024 نسبة من النشيطين المشتغلين البالغين 15 سنة فأكثر."
     comparable: false
   pct_family_worker:
     theme: "employment"
@@ -816,7 +1097,11 @@ indicators:
     ar: "المساعدون العائليون"
     unit: "%"
     definition: "Share of workers who are unpaid family workers."
+    definition_fr: "Part des actifs aides familiaux."
+    definition_ar: "نسبة المساعدين العائليين غير المأجورين من بين النشيطين."
     note: "2004 and 2014 are shares of employed persons plus unemployed persons who have worked before; 2024 is a share of employed persons aged 15 and over."
+    note_fr: "En 2004 et 2014, parts des actifs occupés et des chômeurs ayant déjà travaillé ; en 2024, part des actifs occupés âgés de 15 ans et plus."
+    note_ar: "قيمتا 2004 و2014 نسبتان من النشيطين المشتغلين مضافا إليهم العاطلين الذين سبق لهم أن اشتغلوا؛ وقيمة 2024 نسبة من النشيطين المشتغلين البالغين 15 سنة فأكثر."
     comparable: false
   pct_apprentice:
     theme: "employment"
@@ -825,7 +1110,11 @@ indicators:
     ar: "المتدربون"
     unit: "%"
     definition: "Share of workers who are apprentices."
+    definition_fr: "Part des actifs apprentis."
+    definition_ar: "نسبة المتدربين من بين النشيطين."
     note: "2004 and 2014 are shares of employed persons plus unemployed persons who have worked before; 2024 is a share of employed persons aged 15 and over."
+    note_fr: "En 2004 et 2014, parts des actifs occupés et des chômeurs ayant déjà travaillé ; en 2024, part des actifs occupés âgés de 15 ans et plus."
+    note_ar: "قيمتا 2004 و2014 نسبتان من النشيطين المشتغلين مضافا إليهم العاطلين الذين سبق لهم أن اشتغلوا؛ وقيمة 2024 نسبة من النشيطين المشتغلين البالغين 15 سنة فأكثر."
     comparable: false
   pct_partner:
     theme: "employment"
@@ -834,7 +1123,11 @@ indicators:
     ar: "الشركاء أو أعضاء التعاونيات"
     unit: "%"
     definition: "Share of workers who are partners or cooperative members."
+    definition_fr: "Part des actifs associés ou coopérateurs."
+    definition_ar: "نسبة الشركاء أو أعضاء التعاونيات من بين النشيطين."
     note: "2014 is a share of employed persons plus unemployed persons who have worked before; 2024 is a share of employed persons aged 15 and over."
+    note_fr: "En 2014, part des actifs occupés et des chômeurs ayant déjà travaillé ; en 2024, part des actifs occupés âgés de 15 ans et plus."
+    note_ar: "قيمة 2014 نسبة من النشيطين المشتغلين مضافا إليهم العاطلين الذين سبق لهم أن اشتغلوا؛ وقيمة 2024 نسبة من النشيطين المشتغلين البالغين 15 سنة فأكثر."
     comparable: false
   pct_status_other:
     theme: "employment"
@@ -843,7 +1136,11 @@ indicators:
     ar: "وضعية مهنية أخرى"
     unit: "%"
     definition: "Share of workers in another employment status."
+    definition_fr: "Part des actifs dans une autre situation dans la profession."
+    definition_ar: "نسبة النشيطين في وضعية مهنية أخرى."
     note: "2014 is a share of employed persons plus unemployed persons who have worked before; 2024 is a share of employed persons aged 15 and over."
+    note_fr: "En 2014, part des actifs occupés et des chômeurs ayant déjà travaillé ; en 2024, part des actifs occupés âgés de 15 ans et plus."
+    note_ar: "قيمة 2014 نسبة من النشيطين المشتغلين مضافا إليهم العاطلين الذين سبق لهم أن اشتغلوا؛ وقيمة 2024 نسبة من النشيطين المشتغلين البالغين 15 سنة فأكثر."
     comparable: false
   occ_managers:
     theme: "occupation"
@@ -852,6 +1149,8 @@ indicators:
     ar: "أعضاء الهيئات التشريعية والمسؤولون والأطر العليا"
     unit: "%"
     definition: "Share of employed persons aged 15 and over in the major occupational group 'Legislators, officials and managers'."
+    definition_fr: "Part des actifs occupés âgés de 15 ans et plus appartenant au grand groupe de professions 'Membres des corps législatifs, responsables et cadres supérieurs'."
+    definition_ar: "نسبة النشيطين المشتغلين البالغين 15 سنة فأكثر المنتمين إلى المجموعة الكبرى من المهن «أعضاء الهيئات التشريعية والمسؤولون والأطر العليا»."
   occ_technicians:
     theme: "occupation"
     en: "Technicians and associate professionals"
@@ -859,6 +1158,8 @@ indicators:
     ar: "التقنيون والمهن الوسيطة"
     unit: "%"
     definition: "Share of employed persons aged 15 and over in the major occupational group 'Technicians and associate professionals'."
+    definition_fr: "Part des actifs occupés âgés de 15 ans et plus appartenant au grand groupe de professions 'Techniciens et professions intermédiaires'."
+    definition_ar: "نسبة النشيطين المشتغلين البالغين 15 سنة فأكثر المنتمين إلى المجموعة الكبرى من المهن «التقنيون والمهن الوسيطة»."
   occ_clerks:
     theme: "occupation"
     en: "Clerks"
@@ -866,6 +1167,8 @@ indicators:
     ar: "المستخدمون"
     unit: "%"
     definition: "Share of employed persons aged 15 and over in the major occupational group 'Clerks'."
+    definition_fr: "Part des actifs occupés âgés de 15 ans et plus appartenant au grand groupe de professions 'Employés'."
+    definition_ar: "نسبة النشيطين المشتغلين البالغين 15 سنة فأكثر المنتمين إلى المجموعة الكبرى من المهن «المستخدمون»."
   occ_traders:
     theme: "occupation"
     en: "Traders and commercial or financial intermediaries"
@@ -873,6 +1176,8 @@ indicators:
     ar: "التجار والوسطاء التجاريون والماليون"
     unit: "%"
     definition: "Share of employed persons aged 15 and over in the major occupational group 'Traders and commercial or financial intermediaries'."
+    definition_fr: "Part des actifs occupés âgés de 15 ans et plus appartenant au grand groupe de professions 'Commerçants et intermédiaires commerciaux et financiers'."
+    definition_ar: "نسبة النشيطين المشتغلين البالغين 15 سنة فأكثر المنتمين إلى المجموعة الكبرى من المهن «التجار والوسطاء التجاريون والماليون»."
   occ_farmers:
     theme: "occupation"
     en: "Farmers, fishers and foresters"
@@ -880,6 +1185,8 @@ indicators:
     ar: "المستغلون الفلاحيون والصيادون والحراجيون"
     unit: "%"
     definition: "Share of employed persons aged 15 and over in the major occupational group 'Farmers, fishers and foresters'."
+    definition_fr: "Part des actifs occupés âgés de 15 ans et plus appartenant au grand groupe de professions 'Exploitants agricoles, pêcheurs et forestiers'."
+    definition_ar: "نسبة النشيطين المشتغلين البالغين 15 سنة فأكثر المنتمين إلى المجموعة الكبرى من المهن «المستغلون الفلاحيون والصيادون والحراجيون»."
   occ_craft:
     theme: "occupation"
     en: "Craft and related trades workers"
@@ -887,6 +1194,8 @@ indicators:
     ar: "الحرفيون والعمال المؤهلون في المهن الحرفية"
     unit: "%"
     definition: "Share of employed persons aged 15 and over in the major occupational group 'Craft and related trades workers'."
+    definition_fr: "Part des actifs occupés âgés de 15 ans et plus appartenant au grand groupe de professions 'Artisans et ouvriers qualifiés des métiers artisanaux'."
+    definition_ar: "نسبة النشيطين المشتغلين البالغين 15 سنة فأكثر المنتمين إلى المجموعة الكبرى من المهن «الحرفيون والعمال المؤهلون في المهن الحرفية»."
   occ_agri_workers:
     theme: "occupation"
     en: "Agricultural and fishery labourers"
@@ -894,6 +1203,8 @@ indicators:
     ar: "العمال واليد العاملة في الفلاحة والصيد"
     unit: "%"
     definition: "Share of employed persons aged 15 and over in the major occupational group 'Agricultural and fishery labourers'."
+    definition_fr: "Part des actifs occupés âgés de 15 ans et plus appartenant au grand groupe de professions 'Ouvriers et manœuvres agricoles et de la pêche'."
+    definition_ar: "نسبة النشيطين المشتغلين البالغين 15 سنة فأكثر المنتمين إلى المجموعة الكبرى من المهن «العمال واليد العاملة في الفلاحة والصيد»."
   occ_operators:
     theme: "occupation"
     en: "Plant and machine operators and assemblers"
@@ -901,6 +1212,8 @@ indicators:
     ar: "سائقو التجهيزات والآلات وعمال التركيب"
     unit: "%"
     definition: "Share of employed persons aged 15 and over in the major occupational group 'Plant and machine operators and assemblers'."
+    definition_fr: "Part des actifs occupés âgés de 15 ans et plus appartenant au grand groupe de professions 'Conducteurs d'installations et de machines et ouvriers de l'assemblage'."
+    definition_ar: "نسبة النشيطين المشتغلين البالغين 15 سنة فأكثر المنتمين إلى المجموعة الكبرى من المهن «سائقو التجهيزات والآلات وعمال التركيب»."
   occ_labourers:
     theme: "occupation"
     en: "Non-agricultural labourers and small trades"
@@ -908,6 +1221,8 @@ indicators:
     ar: "اليد العاملة غير الفلاحية وعمال المهن الصغرى"
     unit: "%"
     definition: "Share of employed persons aged 15 and over in the major occupational group 'Non-agricultural labourers and small trades'."
+    definition_fr: "Part des actifs occupés âgés de 15 ans et plus appartenant au grand groupe de professions 'Manœuvres non agricoles et travailleurs des petits métiers'."
+    definition_ar: "نسبة النشيطين المشتغلين البالغين 15 سنة فأكثر المنتمين إلى المجموعة الكبرى من المهن «اليد العاملة غير الفلاحية وعمال المهن الصغرى»."
   occ_unclassified:
     theme: "occupation"
     en: "Occupation not classifiable"
@@ -915,6 +1230,8 @@ indicators:
     ar: "عمال لا يمكن تصنيفهم حسب المهنة"
     unit: "%"
     definition: "Share of employed persons aged 15 and over in the major occupational group 'Occupation not classifiable'."
+    definition_fr: "Part des actifs occupés âgés de 15 ans et plus appartenant au grand groupe de professions 'Travailleurs ne pouvant être classés selon la profession'."
+    definition_ar: "نسبة النشيطين المشتغلين البالغين 15 سنة فأكثر المنتمين إلى المجموعة الكبرى من المهن «عمال لا يمكن تصنيفهم حسب المهنة»."
   sec_industry:
     theme: "occupation"
     en: "Mining and manufacturing"
@@ -922,7 +1239,11 @@ indicators:
     ar: "الصناعات الاستخراجية والتحويلية"
     unit: "%"
     definition: "Share of employed persons working in mining and manufacturing."
+    definition_fr: "Part des actifs occupés travaillant dans les industries extractives et manufacturières."
+    definition_ar: "نسبة النشيطين المشتغلين في الصناعات الاستخراجية والتحويلية."
     note: "2004 is a share of employed persons plus unemployed persons who have worked before; 2014 is a share of employed persons aged 15 and over. 2004 sums the Mines and Industrie branches."
+    note_fr: "En 2004, part des actifs occupés et des chômeurs ayant déjà travaillé ; en 2014, part des actifs occupés âgés de 15 ans et plus. Pour 2004, somme des branches Mines et Industrie."
+    note_ar: "قيمة 2004 نسبة من النشيطين المشتغلين مضافا إليهم العاطلين الذين سبق لهم أن اشتغلوا؛ وقيمة 2014 نسبة من النشيطين المشتغلين البالغين 15 سنة فأكثر. تجمع قيمة 2004 فرعي المناجم والصناعة (Mines, Industrie)."
     comparable: false
   sec_utilities:
     theme: "occupation"
@@ -931,7 +1252,11 @@ indicators:
     ar: "الماء والكهرباء"
     unit: "%"
     definition: "Share of employed persons working in water and electricity supply."
+    definition_fr: "Part des actifs occupés travaillant dans la production et la distribution d'eau et d'électricité."
+    definition_ar: "نسبة النشيطين المشتغلين في إنتاج وتوزيع الماء والكهرباء."
     note: "2004 is a share of employed persons plus unemployed persons who have worked before; 2014 is a share of employed persons aged 15 and over."
+    note_fr: "En 2004, part des actifs occupés et des chômeurs ayant déjà travaillé ; en 2014, part des actifs occupés âgés de 15 ans et plus."
+    note_ar: "قيمة 2004 نسبة من النشيطين المشتغلين مضافا إليهم العاطلين الذين سبق لهم أن اشتغلوا؛ وقيمة 2014 نسبة من النشيطين المشتغلين البالغين 15 سنة فأكثر."
     comparable: false
   sec_construction:
     theme: "occupation"
@@ -940,7 +1265,11 @@ indicators:
     ar: "البناء والأشغال العمومية"
     unit: "%"
     definition: "Share of employed persons working in construction and public works."
+    definition_fr: "Part des actifs occupés travaillant dans le bâtiment et les travaux publics."
+    definition_ar: "نسبة النشيطين المشتغلين في البناء والأشغال العمومية."
     note: "2004 is a share of employed persons plus unemployed persons who have worked before; 2014 is a share of employed persons aged 15 and over."
+    note_fr: "En 2004, part des actifs occupés et des chômeurs ayant déjà travaillé ; en 2014, part des actifs occupés âgés de 15 ans et plus."
+    note_ar: "قيمة 2004 نسبة من النشيطين المشتغلين مضافا إليهم العاطلين الذين سبق لهم أن اشتغلوا؛ وقيمة 2014 نسبة من النشيطين المشتغلين البالغين 15 سنة فأكثر."
     comparable: false
   sec_trade:
     theme: "occupation"
@@ -949,7 +1278,11 @@ indicators:
     ar: "التجارة وإصلاح المركبات"
     unit: "%"
     definition: "Share of employed persons working in trade and vehicle repair."
+    definition_fr: "Part des actifs occupés travaillant dans le commerce et la réparation automobile."
+    definition_ar: "نسبة النشيطين المشتغلين في التجارة وإصلاح المركبات."
     note: "2004 is a share of employed persons plus unemployed persons who have worked before; 2014 is a share of employed persons aged 15 and over."
+    note_fr: "En 2004, part des actifs occupés et des chômeurs ayant déjà travaillé ; en 2014, part des actifs occupés âgés de 15 ans et plus."
+    note_ar: "قيمة 2004 نسبة من النشيطين المشتغلين مضافا إليهم العاطلين الذين سبق لهم أن اشتغلوا؛ وقيمة 2014 نسبة من النشيطين المشتغلين البالغين 15 سنة فأكثر."
     comparable: false
   sec_transport:
     theme: "occupation"
@@ -958,7 +1291,11 @@ indicators:
     ar: "النقل والتخزين والاتصال"
     unit: "%"
     definition: "Share of employed persons working in transport, storage and communication."
+    definition_fr: "Part des actifs occupés travaillant dans le transport, l'entreposage et la communication."
+    definition_ar: "نسبة النشيطين المشتغلين في النقل والتخزين والاتصال."
     note: "2004 is a share of employed persons plus unemployed persons who have worked before; 2014 is a share of employed persons aged 15 and over."
+    note_fr: "En 2004, part des actifs occupés et des chômeurs ayant déjà travaillé ; en 2014, part des actifs occupés âgés de 15 ans et plus."
+    note_ar: "قيمة 2004 نسبة من النشيطين المشتغلين مضافا إليهم العاطلين الذين سبق لهم أن اشتغلوا؛ وقيمة 2014 نسبة من النشيطين المشتغلين البالغين 15 سنة فأكثر."
     comparable: false
   sec_services:
     theme: "occupation"
@@ -967,7 +1304,11 @@ indicators:
     ar: "خدمات تجارية أخرى"
     unit: "%"
     definition: "Share of employed persons working in other market services."
+    definition_fr: "Part des actifs occupés travaillant dans les autres services marchands."
+    definition_ar: "نسبة النشيطين المشتغلين في خدمات تجارية أخرى."
     note: "2004 is a share of employed persons plus unemployed persons who have worked before; 2014 is a share of employed persons aged 15 and over."
+    note_fr: "En 2004, part des actifs occupés et des chômeurs ayant déjà travaillé ; en 2014, part des actifs occupés âgés de 15 ans et plus."
+    note_ar: "قيمة 2004 نسبة من النشيطين المشتغلين مضافا إليهم العاطلين الذين سبق لهم أن اشتغلوا؛ وقيمة 2014 نسبة من النشيطين المشتغلين البالغين 15 سنة فأكثر."
     comparable: false
   sec_public:
     theme: "occupation"
@@ -976,7 +1317,11 @@ indicators:
     ar: "الإدارة العمومية والتعليم والصحة والعمل الاجتماعي"
     unit: "%"
     definition: "Share of employed persons working in public administration, education, health and social work."
+    definition_fr: "Part des actifs occupés travaillant dans l'administration publique, l'éducation, la santé et l'action sociale."
+    definition_ar: "نسبة النشيطين المشتغلين في الإدارة العمومية والتعليم والصحة والعمل الاجتماعي."
     note: "2004 is a share of employed persons plus unemployed persons who have worked before; 2014 is a share of employed persons aged 15 and over."
+    note_fr: "En 2004, part des actifs occupés et des chômeurs ayant déjà travaillé ; en 2014, part des actifs occupés âgés de 15 ans et plus."
+    note_ar: "قيمة 2004 نسبة من النشيطين المشتغلين مضافا إليهم العاطلين الذين سبق لهم أن اشتغلوا؛ وقيمة 2014 نسبة من النشيطين المشتغلين البالغين 15 سنة فأكثر."
     comparable: false
   sec_other:
     theme: "occupation"
@@ -985,7 +1330,11 @@ indicators:
     ar: "أنشطة خارج التراب الوطني أو غير مصرح بها"
     unit: "%"
     definition: "Share of employed persons working in extraterritorial or undeclared activities."
+    definition_fr: "Part des actifs occupés travaillant dans des activités extraterritoriales ou non déclarées."
+    definition_ar: "نسبة النشيطين المشتغلين في أنشطة خارج التراب الوطني أو غير مصرح بها."
     note: "2004 is a share of employed persons plus unemployed persons who have worked before; 2014 is a share of employed persons aged 15 and over."
+    note_fr: "En 2004, part des actifs occupés et des chômeurs ayant déjà travaillé ; en 2014, part des actifs occupés âgés de 15 ans et plus."
+    note_ar: "قيمة 2004 نسبة من النشيطين المشتغلين مضافا إليهم العاطلين الذين سبق لهم أن اشتغلوا؛ وقيمة 2014 نسبة من النشيطين المشتغلين البالغين 15 سنة فأكثر."
     comparable: false
   dwell_villa:
     theme: "housing"
@@ -994,7 +1343,11 @@ indicators:
     ar: "فيلا"
     unit: "%"
     definition: "Share of households living in a villa or villa floor."
+    definition_fr: "Part des ménages vivant dans une villa ou un étage de villa."
+    definition_ar: "نسبة الأسر القاطنة في فيلا أو طابق من فيلا."
     note: "In 89 communes HCP's 2004 dwelling-type shares sum to less than 100% as published."
+    note_fr: "Dans 89 communes, les parts des types de logement de 2004 publiées par le HCP totalisent moins de 100 %."
+    note_ar: "في 89 جماعة يقل مجموع نسب أنواع المساكن لسنة 2004 كما نشرتها المندوبية السامية للتخطيط عن 100%."
   dwell_apartment:
     theme: "housing"
     en: "Apartment"
@@ -1002,7 +1355,11 @@ indicators:
     ar: "شقة"
     unit: "%"
     definition: "Share of households living in an apartment."
+    definition_fr: "Part des ménages vivant dans un appartement."
+    definition_ar: "نسبة الأسر القاطنة في شقة."
     note: "In 89 communes HCP's 2004 dwelling-type shares sum to less than 100% as published."
+    note_fr: "Dans 89 communes, les parts des types de logement de 2004 publiées par le HCP totalisent moins de 100 %."
+    note_ar: "في 89 جماعة يقل مجموع نسب أنواع المساكن لسنة 2004 كما نشرتها المندوبية السامية للتخطيط عن 100%."
   dwell_moroccan:
     theme: "housing"
     en: "Moroccan house"
@@ -1010,7 +1367,11 @@ indicators:
     ar: "دار مغربية"
     unit: "%"
     definition: "Share of households living in a Moroccan house (maison marocaine)."
+    definition_fr: "Part des ménages vivant dans une maison marocaine."
+    definition_ar: "نسبة الأسر القاطنة في دار مغربية (maison marocaine)."
     note: "2004 sums traditional and modern Moroccan houses. In 89 communes HCP's 2004 dwelling-type shares sum to less than 100% as published."
+    note_fr: "Pour 2004, somme des maisons marocaines traditionnelles et modernes. Dans 89 communes, les parts des types de logement de 2004 publiées par le HCP totalisent moins de 100 %."
+    note_ar: "تجمع قيمة 2004 الدور المغربية التقليدية والعصرية. وفي 89 جماعة يقل مجموع نسب أنواع المساكن لسنة 2004 كما نشرتها المندوبية السامية للتخطيط عن 100%."
   dwell_rural:
     theme: "housing"
     en: "Rural-type dwelling"
@@ -1018,7 +1379,11 @@ indicators:
     ar: "مسكن من النوع القروي"
     unit: "%"
     definition: "Share of households living in a rural-type dwelling, which usually includes farm buildings."
+    definition_fr: "Part des ménages vivant dans un logement de type rural, qui comprend généralement des bâtiments agricoles."
+    definition_ar: "نسبة الأسر القاطنة في مسكن من النوع القروي، يضم عادة مرافق فلاحية."
     note: "In 89 communes HCP's 2004 dwelling-type shares sum to less than 100% as published."
+    note_fr: "Dans 89 communes, les parts des types de logement de 2004 publiées par le HCP totalisent moins de 100 %."
+    note_ar: "في 89 جماعة يقل مجموع نسب أنواع المساكن لسنة 2004 كما نشرتها المندوبية السامية للتخطيط عن 100%."
   dwell_other:
     theme: "housing"
     en: "Other dwelling type"
@@ -1026,7 +1391,11 @@ indicators:
     ar: "نوع آخر من المساكن"
     unit: "%"
     definition: "Share of households living in another type of dwelling."
+    definition_fr: "Part des ménages vivant dans un autre type de logement."
+    definition_ar: "نسبة الأسر القاطنة في نوع آخر من المساكن."
     note: "In 89 communes HCP's 2004 dwelling-type shares sum to less than 100% as published."
+    note_fr: "Dans 89 communes, les parts des types de logement de 2004 publiées par le HCP totalisent moins de 100 %."
+    note_ar: "في 89 جماعة يقل مجموع نسب أنواع المساكن لسنة 2004 كما نشرتها المندوبية السامية للتخطيط عن 100%."
   persons_per_room:
     theme: "housing"
     en: "Persons per room"
@@ -1034,6 +1403,8 @@ indicators:
     ar: "عدد الأشخاص في الغرفة"
     unit: "persons per room"
     definition: "Persons per habitable room (bedrooms and living rooms; kitchens and bathrooms excluded)."
+    definition_fr: "Nombre de personnes par pièce d'habitation (chambres et salons ; cuisines et salles de bain exclues)."
+    definition_ar: "عدد الأشخاص في الغرفة الصالحة للسكن (غرف النوم وغرف الجلوس؛ دون احتساب المطابخ والحمامات)."
   tenure_other:
     weight: households
     theme: "housing"
@@ -1042,6 +1413,8 @@ indicators:
     ar: "وضعية سكن أخرى"
     unit: "%"
     definition: "Share of households that neither own nor rent their dwelling (for example free or employer-provided housing)."
+    definition_fr: "Part des ménages ni propriétaires ni locataires de leur logement (par exemple logés gratuitement ou par l'employeur)."
+    definition_ar: "نسبة الأسر التي لا تملك مسكنها ولا تكتريه (مثلا السكن المجاني أو الذي يوفره المشغل)."
   dwell_age_lt10:
     weight: households
     theme: "housing"
@@ -1050,7 +1423,11 @@ indicators:
     ar: "مسكن عمره أقل من 10 سنوات"
     unit: "%"
     definition: "Share of households living in a dwelling under 10 years old."
+    definition_fr: "Part des ménages vivant dans un logement de moins de 10 ans."
+    definition_ar: "نسبة الأسر القاطنة في مسكن عمره أقل من 10 سنوات."
     note: "2004 is the share of dwellings built between 1995 and September 2004, published for urban households only."
+    note_fr: "Pour 2004, part des logements construits entre 1995 et septembre 2004, publiée pour les seuls ménages urbains."
+    note_ar: "قيمة 2004 هي نسبة المساكن المشيدة بين 1995 وشتنبر 2004، وهي منشورة للأسر الحضرية فقط."
   dwell_age_10_19:
     weight: households
     theme: "housing"
@@ -1059,6 +1436,8 @@ indicators:
     ar: "مسكن عمره من 10 إلى 19 سنة"
     unit: "%"
     definition: "Share of households living in a dwelling 10-19 years old."
+    definition_fr: "Part des ménages vivant dans un logement de 10 à 19 ans."
+    definition_ar: "نسبة الأسر القاطنة في مسكن عمره من 10 إلى 19 سنة."
   dwell_age_20_49:
     weight: households
     theme: "housing"
@@ -1067,6 +1446,8 @@ indicators:
     ar: "مسكن عمره من 20 إلى 49 سنة"
     unit: "%"
     definition: "Share of households living in a dwelling 20-49 years old."
+    definition_fr: "Part des ménages vivant dans un logement de 20 à 49 ans."
+    definition_ar: "نسبة الأسر القاطنة في مسكن عمره من 20 إلى 49 سنة."
   dwell_age_50plus:
     weight: households
     theme: "housing"
@@ -1075,6 +1456,8 @@ indicators:
     ar: "مسكن عمره 50 سنة فأكثر"
     unit: "%"
     definition: "Share of households living in a dwelling 50 years or older."
+    definition_fr: "Part des ménages vivant dans un logement de 50 ans et plus."
+    definition_ar: "نسبة الأسر القاطنة في مسكن عمره 50 سنة فأكثر."
   pct_kitchen:
     weight: households
     theme: "housing"
@@ -1083,6 +1466,8 @@ indicators:
     ar: "المطبخ"
     unit: "%"
     definition: "Share of households whose dwelling has a kitchen."
+    definition_fr: "Part des ménages dont le logement dispose d'une cuisine."
+    definition_ar: "نسبة الأسر التي يتوفر مسكنها على مطبخ."
   pct_toilet:
     weight: households
     theme: "housing"
@@ -1091,6 +1476,8 @@ indicators:
     ar: "المرحاض"
     unit: "%"
     definition: "Share of households whose dwelling has a toilet."
+    definition_fr: "Part des ménages dont le logement dispose de W.-C."
+    definition_ar: "نسبة الأسر التي يتوفر مسكنها على مرحاض."
   pct_bathroom:
     weight: households
     theme: "housing"
@@ -1099,7 +1486,11 @@ indicators:
     ar: "حمام أو مرفق للاستحمام"
     unit: "%"
     definition: "Share of households whose dwelling has a bath or washroom."
+    definition_fr: "Part des ménages dont le logement dispose d'un bain ou d'une pièce d'eau."
+    definition_ar: "نسبة الأسر التي يتوفر مسكنها على حمام أو مرفق للاستحمام."
     note: "2014 counts a bath ('Bain'); 2024 a washroom ('Pièce d'eau')."
+    note_fr: "En 2014, est compté un bain ('Bain') ; en 2024, une pièce d'eau ('Pièce d'eau')."
+    note_ar: "تحتسب قيمة 2014 الحمام (Bain)؛ وقيمة 2024 مرفق الاستحمام (Pièce d'eau)."
     comparable: false
   sewer_public:
     weight: households
@@ -1109,6 +1500,8 @@ indicators:
     ar: "شبكة التطهير العمومية"
     unit: "%"
     definition: "Share of households whose dwelling is connected to the public sewer."
+    definition_fr: "Part des ménages dont le logement est raccordé au réseau public d'assainissement."
+    definition_ar: "نسبة الأسر التي يرتبط مسكنها بشبكة التطهير العمومية."
   sewer_septic:
     weight: households
     theme: "sanitation"
@@ -1117,6 +1510,8 @@ indicators:
     ar: "حفرة صحية"
     unit: "%"
     definition: "Share of households whose dwelling uses a septic tank."
+    definition_fr: "Part des ménages dont le logement utilise une fosse septique."
+    definition_ar: "نسبة الأسر التي يستعمل مسكنها حفرة صحية."
   sewer_other:
     weight: households
     theme: "sanitation"
@@ -1125,6 +1520,8 @@ indicators:
     ar: "طريقة أخرى لتصريف المياه العادمة"
     unit: "%"
     definition: "Share of households whose dwelling disposes of waste water by other means."
+    definition_fr: "Part des ménages dont le logement évacue les eaux usées par d'autres moyens."
+    definition_ar: "نسبة الأسر التي يتخلص مسكنها من المياه العادمة بطرق أخرى."
   waste_bin:
     weight: households
     theme: "sanitation"
@@ -1133,6 +1530,8 @@ indicators:
     ar: "حاوية النفايات الجماعية"
     unit: "%"
     definition: "Share of households that put household waste in the commune's bins."
+    definition_fr: "Part des ménages déposant leurs ordures ménagères dans les bacs de la commune."
+    definition_ar: "نسبة الأسر التي تضع النفايات المنزلية في حاويات الجماعة."
   waste_truck:
     weight: households
     theme: "sanitation"
@@ -1141,6 +1540,8 @@ indicators:
     ar: "شاحنة جماعية أو خاصة"
     unit: "%"
     definition: "Share of households whose waste is collected by a municipal or private truck."
+    definition_fr: "Part des ménages dont les ordures sont ramassées par un camion communal ou privé."
+    definition_ar: "نسبة الأسر التي تُجمع نفاياتها بواسطة شاحنة جماعية أو خاصة."
   waste_other:
     weight: households
     theme: "sanitation"
@@ -1149,7 +1550,11 @@ indicators:
     ar: "طريقة أخرى للتخلص من النفايات (بما فيها الرمي في الطبيعة)"
     unit: "%"
     definition: "Share of households disposing of household waste in another way, including dumping it outdoors."
+    definition_fr: "Part des ménages évacuant leurs ordures ménagères d'une autre manière, y compris dans la nature."
+    definition_ar: "نسبة الأسر التي تتخلص من النفايات المنزلية بطريقة أخرى، بما فيها رميها في الطبيعة."
     note: "2024 sums 'Dans la nature' and 'Autre'."
+    note_fr: "Pour 2024, somme de 'Dans la nature' et 'Autre'."
+    note_ar: "تجمع قيمة 2024 فئتي «في الطبيعة» (Dans la nature) و«أخرى» (Autre)."
   cook_gas:
     theme: "sanitation"
     en: "Cooks with gas"
@@ -1157,7 +1562,11 @@ indicators:
     ar: "الطهي بالغاز"
     unit: "%"
     definition: "Share of households cooking with gas."
+    definition_fr: "Part des ménages cuisinant au gaz."
+    definition_ar: "نسبة الأسر التي تطهو بالغاز."
     note: "2014 counts the fuels a household frequently uses, several per household; 2024 counts the fuel used. The drop in wood, charcoal and electricity between the two partly reflects the change of question."
+    note_fr: "En 2014, sont comptés les combustibles fréquemment utilisés par le ménage, plusieurs par ménage ; en 2024, le combustible utilisé. La baisse du bois, du charbon et de l'électricité entre les deux reflète en partie le changement de question."
+    note_ar: "تحتسب قيمة 2014 أنواع الوقود التي تستعملها الأسرة بشكل متكرر، وقد تتعدد لدى الأسرة الواحدة؛ وتحتسب قيمة 2024 الوقود المستعمل. ويعكس تراجع الحطب والفحم والكهرباء بين الإحصاءين جزئيا تغيير صيغة السؤال."
     comparable: false
   cook_electricity:
     theme: "sanitation"
@@ -1166,7 +1575,11 @@ indicators:
     ar: "الطهي بالكهرباء"
     unit: "%"
     definition: "Share of households cooking with electricity."
+    definition_fr: "Part des ménages cuisinant à l'électricité."
+    definition_ar: "نسبة الأسر التي تطهو بالكهرباء."
     note: "2014 counts the fuels a household frequently uses, several per household; 2024 counts the fuel used. The drop in wood, charcoal and electricity between the two partly reflects the change of question."
+    note_fr: "En 2014, sont comptés les combustibles fréquemment utilisés par le ménage, plusieurs par ménage ; en 2024, le combustible utilisé. La baisse du bois, du charbon et de l'électricité entre les deux reflète en partie le changement de question."
+    note_ar: "تحتسب قيمة 2014 أنواع الوقود التي تستعملها الأسرة بشكل متكرر، وقد تتعدد لدى الأسرة الواحدة؛ وتحتسب قيمة 2024 الوقود المستعمل. ويعكس تراجع الحطب والفحم والكهرباء بين الإحصاءين جزئيا تغيير صيغة السؤال."
     comparable: false
   cook_charcoal:
     theme: "sanitation"
@@ -1175,7 +1588,11 @@ indicators:
     ar: "الطهي بالفحم"
     unit: "%"
     definition: "Share of households cooking with charcoal."
+    definition_fr: "Part des ménages cuisinant au charbon."
+    definition_ar: "نسبة الأسر التي تطهو بالفحم."
     note: "2014 counts the fuels a household frequently uses, several per household; 2024 counts the fuel used. The drop in wood, charcoal and electricity between the two partly reflects the change of question."
+    note_fr: "En 2014, sont comptés les combustibles fréquemment utilisés par le ménage, plusieurs par ménage ; en 2024, le combustible utilisé. La baisse du bois, du charbon et de l'électricité entre les deux reflète en partie le changement de question."
+    note_ar: "تحتسب قيمة 2014 أنواع الوقود التي تستعملها الأسرة بشكل متكرر، وقد تتعدد لدى الأسرة الواحدة؛ وتحتسب قيمة 2024 الوقود المستعمل. ويعكس تراجع الحطب والفحم والكهرباء بين الإحصاءين جزئيا تغيير صيغة السؤال."
     comparable: false
   cook_wood:
     theme: "sanitation"
@@ -1184,7 +1601,11 @@ indicators:
     ar: "الطهي بالحطب"
     unit: "%"
     definition: "Share of households cooking with wood."
+    definition_fr: "Part des ménages cuisinant au bois."
+    definition_ar: "نسبة الأسر التي تطهو بالحطب."
     note: "2014 counts the fuels a household frequently uses, several per household; 2024 counts the fuel used. The drop in wood, charcoal and electricity between the two partly reflects the change of question."
+    note_fr: "En 2014, sont comptés les combustibles fréquemment utilisés par le ménage, plusieurs par ménage ; en 2024, le combustible utilisé. La baisse du bois, du charbon et de l'électricité entre les deux reflète en partie le changement de question."
+    note_ar: "تحتسب قيمة 2014 أنواع الوقود التي تستعملها الأسرة بشكل متكرر، وقد تتعدد لدى الأسرة الواحدة؛ وتحتسب قيمة 2024 الوقود المستعمل. ويعكس تراجع الحطب والفحم والكهرباء بين الإحصاءين جزئيا تغيير صيغة السؤال."
     comparable: false
   cook_dung:
     theme: "sanitation"
@@ -1193,7 +1614,11 @@ indicators:
     ar: "الطهي بفضلات الحيوانات"
     unit: "%"
     definition: "Share of households cooking with animal dung."
+    definition_fr: "Part des ménages cuisinant aux déchets animaux."
+    definition_ar: "نسبة الأسر التي تطهو بفضلات الحيوانات."
     note: "2014 counts the fuels a household frequently uses, several per household."
+    note_fr: "En 2014, sont comptés les combustibles fréquemment utilisés par le ménage, plusieurs par ménage."
+    note_ar: "تحتسب قيمة 2014 أنواع الوقود التي تستعملها الأسرة بشكل متكرر، وقد تتعدد لدى الأسرة الواحدة."
   cook_other:
     theme: "sanitation"
     en: "Cooks with another fuel"
@@ -1201,7 +1626,11 @@ indicators:
     ar: "الطهي بوقود آخر"
     unit: "%"
     definition: "Share of households cooking with another fuel."
+    definition_fr: "Part des ménages cuisinant avec un autre combustible."
+    definition_ar: "نسبة الأسر التي تطهو بوقود آخر."
     note: "2024 category 'Autre' of the fuel used for cooking."
+    note_fr: "Pour 2024, catégorie 'Autre' du combustible utilisé pour la cuisson."
+    note_ar: "فئة «أخرى» (Autre) للوقود المستعمل في الطهي سنة 2024."
   road_distance:
     weight: households
     theme: "sanitation"
@@ -1210,7 +1639,11 @@ indicators:
     ar: "المسافة إلى الطريق المعبدة"
     unit: "km"
     definition: "Mean travel distance (not straight-line) from rural households' dwellings to the nearest paved road."
+    definition_fr: "Distance moyenne de trajet (et non à vol d'oiseau) entre le logement des ménages ruraux et la route goudronnée la plus proche."
+    definition_ar: "متوسط مسافة التنقل (لا المسافة المستقيمة) من مساكن الأسر القروية إلى أقرب طريق معبدة."
     note: "Rural households only; urban communes have no value."
+    note_fr: "Ménages ruraux uniquement ; les communes urbaines n'ont pas de valeur."
+    note_ar: "الأسر القروية فقط؛ لا توجد قيمة للجماعات الحضرية."
   pct_radio:
     weight: households
     theme: "equipment"
@@ -1219,7 +1652,11 @@ indicators:
     ar: "المذياع"
     unit: "%"
     definition: "Share of households with a radio."
+    definition_fr: "Part des ménages disposant d'une radio."
+    definition_ar: "نسبة الأسر التي تتوفر على مذياع."
     note: "Household equipment is not published at commune level for 2024."
+    note_fr: "L'équipement des ménages n'est pas publié au niveau communal pour 2024."
+    note_ar: "تجهيزات الأسر غير منشورة على مستوى الجماعة بالنسبة لسنة 2024."
   pct_landline:
     weight: households
     theme: "equipment"
@@ -1228,7 +1665,11 @@ indicators:
     ar: "الهاتف الثابت"
     unit: "%"
     definition: "Share of households with a landline telephone."
+    definition_fr: "Part des ménages disposant d'un téléphone fixe."
+    definition_ar: "نسبة الأسر التي تتوفر على هاتف ثابت."
     note: "Household equipment is not published at commune level for 2024."
+    note_fr: "L'équipement des ménages n'est pas publié au niveau communal pour 2024."
+    note_ar: "تجهيزات الأسر غير منشورة على مستوى الجماعة بالنسبة لسنة 2024."
   pct_computer:
     weight: households
     theme: "equipment"
@@ -1237,7 +1678,11 @@ indicators:
     ar: "الحاسوب"
     unit: "%"
     definition: "Share of households with a computer."
+    definition_fr: "Part des ménages disposant d'un ordinateur."
+    definition_ar: "نسبة الأسر التي تتوفر على حاسوب."
     note: "Household equipment is not published at commune level for 2024."
+    note_fr: "L'équipement des ménages n'est pas publié au niveau communal pour 2024."
+    note_ar: "تجهيزات الأسر غير منشورة على مستوى الجماعة بالنسبة لسنة 2024."
   pct_satellite:
     weight: households
     theme: "equipment"
@@ -1246,7 +1691,11 @@ indicators:
     ar: "الصحن الهوائي"
     unit: "%"
     definition: "Share of households with a satellite dish."
+    definition_fr: "Part des ménages disposant d'une parabole."
+    definition_ar: "نسبة الأسر التي تتوفر على صحن هوائي."
     note: "Household equipment is not published at commune level for 2024."
+    note_fr: "L'équipement des ménages n'est pas publié au niveau communal pour 2024."
+    note_ar: "تجهيزات الأسر غير منشورة على مستوى الجماعة بالنسبة لسنة 2024."
   pct_fridge:
     weight: households
     theme: "equipment"
@@ -1255,7 +1704,862 @@ indicators:
     ar: "الثلاجة"
     unit: "%"
     definition: "Share of households with a refrigerator."
+    definition_fr: "Part des ménages disposant d'un réfrigérateur."
+    definition_ar: "نسبة الأسر التي تتوفر على ثلاجة."
     note: "Household equipment is not published at commune level for 2024."
+    note_fr: "L'équipement des ménages n'est pas publié au niveau communal pour 2024."
+    note_ar: "تجهيزات الأسر غير منشورة على مستوى الجماعة بالنسبة لسنة 2024."
+  commute_walk:
+    theme: "commuting"
+    en: "Commutes on foot"
+    fr: "Se rend au travail à pied"
+    ar: "يتنقل إلى العمل مشيا على الأقدام"
+    unit: "%"
+    definition: "Share of employed persons aged 15 and over whose main way of getting to work is: on foot."
+    definition_fr: "Part des actifs occupés âgés de 15 ans et plus dont le principal mode de déplacement vers le travail est : à pied."
+    definition_ar: "نسبة النشيطين المشتغلين البالغين 15 سنة فأكثر الذين وسيلتهم الرئيسية للتنقل إلى العمل هي: المشي على الأقدام."
+    note: "Employed persons aged 15 and over living in ordinary dwellings (population sédentaire active occupée)."
+    note_fr: "Actifs occupés âgés de 15 ans et plus vivant dans des logements ordinaires (population sédentaire active occupée)."
+    note_ar: "النشيطون المشتغلون البالغون 15 سنة فأكثر القاطنون في مساكن عادية (population sédentaire active occupée)."
+  commute_two_wheeler:
+    theme: "commuting"
+    en: "Commutes by motorcycle or bicycle"
+    fr: "Se rend au travail en deux-roues"
+    ar: "يتنقل إلى العمل بدراجة نارية أو هوائية"
+    unit: "%"
+    definition: "Share of employed persons aged 15 and over whose main way of getting to work is: by motorcycle or bicycle."
+    definition_fr: "Part des actifs occupés âgés de 15 ans et plus dont le principal mode de déplacement vers le travail est : en moto ou à vélo."
+    definition_ar: "نسبة النشيطين المشتغلين البالغين 15 سنة فأكثر الذين وسيلتهم الرئيسية للتنقل إلى العمل هي: الدراجة النارية أو الهوائية."
+    note: "Employed persons aged 15 and over living in ordinary dwellings (population sédentaire active occupée)."
+    note_fr: "Actifs occupés âgés de 15 ans et plus vivant dans des logements ordinaires (population sédentaire active occupée)."
+    note_ar: "النشيطون المشتغلون البالغون 15 سنة فأكثر القاطنون في مساكن عادية (population sédentaire active occupée)."
+  commute_car:
+    theme: "commuting"
+    en: "Commutes by private car"
+    fr: "Se rend au travail en voiture privée"
+    ar: "يتنقل إلى العمل بسيارة خاصة"
+    unit: "%"
+    definition: "Share of employed persons aged 15 and over whose main way of getting to work is: by private car."
+    definition_fr: "Part des actifs occupés âgés de 15 ans et plus dont le principal mode de déplacement vers le travail est : en voiture privée."
+    definition_ar: "نسبة النشيطين المشتغلين البالغين 15 سنة فأكثر الذين وسيلتهم الرئيسية للتنقل إلى العمل هي: السيارة الخاصة."
+    note: "Employed persons aged 15 and over living in ordinary dwellings (population sédentaire active occupée)."
+    note_fr: "Actifs occupés âgés de 15 ans et plus vivant dans des logements ordinaires (population sédentaire active occupée)."
+    note_ar: "النشيطون المشتغلون البالغون 15 سنة فأكثر القاطنون في مساكن عادية (population sédentaire active occupée)."
+  commute_bus:
+    theme: "commuting"
+    en: "Commutes by bus"
+    fr: "Se rend au travail en bus"
+    ar: "يتنقل إلى العمل بالحافلة"
+    unit: "%"
+    definition: "Share of employed persons aged 15 and over whose main way of getting to work is: by bus."
+    definition_fr: "Part des actifs occupés âgés de 15 ans et plus dont le principal mode de déplacement vers le travail est : en bus."
+    definition_ar: "نسبة النشيطين المشتغلين البالغين 15 سنة فأكثر الذين وسيلتهم الرئيسية للتنقل إلى العمل هي: الحافلة."
+    note: "Employed persons aged 15 and over living in ordinary dwellings (population sédentaire active occupée)."
+    note_fr: "Actifs occupés âgés de 15 ans et plus vivant dans des logements ordinaires (population sédentaire active occupée)."
+    note_ar: "النشيطون المشتغلون البالغون 15 سنة فأكثر القاطنون في مساكن عادية (population sédentaire active occupée)."
+  commute_taxi:
+    theme: "commuting"
+    en: "Commutes by taxi"
+    fr: "Se rend au travail en taxi"
+    ar: "يتنقل إلى العمل بسيارة الأجرة"
+    unit: "%"
+    definition: "Share of employed persons aged 15 and over whose main way of getting to work is: by taxi."
+    definition_fr: "Part des actifs occupés âgés de 15 ans et plus dont le principal mode de déplacement vers le travail est : en taxi."
+    definition_ar: "نسبة النشيطين المشتغلين البالغين 15 سنة فأكثر الذين وسيلتهم الرئيسية للتنقل إلى العمل هي: سيارة الأجرة."
+    note: "Employed persons aged 15 and over living in ordinary dwellings (population sédentaire active occupée)."
+    note_fr: "Actifs occupés âgés de 15 ans et plus vivant dans des logements ordinaires (population sédentaire active occupée)."
+    note_ar: "النشيطون المشتغلون البالغون 15 سنة فأكثر القاطنون في مساكن عادية (population sédentaire active occupée)."
+  commute_employer:
+    theme: "commuting"
+    en: "Commutes by employer or staff transport"
+    fr: "Transport de l'employeur ou du personnel"
+    ar: "يتنقل بنقل المشغل أو نقل المستخدمين"
+    unit: "%"
+    definition: "Share of employed persons aged 15 and over whose main way of getting to work is: by employer or staff transport."
+    definition_fr: "Part des actifs occupés âgés de 15 ans et plus dont le principal mode de déplacement vers le travail est : par le transport de l'employeur ou du personnel."
+    definition_ar: "نسبة النشيطين المشتغلين البالغين 15 سنة فأكثر الذين وسيلتهم الرئيسية للتنقل إلى العمل هي: نقل المشغل أو نقل المستخدمين."
+    note: "Employed persons aged 15 and over living in ordinary dwellings (population sédentaire active occupée)."
+    note_fr: "Actifs occupés âgés de 15 ans et plus vivant dans des logements ordinaires (population sédentaire active occupée)."
+    note_ar: "النشيطون المشتغلون البالغون 15 سنة فأكثر القاطنون في مساكن عادية (population sédentaire active occupée)."
+  commute_train:
+    theme: "commuting"
+    en: "Commutes by train"
+    fr: "Se rend au travail en train"
+    ar: "يتنقل إلى العمل بالقطار"
+    unit: "%"
+    definition: "Share of employed persons aged 15 and over whose main way of getting to work is: by train."
+    definition_fr: "Part des actifs occupés âgés de 15 ans et plus dont le principal mode de déplacement vers le travail est : en train."
+    definition_ar: "نسبة النشيطين المشتغلين البالغين 15 سنة فأكثر الذين وسيلتهم الرئيسية للتنقل إلى العمل هي: القطار."
+    note: "Employed persons aged 15 and over living in ordinary dwellings (population sédentaire active occupée)."
+    note_fr: "Actifs occupés âgés de 15 ans et plus vivant dans des logements ordinaires (population sédentaire active occupée)."
+    note_ar: "النشيطون المشتغلون البالغون 15 سنة فأكثر القاطنون في مساكن عادية (population sédentaire active occupée)."
+  commute_tram:
+    theme: "commuting"
+    en: "Commutes by tram"
+    fr: "Se rend au travail en tramway"
+    ar: "يتنقل إلى العمل بالترامواي"
+    unit: "%"
+    definition: "Share of employed persons aged 15 and over whose main way of getting to work is: by tram."
+    definition_fr: "Part des actifs occupés âgés de 15 ans et plus dont le principal mode de déplacement vers le travail est : en tramway."
+    definition_ar: "نسبة النشيطين المشتغلين البالغين 15 سنة فأكثر الذين وسيلتهم الرئيسية للتنقل إلى العمل هي: الترامواي."
+    note: "Employed persons aged 15 and over living in ordinary dwellings (population sédentaire active occupée)."
+    note_fr: "Actifs occupés âgés de 15 ans et plus vivant dans des logements ordinaires (population sédentaire active occupée)."
+    note_ar: "النشيطون المشتغلون البالغون 15 سنة فأكثر القاطنون في مساكن عادية (population sédentaire active occupée)."
+  commute_informal:
+    theme: "commuting"
+    en: "Commutes by informal transport"
+    fr: "Se rend au travail en transport informel"
+    ar: "يتنقل إلى العمل بالنقل غير المهيكل"
+    unit: "%"
+    definition: "Share of employed persons aged 15 and over whose main way of getting to work is: by informal transport."
+    definition_fr: "Part des actifs occupés âgés de 15 ans et plus dont le principal mode de déplacement vers le travail est : par transport informel."
+    definition_ar: "نسبة النشيطين المشتغلين البالغين 15 سنة فأكثر الذين وسيلتهم الرئيسية للتنقل إلى العمل هي: النقل غير المهيكل."
+    note: "Employed persons aged 15 and over living in ordinary dwellings (population sédentaire active occupée)."
+    note_fr: "Actifs occupés âgés de 15 ans et plus vivant dans des logements ordinaires (population sédentaire active occupée)."
+    note_ar: "النشيطون المشتغلون البالغون 15 سنة فأكثر القاطنون في مساكن عادية (population sédentaire active occupée)."
+  commute_animal:
+    theme: "commuting"
+    en: "Commutes by animal"
+    fr: "Se rend au travail à dos d'animal"
+    ar: "يتنقل إلى العمل على الدواب"
+    unit: "%"
+    definition: "Share of employed persons aged 15 and over whose main way of getting to work is: by animal."
+    definition_fr: "Part des actifs occupés âgés de 15 ans et plus dont le principal mode de déplacement vers le travail est : à dos d'animal."
+    definition_ar: "نسبة النشيطين المشتغلين البالغين 15 سنة فأكثر الذين وسيلتهم الرئيسية للتنقل إلى العمل هي: الدواب."
+    note: "Employed persons aged 15 and over living in ordinary dwellings (population sédentaire active occupée)."
+    note_fr: "Actifs occupés âgés de 15 ans et plus vivant dans des logements ordinaires (population sédentaire active occupée)."
+    note_ar: "النشيطون المشتغلون البالغون 15 سنة فأكثر القاطنون في مساكن عادية (population sédentaire active occupée)."
+  commute_other:
+    theme: "commuting"
+    en: "Commutes by other means"
+    fr: "Autre mode de transport"
+    ar: "وسيلة نقل أخرى"
+    unit: "%"
+    definition: "Share of employed persons aged 15 and over whose main way of getting to work is: by other means."
+    definition_fr: "Part des actifs occupés âgés de 15 ans et plus dont le principal mode de déplacement vers le travail est : par d'autres moyens."
+    definition_ar: "نسبة النشيطين المشتغلين البالغين 15 سنة فأكثر الذين وسيلتهم الرئيسية للتنقل إلى العمل هي: وسيلة أخرى."
+    note: "Employed persons aged 15 and over living in ordinary dwellings (population sédentaire active occupée)."
+    note_fr: "Actifs occupés âgés de 15 ans et plus vivant dans des logements ordinaires (population sédentaire active occupée)."
+    note_ar: "النشيطون المشتغلون البالغون 15 سنة فأكثر القاطنون في مساكن عادية (population sédentaire active occupée)."
+  commute_none:
+    theme: "commuting"
+    en: "Does not travel to work"
+    fr: "Ne se déplace pas pour travailler"
+    ar: "لا يتنقل إلى العمل"
+    unit: "%"
+    definition: "Share of employed persons aged 15 and over who work where they live and do not travel to work."
+    definition_fr: "Part des actifs occupés âgés de 15 ans et plus qui travaillent sur leur lieu de résidence et ne se déplacent pas pour travailler."
+    definition_ar: "نسبة النشيطين المشتغلين البالغين 15 سنة فأكثر الذين يعملون في مكان سكنهم ولا يتنقلون إلى العمل."
+    note: "Employed persons aged 15 and over living in ordinary dwellings (population sédentaire active occupée)."
+    note_fr: "Actifs occupés âgés de 15 ans et plus vivant dans des logements ordinaires (population sédentaire active occupée)."
+    note_ar: "النشيطون المشتغلون البالغون 15 سنة فأكثر القاطنون في مساكن عادية (population sédentaire active occupée)."
+  mig_in_lifetime:
+    theme: "migration"
+    en: "Born elsewhere in Morocco (lifetime in-migration)"
+    fr: "Nés ailleurs au Maroc (entrées durée de vie)"
+    ar: "المولودون في مكان آخر بالمغرب (الوافدون مدى الحياة)"
+    unit: "%"
+    definition: "Residents born in another Moroccan commune, as a share of the commune's population."
+    definition_fr: "Résidents nés dans une autre commune marocaine, en part de la population de la commune."
+    definition_ar: "المقيمون المولودون في جماعة مغربية أخرى، كنسبة من سكان الجماعة."
+    note: "Sedentary population (nomadic households and homeless people excluded). Moves between communes; international moves count as exits."
+    note_fr: "Population sédentaire (hors ménages nomades et sans-abri). Mouvements entre communes ; les mouvements internationaux comptent comme des sorties."
+    note_ar: "السكان المستقرون (باستثناء الأسر الرحل والأشخاص بدون مأوى). التنقلات بين الجماعات؛ وتُحتسب التنقلات الدولية كمغادرات."
+  mig_out_lifetime:
+    theme: "migration"
+    en: "Natives living elsewhere (lifetime out-migration)"
+    fr: "Natifs résidant ailleurs (sorties durée de vie)"
+    ar: "المزدادون بالجماعة المقيمون خارجها (المغادرون مدى الحياة)"
+    unit: "%"
+    definition: "People born in the commune who live elsewhere in Morocco or abroad, as a share of all people born there."
+    definition_fr: "Personnes nées dans la commune qui vivent ailleurs au Maroc ou à l'étranger, en part de l'ensemble des personnes qui y sont nées."
+    definition_ar: "الأشخاص المزدادون بالجماعة المقيمون في مكان آخر بالمغرب أو بالخارج، كنسبة من مجموع المزدادين بها."
+    note: "Sedentary population (nomadic households and homeless people excluded). Moves between communes; international moves count as exits."
+    note_fr: "Population sédentaire (hors ménages nomades et sans-abri). Mouvements entre communes ; les mouvements internationaux comptent comme des sorties."
+    note_ar: "السكان المستقرون (باستثناء الأسر الرحل والأشخاص بدون مأوى). التنقلات بين الجماعات؛ وتُحتسب التنقلات الدولية كمغادرات."
+  mig_in_10y:
+    theme: "migration"
+    en: "Arrived in the last 10 years"
+    fr: "Arrivés au cours des 10 dernières années"
+    ar: "الوافدون خلال السنوات 10 الأخيرة"
+    unit: "%"
+    definition: "Residents who lived in another commune or abroad 10 years before the census, as a share of the resident population."
+    definition_fr: "Résidents qui vivaient dans une autre commune ou à l'étranger 10 ans avant le recensement, en part de la population résidente."
+    definition_ar: "المقيمون الذين كانوا يقيمون في جماعة أخرى أو بالخارج قبل 10 سنوات من الإحصاء، كنسبة من السكان المقيمين."
+    note: "Sedentary population (nomadic households and homeless people excluded). Moves between communes; international moves count as exits."
+    note_fr: "Population sédentaire (hors ménages nomades et sans-abri). Mouvements entre communes ; les mouvements internationaux comptent comme des sorties."
+    note_ar: "السكان المستقرون (باستثناء الأسر الرحل والأشخاص بدون مأوى). التنقلات بين الجماعات؛ وتُحتسب التنقلات الدولية كمغادرات."
+  mig_out_10y:
+    theme: "migration"
+    en: "Left in the last 10 years"
+    fr: "Partis au cours des 10 dernières années"
+    ar: "المغادرون خلال السنوات 10 الأخيرة"
+    unit: "%"
+    definition: "People who lived in the commune 10 years before the census and now live elsewhere, as a share of those residents."
+    definition_fr: "Personnes qui vivaient dans la commune 10 ans avant le recensement et vivent désormais ailleurs, en part de ces résidents."
+    definition_ar: "الأشخاص الذين كانوا يقيمون بالجماعة قبل 10 سنوات من الإحصاء ويقيمون حاليا في مكان آخر، كنسبة من أولئك المقيمين."
+    note: "Sedentary population (nomadic households and homeless people excluded). Moves between communes; international moves count as exits."
+    note_fr: "Population sédentaire (hors ménages nomades et sans-abri). Mouvements entre communes ; les mouvements internationaux comptent comme des sorties."
+    note_ar: "السكان المستقرون (باستثناء الأسر الرحل والأشخاص بدون مأوى). التنقلات بين الجماعات؛ وتُحتسب التنقلات الدولية كمغادرات."
+  mig_in_5y:
+    theme: "migration"
+    en: "Arrived in the last 5 years"
+    fr: "Arrivés au cours des 5 dernières années"
+    ar: "الوافدون خلال السنوات 5 الأخيرة"
+    unit: "%"
+    definition: "Residents who lived in another commune or abroad 5 years before the census, as a share of the resident population."
+    definition_fr: "Résidents qui vivaient dans une autre commune ou à l'étranger 5 ans avant le recensement, en part de la population résidente."
+    definition_ar: "المقيمون الذين كانوا يقيمون في جماعة أخرى أو بالخارج قبل 5 سنوات من الإحصاء، كنسبة من السكان المقيمين."
+    note: "Sedentary population (nomadic households and homeless people excluded). Moves between communes; international moves count as exits."
+    note_fr: "Population sédentaire (hors ménages nomades et sans-abri). Mouvements entre communes ; les mouvements internationaux comptent comme des sorties."
+    note_ar: "السكان المستقرون (باستثناء الأسر الرحل والأشخاص بدون مأوى). التنقلات بين الجماعات؛ وتُحتسب التنقلات الدولية كمغادرات."
+  mig_out_5y:
+    theme: "migration"
+    en: "Left in the last 5 years"
+    fr: "Partis au cours des 5 dernières années"
+    ar: "المغادرون خلال السنوات 5 الأخيرة"
+    unit: "%"
+    definition: "People who lived in the commune 5 years before the census and now live elsewhere, as a share of those residents."
+    definition_fr: "Personnes qui vivaient dans la commune 5 ans avant le recensement et vivent désormais ailleurs, en part de ces résidents."
+    definition_ar: "الأشخاص الذين كانوا يقيمون بالجماعة قبل 5 سنوات من الإحصاء ويقيمون حاليا في مكان آخر، كنسبة من أولئك المقيمين."
+    note: "Sedentary population (nomadic households and homeless people excluded). Moves between communes; international moves count as exits."
+    note_fr: "Population sédentaire (hors ménages nomades et sans-abri). Mouvements entre communes ; les mouvements internationaux comptent comme des sorties."
+    note_ar: "السكان المستقرون (باستثناء الأسر الرحل والأشخاص بدون مأوى). التنقلات بين الجماعات؛ وتُحتسب التنقلات الدولية كمغادرات."
+  n_lived_abroad:
+    agg: sum
+    theme: "migration"
+    en: "Residents who have lived abroad"
+    fr: "Résidents ayant vécu à l'étranger"
+    ar: "المقيمون الذين سبق لهم العيش بالخارج"
+    unit: "persons"
+    definition: "People living in the commune at the census who have previously lived abroad (international migrants)."
+    definition_fr: "Personnes vivant dans la commune au moment du recensement et ayant déjà vécu à l'étranger (migrants internationaux)."
+    definition_ar: "الأشخاص المقيمون بالجماعة عند الإحصاء الذين سبق لهم العيش بالخارج (المهاجرون الدوليون)."
+  pct_lived_abroad:
+    theme: "migration"
+    en: "Share who have lived abroad"
+    fr: "Part ayant vécu à l'étranger"
+    ar: "نسبة الذين سبق لهم العيش بالخارج"
+    unit: "%"
+    definition: "Residents who have previously lived abroad, as a share of the commune's population."
+    definition_fr: "Résidents ayant déjà vécu à l'étranger, en part de la population de la commune."
+    definition_ar: "المقيمون الذين سبق لهم العيش بالخارج، كنسبة من سكان الجماعة."
+  n_urban_dwellings:
+    agg: sum
+    theme: "urban_housing"
+    en: "Urban dwellings"
+    fr: "Logements urbains"
+    ar: "المساكن الحضرية"
+    unit: "dwellings"
+    definition: "Number of urban dwellings, occupied or not."
+    definition_fr: "Nombre de logements urbains, occupés ou non."
+    definition_ar: "عدد المساكن الحضرية، مأهولة أو غير مأهولة."
+    note: "Urban dwellings only (380 urban communes), occupied or not; shares are of dwellings, not households."
+    note_fr: "Logements urbains uniquement (380 communes urbaines), occupés ou non ; les parts portent sur les logements, non sur les ménages."
+    note_ar: "المساكن الحضرية فقط (380 جماعة حضرية)، مأهولة أو غير مأهولة؛ النسب محسوبة من المساكن لا من الأسر."
+  uh_occupied:
+    theme: "urban_housing"
+    en: "Occupied dwellings"
+    fr: "Logements occupés"
+    ar: "المساكن المأهولة"
+    unit: "%"
+    definition: "Share of urban dwellings occupied by a resident household."
+    definition_fr: "Part des logements urbains occupés par un ménage résident."
+    definition_ar: "نسبة المساكن الحضرية التي تشغلها أسرة مقيمة."
+    note: "Urban dwellings only (380 urban communes), occupied or not; shares are of dwellings, not households."
+    note_fr: "Logements urbains uniquement (380 communes urbaines), occupés ou non ; les parts portent sur les logements, non sur les ménages."
+    note_ar: "المساكن الحضرية فقط (380 جماعة حضرية)، مأهولة أو غير مأهولة؛ النسب محسوبة من المساكن لا من الأسر."
+  uh_vacant:
+    theme: "urban_housing"
+    en: "Vacant dwellings"
+    fr: "Logements vacants"
+    ar: "المساكن الشاغرة"
+    unit: "%"
+    definition: "Share of urban dwellings vacant (for rent or sale); only villas, apartments and Moroccan houses can be vacant."
+    definition_fr: "Part des logements urbains vacants (à louer ou à vendre) ; seuls les villas, appartements et maisons marocaines peuvent être vacants."
+    definition_ar: "نسبة المساكن الحضرية الشاغرة (للكراء أو للبيع)؛ ولا يمكن أن تكون شاغرة إلا الفيلات والشقق والدور المغربية."
+    note: "Urban dwellings only (380 urban communes), occupied or not; shares are of dwellings, not households."
+    note_fr: "Logements urbains uniquement (380 communes urbaines), occupés ou non ; les parts portent sur les logements, non sur les ménages."
+    note_ar: "المساكن الحضرية فقط (380 جماعة حضرية)، مأهولة أو غير مأهولة؛ النسب محسوبة من المساكن لا من الأسر."
+  uh_secondary:
+    theme: "urban_housing"
+    en: "Second or seasonal homes"
+    fr: "Résidences secondaires ou saisonnières"
+    ar: "المساكن الثانوية أو الموسمية"
+    unit: "%"
+    definition: "Share of urban dwellings used as second or seasonal homes."
+    definition_fr: "Part des logements urbains utilisés comme résidences secondaires ou saisonnières."
+    definition_ar: "نسبة المساكن الحضرية المستعملة كمساكن ثانوية أو موسمية."
+    note: "Urban dwellings only (380 urban communes), occupied or not; shares are of dwellings, not households."
+    note_fr: "Logements urbains uniquement (380 communes urbaines), occupés ou non ; les parts portent sur les logements, non sur les ménages."
+    note_ar: "المساكن الحضرية فقط (380 جماعة حضرية)، مأهولة أو غير مأهولة؛ النسب محسوبة من المساكن لا من الأسر."
+  uh_villa:
+    theme: "urban_housing"
+    en: "Villas (urban stock)"
+    fr: "Villas (parc urbain)"
+    ar: "الفيلات (الرصيد الحضري)"
+    unit: "%"
+    definition: "Share of urban dwellings that are villas or villa floors."
+    definition_fr: "Part des logements urbains qui sont des villas ou des étages de villa."
+    definition_ar: "نسبة المساكن الحضرية التي هي فيلات أو طوابق من فيلات."
+    note: "Urban dwellings only (380 urban communes), occupied or not; shares are of dwellings, not households."
+    note_fr: "Logements urbains uniquement (380 communes urbaines), occupés ou non ; les parts portent sur les logements, non sur les ménages."
+    note_ar: "المساكن الحضرية فقط (380 جماعة حضرية)، مأهولة أو غير مأهولة؛ النسب محسوبة من المساكن لا من الأسر."
+  uh_apartment:
+    theme: "urban_housing"
+    en: "Apartments (urban stock)"
+    fr: "Appartements (parc urbain)"
+    ar: "الشقق (الرصيد الحضري)"
+    unit: "%"
+    definition: "Share of urban dwellings that are apartments."
+    definition_fr: "Part des logements urbains qui sont des appartements."
+    definition_ar: "نسبة المساكن الحضرية التي هي شقق."
+    note: "Urban dwellings only (380 urban communes), occupied or not; shares are of dwellings, not households."
+    note_fr: "Logements urbains uniquement (380 communes urbaines), occupés ou non ; les parts portent sur les logements, non sur les ménages."
+    note_ar: "المساكن الحضرية فقط (380 جماعة حضرية)، مأهولة أو غير مأهولة؛ النسب محسوبة من المساكن لا من الأسر."
+  uh_moroccan_traditional:
+    theme: "urban_housing"
+    en: "Traditional Moroccan houses"
+    fr: "Maisons marocaines traditionnelles"
+    ar: "الدور المغربية التقليدية"
+    unit: "%"
+    definition: "Share of urban dwellings that are traditional Moroccan houses, mostly in old medinas."
+    definition_fr: "Part des logements urbains qui sont des maisons marocaines traditionnelles, principalement dans les anciennes médinas."
+    definition_ar: "نسبة المساكن الحضرية التي هي دور مغربية تقليدية، توجد أساسا في المدن العتيقة."
+    note: "Urban dwellings only (380 urban communes), occupied or not; shares are of dwellings, not households."
+    note_fr: "Logements urbains uniquement (380 communes urbaines), occupés ou non ; les parts portent sur les logements, non sur les ménages."
+    note_ar: "المساكن الحضرية فقط (380 جماعة حضرية)، مأهولة أو غير مأهولة؛ النسب محسوبة من المساكن لا من الأسر."
+  uh_moroccan_modern:
+    theme: "urban_housing"
+    en: "Modern Moroccan houses"
+    fr: "Maisons marocaines modernes"
+    ar: "الدور المغربية العصرية"
+    unit: "%"
+    definition: "Share of urban dwellings that are modern Moroccan houses."
+    definition_fr: "Part des logements urbains qui sont des maisons marocaines modernes."
+    definition_ar: "نسبة المساكن الحضرية التي هي دور مغربية عصرية."
+    note: "Urban dwellings only (380 urban communes), occupied or not; shares are of dwellings, not households."
+    note_fr: "Logements urbains uniquement (380 communes urbaines), occupés ou non ; les parts portent sur les logements, non sur les ménages."
+    note_ar: "المساكن الحضرية فقط (380 جماعة حضرية)، مأهولة أو غير مأهولة؛ النسب محسوبة من المساكن لا من الأسر."
+  uh_slum:
+    theme: "urban_housing"
+    en: "Makeshift housing or slums (urban stock)"
+    fr: "Maisons sommaires ou bidonvilles (parc urbain)"
+    ar: "المساكن البدائية أو الصفيحية (الرصيد الحضري)"
+    unit: "%"
+    definition: "Share of urban dwellings that are makeshift constructions or slum shacks."
+    definition_fr: "Part des logements urbains qui sont des constructions sommaires ou des baraques de bidonville."
+    definition_ar: "نسبة المساكن الحضرية التي هي بنايات بدائية أو براريك صفيحية."
+    note: "Urban dwellings only (380 urban communes), occupied or not; shares are of dwellings, not households."
+    note_fr: "Logements urbains uniquement (380 communes urbaines), occupés ou non ; les parts portent sur les logements, non sur les ménages."
+    note_ar: "المساكن الحضرية فقط (380 جماعة حضرية)، مأهولة أو غير مأهولة؛ النسب محسوبة من المساكن لا من الأسر."
+  uh_rural:
+    theme: "urban_housing"
+    en: "Rural-type dwellings (urban stock)"
+    fr: "Logements de type rural (parc urbain)"
+    ar: "المساكن من النوع القروي (الرصيد الحضري)"
+    unit: "%"
+    definition: "Share of urban dwellings of rural type."
+    definition_fr: "Part des logements urbains de type rural."
+    definition_ar: "نسبة المساكن الحضرية من النوع القروي."
+    note: "Urban dwellings only (380 urban communes), occupied or not; shares are of dwellings, not households."
+    note_fr: "Logements urbains uniquement (380 communes urbaines), occupés ou non ; les parts portent sur les logements, non sur les ménages."
+    note_ar: "المساكن الحضرية فقط (380 جماعة حضرية)، مأهولة أو غير مأهولة؛ النسب محسوبة من المساكن لا من الأسر."
+  uh_other:
+    theme: "urban_housing"
+    en: "Other dwelling types (urban stock)"
+    fr: "Autres types de logement (parc urbain)"
+    ar: "أنواع أخرى من المساكن (الرصيد الحضري)"
+    unit: "%"
+    definition: "Share of urban dwellings of other types."
+    definition_fr: "Part des logements urbains d'autres types."
+    definition_ar: "نسبة المساكن الحضرية من أنواع أخرى."
+    note: "Urban dwellings only (380 urban communes), occupied or not; shares are of dwellings, not households."
+    note_fr: "Logements urbains uniquement (380 communes urbaines), occupés ou non ; les parts portent sur les logements, non sur les ménages."
+    note_ar: "المساكن الحضرية فقط (380 جماعة حضرية)، مأهولة أو غير مأهولة؛ النسب محسوبة من المساكن لا من الأسر."
+  uh_age_lt20:
+    theme: "urban_housing"
+    en: "Dwellings under 20 years old"
+    fr: "Logements de moins de 20 ans"
+    ar: "مساكن عمرها أقل من 20 سنة"
+    unit: "%"
+    definition: "Share of urban dwellings under 20 years old."
+    definition_fr: "Part des logements urbains de moins de 20 ans."
+    definition_ar: "نسبة المساكن الحضرية التي يقل عمرها عن 20 سنة."
+    note: "Urban dwellings only (380 urban communes), occupied or not; shares are of dwellings, not households."
+    note_fr: "Logements urbains uniquement (380 communes urbaines), occupés ou non ; les parts portent sur les logements, non sur les ménages."
+    note_ar: "المساكن الحضرية فقط (380 جماعة حضرية)، مأهولة أو غير مأهولة؛ النسب محسوبة من المساكن لا من الأسر."
+  uh_age_20_49:
+    theme: "urban_housing"
+    en: "Dwellings 20-49 years old"
+    fr: "Logements de 20 à 49 ans"
+    ar: "مساكن عمرها من 20 إلى 49 سنة"
+    unit: "%"
+    definition: "Share of urban dwellings 20 to 49 years old."
+    definition_fr: "Part des logements urbains de 20 à 49 ans."
+    definition_ar: "نسبة المساكن الحضرية التي يتراوح عمرها بين 20 و49 سنة."
+    note: "Urban dwellings only (380 urban communes), occupied or not; shares are of dwellings, not households."
+    note_fr: "Logements urbains uniquement (380 communes urbaines), occupés ou non ; les parts portent sur les logements, non sur les ménages."
+    note_ar: "المساكن الحضرية فقط (380 جماعة حضرية)، مأهولة أو غير مأهولة؛ النسب محسوبة من المساكن لا من الأسر."
+  uh_age_50plus:
+    theme: "urban_housing"
+    en: "Dwellings 50 years or older (urban stock)"
+    fr: "Logements de 50 ans et plus (parc urbain)"
+    ar: "مساكن عمرها 50 سنة فأكثر (الرصيد الحضري)"
+    unit: "%"
+    definition: "Share of urban dwellings 50 years old or older."
+    definition_fr: "Part des logements urbains de 50 ans et plus."
+    definition_ar: "نسبة المساكن الحضرية التي يبلغ عمرها 50 سنة فأكثر."
+    note: "Urban dwellings only (380 urban communes), occupied or not; shares are of dwellings, not households."
+    note_fr: "Logements urbains uniquement (380 communes urbaines), occupés ou non ; les parts portent sur les logements, non sur les ménages."
+    note_ar: "المساكن الحضرية فقط (380 جماعة حضرية)، مأهولة أو غير مأهولة؛ النسب محسوبة من المساكن لا من الأسر."
+  uh_walls_concrete:
+    theme: "urban_housing"
+    en: "Concrete or brick walls"
+    fr: "Murs en béton ou briques"
+    ar: "جدران من الإسمنت المسلح أو الآجر"
+    unit: "%"
+    definition: "Share of urban dwellings with walls of reinforced concrete or brick with mortar."
+    definition_fr: "Part des logements urbains dont les murs sont en béton armé ou en briques liées au mortier."
+    definition_ar: "نسبة المساكن الحضرية ذات جدران من الإسمنت المسلح أو الآجر المربوط بالملاط."
+    note: "Urban dwellings only (380 urban communes), occupied or not; shares are of dwellings, not households."
+    note_fr: "Logements urbains uniquement (380 communes urbaines), occupés ou non ; les parts portent sur les logements, non sur les ménages."
+    note_ar: "المساكن الحضرية فقط (380 جماعة حضرية)، مأهولة أو غير مأهولة؛ النسب محسوبة من المساكن لا من الأسر."
+  uh_roof_slab:
+    theme: "urban_housing"
+    en: "Concrete slab roof"
+    fr: "Toit en dalle"
+    ar: "سقف من البلاطة الإسمنتية"
+    unit: "%"
+    definition: "Share of urban dwellings with a concrete slab roof."
+    definition_fr: "Part des logements urbains dont le toit est une dalle de béton."
+    definition_ar: "نسبة المساكن الحضرية ذات سقف من البلاطة الإسمنتية."
+    note: "Urban dwellings only (380 urban communes), occupied or not; shares are of dwellings, not households."
+    note_fr: "Logements urbains uniquement (380 communes urbaines), occupés ou non ; les parts portent sur les logements, non sur les ménages."
+    note_ar: "المساكن الحضرية فقط (380 جماعة حضرية)، مأهولة أو غير مأهولة؛ النسب محسوبة من المساكن لا من الأسر."
+  uh_grid_electricity:
+    theme: "urban_housing"
+    en: "Connected to the electricity grid"
+    fr: "Raccordés au réseau électrique"
+    ar: "مرتبطة بشبكة الكهرباء"
+    unit: "%"
+    definition: "Share of urban dwellings connected to the public electricity grid."
+    definition_fr: "Part des logements urbains raccordés au réseau public d'électricité."
+    definition_ar: "نسبة المساكن الحضرية المرتبطة بالشبكة العمومية للكهرباء."
+    note: "Urban dwellings only (380 urban communes), occupied or not; shares are of dwellings, not households."
+    note_fr: "Logements urbains uniquement (380 communes urbaines), occupés ou non ; les parts portent sur les logements, non sur les ménages."
+    note_ar: "المساكن الحضرية فقط (380 جماعة حضرية)، مأهولة أو غير مأهولة؛ النسب محسوبة من المساكن لا من الأسر."
+  uh_grid_water:
+    theme: "urban_housing"
+    en: "Connected to the water network"
+    fr: "Raccordés au réseau d'eau"
+    ar: "مرتبطة بشبكة الماء"
+    unit: "%"
+    definition: "Share of urban dwellings connected to the public water network."
+    definition_fr: "Part des logements urbains raccordés au réseau public d'eau."
+    definition_ar: "نسبة المساكن الحضرية المرتبطة بالشبكة العمومية للماء."
+    note: "Urban dwellings only (380 urban communes), occupied or not; shares are of dwellings, not households."
+    note_fr: "Logements urbains uniquement (380 communes urbaines), occupés ou non ; les parts portent sur les logements, non sur les ménages."
+    note_ar: "المساكن الحضرية فقط (380 جماعة حضرية)، مأهولة أو غير مأهولة؛ النسب محسوبة من المساكن لا من الأسر."
+  uh_grid_sewer:
+    theme: "urban_housing"
+    en: "Connected to the public sewer"
+    fr: "Raccordés au réseau d'assainissement"
+    ar: "مرتبطة بشبكة التطهير"
+    unit: "%"
+    definition: "Share of urban dwellings connected to the public sewer."
+    definition_fr: "Part des logements urbains raccordés au réseau public d'assainissement."
+    definition_ar: "نسبة المساكن الحضرية المرتبطة بشبكة التطهير العمومية."
+    note: "Urban dwellings only (380 urban communes), occupied or not; shares are of dwellings, not households."
+    note_fr: "Logements urbains uniquement (380 communes urbaines), occupés ou non ; les parts portent sur les logements, non sur les ménages."
+    note_ar: "المساكن الحضرية فقط (380 جماعة حضرية)، مأهولة أو غير مأهولة؛ النسب محسوبة من المساكن لا من الأسر."
+  uh_deficit_rate:
+    theme: "urban_housing"
+    en: "Housing deficit rate"
+    fr: "Taux de déficit quantitatif en logement"
+    ar: "معدل العجز الكمي في السكن"
+    unit: "%"
+    definition: "Households in unfit dwellings plus households sharing a fit dwelling, divided by fit dwellings occupied or vacant."
+    definition_fr: "Ménages occupant des logements insalubres plus ménages partageant un logement salubre, rapportés aux logements salubres occupés ou vacants."
+    definition_ar: "الأسر القاطنة في مساكن غير لائقة مضافا إليها الأسر التي تتقاسم مسكنا لائقا، مقسومة على عدد المساكن اللائقة المأهولة أو الشاغرة."
+    note: "Urban dwellings only (380 urban communes), occupied or not; shares are of dwellings, not households. The rate can exceed 100."
+    note_fr: "Logements urbains uniquement (380 communes urbaines), occupés ou non ; les parts portent sur les logements, non sur les ménages. Le taux peut dépasser 100."
+    note_ar: "المساكن الحضرية فقط (380 جماعة حضرية)، مأهولة أو غير مأهولة؛ النسب محسوبة من المساكن لا من الأسر. يمكن أن يتجاوز المعدل 100."
+  n_establishments:
+    agg: sum
+    theme: "establishments"
+    en: "Establishments"
+    fr: "Établissements"
+    ar: "المؤسسات"
+    unit: "establishments"
+    definition: "Number of georeferenced establishments of all kinds."
+    definition_fr: "Nombre d'établissements géoréférencés de toute nature."
+    definition_ar: "عدد المؤسسات المرجعة جغرافيا بجميع أنواعها."
+    note: "Georeferenced establishments mapped by HCP for the 2024 census; the six arrondissement cities are summed."
+    note_fr: "Établissements géoréférencés par le HCP pour le recensement de 2024 ; les valeurs des six villes à arrondissements sont additionnées."
+    note_ar: "المؤسسات المرجعة جغرافيا التي رصدتها المندوبية السامية للتخطيط في إطار إحصاء 2024؛ مع جمع قيم المدن الست المقسمة إلى مقاطعات."
+  n_public_services:
+    agg: sum
+    theme: "establishments"
+    en: "Public-service establishments"
+    fr: "Établissements de services publics"
+    ar: "مؤسسات المرافق العمومية"
+    unit: "establishments"
+    definition: "Number of public-service establishments."
+    definition_fr: "Nombre d'établissements de services publics."
+    definition_ar: "عدد مؤسسات المرافق العمومية."
+    note: "Georeferenced establishments mapped by HCP for the 2024 census; the six arrondissement cities are summed."
+    note_fr: "Établissements géoréférencés par le HCP pour le recensement de 2024 ; les valeurs des six villes à arrondissements sont additionnées."
+    note_ar: "المؤسسات المرجعة جغرافيا التي رصدتها المندوبية السامية للتخطيط في إطار إحصاء 2024؛ مع جمع قيم المدن الست المقسمة إلى مقاطعات."
+  n_nonprofits:
+    agg: sum
+    theme: "establishments"
+    en: "Non-profit establishments"
+    fr: "Établissements à but non lucratif"
+    ar: "المؤسسات غير الربحية"
+    unit: "establishments"
+    definition: "Number of non-profit establishments (associations)."
+    definition_fr: "Nombre d'établissements à but non lucratif (associations)."
+    definition_ar: "عدد المؤسسات غير الربحية (الجمعيات)."
+    note: "Georeferenced establishments mapped by HCP for the 2024 census; the six arrondissement cities are summed."
+    note_fr: "Établissements géoréférencés par le HCP pour le recensement de 2024 ; les valeurs des six villes à arrondissements sont additionnées."
+    note_ar: "المؤسسات المرجعة جغرافيا التي رصدتها المندوبية السامية للتخطيط في إطار إحصاء 2024؛ مع جمع قيم المدن الست المقسمة إلى مقاطعات."
+  n_souks:
+    agg: sum
+    theme: "establishments"
+    en: "Weekly souks"
+    fr: "Souks hebdomadaires"
+    ar: "الأسواق الأسبوعية"
+    unit: "souks"
+    definition: "Number of active weekly souks."
+    definition_fr: "Nombre de souks hebdomadaires actifs."
+    definition_ar: "عدد الأسواق الأسبوعية النشيطة."
+    note: "Georeferenced establishments mapped by HCP for the 2024 census; the six arrondissement cities are summed."
+    note_fr: "Établissements géoréférencés par le HCP pour le recensement de 2024 ; les valeurs des six villes à arrondissements sont additionnées."
+    note_ar: "المؤسسات المرجعة جغرافيا التي رصدتها المندوبية السامية للتخطيط في إطار إحصاء 2024؛ مع جمع قيم المدن الست المقسمة إلى مقاطعات."
+  n_firms:
+    agg: sum
+    theme: "establishments"
+    en: "Businesses"
+    fr: "Établissements à but lucratif"
+    ar: "المؤسسات الربحية"
+    unit: "establishments"
+    definition: "Number of for-profit establishments (businesses and their branches)."
+    definition_fr: "Nombre d'établissements à but lucratif (entreprises et leurs succursales)."
+    definition_ar: "عدد المؤسسات الربحية (المقاولات وفروعها)."
+    note: "Georeferenced establishments mapped by HCP for the 2024 census; the six arrondissement cities are summed."
+    note_fr: "Établissements géoréférencés par le HCP pour le recensement de 2024 ; les valeurs des six villes à arrondissements sont additionnées."
+    note_ar: "المؤسسات المرجعة جغرافيا التي رصدتها المندوبية السامية للتخطيط في إطار إحصاء 2024؛ مع جمع قيم المدن الست المقسمة إلى مقاطعات."
+  n_firm_jobs:
+    agg: sum
+    theme: "establishments"
+    en: "Permanent jobs in businesses"
+    fr: "Emplois permanents des établissements à but lucratif"
+    ar: "مناصب الشغل الدائمة في المؤسسات الربحية"
+    unit: "jobs"
+    definition: "Permanent jobs in for-profit establishments located in the commune."
+    definition_fr: "Emplois permanents des établissements à but lucratif situés dans la commune."
+    definition_ar: "مناصب الشغل الدائمة في المؤسسات الربحية الموجودة بالجماعة."
+    note: "Georeferenced establishments mapped by HCP for the 2024 census; the six arrondissement cities are summed."
+    note_fr: "Établissements géoréférencés par le HCP pour le recensement de 2024 ; les valeurs des six villes à arrondissements sont additionnées."
+    note_ar: "المؤسسات المرجعة جغرافيا التي رصدتها المندوبية السامية للتخطيط في إطار إحصاء 2024؛ مع جمع قيم المدن الست المقسمة إلى مقاطعات."
+  firms_industry:
+    theme: "establishments"
+    en: "Businesses in industry"
+    fr: "Établissements industriels"
+    ar: "المؤسسات الصناعية"
+    unit: "%"
+    definition: "Share of for-profit establishments in industry."
+    definition_fr: "Part des établissements à but lucratif relevant de l'industrie."
+    definition_ar: "نسبة المؤسسات الربحية العاملة في الصناعة."
+    note: "Georeferenced establishments mapped by HCP for the 2024 census; the six arrondissement cities are summed."
+    note_fr: "Établissements géoréférencés par le HCP pour le recensement de 2024 ; les valeurs des six villes à arrondissements sont additionnées."
+    note_ar: "المؤسسات المرجعة جغرافيا التي رصدتها المندوبية السامية للتخطيط في إطار إحصاء 2024؛ مع جمع قيم المدن الست المقسمة إلى مقاطعات."
+  firms_construction:
+    theme: "establishments"
+    en: "Businesses in construction"
+    fr: "Établissements de construction"
+    ar: "مؤسسات البناء"
+    unit: "%"
+    definition: "Share of for-profit establishments in construction."
+    definition_fr: "Part des établissements à but lucratif relevant de la construction."
+    definition_ar: "نسبة المؤسسات الربحية العاملة في البناء."
+    note: "Georeferenced establishments mapped by HCP for the 2024 census; the six arrondissement cities are summed."
+    note_fr: "Établissements géoréférencés par le HCP pour le recensement de 2024 ; les valeurs des six villes à arrondissements sont additionnées."
+    note_ar: "المؤسسات المرجعة جغرافيا التي رصدتها المندوبية السامية للتخطيط في إطار إحصاء 2024؛ مع جمع قيم المدن الست المقسمة إلى مقاطعات."
+  firms_trade:
+    theme: "establishments"
+    en: "Businesses in trade"
+    fr: "Établissements commerciaux"
+    ar: "المؤسسات التجارية"
+    unit: "%"
+    definition: "Share of for-profit establishments in trade."
+    definition_fr: "Part des établissements à but lucratif relevant du commerce."
+    definition_ar: "نسبة المؤسسات الربحية العاملة في التجارة."
+    note: "Georeferenced establishments mapped by HCP for the 2024 census; the six arrondissement cities are summed."
+    note_fr: "Établissements géoréférencés par le HCP pour le recensement de 2024 ; les valeurs des six villes à arrondissements sont additionnées."
+    note_ar: "المؤسسات المرجعة جغرافيا التي رصدتها المندوبية السامية للتخطيط في إطار إحصاء 2024؛ مع جمع قيم المدن الست المقسمة إلى مقاطعات."
+  firms_services:
+    theme: "establishments"
+    en: "Businesses in services"
+    fr: "Établissements de services"
+    ar: "مؤسسات الخدمات"
+    unit: "%"
+    definition: "Share of for-profit establishments in services."
+    definition_fr: "Part des établissements à but lucratif relevant des services."
+    definition_ar: "نسبة المؤسسات الربحية العاملة في الخدمات."
+    note: "Georeferenced establishments mapped by HCP for the 2024 census; the six arrondissement cities are summed."
+    note_fr: "Établissements géoréférencés par le HCP pour le recensement de 2024 ; les valeurs des six villes à arrondissements sont additionnées."
+    note_ar: "المؤسسات المرجعة جغرافيا التي رصدتها المندوبية السامية للتخطيط في إطار إحصاء 2024؛ مع جمع قيم المدن الست المقسمة إلى مقاطعات."
+  firms_size_1:
+    theme: "establishments"
+    en: "Businesses with one employee"
+    fr: "Établissements à un seul employé"
+    ar: "مؤسسات بمستخدم واحد"
+    unit: "%"
+    definition: "Share of for-profit establishments with a single employee."
+    definition_fr: "Part des établissements à but lucratif comptant un seul employé."
+    definition_ar: "نسبة المؤسسات الربحية التي تشغّل مستخدما واحدا."
+    note: "Georeferenced establishments mapped by HCP for the 2024 census; the six arrondissement cities are summed."
+    note_fr: "Établissements géoréférencés par le HCP pour le recensement de 2024 ; les valeurs des six villes à arrondissements sont additionnées."
+    note_ar: "المؤسسات المرجعة جغرافيا التي رصدتها المندوبية السامية للتخطيط في إطار إحصاء 2024؛ مع جمع قيم المدن الست المقسمة إلى مقاطعات."
+  firms_size_2_3:
+    theme: "establishments"
+    en: "Businesses with 2-3 employees"
+    fr: "Établissements de 2 à 3 employés"
+    ar: "مؤسسات من 2 إلى 3 مستخدمين"
+    unit: "%"
+    definition: "Share of for-profit establishments with 2 or 3 employees."
+    definition_fr: "Part des établissements à but lucratif comptant 2 ou 3 employés."
+    definition_ar: "نسبة المؤسسات الربحية التي تشغّل 2 أو 3 مستخدمين."
+    note: "Georeferenced establishments mapped by HCP for the 2024 census; the six arrondissement cities are summed."
+    note_fr: "Établissements géoréférencés par le HCP pour le recensement de 2024 ; les valeurs des six villes à arrondissements sont additionnées."
+    note_ar: "المؤسسات المرجعة جغرافيا التي رصدتها المندوبية السامية للتخطيط في إطار إحصاء 2024؛ مع جمع قيم المدن الست المقسمة إلى مقاطعات."
+  firms_size_4_9:
+    theme: "establishments"
+    en: "Businesses with 4-9 employees"
+    fr: "Établissements de 4 à 9 employés"
+    ar: "مؤسسات من 4 إلى 9 مستخدمين"
+    unit: "%"
+    definition: "Share of for-profit establishments with 4 to 9 employees."
+    definition_fr: "Part des établissements à but lucratif comptant de 4 à 9 employés."
+    definition_ar: "نسبة المؤسسات الربحية التي تشغّل من 4 إلى 9 مستخدمين."
+    note: "Georeferenced establishments mapped by HCP for the 2024 census; the six arrondissement cities are summed."
+    note_fr: "Établissements géoréférencés par le HCP pour le recensement de 2024 ; les valeurs des six villes à arrondissements sont additionnées."
+    note_ar: "المؤسسات المرجعة جغرافيا التي رصدتها المندوبية السامية للتخطيط في إطار إحصاء 2024؛ مع جمع قيم المدن الست المقسمة إلى مقاطعات."
+  firms_size_10plus:
+    theme: "establishments"
+    en: "Businesses with 10 or more employees"
+    fr: "Établissements de 10 employés et plus"
+    ar: "مؤسسات بـ10 مستخدمين فأكثر"
+    unit: "%"
+    definition: "Share of for-profit establishments with 10 or more employees."
+    definition_fr: "Part des établissements à but lucratif comptant 10 employés ou plus."
+    definition_ar: "نسبة المؤسسات الربحية التي تشغّل 10 مستخدمين فأكثر."
+    note: "Georeferenced establishments mapped by HCP for the 2024 census; the six arrondissement cities are summed."
+    note_fr: "Établissements géoréférencés par le HCP pour le recensement de 2024 ; les valeurs des six villes à arrondissements sont additionnées."
+    note_ar: "المؤسسات المرجعة جغرافيا التي رصدتها المندوبية السامية للتخطيط في إطار إحصاء 2024؛ مع جمع قيم المدن الست المقسمة إلى مقاطعات."
+  firms_since_2011:
+    theme: "establishments"
+    en: "Businesses created since 2011"
+    fr: "Établissements créés depuis 2011"
+    ar: "المؤسسات المحدثة منذ 2011"
+    unit: "%"
+    definition: "Share of for-profit establishments with a creation date in 2011 or later."
+    definition_fr: "Part des établissements à but lucratif créés en 2011 ou après."
+    definition_ar: "نسبة المؤسسات الربحية التي يعود تاريخ إحداثها إلى سنة 2011 أو بعدها."
+    note: "Georeferenced establishments mapped by HCP for the 2024 census; the six arrondissement cities are summed."
+    note_fr: "Établissements géoréférencés par le HCP pour le recensement de 2024 ; les valeurs des six villes à arrondissements sont additionnées."
+    note_ar: "المؤسسات المرجعة جغرافيا التي رصدتها المندوبية السامية للتخطيط في إطار إحصاء 2024؛ مع جمع قيم المدن الست المقسمة إلى مقاطعات."
+  establishments_per_1000:
+    theme: "establishments"
+    en: "Establishments per 1,000 residents"
+    fr: "Établissements pour 1 000 habitants"
+    ar: "المؤسسات لكل 1000 نسمة"
+    unit: "per 1,000 residents"
+    definition: "Georeferenced establishments per 1,000 residents."
+    definition_fr: "Établissements géoréférencés pour 1 000 habitants."
+    definition_ar: "المؤسسات المرجعة جغرافيا لكل 1000 نسمة."
+    note: "Georeferenced establishments mapped by HCP for the 2024 census; the six arrondissement cities are summed."
+    note_fr: "Établissements géoréférencés par le HCP pour le recensement de 2024 ; les valeurs des six villes à arrondissements sont additionnées."
+    note_ar: "المؤسسات المرجعة جغرافيا التي رصدتها المندوبية السامية للتخطيط في إطار إحصاء 2024؛ مع جمع قيم المدن الست المقسمة إلى مقاطعات."
+  firm_jobs_per_1000:
+    theme: "establishments"
+    en: "Business jobs per 1,000 residents"
+    fr: "Emplois des établissements pour 1 000 habitants"
+    ar: "مناصب الشغل لكل 1000 نسمة"
+    unit: "per 1,000 residents"
+    definition: "Permanent jobs in for-profit establishments per 1,000 residents; high in industrial zones with few residents."
+    definition_fr: "Emplois permanents des établissements à but lucratif pour 1 000 habitants ; valeurs élevées dans les zones industrielles peu peuplées."
+    definition_ar: "مناصب الشغل الدائمة في المؤسسات الربحية لكل 1000 نسمة؛ مرتفعة في المناطق الصناعية ذات العدد القليل من السكان."
+    note: "Georeferenced establishments mapped by HCP for the 2024 census; the six arrondissement cities are summed."
+    note_fr: "Établissements géoréférencés par le HCP pour le recensement de 2024 ; les valeurs des six villes à arrondissements sont additionnées."
+    note_ar: "المؤسسات المرجعة جغرافيا التي رصدتها المندوبية السامية للتخطيط في إطار إحصاء 2024؛ مع جمع قيم المدن الست المقسمة إلى مقاطعات."
+  n_douars:
+    agg: sum
+    theme: "rural_settlement"
+    en: "Douars"
+    fr: "Douars"
+    ar: "الدواوير"
+    unit: "douars"
+    definition: "Number of douars (rural settlements) in the commune."
+    definition_fr: "Nombre de douars (localités rurales) dans la commune."
+    definition_ar: "عدد الدواوير (التجمعات السكنية القروية) بالجماعة."
+    note: "Rural communes only, aggregated from HCP's douar-level tables: population-weighted for people, household-weighted for dwellings and distances."
+    note_fr: "Communes rurales uniquement, agrégées à partir des tableaux par douar du HCP : pondération par la population pour les personnes, par les ménages pour les logements et les distances."
+    note_ar: "الجماعات القروية فقط، مجمعة انطلاقا من جداول المندوبية السامية للتخطيط على مستوى الدوار: مرجحة بعدد السكان بالنسبة للأشخاص، وبعدد الأسر بالنسبة للمساكن والمسافات."
+  douar_grouped:
+    theme: "rural_settlement"
+    en: "Living in grouped douars"
+    fr: "Vivant dans un douar groupé"
+    ar: "القاطنون في دواوير مجمعة"
+    unit: "%"
+    definition: "Share of the rural population living in grouped douars (at least two thirds of dwellings side by side)."
+    definition_fr: "Part de la population rurale vivant dans des douars groupés (au moins deux tiers des logements contigus)."
+    definition_ar: "نسبة السكان القرويين القاطنين في دواوير مجمعة (ثلثا المساكن على الأقل متجاورة)."
+    note: "Rural communes only, aggregated from HCP's douar-level tables: population-weighted for people, household-weighted for dwellings and distances."
+    note_fr: "Communes rurales uniquement, agrégées à partir des tableaux par douar du HCP : pondération par la population pour les personnes, par les ménages pour les logements et les distances."
+    note_ar: "الجماعات القروية فقط، مجمعة انطلاقا من جداول المندوبية السامية للتخطيط على مستوى الدوار: مرجحة بعدد السكان بالنسبة للأشخاص، وبعدد الأسر بالنسبة للمساكن والمسافات."
+  douar_fragmented:
+    theme: "rural_settlement"
+    en: "Living in fragmented douars"
+    fr: "Vivant dans un douar éclaté"
+    ar: "القاطنون في دواوير مجزأة"
+    unit: "%"
+    definition: "Share of the rural population living in fragmented douars (made of named sub-douars)."
+    definition_fr: "Part de la population rurale vivant dans des douars éclatés (composés de sous-douars dénommés)."
+    definition_ar: "نسبة السكان القرويين القاطنين في دواوير مجزأة (تتكون من دواوير فرعية مسماة)."
+    note: "Rural communes only, aggregated from HCP's douar-level tables: population-weighted for people, household-weighted for dwellings and distances."
+    note_fr: "Communes rurales uniquement, agrégées à partir des tableaux par douar du HCP : pondération par la population pour les personnes, par les ménages pour les logements et les distances."
+    note_ar: "الجماعات القروية فقط، مجمعة انطلاقا من جداول المندوبية السامية للتخطيط على مستوى الدوار: مرجحة بعدد السكان بالنسبة للأشخاص، وبعدد الأسر بالنسبة للمساكن والمسافات."
+  douar_dispersed:
+    theme: "rural_settlement"
+    en: "Living in dispersed douars"
+    fr: "Vivant dans un douar dispersé"
+    ar: "القاطنون في دواوير مشتتة"
+    unit: "%"
+    definition: "Share of the rural population living in dispersed douars (over a third of dwellings more than 100 m apart)."
+    definition_fr: "Part de la population rurale vivant dans des douars dispersés (plus d'un tiers des logements distants de plus de 100 m)."
+    definition_ar: "نسبة السكان القرويين القاطنين في دواوير مشتتة (أكثر من ثلث المساكن تفصل بينها أكثر من 100 م)."
+    note: "Rural communes only, aggregated from HCP's douar-level tables: population-weighted for people, household-weighted for dwellings and distances."
+    note_fr: "Communes rurales uniquement, agrégées à partir des tableaux par douar du HCP : pondération par la population pour les personnes, par les ménages pour les logements et les distances."
+    note_ar: "الجماعات القروية فقط، مجمعة انطلاقا من جداول المندوبية السامية للتخطيط على مستوى الدوار: مرجحة بعدد السكان بالنسبة للأشخاص، وبعدد الأسر بالنسبة للمساكن والمسافات."
+  rural_foreign:
+    theme: "rural_settlement"
+    en: "Foreign nationals (rural)"
+    fr: "Étrangers (rural)"
+    ar: "الأجانب (الوسط القروي)"
+    unit: "%"
+    definition: "Share of the rural population with a foreign nationality."
+    definition_fr: "Part de la population rurale de nationalité étrangère."
+    definition_ar: "نسبة السكان القرويين من ذوي الجنسية الأجنبية."
+    note: "Rural communes only, aggregated from HCP's douar-level tables: population-weighted for people, household-weighted for dwellings and distances."
+    note_fr: "Communes rurales uniquement, agrégées à partir des tableaux par douar du HCP : pondération par la population pour les personnes, par les ménages pour les logements et les distances."
+    note_ar: "الجماعات القروية فقط، مجمعة انطلاقا من جداول المندوبية السامية للتخطيط على مستوى الدوار: مرجحة بعدد السكان بالنسبة للأشخاص، وبعدد الأسر بالنسبة للمساكن والمسافات."
+  rural_civil_registration:
+    theme: "rural_settlement"
+    en: "Registered in a family civil-status booklet (rural)"
+    fr: "Inscrits au livret d'état civil (rural)"
+    ar: "المسجلون في دفتر الحالة المدنية (الوسط القروي)"
+    unit: "%"
+    definition: "Share of the rural population registered in a family civil-status booklet."
+    definition_fr: "Part de la population rurale inscrite au livret d'état civil de la famille."
+    definition_ar: "نسبة السكان القرويين المسجلين في دفتر الحالة المدنية العائلي."
+    note: "Rural communes only, aggregated from HCP's douar-level tables: population-weighted for people, household-weighted for dwellings and distances."
+    note_fr: "Communes rurales uniquement, agrégées à partir des tableaux par douar du HCP : pondération par la population pour les personnes, par les ménages pour les logements et les distances."
+    note_ar: "الجماعات القروية فقط، مجمعة انطلاقا من جداول المندوبية السامية للتخطيط على مستوى الدوار: مرجحة بعدد السكان بالنسبة للأشخاص، وبعدد الأسر بالنسبة للمساكن والمسافات."
+  rural_dwell_hard:
+    weight: households
+    theme: "rural_settlement"
+    en: "Rural houses of stone or hard materials"
+    fr: "Logements ruraux en dur"
+    ar: "دور قروية بالتابية أو الأحجار"
+    unit: "%"
+    definition: "Share of rural households living in a rural house built of stone or other hard materials."
+    definition_fr: "Part des ménages ruraux vivant dans une maison rurale construite en pierre ou en autres matériaux durs."
+    definition_ar: "نسبة الأسر القروية القاطنة في دار قروية مبنية بالحجر أو بمواد صلبة أخرى."
+    note: "Rural communes only, aggregated from HCP's douar-level tables: population-weighted for people, household-weighted for dwellings and distances."
+    note_fr: "Communes rurales uniquement, agrégées à partir des tableaux par douar du HCP : pondération par la population pour les personnes, par les ménages pour les logements et les distances."
+    note_ar: "الجماعات القروية فقط، مجمعة انطلاقا من جداول المندوبية السامية للتخطيط على مستوى الدوار: مرجحة بعدد السكان بالنسبة للأشخاص، وبعدد الأسر بالنسبة للمساكن والمسافات."
+  rural_dwell_pise:
+    weight: households
+    theme: "rural_settlement"
+    en: "Rural houses of rammed earth (pisé)"
+    fr: "Logements ruraux en pisé"
+    ar: "دور قروية بالطين (الصلب)"
+    unit: "%"
+    definition: "Share of rural households living in a rural house of rammed earth (pisé)."
+    definition_fr: "Part des ménages ruraux vivant dans une maison rurale en terre battue (pisé)."
+    definition_ar: "نسبة الأسر القروية القاطنة في دار قروية بالصلب (pisé)."
+    note: "Rural communes only, aggregated from HCP's douar-level tables: population-weighted for people, household-weighted for dwellings and distances."
+    note_fr: "Communes rurales uniquement, agrégées à partir des tableaux par douar du HCP : pondération par la population pour les personnes, par les ménages pour les logements et les distances."
+    note_ar: "الجماعات القروية فقط، مجمعة انطلاقا من جداول المندوبية السامية للتخطيط على مستوى الدوار: مرجحة بعدد السكان بالنسبة للأشخاص، وبعدد الأسر بالنسبة للمساكن والمسافات."
+  dist_track:
+    weight: households
+    theme: "rural_settlement"
+    en: "Distance to a motorable road"
+    fr: "Distance à une route carrossable"
+    ar: "المسافة إلى طريق سالكة للسيارات"
+    unit: "km"
+    definition: "Mean travel distance from rural dwellings to the nearest road passable by car."
+    definition_fr: "Distance moyenne de trajet entre les logements ruraux et la route carrossable la plus proche."
+    definition_ar: "متوسط مسافة التنقل من المساكن القروية إلى أقرب طريق سالكة للسيارات."
+    note: "Rural communes only, aggregated from HCP's douar-level tables: population-weighted for people, household-weighted for dwellings and distances."
+    note_fr: "Communes rurales uniquement, agrégées à partir des tableaux par douar du HCP : pondération par la population pour les personnes, par les ménages pour les logements et les distances."
+    note_ar: "الجماعات القروية فقط، مجمعة انطلاقا من جداول المندوبية السامية للتخطيط على مستوى الدوار: مرجحة بعدد السكان بالنسبة للأشخاص، وبعدد الأسر بالنسبة للمساكن والمسافات."
+  dist_primary_school:
+    weight: households
+    theme: "rural_settlement"
+    en: "Distance to a primary school"
+    fr: "Distance à une école primaire"
+    ar: "المسافة إلى أقرب مدرسة ابتدائية"
+    unit: "km"
+    definition: "Mean travel distance from rural dwellings to the nearest primary school."
+    definition_fr: "Distance moyenne de trajet entre les logements ruraux et l'école primaire la plus proche."
+    definition_ar: "متوسط مسافة التنقل من المساكن القروية إلى أقرب مدرسة ابتدائية."
+    note: "Rural communes only, aggregated from HCP's douar-level tables: population-weighted for people, household-weighted for dwellings and distances."
+    note_fr: "Communes rurales uniquement, agrégées à partir des tableaux par douar du HCP : pondération par la population pour les personnes, par les ménages pour les logements et les distances."
+    note_ar: "الجماعات القروية فقط، مجمعة انطلاقا من جداول المندوبية السامية للتخطيط على مستوى الدوار: مرجحة بعدد السكان بالنسبة للأشخاص، وبعدد الأسر بالنسبة للمساكن والمسافات."
+  dist_lower_secondary:
+    weight: households
+    theme: "rural_settlement"
+    en: "Distance to a lower-secondary school"
+    fr: "Distance à un collège"
+    ar: "المسافة إلى أقرب ثانوية إعدادية"
+    unit: "km"
+    definition: "Mean travel distance from rural dwellings to the nearest lower-secondary school (collège)."
+    definition_fr: "Distance moyenne de trajet entre les logements ruraux et le collège le plus proche."
+    definition_ar: "متوسط مسافة التنقل من المساكن القروية إلى أقرب ثانوية إعدادية (collège)."
+    note: "Rural communes only, aggregated from HCP's douar-level tables: population-weighted for people, household-weighted for dwellings and distances."
+    note_fr: "Communes rurales uniquement, agrégées à partir des tableaux par douar du HCP : pondération par la population pour les personnes, par les ménages pour les logements et les distances."
+    note_ar: "الجماعات القروية فقط، مجمعة انطلاقا من جداول المندوبية السامية للتخطيط على مستوى الدوار: مرجحة بعدد السكان بالنسبة للأشخاص، وبعدد الأسر بالنسبة للمساكن والمسافات."
+  dist_upper_secondary:
+    weight: households
+    theme: "rural_settlement"
+    en: "Distance to an upper-secondary school"
+    fr: "Distance à un lycée"
+    ar: "المسافة إلى أقرب ثانوية تأهيلية"
+    unit: "km"
+    definition: "Mean travel distance from rural dwellings to the nearest upper-secondary school (lycée)."
+    definition_fr: "Distance moyenne de trajet entre les logements ruraux et le lycée le plus proche."
+    definition_ar: "متوسط مسافة التنقل من المساكن القروية إلى أقرب ثانوية تأهيلية (lycée)."
+    note: "Rural communes only, aggregated from HCP's douar-level tables: population-weighted for people, household-weighted for dwellings and distances."
+    note_fr: "Communes rurales uniquement, agrégées à partir des tableaux par douar du HCP : pondération par la population pour les personnes, par les ménages pour les logements et les distances."
+    note_ar: "الجماعات القروية فقط، مجمعة انطلاقا من جداول المندوبية السامية للتخطيط على مستوى الدوار: مرجحة بعدد السكان بالنسبة للأشخاص، وبعدد الأسر بالنسبة للمساكن والمسافات."
+  dist_health:
+    weight: households
+    theme: "rural_settlement"
+    en: "Distance to a health centre"
+    fr: "Distance à un centre de santé"
+    ar: "المسافة إلى أقرب مركز صحي"
+    unit: "km"
+    definition: "Mean travel distance from rural dwellings to the nearest health centre or hospital."
+    definition_fr: "Distance moyenne de trajet entre les logements ruraux et le centre de santé ou l'hôpital le plus proche."
+    definition_ar: "متوسط مسافة التنقل من المساكن القروية إلى أقرب مركز صحي أو مستشفى."
+    note: "Rural communes only, aggregated from HCP's douar-level tables: population-weighted for people, household-weighted for dwellings and distances."
+
+    note_fr: "Communes rurales uniquement, agrégées à partir des tableaux par douar du HCP : pondération par la population pour les personnes, par les ménages pour les logements et les distances."
+    note_ar: "الجماعات القروية فقط، مجمعة انطلاقا من جداول المندوبية السامية للتخطيط على مستوى الدوار: مرجحة بعدد السكان بالنسبة للأشخاص، وبعدد الأسر بالنسبة للمساكن والمسافات."
 sources:
   app2004:
     title: HCP, Maroc en Chiffres (RGPH 2004 commune profiles)
@@ -1287,6 +2591,11 @@ sources:
   indicateurs2024:
     title: HCP, RGPH 2024 Indicateurs démographiques et socio-économiques
     url: https://www.hcp.ma/file/242671/
+  transport2024: {title: "HCP, RGPH 2024 Indicateurs communaux - Mode de transport domicile-lieu de travail", url: "https://www.hcp.ma/file/248301/"}
+  urbanhousing2024: {title: "HCP, RGPH 2024 Indicateurs communaux du parc logement urbain", url: "https://www.hcp.ma/file/246208/"}
+  cee2024: {title: "HCP, RGPH 2024 Cartographie des établissements économiques (CEE), par commune", url: "https://www.hcp.ma/file/242672/"}
+  douars2024: {title: "HCP, RGPH 2024 Population et ménages par douars", url: "https://www.hcp.ma/file/245768/"}
+  migration2024: {title: "HCP, RGPH 2024 Base de données de la migration interne", url: "https://www.hcp.ma/file/245650/"}
 
 datasets:
   - id: communes_2004
@@ -1298,9 +2607,11 @@ datasets:
     ar: البطاقات الجماعية لإحصاء 2004
     description: One row per commune on the pre-2015 16-region map, parsed from the four profile pages
       (démographie, socio-culturel, économie, habitat) of HCP's Maroc en Chiffres application.
+    description_fr: "Une ligne par commune sur la carte à 16 régions d'avant 2015, extraite des quatre pages de profil (démographie, socio-culturel, économie, habitat) de l'application Maroc en Chiffres du HCP."
+    description_ar: "صف واحد لكل جماعة وفق التقسيم الجهوي السابق لسنة 2015 (16 جهة)، مستخرج من صفحات البطاقات الأربع (démographie, socio-culturel, économie, habitat) لتطبيق «Maroc en Chiffres» التابع للمندوبية السامية للتخطيط."
     source: app2004
     columns:
-      app_code: {en: App commune code, fr: Code commune (application), ar: رمز الجماعة (التطبيق), unit: code,
+      app_code: {definition_fr: "Code de commune à 10 chiffres de l'application Maroc en Chiffres ; jointure avec code14 via crosswalk_app2004.", definition_ar: "رمز الجماعة المكون من 10 أرقام في تطبيق «Maroc en Chiffres»؛ يُربط بـcode14 عبر crosswalk_app2004.", en: App commune code, fr: Code commune (application), ar: رمز الجماعة (التطبيق), unit: code,
                  definition: 10-digit commune code of the Maroc en Chiffres app; join to code14 via crosswalk_app2004.}
       population04: {indicator: population, from: "Démographie: Population totale (effectif)"}
       pct_female: {indicator: pct_female, from: "Démographie: SEXE, Féminin (%)"}
@@ -1381,11 +2692,13 @@ datasets:
     ar: المؤشرات الجماعية لإحصاء 2014
     description: One row per commune, municipality or arrondissement (1,538), sheet Indic.Ensemble of HCP's
       four commune-level workbooks, keyed by HCP's dotted geographic code on the 12-region map.
+    description_fr: "Une ligne par commune, municipalité ou arrondissement (1 538), feuille Indic.Ensemble des quatre classeurs communaux du HCP, identifiée par le code géographique à points du HCP sur la carte à 12 régions."
+    description_ar: "صف واحد لكل جماعة أو بلدية أو مقاطعة (1538)، من ورقة Indic.Ensemble في مصنفات المندوبية السامية للتخطيط الأربعة على مستوى الجماعة، مفهرس بالرمز الجغرافي المنقط للمندوبية وفق التقسيم الجهوي (12 جهة)."
     source: menages2014
     columns:
-      code14: {en: Commune code (2014), fr: Code géographique (2014), ar: الرمز الجغرافي (2014), unit: code,
+      code14: {definition_fr: "Code à points du HCP région.province.cercle.commune. (par ex. 01.051.01.01.) ; pivot de la table de correspondance.", definition_ar: "الرمز المنقط للمندوبية السامية للتخطيط: الجهة.الإقليم.الدائرة.الجماعة. (مثلا 01.051.01.01.)؛ العمود الفقري لجدول المقابلة.", en: Commune code (2014), fr: Code géographique (2014), ar: الرمز الجغرافي (2014), unit: code,
                definition: "HCP dotted code region.province.cercle.commune. (e.g. 01.051.01.01.); the crosswalk spine."}
-      name14: {en: Commune name (2014), fr: Nom de la commune (2014), ar: اسم الجماعة (2014), unit: text,
+      name14: {definition_fr: "Libellé du HCP ; '(Mun.)' signale les municipalités, '(Arrond.)' les arrondissements.", definition_ar: "تسمية المندوبية السامية للتخطيط؛ «(Mun.)» تدل على البلديات و«(Arrond.)» على المقاطعات.", en: Commune name (2014), fr: Nom de la commune (2014), ar: اسم الجماعة (2014), unit: text,
                definition: "HCP label; '(Mun.)' marks municipalities, '(Arrond.)' arrondissements."}
       population14: {indicator: population, from: "menages_2014.xlsx col 9: Population municipale", source: menages2014}
       n_households: {indicator: n_households, from: "menages_2014.xlsx col 10: Ménage", source: menages2014}
@@ -1530,11 +2843,13 @@ datasets:
     description: One row per commune (1,503, including the Western Sahara communes), sheets Population and
       Ménages of HCP's 2024 demographic and socio-economic indicators workbook. The six largest cities
       appear as single communes, not arrondissements.
+    description_fr: "Une ligne par commune (1 503, y compris les communes du Sahara occidental), feuilles Population et Ménages du classeur des indicateurs démographiques et socio-économiques 2024 du HCP. Les six plus grandes villes y figurent comme communes uniques, et non en arrondissements."
+    description_ar: "صف واحد لكل جماعة (1503، بما فيها جماعات الصحراء الغربية)، من ورقتي Population وMénages في مصنف المؤشرات الديمغرافية والسوسيو-اقتصادية لسنة 2024 للمندوبية السامية للتخطيط. تظهر المدن الست الكبرى كجماعات موحدة لا كمقاطعات."
     source: indicateurs2024
     columns:
-      code24: {en: Commune code (2024), fr: Code géographique (2024), ar: الرمز الجغرافي (2024), unit: code,
+      code24: {definition_fr: "Code géographique numérique du HCP ; jointure avec code24 de la table de correspondance.", definition_ar: "الرمز الجغرافي الرقمي للمندوبية السامية للتخطيط؛ يُربط بعمود code24 في جدول المقابلة.", en: Commune code (2024), fr: Code géographique (2024), ar: الرمز الجغرافي (2024), unit: code,
                definition: HCP numeric geographic code; joins to the crosswalk's code24.}
-      name24: {en: Commune name (2024), fr: Nom de la commune (2024), ar: اسم الجماعة (2024), unit: text, definition: "HCP label ('Commune de ...')."}
+      name24: {definition_fr: "Libellé du HCP ('Commune de ...').", definition_ar: "تسمية المندوبية السامية للتخطيط («Commune de ...»).", en: Commune name (2024), fr: Nom de la commune (2024), ar: اسم الجماعة (2024), unit: text, definition: "HCP label ('Commune de ...')."}
       population24: {indicator: population, from: "Population col 3: Population municipale"}
       age_0_4: {indicator: age_0_4, from: "Population col 6: Âge quinquennal 0-4 ans"}
       age_5_9: {indicator: age_5_9, from: "Population col 7: 5-9 ans"}
@@ -1626,6 +2941,76 @@ datasets:
       isf: {indicator: isf, from: "Population col 28: Indicateur conjoncturel de fécondité"}
       pct_slum: {indicator: pct_slum, from: "Ménages col 9: 3"}
       pop_active_occupee: {indicator: pop_active_occupee, from: "Population col 58: Population active occupée de 15 ans et plus"}
+      commute_walk: {indicator: commute_walk, from: "transport_domicile_travail_2024.xlsx[Ensemble] col 3: À pieds", source: transport2024}
+      commute_two_wheeler: {indicator: commute_two_wheeler, from: "transport_domicile_travail_2024.xlsx[Ensemble] col 4: Motocycle/Bicyclette", source: transport2024}
+      commute_car: {indicator: commute_car, from: "transport_domicile_travail_2024.xlsx[Ensemble] col 5: Voiture privée", source: transport2024}
+      commute_bus: {indicator: commute_bus, from: "transport_domicile_travail_2024.xlsx[Ensemble] col 6: Bus", source: transport2024}
+      commute_taxi: {indicator: commute_taxi, from: "transport_domicile_travail_2024.xlsx[Ensemble] col 7: Taxi", source: transport2024}
+      commute_employer: {indicator: commute_employer, from: "transport_domicile_travail_2024.xlsx[Ensemble] col 8: Transport de l'employeur / Transport du personnel", source: transport2024}
+      commute_train: {indicator: commute_train, from: "transport_domicile_travail_2024.xlsx[Ensemble] col 9: Train", source: transport2024}
+      commute_tram: {indicator: commute_tram, from: "transport_domicile_travail_2024.xlsx[Ensemble] col 10: Tram", source: transport2024}
+      commute_informal: {indicator: commute_informal, from: "transport_domicile_travail_2024.xlsx[Ensemble] col 11: Transport informel", source: transport2024}
+      commute_animal: {indicator: commute_animal, from: "transport_domicile_travail_2024.xlsx[Ensemble] col 12: Animaux", source: transport2024}
+      commute_other: {indicator: commute_other, from: "transport_domicile_travail_2024.xlsx[Ensemble] col 13: Autre", source: transport2024}
+      commute_none: {indicator: commute_none, from: "transport_domicile_travail_2024.xlsx[Ensemble] col 14: Ne se déplace pas", source: transport2024}
+      mig_in_lifetime: {indicator: mig_in_lifetime, from: "migration_interne_2024.xlsx[Migration interne durée de vie] col 6: Indice d'entrées", source: migration2024}
+      mig_out_lifetime: {indicator: mig_out_lifetime, from: "migration_interne_2024.xlsx[Migration interne durée de vie] col 8: Indice de sortie", source: migration2024}
+      mig_in_10y: {indicator: mig_in_10y, from: "migration_interne_2024.xlsx[Mig_interne-10ans] col 6: Indice d'entrées", source: migration2024}
+      mig_out_10y: {indicator: mig_out_10y, from: "migration_interne_2024.xlsx[Mig_interne-10ans] col 8: Indice de sortie", source: migration2024}
+      mig_in_5y: {indicator: mig_in_5y, from: "migration_interne_2024.xlsx[Mig-interne-5ans] col 6: Indice d'entrées", source: migration2024}
+      mig_out_5y: {indicator: mig_out_5y, from: "migration_interne_2024.xlsx[Mig-interne-5ans] col 8: Indice de sortie", source: migration2024}
+      n_lived_abroad: {indicator: n_lived_abroad, from: "migration_interne_2024.xlsx[Migration internationale] col 2: Effectif des migrants internationaux", source: migration2024}
+      pct_lived_abroad: {indicator: pct_lived_abroad, from: "n_lived_abroad / population24 x 100", source: migration2024}
+      n_urban_dwellings: {indicator: n_urban_dwellings, from: "parc_logement_urbain_2024.xlsx col 2: Total des logements urbains", source: urbanhousing2024}
+      uh_occupied: {indicator: uh_occupied, from: "parc_logement_urbain_2024.xlsx col 3: Logement occupé", source: urbanhousing2024}
+      uh_vacant: {indicator: uh_vacant, from: "parc_logement_urbain_2024.xlsx col 4: Logement vacant", source: urbanhousing2024}
+      uh_secondary: {indicator: uh_secondary, from: "parc_logement_urbain_2024.xlsx col 5: Logement secondaire/saisonnier", source: urbanhousing2024}
+      uh_villa: {indicator: uh_villa, from: "parc_logement_urbain_2024.xlsx col 7: Villa ou niveau de villa", source: urbanhousing2024}
+      uh_apartment: {indicator: uh_apartment, from: "parc_logement_urbain_2024.xlsx col 8: Appartement", source: urbanhousing2024}
+      uh_moroccan_traditional: {indicator: uh_moroccan_traditional, from: "parc_logement_urbain_2024.xlsx col 9: Maison marocaine traditionnelle", source: urbanhousing2024}
+      uh_moroccan_modern: {indicator: uh_moroccan_modern, from: "parc_logement_urbain_2024.xlsx col 10: Maison marocaine moderne", source: urbanhousing2024}
+      uh_slum: {indicator: uh_slum, from: "parc_logement_urbain_2024.xlsx col 12: Maison sommaire ou bidonville", source: urbanhousing2024}
+      uh_rural: {indicator: uh_rural, from: "parc_logement_urbain_2024.xlsx col 13: Logement en type rural", source: urbanhousing2024}
+      uh_other: {indicator: uh_other, from: "parc_logement_urbain_2024.xlsx col 14: Autres type", source: urbanhousing2024}
+      uh_age_lt20: {indicator: uh_age_lt20, from: "parc_logement_urbain_2024.xlsx col 16: Moins de 20 ans", source: urbanhousing2024}
+      uh_age_20_49: {indicator: uh_age_20_49, from: "parc_logement_urbain_2024.xlsx col 17: De 20 à moins de 50 ans", source: urbanhousing2024}
+      uh_age_50plus: {indicator: uh_age_50plus, from: "parc_logement_urbain_2024.xlsx col 18: 50 ans et plus", source: urbanhousing2024}
+      uh_walls_concrete: {indicator: uh_walls_concrete, from: "parc_logement_urbain_2024.xlsx col 46: Béton armé, briques avec mortier", source: urbanhousing2024}
+      uh_roof_slab: {indicator: uh_roof_slab, from: "parc_logement_urbain_2024.xlsx col 49: Dalle", source: urbanhousing2024}
+      uh_grid_electricity: {indicator: uh_grid_electricity, from: "parc_logement_urbain_2024.xlsx col 53: Réseau public d'électricité", source: urbanhousing2024}
+      uh_grid_water: {indicator: uh_grid_water, from: "parc_logement_urbain_2024.xlsx col 54: Réseau public d'eau", source: urbanhousing2024}
+      uh_grid_sewer: {indicator: uh_grid_sewer, from: "parc_logement_urbain_2024.xlsx col 55: Réseau public d'assainissement", source: urbanhousing2024}
+      uh_deficit_rate: {indicator: uh_deficit_rate, from: "parc_logement_urbain_2024.xlsx col 56: Taux de déficit quantitatif en logement (%)", source: urbanhousing2024}
+      n_establishments: {indicator: n_establishments, from: "cee_etablissements_eco_2024.xlsx col 7: Nombre total des établissements géoréférencés", source: cee2024}
+      n_public_services: {indicator: n_public_services, from: "cee_etablissements_eco_2024.xlsx col 8: Nombre d'établissements de services publics", source: cee2024}
+      n_nonprofits: {indicator: n_nonprofits, from: "cee_etablissements_eco_2024.xlsx col 9: Nombre d'établissements à but non lucratif", source: cee2024}
+      n_souks: {indicator: n_souks, from: "cee_etablissements_eco_2024.xlsx col 10: Nombre de Souks hebdomadaires actifs", source: cee2024}
+      n_firms: {indicator: n_firms, from: "cee_etablissements_eco_2024.xlsx col 11: Nombre d'établissements à but lucratif", source: cee2024}
+      n_firm_jobs: {indicator: n_firm_jobs, from: "cee_etablissements_eco_2024.xlsx col 12: Emplois permanents occupés par ces établissements", source: cee2024}
+      firms_industry: {indicator: firms_industry, from: "cee_etablissements_eco_2024.xlsx cols 13 / col 11 x 100", source: cee2024}
+      firms_construction: {indicator: firms_construction, from: "cee_etablissements_eco_2024.xlsx cols 14 / col 11 x 100", source: cee2024}
+      firms_trade: {indicator: firms_trade, from: "cee_etablissements_eco_2024.xlsx cols 15 / col 11 x 100", source: cee2024}
+      firms_services: {indicator: firms_services, from: "cee_etablissements_eco_2024.xlsx cols 16 / col 11 x 100", source: cee2024}
+      firms_size_1: {indicator: firms_size_1, from: "cee_etablissements_eco_2024.xlsx cols 17 / col 11 x 100", source: cee2024}
+      firms_size_2_3: {indicator: firms_size_2_3, from: "cee_etablissements_eco_2024.xlsx cols 18 / col 11 x 100", source: cee2024}
+      firms_size_4_9: {indicator: firms_size_4_9, from: "cee_etablissements_eco_2024.xlsx cols 19 / col 11 x 100", source: cee2024}
+      firms_size_10plus: {indicator: firms_size_10plus, from: "cee_etablissements_eco_2024.xlsx cols 20 + 21 / col 11 x 100", source: cee2024}
+      firms_since_2011: {indicator: firms_since_2011, from: "cee_etablissements_eco_2024.xlsx cols 27 + 28 / col 11 x 100", source: cee2024}
+      establishments_per_1000: {indicator: establishments_per_1000, from: "n_establishments / population24 x 1000", source: cee2024}
+      firm_jobs_per_1000: {indicator: firm_jobs_per_1000, from: "n_firm_jobs / population24 x 1000", source: cee2024}
+      n_douars: {indicator: n_douars, from: "population_menages_douars_2024.xlsx: douars per commune", source: douars2024}
+      douar_grouped: {indicator: douar_grouped, from: "population_menages_douars_2024.xlsx: population of douars typed 'دوار مجمع / Douar groupé' / rural population x 100", source: douars2024}
+      douar_fragmented: {indicator: douar_fragmented, from: "population_menages_douars_2024.xlsx: population of douars typed 'دوار مجزأ / Douar éclaté' / rural population x 100", source: douars2024}
+      douar_dispersed: {indicator: douar_dispersed, from: "population_menages_douars_2024.xlsx: population of douars typed 'دوار مشتت / Douar dispersé' / rural population x 100", source: douars2024}
+      rural_foreign: {indicator: rural_foreign, from: "population_menages_douars_2024.xlsx[خصائص السكان] col 11: Nationalité, Etrangère", source: douars2024}
+      rural_civil_registration: {indicator: rural_civil_registration, from: "population_menages_douars_2024.xlsx[خصائص السكان] col 17: Enregistrement au livret d'état civil", source: douars2024}
+      rural_dwell_hard: {indicator: rural_dwell_hard, from: "population_menages_douars_2024.xlsx[خصائص الأسر] col 15: Logement en dur rural", source: douars2024}
+      rural_dwell_pise: {indicator: rural_dwell_pise, from: "population_menages_douars_2024.xlsx[خصائص الأسر] col 16: Logement en pisé rural", source: douars2024}
+      dist_track: {indicator: dist_track, from: "population_menages_douars_2024.xlsx[خصائص الأسر] col 19: Distance moyenne à la route carrossable (km)", source: douars2024}
+      dist_primary_school: {indicator: dist_primary_school, from: "population_menages_douars_2024.xlsx[خصائص الأسر] col 20: Distance moyenne à l'école primaire (km)", source: douars2024}
+      dist_lower_secondary: {indicator: dist_lower_secondary, from: "population_menages_douars_2024.xlsx[خصائص الأسر] col 21: Distance moyenne au collège (km)", source: douars2024}
+      dist_upper_secondary: {indicator: dist_upper_secondary, from: "population_menages_douars_2024.xlsx[خصائص الأسر] col 22: Distance moyenne au lycée (km)", source: douars2024}
+      dist_health: {indicator: dist_health, from: "population_menages_douars_2024.xlsx[خصائص الأسر] col 23: Distance moyenne au centre de santé/hôpital (km)", source: douars2024}
       is_urban: {indicator: is_urban, from: "Population_Rurale col 3 empty (no rural population)"}
       pop_share: {indicator: pop_share, from: "population24 / national sum x 100"}
 
@@ -1638,11 +3023,13 @@ datasets:
     ar: مؤشرات الفقر والتنمية حسب الجماعة 2004
     description: Annexe 2 of HCP's 2004 poverty and human-development volume, parsed from the PDF.
       One row per printed commune (1,677); labels carry a province prefix.
+    description_fr: "Annexe 2 du volume du HCP de 2004 sur la pauvreté et le développement humain, extraite du PDF. Une ligne par commune imprimée (1 677) ; les libellés comportent un préfixe de province."
+    description_ar: "الملحق 2 من مجلد المندوبية السامية للتخطيط حول الفقر والتنمية البشرية لسنة 2004، مستخرج من ملف PDF. صف واحد لكل جماعة مطبوعة (1677)؛ تحمل التسميات بادئة الإقليم."
     source: annex2004
     columns:
-      page: {en: PDF page, fr: Page du PDF, ar: صفحة ملف PDF, unit: page, definition: Page of the source PDF.}
-      region: {en: Region (2004), fr: Région (2004), ar: الجهة (2004), unit: text, definition: Region from the page header (16-region map).}
-      label: {en: Printed label, fr: Libellé imprimé, ar: التسمية المطبوعة, unit: text, definition: "'Province Commune' label as printed."}
+      page: {definition_fr: "Page du PDF source.", definition_ar: "صفحة ملف PDF المصدر.", en: PDF page, fr: Page du PDF, ar: صفحة ملف PDF, unit: page, definition: Page of the source PDF.}
+      region: {definition_fr: "Région indiquée dans l'en-tête de page (carte à 16 régions).", definition_ar: "الجهة كما وردت في رأس الصفحة (تقسيم 16 جهة).", en: Region (2004), fr: Région (2004), ar: الجهة (2004), unit: text, definition: Region from the page header (16-region map).}
+      label: {definition_fr: "Libellé 'Province Commune' tel qu'imprimé.", definition_ar: "التسمية «الإقليم الجماعة» (Province Commune) كما طُبعت.", en: Printed label, fr: Libellé imprimé, ar: التسمية المطبوعة, unit: text, definition: "'Province Commune' label as printed."}
       taux_pauvrete: {indicator: poverty_rate, vintage: 2004, from: "Taux de pauvreté"}
       vulnerabilite: {indicator: vulnerability_monetary, vintage: 2004, from: "Vulnérabilité"}
       severite: {indicator: poverty_severity, vintage: 2004, from: "Sévérité"}
@@ -1659,18 +3046,20 @@ datasets:
     description: One row per 2014 commune (1,538) plus six population-weighted city aggregates for the
       arrondissement cities. Values missing after post-2004 reorganisations are imputed from the
       same cercle (fallback province), population-weighted, and flagged in src04/src14/src24.
+    description_fr: "Une ligne par commune de 2014 (1 538), plus six agrégats de ville pondérés par la population pour les villes à arrondissements. Les valeurs manquantes à la suite des réorganisations postérieures à 2004 sont imputées à partir du même cercle (à défaut, de la province), avec pondération par la population, et signalées dans src04/src14/src24."
+    description_ar: "صف واحد لكل جماعة من جماعات 2014 (1538) إضافة إلى ستة تجميعات للمدن المقسمة إلى مقاطعات، مرجحة بعدد السكان. القيم المفقودة بعد إعادة التقسيمات اللاحقة لسنة 2004 مقدّرة انطلاقا من الدائرة نفسها (وإلا فمن الإقليم)، مع الترجيح بعدد السكان، ومؤشر عليها في src04/src14/src24."
     columns:
-      code14: {en: Commune code (2014), fr: Code géographique (2014), ar: الرمز الجغرافي (2014), unit: code, definition: Crosswalk spine key.}
-      name14: {en: Commune name (2014), fr: Nom de la commune (2014), ar: اسم الجماعة (2014), unit: text, definition: "HCP 2014 label; 'CITY ...' for city aggregates."}
-      prov14: {en: Province (2014), fr: Province (2014), ar: الإقليم (2014), unit: text, definition: Province or préfecture on the 12-region map.}
-      name_carto: {en: Name in the poverty map, fr: Nom dans la carte de la pauvreté, ar: الاسم في خريطة الفقر, unit: text, definition: Matched commune name in the 2004-2014 poverty map.}
-      code24: {en: Commune code (2024), fr: Code géographique (2024), ar: الرمز الجغرافي (2024), unit: code, definition: Matched 2024 code.}
-      name24: {en: Commune name (2024), fr: Nom de la commune (2024), ar: اسم الجماعة (2024), unit: text, definition: Matched 2024 label.}
-      label04: {en: 2004 annex label, fr: Libellé de l'annexe 2004, ar: التسمية في ملحق 2004, unit: text, definition: Matched label in commune_indices_2004.}
-      src04: {en: 2004 value provenance, fr: Provenance des valeurs 2004, ar: مصدر قيم 2004, unit: flag,
+      code14: {definition_fr: "Clé pivot de la table de correspondance.", definition_ar: "مفتاح العمود الفقري لجدول المقابلة.", en: Commune code (2014), fr: Code géographique (2014), ar: الرمز الجغرافي (2014), unit: code, definition: Crosswalk spine key.}
+      name14: {definition_fr: "Libellé HCP 2014 ; 'CITY ...' pour les agrégats de ville.", definition_ar: "تسمية المندوبية السامية للتخطيط لسنة 2014؛ «CITY ...» لتجميعات المدن.", en: Commune name (2014), fr: Nom de la commune (2014), ar: اسم الجماعة (2014), unit: text, definition: "HCP 2014 label; 'CITY ...' for city aggregates."}
+      prov14: {definition_fr: "Province ou préfecture sur la carte à 12 régions.", definition_ar: "الإقليم أو العمالة (préfecture) وفق تقسيم 12 جهة.", en: Province (2014), fr: Province (2014), ar: الإقليم (2014), unit: text, definition: Province or préfecture on the 12-region map.}
+      name_carto: {definition_fr: "Nom de commune apparié dans la carte de la pauvreté 2004-2014.", definition_ar: "اسم الجماعة المقابل في خريطة الفقر 2004-2014.", en: Name in the poverty map, fr: Nom dans la carte de la pauvreté, ar: الاسم في خريطة الفقر, unit: text, definition: Matched commune name in the 2004-2014 poverty map.}
+      code24: {definition_fr: "Code 2024 apparié.", definition_ar: "رمز 2024 المقابل.", en: Commune code (2024), fr: Code géographique (2024), ar: الرمز الجغرافي (2024), unit: code, definition: Matched 2024 code.}
+      name24: {definition_fr: "Libellé 2024 apparié.", definition_ar: "تسمية 2024 المقابلة.", en: Commune name (2024), fr: Nom de la commune (2024), ar: اسم الجماعة (2024), unit: text, definition: Matched 2024 label.}
+      label04: {definition_fr: "Libellé apparié dans commune_indices_2004.", definition_ar: "التسمية المقابلة في commune_indices_2004.", en: 2004 annex label, fr: Libellé de l'annexe 2004, ar: التسمية في ملحق 2004, unit: text, definition: Matched label in commune_indices_2004.}
+      src04: {definition_fr: "direct | fuzzy (appariement par nom) | imputed_cercle | imputed_province.", definition_ar: "direct | fuzzy (مطابقة بالاسم) | imputed_cercle | imputed_province.", en: 2004 value provenance, fr: Provenance des valeurs 2004, ar: مصدر قيم 2004, unit: flag,
               definition: "direct | fuzzy (name match) | imputed_cercle | imputed_province."}
-      src14: {en: 2014 MPI provenance, fr: Provenance MPI 2014, ar: مصدر مؤشر الفقر متعدد الأبعاد 2014, unit: flag, definition: "empty = direct; imputed_cercle | imputed_province."}
-      src24: {en: 2024 MPI provenance, fr: Provenance MPI 2024, ar: مصدر مؤشر الفقر متعدد الأبعاد 2024, unit: flag, definition: "empty = direct; imputed_cercle | imputed_province."}
+      src14: {definition_fr: "vide = direct ; imputed_cercle | imputed_province.", definition_ar: "فارغ = direct؛ imputed_cercle | imputed_province.", en: 2014 MPI provenance, fr: Provenance MPI 2014, ar: مصدر مؤشر الفقر متعدد الأبعاد 2014, unit: flag, definition: "empty = direct; imputed_cercle | imputed_province."}
+      src24: {definition_fr: "vide = direct ; imputed_cercle | imputed_province.", definition_ar: "فارغ = direct؛ imputed_cercle | imputed_province.", en: 2024 MPI provenance, fr: Provenance MPI 2024, ar: مصدر مؤشر الفقر متعدد الأبعاد 2024, unit: flag, definition: "empty = direct; imputed_cercle | imputed_province."}
       idh04: {indicator: idh, vintage: 2004, source: annex2004, from: "Annexe 2: IDH"}
       taux_pauvrete04: {indicator: poverty_rate, vintage: 2004, source: annex2004, from: "Annexe 2: Taux de pauvreté"}
       vulnerabilite04: {indicator: vulnerability_monetary, vintage: 2004, source: annex2004, from: "Annexe 2: Vulnérabilité"}
@@ -1694,8 +3083,8 @@ datasets:
       vulnerability2024: {indicator: vulnerability, vintage: 2024, source: mpi2025, from: "Ensemble col 7: Taux de vulnérabilité"}
       menages14: {indicator: n_households, vintage: 2014, source: poplegale2014, from: "Population légale 2014: Ménages"}
       population14: {indicator: population, vintage: 2014, source: poplegale2014, from: "Population légale 2014: Population"}
-      level: {en: Row level, fr: Niveau, ar: المستوى, unit: flag, definition: "commune | city (aggregate of arrondissements)."}
-      cercle: {en: Cercle code (2014), fr: Code du cercle (2014), ar: رمز الدائرة (2014), unit: code, definition: First three segments of code14; imputation group.}
+      level: {definition_fr: "commune | city (agrégat d'arrondissements).", definition_ar: "commune | city (تجميع للمقاطعات).", en: Row level, fr: Niveau, ar: المستوى, unit: flag, definition: "commune | city (aggregate of arrondissements)."}
+      cercle: {definition_fr: "Trois premiers segments de code14 ; groupe d'imputation.", definition_ar: "المقاطع الثلاثة الأولى من code14؛ مجموعة التقدير.", en: Cercle code (2014), fr: Code du cercle (2014), ar: رمز الدائرة (2014), unit: code, definition: First three segments of code14; imputation group.}
 
   - id: crosswalk_communes
     file: crosswalk_communes.csv
@@ -1705,16 +3094,18 @@ datasets:
     ar: جدول التقابل بين الجماعات 2004-2014-2024
     description: The 2014 commune list linked to the 2004 annex labels, the poverty-map names and the 2024 codes.
       Full three-census match for 1,466 of 1,538 communes (95.3%); the rest are post-2004 reorganisations.
+    description_fr: "La liste des communes de 2014 reliée aux libellés de l'annexe 2004, aux noms de la carte de la pauvreté et aux codes 2024. Appariement complet sur les trois recensements pour 1 466 des 1 538 communes (95,3 %) ; les autres relèvent de réorganisations postérieures à 2004."
+    description_ar: "لائحة جماعات 2014 مربوطة بتسميات ملحق 2004 وأسماء خريطة الفقر ورموز 2024. مطابقة كاملة عبر الإحصاءات الثلاثة لـ1466 جماعة من أصل 1538 (95.3%)؛ والباقي ناتج عن إعادة التقسيمات اللاحقة لسنة 2004."
     columns:
-      code14: {en: Commune code (2014), fr: Code géographique (2014), ar: الرمز الجغرافي (2014), unit: code, definition: Spine key.}
-      name14: {en: Commune name (2014), fr: Nom de la commune (2014), ar: اسم الجماعة (2014), unit: text, definition: HCP 2014 label.}
-      prov14: {en: Province (2014), fr: Province (2014), ar: الإقليم (2014), unit: text, definition: Province or préfecture.}
-      name_carto: {en: Name in the poverty map, fr: Nom dans la carte de la pauvreté, ar: الاسم في خريطة الفقر, unit: text, definition: Matched name.}
-      code24: {en: Commune code (2024), fr: Code géographique (2024), ar: الرمز الجغرافي (2024), unit: code, definition: Matched 2024 code.}
-      name24: {en: Commune name (2024), fr: Nom de la commune (2024), ar: اسم الجماعة (2024), unit: text, definition: Matched 2024 label.}
-      label04: {en: 2004 annex label, fr: Libellé de l'annexe 2004, ar: التسمية في ملحق 2004, unit: text, definition: Matched 2004 label.}
+      code14: {definition_fr: "Clé pivot.", definition_ar: "مفتاح العمود الفقري.", en: Commune code (2014), fr: Code géographique (2014), ar: الرمز الجغرافي (2014), unit: code, definition: Spine key.}
+      name14: {definition_fr: "Libellé HCP 2014.", definition_ar: "تسمية المندوبية السامية للتخطيط لسنة 2014.", en: Commune name (2014), fr: Nom de la commune (2014), ar: اسم الجماعة (2014), unit: text, definition: HCP 2014 label.}
+      prov14: {definition_fr: "Province ou préfecture.", definition_ar: "الإقليم أو العمالة (préfecture).", en: Province (2014), fr: Province (2014), ar: الإقليم (2014), unit: text, definition: Province or préfecture.}
+      name_carto: {definition_fr: "Nom apparié.", definition_ar: "الاسم المقابل.", en: Name in the poverty map, fr: Nom dans la carte de la pauvreté, ar: الاسم في خريطة الفقر, unit: text, definition: Matched name.}
+      code24: {definition_fr: "Code 2024 apparié.", definition_ar: "رمز 2024 المقابل.", en: Commune code (2024), fr: Code géographique (2024), ar: الرمز الجغرافي (2024), unit: code, definition: Matched 2024 code.}
+      name24: {definition_fr: "Libellé 2024 apparié.", definition_ar: "تسمية 2024 المقابلة.", en: Commune name (2024), fr: Nom de la commune (2024), ar: اسم الجماعة (2024), unit: text, definition: Matched 2024 label.}
+      label04: {definition_fr: "Libellé 2004 apparié.", definition_ar: "تسمية 2004 المقابلة.", en: 2004 annex label, fr: Libellé de l'annexe 2004, ar: التسمية في ملحق 2004, unit: text, definition: Matched 2004 label.}
       idh04: {indicator: idh, vintage: 2004, source: annex2004, from: "Annexe 2: IDH (copied for convenience)"}
-      src04: {en: 2004 match type, fr: Type d'appariement 2004, ar: نوع المطابقة 2004, unit: flag, definition: "direct | fuzzy | empty (unmatched)."}
+      src04: {definition_fr: "direct | fuzzy | vide (non apparié).", definition_ar: "direct | fuzzy | فارغ (غير مطابق).", en: 2004 match type, fr: Type d'appariement 2004, ar: نوع المطابقة 2004, unit: flag, definition: "direct | fuzzy | empty (unmatched)."}
 
   - id: crosswalk_app2004
     file: crosswalk_app2004.csv
@@ -1723,6 +3114,8 @@ datasets:
     fr: Correspondance des codes de l'application 2004
     ar: تقابل رموز تطبيق 2004
     description: Links the Maroc en Chiffres app codes (communes_2004) to the 2014 spine, 1,478 of 1,538.
+    description_fr: "Relie les codes de l'application Maroc en Chiffres (communes_2004) au pivot 2014 : 1 478 sur 1 538."
+    description_ar: "يربط رموز تطبيق «Maroc en Chiffres» (communes_2004) بالعمود الفقري لسنة 2014، 1478 من أصل 1538."
     columns:
-      code14: {en: Commune code (2014), fr: Code géographique (2014), ar: الرمز الجغرافي (2014), unit: code, definition: Spine key.}
-      app_code: {en: App commune code (2004), fr: Code commune (application 2004), ar: رمز الجماعة (تطبيق 2004), unit: code, definition: Key of communes_2004.}
+      code14: {definition_fr: "Clé pivot.", definition_ar: "مفتاح العمود الفقري.", en: Commune code (2014), fr: Code géographique (2014), ar: الرمز الجغرافي (2014), unit: code, definition: Spine key.}
+      app_code: {definition_fr: "Clé de communes_2004.", definition_ar: "مفتاح communes_2004.", en: App commune code (2004), fr: Code commune (application 2004), ar: رمز الجماعة (تطبيق 2004), unit: code, definition: Key of communes_2004.}

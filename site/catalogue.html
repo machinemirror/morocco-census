@@ -48,12 +48,13 @@ const L = {
   fr: { title: "Catalogue des données", lede: "Chaque colonne de chaque table publiée, avec sa définition, son unité, son recensement et le champ source exact du HCP. Les colonnes qui mesurent le même concept d'un recensement à l'autre partagent un indicateur ; les notes signalent les différences de définition.",
         "h-var": "Variable", "h-col": "Colonne", "h-census": "Recensement", "h-unit": "Unité", "h-cov": "Couverture",
         all: "Tous", allds: "Toutes les tables", allth: "Tous les thèmes", allyr: "Tous les recensements", of: "sur", cols: "colonnes", id: "Identifiant", comm: "communes" },
-  ar: { title: "فهرس المعطيات", lede: "كل أعمدة الجداول المنشورة، مع تعريفها ووحدتها والإحصاء الذي تنتمي إليه والحقل الأصلي لدى المندوبية السامية للتخطيط. الأعمدة التي تقيس المفهوم نفسه عبر الإحصاءات تشترك في مؤشر واحد، وتنبّه الملاحظات إلى اختلاف التعاريف. التعاريف متاحة بالإنجليزية.",
+  ar: { title: "فهرس المعطيات", lede: "كل أعمدة الجداول المنشورة، مع تعريفها ووحدتها والإحصاء الذي تنتمي إليه والحقل الأصلي لدى المندوبية السامية للتخطيط. الأعمدة التي تقيس المفهوم نفسه عبر الإحصاءات تشترك في مؤشر واحد، وتنبّه الملاحظات إلى اختلاف التعاريف.",
         "h-var": "المتغير", "h-col": "العمود", "h-census": "الإحصاء", "h-unit": "الوحدة", "h-cov": "التغطية",
         all: "الكل", allds: "جميع الجداول", allth: "جميع المحاور", allyr: "جميع الإحصاءات", of: "من أصل", cols: "عموداً", id: "معرّف", comm: "جماعة" },
 };
 let C;
 const t = k => L[MC.lang][k];
+const tx = (o, k) => o[`${k}_${MC.lang}`] || o[k];
 function options() {
   const keep = id => document.getElementById(id).value;
   const [ds, th, yr] = ["ds", "th", "yr"].map(keep);
@@ -72,7 +73,7 @@ function render() {
   const names = Object.fromEntries(C.datasets.map(d => [d.id, d[MC.lang]]));
   const rows = C.columns.filter(c =>
     (!ds || c.dataset === ds) && (!th || c.theme === th) && (!yr || String(c.vintage) === yr) &&
-    (!q || [c.column, c.label_en, c.label_fr, c.label_ar, c.definition, c.source_field, c.note].join(" ").toLowerCase().includes(q)));
+    (!q || [c.column, c.label_en, c.label_fr, c.label_ar, c.definition, c.definition_fr, c.definition_ar, c.source_field, c.note, c.note_fr, c.note_ar].join(" ").toLowerCase().includes(q)));
   document.getElementById("count").textContent = `${rows.length} ${t("of")} ${C.columns.length} ${t("cols")}`;
   document.getElementById("rows").innerHTML = rows.map(c => {
     const lab = c["label_" + MC.lang];
@@ -80,7 +81,7 @@ function render() {
     const src = c.source ? `${c.source_url ? `<a href="${MC.esc(c.source_url)}">${MC.esc(c.source)}</a>` : MC.esc(c.source)}${c.source_field ? " — " + MC.esc(c.source_field) : ""}` : "";
     return `<tr>
       <td><b>${MC.esc(lab)}</b>${c.comparable === false ? ' <span class="tag warn">≠</span>' : ""}
-        <div class="def" dir="auto">${MC.esc(c.definition)}${c.note ? `<br><i>${MC.esc(c.note)}</i>` : ""}</div>
+        <div class="def" dir="auto">${MC.esc(tx(c, "definition"))}${c.note ? `<br><i>${MC.esc(tx(c, "note"))}</i>` : ""}</div>
         ${src ? `<div class="src">${src}</div>` : ""}</td>
       <td><code>${MC.esc(c.column)}</code><div class="src">${MC.esc(names[c.dataset])}</div></td>
       <td>${c.vintage || ""}</td>

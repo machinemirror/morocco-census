@@ -91,3 +91,14 @@ def test_shares_and_2004_gaps():
     rural = t04.dwell_rural > 50
     assert t04.loc[rural, "dwell_age_lt10"].isna().mean() > 0.95
     assert t04.pct_women_divorced.between(0, 100).all()
+
+
+def test_other_2024_workbooks():
+    t24 = pd.read_csv(P_COMMUNES[2024])
+    assert t24.n_establishments.sum() == 1304564  # CEE national total, arrondissements summed into cities
+    assert t24.n_douars.sum() == 33189
+    modes = [c for c in t24 if c.startswith("commute_")]
+    assert t24[modes].sum(axis=1).dropna().between(99, 101).mean() > 0.98
+    douars = t24[["douar_grouped", "douar_fragmented", "douar_dispersed"]].dropna()
+    assert douars.sum(axis=1).between(99.9, 100.1).all()
+    assert t24.n_urban_dwellings.notna().sum() == 380

@@ -53,12 +53,12 @@ def keyed_tables() -> dict[str, tuple[pd.DataFrame, str]]:
     t14["unit"] = t14.code14.map(by14)
 
     app = pd.read_csv(P_CROSSWALK_APP, dtype=str).set_index("app_code").code14
-    t04 = pd.read_csv(P_COMMUNES[2004], dtype={"app_code": str})
+    t04 = pd.read_csv(P_COMMUNES[2004], dtype={"app_code": str}).copy()
     t04["unit"] = t04.app_code.map(app).map(by14)
 
     by24 = cw.dropna(subset=["code24"]).drop_duplicates("code24").set_index("code24").unit
     by24 = pd.concat([by24, pd.Series({c24: u for u, (_, c24) in CITIES.items()})])
-    t24 = pd.read_csv(P_COMMUNES[2024])
+    t24 = pd.read_csv(P_COMMUNES[2024]).copy()
     t24["unit"] = t24.code24.map(by24)
 
     panel = pd.read_csv(P_PANEL, dtype={"code14": str})
@@ -106,7 +106,7 @@ def map_data(cat: dict, cells: gpd.GeoDataFrame) -> dict:
         values[f"{ind}|{year}"] = rounded(s, spec)
         entry = indicators.setdefault(
             ind,
-            {k: spec.get(k) for k in ("theme", "en", "fr", "ar", "unit", "agg", "definition", "note")}
+            {k: spec.get(k) for k in ("theme", "en", "fr", "ar", "unit", "agg", "definition", "definition_fr", "definition_ar", "note", "note_fr", "note_ar")}
             | {"comparable": spec.get("comparable", True), "vintages": {}},
         )
         entry["vintages"][year] = {"dataset": ds, "column": col, "n": int(s.notna().sum())}

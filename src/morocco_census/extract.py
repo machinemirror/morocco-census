@@ -387,7 +387,160 @@ def extract_2024() -> tuple[pd.DataFrame, dict]:
     out["pop_share"] = out["population24"] / out["population24"].sum() * 100
     column_map["pop_share"] = "population24 / sum(population24 over commune rows) * 100"
 
-    return out.drop_duplicates("code24").reset_index(drop=True), column_map
+    out = extras_2024(out.drop_duplicates("code24").reset_index(drop=True), column_map)
+    return out, column_map
+
+
+# Other 2024 workbooks, joined to the indicators file on code24 (commune rows only).
+TRANSPORT_2024 = {  # transport_domicile_travail_2024.xlsx, sheet Ensemble: % of employed sedentary 15+
+    "commute_walk": 3,
+    "commute_two_wheeler": 4,
+    "commute_car": 5,
+    "commute_bus": 6,
+    "commute_taxi": 7,
+    "commute_employer": 8,
+    "commute_train": 9,
+    "commute_tram": 10,
+    "commute_informal": 11,
+    "commute_animal": 12,
+    "commute_other": 13,
+    "commute_none": 14,
+}
+MIGRATION_2024 = {  # migration_interne_2024.xlsx: in-migration and out-migration indices (%)
+    "Migration interne durée de vie": {"mig_in_lifetime": 6, "mig_out_lifetime": 8},
+    "Mig_interne-10ans": {"mig_in_10y": 6, "mig_out_10y": 8},
+    "Mig-interne-5ans ": {"mig_in_5y": 6, "mig_out_5y": 8},
+    "Migration internationale": {"n_lived_abroad": 2},
+}
+URBAN_HOUSING_2024 = {  # parc_logement_urbain_2024.xlsx: urban dwellings, occupied or not
+    "n_urban_dwellings": 2,
+    "uh_occupied": 3,
+    "uh_vacant": 4,
+    "uh_secondary": 5,
+    "uh_villa": 7,
+    "uh_apartment": 8,
+    "uh_moroccan_traditional": 9,
+    "uh_moroccan_modern": 10,
+    "uh_slum": 12,
+    "uh_rural": 13,
+    "uh_other": 14,
+    "uh_age_lt20": 16,
+    "uh_age_20_49": 17,
+    "uh_age_50plus": 18,
+    "uh_walls_concrete": 46,
+    "uh_roof_slab": 49,
+    "uh_grid_electricity": 53,
+    "uh_grid_water": 54,
+    "uh_grid_sewer": 55,
+    "uh_deficit_rate": 56,
+}
+ESTAB_COUNTS_2024 = {  # cee_etablissements_eco_2024.xlsx: counts
+    "n_establishments": 7,
+    "n_public_services": 8,
+    "n_nonprofits": 9,
+    "n_souks": 10,
+    "n_firms": 11,
+    "n_firm_jobs": 12,
+}
+ESTAB_SHARES_2024 = {  # % of for-profit establishments (col 11)
+    "firms_industry": [13],
+    "firms_construction": [14],
+    "firms_trade": [15],
+    "firms_services": [16],
+    "firms_size_1": [17],
+    "firms_size_2_3": [18],
+    "firms_size_4_9": [19],
+    "firms_size_10plus": [20, 21],
+    "firms_since_2011": [27, 28],
+}
+DOUAR_POP_2024 = {"rural_foreign": 11, "rural_civil_registration": 17}  # population-weighted douar means
+DOUAR_HH_2024 = {  # household-weighted douar means
+    "rural_dwell_hard": 15,
+    "rural_dwell_pise": 16,
+    "dist_track": 19,
+    "dist_primary_school": 20,
+    "dist_lower_secondary": 21,
+    "dist_upper_secondary": 22,
+    "dist_health": 23,
+}
+DOUAR_TYPES = {"douar_grouped": "دوار مجمع", "douar_fragmented": "دوار مجزأ", "douar_dispersed": "دوار مشتت"}
+
+
+def commune_rows(df: pd.DataFrame) -> pd.DataFrame:
+    code = pd.to_numeric(df[CODE_COL_2024], errors="coerce")
+    m = df[LABEL_COL_2024].astype(str).str.match(COMMUNE_LABEL_RE) & code.notna()
+    return df[m].set_axis(code[m].astype("Int64").values)
+
+
+def extras_2024(out: pd.DataFrame, column_map: dict) -> pd.DataFrame:
+    cols = {}
+    tr = commune_rows(pd.read_excel(RAW / "transport_domicile_travail_2024.xlsx", sheet_name="Ensemble", header=None))
+    for k, c in TRANSPORT_2024.items():
+        cols[k] = out.code24.map(to_num(tr[c]))
+        column_map[k] = f"transport_domicile_travail_2024.xlsx[Ensemble] col{c}"
+    for sheet, spec in MIGRATION_2024.items():
+        mg = commune_rows(pd.read_excel(RAW / "migration_interne_2024.xlsx", sheet_name=sheet, header=None))
+        for k, c in spec.items():
+            cols[k] = out.code24.map(to_num(mg[c]))
+            column_map[k] = f"migration_interne_2024.xlsx[{sheet.strip()}] col{c}"
+    uh = commune_rows(pd.read_excel(RAW / "parc_logement_urbain_2024.xlsx", sheet_name=0, header=None))
+    for k, c in URBAN_HOUSING_2024.items():
+        cols[k] = out.code24.map(to_num(uh[c]))
+        column_map[k] = f"parc_logement_urbain_2024.xlsx col{c}"
+
+    # establishments use 2024 codes written as dotted segments; arrondissements are summed into their city
+    ce = pd.read_excel(RAW / "cee_etablissements_eco_2024.xlsx", sheet_name=0, header=None, dtype=str)
+    ce = ce[ce[4].notna() & ce[0].str.fullmatch(r"\d+", na=False)]
+    key7 = ce[1].str.zfill(3) + ce[2].str.zfill(2) + ce[4].str.zfill(2)
+    by7 = {str(c)[-7:]: c for c in out.code24}
+    city = {str(c)[1:6]: c for c in out.code24 if len(str(c)) == 7}
+    arr = ce[6].str.startswith("Arrondissement")
+    code = key7.map(by7).where(~arr, key7.str[:5].map(city))
+    counts = ce[range(7, 29)].apply(to_num).groupby(code.values).sum(min_count=1)
+    for k, c in ESTAB_COUNTS_2024.items():
+        cols[k] = out.code24.map(counts[c])
+        column_map[k] = f"cee_etablissements_eco_2024.xlsx col{c} (arrondissements summed into cities)"
+    for k, cs in ESTAB_SHARES_2024.items():
+        cols[k] = out.code24.map(counts[cs].sum(axis=1, min_count=1) / counts[11] * 100)
+        column_map[k] = f"cee_etablissements_eco_2024.xlsx cols {cs} / col11 x 100"
+    pop = out.population24.where(out.population24 > 0).astype(float)
+    cols["establishments_per_1000"] = cols["n_establishments"] / pop * 1000
+    cols["firm_jobs_per_1000"] = cols["n_firm_jobs"] / pop * 1000
+    cols["pct_lived_abroad"] = cols["n_lived_abroad"] / pop * 100
+    column_map.update(
+        establishments_per_1000="n_establishments / population24 x 1000",
+        firm_jobs_per_1000="n_firm_jobs / population24 x 1000",
+        pct_lived_abroad="n_lived_abroad / population24 x 100",
+    )
+
+    # douars: rural communes only; the douar code is province(3, leading zero dropped) cercle(2) commune(2)
+    # milieu(1) fraction(2) douar(3), so the commune is the last 7 digits of code24
+    xl = RAW / "population_menages_douars_2024.xlsx"
+    dp, dh = (pd.read_excel(xl, sheet_name=i, header=None) for i in (0, 1))
+    ok = pd.to_numeric(dp[0], errors="coerce").notna() & dp[0].astype(str).str.len().between(11, 13)
+    dp, dh = dp[ok], dh[ok]
+    com = dp[0].astype("int64").astype(str).str[:-6].str.zfill(7).map(by7)
+    popw, hhw = to_num(dp[9]).fillna(0), to_num(dh[8]).fillna(0)
+
+    def wmean(vals, w):
+        num = (vals * w).groupby(com.values).sum(min_count=1)
+        den = w.where(vals.notna(), 0).groupby(com.values).sum()
+        return num / den.where(den > 0)
+
+    for k, c in DOUAR_POP_2024.items():
+        cols[k] = out.code24.map(wmean(to_num(dp[c]), popw))
+        column_map[k] = f"population_menages_douars_2024.xlsx[0] col{c}, population-weighted over douars"
+    for k, c in DOUAR_HH_2024.items():
+        cols[k] = out.code24.map(wmean(to_num(dh[c]), hhw))
+        column_map[k] = f"population_menages_douars_2024.xlsx[1] col{c}, household-weighted over douars"
+    cols["n_douars"] = out.code24.map(com.value_counts())
+    for k, label in DOUAR_TYPES.items():
+        cols[k] = out.code24.map(
+            popw.where(dp[7] == label, 0).groupby(com.values).sum() / popw.groupby(com.values).sum() * 100
+        )
+        column_map[k] = f"population_menages_douars_2024.xlsx: population in '{label}' douars / rural population x 100"
+    column_map["n_douars"] = "population_menages_douars_2024.xlsx: douars per commune"
+    return pd.concat([out, pd.DataFrame(cols)], axis=1)
 
 
 def main() -> tuple[dict, dict]:

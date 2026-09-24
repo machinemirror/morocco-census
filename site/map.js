@@ -84,6 +84,7 @@ let D, map, byId = {}, state = { ind: "pct_electricity", y: 2024, mode: "level",
   sel: null, base: true };
 const t = (k) => L[MC.lang][k] || k;
 const label = (ind) => D.indicators[ind][MC.lang];
+const tx = (o, k) => o[`${k}_${MC.lang}`] || o[k];
 const F = (v, ind = state.ind) => MC.fmt(v, D.indicators[ind].unit, D.indicators[ind].agg);
 
 function readHash() {
@@ -210,10 +211,10 @@ function controls() {
   const ind = D.indicators[state.ind];
   document.getElementById("ind-title").textContent = label(state.ind);
   const n = state.mode === "level" ? ind.vintages[state.y]?.n : null;
-  document.getElementById("ind-def").innerHTML = `${MC.esc(ind.definition)}${n ? ` <span class="muted">${n.toLocaleString()} / ${D.units.length} ${t("communes")}</span>` : ""}`;
+  document.getElementById("ind-def").innerHTML = `${MC.esc(tx(ind, "definition"))}${n ? ` <span class="muted">${n.toLocaleString()} / ${D.units.length} ${t("communes")}</span>` : ""}`;
   const note = document.getElementById("ind-note");
   const warn = [];
-  if (ind.note) warn.push(MC.esc(ind.note));
+  if (ind.note) warn.push(MC.esc(tx(ind, "note")));
   if (state.mode === "change" && ind.comparable === false) warn.unshift(`<b>${t("noncomp")}</b>`);
   note.innerHTML = warn.join("<br>");
   note.hidden = !warn.length;

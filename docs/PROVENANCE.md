@@ -34,6 +34,11 @@ changes daily).
 | 2014 workbooks | HCP, RGPH 2014 indicateurs communaux: Ménages, Individus; Activité; Diplôme | rgph2014.hcp.ma/file/190480, 190479; hcp.ma/file/230028, 230031 |
 | 2014 legal population | HCP, RGPH 2014 population légale (12- and 16-region cuts) | rgph2014.hcp.ma/file/166326, 166315 |
 | 2024 indicators | HCP, RGPH 2024 indicateurs démographiques et socio-économiques | https://www.hcp.ma/file/242671/ |
+| 2024 commuting | HCP, RGPH 2024 mode de transport domicile-lieu de travail | https://www.hcp.ma/file/248301/ |
+| 2024 urban housing stock | HCP, RGPH 2024 indicateurs communaux du parc logement urbain | https://www.hcp.ma/file/246208/ |
+| 2024 establishments | HCP, RGPH 2024 cartographie des établissements économiques (CEE) | https://www.hcp.ma/file/242672/ |
+| 2024 douars | HCP, RGPH 2024 population et ménages par douars | https://www.hcp.ma/file/245768/ |
+| 2024 migration | HCP, RGPH 2024 base de données de la migration interne | https://www.hcp.ma/file/245650/ |
 | Seed points | GADM 4.1 level 4 (not redistributed); GeoNames MA + EH (CC BY 4.0) | gadm.org; geonames.org |
 | Outline | Natural Earth 1:10m admin-0, Morocco + W. Sahara (public domain) | naturalearthdata.com |
 
@@ -44,8 +49,17 @@ also appear in 2014 or 2024; the 2004 year of construction is published for urba
 empty for rural communes. Sex and urban/rural breakdowns (the Masculin/Féminin blocks and the 2024 milieu sheets)
 are not yet extracted.
 
-Other 2024 workbooks (transport, urban housing stock, economic establishments, douars, internal
-migration) are fetched but not yet extracted.
+The five other 2024 workbooks are joined to `communes_2024.csv` on `code24`:
+
+- **Commuting, urban housing stock, migration**: commune rows keyed by `code24` as in the indicators file.
+  The urban housing stock covers the 380 urban communes and counts dwellings, occupied or not.
+- **Establishments (CEE)**: codes are 2024 codes written as dotted segments (region, province, cercle,
+  commune); province, cercle and commune give the last 7 digits of `code24`. The 41 arrondissement rows are
+  summed into their city before shares and per-1,000 rates are computed.
+- **Douars**: 33,189 douar rows. The douar code is province (3 digits, leading zero dropped), cercle (2),
+  commune (2), milieu (1), fraction (2), douar (3), so the commune is the last 7 digits of `code24`; all 1,279
+  rural communes with douars match. People-based shares are population-weighted over douars; dwelling types
+  and distances are household-weighted.
 
 ## Matching
 

@@ -47,7 +47,7 @@ const MC = (() => {
     if (unit === "%") return nf(a >= 1 || a === 0 ? 1 : 2).format(v);
     if (unit === "index 0-1") return nf(3).format(v);
     if (["children per woman", "persons per room", "persons"].includes(unit)) return nf(2).format(v);
-    if (["km", "years", "per 1,000", "per 1,000 births"].includes(unit)) return nf(1).format(v);
+    if (["km", "years", "per 1,000", "per 1,000 births", "per 1,000 residents"].includes(unit)) return nf(1).format(v);
     return nf(a >= 100 ? 0 : a >= 10 ? 1 : a >= 1 ? 2 : 3).format(v);
   }
   const UNITS = {
@@ -60,6 +60,12 @@ const MC = (() => {
     "per 1,000 births": { en: "per 1,000 births", fr: "pour 1 000 naissances", ar: "لكل 1000 ولادة حية" },
     persons: { en: "persons", fr: "personnes", ar: "نسمة" },
     households: { en: "households", fr: "ménages", ar: "أسرة" },
+    dwellings: { en: "dwellings", fr: "logements", ar: "مسكن" },
+    establishments: { en: "establishments", fr: "établissements", ar: "مؤسسة" },
+    jobs: { en: "jobs", fr: "emplois", ar: "منصب شغل" },
+    souks: { en: "souks", fr: "souks", ar: "سوق" },
+    douars: { en: "douars", fr: "douars", ar: "دوار" },
+    "per 1,000 residents": { en: "per 1,000 residents", fr: "pour 1 000 habitants", ar: "لكل 1000 نسمة" },
     index: { en: "index", fr: "indice", ar: "مؤشر" },
     "index 0-1": { en: "index 0-1", fr: "indice 0-1", ar: "مؤشر 0-1" },
     flag: { en: "0/1 flag", fr: "indicateur 0/1", ar: "مؤشر 0/1" },

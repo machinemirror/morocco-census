@@ -10,6 +10,9 @@ def load() -> dict:
     return yaml.safe_load(CATALOG.read_text())
 
 
+TEXT = ("en", "fr", "ar", "unit", "definition", "definition_fr", "definition_ar")
+
+
 def problems(cat: dict) -> list[str]:
     out = []
     for ds in cat["datasets"]:
@@ -29,12 +32,14 @@ def problems(cat: dict) -> list[str]:
                     out.append(f"{ds['id']}.{c}: unknown source {spec['source']}")
             else:
                 out += [
-                    f"{ds['id']}.{c}: missing {k}" for k in ("en", "fr", "ar", "unit", "definition") if k not in spec
+                    f"{ds['id']}.{c}: missing {k}" for k in TEXT if k not in spec
                 ]
     for i, ind in cat["indicators"].items():
         if ind["theme"] not in cat["themes"]:
             out.append(f"indicator {i}: unknown theme {ind['theme']}")
-        out += [f"indicator {i}: missing {k}" for k in ("en", "fr", "ar", "unit", "definition") if k not in ind]
+        out += [f"indicator {i}: missing {k}" for k in TEXT if k not in ind]
+        if "note" in ind:
+            out += [f"indicator {i}: missing {k}" for k in ("note_fr", "note_ar") if k not in ind]
     return out
 
 
@@ -58,7 +63,11 @@ def columns(cat: dict) -> pd.DataFrame:
                     "label_ar": ind.get("ar") or spec.get("ar"),
                     "unit": ind.get("unit") or spec.get("unit"),
                     "definition": ind.get("definition") or spec.get("definition"),
+                    "definition_fr": ind.get("definition_fr") or spec.get("definition_fr"),
+                    "definition_ar": ind.get("definition_ar") or spec.get("definition_ar"),
                     "note": ind.get("note", ""),
+                    "note_fr": ind.get("note_fr", ""),
+                    "note_ar": ind.get("note_ar", ""),
                     "comparable": ind.get("comparable", True) if ind else "",
                     "source_field": spec.get("from", ""),
                     "source": src.get("title", ""),
