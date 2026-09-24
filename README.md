@@ -60,6 +60,7 @@ python -m http.server -d site
 ```
 
 `uv run pytest` checks the published tables, the catalogue and the site export; it needs no raw data.
+Corrections and additions are welcome: see [CONTRIBUTING.md](CONTRIBUTING.md).
 [`docs/PROVENANCE.md`](docs/PROVENANCE.md) documents every step, match rate and imputation.
 
 ## Licence and citation
