@@ -84,7 +84,7 @@ function render() {
         ${src ? `<div class="src">${src}</div>` : ""}</td>
       <td><code>${MC.esc(c.column)}</code><div class="src">${MC.esc(names[c.dataset])}</div></td>
       <td>${c.vintage || ""}</td>
-      <td>${MC.esc(c.unit)}</td>
+      <td>${MC.esc(MC.unitName(c.unit))}</td>
       <td class="num">${n ? `${n.toLocaleString()} ${t("comm")}` : ""}</td></tr>`;
   }).join("");
   document.querySelectorAll("[data-t]").forEach(el => (el.textContent = t(el.dataset.t)));

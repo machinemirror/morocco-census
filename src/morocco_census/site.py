@@ -98,6 +98,8 @@ def map_data(cat: dict, cells: gpd.GeoDataFrame) -> dict:
     for (ind, year), (ds, col) in sorted(catalog.series(cat).items()):
         df, weight = tables[ds]
         spec = cat["indicators"][ind]
+        if spec.get("weight") == "households" and "n_households" in df:
+            weight = "n_households"
         s = aggregate(df, col, weight, spec).reindex(units)
         if s.notna().sum() == 0:
             continue

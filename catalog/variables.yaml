@@ -6,7 +6,7 @@
 #   an indicator (and gives its vintage and exact source), or describes itself (identifiers).
 # `comparable: false` or a `note` flags a definitional break between vintages.
 # `agg: sum` marks counts, summed when communes are merged into a map unit; everything else is a
-#   population-weighted mean (flags: max).
+#   population-weighted mean (flags: max), or household-weighted with `weight: households`.
 
 themes:
   population: {en: Population, fr: Population, ar: السكان}
@@ -18,7 +18,7 @@ themes:
   occupation: {en: Occupations and sectors, fr: "Professions et secteurs d'activité", ar: المهن وقطاعات النشاط}
   family: {en: Marital status and migration, fr: État matrimonial et migration, ar: الحالة الزواجية والهجرة}
   housing: {en: Housing, fr: Logement, ar: السكن}
-  sanitation: {en: Sanitation, energy and access, fr: "Assainissement, énergie et accès", ar: التطهير والطاقة والولوج}
+  sanitation: {en: "Sanitation, energy and access", fr: "Assainissement, énergie et accès", ar: التطهير والطاقة والولوج}
   equipment: {en: Household equipment, fr: "Équipement des ménages", ar: تجهيزات الأسر}
   poverty: {en: Poverty and human development, fr: Pauvreté et développement humain, ar: الفقر والتنمية البشرية}
 
@@ -60,6 +60,7 @@ indicators:
     unit: households
     definition: Number of ordinary households.
   hh_size_avg:
+    weight: households
     theme: population
     en: Average household size
     fr: Taille moyenne des ménages
@@ -73,6 +74,7 @@ indicators:
     ar: نسبة الإناث
     unit: "%"
     definition: Women as a share of the population.
+    note: "2014 is computed from HCP's female and total population municipale."
   age_0_4:
     theme: age
     en: Aged 0-4
@@ -100,7 +102,7 @@ indicators:
     fr: Indice synthétique de fécondité
     ar: المؤشر التركيبي للخصوبة
     unit: children per woman
-    definition: Children per woman implied by current age-specific fertility.
+    definition: "Mean number of live births a woman would have at the fertility rates of the 12 months before the census."
     note: "2024 is HCP's 'indicateur conjoncturel de fécondité', the same measure under another name."
   birth_rate:
     theme: fertility
@@ -137,8 +139,8 @@ indicators:
     fr: Aucun niveau d'études
     ar: بدون مستوى دراسي
     unit: "%"
-    definition: Share of the population with no level of general education.
-    note: "2004 shares are of the population aged 25 and over; 2014 and 2024 are HCP's commune shares."
+    definition: "Share of the population with no level of general education."
+    note: "2004 is a share of the population aged 25 and over, and HCP's 2004 levels sum to about 96% (a category is not published); 2014 and 2024 are HCP's commune shares on a wider base, so 2004 levels are not comparable."
     comparable: false
   pct_no_diploma:
     theme: education
@@ -146,14 +148,14 @@ indicators:
     fr: Sans diplôme
     ar: بدون شهادة
     unit: "%"
-    definition: Share of the population holding no diploma.
+    definition: "Share of the population aged 10 and over with no general-education diploma."
   pct_higher_ed:
     theme: education
     en: Higher-education diploma
     fr: Diplôme de l'enseignement supérieur
     ar: شهادة التعليم العالي
     unit: "%"
-    definition: DEUG/Licence plus Master/Doctorat (or equivalent), summed.
+    definition: "Share of the population aged 10 and over whose highest diploma is a DEUG, licence, master, doctorate or equivalent (sum of the two diploma indicators)."
   activity_rate:
     theme: employment
     en: Activity rate
@@ -170,7 +172,7 @@ indicators:
     fr: Taux de chômage
     ar: معدل البطالة
     unit: "%"
-    definition: Unemployed as a share of the active population.
+    definition: "Unemployed persons as a share of the active population aged 15 and over."
   pop_active_occupee:
     agg: sum
     theme: employment
@@ -180,13 +182,13 @@ indicators:
     unit: persons
     definition: Employed persons aged 15 and over.
   pct_agriculture:
-    en: Employed in agriculture
-    fr: Actifs occupés dans l'agriculture
-    ar: النشيطون المشتغلون في الفلاحة
-    unit: "%"
-    definition: Share of employed persons working in agriculture, forestry and fishing.
     theme: "occupation"
-    note: "2004 shares are of employed persons and unemployed persons who have worked before, by branch; 2014 shares are of employed persons aged 15 and over."
+    en: "Agriculture, forestry and fishing"
+    fr: "Agriculture, sylviculture et pêche"
+    ar: "الفلاحة والغابات والصيد البحري"
+    unit: "%"
+    definition: "Share of employed persons working in agriculture, forestry and fishing."
+    note: "2004 is a share of employed persons plus unemployed persons who have worked before; 2014 is a share of employed persons aged 15 and over."
     comparable: false
   pct_women_divorced:
     theme: family
@@ -205,6 +207,7 @@ indicators:
     unit: "%"
     definition: Share whose 1999 residence was a different commune.
   pct_owner:
+    weight: households
     theme: housing
     en: Owner-occupied households
     fr: Ménages propriétaires
@@ -212,6 +215,7 @@ indicators:
     unit: "%"
     definition: Share of households owning their dwelling.
   pct_renter:
+    weight: households
     theme: housing
     en: Renting households
     fr: Ménages locataires
@@ -219,48 +223,57 @@ indicators:
     unit: "%"
     definition: Share of households renting their dwelling.
   pct_electricity:
+    weight: households
     theme: housing
     en: Electricity
     fr: Électricité
     ar: الكهرباء
     unit: "%"
     definition: Share of households with electricity.
+    note: "2024 counts households connected to the public grid or lit by solar power or a generator."
   pct_water:
+    weight: households
     theme: housing
     en: Piped water
     fr: Eau courante
     ar: الماء الجاري
     unit: "%"
-    definition: Share of households with running water.
+    definition: "Share of households whose dwelling is connected to a piped water network."
   pct_cellphone:
+    weight: households
+    theme: "equipment"
     en: Mobile phone
     fr: Téléphone portable
     ar: الهاتف المحمول
     unit: "%"
-    definition: Share of households with a mobile phone. Not published at commune level for 2024.
-    theme: "equipment"
+    definition: "Share of households with a mobile phone."
+    note: "Household equipment is not published at commune level for 2024."
   pct_internet:
+    weight: households
+    theme: "equipment"
     en: Internet
     fr: Internet
     ar: الإنترنت
     unit: "%"
-    definition: Share of households with internet access. Not published at commune level for 2024.
-    theme: "equipment"
+    definition: "Share of households with internet access."
+    note: "Household equipment is not published at commune level for 2024."
   pct_tv:
+    weight: households
+    theme: "equipment"
     en: Television
     fr: Télévision
     ar: التلفاز
     unit: "%"
-    definition: Share of households with a television.
-    theme: "equipment"
+    definition: "Share of households with a television."
+    note: "Household equipment is not published at commune level for 2024."
   pct_slum:
     theme: housing
     en: Makeshift housing or slum
     fr: Maison sommaire ou bidonville
     ar: مسكن بدائي أو صفيحي
     unit: "%"
-    definition: Share of households living in a makeshift dwelling or slum.
-    note: "2014 category is 'Habitat sommaire'."
+    definition: "Share of households living in a makeshift dwelling or a slum (maison sommaire, bidonville)."
+    note: "2014 category is 'Habitat sommaire'. In 89 communes HCP's 2004 dwelling-type shares sum to less than 100% as published."
   idh:
     theme: poverty
     en: Human development index (IDH)
@@ -472,7 +485,7 @@ indicators:
     fr: "Taux de prévalence du handicap"
     ar: "معدل انتشار الإعاقة"
     unit: "%"
-    definition: "Share of the population living with a disability."
+    definition: "Share of the population with a total incapacity or much difficulty in at least one of six functional domains (sight, hearing, mobility, communication, memory, self-care)."
   pct_single:
     theme: "family"
     en: "Never married"
@@ -515,25 +528,24 @@ indicators:
     fr: "Âge moyen au premier mariage"
     ar: "متوسط السن عند الزواج الأول"
     unit: "years"
-    definition: "Mean age at first marriage."
-    note: "2024 is HCP's singulate mean age at marriage (âge moyen singulier au mariage)."
+    definition: "Mean age at first marriage, both sexes."
+    note: "2024 is HCP's singulate mean age at marriage (âge moyen singulier au mariage): the mean years spent single by people who married before 55."
   completed_fertility:
     theme: "fertility"
     en: "Completed fertility"
     fr: "Descendance finale"
     ar: "الخصوبة المكتملة"
     unit: "children per woman"
-    definition: "Mean number of children born to women at the end of their reproductive years."
-    note: "2014 is the mean parity of women aged 45-49 (parité moyenne à 45-49 ans); 2024 is HCP's descendance finale."
+    definition: "Mean number of live births to women aged 45-49, at the end of their reproductive years."
+    note: "2014 is HCP's mean parity at 45-49 (parité moyenne à 45-49 ans); 2024 is its descendance finale, computed for the same age group."
   school_enrolment:
     theme: "education"
     en: "School enrolment of young children"
     fr: "Taux de scolarisation des jeunes enfants"
     ar: "معدل تمدرس الأطفال الصغار"
     unit: "%"
-    definition: "Share of primary-school-age children enrolled in school."
-    note: "2014 covers children aged 7-12; 2024 covers ages 6-11 in the 2023/24 school year."
-    comparable: false
+    definition: "Share of children aged 7-12 at the census date who were enrolled in school."
+    note: "HCP labels the 2024 group by age during the 2023/24 school year (6-11), which is the 7-12 group at the census date."
   pct_illiterate_15plus:
     theme: "education"
     en: "Illiteracy rate (15+)"
@@ -547,17 +559,15 @@ indicators:
     fr: "Niveau préscolaire"
     ar: "المستوى الأولي"
     unit: "%"
-    definition: "Share whose highest level of general education reached is preschool."
-    note: "2004 shares are of the population aged 25 and over; 2014 and 2024 are HCP's commune shares."
-    comparable: false
+    definition: "Share of the population whose highest level of general education is preschool."
   edu_primary:
     theme: "education"
     en: "Primary level"
     fr: "Niveau primaire"
     ar: "المستوى الابتدائي"
     unit: "%"
-    definition: "Share whose highest level of general education reached is primary."
-    note: "2004 shares are of the population aged 25 and over; 2014 and 2024 are HCP's commune shares."
+    definition: "Share of the population whose highest level of general education is primary school."
+    note: "2004 is a share of the population aged 25 and over, and HCP's 2004 levels sum to about 96% (a category is not published); 2014 and 2024 are HCP's commune shares on a wider base, so 2004 levels are not comparable."
     comparable: false
   edu_lower_secondary:
     theme: "education"
@@ -565,8 +575,8 @@ indicators:
     fr: "Niveau secondaire collégial"
     ar: "المستوى الثانوي الإعدادي"
     unit: "%"
-    definition: "Share whose highest level of general education reached is lower-secondary."
-    note: "2004 shares are of the population aged 25 and over; 2014 and 2024 are HCP's commune shares."
+    definition: "Share of the population whose highest level of general education is lower-secondary school (collège)."
+    note: "2004 is a share of the population aged 25 and over, and HCP's 2004 levels sum to about 96% (a category is not published); 2014 and 2024 are HCP's commune shares on a wider base, so 2004 levels are not comparable."
     comparable: false
   edu_upper_secondary:
     theme: "education"
@@ -574,8 +584,8 @@ indicators:
     fr: "Niveau secondaire qualifiant"
     ar: "المستوى الثانوي التأهيلي"
     unit: "%"
-    definition: "Share whose highest level of general education reached is upper-secondary."
-    note: "2004 shares are of the population aged 25 and over; 2014 and 2024 are HCP's commune shares."
+    definition: "Share of the population whose highest level of general education is upper-secondary school (lycée)."
+    note: "2004 is a share of the population aged 25 and over, and HCP's 2004 levels sum to about 96% (a category is not published); 2014 and 2024 are HCP's commune shares on a wider base, so 2004 levels are not comparable."
     comparable: false
   edu_higher:
     theme: "education"
@@ -583,8 +593,8 @@ indicators:
     fr: "Niveau supérieur"
     ar: "المستوى العالي"
     unit: "%"
-    definition: "Share whose highest level of general education reached is higher-education."
-    note: "2004 shares are of the population aged 25 and over; 2014 and 2024 are HCP's commune shares."
+    definition: "Share of the population whose highest level of general education is higher education."
+    note: "2004 is a share of the population aged 25 and over, and HCP's 2004 levels sum to about 96% (a category is not published); 2014 and 2024 are HCP's commune shares on a wider base, so 2004 levels are not comparable."
     comparable: false
   dipl_primary:
     theme: "education"
@@ -627,35 +637,35 @@ indicators:
     fr: "Diplôme professionnel : technicien spécialisé"
     ar: "شهادة التكوين المهني: تقني متخصص"
     unit: "%"
-    definition: "Share of the population aged 10 and over whose highest vocational diploma is specialised technician."
+    definition: "Share of the population aged 10 and over whose highest vocational-training diploma is specialised technician (technicien spécialisé)."
   voc_technician:
     theme: "education"
     en: "Vocational diploma: technician or middle manager"
     fr: "Diplôme professionnel : technicien ou cadre moyen"
     ar: "شهادة التكوين المهني: تقني أو إطار متوسط"
     unit: "%"
-    definition: "Share of the population aged 10 and over whose highest vocational diploma is technician or middle manager."
+    definition: "Share of the population aged 10 and over whose highest vocational-training diploma is technician or middle manager."
   voc_qualification:
     theme: "education"
     en: "Vocational diploma: qualification"
     fr: "Diplôme professionnel : qualification"
     ar: "شهادة التكوين المهني: التأهيل"
     unit: "%"
-    definition: "Share of the population aged 10 and over whose highest vocational diploma is qualification."
+    definition: "Share of the population aged 10 and over whose highest vocational-training diploma is qualification (qualification professionnelle)."
   voc_specialisation:
     theme: "education"
     en: "Vocational diploma: specialisation"
     fr: "Diplôme professionnel : spécialisation"
     ar: "شهادة التكوين المهني: التخصص"
     unit: "%"
-    definition: "Share of the population aged 10 and over whose highest vocational diploma is specialisation."
+    definition: "Share of the population aged 10 and over whose highest vocational-training diploma is specialisation (spécialisation professionnelle)."
   voc_initiation:
     theme: "education"
     en: "Vocational diploma: initiation"
     fr: "Diplôme professionnel : initiation"
-    ar: "شهادة التكوين المهني: التأهيل الأولي"
+    ar: "شهادة التكوين المهني: الاستئناس المهني"
     unit: "%"
-    definition: "Share of the population aged 10 and over whose highest vocational diploma is initiation."
+    definition: "Share of the population aged 10 and over whose highest vocational-training diploma is initiation (initiation professionnelle)."
   pct_no_voc_diploma:
     theme: "education"
     en: "No vocational diploma"
@@ -669,40 +679,40 @@ indicators:
     fr: "Parle la darija"
     ar: "يتحدث الدارجة"
     unit: "%"
-    definition: "Share of the population using Darija; a person can use several languages."
-    note: "2004 counts languages spoken by the population aged 5 and over; 2014 and 2024 count local languages used (non-exclusive)."
+    definition: "Share of the population who speak Darija (Moroccan Arabic)."
+    note: "2004 counts languages spoken by the population aged 5 and over; 2014 and 2024 count local languages used. A person can use several languages."
   lang_tachelhit:
     theme: "languages"
     en: "Speaks Tachelhit"
     fr: "Parle le tachelhit"
     ar: "يتحدث تاشلحيت"
     unit: "%"
-    definition: "Share of the population using Tachelhit; a person can use several languages."
-    note: "2004 counts languages spoken by the population aged 5 and over; 2014 and 2024 count local languages used (non-exclusive)."
+    definition: "Share of the population who speak Tachelhit."
+    note: "2004 counts languages spoken by the population aged 5 and over; 2014 and 2024 count local languages used. A person can use several languages."
   lang_tamazight:
     theme: "languages"
     en: "Speaks Tamazight"
     fr: "Parle le tamazight"
     ar: "يتحدث تامازيغت"
     unit: "%"
-    definition: "Share of the population using Tamazight; a person can use several languages."
-    note: "2004 counts languages spoken by the population aged 5 and over; 2014 and 2024 count local languages used (non-exclusive)."
+    definition: "Share of the population who speak Tamazight."
+    note: "2004 counts languages spoken by the population aged 5 and over; 2014 and 2024 count local languages used. A person can use several languages."
   lang_tarifit:
     theme: "languages"
     en: "Speaks Tarifit"
     fr: "Parle le tarifit"
     ar: "يتحدث تاريفيت"
     unit: "%"
-    definition: "Share of the population using Tarifit; a person can use several languages."
-    note: "2004 counts languages spoken by the population aged 5 and over; 2014 and 2024 count local languages used (non-exclusive)."
+    definition: "Share of the population who speak Tarifit."
+    note: "2004 counts languages spoken by the population aged 5 and over; 2014 and 2024 count local languages used. A person can use several languages."
   lang_hassania:
     theme: "languages"
     en: "Speaks Hassania"
     fr: "Parle le hassania"
     ar: "يتحدث الحسانية"
     unit: "%"
-    definition: "Share of the population using Hassania; a person can use several languages."
-    note: "2004 counts languages spoken by the population aged 5 and over; 2014 and 2024 count local languages used (non-exclusive)."
+    definition: "Share of the population who speak Hassania."
+    note: "2004 counts languages spoken by the population aged 5 and over; 2014 and 2024 count local languages used. A person can use several languages."
   lit_arabic_only:
     theme: "languages"
     en: "Reads and writes Arabic only"
@@ -727,14 +737,14 @@ indicators:
     fr: "Lit et écrit l'arabe, le français et l'anglais"
     ar: "يقرأ ويكتب العربية والفرنسية والإنجليزية"
     unit: "%"
-    definition: "Share of literate persons aged 10 and over reading and writing Arabic, French and English."
+    definition: "Share of literate persons aged 10 and over who read and write Arabic, French and English."
   lit_other:
     theme: "languages"
     en: "Reads and writes other language combinations"
     fr: "Lit et écrit d'autres combinaisons de langues"
     ar: "يقرأ ويكتب توليفات لغوية أخرى"
     unit: "%"
-    definition: "Share of literate persons aged 10 and over in any other language combination."
+    definition: "Share of literate persons aged 10 and over who read and write any other combination of languages."
   read_arabic:
     theme: "languages"
     en: "Literate in Arabic"
@@ -769,8 +779,8 @@ indicators:
     fr: "Employeurs"
     ar: "المشغّلون"
     unit: "%"
-    definition: "Share in employment status: employers."
-    note: "2004 and 2014 shares are of employed persons and unemployed persons who have worked before; 2024 shares are of employed persons aged 15 and over."
+    definition: "Share of workers who are employers (working on their own account with at least one permanent employee)."
+    note: "2004 and 2014 are shares of employed persons plus unemployed persons who have worked before; 2024 is a share of employed persons aged 15 and over."
     comparable: false
   pct_self_employed:
     theme: "employment"
@@ -778,8 +788,8 @@ indicators:
     fr: "Indépendants"
     ar: "المستقلون"
     unit: "%"
-    definition: "Share in employment status: self-employed."
-    note: "2004 and 2014 shares are of employed persons and unemployed persons who have worked before; 2024 shares are of employed persons aged 15 and over."
+    definition: "Share of workers who are self-employed (working on their own account with no permanent employee)."
+    note: "2004 and 2014 are shares of employed persons plus unemployed persons who have worked before; 2024 is a share of employed persons aged 15 and over."
     comparable: false
   pct_public_employee:
     theme: "employment"
@@ -787,8 +797,8 @@ indicators:
     fr: "Salariés du secteur public"
     ar: "أجراء القطاع العام"
     unit: "%"
-    definition: "Share in employment status: public-sector employees."
-    note: "2004 and 2014 shares are of employed persons and unemployed persons who have worked before; 2024 shares are of employed persons aged 15 and over."
+    definition: "Share of workers who are public-sector employees."
+    note: "2004 and 2014 are shares of employed persons plus unemployed persons who have worked before; 2024 is a share of employed persons aged 15 and over."
     comparable: false
   pct_private_employee:
     theme: "employment"
@@ -796,17 +806,17 @@ indicators:
     fr: "Salariés du secteur privé"
     ar: "أجراء القطاع الخاص"
     unit: "%"
-    definition: "Share in employment status: private-sector employees."
-    note: "2004 and 2014 shares are of employed persons and unemployed persons who have worked before; 2024 shares are of employed persons aged 15 and over."
+    definition: "Share of workers who are private-sector employees."
+    note: "2004 and 2014 are shares of employed persons plus unemployed persons who have worked before; 2024 is a share of employed persons aged 15 and over."
     comparable: false
   pct_family_worker:
     theme: "employment"
-    en: "Family workers"
+    en: "Unpaid family workers"
     fr: "Aides familiaux"
     ar: "المساعدون العائليون"
     unit: "%"
-    definition: "Share in employment status: family workers."
-    note: "2004 and 2014 shares are of employed persons and unemployed persons who have worked before; 2024 shares are of employed persons aged 15 and over."
+    definition: "Share of workers who are unpaid family workers."
+    note: "2004 and 2014 are shares of employed persons plus unemployed persons who have worked before; 2024 is a share of employed persons aged 15 and over."
     comparable: false
   pct_apprentice:
     theme: "employment"
@@ -814,8 +824,8 @@ indicators:
     fr: "Apprentis"
     ar: "المتدربون"
     unit: "%"
-    definition: "Share in employment status: apprentices."
-    note: "2004 and 2014 shares are of employed persons and unemployed persons who have worked before; 2024 shares are of employed persons aged 15 and over."
+    definition: "Share of workers who are apprentices."
+    note: "2004 and 2014 are shares of employed persons plus unemployed persons who have worked before; 2024 is a share of employed persons aged 15 and over."
     comparable: false
   pct_partner:
     theme: "employment"
@@ -823,8 +833,8 @@ indicators:
     fr: "Associés ou coopérateurs"
     ar: "الشركاء أو أعضاء التعاونيات"
     unit: "%"
-    definition: "Share in employment status: partners or cooperative members."
-    note: "2004 and 2014 shares are of employed persons and unemployed persons who have worked before; 2024 shares are of employed persons aged 15 and over."
+    definition: "Share of workers who are partners or cooperative members."
+    note: "2014 is a share of employed persons plus unemployed persons who have worked before; 2024 is a share of employed persons aged 15 and over."
     comparable: false
   pct_status_other:
     theme: "employment"
@@ -832,8 +842,8 @@ indicators:
     fr: "Autre situation dans la profession"
     ar: "وضعية مهنية أخرى"
     unit: "%"
-    definition: "Share in employment status: other employment status."
-    note: "2004 and 2014 shares are of employed persons and unemployed persons who have worked before; 2024 shares are of employed persons aged 15 and over."
+    definition: "Share of workers in another employment status."
+    note: "2014 is a share of employed persons plus unemployed persons who have worked before; 2024 is a share of employed persons aged 15 and over."
     comparable: false
   occ_managers:
     theme: "occupation"
@@ -841,78 +851,78 @@ indicators:
     fr: "Membres des corps législatifs, responsables et cadres supérieurs"
     ar: "أعضاء الهيئات التشريعية والمسؤولون والأطر العليا"
     unit: "%"
-    definition: "Share of employed persons aged 15 and over in the major occupational group: legislators, officials and managers."
+    definition: "Share of employed persons aged 15 and over in the major occupational group 'Legislators, officials and managers'."
   occ_technicians:
     theme: "occupation"
     en: "Technicians and associate professionals"
     fr: "Techniciens et professions intermédiaires"
     ar: "التقنيون والمهن الوسيطة"
     unit: "%"
-    definition: "Share of employed persons aged 15 and over in the major occupational group: technicians and associate professionals."
+    definition: "Share of employed persons aged 15 and over in the major occupational group 'Technicians and associate professionals'."
   occ_clerks:
     theme: "occupation"
     en: "Clerks"
     fr: "Employés"
     ar: "المستخدمون"
     unit: "%"
-    definition: "Share of employed persons aged 15 and over in the major occupational group: clerks."
+    definition: "Share of employed persons aged 15 and over in the major occupational group 'Clerks'."
   occ_traders:
     theme: "occupation"
     en: "Traders and commercial or financial intermediaries"
     fr: "Commerçants et intermédiaires commerciaux et financiers"
     ar: "التجار والوسطاء التجاريون والماليون"
     unit: "%"
-    definition: "Share of employed persons aged 15 and over in the major occupational group: traders and commercial or financial intermediaries."
+    definition: "Share of employed persons aged 15 and over in the major occupational group 'Traders and commercial or financial intermediaries'."
   occ_farmers:
     theme: "occupation"
     en: "Farmers, fishers and foresters"
     fr: "Exploitants agricoles, pêcheurs et forestiers"
     ar: "المستغلون الفلاحيون والصيادون والحراجيون"
     unit: "%"
-    definition: "Share of employed persons aged 15 and over in the major occupational group: farmers, fishers and foresters."
+    definition: "Share of employed persons aged 15 and over in the major occupational group 'Farmers, fishers and foresters'."
   occ_craft:
     theme: "occupation"
     en: "Craft and related trades workers"
     fr: "Artisans et ouvriers qualifiés des métiers artisanaux"
     ar: "الحرفيون والعمال المؤهلون في المهن الحرفية"
     unit: "%"
-    definition: "Share of employed persons aged 15 and over in the major occupational group: craft and related trades workers."
+    definition: "Share of employed persons aged 15 and over in the major occupational group 'Craft and related trades workers'."
   occ_agri_workers:
     theme: "occupation"
     en: "Agricultural and fishery labourers"
     fr: "Ouvriers et manœuvres agricoles et de la pêche"
     ar: "العمال واليد العاملة في الفلاحة والصيد"
     unit: "%"
-    definition: "Share of employed persons aged 15 and over in the major occupational group: agricultural and fishery labourers."
+    definition: "Share of employed persons aged 15 and over in the major occupational group 'Agricultural and fishery labourers'."
   occ_operators:
     theme: "occupation"
     en: "Plant and machine operators and assemblers"
     fr: "Conducteurs d'installations et de machines et ouvriers de l'assemblage"
     ar: "سائقو التجهيزات والآلات وعمال التركيب"
     unit: "%"
-    definition: "Share of employed persons aged 15 and over in the major occupational group: plant and machine operators and assemblers."
+    definition: "Share of employed persons aged 15 and over in the major occupational group 'Plant and machine operators and assemblers'."
   occ_labourers:
     theme: "occupation"
     en: "Non-agricultural labourers and small trades"
     fr: "Manœuvres non agricoles et travailleurs des petits métiers"
     ar: "اليد العاملة غير الفلاحية وعمال المهن الصغرى"
     unit: "%"
-    definition: "Share of employed persons aged 15 and over in the major occupational group: non-agricultural labourers and small trades."
+    definition: "Share of employed persons aged 15 and over in the major occupational group 'Non-agricultural labourers and small trades'."
   occ_unclassified:
     theme: "occupation"
     en: "Occupation not classifiable"
     fr: "Travailleurs ne pouvant être classés selon la profession"
     ar: "عمال لا يمكن تصنيفهم حسب المهنة"
     unit: "%"
-    definition: "Share of employed persons aged 15 and over in the major occupational group: occupation not classifiable."
+    definition: "Share of employed persons aged 15 and over in the major occupational group 'Occupation not classifiable'."
   sec_industry:
     theme: "occupation"
     en: "Mining and manufacturing"
     fr: "Industries extractives et manufacturières"
     ar: "الصناعات الاستخراجية والتحويلية"
     unit: "%"
-    definition: "Share of employed persons working in: mining and manufacturing."
-    note: "2004 shares are of employed persons and unemployed persons who have worked before, by branch; 2014 shares are of employed persons aged 15 and over."
+    definition: "Share of employed persons working in mining and manufacturing."
+    note: "2004 is a share of employed persons plus unemployed persons who have worked before; 2014 is a share of employed persons aged 15 and over. 2004 sums the Mines and Industrie branches."
     comparable: false
   sec_utilities:
     theme: "occupation"
@@ -920,8 +930,8 @@ indicators:
     fr: "Eau et électricité"
     ar: "الماء والكهرباء"
     unit: "%"
-    definition: "Share of employed persons working in: water and electricity."
-    note: "2004 shares are of employed persons and unemployed persons who have worked before, by branch; 2014 shares are of employed persons aged 15 and over."
+    definition: "Share of employed persons working in water and electricity supply."
+    note: "2004 is a share of employed persons plus unemployed persons who have worked before; 2014 is a share of employed persons aged 15 and over."
     comparable: false
   sec_construction:
     theme: "occupation"
@@ -929,8 +939,8 @@ indicators:
     fr: "Bâtiment et travaux publics"
     ar: "البناء والأشغال العمومية"
     unit: "%"
-    definition: "Share of employed persons working in: construction."
-    note: "2004 shares are of employed persons and unemployed persons who have worked before, by branch; 2014 shares are of employed persons aged 15 and over."
+    definition: "Share of employed persons working in construction and public works."
+    note: "2004 is a share of employed persons plus unemployed persons who have worked before; 2014 is a share of employed persons aged 15 and over."
     comparable: false
   sec_trade:
     theme: "occupation"
@@ -938,8 +948,8 @@ indicators:
     fr: "Commerce et réparation automobile"
     ar: "التجارة وإصلاح المركبات"
     unit: "%"
-    definition: "Share of employed persons working in: trade and vehicle repair."
-    note: "2004 shares are of employed persons and unemployed persons who have worked before, by branch; 2014 shares are of employed persons aged 15 and over."
+    definition: "Share of employed persons working in trade and vehicle repair."
+    note: "2004 is a share of employed persons plus unemployed persons who have worked before; 2014 is a share of employed persons aged 15 and over."
     comparable: false
   sec_transport:
     theme: "occupation"
@@ -947,8 +957,8 @@ indicators:
     fr: "Transport, entrepôt et communication"
     ar: "النقل والتخزين والاتصال"
     unit: "%"
-    definition: "Share of employed persons working in: transport, storage and communication."
-    note: "2004 shares are of employed persons and unemployed persons who have worked before, by branch; 2014 shares are of employed persons aged 15 and over."
+    definition: "Share of employed persons working in transport, storage and communication."
+    note: "2004 is a share of employed persons plus unemployed persons who have worked before; 2014 is a share of employed persons aged 15 and over."
     comparable: false
   sec_services:
     theme: "occupation"
@@ -956,8 +966,8 @@ indicators:
     fr: "Autres services marchands"
     ar: "خدمات تجارية أخرى"
     unit: "%"
-    definition: "Share of employed persons working in: other market services."
-    note: "2004 shares are of employed persons and unemployed persons who have worked before, by branch; 2014 shares are of employed persons aged 15 and over."
+    definition: "Share of employed persons working in other market services."
+    note: "2004 is a share of employed persons plus unemployed persons who have worked before; 2014 is a share of employed persons aged 15 and over."
     comparable: false
   sec_public:
     theme: "occupation"
@@ -965,8 +975,8 @@ indicators:
     fr: "Administration publique, éducation, santé et action sociale"
     ar: "الإدارة العمومية والتعليم والصحة والعمل الاجتماعي"
     unit: "%"
-    definition: "Share of employed persons working in: public administration, education, health and social work."
-    note: "2004 shares are of employed persons and unemployed persons who have worked before, by branch; 2014 shares are of employed persons aged 15 and over."
+    definition: "Share of employed persons working in public administration, education, health and social work."
+    note: "2004 is a share of employed persons plus unemployed persons who have worked before; 2014 is a share of employed persons aged 15 and over."
     comparable: false
   sec_other:
     theme: "occupation"
@@ -974,8 +984,8 @@ indicators:
     fr: "Activités extraterritoriales et non déclarées"
     ar: "أنشطة خارج التراب الوطني أو غير مصرح بها"
     unit: "%"
-    definition: "Share of employed persons working in: extraterritorial or undeclared activity."
-    note: "2004 shares are of employed persons and unemployed persons who have worked before, by branch; 2014 shares are of employed persons aged 15 and over."
+    definition: "Share of employed persons working in extraterritorial or undeclared activities."
+    note: "2004 is a share of employed persons plus unemployed persons who have worked before; 2014 is a share of employed persons aged 15 and over."
     comparable: false
   dwell_villa:
     theme: "housing"
@@ -983,51 +993,57 @@ indicators:
     fr: "Villa"
     ar: "فيلا"
     unit: "%"
-    definition: "Share of households living in a dwelling of type: villa."
+    definition: "Share of households living in a villa or villa floor."
+    note: "In 89 communes HCP's 2004 dwelling-type shares sum to less than 100% as published."
   dwell_apartment:
     theme: "housing"
     en: "Apartment"
     fr: "Appartement"
     ar: "شقة"
     unit: "%"
-    definition: "Share of households living in a dwelling of type: apartment."
+    definition: "Share of households living in an apartment."
+    note: "In 89 communes HCP's 2004 dwelling-type shares sum to less than 100% as published."
   dwell_moroccan:
     theme: "housing"
     en: "Moroccan house"
     fr: "Maison marocaine"
     ar: "دار مغربية"
     unit: "%"
-    definition: "Share of households living in a dwelling of type: moroccan house."
-    note: "2004 sums traditional and modern Moroccan houses."
+    definition: "Share of households living in a Moroccan house (maison marocaine)."
+    note: "2004 sums traditional and modern Moroccan houses. In 89 communes HCP's 2004 dwelling-type shares sum to less than 100% as published."
   dwell_rural:
     theme: "housing"
     en: "Rural-type dwelling"
     fr: "Logement de type rural"
     ar: "مسكن من النوع القروي"
     unit: "%"
-    definition: "Share of households living in a dwelling of type: rural-type dwelling."
+    definition: "Share of households living in a rural-type dwelling, which usually includes farm buildings."
+    note: "In 89 communes HCP's 2004 dwelling-type shares sum to less than 100% as published."
   dwell_other:
     theme: "housing"
     en: "Other dwelling type"
     fr: "Autre type de logement"
     ar: "نوع آخر من المساكن"
     unit: "%"
-    definition: "Share of households living in a dwelling of type: other dwelling type."
+    definition: "Share of households living in another type of dwelling."
+    note: "In 89 communes HCP's 2004 dwelling-type shares sum to less than 100% as published."
   persons_per_room:
     theme: "housing"
     en: "Persons per room"
     fr: "Personnes par pièce"
     ar: "عدد الأشخاص في الغرفة"
     unit: "persons per room"
-    definition: "Mean number of persons per habitable room (taux d'occupation)."
+    definition: "Persons per habitable room (bedrooms and living rooms; kitchens and bathrooms excluded)."
   tenure_other:
+    weight: households
     theme: "housing"
     en: "Other tenure"
     fr: "Autre statut d'occupation"
     ar: "وضعية سكن أخرى"
     unit: "%"
-    definition: "Share of households that neither own nor rent their dwelling (free housing, employer housing and other)."
+    definition: "Share of households that neither own nor rent their dwelling (for example free or employer-provided housing)."
   dwell_age_lt10:
+    weight: households
     theme: "housing"
     en: "Dwelling under 10 years old"
     fr: "Logement de moins de 10 ans"
@@ -1036,6 +1052,7 @@ indicators:
     definition: "Share of households living in a dwelling under 10 years old."
     note: "2004 is the share of dwellings built between 1995 and September 2004, published for urban households only."
   dwell_age_10_19:
+    weight: households
     theme: "housing"
     en: "Dwelling 10-19 years old"
     fr: "Logement de 10 à 19 ans"
@@ -1043,6 +1060,7 @@ indicators:
     unit: "%"
     definition: "Share of households living in a dwelling 10-19 years old."
   dwell_age_20_49:
+    weight: households
     theme: "housing"
     en: "Dwelling 20-49 years old"
     fr: "Logement de 20 à 49 ans"
@@ -1050,6 +1068,7 @@ indicators:
     unit: "%"
     definition: "Share of households living in a dwelling 20-49 years old."
   dwell_age_50plus:
+    weight: households
     theme: "housing"
     en: "Dwelling 50 years or older"
     fr: "Logement de 50 ans et plus"
@@ -1057,6 +1076,7 @@ indicators:
     unit: "%"
     definition: "Share of households living in a dwelling 50 years or older."
   pct_kitchen:
+    weight: households
     theme: "housing"
     en: "Kitchen"
     fr: "Cuisine"
@@ -1064,6 +1084,7 @@ indicators:
     unit: "%"
     definition: "Share of households whose dwelling has a kitchen."
   pct_toilet:
+    weight: households
     theme: "housing"
     en: "Toilet"
     fr: "W.-C."
@@ -1071,6 +1092,7 @@ indicators:
     unit: "%"
     definition: "Share of households whose dwelling has a toilet."
   pct_bathroom:
+    weight: households
     theme: "housing"
     en: "Bath or washroom"
     fr: "Bain ou pièce d'eau"
@@ -1080,47 +1102,53 @@ indicators:
     note: "2014 counts a bath ('Bain'); 2024 a washroom ('Pièce d'eau')."
     comparable: false
   sewer_public:
+    weight: households
     theme: "sanitation"
     en: "Public sewer"
     fr: "Réseau public d'assainissement"
     ar: "شبكة التطهير العمومية"
     unit: "%"
-    definition: "Share of households whose waste water is disposed of by: public sewer."
+    definition: "Share of households whose dwelling is connected to the public sewer."
   sewer_septic:
+    weight: households
     theme: "sanitation"
     en: "Septic tank"
     fr: "Fosse septique"
     ar: "حفرة صحية"
     unit: "%"
-    definition: "Share of households whose waste water is disposed of by: septic tank."
+    definition: "Share of households whose dwelling uses a septic tank."
   sewer_other:
+    weight: households
     theme: "sanitation"
     en: "Other waste-water disposal"
     fr: "Autre évacuation des eaux usées"
     ar: "طريقة أخرى لتصريف المياه العادمة"
     unit: "%"
-    definition: "Share of households whose waste water is disposed of by: other waste-water disposal."
+    definition: "Share of households whose dwelling disposes of waste water by other means."
   waste_bin:
+    weight: households
     theme: "sanitation"
     en: "Municipal waste bin"
     fr: "Bac à ordures de la commune"
     ar: "حاوية النفايات الجماعية"
     unit: "%"
-    definition: "Share of households disposing of household waste by: municipal waste bin."
+    definition: "Share of households that put household waste in the commune's bins."
   waste_truck:
+    weight: households
     theme: "sanitation"
     en: "Municipal or private collection truck"
     fr: "Camion communal ou privé"
     ar: "شاحنة جماعية أو خاصة"
     unit: "%"
-    definition: "Share of households disposing of household waste by: municipal or private collection truck."
+    definition: "Share of households whose waste is collected by a municipal or private truck."
   waste_other:
+    weight: households
     theme: "sanitation"
     en: "Other waste disposal (incl. dumping)"
     fr: "Autre évacuation des déchets (y compris dans la nature)"
     ar: "طريقة أخرى للتخلص من النفايات (بما فيها الرمي في الطبيعة)"
     unit: "%"
-    definition: "Share of households disposing of household waste otherwise than by bin or truck."
+    definition: "Share of households disposing of household waste in another way, including dumping it outdoors."
     note: "2024 sums 'Dans la nature' and 'Autre'."
   cook_gas:
     theme: "sanitation"
@@ -1128,92 +1156,106 @@ indicators:
     fr: "Cuisson au gaz"
     ar: "الطهي بالغاز"
     unit: "%"
-    definition: "Share of households using this cooking fuel: gas."
-    note: "A household can use several fuels, so shares can sum to more than 100."
+    definition: "Share of households cooking with gas."
+    note: "2014 counts the fuels a household frequently uses, several per household; 2024 counts the fuel used. The drop in wood, charcoal and electricity between the two partly reflects the change of question."
+    comparable: false
   cook_electricity:
     theme: "sanitation"
     en: "Cooks with electricity"
     fr: "Cuisson à l'électricité"
     ar: "الطهي بالكهرباء"
     unit: "%"
-    definition: "Share of households using this cooking fuel: electricity."
-    note: "A household can use several fuels, so shares can sum to more than 100."
+    definition: "Share of households cooking with electricity."
+    note: "2014 counts the fuels a household frequently uses, several per household; 2024 counts the fuel used. The drop in wood, charcoal and electricity between the two partly reflects the change of question."
+    comparable: false
   cook_charcoal:
     theme: "sanitation"
     en: "Cooks with charcoal"
     fr: "Cuisson au charbon"
     ar: "الطهي بالفحم"
     unit: "%"
-    definition: "Share of households using this cooking fuel: charcoal."
-    note: "A household can use several fuels, so shares can sum to more than 100."
+    definition: "Share of households cooking with charcoal."
+    note: "2014 counts the fuels a household frequently uses, several per household; 2024 counts the fuel used. The drop in wood, charcoal and electricity between the two partly reflects the change of question."
+    comparable: false
   cook_wood:
     theme: "sanitation"
     en: "Cooks with wood"
     fr: "Cuisson au bois"
     ar: "الطهي بالحطب"
     unit: "%"
-    definition: "Share of households using this cooking fuel: wood."
-    note: "A household can use several fuels, so shares can sum to more than 100."
+    definition: "Share of households cooking with wood."
+    note: "2014 counts the fuels a household frequently uses, several per household; 2024 counts the fuel used. The drop in wood, charcoal and electricity between the two partly reflects the change of question."
+    comparable: false
   cook_dung:
     theme: "sanitation"
     en: "Cooks with animal dung"
     fr: "Cuisson aux déchets animaux"
     ar: "الطهي بفضلات الحيوانات"
     unit: "%"
-    definition: "Share of households using this cooking fuel: animal dung."
-    note: "A household can use several fuels, so shares can sum to more than 100."
+    definition: "Share of households cooking with animal dung."
+    note: "2014 counts the fuels a household frequently uses, several per household."
   cook_other:
     theme: "sanitation"
     en: "Cooks with another fuel"
     fr: "Cuisson avec un autre combustible"
     ar: "الطهي بوقود آخر"
     unit: "%"
-    definition: "Share of households using this cooking fuel: another fuel."
-    note: "A household can use several fuels, so shares can sum to more than 100."
+    definition: "Share of households cooking with another fuel."
+    note: "2024 category 'Autre' of the fuel used for cooking."
   road_distance:
+    weight: households
     theme: "sanitation"
     en: "Distance to a paved road"
     fr: "Distance à la route goudronnée"
     ar: "المسافة إلى الطريق المعبدة"
     unit: "km"
-    definition: "Mean distance from rural households' dwellings to the nearest paved road."
+    definition: "Mean travel distance (not straight-line) from rural households' dwellings to the nearest paved road."
     note: "Rural households only; urban communes have no value."
   pct_radio:
+    weight: households
     theme: "equipment"
     en: "Radio"
     fr: "Radio"
     ar: "المذياع"
     unit: "%"
     definition: "Share of households with a radio."
+    note: "Household equipment is not published at commune level for 2024."
   pct_landline:
+    weight: households
     theme: "equipment"
     en: "Landline telephone"
     fr: "Téléphone fixe"
     ar: "الهاتف الثابت"
     unit: "%"
     definition: "Share of households with a landline telephone."
+    note: "Household equipment is not published at commune level for 2024."
   pct_computer:
+    weight: households
     theme: "equipment"
     en: "Computer"
     fr: "Ordinateur"
     ar: "الحاسوب"
     unit: "%"
     definition: "Share of households with a computer."
+    note: "Household equipment is not published at commune level for 2024."
   pct_satellite:
+    weight: households
     theme: "equipment"
     en: "Satellite dish"
     fr: "Parabole"
     ar: "الصحن الهوائي"
     unit: "%"
     definition: "Share of households with a satellite dish."
+    note: "Household equipment is not published at commune level for 2024."
   pct_fridge:
+    weight: households
     theme: "equipment"
     en: "Refrigerator"
     fr: "Réfrigérateur"
     ar: "الثلاجة"
     unit: "%"
     definition: "Share of households with a refrigerator."
-
+    note: "Household equipment is not published at commune level for 2024."
 sources:
   app2004:
     title: HCP, Maroc en Chiffres (RGPH 2004 commune profiles)
@@ -1362,7 +1404,7 @@ datasets:
       unemployment_rate: {indicator: unemployment_rate, from: "individus_2014.xlsx col 54: Taux de chômage", source: individus2014}
       pct_women_divorced: {indicator: pct_women_divorced, from: "individus_2014.xlsx col 136: Divorcé", source: individus2014}
       pop_active_occupee: {indicator: pop_active_occupee, from: "activite_2014.xlsx col 8: Population active occupée âgée de 15 ans et plus", source: activite2014}
-      pct_sector_agri: {indicator: pct_agriculture, from: "activite_2014.xlsx col 19: Agriculture, sylviculture et pêche", source: activite2014}
+      pct_agriculture: {indicator: pct_agriculture, from: "activite_2014.xlsx col 19: Agriculture, sylviculture et pêche", source: activite2014}
       pct_no_diploma: {indicator: pct_no_diploma, from: "diplome_2014.xlsx col 15: Sans diplôme", source: diplome2014}
       pct_higher_ed: {indicator: pct_higher_ed, from: "diplome_2014.xlsx col 12 + col 13: DEUG/Licence + Master/Doctorat", source: diplome2014}
       age_15_19: {indicator: age_15_19, from: "individus_2014.xlsx col 13: 15-19 ans", source: individus2014}

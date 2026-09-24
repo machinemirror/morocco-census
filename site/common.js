@@ -44,12 +44,40 @@ const MC = (() => {
     if (agg === "sum" && unit !== "%") return nf(0).format(v);
     if (unit === "flag") return { en: ["no", "yes"], fr: ["non", "oui"], ar: ["لا", "نعم"] }[lang][v ? 1 : 0];
     const a = Math.abs(v);
+    if (unit === "%") return nf(a >= 1 || a === 0 ? 1 : 2).format(v);
+    if (unit === "index 0-1") return nf(3).format(v);
+    if (["children per woman", "persons per room", "persons"].includes(unit)) return nf(2).format(v);
+    if (["km", "years", "per 1,000", "per 1,000 births"].includes(unit)) return nf(1).format(v);
     return nf(a >= 100 ? 0 : a >= 10 ? 1 : a >= 1 ? 2 : 3).format(v);
+  }
+  const UNITS = {
+    pts: { en: "pts", fr: "pts", ar: "نقطة" },
+    km: { en: "km", fr: "km", ar: "كلم" },
+    years: { en: "years", fr: "ans", ar: "سنة" },
+    "children per woman": { en: "children per woman", fr: "enfants par femme", ar: "طفل لكل امرأة" },
+    "persons per room": { en: "persons per room", fr: "personnes par pièce", ar: "شخص في الغرفة" },
+    "per 1,000": { en: "per 1,000", fr: "pour 1 000", ar: "في الألف" },
+    "per 1,000 births": { en: "per 1,000 births", fr: "pour 1 000 naissances", ar: "لكل 1000 ولادة حية" },
+    persons: { en: "persons", fr: "personnes", ar: "نسمة" },
+    households: { en: "households", fr: "ménages", ar: "أسرة" },
+    index: { en: "index", fr: "indice", ar: "مؤشر" },
+    "index 0-1": { en: "index 0-1", fr: "indice 0-1", ar: "مؤشر 0-1" },
+    flag: { en: "0/1 flag", fr: "indicateur 0/1", ar: "مؤشر 0/1" },
+    code: { en: "code", fr: "code", ar: "رمز" },
+    text: { en: "text", fr: "texte", ar: "نص" },
+    page: { en: "page", fr: "page", ar: "صفحة" },
+  };
+  const unitName = (u) => UNITS[u]?.[lang] ?? u;
+  // a change in a percentage is in percentage points, not percent
+  function withUnit(s, unit, change) {
+    if (s === "—" || ["flag", "index", "index 0-1"].includes(unit)) return s;
+    if (unit === "%") return change ? `${s} ${unitName("pts")}` : lang === "en" ? `${s}%` : `${s}\u202f%`;
+    return `${s} ${unitName(unit)}`;
   }
   function bytes(n) {
     return n > 1e6 ? (n / 1e6).toFixed(1) + " MB" : Math.max(1, Math.round(n / 1e3)) + " kB";
   }
   const esc = (s) => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
-  return { header, get lang() { return lang; }, onLang: f => listeners.push(f), fmt, bytes, esc };
+  return { header, get lang() { return lang; }, onLang: f => listeners.push(f), fmt, withUnit, unitName, bytes, esc };
 })();

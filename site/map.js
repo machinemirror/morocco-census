@@ -166,7 +166,7 @@ function legend(c) {
   if (c.kind === "flag") ticks = `<span>${c.ticks[0]}</span><span>${c.ticks[1]}</span>`;
   else if (c.kind === "div") ticks = `<span>≤ −${f(-c.edges[0])} ${t("decrease")}</span><span>0</span><span>${t("increase")} ≥ +${f(c.edges[5])}</span>`;
   else ticks = `<span>${f(c.min)}</span><span>${f(c.edges[3])}</span><span>${f(c.max)}</span>`;
-  const unitLabel = unit && !["flag", "persons", "households"].includes(unit) ? ` (${unit})` : "";
+  const unitLabel = c.kind === "flag" ? "" : c.kind === "div" && unit === "%" ? MC.unitName("pts") : MC.unitName(unit);
   el.innerHTML = `
     <div class="bar">${c.colors.map((col, j) => {
       const lo = j === 0 ? (c.min ?? null) : c.edges?.[j - 1], hi = c.edges?.[j] ?? c.max;
@@ -174,7 +174,7 @@ function legend(c) {
       return `<span style="background:${col}" title="${MC.esc(title)}"></span>`;
     }).join("")}</div>
     <div class="ticks">${ticks}</div>
-    <div class="nd"><i></i>${t("nodata")}${unitLabel ? " · " + MC.esc(unit) : ""}</div>`;
+    <div class="nd"><i></i>${t("nodata")}${unitLabel ? " · " + MC.esc(unitLabel) : ""}</div>`;
 }
 
 function controls() {
@@ -279,11 +279,12 @@ function tooltip(e) {
   let sub = "";
   if (state.mode === "change") {
     const [a, b] = state.pair;
-    sub = `${a}: ${F(series(state.ind, a)[i])} → ${b}: ${F(series(state.ind, b)[i])}`;
+    const lvl = (y) => MC.withUnit(F(series(state.ind, y)[i]), unit, false);
+    sub = `<bdi>${a}: ${lvl(a)}</bdi> → <bdi>${b}: ${lvl(b)}</bdi>`;
   }
   const y = state.mode === "level" ? state.y : null;
   tip.innerHTML = `<b>${MC.esc(u.name)}</b><br><span class="muted">${MC.esc(u.prov)}</span><br>
-    <span class="v">${state.mode === "change" && v != null ? (v > 0 ? "+" : "") : ""}${F(v)}</span>
+    <span class="v"><bdi>${state.mode === "change" && v != null ? (v > 0 ? "+" : "") : ""}${MC.withUnit(F(v), unit, state.mode === "change")}</bdi></span>
     ${sub ? `<br><span class="muted">${sub}</span>` : ""}${y && isImputed(i, y) ? `<br><span class="muted">${t("imputed")}</span>` : ""}`;
   const r = document.getElementById("map").getBoundingClientRect();
   const x = Math.min(e.point.x + 14, r.width - 270), yy = Math.min(e.point.y + 14, r.height - 110);

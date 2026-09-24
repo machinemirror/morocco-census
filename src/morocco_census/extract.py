@@ -47,7 +47,7 @@ SPEC_2014 = {
     "unemployment_rate": ("individus_2014.xlsx", 54),
     "pct_women_divorced": ("individus_2014.xlsx", 136),
     "pop_active_occupee": ("activite_2014.xlsx", 8),
-    "pct_sector_agri": ("activite_2014.xlsx", 19),
+    "pct_agriculture": ("activite_2014.xlsx", 19),
     "pct_no_diploma": ("diplome_2014.xlsx", 15),
     "_pct_deug_licence": ("diplome_2014.xlsx", 12),
     "_pct_master_doct": ("diplome_2014.xlsx", 13),
