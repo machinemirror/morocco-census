@@ -28,7 +28,7 @@ def exported(tmp_path_factory):
 def test_map_json(exported):
     d = json.loads((exported / "map.json").read_text())
     n = len(d["units"])
-    assert n == 1497
+    assert n == 1503
     assert all(len(v) == n for v in d["values"].values())
     for key in d["values"]:
         ind, year = key.split("|")
@@ -52,3 +52,9 @@ def test_downloads(exported):
     for f in c["files"]:
         assert {f"{f['stem']}.csv", f"{f['stem']}.parquet"} <= names
     assert {"communes.gpkg", "communes_queen.gal", "data_dictionary.csv"} <= names
+
+
+def test_hcp_boundary_layer(exported):
+    g = json.loads((exported / "communes_hcp2024.geojson").read_text())
+    ids = sorted(f["properties"]["i"] for f in g["features"])
+    assert ids == list(range(1503))  # every map unit, including those without a Thiessen cell

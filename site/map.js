@@ -3,7 +3,9 @@ const L = {
     indicator: "Indicator", view: "View", level: "Level", change: "Change", census: "Census",
     find: "Find a commune", hideImputed: "Hide imputed values",
     nodata: "No data", decrease: "decrease", increase: "increase", rural: "Rural", urban: "Urban",
-    caveat: "Commune shapes are Thiessen approximations built from one point per commune; HCP publishes no commune boundaries. Shapes show roughly where a commune is, not its true extent.",
+    caveat: "Commune shapes are approximate Thiessen cells built from one point per commune, not administrative boundaries. They show roughly where a commune is, not its true extent.",
+    caveatHcp: "Commune boundaries as drawn in HCP's RGPH 2024 results platform. 2004 and 2014 values are shown on 2024 boundaries; where communes were reorganised after 2004, a 2004 value may cover a different territory.",
+    shapes: "Shapes", gThiessen: "Approximate", gHcp: "HCP 2024 boundaries",
     noncomp: "Definitions differ between censuses; read the change with care.",
     imputed: "imputed from neighbouring communes (post-2004 reorganisation)",
     fuzzy: "2004 values matched by name similarity", point: "seed point", allind: "All indicators",
@@ -13,7 +15,9 @@ const L = {
     indicator: "Indicateur", view: "Affichage", level: "Niveau", change: "Évolution", census: "Recensement",
     find: "Trouver une commune", hideImputed: "Masquer les valeurs imputées",
     nodata: "Pas de donnée", decrease: "baisse", increase: "hausse", rural: "Rurale", urban: "Urbaine",
-    caveat: "Les contours sont des polygones de Thiessen construits à partir d'un point par commune ; le HCP ne publie pas de limites communales. Ils indiquent l'emplacement approximatif, pas l'étendue réelle.",
+    caveat: "Les contours sont des cellules de Thiessen approximatives construites à partir d'un point par commune, et non des limites administratives. Ils indiquent l'emplacement approximatif d'une commune, pas son étendue réelle.",
+    caveatHcp: "Limites communales telles que tracées sur la plateforme de résultats du RGPH 2024 du HCP. Les valeurs de 2004 et 2014 sont affichées sur les limites de 2024 ; là où des communes ont été réorganisées après 2004, une valeur de 2004 peut couvrir un autre territoire.",
+    shapes: "Contours", gThiessen: "Approximatifs", gHcp: "Limites HCP 2024",
     noncomp: "Les définitions diffèrent entre recensements ; interpréter l'évolution avec prudence.",
     imputed: "imputé à partir des communes voisines (réorganisation post-2004)",
     fuzzy: "valeurs 2004 appariées par similarité de nom", point: "point d'ancrage", allind: "Tous les indicateurs",
@@ -23,7 +27,9 @@ const L = {
     indicator: "المؤشر", view: "العرض", level: "المستوى", change: "التطور", census: "الإحصاء",
     find: "البحث عن جماعة", hideImputed: "إخفاء القيم المقدّرة",
     nodata: "لا توجد معطيات", decrease: "انخفاض", increase: "ارتفاع", rural: "قروية", urban: "حضرية",
-    caveat: "أشكال الجماعات تقريبية (مضلعات ثيسن) مبنية انطلاقاً من نقطة واحدة لكل جماعة، إذ لا تنشر المندوبية السامية للتخطيط حدود الجماعات. تبيّن الأشكال الموقع التقريبي للجماعة لا امتدادها الحقيقي.",
+    caveat: "أشكال الجماعات خلايا ثيسن تقريبية مبنية انطلاقاً من نقطة واحدة لكل جماعة، وليست حدوداً إدارية. تبيّن الموقع التقريبي للجماعة لا امتدادها الحقيقي.",
+    caveatHcp: "حدود الجماعات كما ترسمها منصة نتائج الإحصاء العام للسكان والسكنى 2024 التابعة للمندوبية السامية للتخطيط. تُعرض قيم 2004 و2014 على حدود 2024؛ وحيث أُعيد تنظيم الجماعات بعد 2004، قد تغطي قيمة 2004 مجالاً ترابياً مختلفاً.",
+    shapes: "الأشكال", gThiessen: "تقريبية", gHcp: "حدود المندوبية 2024",
     noncomp: "تختلف التعاريف بين الإحصاءات؛ يُرجى قراءة التطور بحذر.",
     imputed: "مقدّرة انطلاقاً من الجماعات المجاورة (بسبب إعادة التقسيم بعد 2004)",
     fuzzy: "قيم 2004 مُطابَقة على أساس تشابه الأسماء", point: "نقطة الارتكاز", allind: "جميع المؤشرات",
@@ -80,7 +86,7 @@ const YEARS = [2004, 2014, 2024];
 const CITY = /^\d+\.\d+\.\d+\.$/;
 
 const openThemes = new Set();
-let D, map, byId = {}, state = { ind: "pct_electricity", y: 2024, mode: "level", pair: [2014, 2024], hideImp: false,
+let D, map, byId = {}, state = { geom: "thiessen", ind: "pct_electricity", y: 2024, mode: "level", pair: [2014, 2024], hideImp: false,
   sel: null, base: true };
 const t = (k) => L[MC.lang][k] || k;
 const label = (ind) => D.indicators[ind][MC.lang];
@@ -94,11 +100,13 @@ function readHash() {
   if (h.get("m")) state.mode = h.get("m");
   if (h.get("p")) state.pair = h.get("p").split("-").map(Number);
   if (h.get("c")) state.sel = h.get("c");
+  if (h.get("g") === "hcp") state.geom = "hcp";
 }
 function writeHash() {
   const h = new URLSearchParams({ i: state.ind, m: state.mode });
   if (state.mode === "level") h.set("y", state.y); else h.set("p", state.pair.join("-"));
   if (state.sel) h.set("c", state.sel);
+  if (state.geom === "hcp") h.set("g", "hcp");
   history.replaceState(null, "", "#" + h.toString());
 }
 
@@ -220,7 +228,18 @@ function controls() {
   note.hidden = !warn.length;
   const usesPanel = Object.values(ind.vintages).some(x => x.dataset === "panel_commune");
   document.getElementById("imp-row").hidden = !usesPanel;
+  document.querySelectorAll("#geom button").forEach(b => b.setAttribute("aria-pressed", b.dataset.g === state.geom));
+  document.querySelector(".caveat").dataset.t = state.geom === "hcp" ? "caveatHcp" : "caveat";
   document.querySelectorAll("[data-t]").forEach(el => (el.textContent = t(el.dataset.t)));
+}
+
+let shapes = {};
+async function setGeom(g) {
+  state.geom = g;
+  shapes[g] ||= await fetch(g === "hcp" ? "data/communes_hcp2024.geojson" : "data/communes.geojson").then(r => r.json());
+  map.getSource("cells").setData(shapes[g]);
+  map.once("idle", () => { paint(); if (state.sel) select(state.sel, false); });
+  controls(); writeHash();
 }
 
 function detail() {
@@ -300,7 +319,7 @@ async function main() {
   const [d, cells, outline, context] = await Promise.all(
     ["data/map.json", "data/communes.geojson", "data/outline.geojson", "data/context.geojson"]
     .map(u => fetch(u).then(r => r.json())));
-  D = d;
+  D = d; shapes.thiessen = cells;
   D.units.forEach((u, i) => (byId[u.id] = i));
   readHash();
   document.getElementById("communes").innerHTML = D.units
@@ -360,6 +379,7 @@ async function main() {
 
   map.on("load", () => {
     cityZoom(); controls(); paint(); if (state.sel) select(state.sel, true);
+    if (state.geom === "hcp") setGeom("hcp");
     let hover = null;
     map.on("mousemove", "cells-fill", (e) => {
       map.getCanvas().style.cursor = "pointer";
@@ -383,6 +403,7 @@ async function main() {
     if (b.disabled) return; state.mode = b.dataset.m; controls(); paint(); detail();
   });
   document.getElementById("imp").onchange = (e) => { state.hideImp = e.target.checked; paint(); };
+  document.querySelectorAll("#geom button").forEach(b => b.onclick = () => b.dataset.g !== state.geom && setGeom(b.dataset.g));
   document.getElementById("q").onchange = (e) => {
     const name = e.target.value.split(" — ")[0].trim().toLowerCase();
     const prov = (e.target.value.split(" — ")[1] || "").trim().toLowerCase();

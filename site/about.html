@@ -43,12 +43,19 @@
     May-2025 database. Full provenance, with file checksums, is in the repository's <code>docs/</code>.</p>
 
   <h2>Commune shapes</h2>
-  <p>HCP publishes no commune boundaries, and none were provided on request. Each commune therefore gets one seed
+  <p>HCP does not distribute commune boundaries as a dataset, and none were provided on request. Its RGPH 2024 results
+    platform does draw them, and the map offers them as an optional layer (<i>HCP 2024 boundaries</i>). Their licence for
+    reuse as data is not stated, so the default map and the downloads use approximations built only from openly licensed
+    inputs. Each commune gets one seed
     point from the GeoNames gazetteer, or from Wikidata where GeoNames lacks the commune, and the country is divided
     into the cells nearest each point. Where both place a commune more than 25 km apart, the choice between them is
     recorded in <code>catalog/seed_review.csv</code>. The cells show roughly where a commune is, not its true
     extent or area; do not compute densities from them. The outline is Natural Earth. Every geometry input is openly
     licensed.</p>
+  <p>HCP's 2024 layer is keyed by 2014 commune codes, so every 2014 commune has its polygon and 2024 values follow
+    through the crosswalk. 2004 values are drawn on these later boundaries: 1,231 communes linked one-to-one in cercles
+    untouched by the post-2004 reorganisation are reliable; in 222 others a new commune was carved out nearby, so the
+    2004 territory may have been larger.</p>
 
   <h2>Known gaps</h2>
   <ul>
@@ -114,11 +121,18 @@
     base de données de mai 2025. La provenance complète, avec les sommes de contrôle des fichiers, figure dans le dossier <code>docs/</code> du dépôt.</p>
 
   <h2>Contours des communes</h2>
-  <p>Le HCP ne publie aucune limite communale, et aucune n'a été fournie sur demande. Chaque commune reçoit donc un point
+  <p>Le HCP ne diffuse pas les limites communales sous forme de jeu de données, et aucune n'a été fournie sur demande. Sa
+    plateforme de résultats du RGPH 2024 les trace toutefois, et la carte les propose en couche facultative (<i>Limites HCP 2024</i>).
+    Leur licence de réutilisation en tant que données n'étant pas précisée, la carte par défaut et les téléchargements utilisent
+    des approximations construites uniquement à partir de sources sous licence libre. Chaque commune reçoit un point
     d'ancrage, tiré du répertoire géographique GeoNames, ou de Wikidata lorsque GeoNames ne contient pas la commune, puis
     le pays est divisé en cellules regroupant les lieux les plus proches de chaque point. Lorsque les deux sources placent une commune à plus de 25 km
     d'écart, le choix entre elles est consigné dans <code>catalog/seed_review.csv</code>. Les cellules indiquent approximativement où se trouve une commune, et non son
     étendue ou sa superficie réelles ; n'en calculez pas de densités. Le contour national provient de Natural Earth. Toutes les sources géographiques sont sous licence libre.</p>
+  <p>La couche du HCP est codée selon les codes communaux de 2014 : chaque commune de 2014 a donc son polygone, et les valeurs de
+    2024 suivent par la table de correspondance. Les valeurs de 2004 sont affichées sur ces limites plus récentes : 1 231 communes
+    appariées une à une dans des cercles non touchés par la réorganisation postérieure à 2004 sont fiables ; dans 222 autres, une
+    nouvelle commune a été créée à proximité, et le territoire de 2004 pouvait donc être plus étendu.</p>
 
   <h2>Lacunes connues</h2>
   <ul>
@@ -191,11 +205,16 @@
     ماي 2025. ويوجد المصدر الكامل لكل ملف، مع بصماته الرقمية، في مجلد <code>docs/</code> بالمستودع.</p>
 
   <h2>أشكال الجماعات</h2>
-  <p>لا تنشر المندوبية السامية للتخطيط حدود الجماعات، ولم تُقدَّم عند طلبها. لذلك تحصل كل جماعة على نقطة
+  <p>لا توزع المندوبية السامية للتخطيط حدود الجماعات في شكل مجموعة معطيات، ولم تُقدَّم عند طلبها. غير أن منصة نتائج
+    الإحصاء العام للسكان والسكنى 2024 ترسمها، وتعرضها الخريطة كطبقة اختيارية (<i>حدود المندوبية 2024</i>). ولما كان ترخيص
+    إعادة استعمالها كمعطيات غير محدد، تعتمد الخريطة الافتراضية والتحميلات تقريبات مبنية حصرا على مصادر ذات ترخيص مفتوح. تحصل كل جماعة على نقطة
     مرجعية واحدة من معجم GeoNames، أو من Wikidata حين لا يتضمن GeoNames الجماعة، ثم
     يُقسَّم البلد إلى الخلايا الأقرب إلى كل نقطة. وحين يضع المصدران جماعةً ما على بعد يزيد عن 25 كلم، يُسجَّل الاختيار بينهما في
     <code>catalog/seed_review.csv</code>. تبيّن الخلايا الموقع التقريبي للجماعة، لا امتدادها
     الحقيقي ولا مساحتها؛ فلا ينبغي حساب الكثافات انطلاقا منها. الحدود الخارجية مأخوذة من Natural Earth. وجميع المصادر الجغرافية ذات ترخيص مفتوح.</p>
+  <p>ترتكز طبقة المندوبية على رموز الجماعات لسنة 2014، لذا لكل جماعة من جماعات 2014 مضلعها، وتلتحق بها قيم 2024 عبر جدول
+    التقابل. وتُعرض قيم 2004 على هذه الحدود اللاحقة: 1231 جماعة مطابقة واحدة بواحدة في دوائر لم تشملها إعادة التنظيم بعد 2004
+    موثوقة؛ وفي 222 جماعة أخرى أُحدثت جماعة جديدة بالقرب منها، فقد يكون مجالها الترابي سنة 2004 أوسع.</p>
 
   <h2>الثغرات المعروفة</h2>
   <ul>

@@ -20,6 +20,7 @@ def geometry(outline: str | None = None) -> None:
     from . import geometry as g
 
     g.main(outline)
+    g.hcp_boundaries()
 
 
 def validate() -> None:

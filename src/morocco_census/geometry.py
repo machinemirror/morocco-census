@@ -1,6 +1,6 @@
 """Approximate commune geometry -> communes.gpkg (layers thiessen, points) + queen weights.
 
-HCP publishes no commune boundaries, so each commune gets a seed point and a Thiessen (Voronoi)
+HCP does not distribute commune boundaries as a dataset, so each commune gets a seed point and a Thiessen (Voronoi)
 cell clipped to the national outline. Every input is openly licensed:
   1. GeoNames (CC BY 4.0), matched by normalized name. Commune-level admin features (ADM3/ADM4)
      rank before populated places, primary names before alternate names, and candidates must lie
@@ -33,9 +33,11 @@ from .config import (
     P_DUP_POINTS,
     P_GAL,
     P_GPKG,
+    P_HCP_GPKG,
     P_SEEDS,
     P_UNMATCHED,
     R_GEONAMES,
+    R_HCP_BOUNDARIES,
     R_NATURAL_EARTH,
     R_WIKIDATA,
     SEED_REVIEW,
@@ -43,6 +45,7 @@ from .config import (
 from .crosswalk import norm, norm_app
 
 UTM = 32629
+HCP_SIMPLIFY_M = 100
 KM_PER_DEG = 111.0
 MIN_RADIUS_DEG = 0.5  # ~55 km: floor on the province search radius
 MAX_RADIUS_DEG = 3.0  # ~330 km: one stray first-pass match must not open a whole region
@@ -337,3 +340,28 @@ def main(outline_path=None) -> gpd.GeoDataFrame:
     f.close()
     print(f"queen weights: n={w.n}, mean neighbours={pd.Series(w.cardinalities).mean():.2f}, islands={len(w.islands)}")
     return thiessen.to_crs(4326)
+
+
+def hcp_boundaries() -> gpd.GeoDataFrame:
+    """HCP's 2024 commune polygons, dissolved to the map units (urban centres into their rural commune,
+    arrondissements into their city). Sebta and Melilla have no census data and are dropped."""
+    frames = [gpd.read_file(f) for f in sorted(R_HCP_BOUNDARIES.glob("*.geojson"))]
+    # the files declare CRS84 but carry Web Mercator metres
+    g = gpd.GeoDataFrame(pd.concat(frames, ignore_index=True)).set_crs(3857, allow_override=True)
+    iso = g.ISO.str.removeprefix("MA-").str.split("-", expand=True)
+    g["code14"] = iso[0] + "." + iso[1] + "." + iso[2].str[:2] + "." + iso[2].str[2:4] + "."
+    cw = pd.read_csv(P_CROSSWALK)
+    arr = cw.name14.str.contains(r"\(Arrond", na=False)
+    cw["unit"] = np.where(arr, cw.code14.str.extract(r"^(\d+\.\d+\.\d+\.)")[0], cw.code14)
+    g = g.merge(cw[["code14", "unit"]], on="code14", how="inner")
+    g["geometry"] = g.geometry.make_valid().buffer(0)  # buffer(0) drops the stray lines make_valid can leave
+    out = g.dissolve("unit", as_index=False)[["unit", "geometry"]].to_crs(UTM)
+    out["geometry"] = out.geometry.buffer(0)
+    # coverage simplification keeps shared edges shared; the site simplifies further, to SIMPLIFY_M
+    out["geometry"] = shapely.coverage_simplify(np.asarray(out.geometry.values), HCP_SIMPLIFY_M)
+    out = out.to_crs(4326)
+    out["geometry"] = out.geometry.buffer(0)  # reprojection can collapse a sliver ring to too few points
+    P_HCP_GPKG.unlink(missing_ok=True)
+    out.to_file(P_HCP_GPKG, layer="communes", driver="GPKG")
+    print(f"HCP 2024 boundaries: {len(frames)} provinces, {len(g)} polygons -> {len(out)} map units")
+    return out

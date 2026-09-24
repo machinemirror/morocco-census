@@ -20,6 +20,7 @@ from .config import (
     P_CROSSWALK_APP,
     P_GAL,
     P_GPKG,
+    P_HCP_GPKG,
     P_PANEL,
     PROCESSED,
     SITE,
@@ -91,8 +92,29 @@ def rounded(s: pd.Series, spec: dict) -> list:
     return [None if pd.isna(v) else float(f"{v:.4g}") for v in s]
 
 
-def map_data(cat: dict, cells: gpd.GeoDataFrame) -> dict:
-    units = cells.unit.tolist()
+def unit_frame(cells: gpd.GeoDataFrame, hcp: gpd.GeoDataFrame) -> pd.DataFrame:
+    """Map units: the Thiessen cells in order, then units only HCP's boundaries draw (no seed point)."""
+    pts = gpd.read_file(P_GPKG, layer="points").set_index("unit")
+    cw = pd.read_csv(P_CROSSWALK, dtype=str).set_index("code14")
+    extra = hcp[~hcp.unit.isin(cells.unit)]
+    f = pd.concat(
+        [
+            cells[["unit", "name14", "prov14"]],
+            pd.DataFrame(
+                {"unit": extra.unit, "name14": extra.unit.map(cw.name14), "prov14": extra.unit.map(cw.prov14)}
+            ),
+        ],
+        ignore_index=True,
+    )
+    rp = hcp.set_index("unit").representative_point()
+    f["lon"] = pts.geometry.x.reindex(f.unit).fillna(rp.x.reindex(f.unit)).values
+    f["lat"] = pts.geometry.y.reindex(f.unit).fillna(rp.y.reindex(f.unit)).values
+    f["pt_src"] = pts.pt_src.reindex(f.unit).fillna("hcp2024").values
+    return f
+
+
+def map_data(cat: dict, uf: pd.DataFrame) -> dict:
+    units = uf.unit.tolist()
     tables = keyed_tables()
     values, indicators = {}, {}
     for (ind, year), (ds, col) in sorted(catalog.series(cat).items()):
@@ -106,7 +128,23 @@ def map_data(cat: dict, cells: gpd.GeoDataFrame) -> dict:
         values[f"{ind}|{year}"] = rounded(s, spec)
         entry = indicators.setdefault(
             ind,
-            {k: spec.get(k) for k in ("theme", "en", "fr", "ar", "unit", "agg", "definition", "definition_fr", "definition_ar", "note", "note_fr", "note_ar")}
+            {
+                k: spec.get(k)
+                for k in (
+                    "theme",
+                    "en",
+                    "fr",
+                    "ar",
+                    "unit",
+                    "agg",
+                    "definition",
+                    "definition_fr",
+                    "definition_ar",
+                    "note",
+                    "note_fr",
+                    "note_ar",
+                )
+            }
             | {"comparable": spec.get("comparable", True), "vintages": {}},
         )
         entry["vintages"][year] = {"dataset": ds, "column": col, "n": int(s.notna().sum())}
@@ -116,7 +154,6 @@ def map_data(cat: dict, cells: gpd.GeoDataFrame) -> dict:
     for f in ("src04", "src14", "src24"):
         g = panel.dropna(subset=["unit"]).groupby("unit")[f]
         flags[f] = g.agg(lambda x: x.iloc[0] if x.nunique(dropna=False) == 1 else "mixed").reindex(units)
-    pts = gpd.read_file(P_GPKG, layer="points").set_index("unit").reindex(units)
     return {
         "units": [
             {
@@ -128,9 +165,7 @@ def map_data(cat: dict, cells: gpd.GeoDataFrame) -> dict:
                 "pt": s,
                 **{f: (None if pd.isna(flags[f].iloc[i]) else flags[f].iloc[i]) for f in flags},
             }
-            for i, (u, n, p, x, y, s) in enumerate(
-                zip(units, cells.name14, cells.prov14, pts.geometry.x, pts.geometry.y, pts.pt_src)
-            )
+            for i, (u, n, p, x, y, s) in enumerate(zip(units, uf.name14, uf.prov14, uf.lon, uf.lat, uf.pt_src))
         ],
         "themes": cat["themes"],
         "indicators": indicators,
@@ -138,11 +173,14 @@ def map_data(cat: dict, cells: gpd.GeoDataFrame) -> dict:
     }
 
 
-def simplified(cells: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
+def simplified(cells: gpd.GeoDataFrame, ids=None) -> gpd.GeoDataFrame:
     utm = cells.to_crs(32629)
+    if ids is not None:
+        utm["geometry"] = utm.geometry.buffer(0)  # HCP polygons: reprojection can leave degenerate slivers
     # coverage simplification keeps shared edges shared (no slivers between neighbours)
     geom = shapely.coverage_simplify(np.asarray(utm.geometry.values), SIMPLIFY_M)
-    return gpd.GeoDataFrame({"i": range(len(cells))}, geometry=geom, crs=32629).to_crs(4326)
+    ids = range(len(cells)) if ids is None else list(ids)
+    return gpd.GeoDataFrame({"i": ids}, geometry=geom, crs=32629).to_crs(4326)
 
 
 def write_geojson(gdf: gpd.GeoDataFrame, path, precision: int = 4) -> None:
@@ -198,9 +236,14 @@ def main() -> None:
     out.mkdir(parents=True)
     cells = gpd.read_file(P_GPKG, layer="thiessen")
 
-    data = map_data(cat, cells)
+    hcp = gpd.read_file(P_HCP_GPKG)
+    uf = unit_frame(cells, hcp)
+    data = map_data(cat, uf)
     (out / "map.json").write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")))
     write_geojson(simplified(cells), out / "communes.geojson")
+    hcp = hcp.set_index("unit").loc[[u for u in uf.unit if u in set(hcp.unit)]].reset_index()
+    hcp["i"] = hcp.unit.map({u: i for i, u in enumerate(uf.unit)})
+    write_geojson(simplified(hcp, hcp.i), out / "communes_hcp2024.geojson")
     write_geojson(gpd.read_file(P_BOUNDARY), out / "outline.geojson")
     write_geojson(gpd.read_file(P_CONTEXT)[["NAME", "geometry"]], out / "context.geojson", 3)
 
@@ -214,7 +257,7 @@ def main() -> None:
                 "sources": cat["sources"],
                 "datasets": [{k: v for k, v in ds.items() if k != "columns"} for ds in cat["datasets"]],
                 "files": files,
-        "sizes": {f.name: f.stat().st_size for f in sorted((out / "downloads").iterdir())},
+                "sizes": {f.name: f.stat().st_size for f in sorted((out / "downloads").iterdir())},
                 "columns": dictionary.to_dict(orient="records"),
                 "indicators": {
                     k: {"n": {y: v["n"] for y, v in ind["vintages"].items()}} for k, ind in data["indicators"].items()

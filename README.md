@@ -44,7 +44,8 @@ panel = pd.read_csv(base + "panel_commune.csv", dtype={"code14": str})
 
 ### Commune shapes are approximate
 
-HCP publishes no commune boundaries. Each commune gets one seed point (GeoNames, else Wikidata) and
+HCP does not distribute commune boundaries as a dataset (its RGPH 2024 results platform draws them; the site offers
+them as an optional layer, not in the downloads, as their reuse licence is not stated). Each commune gets one seed point (GeoNames, else Wikidata) and
 the country is split into Thiessen cells around them. The cells show where a commune is, not its
 extent: do not compute areas or densities from them.
 

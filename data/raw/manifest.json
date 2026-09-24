@@ -74,6 +74,531 @@
     "size_bytes": 291481,
     "url": "https://query.wikidata.org/sparql?query=SELECT%20%3Fitem%20%3Fcls%20%3Flabel%20%3Ffr%20%3Fcoord%20%3FadmLabel%20WHERE%20%7B%0A%20%20VALUES%20%3Fcls%20%7B%20wd%3AQ17318027%20wd%3AQ3327862%20%7D%0A%20%20%3Fitem%20wdt%3AP31%20%3Fcls%3B%20wdt%3AP625%20%3Fcoord.%0A%20%20OPTIONAL%20%7B%20%3Fitem%20rdfs%3Alabel%20%3Flabel%20FILTER%28lang%28%3Flabel%29%20%3D%20%22en%22%29%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fitem%20rdfs%3Alabel%20%3Ffr%20FILTER%28lang%28%3Ffr%29%20%3D%20%22fr%22%29%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fitem%20wdt%3AP131%20%3Fadm.%20%3Fadm%20rdfs%3Alabel%20%3FadmLabel%20FILTER%28lang%28%3FadmLabel%29%20%3D%20%22en%22%29%20%7D%0A%7D%20ORDER%20BY%20%3Fitem%20%3Fcoord"
   },
+  "hcp_boundaries_2024/morocco_01_045.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 01_045",
+    "fetch_date": "2026-09-24T13:41:31Z",
+    "sha256": "d67a32679ff97d3752d5edfdf2f12c1c8c170dfa12cc573b9f29f51d221050af",
+    "size_bytes": 848089,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/fc50bee5b54d1a54bada.geojson"
+  },
+  "hcp_boundaries_2024/morocco_01_051.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 01_051",
+    "fetch_date": "2026-09-24T13:41:32Z",
+    "sha256": "1618db80e864fab196f065b4b17190b4f03a051adb662127ebe9c9a26c259482",
+    "size_bytes": 1049315,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/17a39504b880a843c836.geojson"
+  },
+  "hcp_boundaries_2024/morocco_01_151.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 01_151",
+    "fetch_date": "2026-09-24T13:41:34Z",
+    "sha256": "6ef7f3d7fe51d005d0daac27522b668db023ac10900d650f987e510c91de8b72",
+    "size_bytes": 1365931,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/a7e6fc85aaaa2521fbc0.geojson"
+  },
+  "hcp_boundaries_2024/morocco_01_227.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 01_227",
+    "fetch_date": "2026-09-24T13:41:35Z",
+    "sha256": "66d4591fb37c265c007cdd9db748baba6edc65e8d139467e267410971a3dea88",
+    "size_bytes": 302068,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/bd93ab28215d533b6e1c.geojson"
+  },
+  "hcp_boundaries_2024/morocco_01_331.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 01_331",
+    "fetch_date": "2026-09-24T13:41:36Z",
+    "sha256": "5fc7b17e973a5d2a6d631fd57209287ee0b66039522d5d52c53838d8ad4fd45c",
+    "size_bytes": 762389,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/dbd1cbe269cbe25fdc67.geojson"
+  },
+  "hcp_boundaries_2024/morocco_01_511.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 01_511",
+    "fetch_date": "2026-09-24T13:41:38Z",
+    "sha256": "909a17a6b9cf20d06759bb2cfd3c6be9b09d7df6cb050b8f890ec088ed547f56",
+    "size_bytes": 459679,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/a431d2572cbff351cf1e.geojson"
+  },
+  "hcp_boundaries_2024/morocco_01_571.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 01_571",
+    "fetch_date": "2026-09-24T13:41:40Z",
+    "sha256": "708706e37dcd2bf0192dc6179b3143a9b2959dff7c93fa47c2e6e3b1ca39b7a8",
+    "size_bytes": 904403,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/6be3eb334209f2c7d00d.geojson"
+  },
+  "hcp_boundaries_2024/morocco_01_573.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 01_573",
+    "fetch_date": "2026-09-24T13:41:41Z",
+    "sha256": "68c1503aae8dd533da50e71475d4f1f925911afe44d407ea077bfb26ec4a2f65",
+    "size_bytes": 162121,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/679440bba8864c0c1906.geojson"
+  },
+  "hcp_boundaries_2024/morocco_02_113.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 02_113",
+    "fetch_date": "2026-09-24T13:41:42Z",
+    "sha256": "e31e6b92c310b54136a3797321894032c07aa69aeea994977325f61bdc60ce6e",
+    "size_bytes": 492333,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/b7b17126a16aad1e92e9.geojson"
+  },
+  "hcp_boundaries_2024/morocco_02_167.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 02_167",
+    "fetch_date": "2026-09-24T13:41:44Z",
+    "sha256": "f444c291b9997ebee73e1392eb78f4e0d630b358ba206d6f9dc1df25fd71eea6",
+    "size_bytes": 583294,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/00dcb8b8cef70338feb3.geojson"
+  },
+  "hcp_boundaries_2024/morocco_02_251.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 02_251",
+    "fetch_date": "2026-09-24T13:41:45Z",
+    "sha256": "2d84790a30cd6e6fc078ed1f115c1e1ca22cac89ad3e19e7e254fbc3fcfc62ab",
+    "size_bytes": 384353,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/0fc5deef71e5934a7a49.geojson"
+  },
+  "hcp_boundaries_2024/morocco_02_265.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 02_265",
+    "fetch_date": "2026-09-24T13:41:46Z",
+    "sha256": "3da351ed3d41d4dd8359473b29039937807a65d12e349a2b5236f5f7cd7c08f1",
+    "size_bytes": 379950,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/8e93d3d0be3a9d6ab343.geojson"
+  },
+  "hcp_boundaries_2024/morocco_02_275.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 02_275",
+    "fetch_date": "2026-09-24T13:41:47Z",
+    "sha256": "de0d248bcb0eafa1cb9f94772b89bf6ff42529e575f370a6fb44862ea8222d89",
+    "size_bytes": 227694,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/0920338e75accd6fd328.geojson"
+  },
+  "hcp_boundaries_2024/morocco_02_381.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 02_381",
+    "fetch_date": "2026-09-24T13:41:52Z",
+    "sha256": "af2ff8d8dec2fedbc26213add955848eaaf3e05ae89734e9c52d4b2a431c91d7",
+    "size_bytes": 804280,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/1d8aa82972e113532e7b.geojson"
+  },
+  "hcp_boundaries_2024/morocco_02_411.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 02_411",
+    "fetch_date": "2026-09-24T13:41:53Z",
+    "sha256": "fe956ad094b12d743304ca8d1779925c0700cba00ce5b52c1bbacaf4e10786eb",
+    "size_bytes": 314945,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/e27663fdacbafe989848.geojson"
+  },
+  "hcp_boundaries_2024/morocco_02_533.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 02_533",
+    "fetch_date": "2026-09-24T13:41:54Z",
+    "sha256": "97dce989c5ddf8e6c573c5e4f9f1be7bfa8c594517ddb8819c91d926f2019ea1",
+    "size_bytes": 551383,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/6d49119880b39861323e.geojson"
+  },
+  "hcp_boundaries_2024/morocco_03_061.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 03_061",
+    "fetch_date": "2026-09-24T13:41:57Z",
+    "sha256": "fb50af4cd96721e117349cf307dc00edc1d677e9bf770179e31d3a004354dee4",
+    "size_bytes": 1108084,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/bed5cf07789de3d7ab48.geojson"
+  },
+  "hcp_boundaries_2024/morocco_03_131.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 03_131",
+    "fetch_date": "2026-09-24T13:41:59Z",
+    "sha256": "d7f70e88fb5462981de5dd41895d466f5d943289e76a5cb0cd398993be589345",
+    "size_bytes": 602567,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/37c1de155bcc0b4d691e.geojson"
+  },
+  "hcp_boundaries_2024/morocco_03_171.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 03_171",
+    "fetch_date": "2026-09-24T13:42:01Z",
+    "sha256": "2d033462b8ca142c450c780646f68c7005da0889dbc5fdab09ccadd61a64ff75",
+    "size_bytes": 974438,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/97a54bd8abaa78cfd3a6.geojson"
+  },
+  "hcp_boundaries_2024/morocco_03_231.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 03_231",
+    "fetch_date": "2026-09-24T13:42:02Z",
+    "sha256": "4616c7f0f4417f77735f13d2a3a9b17650664ea9a652138d25826250e5e9b250",
+    "size_bytes": 233984,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/d0c9c899fe5d18a6dcf9.geojson"
+  },
+  "hcp_boundaries_2024/morocco_03_271.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 03_271",
+    "fetch_date": "2026-09-24T13:42:04Z",
+    "sha256": "275032cf5006bbe8bb2a877bf8adbff1cc8fa8e24f390b4c3a5529009603a2c9",
+    "size_bytes": 534541,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/b7165c9e347b2a9c8747.geojson"
+  },
+  "hcp_boundaries_2024/morocco_03_451.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 03_451",
+    "fetch_date": "2026-09-24T13:42:06Z",
+    "sha256": "caa1ebc5b2677c76fe509de7e2d01c1ff857a982465b365bd24bad46bb314d06",
+    "size_bytes": 850010,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/fc14d5c3fbb869d9cd41.geojson"
+  },
+  "hcp_boundaries_2024/morocco_03_531.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 03_531",
+    "fetch_date": "2026-09-24T13:42:08Z",
+    "sha256": "5ef8eb53487f2147ad3610d2be591f3f2fad9a4fca044381a347b4a1b727f3b4",
+    "size_bytes": 1732830,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/3d2ea85c0fd260d8c337.geojson"
+  },
+  "hcp_boundaries_2024/morocco_03_561.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 03_561",
+    "fetch_date": "2026-09-24T13:42:10Z",
+    "sha256": "1dd733b96beafb30b365dbb6021178e3b3f1871e2cf33524f73468363c47cac0",
+    "size_bytes": 1605188,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/a5874f333bc01c02801f.geojson"
+  },
+  "hcp_boundaries_2024/morocco_03_591.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 03_591",
+    "fetch_date": "2026-09-24T13:42:11Z",
+    "sha256": "00c61c21f2fdcef259d5f52e5594fdae5d90035d4f08051c1ef328d4fe1b64f7",
+    "size_bytes": 649979,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/48d80fc2c828dd9b7b08.geojson"
+  },
+  "hcp_boundaries_2024/morocco_04_051.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 04_051",
+    "fetch_date": "2026-09-24T13:42:13Z",
+    "sha256": "dc71fcb58d9f477f184508d77ef8dd5e5e6accdd76a1996d146c76dab2ed9367",
+    "size_bytes": 345270,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/953766ec82a2d8e6e49a.geojson"
+  },
+  "hcp_boundaries_2024/morocco_04_281.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 04_281",
+    "fetch_date": "2026-09-24T13:42:14Z",
+    "sha256": "0782f4a0fd76d2cbaf6a6839c681d2b72bbc10c9de842cde90613c82288dee21",
+    "size_bytes": 664260,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/860dfea3634721f55803.geojson"
+  },
+  "hcp_boundaries_2024/morocco_04_291.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 04_291",
+    "fetch_date": "2026-09-24T13:42:16Z",
+    "sha256": "04954c116830d5aa36fa109d9f37d8a0ae4ad8af5379436fe2c738bd6569f2cb",
+    "size_bytes": 1344700,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/37421e175c568a3d0503.geojson"
+  },
+  "hcp_boundaries_2024/morocco_04_421.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 04_421",
+    "fetch_date": "2026-09-24T13:42:17Z",
+    "sha256": "0635211d45534a55172b2e526a6c641b1ae6bc79e4be7cd73691a4abbb59e55c",
+    "size_bytes": 111643,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/5b8c995ac32c37b7f094.geojson"
+  },
+  "hcp_boundaries_2024/morocco_04_441.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 04_441",
+    "fetch_date": "2026-09-24T13:42:19Z",
+    "sha256": "bc850fc541aca768f5266448b62f856831ac7de95aa66f95d228419f39af28d5",
+    "size_bytes": 183401,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/6fa903e63f50e5167927.geojson"
+  },
+  "hcp_boundaries_2024/morocco_04_481.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 04_481",
+    "fetch_date": "2026-09-24T13:42:20Z",
+    "sha256": "7af09d5929d7e0e45a85eb3a1ab842b0a9f82113bd1d529d29abe0494d2411ff",
+    "size_bytes": 1046499,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/c0c0dc451ae35e2cafee.geojson"
+  },
+  "hcp_boundaries_2024/morocco_04_491.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 04_491",
+    "fetch_date": "2026-09-24T13:42:21Z",
+    "sha256": "4e3e40d7932dc0407efb48ab46cb0e2cdb6644301ab1432571e2147a9ca12fda",
+    "size_bytes": 278458,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/119e7017ff5afd7db1f1.geojson"
+  },
+  "hcp_boundaries_2024/morocco_05_031.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 05_031",
+    "fetch_date": "2026-09-24T13:42:25Z",
+    "sha256": "35fbe7bc4e1fa8325a08f088cead1cb44b2052e920c21187ec89005b3d30d390",
+    "size_bytes": 1783593,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/22417269d2b39ac2e276.geojson"
+  },
+  "hcp_boundaries_2024/morocco_05_081.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 05_081",
+    "fetch_date": "2026-09-24T13:42:30Z",
+    "sha256": "db739c8ae5033fda8e6ac641324832307d495fbd3a7c4120688b217114d1b1be",
+    "size_bytes": 1706186,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/e0498bdd69c747fbd255.geojson"
+  },
+  "hcp_boundaries_2024/morocco_05_091.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 05_091",
+    "fetch_date": "2026-09-24T13:42:31Z",
+    "sha256": "95faa7ba61667047f4e42383a2242a0688dea90e729ead0a369504d4b2b9570a",
+    "size_bytes": 988074,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/75d4616dd82328858f16.geojson"
+  },
+  "hcp_boundaries_2024/morocco_05_255.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 05_255",
+    "fetch_date": "2026-09-24T13:42:33Z",
+    "sha256": "c4709418492d00c495d3e7a95e553ee8d32e1014c0cdd0f291ac08ba9b9ec364",
+    "size_bytes": 512419,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/cd958a605c7a2f6871f8.geojson"
+  },
+  "hcp_boundaries_2024/morocco_05_311.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 05_311",
+    "fetch_date": "2026-09-24T13:42:35Z",
+    "sha256": "7aebe7dddc6f6004122f8655335a097a0453ba65bb9eb8caa2871a5806718bc4",
+    "size_bytes": 982589,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/05f737d2fedc049ef7f2.geojson"
+  },
+  "hcp_boundaries_2024/morocco_06_111.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 06_111",
+    "fetch_date": "2026-09-24T13:42:37Z",
+    "sha256": "dbb2847ee526bb4be83aeb92907fab5aab4533ea8116c6127df00dbe04b3345c",
+    "size_bytes": 723732,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/0974b7f99f5d11b4a86f.geojson"
+  },
+  "hcp_boundaries_2024/morocco_06_117.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 06_117",
+    "fetch_date": "2026-09-24T13:42:38Z",
+    "sha256": "288dbb1edced8088faa5476c3e70e02a46c00449ffeb6d0b11c7f7a60bfd14fb",
+    "size_bytes": 858774,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/374c55b48468ba52c6b7.geojson"
+  },
+  "hcp_boundaries_2024/morocco_06_141.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 06_141",
+    "fetch_date": "2026-09-24T13:42:39Z",
+    "sha256": "435e0aa7fdbfd247d22b273b175d46836b25db6e07d2591d981bda46e7ebfede",
+    "size_bytes": 224379,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/54e4167d3dd3adf5e8e6.geojson"
+  },
+  "hcp_boundaries_2024/morocco_06_181.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 06_181",
+    "fetch_date": "2026-09-24T13:42:41Z",
+    "sha256": "ccb54dfa57bffc1e27f2340ddb4f746c8f1aa789c3a6005a0599f141602cfd26",
+    "size_bytes": 1197093,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/9f32d6d7487c2b6090aa.geojson"
+  },
+  "hcp_boundaries_2024/morocco_06_355.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 06_355",
+    "fetch_date": "2026-09-24T13:42:42Z",
+    "sha256": "ca04d4da95a5e69d3fd1dc16cfcd2ec59f6c54a5251f656412c06a9439d70caf",
+    "size_bytes": 178494,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/f1b4f5f6bf3f95c54548.geojson"
+  },
+  "hcp_boundaries_2024/morocco_06_371.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 06_371",
+    "fetch_date": "2026-09-24T13:42:44Z",
+    "sha256": "e83b30e15d3ae7773476e3540b9e70a5c4b7bdebcdc1f83d2c972a37617ca61c",
+    "size_bytes": 178574,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/f3bdfde6664af00ce3b7.geojson"
+  },
+  "hcp_boundaries_2024/morocco_06_385.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 06_385",
+    "fetch_date": "2026-09-24T13:42:45Z",
+    "sha256": "f1ed96ca3ae4362477fca683335304d321cfcb0411810f76252ff4f45ddcf96d",
+    "size_bytes": 169331,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/6999afecc3dcc4f9476a.geojson"
+  },
+  "hcp_boundaries_2024/morocco_06_461.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 06_461",
+    "fetch_date": "2026-09-24T13:42:47Z",
+    "sha256": "535707db96486b759fd5dde22051d353060e1cf8ccae1bc2637478db9c40225e",
+    "size_bytes": 1521482,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/9010d5278e25ca86b9d9.geojson"
+  },
+  "hcp_boundaries_2024/morocco_06_467.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 06_467",
+    "fetch_date": "2026-09-24T13:42:51Z",
+    "sha256": "42d536bba8ffddd9403cd38a6ac2a33f07a246704ac411dac3a9f2423c4f206a",
+    "size_bytes": 694999,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/8ec7d4bd1eda5be27893.geojson"
+  },
+  "hcp_boundaries_2024/morocco_07_041.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 07_041",
+    "fetch_date": "2026-09-24T13:42:53Z",
+    "sha256": "2e313018d196af20d5b6706522d5c1ac1b075365ecaccf768736143adcea15d4",
+    "size_bytes": 1745026,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/d791dc7777cdb341549c.geojson"
+  },
+  "hcp_boundaries_2024/morocco_07_161.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 07_161",
+    "fetch_date": "2026-09-24T13:42:54Z",
+    "sha256": "f40b9f06873cc3131885ad41029e7ee2ee8d5be4956f5408590537b9836e17a0",
+    "size_bytes": 1365135,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/44d8a5ff8b43f9fd5062.geojson"
+  },
+  "hcp_boundaries_2024/morocco_07_191.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 07_191",
+    "fetch_date": "2026-09-24T13:42:56Z",
+    "sha256": "a73d86e85059fc802a43ec7bfc1b2194cbb14e54091e7035fcc6c045e31ab2c9",
+    "size_bytes": 1031938,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/a5d2a4d28f69be9589d9.geojson"
+  },
+  "hcp_boundaries_2024/morocco_07_211.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 07_211",
+    "fetch_date": "2026-09-24T13:42:58Z",
+    "sha256": "4a0ada5abc27f6081ffa061092c59f0408cf678a96dad6d356e219ae61a7aa35",
+    "size_bytes": 2723917,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/c3642ebc740544ed4e85.geojson"
+  },
+  "hcp_boundaries_2024/morocco_07_351.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 07_351",
+    "fetch_date": "2026-09-24T13:43:00Z",
+    "sha256": "b43e568b66e375ac9a8384f617f567cf3017b00b48a8630473befdc72b0095ba",
+    "size_bytes": 698659,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/df64fe5d6aba875ea897.geojson"
+  },
+  "hcp_boundaries_2024/morocco_07_427.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 07_427",
+    "fetch_date": "2026-09-24T13:43:02Z",
+    "sha256": "bb689c3b780eab16521b30886186b28fa8b2643490337b19407cce2ebd46fcdb",
+    "size_bytes": 998825,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/4005b08cf3cb2d1abf9c.geojson"
+  },
+  "hcp_boundaries_2024/morocco_07_431.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 07_431",
+    "fetch_date": "2026-09-24T13:43:03Z",
+    "sha256": "53aae74006d13a8a32cef7f23c71f05fec1a3e543539251478a398f37bae56ac",
+    "size_bytes": 1205824,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/ce4299edc725133757be.geojson"
+  },
+  "hcp_boundaries_2024/morocco_07_585.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 07_585",
+    "fetch_date": "2026-09-24T13:43:04Z",
+    "sha256": "596601469d4c0aeb816e6cbfffaee901f4f1c6a0df7398a82b434adaf192f50e",
+    "size_bytes": 366917,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/334a801852e180dae345.geojson"
+  },
+  "hcp_boundaries_2024/morocco_08_021.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 08_021",
+    "fetch_date": "2026-09-24T13:43:06Z",
+    "sha256": "cc7c77df3da6b94bb2ec2c309fe5f4459318a9827b9976e81c71a402ccabc1d3",
+    "size_bytes": 894956,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/675d09f2fbb3f5efa01e.geojson"
+  },
+  "hcp_boundaries_2024/morocco_08_041.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 08_041",
+    "fetch_date": "2026-09-24T13:43:12Z",
+    "sha256": "5bd55a2772f8f71de6b8c0b427500ca57febc81966394ecd85c704ec07ca4fbb",
+    "size_bytes": 765913,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/215eff7cc9f007acfb0c.geojson"
+  },
+  "hcp_boundaries_2024/morocco_08_363.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 08_363",
+    "fetch_date": "2026-09-24T13:43:13Z",
+    "sha256": "04524c5e6a54a53f541f070ce37d79f4bc37333526b32aa7515f012260b8a0d3",
+    "size_bytes": 998088,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/caf56cd84f0ae40da4a9.geojson"
+  },
+  "hcp_boundaries_2024/morocco_08_577.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 08_577",
+    "fetch_date": "2026-09-24T13:43:14Z",
+    "sha256": "2a88c30ebb2c8ebf0073fadb1ade8059de551b92cbd211640cd8be6aa8d37ed4",
+    "size_bytes": 721023,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/895e767a13f608c67f85.geojson"
+  },
+  "hcp_boundaries_2024/morocco_08_587.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 08_587",
+    "fetch_date": "2026-09-24T13:43:16Z",
+    "sha256": "05d6c75d844c42771ec6f0cc42c3767bee1d5f49e4451619ac7dfac400f564f6",
+    "size_bytes": 626875,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/b8f45309a4fad440d3b5.geojson"
+  },
+  "hcp_boundaries_2024/morocco_09_001.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 09_001",
+    "fetch_date": "2026-09-24T13:43:17Z",
+    "sha256": "e94a0bfaddefc347dcf7b346b9c59b95f66ab2768f9a176c0ab7a0faf024e272",
+    "size_bytes": 667521,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/79c8ee4de97d7a96f448.geojson"
+  },
+  "hcp_boundaries_2024/morocco_09_163.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 09_163",
+    "fetch_date": "2026-09-24T13:43:19Z",
+    "sha256": "f702352482f01206cc66c7e8a8250c22d4b68af4798ab577f903192b6e810ccf",
+    "size_bytes": 1110366,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/6d7679a8ae182d20b487.geojson"
+  },
+  "hcp_boundaries_2024/morocco_09_273.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 09_273",
+    "fetch_date": "2026-09-24T13:43:22Z",
+    "sha256": "788ef285fe7555cb51d3381de1652f191a499ba867311de186a6828829b433ae",
+    "size_bytes": 167097,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/c0ad6a17aea212b4d9d2.geojson"
+  },
+  "hcp_boundaries_2024/morocco_09_541.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 09_541",
+    "fetch_date": "2026-09-24T13:43:25Z",
+    "sha256": "3c5eb6ccc0da97f1def2505754ecd9f75bab26e9ade1f3aab1620d18995b5a9c",
+    "size_bytes": 2610788,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/778e1a2e446d018b3bdd.geojson"
+  },
+  "hcp_boundaries_2024/morocco_09_551.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 09_551",
+    "fetch_date": "2026-09-24T13:43:26Z",
+    "sha256": "26844558f2e63afeb4d536fe6ab1f3663a10e8993bfd661810e9b338a43f1686",
+    "size_bytes": 308347,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/d489ac9af4bd774ce49b.geojson"
+  },
+  "hcp_boundaries_2024/morocco_09_581.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 09_581",
+    "fetch_date": "2026-09-24T13:43:28Z",
+    "sha256": "e9f4d9738731794fce014be03f93b298e8175add3d381cc0658a874349df9594",
+    "size_bytes": 1019317,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/9414c59dc93b2cbd5c68.geojson"
+  },
+  "hcp_boundaries_2024/morocco_10_071.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 10_071",
+    "fetch_date": "2026-09-24T13:43:30Z",
+    "sha256": "440d48ddda6c31ad9d4304dc6440be1ce58b1c522358b6cef506855092e1f0a9",
+    "size_bytes": 38109,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/a8f12f893d4b52a9b892.geojson"
+  },
+  "hcp_boundaries_2024/morocco_10_261.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 10_261",
+    "fetch_date": "2026-09-24T13:43:31Z",
+    "sha256": "77aa69ad3a99ce23f5538b5a938ccecabc05128272b61b17ad4a0e503694ebc8",
+    "size_bytes": 209194,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/29e02ebcc7c3bb195f2b.geojson"
+  },
+  "hcp_boundaries_2024/morocco_10_473.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 10_473",
+    "fetch_date": "2026-09-24T13:43:32Z",
+    "sha256": "5b7d79e52820cd3a92a5811207665569aa70cc0b2704aa959f4a008f4370d653",
+    "size_bytes": 588017,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/566389b590616799cc96.geojson"
+  },
+  "hcp_boundaries_2024/morocco_10_521.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 10_521",
+    "fetch_date": "2026-09-24T13:43:33Z",
+    "sha256": "e5c34de5833a3d6864b9e4df35785172b98ca8244ff0a74a38ca205d85723194",
+    "size_bytes": 47744,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/751e29855e59a6d4514c.geojson"
+  },
+  "hcp_boundaries_2024/morocco_11_121.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 11_121",
+    "fetch_date": "2026-09-24T13:43:34Z",
+    "sha256": "3dd75ecbbea5067712d08db14842df16433236475625366880cfe8059fe8d4ea",
+    "size_bytes": 45880,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/cd4b1dc2f01ad19ffe0f.geojson"
+  },
+  "hcp_boundaries_2024/morocco_11_221.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 11_221",
+    "fetch_date": "2026-09-24T13:43:35Z",
+    "sha256": "33796a467257cc63468458b69f6adc49973b075268042214126ceea365f76dda",
+    "size_bytes": 25854,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/246428bec7cdf2da3594.geojson"
+  },
+  "hcp_boundaries_2024/morocco_11_321.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 11_321",
+    "fetch_date": "2026-09-24T13:43:36Z",
+    "sha256": "a1e17461dd61adf5c74101e14b2052a16cc848b9d9a93290c67fb0afc6135fa7",
+    "size_bytes": 21179,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/a2ff2f2c124321f190df.geojson"
+  },
+  "hcp_boundaries_2024/morocco_11_537.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 11_537",
+    "fetch_date": "2026-09-24T13:43:36Z",
+    "sha256": "2ed6d7c053cacad28c3974ea385af5e7cfc0f3411cff6ed90872e27498845798",
+    "size_bytes": 25262,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/24d7911e2fe710606a7b.geojson"
+  },
+  "hcp_boundaries_2024/morocco_12_066.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 12_066",
+    "fetch_date": "2026-09-24T13:43:37Z",
+    "sha256": "159d36849147a24cd88a44e6f2c0858b6e5f6723b96d27d13680155d932821e0",
+    "size_bytes": 150723,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/1c8914ea007ff8a7030d.geojson"
+  },
+  "hcp_boundaries_2024/morocco_12_391.geojson": {
+    "description": "HCP RGPH 2024 results platform, commune boundaries of province 12_391",
+    "fetch_date": "2026-09-24T13:43:43Z",
+    "sha256": "a19b7c2adf73651ac3bcad48ccf10e4c561cb8d25ed36200ebd8229edc44f1a2",
+    "size_bytes": 175729,
+    "url": "https://resultats2024.rgphapps.ma/static/assets/d78053201d3ee096caa7.geojson"
+  },
   "indicateurs_demo_socioeco_2024.xlsx": {
     "description": "RGPH 2024 - Indicateurs demographiques et socioeconomiques du Royaume",
     "fetch_date": "2026-08-30T07:27:40Z",

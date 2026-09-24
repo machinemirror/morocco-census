@@ -183,6 +183,57 @@ def save_manifest(manifest: dict) -> None:
     MANIFEST_PATH.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n")
 
 
+# HCP draws commune boundaries in its RGPH 2024 results platform (Apache Superset); the per-province
+# GeoJSON files are static assets whose hashed names are listed in the country-map bundle, so they are
+# discovered from the live bundle rather than pinned.
+HCP_PLATFORM = "https://resultats2024.rgphapps.ma"
+HCP_BOUNDARIES = "hcp_boundaries_2024"
+
+
+def fetch_hcp_boundaries(manifest: dict) -> list:
+    import re
+    import urllib.request
+
+    def get(url: str) -> str:
+        req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+        return urllib.request.urlopen(req, timeout=120).read().decode("utf-8", "ignore")
+
+    dest = RAW / HCP_BOUNDARIES
+    dest.mkdir(parents=True, exist_ok=True)
+    page = get(HCP_PLATFORM + "/")
+    files = {}
+    for js in re.findall(r'src="(/static/assets/[\w.]+\.entry\.js)"', page):
+        src = get(HCP_PLATFORM + js)
+        if "morocco_01_051" not in src:
+            continue
+        head = src[: src.index("morocco:")]
+        assigned = dict(re.findall(r'[,\s;]([A-Za-z_$]{1,2})=\w+\.p\+"([0-9a-f]{20})\.geojson"', head[-20000:]))
+        block = src[src.index("morocco:") : src.index("palestine:")]
+        for key, ref in re.findall(r"(morocco_\d\d_\d{3}):([^,}]+)", block):
+            h = re.search(r"([0-9a-f]{20})\.geojson", ref)
+            files[key] = h.group(1) if h else assigned.get(ref.strip())
+    if len(files) != 75 or None in files.values():
+        return [(HCP_BOUNDARIES, HCP_PLATFORM, f"expected 75 province files, found {len(files)}")]
+    failures = []
+    for key, h in sorted(files.items()):
+        rel, url = f"{HCP_BOUNDARIES}/{key}.geojson", f"{HCP_PLATFORM}/static/assets/{h}.geojson"
+        out = RAW / rel
+        if not out.exists():
+            ok, err = curl_fetch(url, out)
+            if not ok:
+                failures.append((rel, url, err))
+                continue
+        manifest[rel] = {
+            "url": url,
+            "description": f"HCP RGPH 2024 results platform, commune boundaries of province {key[-6:]}",
+            "size_bytes": out.stat().st_size,
+            "sha256": sha256_of(out),
+            "fetch_date": manifest.get(rel, {}).get("fetch_date") or time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+        }
+    print(f"HCP boundaries: {len(files) - len(failures)}/75 province files")
+    return failures
+
+
 def main() -> int:
     RAW.mkdir(parents=True, exist_ok=True)
     manifest = load_manifest()
@@ -235,6 +286,8 @@ def main() -> int:
                 z.extractall(RAW / UNZIP[rel])
         save_manifest(manifest)
 
+    failures += fetch_hcp_boundaries(manifest)
+    save_manifest(manifest)
     print(f"\n{len(FILES) - len(failures)}/{len(FILES)} files present.")
     for rel, url, err in failures:
         print(f"  FAILED {rel} <- {url}: {err}")

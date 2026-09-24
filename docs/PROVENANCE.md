@@ -154,3 +154,21 @@ byte-for-byte and its tessellation to within 2e-5 m² per cell. Deliberate chang
    22 more units get a cell (1,497), and the previous release's point for Lagouira, about 1,700 km from the
    town, is corrected. Against the 1,473 units placed in both releases the median shift is 3.0 km;
    12 move more than 50 km, all Saharan communes, reviewed disagreements or corrected errors.
+
+## HCP 2024 boundaries (optional map layer)
+
+HCP's RGPH 2024 results platform (https://resultats2024.rgphapps.ma, Apache Superset) draws commune boundaries from 75
+per-province GeoJSON files served as static assets. `mc fetch` finds their current hashed names in the platform's
+country-map bundle and records each file in the manifest. The files declare CRS84 but carry Web Mercator metres.
+
+- Features carry an ISO-style code `MA-RR-PPP-CCccM` that is the **2014** commune code (region, province, cercle,
+  commune) plus a milieu digit (1 municipality or arrondissement, 2 rural commune, 3-5 urban centre inside a rural
+  commune). All 1,538 communes of the 2014 spine match; Sebta and Melilla features have no census data and are dropped.
+- `geometry.hcp_boundaries()` dissolves centres into their rural commune and arrondissements into their city, giving
+  1,503 map units (the 1,497 Thiessen units plus 6 communes with no seed point), coverage-simplified at 100 m, in
+  `geometry/hcp_communes_2024.gpkg`.
+- The layer is not in the download bundle: HCP's terms allow reuse with attribution, but no licence for the geometry as
+  data is stated.
+- Reliability by census on these boundaries: 2014 exact (same codes); 2024 through the crosswalk (1,493 of 1,503
+  communes, cities from their arrondissements); 2004 through the app crosswalk (1,478 linked: 1,231 in cercles with no
+  post-2004 reorganisation, 222 in cercles where a commune was created, 41 arrondissements whose 2004 structure differed).
