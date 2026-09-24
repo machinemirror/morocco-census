@@ -34,7 +34,7 @@ const L = {
 const SEQ = ["#fde725", "#90d743", "#35b779", "#21918c", "#31688e", "#443983", "#440154"];
 const DIV = ["#b35806", "#f1a340", "#fee0b6", "#f7f7f7", "#d8daeb", "#998ec3", "#542788"];
 const FLAG = ["#90d743", "#31688e"];
-// Orientation labels: [en, fr, ar, lon, lat, tier (1 always, 2 from zoom 6), label side]. Coastal labels sit over the sea.
+// Orientation labels: [en, fr, ar, lon, lat, tier (1 always, 2 from zoom 6, 3 from zoom 7.5), label side]. Coastal labels sit over the sea.
 const CITIES = [
   ["Rabat", "Rabat", "الرباط", -6.8417, 34.0209, 1, "w"], ["Casablanca", "Casablanca", "الدار البيضاء", -7.5898, 33.5731, 1, "w"],
   ["Fez", "Fès", "فاس", -5.0003, 34.0331, 1], ["Marrakesh", "Marrakech", "مراكش", -7.9811, 31.6295, 1],
@@ -46,7 +46,35 @@ const CITIES = [
   ["Errachidia", "Errachidia", "الرشيدية", -4.4245, 31.9314, 2], ["Ouarzazate", "Ouarzazate", "ورزازات", -6.8934, 30.9189, 2],
   ["Guelmim", "Guelmim", "كلميم", -10.0574, 28.987, 2], ["Safi", "Safi", "آسفي", -9.2372, 32.2994, 2, "w"],
   ["El Jadida", "El Jadida", "الجديدة", -8.5007, 33.2316, 2, "w"], ["Al Hoceima", "Al Hoceïma", "الحسيمة", -3.9372, 35.2517, 2],
-  ["Essaouira", "Essaouira", "الصويرة", -9.7595, 31.5085, 2, "w"],
+  ["Essaouira", "Essaouira", "الصويرة", -9.7595, 31.5085, 2, "w"],  ["Mohammedia", "Mohammédia", "المحمدية", -7.3833, 33.6861, 3], ["Settat", "Settat", "سطات", -7.6164, 33.001, 3],
+  ["Berrechid", "Berrechid", "برشيد", -7.5872, 33.2655, 3],
+  ["Khouribga", "Khouribga", "خريبكة", -6.9063, 32.8811, 3], ["Khenifra", "Khénifra", "خنيفرة", -5.668, 32.9394, 3],
+  ["Ifrane", "Ifrane", "إفران", -5.1107, 33.5228, 3], ["Sefrou", "Séfrou", "صفرو", -4.8288, 33.8305, 3],
+  ["Taza", "Taza", "تازة", -4.0103, 34.21, 3], ["Taounate", "Taounate", "تاونات", -4.64, 34.536, 3],
+  ["Chefchaouen", "Chefchaouen", "شفشاون", -5.2636, 35.1688, 3],
+  ["Larache", "Larache", "العرائش", -6.156, 35.1932, 3, "w"],
+  ["Ksar El Kebir", "Ksar El Kébir", "القصر الكبير", -5.9033, 35.0017, 3],
+  ["Ouezzane", "Ouezzane", "وزان", -5.5836, 34.7969, 3],
+  ["Sidi Kacem", "Sidi Kacem", "سيدي قاسم", -5.7076, 34.226, 3],
+  ["Sidi Slimane", "Sidi Slimane", "سيدي سليمان", -5.9256, 34.2648, 3, "w"],
+  ["Khemisset", "Khémisset", "الخميسات", -6.0662, 33.824, 3], ["Guercif", "Guercif", "جرسيف", -3.3536, 34.2257, 3],
+  ["Taourirt", "Taourirt", "تاوريرت", -2.897, 34.4073, 3], ["Berkane", "Berkane", "بركان", -2.32, 34.92, 3],
+  ["Driouch", "Driouch", "الدريوش", -3.39, 34.976, 3], ["Jerada", "Jerada", "جرادة", -2.16, 34.31, 3],
+  ["Figuig", "Figuig", "فجيج", -1.229, 32.109, 3], ["Bouarfa", "Bouarfa", "بوعرفة", -1.959, 32.531, 3],
+  ["Midelt", "Midelt", "ميدلت", -4.734, 32.68, 3], ["Boulemane", "Boulemane", "بولمان", -4.73, 33.362, 3],
+  ["El Hajeb", "El Hajeb", "الحاجب", -5.371, 33.689, 3], ["Azilal", "Azilal", "أزيلال", -6.5718, 31.9616, 3],
+  ["Fquih Ben Salah", "Fquih Ben Salah", "الفقيه بن صالح", -6.6853, 32.5022, 3],
+  ["El Kelaa des Sraghna", "El Kelaâ des Sraghna", "قلعة السراغنة", -7.4058, 32.058, 3],
+  ["Youssoufia", "Youssoufia", "اليوسفية", -8.529, 32.2464, 3],
+  ["Benguerir", "Benguerir", "ابن جرير", -7.9543, 32.236, 3],
+  ["Sidi Bennour", "Sidi Bennour", "سيدي بنور", -8.427, 32.65, 3],
+  ["Chichaoua", "Chichaoua", "شيشاوة", -8.766, 31.544, 3], ["Tahannaout", "Tahannaout", "تحناوت", -7.951, 31.35, 3],
+  ["Taroudant", "Taroudant", "تارودانت", -8.877, 30.47, 3], ["Tiznit", "Tiznit", "تيزنيت", -9.7316, 29.6974, 3],
+  ["Sidi Ifni", "Sidi Ifni", "سيدي إفني", -10.1733, 29.3797, 3, "w"], ["Tata", "Tata", "طاطا", -7.969, 29.743, 3],
+  ["Zagora", "Zagora", "زاكورة", -5.838, 30.332, 3], ["Tinghir", "Tinghir", "تنغير", -5.532, 31.515, 3],
+  ["Tan-Tan", "Tan-Tan", "طانطان", -11.103, 28.438, 3], ["Assa", "Assa", "أسا", -9.427, 28.609, 3],
+  ["Smara", "Smara", "السمارة", -11.67, 26.739, 3], ["Boujdour", "Boujdour", "بوجدور", -14.485, 26.126, 3, "w"],
+  ["Tarfaya", "Tarfaya", "طرفاية", -12.926, 27.939, 3, "w"], ["Aousserd", "Aousserd", "أوسرد", -14.325, 22.553, 3],
 ];
 const YEARS = [2004, 2014, 2024];
 const CITY = /^\d+\.\d+\.\d+\.$/;
@@ -315,7 +343,10 @@ async function main() {
     return el;
   });
   const cityNames = () => cityEls.forEach(el => (el.innerHTML = `<i></i><span>${MC.esc(el.dataset[MC.lang])}</span>`));
-  const cityZoom = () => document.getElementById("map").classList.toggle("zoomed", map.getZoom() >= 6);
+  const cityZoom = () => {
+    const el = document.getElementById("map"), z = map.getZoom();
+    el.classList.toggle("zoomed", z >= 6); el.classList.toggle("zoomed2", z >= 7.5);
+  };
   cityNames(); map.on("zoom", cityZoom);
   MC.onLang(cityNames);
 

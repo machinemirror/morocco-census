@@ -55,9 +55,11 @@
   .city i { width: 6px; height: 6px; border-radius: 50%; background: var(--text); box-shadow: 0 0 0 1.5px var(--surface); }
   .city span { font-size: 0.72rem; font-weight: 600; color: var(--text); line-height: 1.25; padding: 0 4px;
                border-radius: 3px; background: color-mix(in srgb, var(--surface) 82%, transparent); }
-  .city.t2 { display: none; }
+  .city.t2, .city.t3 { display: none; }
   .city.t2 span { font-weight: 500; }
   #map.zoomed .city.t2 { display: flex; }
+  .city.t3 span { font-weight: 450; font-size: 0.68rem; color: var(--text-2); }
+  #map.zoomed2 .city.t3 { display: flex; }
   @media (max-width: 760px) {
     .app { grid-template-columns: 1fr; grid-template-rows: 62vh auto; }
     #map { order: -1; }
