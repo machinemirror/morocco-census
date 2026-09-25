@@ -11,7 +11,7 @@ HCP's own place names and labels).
 | | 2004 | 2014 | 2024 |
 |---|---|---|---|
 | Communes in HCP's tables | 1,689 | 1,538 | 1,503 |
-| Commune variables | 69 | 132 | 166 |
+| Commune variables | 69 | 132 | 163 |
 | Poverty / development indices | IDH, IDS, poverty, MPI (poverty map) | MPI (both series) | MPI |
 | Linked to the 2014 list | 1,473 (annex) · 1,537 (profiles) | spine | 1,538 |
 

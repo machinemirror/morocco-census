@@ -143,7 +143,7 @@ Robustness checks should drop imputed rows; the flags make that a one-line filte
   are tried only within that radius.
 - Wikidata: items with several coordinates are used only if these agree within ~15 km (their median is
   taken); the item's stated province (P131) must match.
-- Cross-check (`points_crosscheck.csv`): 1,371 units are placed by both gazetteers, median 3.3 km apart,
+- Cross-check (`points_crosscheck.csv`): 1,374 units are placed by both gazetteers, median 3.3 km apart,
   90th percentile 9.8 km. 37 disagree by more than 25 km. 35 are settled in `catalog/seed_review.csv`
   by comparison with an OpenStreetMap Nominatim lookup (used for review only; no OSM data is published),
   2 without an OSM result by distance to the province anchor. The pattern: GeoNames admin points for
