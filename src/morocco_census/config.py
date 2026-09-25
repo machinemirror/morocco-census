@@ -18,6 +18,9 @@ SEED_NAMES = ROOT / "catalog" / "seed_names.csv"
 # raw inputs, relative to RAW (names chosen by fetch.py)
 R_ANNEX_2004 = RAW / "2004" / "pauvrete_developpement_2004.pdf"
 R_CARTO = RAW / "2004" / "carto_pauvrete_communale_2004_2014.xlsx"
+# HCP's 2004 populations on 2014 boundaries, used only to test the links (never their weights)
+R_HCP04_SETTAT = RAW / "2004" / "population_legale_2004_settat.pdf"
+R_HCP04_CASABLANCA = RAW / "2014" / "grand_casablanca_note_premiers_resultats_2014.pdf"
 R_APP_HTML = RAW / "2004_app" / "html"
 R_APP_INDEX = RAW / "2004_app" / "communes_index.csv"
 R_MPI = RAW / "2024" / "mpi_communes_2014_2024.xls"

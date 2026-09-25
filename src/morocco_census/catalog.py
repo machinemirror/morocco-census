@@ -32,8 +32,11 @@ def problems(cat: dict) -> list[str]:
                 out += [
                     f"{ds['id']}.{c}: missing {k}" for k in TEXT if k not in spec
                 ]
-            if spec.get("source") and spec["source"] not in cat["sources"]:
-                out.append(f"{ds['id']}.{c}: unknown source {spec['source']}")
+            source = spec.get("source") or ds.get("source")
+            if not source:
+                out.append(f"{ds['id']}.{c}: no source")
+            elif source not in cat["sources"]:
+                out.append(f"{ds['id']}.{c}: unknown source {source}")
     grouped = [th for g in cat["map_groups"].values() for th in g["themes"]]
     out += [f"map group theme {th} unknown or repeated" for th in grouped if th not in cat["themes"] or grouped.count(th) > 1]
     for i, ind in cat["indicators"].items():

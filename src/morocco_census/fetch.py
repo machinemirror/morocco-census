@@ -54,6 +54,16 @@ FILES = [
         "HCP (2004) Pauvrete, developpement humain et developpement social au Maroc; Annexe 2 = commune indices",
     ),
     (
+        "2004/population_legale_2004_settat.pdf",
+        "https://www.hcp.ma/reg-chaouia/docs/Publications/Population%20legale_2004.pdf",
+        "HCP Direction provinciale de Settat: population legale 2004 by region, and by commune on post-2009 codes",
+    ),
+    (
+        "2014/grand_casablanca_note_premiers_resultats_2014.pdf",
+        "https://www.hcp.ma/reg-casablanca/docs/docs/rgph2014__region_grand_casablanca_note_de_presentation_des_premiers_resultats.pdf",
+        "HCP Grand Casablanca: note on the first RGPH 2014 results, 2004 and 2014 population by commune on 2014 boundaries",
+    ),
+    (
         "2004/carto_pauvrete_communale_2004_2014.xlsx",
         "https://www.hcp.ma/file/231434/",
         "HCP cartographie de la pauvrete multidimensionnelle communale 2004 et 2014",
@@ -249,34 +259,58 @@ def fetch_hcp_boundaries(manifest: dict, accept: bool) -> tuple[list, list]:
     return failures, mismatches
 
 
+def app_digests() -> dict[str, tuple[str, str]]:
+    """manifest key -> (sha256, description) for the 2004 crawl, and the per-page list its digest covers."""
+    pages = "".join(f"{sha256_of(f)}  {f.name}\n" for f in sorted(R_APP_HTML.glob("*.html")))
+    return {
+        "2004_app/communes_index.csv": (sha256_of(R_APP_INDEX), "communes listed by the 2004 app crawl"),
+        "2004_app/html": (
+            hashlib.sha256(pages.encode()).hexdigest(),
+            f"the crawl's {pages.count(chr(10))} profile pages; digest of {APP_PAGES_PATH.name}",
+        ),
+    }, pages
+
+
 def record_2004_app(manifest: dict, accept: bool) -> list:
     """Check the 2004 crawl (communes_index.csv and the cached pages) against the manifest, or record it."""
     if not R_APP_INDEX.exists():
         print("[skip] 2004_app: not crawled (mc crawl-2004)")
         return []
-    pages = "".join(f"{sha256_of(f)}  {f.name}\n" for f in sorted(R_APP_HTML.glob("*.html")))
+    digests, pages = app_digests()
     mismatches = []
-    for rel, digest, desc, size in (
-        ("2004_app/communes_index.csv", sha256_of(R_APP_INDEX), "communes listed by the 2004 app crawl", R_APP_INDEX.stat().st_size),
-        (
-            "2004_app/html",
-            hashlib.sha256(pages.encode()).hexdigest(),
-            f"the crawl's {pages.count(chr(10))} profile pages; digest of {APP_PAGES_PATH.name}",
-            None,
-        ),
-    ):
+    for rel, (digest, desc) in digests.items():
         if changed(manifest, rel, digest, accept):
             mismatches.append(rel)
             continue
-        manifest[rel] = manifest.get(rel, {}) | {
-            "url": "https://applications-web.hcp.ma/hpmc/frmmarocenchiffres.aspx",
-            "description": desc,
-            "sha256": digest,
-        } | ({"size_bytes": size} if size else {})
+        size = R_APP_INDEX.stat().st_size if rel.endswith(".csv") else None
+        manifest[rel] = (
+            manifest.get(rel, {})
+            | {"url": "https://applications-web.hcp.ma/hpmc/frmmarocenchiffres.aspx", "description": desc, "sha256": digest}
+            | ({"size_bytes": size} if size else {})
+        )
     if not mismatches:
         APP_PAGES_PATH.write_text(pages)
     print(f"2004_app: {pages.count(chr(10))} pages" + (f", {len(mismatches)} changed" if mismatches else ""))
     return mismatches
+
+
+def verify(manifest: dict | None = None, raw: Path = RAW) -> list[str]:
+    """Raw inputs that are missing or differ from the manifest; `mc build` refuses to run while any do."""
+    manifest = load_manifest() if manifest is None else manifest
+    app = app_digests()[0] if (raw / "2004_app" / "communes_index.csv").exists() else {}
+    bad = []
+    for rel, entry in manifest.items():
+        path = raw / rel
+        if rel in app:
+            digest = app[rel][0]
+        elif path.is_file():
+            digest = sha256_of(path)
+        else:
+            bad.append(f"{rel}: missing")
+            continue
+        if digest != entry.get("sha256"):
+            bad.append(f"{rel}: sha256 {digest[:12]}, manifest {str(entry.get('sha256'))[:12]}")
+    return bad
 
 
 def main(accept: bool = False) -> int:

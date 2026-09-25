@@ -5,8 +5,13 @@ from .config import PROCESSED
 
 
 def build() -> None:
-    from . import crosswalk, extract, panel, parse_2004
+    from . import crosswalk, extract, fetch, panel, parse_2004
 
+    if bad := fetch.verify():
+        raise SystemExit(
+            "raw inputs differ from data/raw/manifest.json; rerun `mc fetch` (with --accept-changes to record "
+            "the new versions):\n  " + "\n  ".join(bad)
+        )
     PROCESSED.mkdir(parents=True, exist_ok=True)
     parse_2004.annex()
     parse_2004.app()
@@ -14,6 +19,7 @@ def build() -> None:
     extract.main()
     panel.main()
     crosswalk.app2004()
+    crosswalk.pop04_flags()
 
 
 def geometry(outline: str | None = None) -> None:
@@ -40,7 +46,8 @@ def main() -> int:
     sub = ap.add_subparsers(dest="cmd", required=True)
     fp = sub.add_parser("fetch", help="download raw HCP, GeoNames, Wikidata and Natural Earth files into data/raw")
     fp.add_argument("--accept-changes", action="store_true", help="record files whose sha256 differs from the manifest")
-    sub.add_parser("crawl-2004", help="crawl the 2004 Maroc-en-Chiffres commune profiles (hours)")
+    cp = sub.add_parser("crawl-2004", help="crawl the 2004 Maroc-en-Chiffres commune profiles (hours)")
+    cp.add_argument("--accept-changes", action="store_true", help="record page checksums that differ from the manifest")
     sub.add_parser("build", help="raw -> data/processed tables")
     gp = sub.add_parser("geometry", help="commune points and HCP boundaries with queen weights")
     gp.add_argument("--outline", help="bound the gazetteer search by this outline instead of Natural Earth MAR+SAH")
@@ -58,8 +65,9 @@ def main() -> int:
 
         hcp_app.main()
         manifest = fetch.load_manifest()
-        if fetch.record_2004_app(manifest, accept=True) == []:
-            fetch.save_manifest(manifest)
+        if changed := fetch.record_2004_app(manifest, a.accept_changes):
+            raise SystemExit(f"crawl differs from the manifest ({', '.join(changed)}); rerun with --accept-changes")
+        fetch.save_manifest(manifest)
     if a.cmd in ("build", "all"):
         build()
     if a.cmd in ("geometry", "all"):

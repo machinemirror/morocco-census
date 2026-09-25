@@ -1,3 +1,8 @@
+import hashlib
+
+import pytest
+
+from morocco_census import cli, fetch
 from morocco_census.crosswalk import norm, norm_app
 from morocco_census.extract import to_num
 from morocco_census.fetch import changed
@@ -53,3 +58,20 @@ def test_to_num_tokens():
     import pandas as pd
 
     assert to_num(pd.Series(["pm", "-", "12.5", " .. "])).isna().tolist() == [True, True, False, True]
+
+
+def test_verify_flags_tampered_and_missing_files(tmp_path):
+    (tmp_path / "a.xlsx").write_bytes(b"original")
+    manifest = {
+        "a.xlsx": {"sha256": hashlib.sha256(b"original").hexdigest()},
+        "gone.pdf": {"sha256": "0" * 64},
+    }
+    assert fetch.verify(manifest, raw=tmp_path) == ["gone.pdf: missing"]
+    (tmp_path / "a.xlsx").write_bytes(b"re-issued")
+    assert [b.split(":")[0] for b in fetch.verify(manifest, raw=tmp_path)] == ["a.xlsx", "gone.pdf"]
+
+
+def test_build_refuses_changed_raw_files(monkeypatch):
+    monkeypatch.setattr(fetch, "verify", lambda: ["a.xlsx: sha256 1, manifest 0"])
+    with pytest.raises(SystemExit, match="differ from data/raw/manifest.json"):
+        cli.build()

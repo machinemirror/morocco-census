@@ -109,30 +109,34 @@
   },
   "linkage": {
     "spine_2014": 1538,
-    "linked_2004_annex": 1476,
+    "linked_2004_annex": 1492,
     "linked_2004_profiles": 1537,
     "unplaced_2004": {
-      "unlinked_units": 2,
-      "partial_units": 5,
-      "population": 93175
+      "unlinked_units": 1,
+      "partial_units": 6,
+      "population": 65599,
+      "by_province_2004": {
+        "Settat": 32838,
+        "Nouaceur": 32761
+      }
     },
     "profile_links": {
       "exact": 1457,
       "centre": 146,
       "fuzzy": 31,
       "review": 28,
-      "split": 21,
+      "split": 22,
       "province_split": 13
     },
     "linked_2024": 1538,
-    "linked_all_three": 1476,
+    "linked_all_three": 1492,
     "unlinked_2024": [],
     "imputation": {
       "src04": {
-        "direct": 1412,
-        "fuzzy": 64,
-        "imputed_cercle": 61,
-        "imputed_province": 1
+        "direct": 1453,
+        "fuzzy": 39,
+        "imputed_cercle": 37,
+        "imputed_province": 9
       },
       "src14": {
         "direct": 1536,
@@ -195,11 +199,11 @@
     }
   },
   "backcast_2004": {
-    "communes": 35,
-    "within_2pct": 27,
+    "communes": 36,
+    "within_2pct": 28,
     "calibrated": {
-      "communes": 16,
-      "within_2pct": 15
+      "communes": 17,
+      "within_2pct": 16
     },
     "one_to_one": {
       "communes": 15,
@@ -258,6 +262,162 @@
         "hcp": 10582,
         "pct": 2.1
       }
-    ]
+    ],
+    "out_of_sample": {
+      "communes": 87,
+      "within_2pct": 64,
+      "one_to_one": {
+        "communes": 76,
+        "within_2pct": 57
+      },
+      "other_links": {
+        "communes": 11,
+        "within_2pct": 7
+      },
+      "largest_gaps": [
+        {
+          "name": "Lahraouyine (Mun.)",
+          "linked": 52862,
+          "hcp": 24525,
+          "pct": 115.5
+        },
+        {
+          "name": "Sidi Hajjaj Oued Hassar",
+          "linked": 19556,
+          "hcp": 13849,
+          "pct": 41.2
+        },
+        {
+          "name": "Sidi Abdelkrim",
+          "linked": 8903,
+          "hcp": 13910,
+          "pct": -36.0
+        },
+        {
+          "name": "Tit Mellil (Mun.)",
+          "linked": 11710,
+          "hcp": 18106,
+          "pct": -35.3
+        },
+        {
+          "name": "Ain Tizgha",
+          "linked": 7700,
+          "hcp": 11445,
+          "pct": -32.7
+        },
+        {
+          "name": "Nouaceur (Mun.)",
+          "linked": 12153,
+          "hcp": 16910,
+          "pct": -28.1
+        },
+        {
+          "name": "Ziaida",
+          "linked": 11826,
+          "hcp": 14031,
+          "pct": -15.7
+        },
+        {
+          "name": "Sidi Othmane (Arrond.)",
+          "linked": 176963,
+          "hcp": 205531,
+          "pct": -13.9
+        },
+        {
+          "name": "Mzamza Janoubia",
+          "linked": 19113,
+          "hcp": 22121,
+          "pct": -13.6
+        },
+        {
+          "name": "Mediouna (Mun.)",
+          "linked": 14653,
+          "hcp": 16423,
+          "pct": -10.8
+        },
+        {
+          "name": "Bni Yakhlef",
+          "linked": 29723,
+          "hcp": 33112,
+          "pct": -10.2
+        },
+        {
+          "name": "Ech-challalate",
+          "linked": 40311,
+          "hcp": 36922,
+          "pct": 9.2
+        },
+        {
+          "name": "Ahlaf",
+          "linked": 12841,
+          "hcp": 11829,
+          "pct": 8.6
+        },
+        {
+          "name": "Al Majjatia Oulad Taleb",
+          "linked": 23322,
+          "hcp": 21611,
+          "pct": 7.9
+        },
+        {
+          "name": "Hay-Hassani (Arrond.)",
+          "linked": 323277,
+          "hcp": 350447,
+          "pct": -7.8
+        },
+        {
+          "name": "Benslimane (Mun.)",
+          "linked": 53380,
+          "hcp": 49569,
+          "pct": 7.7
+        },
+        {
+          "name": "Oulad Amer",
+          "linked": 5779,
+          "hcp": 6241,
+          "pct": -7.4
+        },
+        {
+          "name": "Sidi Ahmed El Khadir",
+          "linked": 8683,
+          "hcp": 9283,
+          "pct": -6.5
+        },
+        {
+          "name": "Dar Chaffai",
+          "linked": 17632,
+          "hcp": 16570,
+          "pct": 6.4
+        },
+        {
+          "name": "Oulad Yahya Louta",
+          "linked": 9642,
+          "hcp": 9197,
+          "pct": 4.8
+        },
+        {
+          "name": "Aîn-Sebaâ (Arrond.)",
+          "linked": 148224,
+          "hcp": 155489,
+          "pct": -4.7
+        },
+        {
+          "name": "Sidi El Aidi",
+          "linked": 13273,
+          "hcp": 12810,
+          "pct": 3.6
+        },
+        {
+          "name": "Sbata (Arrond.)",
+          "linked": 122827,
+          "hcp": 119503,
+          "pct": 2.8
+        }
+      ],
+      "by_source": {
+        "HCP Settat, population légale 2004": 59,
+        "HCP Grand Casablanca, note premiers résultats RGPH 2014": 28
+      }
+    }
   }
 }

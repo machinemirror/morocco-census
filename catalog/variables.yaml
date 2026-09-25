@@ -4,6 +4,7 @@
 #   entry; the columns that measure it point here with `indicator:` and carry the vintage.
 # datasets: one entry per published table. Every column is listed. A column either points to
 #   an indicator (and gives its vintage and exact source), or describes itself (identifiers).
+#   Every column has a source, its own or its dataset's; morocco-census marks what this project derives.
 # `comparable: false` or a `note` flags a definitional break between vintages.
 # `agg: sum` marks counts, summed when communes are merged into a map unit; everything else is a
 #   population-weighted mean (flags: max), or household-weighted with `weight: households`.
@@ -1566,6 +1567,9 @@ sources:
   poplegale2014:
     title: HCP, RGPH 2014 Population légale (12-region cut)
     url: https://rgph2014.hcp.ma/file/166326/
+  morocco-census:
+    title: morocco-census (derived by this project from the HCP sources; see docs/PROVENANCE.md)
+    url: https://doi.org/10.5281/zenodo.22953567
   poplegale2024:
     title: HCP, RGPH 2024 Population légale par régions, provinces, préfectures et communes
     url: https://www.hcp.ma/file/242341/
@@ -2441,6 +2445,7 @@ datasets:
 
   - id: panel_commune
     file: panel_commune.csv
+    source: morocco-census
     key: code14
     en: Three-census commune panel
     description: One row per 2014 commune (1,538) plus six city rows (level = city) for the arrondissement cities, which sum the arrondissements' legal population and households and population-weight their rates; drop them before summing. Values missing after post-2004 reorganisations are imputed from the same cercle (fallback province), weighted by legal population, and flagged in src04/src14/src24.
@@ -2481,10 +2486,16 @@ datasets:
       households_legal14: {en: Households (legal list 2014), unit: households, definition: "Households in HCP's 2014 legal population list.", source: poplegale2014}
       pop_legal14: {indicator: population_legal, vintage: 2014, source: poplegale2014, from: "Population légale 2014: Population"}
       level: {en: Row level, unit: flag, definition: "commune | city (aggregate of arrondissements)."}
-      cercle: {en: Cercle code (2014), unit: code, definition: First three segments of code14; imputation group.}
+      cercle: {en: Cercle code (2014), unit: code, definition: "First three segments of code14; imputation group. Municipalities sit in HCP's pseudo-cercle 01, so for them it is the province's other municipalities."}
+      pop04_basis: {en: Basis of the 2004 population, unit: flag, definition: "How the commune's 2004 counts are built from crosswalk_app2004: direct (whole 2004 units) | calibrated (a split weight set from HCP's 2004 figure) | split_2014pop (a split weight from 2014 population) | centre_only (a municipality built from autonomous centres alone, so its 2004 count omits territory added later and its 2004-2014 growth is overstated) | none (no 2004 unit)."}
+      unplaced04_nearby: {en: Near unplaced 2004 population, unit: flag, definition: "True where the commune borders a placed part of a 2004 unit that is only partly placed, or lies at or next to an unplaced unit (catalog/link_review.csv, near): some of its 2004 population may be missing. Arrondissements are flagged only as placed parts."}
+      n_donors04: {en: Donors of an imputed 2004 value, unit: count, definition: "Communes averaged for an imputed src04 value (cercle, or province); empty where observed. One donor means the value is a single commune's."}
+      n_donors14: {en: Donors of an imputed 2014 value, unit: count, definition: As n_donors04, for src14.}
+      n_donors24: {en: Donors of an imputed 2024 value, unit: count, definition: As n_donors04, for src24.}
 
   - id: crosswalk_communes
     file: crosswalk_communes.csv
+    source: morocco-census
     key: code14
     en: Commune crosswalk 2004-2014-2024
     description: The 2014 commune list linked to the 2004 annex labels, the poverty-map names and the 2024 codes. The 2004 commune profiles link through crosswalk_app2004. Join 2024 tables on code24_commune, which gives the six arrondissement cities their single 2024 commune; join the boundaries on unit.
@@ -2500,9 +2511,12 @@ datasets:
       label04: {en: 2004 annex label, unit: text, definition: Matched 2004 label.}
       idh04: {indicator: idh, vintage: 2004, source: annex2004, from: "Annexe 2: IDH (copied for convenience)"}
       src04: {en: 2004 match type, unit: flag, definition: "direct | fuzzy | empty (unmatched)."}
+      pop04_basis: {en: Basis of the 2004 population, unit: flag, definition: "How the commune's 2004 counts are built from crosswalk_app2004: direct (whole 2004 units) | calibrated (a split weight set from HCP's 2004 figure) | split_2014pop (a split weight from 2014 population) | centre_only (a municipality built from autonomous centres alone, so its 2004 count omits territory added later and its 2004-2014 growth is overstated) | none (no 2004 unit)."}
+      unplaced04_nearby: {en: Near unplaced 2004 population, unit: flag, definition: "True where the commune borders a placed part of a 2004 unit that is only partly placed, or lies at or next to an unplaced unit (catalog/link_review.csv, near): some of its 2004 population may be missing. Arrondissements are flagged only as placed parts."}
 
   - id: crosswalk_app2004
     file: crosswalk_app2004.csv
+    source: morocco-census
     key: app_code, code14
     en: 2004 app code crosswalk
     description: Links the Maroc en Chiffres app codes (communes_2004) to the 2014 spine, 1,537 of 1,538 communes. Several app units can share a 2014 commune (a rural commune and its autonomous centres, or communes merged after 2004), and an app unit split after 2004 appears once per part; values are combined population-weighted, counts shared by `weight`.
@@ -2510,4 +2524,5 @@ datasets:
       code14: {en: Commune code (2014), unit: code, definition: Spine key; repeats where several 2004 units form one 2014 commune.}
       app_code: {en: App commune code (2004), unit: code, definition: Key of communes_2004; repeats where a 2004 unit was split after 2004.}
       link: {en: Link type, unit: text, definition: "exact (name and province) | fuzzy (name similarity within a province) | province_split (2014 province created after 2004, matched within its 2004 provinces) | centre (autonomous centre joined to its rural commune) | review (catalog/link_review.csv: merges, renames and absorptions after 2004) | split (a 2004 unit divided between 2014 communes, catalog/link_review.csv)."}
-      weight: {en: Share of the 2004 unit, unit: share, definition: "Share of the 2004 unit's counts that belongs to this 2014 commune: 1, or for a split its share of the parts' 2014 population. Rates are carried unchanged to every part."}
+      weight: {en: Share of the 2004 unit, unit: share, definition: "Share of the 2004 unit's counts that belongs to this 2014 commune: 1, or for a split the share weight_basis names. Weights of a unit sum below 1 where part of it is not placed. Rates are carried unchanged to every part."}
+      weight_basis: {en: Basis of a split weight, unit: flag, definition: "hcp (HCP's 2004 population on 2014 boundaries, catalog/hcp_2004_on_2014.csv) | 2014_population (the parts' 2014 population) | 2014_rural_population | empty (weight 1)."}

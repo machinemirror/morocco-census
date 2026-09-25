@@ -328,6 +328,7 @@ def hcp_boundaries() -> gpd.GeoDataFrame:
     iso = g.ISO.str.removeprefix("MA-").str.split("-", expand=True)
     g["code14"] = iso[0] + "." + iso[1] + "." + iso[2].str[:2] + "." + iso[2].str[2:4] + "."
     cw = pd.read_csv(P_CROSSWALK)
+    assert cw.code14.isin(g.code14).all(), "2014 communes without an HCP polygon"
     g = g.merge(cw[["code14", "unit"]], on="code14", how="inner")
     g["geometry"] = g.geometry.make_valid().buffer(0)  # buffer(0) drops the stray lines make_valid can leave
     out = g.dissolve("unit", as_index=False)[["unit", "geometry"]].to_crs(UTM)
