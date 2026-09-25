@@ -89,3 +89,11 @@ def test_downloads(exported):
     assert {"communes_points.gpkg", "communes_points.geojson", "data_dictionary.csv"} <= names
     assert not {"communes.gpkg", "communes_queen.gal", "communes_thiessen.geojson"} & names
     assert {"hcp_communes_2024.gpkg", "hcp_communes_2024.geojson", "hcp_communes_2024_queen.gal"} <= names
+
+
+def test_every_column_needs_a_source():
+    cat = catalog.load()
+    assert catalog.problems(cat) == []
+    ds = next(d for d in cat["datasets"] if d["id"] == "crosswalk_communes")
+    del ds["source"]
+    assert "crosswalk_communes.code14: no source" in catalog.problems(cat)

@@ -142,23 +142,33 @@ def main() -> pd.DataFrame:
     cols14 = ["mpi2014", "mpi_rate2014", "mpi_intensity2014", "vulnerability2014"]
     cols24 = ["mpi2024", "mpi_rate2024", "mpi_intensity2024", "vulnerability2024"]
 
-    def impute(cols, flag_col):
+    def impute(cols, flag_col, donors_col):
         p[flag_col] = p.get(flag_col)
+        p[donors_col] = pd.NA
+        # donors are communes only: a city row shares its arrondissements' cercle code and would count them twice
+        w = p.pop_legal14.fillna(0).where(p.level.eq("commune"), 0)
         for group, tag in ((["cercle"], "imputed_cercle"), (["prov14"], "imputed_province")):
             need = p[cols[0]].isna() & p.level.eq("commune")
             if not need.any():
                 break
-            w = p.pop_legal14.fillna(0)
+            keys = [p[g] for g in group]
+            donors = (p[cols[0]].notna() & p.level.eq("commune")).groupby(keys).transform("sum")
+            # a cercle with one donor would copy one commune's value (a lone municipality in the pseudo-cercle 01,
+            # say), so those communes fall through to the province
+            enough = donors >= 2 if tag == "imputed_cercle" else donors >= 1
             for c in [c for c in cols if c in p.columns]:
-                num = (p[c] * w).groupby([p[g] for g in group]).transform("sum")
-                den = w.where(p[c].notna(), 0).groupby([p[g] for g in group]).transform("sum")
-                fill = need & p[c].isna() & (den > 0)
+                num = (p[c] * w).groupby(keys).transform("sum")
+                den = w.where(p[c].notna(), 0).groupby(keys).transform("sum")
+                fill = need & enough & p[c].isna() & (den > 0)
                 p.loc[fill, c] = (num / den)[fill]
-            p.loc[need & p[cols[0]].notna(), flag_col] = tag
+            done = need & p[cols[0]].notna()
+            p.loc[done, flag_col] = tag
+            p.loc[done, donors_col] = donors[done]
+        p[donors_col] = p[donors_col].astype("Int64")
 
-    impute(cols04, "src04")
-    impute(cols14, "src14")
-    impute(cols24, "src24")
+    impute(cols04, "src04", "n_donors04")
+    impute(cols14, "src14", "n_donors14")
+    impute(cols24, "src24", "n_donors24")
 
     p.to_csv(P_PANEL, index=False)
     core = p[p.level == "commune"]

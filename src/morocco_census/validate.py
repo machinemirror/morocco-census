@@ -7,12 +7,14 @@ Tracked, so the numbers a release reports can be read without the raw files:
 """
 
 import json
+import re
 
+import numpy as np
 import pandas as pd
+from pypdf import PdfReader
 
 from .config import (
     HCP_2004_ON_2014,
-    LINK_REVIEW,
     P_COMMUNES,
     P_CROSSCHECK,
     P_CROSSWALK,
@@ -22,8 +24,12 @@ from .config import (
     P_SLICES,
     P_UNMATCHED,
     PROCESSED,
+    R_APP_INDEX,
+    R_HCP04_CASABLANCA,
+    R_HCP04_SETTAT,
     RAW,
 )
+from .crosswalk import norm
 
 P_VALIDATION = PROCESSED / "validation.json"
 SHORTFALLS = 8
@@ -91,47 +97,139 @@ def slices() -> dict:
     return out
 
 
+def linked_2004() -> pd.Series:
+    """2004 population the profile links give each 2014 commune."""
+    app = pd.read_csv(P_CROSSWALK_APP, dtype={"app_code": str, "code14": str})
+    pop = pd.read_csv(P_COMMUNES[2004], dtype={"app_code": str}).set_index("app_code").population04
+    return (app.app_code.map(pop) * app.weight).groupby(app.code14).sum()
+
+
+def compare(ref: pd.DataFrame, groups: dict[str, pd.Series]) -> dict:
+    ref = ref.copy()
+    ref["linked"] = ref.code14.map(linked_2004()).fillna(0).round().astype(int)
+    ref["pct"] = (ref.linked / ref.population04_hcp * 100 - 100).round(1)
+    ref["ok"] = ref.pct.abs() <= 2
+    out = {"communes": len(ref), "within_2pct": int(ref.ok.sum())}
+    for name, mask in groups.items():
+        m = mask.reindex(ref.index, fill_value=False)
+        out[name] = {"communes": int(m.sum()), "within_2pct": int((ref.ok & m).sum())}
+    out["largest_gaps"] = [
+        {"name": r.name14, "linked": int(r.linked), "hcp": int(r.population04_hcp), "pct": float(r.pct)}
+        for _, r in ref[~ref.ok].sort_values("pct", key=abs, ascending=False).iterrows()
+    ]
+    return out
+
+
+def link_kind(codes: pd.Series) -> pd.Series:
+    """calibrated (a weight set from an HCP figure), one_to_one (exact links only) or other_links."""
+    app = pd.read_csv(P_CROSSWALK_APP, dtype={"app_code": str, "code14": str}, keep_default_na=False)
+    by = app.groupby("code14")
+    calibrated = codes.isin(app.code14[app.weight_basis == "hcp"])
+    one_to_one = codes.map(by.link.agg(lambda s: set(s) == {"exact"})).fillna(False).astype(bool)
+    return pd.Series(np.select([calibrated, one_to_one], ["calibrated", "one_to_one"], "other_links"), index=codes.index)
+
+
 def backcast() -> dict:
     """The 2004 population our links give each 2014 commune, against HCP's own figure on 2014 boundaries.
 
-    Where a reviewed split weight exists for a compared commune it was set from that same HCP figure, so those
-    communes are reported apart; of the rest, communes linked one-to-one test only the 2004 count itself."""
+    catalog/hcp_2004_on_2014.csv also sets split weights, so its communes are split into those it calibrated and the
+    rest; the out-of-sample set, parsed from two HCP documents, never feeds a weight. HCP's figures are legal
+    population (they include the population comptée à part), so small negative gaps are expected."""
     ref = pd.read_csv(HCP_2004_ON_2014, dtype={"code14": str})
-    app = pd.read_csv(P_CROSSWALK_APP, dtype={"app_code": str, "code14": str})
-    pop = pd.read_csv(P_COMMUNES[2004], dtype={"app_code": str}).set_index("app_code").population04
-    ours = (app.app_code.map(pop) * app.weight).groupby(app.code14).sum()
-    ref["linked"] = ref.code14.map(ours).fillna(0).round().astype(int)
-    ref["pct"] = (ref.linked / ref.population04_hcp * 100 - 100).round(1)
-    ref["ok"] = ref.pct.abs() <= 2
-    review = pd.read_csv(LINK_REVIEW, dtype={"code14": str})
-    calibrated = ref.code14.isin(review.code14[review.weight.notna()])
-    one_to_one = ref.code14.map(app.groupby("code14").link.agg(lambda s: set(s) == {"exact"})).fillna(False)
+    kind = link_kind(ref.code14)
+    out = compare(ref, {k: kind == k for k in ("calibrated", "one_to_one", "other_links")})
+    test = hcp_2004_test()
+    test = test[~test.code14.isin(ref.code14)].reset_index(drop=True)
+    kind = link_kind(test.code14)
+    oos = compare(test, {k: kind == k for k in ("one_to_one", "other_links")})
+    oos["by_source"] = {k: int(v) for k, v in test.source.value_counts().items()}
+    out["out_of_sample"] = oos
+    return out
 
-    def tally(mask) -> dict:
-        return {"communes": int(mask.sum()), "within_2pct": int((ref.ok & mask).sum())}
 
-    return {
-        "communes": len(ref),
-        "within_2pct": int(ref.ok.sum()),
-        "calibrated": tally(calibrated),
-        "one_to_one": tally(~calibrated & one_to_one),
-        "other_links": tally(~calibrated & ~one_to_one),
-        "largest_gaps": [
-            {"name": r.name14, "linked": int(r.linked), "hcp": int(r.population04_hcp), "pct": float(r.pct)}
-            for _, r in ref[~ref.ok].sort_values("pct", key=abs, ascending=False).iterrows()
-        ],
-    }
+def numbers(tokens: list[str], n: int) -> list[tuple[int, ...]]:
+    """Every reading of digit tokens as n numbers written with space-separated thousands ('2 603 15 607')."""
+    if n == 0:
+        return [()] if not tokens else []
+    out = []
+    for k in range(1, len(tokens) + 1):
+        g = tokens[:k]
+        if len(g) == 1 or (len(g[0]) <= 3 and all(len(x) == 3 for x in g[1:])):
+            out += [(int("".join(g)),) + rest for rest in numbers(tokens[k:], n - 1)]
+    return out
+
+
+def plausible(households: int, population: int) -> bool:
+    return 2.5 <= population / households <= 12
+
+
+def hcp_2004_settat() -> tuple[pd.DataFrame, int]:
+    """Communes of Settat and Benslimane on post-2009 codes (households, population), and the national total as the
+    sum of the region rows (the document's total line does not extract cleanly)."""
+    rows, regions = [], {}
+    for page in PdfReader(R_HCP04_SETTAT).pages:
+        for line in (page.extract_text() or "").split("\n"):
+            if m := re.match(r"^(\d{2}\.\d{3}\.\d{2}\.\d{2}\.)\s+(.+?)\s+(\d[\d ]*\d)", line):
+                (_, pop), *more = [r for r in numbers(m.group(3).split(), 2) if plausible(*r)]
+                assert not more, line
+                rows.append({"code14": m.group(1), "name": m.group(2), "population04_hcp": pop})
+            elif (m := re.match(r"^(\d{2}) (\D+?) ([\d ]+)$", line.strip())) and m.group(1) not in regions:
+                readings = [r for r in numbers(m.group(3).split(), 2) if plausible(*r)]
+                if len(readings) == 1:
+                    regions[m.group(1)] = readings[0][1]
+    assert len(regions) == 16
+    return pd.DataFrame(rows).assign(source="HCP Settat, population légale 2004"), sum(regions.values())
+
+
+def hcp_2004_casablanca() -> pd.DataFrame:
+    """Communes of the Grand Casablanca region, 2004 on 2014 boundaries. Each row is read so that its 2014 figure
+    equals the commune's 2014 legal population, which fixes how its digits group."""
+    t14 = pd.read_csv(P_COMMUNES[2014], dtype={"code14": str})
+    t14 = t14[t14.code14.str.match(r"06\.(141|355|371|385)\.")]
+    code = {norm(n): c for n, c in zip(t14.name14, t14.code14)}
+    legal = t14.set_index("code14").pop_legal14
+    rows = {}
+    for i, page in enumerate(PdfReader(R_HCP04_CASABLANCA).pages, start=1):
+        # the province tables (pp. 5-8) give population before households, the arrondissement annex the reverse
+        order = ("p04", "h04", "p14", "h14") if i < 9 else ("h04", "p04", "h14", "p14")
+        for line in (page.extract_text() or "").split("\n"):
+            m = re.match(r"^\s*(?:C\.R\.\s+)?(.+?\((?:Arrond|Mun)\.\)|[A-Z][^\d]+?)\s+(\d[\d ]*)", line)
+            if not m or "Dont" in line or (c := code.get(norm(m.group(1)))) is None:
+                continue
+            tokens = m.group(2).split()
+            for k in range(4, len(tokens) + 1):
+                for r in numbers(tokens[:k], 4):
+                    d = dict(zip(order, r))
+                    if d["p14"] == legal[c] and plausible(d["h04"], d["p04"]) and plausible(d["h14"], d["p14"]):
+                        rows.setdefault(c, set()).add(d["p04"])
+    assert all(len(v) == 1 for v in rows.values()) and len(rows) == len(t14)
+    return pd.DataFrame(
+        {"code14": list(rows), "population04_hcp": [v.pop() for v in rows.values()]}
+    ).assign(source="HCP Grand Casablanca, note premiers résultats RGPH 2014")
+
+
+def hcp_2004_test() -> pd.DataFrame:
+    t14 = pd.read_csv(P_COMMUNES[2014], dtype={"code14": str}).set_index("code14").name14
+    test = pd.concat([hcp_2004_settat()[0], hcp_2004_casablanca()], ignore_index=True)
+    test["name14"] = test.code14.map(t14)
+    assert test.name14.notna().all()
+    return test[["code14", "name14", "population04_hcp", "source"]]
 
 
 def unplaced_2004() -> dict:
-    """2004 population the profile links place on no 2014 commune: unlinked units and the unplaced share of splits."""
+    """2004 population the profile links place on no 2014 commune: unlinked units and the unplaced share of splits,
+    by the unit's 2004 province."""
     app = pd.read_csv(P_CROSSWALK_APP, dtype={"app_code": str})
     t04 = pd.read_csv(P_COMMUNES[2004], dtype={"app_code": str}).set_index("app_code")
     placed = app.groupby("app_code").weight.sum().reindex(t04.index).fillna(0)
+    left = (t04.population04 * (1 - placed).clip(lower=0)).round()
+    province = pd.read_csv(R_APP_INDEX, dtype=str).set_index("commune_code").province
+    by = left[left > 0].groupby(province).sum()
     return {
         "unlinked_units": int((placed == 0).sum()),
         "partial_units": int(((placed > 0) & (placed < 0.999)).sum()),
-        "population": round(float((t04.population04 * (1 - placed).clip(lower=0)).sum())),
+        "population": int(left.sum()),
+        "by_province_2004": {k: int(v) for k, v in by.sort_values(ascending=False).items()},
     }
 
 

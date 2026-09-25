@@ -5,13 +5,15 @@ left out. Raw files, with URLs, sizes, sha256 and fetch dates, are listed in
 [`data/raw/manifest.json`](../data/raw/manifest.json), with the 2004 crawl as one digest over its per-page
 checksums (`data/raw/2004_app_pages.sha256`). `uv run mc fetch` downloads the files and checks every one against
 the manifest; it exits non-zero if any differs (HCP occasionally re-issues files; GeoNames and Wikidata change
-daily) unless given `--accept-changes`, which records the new checksums.
+daily) unless given `--accept-changes`, which records the new checksums. `mc build` (and `mc all`) refuses to start
+while any raw file or the crawl differs from the manifest, and `mc crawl-2004` records changed page checksums only
+with `--accept-changes`.
 
 ## Pipeline
 
 | Step | Command / module | Inputs | Output |
 |---|---|---|---|
-| Fetch | `mc fetch` · `fetch.py` | 95 files (HCP workbooks and PDF, 75 HCP boundary files, GeoNames, Wikidata, Natural Earth) | `data/raw/` |
+| Fetch | `mc fetch` · `fetch.py` | 97 files (HCP workbooks and PDFs, 75 HCP boundary files, GeoNames, Wikidata, Natural Earth) | `data/raw/` |
 | 2004 profiles | `mc crawl-2004` · `hcp_app.py` | HCP Maroc en Chiffres app (4 profile pages × 1,689 communes) | `data/raw/2004_app/`, checksums in the manifest |
 | 2004 indices | `parse_2004.annex` | HCP 2004 poverty volume, Annexe 2 (PDF) | `commune_indices_2004.csv` |
 | 2004 table | `parse_2004.app` | crawled profile pages | `communes_2004.csv`, `communes_2004_sex.csv` |
@@ -20,7 +22,8 @@ daily) unless given `--accept-changes`, which records the new checksums.
 | Panel | `panel.py` | crosswalk, annex, poverty map, MPI database, 2014 legal population | `panel_commune.csv` |
 | App crosswalk | `crosswalk.app2004` | app commune index, crosswalk, `catalog/link_review.csv`, 2014 population | `crosswalk_app2004.csv` |
 | Geometry | `mc geometry` · `geometry.py` | crosswalk, GeoNames, Wikidata, `catalog/seed_review.csv`, `catalog/seed_names.csv`, Natural Earth, HCP boundary files | `geometry/*` (commune points, HCP boundaries and their queen weights) |
-| Validate | `mc validate` · `validate.py` | tables, legal population 2014 and 2024, `catalog/hcp_2004_on_2014.csv` | `validation.json` |
+| 2004 flags | `crosswalk.pop04_flags` | both crosswalks, `catalog/link_review.csv`, the boundaries' contiguity | `pop04_basis`, `unplaced04_nearby` in `crosswalk_communes.csv` and `panel_commune.csv` |
+| Validate | `mc validate` · `validate.py` | tables, legal population 2014 and 2024, `catalog/hcp_2004_on_2014.csv`, HCP Settat and Grand Casablanca documents (test set) | `validation.json` |
 | Site | `mc site` · `site.py` | processed tables, catalogue | `site/data/` (map index and values by theme and breakdown, class breaks, geometry, downloads) |
 
 `mc all` runs build, geometry, validate and site. Of these, only `site` runs in GitHub Actions (to deploy the site and
@@ -45,6 +48,7 @@ the release bundle); the others need the raw files. CI also runs ruff and the te
 | 2024 legal population | HCP, RGPH 2024 population légale (commune and province names in French and Arabic) | https://www.hcp.ma/file/242341/ |
 | Boundaries and 2024 labels | HCP, RGPH 2024 results platform: 75 per-province commune boundary files (2014 census cartography); bilingual indicator menu (chart 667) and concept definitions | https://resultats2024.rgphapps.ma |
 | 2004 on 2014 boundaries | HCP regional monographs and notes (Berrechid, Grand Casablanca, Settat, Rabat-Salé-Kénitra, Salé, M'Diq-Fnideq), each cited in `catalog/hcp_2004_on_2014.csv` | hcp.ma regional sites |
+| 2004 test set | HCP Direction provinciale de Settat, *Population légale d'après les résultats du RGPH 2004* (Settat and Benslimane on post-2009 codes; regional totals); HCP Grand Casablanca, *note de présentation des premiers résultats RGPH 2014* (every commune of the region, 2004 on 2014 boundaries) | hcp.ma/reg-chaouia/docs/Publications/Population%20legale_2004.pdf; hcp.ma/reg-casablanca/docs/docs/rgph2014__region_grand_casablanca_note_de_presentation_des_premiers_resultats.pdf |
 | Commune decrees | Décret n° 2-08-520 (BO 5684, 2008) and n° 2-09-320 (BO 5744, 2009): lists of communes, consulted for the 2009 reorganisation | sgg.gov.ma (via the Internet Archive) |
 | Seed points | GeoNames MA + EH (CC BY 4.0); Wikidata rural and urban communes of Morocco, SPARQL query in `fetch.py` (CC0) | geonames.org; query.wikidata.org |
 | Outline | Natural Earth 1:10m admin-0, Morocco + W. Sahara (public domain) | naturalearthdata.com |
@@ -77,13 +81,14 @@ municipalities, 41 arrondissements).
 
 | Link | Matched of 1,538 | Notes |
 |---|---|---|
-| 2004–2014 poverty map | 1,455 | exact name + province |
+| 2004–2014 poverty map | 1,496 | exact name + province, then unambiguous name |
 | 2025 MPI database (2024 codes) | 1,538 | 36 by fuzzy name with a same-province bonus, 9 by identical code (a 2024 code is usually the 2014 code without dots) |
-| 2004 annex | 1,476 | 1,412 direct, 64 mutual-best fuzzy (rapidfuzz ≥ 82); rules below |
-| All three censuses | 1,476 (96.0%) | the rest are communes created or merged after 2004 |
+| 2004 annex | 1,492 | 1,453 direct, 39 mutual-best fuzzy (rapidfuzz ≥ 82); rules below |
+| All three censuses | 1,492 (97.0%) | the rest are communes created or merged after 2004 |
 
 The annex is matched by its own rules, not the name + province rule above, because its labels are 'Province
-Commune' strings, sometimes truncated, on the pre-2009 provinces: first the last 18 characters of province + name;
+Commune' strings, sometimes truncated, on the pre-2009 provinces, with an arrondissement under its city ('Casablanca Anfa (AR)'): first the last 18
+characters of province (the city, for an arrondissement) + name;
 then a label ending with the commune's name (at least 5 letters), unambiguously and among labels no commune has
 claimed, so that a commune carved out after 2004 does not take its namesake's row in another province; then
 mutual-best fuzzy on province + name. The 2024 fuzzy step instead takes each unmatched commune's best `fuzz.ratio`
@@ -99,7 +104,8 @@ plus 20 points for the same province, at 105 or more (in effect the same provinc
 - Matching: exact space-insensitive name + province, then unique name (1,457 `exact`); province-constrained
   mutual-best fuzzy ≥ 85 (31 `fuzzy`); for provinces created after 2004 (Driouch, Fquih Ben Salah, Sidi Slimane...),
   mutual-best fuzzy within the 2004 provinces their linked communes came from (13 `province_split`).
-- `catalog/link_review.csv` (50 rows, giving 28 `review` and 21 `split` rows of `crosswalk_app2004`): merges (Ain Johra + Sidi Boukhalkhal, Ain Nzagh + Tamadroust), renames
+- `catalog/link_review.csv` (51 rows, giving 28 `review` and 22 `split` rows of `crosswalk_app2004`; `weight_basis`
+  says where a weight comes from, and `near` where an unplaced unit lies): merges (Ain Johra + Sidi Boukhalkhal, Ain Nzagh + Tamadroust), renames
   (Lkhaloua → Had Al Gharbia), rural remainders renamed when their centre became a municipality (Driouch → Mtalssa,
   Tahannaout → Aghouatim, Sidi Bou Othmane → Jbilate, Sidi Bouknadel → Ameur) and absorptions (Amalou Ighriben into
   Khenifra), and Soualem, whose rural remainder kept its commune number as Soualem Trifiya while its centre became Had
@@ -112,37 +118,55 @@ plus 20 points for the same province, at 105 or more (in effect the same provinc
   Deroua (Mun.) and the rest to Oulad Ziyane (HCP: 14,151); Ain Dorbane, abolished in 2008, went mostly to Ben Ahmed
   (7,132) and Ain Dorbane-Lahlaf (878); Oulad Azzouz (26,103) was carved from Dar Bouazza. Where HCP accounts for only
   part of a unit, its weights sum below 1 and the rest is left unplaced (Sidi Rahal Chatai, Sidi El Mekki, Dar
-  Bouazza, Oulad Salah, Ain Dorbane). Lamkansa, which HCP leaves out of Bouskoura, is unlinked.
+  Bouazza, Oulad Salah, Ain Dorbane). Lamkansa, an autonomous centre HCP leaves out of Bouskoura, lies in Aîn-Chock
+  (its GeoNames point); HCP's Aîn-Chock figure exceeds its own 2004 unit by 27,575, so Lamkansa's weight there is
+  0.8125 and 6,365 stay unplaced. Four split links from two units use 2014 population instead (Bouguedra–Chahda,
+  and Bouanane–Ain Chair on 2014 rural population), and Oulad Ziyane's weight is Deroua's residual.
 - The 2008-2009 decrees (n° 2-08-520, BO 5684; n° 2-09-320, BO 5744) list communes by province, cercle and caïdat
   but not what each was carved from; boundaries were set by ministerial arrêtés that are not published online. HCP
   says it computed 2004-2014 growth for every commune but has published it only in some regional documents.
-- `validation.json` (`backcast_2004`) compares each 2014 commune's linked 2004 population with HCP's figure: 27 of 35
-  within 2%, but that count is not independent. The split weights of 16 of the 35 were transcribed from the same HCP
-  tables (15 within 2%); 15 more are one-to-one `exact` links, which check only that the app and HCP agree on an
-  unchanged commune (12 within 2%). The 4 communes whose links the check really tests (Had Soualem, Soualem Trifiya,
-  Sahel Oulad H'Riz, Bouskoura) all miss: the first three gained, in proportions HCP does not publish, from Lakhiaita
-  and the unplaced parts of Sidi Rahal Chatai and Sidi El Mekki (Berrechid); Bouskoura (Nouaceur) lacks Lamkansa.
-  Berrechid (Mun.), El Gara and Jaqma miss by 2-5% on one-to-one links, so boundaries moved there too.
-- 2004 population placed on no 2014 commune (`linkage.unplaced_2004`): 93,175, from the 2 unlinked units and the
-  unplaced shares of 5 splits.
+- `validation.json` (`backcast_2004`) compares each 2014 commune's linked 2004 population with HCP's figure. On the
+  36 communes of `catalog/hcp_2004_on_2014.csv`, 28 are within 2%, but that count is not independent: the file set
+  the weights of 17 (16 within); 15 are one-to-one `exact` links (12 within); and the 4 whose links it really tests
+  (Had Soualem, Soualem Trifiya, Sahel Oulad H'Riz, Bouskoura) all miss. The misses are missing mass, not a wrong
+  split: Had Soualem, Soualem Trifiya and Sahel Oulad H'Riz are 26,342 short, against 28,301 left unplaced from
+  Lakhiaita and the remainders of Sidi Rahal Chatai and Sidi El Mekki; Bouskoura is 2,171 short.
+- Out of sample (`backcast_2004.out_of_sample`): two HCP documents give 2004 populations on 2014 boundaries for 87
+  more communes (59 in Settat and Benslimane, 28 in the Grand Casablanca region), none of which sets a weight. 64 are
+  within 2%: 57 of 76 one-to-one `exact` links and 7 of 11 others. The misses show boundary change that the name
+  links cannot see: Sidi Abdelkrim −36%, Ain Tizgha −33%, and Lahraouyine (Médiouna) +116% against Sidi Othmane
+  (Casablanca) −14%, offsetting gaps of about 28,000 that point to a boundary moved between them. HCP's figures are legal population, so gaps of
+  −1 to −2% are expected.
+- 2004 population placed on no 2014 commune (`linkage.unplaced_2004`): 65,599, from Lakhiaita and the unplaced shares
+  of 6 splits, all in the 2004 provinces of Settat (32,838) and Nouaceur (32,761).
+- Per-commune flags (`crosswalk_communes`, `panel_commune`): `pop04_basis` says how the 2004 counts were built. Six
+  municipalities (Ajdir, Gueznaia, Driouch, Had Soualem, Tahannaout, Sidi Bou Othmane) are `centre_only`: their 2004
+  count is their autonomous centre alone, so it omits territory they gained later and their 2004–2014 growth is
+  overstated (Had Soualem 11× by the links, 2× by HCP). `unplaced04_nearby` marks the 34 communes that border a
+  placed part of a partly placed unit, or lie at or next to Lakhiaita.
 - Several app units sharing a 2014 commune are combined like arrondissements into cities: sums for counts,
   population- or household-weighted means for rates.
-- Not linked: Ait Ali ou Lahcen (Khémisset), with no published parent; the app units Lakhiaita and Lamkansa.
+- Not linked: Ait Ali ou Lahcen (Khémisset), with no published parent; the app unit Lakhiaita (abolished in 2009;
+  its point lies in Sahel Oulad H'Riz, 1.5 km from Had Soualem; how it divided is not published).
 
 ## Imputation (panel only)
 
-Where a 2014 commune has no 2004, 2014 or 2024 poverty value (it did not exist in 2004, was split, or its
-annex row is not identified), the value is the mean of the other communes in the same cercle (fallback:
-province), weighted by 2014 legal population, and the row is flagged:
+Where a 2014 commune has no 2004 annex or 2014/2024 MPI-database value (it did not exist in 2004, was split, or
+its annex row is not identified), the value is the mean of the other communes in the same cercle, weighted by
+2014 legal population, when the cercle has at least two; otherwise of the province. Municipalities sit in HCP's
+pseudo-cercle 01, so for them the donors are the province's other municipalities. `n_donors04/14/24` give the
+number averaged, and the row is flagged:
 
 | Flag | direct | fuzzy | imputed_cercle | imputed_province |
 |---|---|---|---|---|
-| `src04` | 1,412 | 64 | 61 | 1 |
+| `src04` | 1,453 | 39 | 37 | 9 |
 | `src14` | 1,536 | – | 2 | – |
 | `src24` | 1,536 | – | 2 | – |
 
-The counts are `validation.json`'s `linkage.imputation`; city rows (`level = city`) carry no flags. Cercle means
-shrink the variance of imputed values toward their neighbours'.
+The counts are `validation.json`'s `linkage.imputation`; city rows (`level = city`) carry no flags and are not
+donors. Cercle means shrink the variance of imputed values toward their neighbours'. The 2004–2014 poverty-map
+series (`*04c`, `*14c`, `pov_glob14c`) are not imputed: they are blank for the 41 communes (2004) and 42 (2014) the
+map does not list.
 
 Robustness checks should drop imputed rows; the flags make that a one-line filter.
 
@@ -243,6 +267,21 @@ byte-for-byte and its tessellation to within 2e-5 m² per cell. Deliberate chang
     - `mc fetch` compares every file with the manifest before recording it, the HCP boundary files included, and
       exits non-zero on a change unless given `--accept-changes`. The 2004 crawl is in the manifest: its
       `communes_index.csv` and a digest of `data/raw/2004_app_pages.sha256`, the tracked per-page checksums.
+16. Review of the white paper, round 2 (2026.9.9):
+    - Annex labels ending '(AR)' kept the suffix after normalisation, so Casablanca's 16 arrondissements were
+      unlinked and imputed from one commune (Mechouar); the annex also files arrondissements under their city.
+      All 41 arrondissements now link to the annex and the poverty map. Annex links 1,476 → 1,492, poverty map
+      1,455 → 1,496; the Casablanca city row has values.
+    - Imputation needs two donors in a cercle (else the province); city rows are no longer donors; the panel gains
+      `n_donors04/14/24`.
+    - Lamkansa links to Aîn-Chock, weighted by HCP's Aîn-Chock figure (added to `catalog/hcp_2004_on_2014.csv`).
+      Lakhiaita is recorded in `catalog/link_review.csv` as unplaced, with its evidence. The review file gains
+      `weight_basis` and `near`, and `crosswalk_app2004` gains `weight_basis`.
+    - `crosswalk_communes` and `panel_commune` gain `pop04_basis` and `unplaced04_nearby`.
+    - `validation.json`: `backcast_2004.out_of_sample` (87 communes from HCP's Settat and Grand Casablanca documents);
+      calibrated communes are those with an HCP-based weight; `unplaced_2004.by_province_2004`.
+    - `mc build` refuses changed raw inputs; `crawl-2004` honours `--accept-changes`. Every catalogue column needs a
+      source (`morocco-census` for what this project derives). `geometry` asserts every 2014 commune has a polygon.
 
 ## HCP commune boundaries (the map's layer)
 

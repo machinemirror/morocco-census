@@ -5,6 +5,8 @@ import pandas as pd
 import pytest
 
 from morocco_census.config import (
+    CITIES,
+    HCP_2004_ON_2014,
     LINK_REVIEW,
     P_COMMUNES,
     P_CROSSCHECK,
@@ -220,7 +222,7 @@ def test_validation_report_matches_tables():
     assert v["linkage"]["unlinked_2024"] == []
     b = v["backcast_2004"]  # our linked 2004 population against HCP's figures on 2014 boundaries
     parts = [b[k] for k in ("calibrated", "one_to_one", "other_links")]
-    assert sum(x["communes"] for x in parts) == b["communes"] == 35
+    assert sum(x["communes"] for x in parts) == b["communes"] == len(pd.read_csv(HCP_2004_ON_2014))
     assert sum(x["within_2pct"] for x in parts) == b["within_2pct"]
     assert len(b["largest_gaps"]) == b["communes"] - b["within_2pct"]
     assert v["seeds"]["placed"] == len(gpd.read_file(P_POINTS, layer="points"))
@@ -228,3 +230,45 @@ def test_validation_report_matches_tables():
         p = v["population"][y]
         assert p["communes"] == p["in_legal_list"] == n
         assert p["sum_table"] <= p["national_legal"]  # the legal count adds population counted separately
+
+
+def test_pop04_basis_flags():
+    cw = pd.read_csv(P_CROSSWALK, dtype=str)
+    centre = set(cw.name14[cw.pop04_basis == "centre_only"])
+    assert centre == {
+        "Ajdir (Mun.)", "Gueznaia (Mun.)", "Driouch (Mun.)", "Had Soualem (Mun.)", "Tahannaout (Mun.)",
+        "Sidi Bou Othmane (Mun.)",
+    }
+    # the Berrechid and Nouaceur communes HCP's figures show short of 2004 population
+    near = set(cw.name14[cw.unplaced04_nearby == "True"])
+    assert {"Had Soualem (Mun.)", "Soualem Trifiya", "Sahel Oulad H'Riz", "Bouskoura (Mun.)"} <= near
+    app = pd.read_csv(P_CROSSWALK_APP, dtype=str, keep_default_na=False)
+    assert set(app.weight_basis[app.link == "split"]) == {"hcp", "2014_population", "2014_rural_population"}
+    assert set(app.weight_basis[app.link != "split"]) <= {"", "hcp"}  # hcp: Lamkansa, a partial review link
+
+
+def test_unplaced_units_are_reviewed():
+    review = pd.read_csv(LINK_REVIEW, dtype=str, keep_default_na=False)
+    lakhiaita = review[review.app_code == "0646105152"].iloc[0]
+    assert lakhiaita.code14 == "" and lakhiaita.near == "06.117.05.25." and "not published" in lakhiaita.evidence
+    v = json.loads(P_VALIDATION.read_text())["linkage"]["unplaced_2004"]
+    assert sum(v["by_province_2004"].values()) == v["population"]
+
+
+def test_casablanca_2004_is_observed():
+    p = pd.read_csv(P_PANEL, dtype={"code14": str})
+    arr = p[p.code14.str.startswith("06.141.01.") & p.name14.str.contains(r"\(Arrond")]
+    assert len(arr) == 16 and (arr.src04 == "direct").all() and arr.idh04.nunique() == 16
+    city = p[p.level == "city"]
+    assert len(city) == len(CITIES) and city[["idh04", "taux_pauvrete04", "mpi_rate14c"]].notna().all().all()
+    # an imputed value averages at least two communes
+    assert p.n_donors04.dropna().min() >= 2 and p.n_donors04.notna().sum() == p.src04.str.startswith("imputed").sum()
+
+
+def test_out_of_sample_backcast():
+    o = json.loads(P_VALIDATION.read_text())["backcast_2004"]["out_of_sample"]
+    assert o["by_source"] == {"HCP Settat, population légale 2004": 59, "HCP Grand Casablanca, note premiers résultats RGPH 2014": 28}
+    assert o["communes"] == 87 and o["one_to_one"]["communes"] + o["other_links"]["communes"] == 87
+    gaps = {g["name"]: g["pct"] for g in o["largest_gaps"]}
+    assert gaps["Sidi Abdelkrim"] == -36.0 and gaps["Ain Tizgha"] == -32.7
+    assert len(gaps) == o["communes"] - o["within_2pct"]

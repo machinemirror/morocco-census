@@ -15,12 +15,13 @@ HCP's own place names and labels).
 | Communes in HCP's tables | 1,689 | 1,538 | 1,503 |
 | Commune variables | 69 | 133 | 164 |
 | Poverty / development indices | IDH, IDS, poverty, MPI (poverty map) | MPI (both series) | MPI |
-| Linked to the 2014 list | 1,476 (annex) · 1,537 (profiles) | spine | 1,538 |
+| Linked to the 2014 list | 1,492 (annex) · 1,537 (profiles) | spine | 1,538 |
 
-1,537 of the 1,538 2014 communes have 2004 profile values and all have 2024 values; 1,476 (96.0%) are also matched
-to the 2004 poverty annex. Imputed values are flagged, never silent. HCP publishes 2004 populations on the 2014
-boundaries for 35 communes in 7 provinces; 16 of them set the split weights, and the 4 whose links the comparison
-tests independently all miss by more than 2% (see [PROVENANCE](docs/PROVENANCE.md#matching)).
+1,537 of the 1,538 2014 communes have 2004 profile values and all have 2024 values; 1,492 (97.0%) are also matched
+to the 2004 poverty annex. Imputed values are flagged, never silent. Against HCP's own 2004 populations on 2014
+boundaries for 87 communes that set no weight (Settat, Benslimane, Grand Casablanca), the links are within 2% for 64;
+the misses are boundary changes and 65,599 people of 2004 left unplaced, which `pop04_basis` and `unplaced04_nearby`
+flag per commune (see [PROVENANCE](docs/PROVENANCE.md#matching)).
 
 ## Data
 
@@ -84,7 +85,7 @@ Requires [uv](https://docs.astral.sh/uv/) and Python ≥ 3.12.
 ```sh
 uv run mc fetch        # download raw files into data/raw; exits non-zero if one differs from the manifest
 uv run mc crawl-2004   # 2004 commune profiles from HCP's app (several hours, resumable)
-uv run mc all          # tables -> geometry -> validation.json -> site/data
+uv run mc all          # tables -> geometry -> validation.json -> site/data; refuses raw files that differ from the manifest
 python -m http.server -d site
 ```
 

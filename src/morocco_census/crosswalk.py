@@ -21,7 +21,10 @@ from .config import (
     P_COMMUNES,
     P_CROSSWALK,
     P_CROSSWALK_APP,
+    P_HCP_GAL,
+    P_HCP_GPKG,
     P_INDICES_2004,
+    P_PANEL,
     R_APP_INDEX,
     R_CARTO,
     R_MPI,
@@ -31,7 +34,7 @@ from .config import (
 
 def norm(s: str) -> str:
     s = unicodedata.normalize("NFKD", str(s)).encode("ascii", "ignore").decode().lower()
-    s = re.sub(r"\((mun|m|c|ac|cu|arr|arrond)\.?\)", "", s)
+    s = re.sub(r"\((mun|m|c|ac|cu|ar|arr|arrond)\.?\)", "", s)
     s = re.sub(r"\bcentre\b", "", s)
     s = re.sub(
         r"^(commune( urbaine| rurale)?|arrondissement|municipalite|province|prefecture)( d'| de | des | du | )", "", s
@@ -126,14 +129,18 @@ def communes(out_path=P_CROSSWALK) -> pd.DataFrame:
     spine["i_carto"] = match(spine, carto, "carto 2004-2014")
     spine["i_2024"] = match(spine, c24, "MPI 2024")
 
-    # 2004 annex label is 'Province Commune ...', possibly truncated: match on an 18-char suffix
+    # 2004 annex label is 'Province Commune ...', possibly truncated: match on an 18-char suffix. The annex files an
+    # arrondissement under its city ('Casablanca Anfa (AR)'), where the 2014 list gives its préfecture d'arrondissements.
+    city = spine.code14.str.extract(r"^(\d+\.\d+\.\d+\.)")[0].map({u: norm(n) for u, (n, _) in CITIES.items()})
+    arr = spine.name14.str.contains(r"\(Arrond", na=False)
+    spine["k_prov04"] = city.where(arr, spine.k_prov)
     d04r = d04.reset_index()
     suffix = {}
     for _, r in d04r.iterrows():
         suffix.setdefault(norm(r.label)[-18:], []).append(r["index"])
 
     def m04(row):
-        k = (row.k_prov + row.k_name)[-18:] if row.k_prov else row.k_name[-18:]
+        k = (row.k_prov04 + row.k_name)[-18:] if row.k_prov04 else row.k_name[-18:]
         cand = suffix.get(k, [])
         return cand[0] if len(cand) == 1 else None
 
@@ -161,7 +168,7 @@ def communes(out_path=P_CROSSWALK) -> pd.DataFrame:
     un_04 = d04r[~d04r["index"].isin(set(spine.i_2004.dropna()))]
     best_sp, best_04 = {}, {}
     for si, srow in un_sp.iterrows():
-        key = norm(str(srow.k_prov)) + srow.k_name
+        key = norm(str(srow.k_prov04)) + srow.k_name
         for _, orow in un_04.iterrows():
             sc = fuzz.ratio(key, orow.k_label)
             if sc > best_sp.get(si, (0, None))[0]:
@@ -321,8 +328,10 @@ def app2004(threshold: int = 85, out_path=P_CROSSWALK_APP) -> pd.DataFrame:
     split = linked.app_code.duplicated(keep=False) | (linked.weight < 1)
     out = pd.concat(
         [
-            out[~out.app_code.isin(review.app_code)].assign(weight=1.0),
-            linked[["code14", "app_code", "weight"]].assign(link=split.map({True: "split", False: "review"})),
+            out[~out.app_code.isin(review.app_code)].assign(weight=1.0, weight_basis=""),
+            linked[["code14", "app_code", "weight", "weight_basis"]].assign(
+                link=split.map({True: "split", False: "review"})
+            ),
         ],
         ignore_index=True,
     )
@@ -335,3 +344,54 @@ def app2004(threshold: int = 85, out_path=P_CROSSWALK_APP) -> pd.DataFrame:
         f"{out.code14.nunique()}/{len(spine)} communes linked"
     )
     return out
+
+
+POP04_BASIS = ("none", "calibrated", "split_2014pop", "centre_only", "direct")
+
+
+def pop04_flags() -> pd.DataFrame:
+    """How each 2014 commune's 2004 population is built, and whether 2004 population left unplaced may lie in it.
+
+    pop04_basis: none (no 2004 unit), calibrated (a split weight set from HCP's 2004 figure on 2014 boundaries),
+    split_2014pop (a split weight from 2014 population), centre_only (a municipality built from autonomous centres
+    alone, so its 2004 count omits territory it later gained), direct. unplaced04_nearby: the commune borders a
+    placed part of a partly placed 2004 unit, or lies at or next to an unplaced unit's location (link_review `near`).
+    Needs the boundaries' contiguity file, which `mc geometry` writes on the same units."""
+    import geopandas as gpd
+    from libpysal.io import open as psopen
+
+    cw = pd.read_csv(P_CROSSWALK, dtype=str)
+    app = pd.read_csv(P_CROSSWALK_APP, dtype={"app_code": str, "code14": str}, keep_default_na=False)
+    app["weight"] = app.weight.astype(float)
+    review = pd.read_csv(LINK_REVIEW, dtype=str, keep_default_na=False)
+
+    by = app.groupby("code14")
+    centre = by.app_code.agg(lambda a: a.str[-1].isin(list("345")).all())
+    basis = pd.Series("direct", index=cw.code14)
+    basis[basis.index.isin(centre.index[centre]) & cw.name14.str.contains(r"\(Mun\.\)", na=False).values] = "centre_only"
+    basis[basis.index.isin(app.code14[app.weight_basis.str.startswith("2014")])] = "split_2014pop"
+    basis[basis.index.isin(app.code14[app.weight_basis == "hcp"])] = "calibrated"
+    basis[~basis.index.isin(app.code14)] = "none"
+
+    units = gpd.read_file(P_HCP_GPKG, columns=["unit"], ignore_geometry=True).unit
+    w = psopen(str(P_HCP_GAL)).read()
+    neighbours = {units[int(i)]: {units[int(j)] for j in w.neighbors[i]} for i in w.neighbors}
+    unit_of = cw.set_index("code14").unit
+    placed = app.groupby("app_code").weight.sum()
+    part14 = app.code14[app.app_code.isin(placed.index[placed < 0.999])]
+    parts = part14.map(unit_of)
+    near = review.near[review.near != ""].map(unit_of)
+    flagged = set(near) | {n for u in set(parts) | set(near) for n in neighbours[u]}
+
+    cw["pop04_basis"] = cw.code14.map(basis)
+    # contiguity is between map units, so an arrondissement is flagged only as a placed part itself
+    arr = cw.name14.str.contains(r"\(Arrond", na=False)
+    cw["unplaced04_nearby"] = cw.unit.isin(flagged) & (~arr | cw.code14.isin(part14))
+    cw.to_csv(P_CROSSWALK, index=False)
+    panel = pd.read_csv(P_PANEL, dtype=str, keep_default_na=False)
+    flags = cw.set_index("code14")[["pop04_basis", "unplaced04_nearby"]]
+    for c in flags:
+        panel[c] = panel.code14.map(flags[c]).fillna("")
+    panel.to_csv(P_PANEL, index=False)
+    print(f"pop04 flags: {cw.pop04_basis.value_counts().to_dict()}; {cw.unplaced04_nearby.sum()} near unplaced 2004 population")
+    return cw

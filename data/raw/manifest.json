@@ -15,6 +15,13 @@
     "size_bytes": 1307900,
     "url": "https://www.hcp.ma/file/231444/"
   },
+  "2004/population_legale_2004_settat.pdf": {
+    "description": "HCP Direction provinciale de Settat: population legale 2004 by region, and by commune on post-2009 codes for Settat and Benslimane",
+    "fetch_date": "2026-09-25T18:07:47Z",
+    "sha256": "f192512f1cf7295ecf301d3df915e356d260719ac6b7eea9e8eb1b6debac9ed5",
+    "size_bytes": 133285,
+    "url": "https://www.hcp.ma/reg-chaouia/docs/Publications/Population%20legale_2004.pdf"
+  },
   "2004_app/communes_index.csv": {
     "description": "communes listed by the 2004 app crawl",
     "sha256": "af855e1f6287abe05a2374210860d9cf936534d4074ba6c6e524ce055175692a",
@@ -25,6 +32,13 @@
     "description": "the crawl's 6756 profile pages; digest of 2004_app_pages.sha256",
     "sha256": "b96f4b58f906eada2acf438654a6b5a4c8b474a6c9226f2d098c4a48c4692825",
     "url": "https://applications-web.hcp.ma/hpmc/frmmarocenchiffres.aspx"
+  },
+  "2014/grand_casablanca_note_premiers_resultats_2014.pdf": {
+    "description": "HCP Grand Casablanca: note on the first RGPH 2014 results, 2004 and 2014 population by commune on 2014 boundaries",
+    "fetch_date": "2026-09-25T18:07:48Z",
+    "sha256": "934749d2128db3e81c0a8e6d5847b2380bd1e33fb2f53bcde3500038f7de82ad",
+    "size_bytes": 1123309,
+    "url": "https://www.hcp.ma/reg-casablanca/docs/docs/rgph2014__region_grand_casablanca_note_de_presentation_des_premiers_resultats.pdf"
   },
   "2024/mpi_communes_2014_2024.xls": {
     "description": "HCP (May 2025) base de donnees de la cartographie de la pauvrete multidimensionnelle, 2014 et 2024",
