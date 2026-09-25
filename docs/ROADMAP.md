@@ -24,7 +24,8 @@ cites the one used.
   HCP's full 2004-2014 commune table (it computed one) or the ministerial boundary arrêtés would settle these, and
   HCP's regional monographs for other provinces may give more 2004 figures on 2014 boundaries.
   Sidi Mohamed Ben Mansour has no seed point (it has its HCP boundary).
-- **White paper.** CONTRIBUTING refers to one in `docs/`; it does not exist yet.
+- **White paper.** Planned (CONTRIBUTING says so); to cite the dataset's Zenodo DOI once minted, and could go to a
+  data journal as a data note.
 
 ## Site
 
