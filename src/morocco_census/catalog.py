@@ -28,12 +28,12 @@ def problems(cat: dict) -> list[str]:
                     out.append(f"{ds['id']}.{c}: unknown indicator {spec['indicator']}")
                 if not (spec.get("vintage") or ds.get("vintage")):
                     out.append(f"{ds['id']}.{c}: indicator column without a vintage")
-                if spec.get("source") and spec["source"] not in cat["sources"]:
-                    out.append(f"{ds['id']}.{c}: unknown source {spec['source']}")
             else:
                 out += [
                     f"{ds['id']}.{c}: missing {k}" for k in TEXT if k not in spec
                 ]
+            if spec.get("source") and spec["source"] not in cat["sources"]:
+                out.append(f"{ds['id']}.{c}: unknown source {spec['source']}")
     grouped = [th for g in cat["map_groups"].values() for th in g["themes"]]
     out += [f"map group theme {th} unknown or repeated" for th in grouped if th not in cat["themes"] or grouped.count(th) > 1]
     for i, ind in cat["indicators"].items():

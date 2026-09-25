@@ -15,6 +15,17 @@
     "size_bytes": 1307900,
     "url": "https://www.hcp.ma/file/231444/"
   },
+  "2004_app/communes_index.csv": {
+    "description": "communes listed by the 2004 app crawl",
+    "sha256": "af855e1f6287abe05a2374210860d9cf936534d4074ba6c6e524ce055175692a",
+    "size_bytes": 129100,
+    "url": "https://applications-web.hcp.ma/hpmc/frmmarocenchiffres.aspx"
+  },
+  "2004_app/html": {
+    "description": "the crawl's 6756 profile pages; digest of 2004_app_pages.sha256",
+    "sha256": "b96f4b58f906eada2acf438654a6b5a4c8b474a6c9226f2d098c4a48c4692825",
+    "url": "https://applications-web.hcp.ma/hpmc/frmmarocenchiffres.aspx"
+  },
   "2024/mpi_communes_2014_2024.xls": {
     "description": "HCP (May 2025) base de donnees de la cartographie de la pauvrete multidimensionnelle, 2014 et 2024",
     "fetch_date": "2026-08-30",

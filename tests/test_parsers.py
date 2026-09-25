@@ -1,6 +1,7 @@
 from morocco_census.crosswalk import norm, norm_app
 from morocco_census.extract import to_num
-from morocco_census.parse_2004 import ROW, grab, num
+from morocco_census.fetch import changed
+from morocco_census.parse_2004 import HEADER_SPILL, ROW, grab, num
 
 
 def test_num_handles_french_formatting():
@@ -26,6 +27,20 @@ def test_annex_row_regex():
     assert m and m.group("label") == "Aousserd Zoug"
     m = ROW.match("Casablanca Anfa (AR) 2,10 5,30 0,20 35,10 0,780 -")
     assert m and m.group("n").split()[-1] == "-"
+
+
+def test_annex_label_drops_header_spill():
+    assert HEADER_SPILL.sub("", "Vulné- de la Boulemane Enjil") == "Boulemane Enjil"
+    assert HEADER_SPILL.sub("", "Notation : Dans ce tableau ... monde rural. communaux de de la Laayoune Tah") == "Laayoune Tah"
+    assert HEADER_SPILL.sub("", "Laayoune Dcheira El Jihadia") == "Laayoune Dcheira El Jihadia"
+
+
+def test_fetch_flags_changed_files():
+    manifest = {"a.xlsx": {"sha256": "0" * 64}}
+    assert changed(manifest, "a.xlsx", "1" * 64, accept=False)
+    assert not changed(manifest, "a.xlsx", "1" * 64, accept=True)
+    assert not changed(manifest, "a.xlsx", "0" * 64, accept=False)
+    assert not changed(manifest, "new.xlsx", "1" * 64, accept=False)
 
 
 def test_norm():

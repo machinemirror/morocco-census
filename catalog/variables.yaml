@@ -46,6 +46,13 @@ indicators:
     unit: persons
     definition: Resident population of the commune.
     note: 2004 is the app's 'Population totale'; 2014 and 2024 are 'population municipale' (excludes the population comptée à part, e.g. barracks and boarding schools).
+  population_legal:
+    agg: sum
+    theme: population
+    en: Legal population
+    unit: persons
+    definition: HCP's legal population of the commune, the municipal population plus the population comptée à part (people living collectively, e.g. in barracks, prisons and boarding schools).
+    note: The indicator tables' rates are on the municipal population ('population'); use the legal population as a denominator where institutional residents matter (garrison and Saharan communes, large cities). HCP gives no 2014 figure ('pm') for Lagouira, Aghouinite, Zoug (Aousserd) and Mijik (Oued Ed-Dahab).
   pop_share:
     agg: sum
     theme: population
@@ -1559,6 +1566,9 @@ sources:
   poplegale2014:
     title: HCP, RGPH 2014 Population légale (12-region cut)
     url: https://rgph2014.hcp.ma/file/166326/
+  poplegale2024:
+    title: HCP, RGPH 2024 Population légale par régions, provinces, préfectures et communes
+    url: https://www.hcp.ma/file/242341/
   indicateurs2024:
     title: HCP, RGPH 2024 Indicateurs démographiques et socio-économiques
     url: https://www.hcp.ma/file/242671/
@@ -1660,6 +1670,7 @@ datasets:
       code14: {en: Commune code (2014), unit: code, definition: "HCP dotted code region.province.cercle.commune. (e.g. 01.051.01.01.); the crosswalk spine."}
       name14: {en: Commune name (2014), unit: text, definition: "HCP label; '(Mun.)' marks municipalities, '(Arrond.)' arrondissements."}
       population14: {indicator: population, from: "menages_2014.xlsx col 9: Population municipale", source: menages2014}
+      pop_legal14: {indicator: population_legal, from: "Population légale 2014: Population", source: poplegale2014}
       n_households: {indicator: n_households, from: "menages_2014.xlsx col 10: Ménage", source: menages2014}
       hh_size_avg: {indicator: hh_size_avg, from: "menages_2014.xlsx col 11: Taille moyenne", source: menages2014}
       pct_owner: {indicator: pct_owner, from: "menages_2014.xlsx col 19: Statut d'occupation, Propriétaire", source: menages2014}
@@ -1806,6 +1817,7 @@ datasets:
       province24: {en: Province or prefecture (2024), unit: text, definition: "HCP's name of the province or prefecture ('Province de ...', 'Préfecture de ...'), from the 2024 legal population list.", source: poplegale2024}
       province24_ar: {en: Province or prefecture in Arabic (2024), unit: text, definition: "HCP's Arabic name of the province or prefecture ('إقليم ...', 'عمالة ...'), from the 2024 legal population list.", source: poplegale2024}
       population24: {indicator: population, from: "Population col 3: Population municipale"}
+      pop_legal24: {indicator: population_legal, from: "Population légale 2024: Population", source: poplegale2024}
       age_0_4: {indicator: age_0_4, from: "Population col 6: Âge quinquennal 0-4 ans"}
       age_5_9: {indicator: age_5_9, from: "Population col 7: 5-9 ans"}
       age_10_14: {indicator: age_10_14, from: "Population col 8: 10-14 ans"}
@@ -2431,13 +2443,15 @@ datasets:
     file: panel_commune.csv
     key: code14
     en: Three-census commune panel
-    description: One row per 2014 commune (1,538) plus six population-weighted city aggregates for the arrondissement cities. Values missing after post-2004 reorganisations are imputed from the same cercle (fallback province), population-weighted, and flagged in src04/src14/src24.
+    description: One row per 2014 commune (1,538) plus six city rows (level = city) for the arrondissement cities, which sum the arrondissements' legal population and households and population-weight their rates; drop them before summing. Values missing after post-2004 reorganisations are imputed from the same cercle (fallback province), weighted by legal population, and flagged in src04/src14/src24.
     columns:
       code14: {en: Commune code (2014), unit: code, definition: Crosswalk spine key.}
       name14: {en: Commune name (2014), unit: text, definition: "HCP 2014 label; 'CITY ...' for city aggregates."}
       prov14: {en: Province (2014), unit: text, definition: Province or préfecture on the 12-region map.}
       name_carto: {en: Name in the poverty map, unit: text, definition: Matched commune name in the 2004-2014 poverty map.}
-      code24: {en: Commune code (2024), unit: code, definition: Matched 2024 code.}
+      unit: {en: Map unit, unit: code, definition: "As in crosswalk_communes; for city rows, the city."}
+      code24: {en: Code in the 2025 MPI database, unit: code, definition: "As in crosswalk_communes; for city rows, the city's 2024 commune."}
+      code24_commune: {en: Commune code (2024), unit: code, definition: "As in crosswalk_communes: the communes_2024 row the commune falls in."}
       name24: {en: Commune name (2024), unit: text, definition: Matched 2024 label.}
       label04: {en: 2004 annex label, unit: text, definition: Matched label in commune_indices_2004.}
       src04: {en: 2004 value provenance, unit: flag, definition: "direct | fuzzy (name match) | imputed_cercle | imputed_province."}
@@ -2464,8 +2478,8 @@ datasets:
       mpi_intensity2024: {indicator: mpi_intensity, vintage: 2024, source: mpi2025, from: "Ensemble col 6: Intensité (A)"}
       vulnerability2014: {indicator: vulnerability, vintage: 2014, source: mpi2025, from: "Ensemble col 7: Taux de vulnérabilité"}
       vulnerability2024: {indicator: vulnerability, vintage: 2024, source: mpi2025, from: "Ensemble col 7: Taux de vulnérabilité"}
-      menages14: {indicator: n_households, vintage: 2014, source: poplegale2014, from: "Population légale 2014: Ménages"}
-      population14: {indicator: population, vintage: 2014, source: poplegale2014, from: "Population légale 2014: Population"}
+      households_legal14: {en: Households (legal list 2014), unit: households, definition: "Households in HCP's 2014 legal population list.", source: poplegale2014}
+      pop_legal14: {indicator: population_legal, vintage: 2014, source: poplegale2014, from: "Population légale 2014: Population"}
       level: {en: Row level, unit: flag, definition: "commune | city (aggregate of arrondissements)."}
       cercle: {en: Cercle code (2014), unit: code, definition: First three segments of code14; imputation group.}
 
@@ -2473,13 +2487,15 @@ datasets:
     file: crosswalk_communes.csv
     key: code14
     en: Commune crosswalk 2004-2014-2024
-    description: The 2014 commune list linked to the 2004 annex labels, the poverty-map names and the 2024 codes. Full three-census match (2004 annex and 2024) for 1,473 of 1,538 communes (95.8%); the rest are post-2004 reorganisations. The 2004 commune profiles link through crosswalk_app2004 (1,537).
+    description: The 2014 commune list linked to the 2004 annex labels, the poverty-map names and the 2024 codes. The 2004 commune profiles link through crosswalk_app2004. Join 2024 tables on code24_commune, which gives the six arrondissement cities their single 2024 commune; join the boundaries on unit.
     columns:
       code14: {en: Commune code (2014), unit: code, definition: Spine key.}
       name14: {en: Commune name (2014), unit: text, definition: HCP 2014 label.}
       prov14: {en: Province (2014), unit: text, definition: Province or préfecture.}
+      unit: {en: Map unit, unit: code, definition: "code14, or for an arrondissement its city's code (the first three segments, e.g. 06.141.01.); the key of the commune boundaries and points."}
       name_carto: {en: Name in the poverty map, unit: text, definition: Matched name.}
-      code24: {en: Commune code (2024), unit: code, definition: Matched 2024 code.}
+      code24: {en: Code in the 2025 MPI database, unit: code, definition: "Matched code in HCP's May-2025 MPI database, which lists arrondissements; for the 41 arrondissements it is not a row of communes_2024."}
+      code24_commune: {en: Commune code (2024), unit: code, definition: "The communes_2024 row the 2014 commune falls in: code24, or for an arrondissement its city's 2024 commune (e.g. 6141010 Casablanca). Covers all 1,503 2024 communes."}
       name24: {en: Commune name (2024), unit: text, definition: Matched 2024 label.}
       label04: {en: 2004 annex label, unit: text, definition: Matched 2004 label.}
       idh04: {indicator: idh, vintage: 2004, source: annex2004, from: "Annexe 2: IDH (copied for convenience)"}

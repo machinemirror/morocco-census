@@ -12,7 +12,7 @@ page,region,label,taux_pauvrete,vulnerabilite,severite,inegalite,idh,ids
 16,OUED ED DAHAB-LAGOUIRA,Aousserd Bir Gandouz,0.09,0.24,0.01,35.37,0.794,0.322
 16,OUED ED DAHAB-LAGOUIRA,Oued-Ed-Dahab Imlili,0.04,0.26,0.0,33.82,0.772,0.352
 16,OUED ED DAHAB-LAGOUIRA,Oued-Ed-Dahab El Argoub,0.03,0.21,0.0,35.48,0.814,0.493
-16,OUED ED DAHAB-LAGOUIRA,"Notation : Dans ce tableau et les tableaux suivants, le signe - indique que la commune urbaine ou celui-ci étant, par définition, spécifique au monde rural. communaux de de la Laayoune Tah",42.96,27.06,6.26,33.07,0.552,0.168
+16,OUED ED DAHAB-LAGOUIRA,Laayoune Tah,42.96,27.06,6.26,33.07,0.552,0.168
 16,OUED ED DAHAB-LAGOUIRA,Laayoune Akhfennir,15.09,18.04,1.76,41.18,0.635,0.534
 16,OUED ED DAHAB-LAGOUIRA,Laayoune Tarfaya (M),8.1,11.53,1.08,43.13,0.676,
 16,OUED ED DAHAB-LAGOUIRA,Laayoune Boukraa,7.58,11.12,0.79,42.14,0.684,0.902
@@ -87,7 +87,7 @@ page,region,label,taux_pauvrete,vulnerabilite,severite,inegalite,idh,ids
 18,GUELMIM -ES SEMARA,Tan-Tan El Ouatia (M),0.5,0.89,0.05,36.67,0.871,
 18,GUELMIM -ES SEMARA,Guelmim Laqsabi Tagoust,0.25,0.57,0.02,41.07,0.749,0.741
 18,GUELMIM -ES SEMARA,Es-Semara Amgala,0.04,0.1,0.0,35.59,0.826,0.7
-19,SOUS-MASSA-DAR,Vulné- de la Zagora Bleida,60.26,21.42,10.87,34.14,0.418,0.322
+19,SOUS-MASSA-DAR,Zagora Bleida,60.26,21.42,10.87,34.14,0.418,0.322
 19,SOUS-MASSA-DAR,Zagora Errouha,54.07,25.24,8.72,32.42,0.468,0.338
 19,SOUS-MASSA-DAR,Taroudannt Sidi Ahmed Ou Abdallah,51.23,24.46,8.07,39.87,0.482,0.214
 19,SOUS-MASSA-DAR,Ouarzazate Ikniouen,49.99,25.38,7.81,35.2,0.487,0.202
@@ -130,7 +130,7 @@ page,region,label,taux_pauvrete,vulnerabilite,severite,inegalite,idh,ids
 19,SOUS-MASSA-DAR,Tiznit Sidi M'Bark,37.93,25.91,5.52,38.4,0.493,0.193
 19,SOUS-MASSA-DAR,Taroudannt Sidi Ouaaziz,37.83,27.64,5.22,35.48,0.527,0.421
 19,SOUS-MASSA-DAR,Zagora Tamezmoute,37.76,28.05,5.29,36.45,0.53,0.779
-20,SOUS-MASSA-DAR,Vulné- de la Taroudannt Adar,37.41,25.79,5.37,39.98,0.502,0.324
+20,SOUS-MASSA-DAR,Taroudannt Adar,37.41,25.79,5.37,39.98,0.502,0.324
 20,SOUS-MASSA-DAR,Tiznit Tnine Amellou,37.21,25.85,5.44,37.63,0.546,0.33
 20,SOUS-MASSA-DAR,Taroudannt Tizi N'Test,36.9,27.29,5.02,35.31,0.417,0.112
 20,SOUS-MASSA-DAR,Taroudannt Tisrasse,36.44,27.08,5.05,35.25,0.475,0.301
@@ -172,7 +172,7 @@ page,region,label,taux_pauvrete,vulnerabilite,severite,inegalite,idh,ids
 20,SOUS-MASSA-DAR,Taroudannt Imaouen,30.38,25.71,4.05,39.34,0.474,0.232
 20,SOUS-MASSA-DAR,Chtouka- Ait Baha Sidi Abdallah El Bouchoua,30.32,25.75,4.05,40.66,0.415,0.295
 20,SOUS-MASSA-DAR,Zagora Ait Boudaoud,30.3,25.75,4.12,35.06,0.562,0.77
-21,SOUS-MASSA-DAR,Vulné- de la Ouarzazate Taghzoute N'Ait Atta,30.29,26.05,4.12,40.46,0.555,0.604
+21,SOUS-MASSA-DAR,Ouarzazate Taghzoute N'Ait Atta,30.29,26.05,4.12,40.46,0.555,0.604
 21,SOUS-MASSA-DAR,Taroudannt Sidi Mzal,30.26,25.97,4.09,40.18,0.503,0.444
 21,SOUS-MASSA-DAR,Ouarzazate Ait Sedrate Jbel El Oulia,29.99,26.3,4.02,35.56,0.493,0.766
 21,SOUS-MASSA-DAR,Tiznit Tarsouat,29.89,23.8,4.19,44.62,0.584,0.565
@@ -207,7 +207,7 @@ page,region,label,taux_pauvrete,vulnerabilite,severite,inegalite,idh,ids
 21,SOUS-MASSA-DAR,Taroudannt Aoulouz,26.37,25.97,3.32,38.48,0.53,0.428
 21,SOUS-MASSA-DAR,Zagora Afella N'Dra,26.36,27.24,3.22,34.08,0.533,0.532
 21,SOUS-MASSA-DAR,Zagora Tagounite,26.0,26.49,3.29,38.59,0.603,0.712
-22,SOUS-MASSA-DAR,Vulné- de la Tiznit Sidi Abdallah Ou Belaid,25.79,24.94,3.33,38.13,0.528,0.29
+22,SOUS-MASSA-DAR,Tiznit Sidi Abdallah Ou Belaid,25.79,24.94,3.33,38.13,0.528,0.29
 22,SOUS-MASSA-DAR,Tiznit Anfeg,25.74,25.51,3.24,38.73,0.425,0.361
 22,SOUS-MASSA-DAR,Taroudannt Tiout,25.74,25.31,3.24,37.67,0.553,0.796
 22,SOUS-MASSA-DAR,Taroudannt Lamhara,25.64,26.09,3.22,35.96,0.582,0.586
@@ -243,7 +243,7 @@ page,region,label,taux_pauvrete,vulnerabilite,severite,inegalite,idh,ids
 22,SOUS-MASSA-DAR,Agadir-Ida Ou Tanan Tadrart,21.4,25.48,2.44,35.87,0.481,0.158
 22,SOUS-MASSA-DAR,Taroudannt Issen,20.89,25.08,2.5,35.66,0.551,0.579
 22,SOUS-MASSA-DAR,Taroudannt Sidi Dahmane,20.76,23.34,2.53,36.74,0.597,0.852
-23,SOUS-MASSA-DAR,Vulné- de la Tiznit Tizoughrane,20.73,22.77,2.56,41.05,0.474,0.603
+23,SOUS-MASSA-DAR,Tiznit Tizoughrane,20.73,22.77,2.56,41.05,0.474,0.603
 23,SOUS-MASSA-DAR,Taroudannt Sidi Moussa Lhamri,20.71,24.73,2.42,36.29,0.516,0.654
 23,SOUS-MASSA-DAR,Tiznit Ibdar,20.68,22.83,2.5,40.77,0.548,0.5
 23,SOUS-MASSA-DAR,Inezgane- Ait Melloul Oulad Dahou,20.49,23.9,2.49,38.01,0.585,0.903
@@ -281,7 +281,7 @@ page,region,label,taux_pauvrete,vulnerabilite,severite,inegalite,idh,ids
 23,SOUS-MASSA-DAR,Taroudannt Lagfifat,16.03,21.81,1.83,37.32,0.559,0.83
 23,SOUS-MASSA-DAR,Taroudannt Lakhnafif,15.99,21.15,1.84,38.17,0.61,0.91
 23,SOUS-MASSA-DAR,Tiznit Reggada,15.62,19.38,1.84,41.15,0.634,0.693
-24,SOUS-MASSA-DAR,Vulné- de la Agadir-Ida Ou Tanan Aziar,15.57,21.48,1.72,36.25,0.458,0.208
+24,SOUS-MASSA-DAR,Agadir-Ida Ou Tanan Aziar,15.57,21.48,1.72,36.25,0.458,0.208
 24,SOUS-MASSA-DAR,Ouarzazate Ait Zineb,15.38,19.97,1.77,39.53,0.613,0.721
 24,SOUS-MASSA-DAR,Inezgane ait melloul Lqliaa (AC),15.35,18.8,2.15,40.76,0.633,
 24,SOUS-MASSA-DAR,AGADIR IDA OU TANANE Aourir (AC),15.24,17.03,2.24,40.9,0.64,
@@ -313,7 +313,7 @@ page,region,label,taux_pauvrete,vulnerabilite,severite,inegalite,idh,ids
 24,SOUS-MASSA-DAR,Tiznit Sbouya,9.56,14.23,0.99,39.89,0.584,0.179
 24,SOUS-MASSA-DAR,Chtouka- Ait Baha Tizi Ntakoucht,9.34,14.84,0.97,38.07,0.49,0.382
 24,SOUS-MASSA-DAR,Ouarzazate Toudgha El Oulia,9.09,12.85,0.97,42.35,0.619,0.925
-25,SOUS-MASSA-DAR,Vulné- de la Inezgane- Ait Mellou Ait Melloul (M),9.02,12.45,1.21,42.85,0.692,
+25,SOUS-MASSA-DAR,Inezgane- Ait Mellou Ait Melloul (M),9.02,12.45,1.21,42.85,0.692,
 25,SOUS-MASSA-DAR,Chtouka- Ait Baha Biougra (M),8.98,12.44,1.21,42.99,0.66,
 25,SOUS-MASSA-DAR,Taroudannt El Koudia El Beida,8.33,13.76,0.84,38.15,0.632,0.867
 25,SOUS-MASSA-DAR,Ouarzazate Taznakht (M),8.12,10.88,1.11,40.74,0.67,
@@ -1352,7 +1352,7 @@ page,region,label,taux_pauvrete,vulnerabilite,severite,inegalite,idh,ids
 57,MEKNES-TAFILALET,Meknès Meknès (M),7.18,12.81,0.7,44.36,0.715,
 57,MEKNES-TAFILALET,Meknès Al Machouar - Stinia (M),5.85,12.3,0.55,38.34,0.721,
 57,MEKNES-TAFILALET,Ifrane Ifrane (M),3.83,8.05,0.35,43.34,0.743,
-58,FES-BOULEMANE,Vulné- de la Boulemane Enjil,47.2,21.09,9.12,40.29,0.432,0.489
+58,FES-BOULEMANE,Boulemane Enjil,47.2,21.09,9.12,40.29,0.432,0.489
 58,FES-BOULEMANE,Moulay Yacoub Sidi Daoud,38.54,25.33,5.53,36.17,0.453,0.413
 58,FES-BOULEMANE,Sefrou Ait Sebaa Lajrouf,38.38,22.78,6.37,38.19,0.494,0.534
 58,FES-BOULEMANE,Sefrou Ain Timguenai,37.63,24.61,5.5,34.7,0.527,0.477
@@ -1395,7 +1395,7 @@ page,region,label,taux_pauvrete,vulnerabilite,severite,inegalite,idh,ids
 58,FES-BOULEMANE,Fès Skhinate (AC),16.41,22.73,1.67,33.03,0.572,
 58,FES-BOULEMANE,Fès Jnan El Ouard (AR),16.02,22.64,1.48,34.25,0.609,
 58,FES-BOULEMANE,Sefrou Ain Cheggag,15.93,20.12,1.68,35.5,0.513,0.782
-59,FES-BOULEMANE,Vulné- de la Fès Zouagha (AR),15.4,21.68,1.41,37.23,0.632,
+59,FES-BOULEMANE,Fès Zouagha (AR),15.4,21.68,1.41,37.23,0.632,
 59,FES-BOULEMANE,Sefrou Zaouiat Bougrine (AC),15.25,21.28,1.45,34.57,0.634,
 59,FES-BOULEMANE,Boulemane Imouzzer Marmoucha(M),15.05,19.48,1.65,37.13,0.607,
 59,FES-BOULEMANE,Sefrou Ain Cheggag (AC),14.79,20.99,1.32,36.09,0.679,

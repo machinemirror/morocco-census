@@ -46,3 +46,13 @@ P_CROSSCHECK = GEOMETRY / "points_crosscheck.csv"
 P_BOUNDARY = GEOMETRY / "boundary_mar_esh.gpkg"
 P_CONTEXT = GEOMETRY / "context_countries.gpkg"
 
+
+# the six arrondissement cities: one map unit each (the 2014 cercle code), one commune each in 2024
+CITIES = {
+    "01.511.01.": ("Tanger", 1511010),
+    "03.231.01.": ("Fès", 3231010),
+    "04.421.01.": ("Rabat", 4421010),
+    "04.441.01.": ("Salé", 4441010),
+    "06.141.01.": ("Casablanca", 6141010),
+    "07.351.01.": ("Marrakech", 7351010),
+}

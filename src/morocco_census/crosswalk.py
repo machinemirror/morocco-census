@@ -16,6 +16,7 @@ import pandas as pd
 from rapidfuzz import fuzz, process
 
 from .config import (
+    CITIES,
     LINK_REVIEW,
     P_COMMUNES,
     P_CROSSWALK,
@@ -98,14 +99,8 @@ def load_2024() -> pd.DataFrame:
     return com.reset_index(drop=True)
 
 
-CONTAMINATION = re.compile(
-    r"^(Notation :.*?rural\.\s*|Vulné-\s*|bilité\s*|(communaux |de |la |développement )+)", re.IGNORECASE
-)
-
-
 def load_2004() -> pd.DataFrame:
     df = pd.read_csv(P_INDICES_2004)
-    df["label"] = df.label.str.replace(CONTAMINATION, "", regex=True).str.strip()
     df["k_label"] = df.label.map(norm)
     return df
 
@@ -143,18 +138,22 @@ def communes(out_path=P_CROSSWALK) -> pd.DataFrame:
         return cand[0] if len(cand) == 1 else None
 
     spine["i_2004"] = spine.apply(m04, axis=1)
-    # fallback: 2004 label ends with the commune name, unambiguously
+    # fallback: 2004 label ends with the commune name, unambiguously. Only rows no commune has claimed:
+    # a commune carved out after 2004 would otherwise take its namesake's row in another province
+    # (Ameur of Salé took Foqra Oulad Aameur of Settat, Oulad Azzouz of Nouaceur that of Khouribga).
     ends = {}
-    for _, r in d04r.iterrows():
+    for _, r in d04r[~d04r["index"].isin(set(spine.i_2004.dropna()))].iterrows():
         ends.setdefault(r.k_label, r["index"])
 
     def m04b(row):
-        if pd.notna(row.i_2004):
-            return row.i_2004
         hits = [i for kl, i in ends.items() if kl.endswith(row.k_name) and len(row.k_name) >= 5]
         return hits[0] if len(hits) == 1 else None
 
-    spine["i_2004"] = spine.apply(m04b, axis=1)
+    fb = spine[spine.i_2004.isna()].apply(m04b, axis=1).dropna()
+    # two communes ending one label: the longer name is the match (Foqra Oulad Aameur, not Ameur)
+    fb = fb.loc[spine.loc[fb.index].k_name.str.len().sort_values(ascending=False).index]
+    fb = fb[~fb.duplicated()]
+    spine.loc[fb.index, "i_2004"] = fb
     spine["src04"] = spine.i_2004.notna().map({True: "direct", False: None})
 
     # mutual-best fuzzy among still-unmatched 2004 rows, province-prefixed
@@ -198,8 +197,14 @@ def communes(out_path=P_CROSSWALK) -> pd.DataFrame:
     print(f"2024 fuzzy added: {add2}, same code: {add3}; total {spine.i_2024.notna().sum()}/{len(spine)}")
 
     out = spine[["code14", "name14", "prov14"]].copy()
+    # an arrondissement's map unit is its city (the 2014 cercle code); in 2024 the city is one commune
+    arr = out.name14.str.contains(r"\(Arrond", na=False)
+    city = out.code14.str.extract(r"^(\d+\.\d+\.\d+\.)")[0].where(arr)
+    assert city.dropna().isin(CITIES).all()
+    out["unit"] = city.fillna(out.code14)
     out["name_carto"] = spine.i_carto.map(carto.name_carto)
-    out["code24"] = spine.i_2024.map(c24.code24)
+    out["code24"] = spine.i_2024.map(c24.code24).astype("Int64")
+    out["code24_commune"] = city.map({u: c for u, (_, c) in CITIES.items()}).fillna(out.code24).astype("Int64")
     out["name24"] = spine.i_2024.map(c24.name24)
     out["label04"] = spine.i_2004.map(d04.label)
     out["idh04"] = spine.i_2004.map(d04.idh)

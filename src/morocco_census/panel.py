@@ -2,19 +2,20 @@
 
 One row per 2014-spine commune (code14): crosswalk identifiers; 2004 annex indices (poverty,
 vulnerability, severity, inequality, IDH, IDS); poverty-map MPI 2004 and 2014; MPI-database
-MPI/rate/intensity/vulnerability for 2014 and 2024; households and population 2014 (weights).
-Arrondissements stay as rows and population-weighted city rows are appended (level='city').
+MPI/rate/intensity/vulnerability for 2014 and 2024; legal households and population 2014 (weights).
+Arrondissements stay as rows and city rows are appended (level='city'): legal population and households
+summed, rates population-weighted.
 Values missing because of post-2004/2014 reorganisations are filled with the population-weighted
 mean of same-cercle communes (fallback: province) and flagged in src04/src14/src24.
 """
 
 import pandas as pd
 
-from .config import P_CROSSWALK, P_INDICES_2004, P_PANEL, R_CARTO, R_MPI, RAW
+from .config import CITIES, P_CROSSWALK, P_INDICES_2004, P_PANEL, R_CARTO, R_MPI, RAW
 
 
 def main() -> pd.DataFrame:
-    cw = pd.read_csv(P_CROSSWALK)
+    cw = pd.read_csv(P_CROSSWALK, dtype={"code24": "Int64", "code24_commune": "Int64"})
 
     d04 = pd.read_csv(P_INDICES_2004)
     d04 = d04.rename(
@@ -83,7 +84,7 @@ def main() -> pd.DataFrame:
             7: "vulnerability",
         }
     )
-    df["code24"] = pd.to_numeric(df.code24, errors="coerce")
+    df["code24"] = pd.to_numeric(df.code24, errors="coerce").astype("Int64")
     mm = df[df.level.isin(["commune", "commune casa"])][
         ["code24", "year", "mpi", "mpi_rate", "mpi_intensity", "vulnerability"]
     ]
@@ -93,9 +94,9 @@ def main() -> pd.DataFrame:
 
     # menages_2014 codes use the 12-region numbering, so take weights from the 12-region legal population
     pop = pd.read_excel(RAW / "poplegale_2014_12reg.xlsx", sheet_name=0, header=None, skiprows=6)
-    pop = pop.rename(columns={0: "code14", 2: "menages14", 3: "population14"})
-    pop = pop[pop.code14.astype(str).str.count("\\.") == 4][["code14", "menages14", "population14"]]
-    for c in ("menages14", "population14"):
+    pop = pop.rename(columns={0: "code14", 2: "households_legal14", 3: "pop_legal14"})
+    pop = pop[pop.code14.astype(str).str.count("\\.") == 4][["code14", "households_legal14", "pop_legal14"]]
+    for c in ("households_legal14", "pop_legal14"):
         pop[c] = pd.to_numeric(pop[c], errors="coerce")
     p = p.merge(pop.drop_duplicates("code14"), on="code14", how="left")
 
@@ -106,16 +107,19 @@ def main() -> pd.DataFrame:
     if len(arr):
         arr["city"] = arr.code14.str.extract(r"^(\d+\.\d+\.\d+\.)")[0]
         rows = []
-        num = [c for c in p.columns if p[c].dtype.kind == "f" and c not in ("code24", "menages14", "population14")]
+        num = [c for c in p.columns if p[c].dtype.kind == "f" and c not in ("households_legal14", "pop_legal14")]
         for city, g in arr.groupby("city"):
-            w = g.population14.fillna(0)
+            w = g.pop_legal14.fillna(0)
             r = {
                 "code14": city,
                 "name14": f"CITY {g.prov14.iloc[0]}",
                 "prov14": g.prov14.iloc[0],
+                "unit": city,
+                "code24": CITIES[city][1],
+                "code24_commune": CITIES[city][1],
                 "level": "city",
-                "menages14": g.menages14.sum(),
-                "population14": g.population14.sum(),
+                "households_legal14": g.households_legal14.sum(),
+                "pop_legal14": g.pop_legal14.sum(),
             }
             for c in num:
                 v, wv = g[c], w.where(g[c].notna(), 0)
@@ -144,7 +148,7 @@ def main() -> pd.DataFrame:
             need = p[cols[0]].isna() & p.level.eq("commune")
             if not need.any():
                 break
-            w = p.population14.fillna(0)
+            w = p.pop_legal14.fillna(0)
             for c in [c for c in cols if c in p.columns]:
                 num = (p[c] * w).groupby([p[g] for g in group]).transform("sum")
                 den = w.where(p[c].notna(), 0).groupby([p[g] for g in group]).transform("sum")

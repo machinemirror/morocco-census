@@ -38,7 +38,8 @@ def site() -> None:
 def main() -> int:
     ap = argparse.ArgumentParser(prog="mc", description="Build the morocco-census data and site")
     sub = ap.add_subparsers(dest="cmd", required=True)
-    sub.add_parser("fetch", help="download raw HCP, GeoNames, Wikidata and Natural Earth files into data/raw")
+    fp = sub.add_parser("fetch", help="download raw HCP, GeoNames, Wikidata and Natural Earth files into data/raw")
+    fp.add_argument("--accept-changes", action="store_true", help="record files whose sha256 differs from the manifest")
     sub.add_parser("crawl-2004", help="crawl the 2004 Maroc-en-Chiffres commune profiles (hours)")
     sub.add_parser("build", help="raw -> data/processed tables")
     gp = sub.add_parser("geometry", help="commune points and HCP boundaries with queen weights")
@@ -51,11 +52,14 @@ def main() -> int:
     if a.cmd == "fetch":
         from . import fetch
 
-        return fetch.main()
+        return fetch.main(a.accept_changes)
     if a.cmd == "crawl-2004":
-        from . import hcp_app
+        from . import fetch, hcp_app
 
         hcp_app.main()
+        manifest = fetch.load_manifest()
+        if fetch.record_2004_app(manifest, accept=True) == []:
+            fetch.save_manifest(manifest)
     if a.cmd in ("build", "all"):
         build()
     if a.cmd in ("geometry", "all"):

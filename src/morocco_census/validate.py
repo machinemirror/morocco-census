@@ -12,6 +12,7 @@ import pandas as pd
 
 from .config import (
     HCP_2004_ON_2014,
+    LINK_REVIEW,
     P_COMMUNES,
     P_CROSSCHECK,
     P_CROSSWALK,
@@ -23,7 +24,6 @@ from .config import (
     PROCESSED,
     RAW,
 )
-from .site import CITIES
 
 P_VALIDATION = PROCESSED / "validation.json"
 SHORTFALLS = 8
@@ -92,21 +92,46 @@ def slices() -> dict:
 
 
 def backcast() -> dict:
-    """The 2004 population our links give each 2014 commune, against HCP's own figure on 2014 boundaries."""
+    """The 2004 population our links give each 2014 commune, against HCP's own figure on 2014 boundaries.
+
+    Where a reviewed split weight exists for a compared commune it was set from that same HCP figure, so those
+    communes are reported apart; of the rest, communes linked one-to-one test only the 2004 count itself."""
     ref = pd.read_csv(HCP_2004_ON_2014, dtype={"code14": str})
     app = pd.read_csv(P_CROSSWALK_APP, dtype={"app_code": str, "code14": str})
     pop = pd.read_csv(P_COMMUNES[2004], dtype={"app_code": str}).set_index("app_code").population04
     ours = (app.app_code.map(pop) * app.weight).groupby(app.code14).sum()
     ref["linked"] = ref.code14.map(ours).fillna(0).round().astype(int)
     ref["pct"] = (ref.linked / ref.population04_hcp * 100 - 100).round(1)
+    ref["ok"] = ref.pct.abs() <= 2
+    review = pd.read_csv(LINK_REVIEW, dtype={"code14": str})
+    calibrated = ref.code14.isin(review.code14[review.weight.notna()])
+    one_to_one = ref.code14.map(app.groupby("code14").link.agg(lambda s: set(s) == {"exact"})).fillna(False)
+
+    def tally(mask) -> dict:
+        return {"communes": int(mask.sum()), "within_2pct": int((ref.ok & mask).sum())}
+
     return {
         "communes": len(ref),
-        "within_2pct": int((ref.pct.abs() <= 2).sum()),
+        "within_2pct": int(ref.ok.sum()),
+        "calibrated": tally(calibrated),
+        "one_to_one": tally(~calibrated & one_to_one),
+        "other_links": tally(~calibrated & ~one_to_one),
         "largest_gaps": [
-            {"name": r.name14, "linked": int(r.linked), "hcp": int(r.population04_hcp)}
-            for _, r in ref.loc[ref.pct.abs().sort_values(ascending=False).index].head(8).iterrows()
-            if abs(r.pct) > 2
+            {"name": r.name14, "linked": int(r.linked), "hcp": int(r.population04_hcp), "pct": float(r.pct)}
+            for _, r in ref[~ref.ok].sort_values("pct", key=abs, ascending=False).iterrows()
         ],
+    }
+
+
+def unplaced_2004() -> dict:
+    """2004 population the profile links place on no 2014 commune: unlinked units and the unplaced share of splits."""
+    app = pd.read_csv(P_CROSSWALK_APP, dtype={"app_code": str})
+    t04 = pd.read_csv(P_COMMUNES[2004], dtype={"app_code": str}).set_index("app_code")
+    placed = app.groupby("app_code").weight.sum().reindex(t04.index).fillna(0)
+    return {
+        "unlinked_units": int((placed == 0).sum()),
+        "partial_units": int(((placed > 0) & (placed < 0.999)).sum()),
+        "population": round(float((t04.population04 * (1 - placed).clip(lower=0)).sum())),
     }
 
 
@@ -119,7 +144,6 @@ def main() -> dict:
     seeds = pd.read_csv(P_SEEDS, dtype=str)
     check = pd.read_csv(P_CROSSCHECK)
     t24 = pd.read_csv(P_COMMUNES[2024], dtype={"code24": str})
-    city_codes = {str(code) for _, code in CITIES.values()}
     out = {
         "population": {
             "2014": reconcile(2014, "code14", "name14", "population14", legal_2014()),
@@ -129,13 +153,12 @@ def main() -> dict:
             "spine_2014": len(cw),
             "linked_2004_annex": int(cw.label04.notna().sum()),
             "linked_2004_profiles": int(app.code14.nunique()),
+            "unplaced_2004": unplaced_2004(),
             "profile_links": {k: int(v) for k, v in app.link.value_counts().items()},
             "linked_2024": int(cw.code24.notna().sum()),
             "linked_all_three": int((cw.code24.notna() & cw.label04.notna()).sum()),
-            # 2024 communes with no 2014 counterpart; the arrondissement cities link through their arrondissements
-            "unlinked_2024": sorted(
-                set(t24.name24[~t24.code24.isin(cw.code24.dropna()) & ~t24.code24.isin(city_codes)])
-            ),
+            # 2024 communes with no 2014 counterpart
+            "unlinked_2024": sorted(set(t24.name24[~t24.code24.isin(cw.code24_commune.dropna())])),
             "imputation": {
                 f: {k: int(v) for k, v in communes[f].fillna("direct").value_counts().items()} for f in ("src04", "src14", "src24")
             },
