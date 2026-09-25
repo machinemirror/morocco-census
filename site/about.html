@@ -32,7 +32,7 @@
     <li><b>A three-census panel</b> of HCP's poverty and development indices (2004 IDH, IDS and monetary poverty;
       multidimensional poverty for 2004, 2014 and 2024). Where a commune did not exist in an earlier census, its value
       is imputed from the same cercle (population-weighted) and <b>flagged</b> in <code>src04</code>/<code>src14</code>/<code>src24</code>.</li>
-    <li><b>Geometry</b>: HCP's 2024 commune boundaries, and approximate Thiessen cells built from openly licensed
+    <li><b>Geometry</b>: HCP's commune boundaries (the communes of 2014 and 2024), and approximate Thiessen cells built from openly licensed
       gazetteers, each with queen-contiguity weights.</li>
   </ul>
 
@@ -71,9 +71,13 @@
     <code>docs/PROVENANCE.md</code>.</p>
 
   <h2>Commune shapes</h2>
-  <p>The map draws HCP's own commune boundaries, from its RGPH 2024 results platform; they are in the downloads with
-    queen-contiguity weights, and should be credited to HCP. HCP publishes them per province, and their edges leave
-    hairline gaps along province borders, so the weights allow 50 m of tolerance.</p>
+  <p>The map draws HCP's own commune boundaries. They are served by HCP's RGPH 2024 results platform, but every polygon
+    carries its 2014 commune code and the urban centres of rural communes are drawn as the 2014 census delimited them,
+    so they appear to be HCP's 2014 census cartography, reused; HCP does not say whether any line was redrawn for
+    2024. The communes themselves are the same in both censuses: the 1,497 communes and municipalities of 2014 match
+    those of 2024 one to one, and the 41 arrondissements of 2014 are the 6 city communes of 2024. The boundaries are in
+    the downloads with queen-contiguity weights, and should be credited to HCP. HCP publishes them per province, and
+    their edges leave hairline gaps along province borders, so the weights allow 50 m of tolerance</p>
   <p>An alternative layer, <i>Approximate</i>, is built only from openly licensed inputs. Each commune gets one seed
     point from the GeoNames gazetteer, or from Wikidata where GeoNames lacks the commune, and the country is divided
     into the cells nearest each point. Where both place a commune more than 25 km apart, the choice between them is

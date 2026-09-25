@@ -15,8 +15,8 @@ terms: credit HCP, indicate modifications, and do not suggest HCP endorsement. T
 are modified (harmonized, matched and in part imputed) and are not endorsed by HCP. Raw HCP files are not redistributed here; data/raw/manifest.json lists
 their URLs and checksums and `mc fetch` downloads them.
 
-HCP's 2024 commune boundaries (geometry/hcp_communes_2024.gpkg and the bundle's
-hcp_communes_2024.* files) come from HCP's RGPH 2024 results platform (https://resultats2024.rgphapps.ma),
+HCP's commune boundaries (geometry/hcp_communes_2024.gpkg and the bundle's
+hcp_communes_2024.* files; the communes of 2014 and 2024) come from HCP's RGPH 2024 results platform (https://resultats2024.rgphapps.ma),
 dissolved to the map units and simplified; they are redistributed under the same HCP terms, with
 attribution to HCP.
 

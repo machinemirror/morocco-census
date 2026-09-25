@@ -18,7 +18,7 @@ changes daily).
 | 2014 and 2024 tables | `extract.py` | HCP 2014 commune workbooks; 2024 indicators and other workbooks; 2024 legal population (names) | `communes_2014.csv`, `communes_2024.csv`, `communes_{2014,2024}_{milieu,sex}.csv` |
 | Panel | `panel.py` | crosswalk, annex, poverty map, MPI database, 2014 legal population | `panel_commune.csv` |
 | App crosswalk | `crosswalk.app2004` | app commune index, crosswalk, `catalog/link_review.csv`, 2014 population | `crosswalk_app2004.csv` |
-| Geometry | `mc geometry` · `geometry.py` | crosswalk, GeoNames, Wikidata, `catalog/seed_review.csv`, `catalog/seed_names.csv`, Natural Earth, HCP 2024 boundary files | `geometry/*` (cells, points, HCP boundaries, both sets of queen weights) |
+| Geometry | `mc geometry` · `geometry.py` | crosswalk, GeoNames, Wikidata, `catalog/seed_review.csv`, `catalog/seed_names.csv`, Natural Earth, HCP boundary files | `geometry/*` (cells, points, HCP boundaries, both sets of queen weights) |
 | Validate | `mc validate` · `validate.py` | tables, legal population 2014 and 2024, `catalog/hcp_2004_on_2014.csv` | `validation.json` |
 | Site | `mc site` · `site.py` | processed tables, catalogue | `site/data/` (map index and values by theme and breakdown, class breaks, geometry, downloads) |
 
@@ -41,7 +41,7 @@ changes daily).
 | 2024 douars | HCP, RGPH 2024 population et ménages par douars | https://www.hcp.ma/file/245768/ |
 | 2024 migration | HCP, RGPH 2024 base de données de la migration interne | https://www.hcp.ma/file/245650/ |
 | 2024 legal population | HCP, RGPH 2024 population légale (commune and province names in French and Arabic) | https://www.hcp.ma/file/242341/ |
-| 2024 boundaries and labels | HCP, RGPH 2024 results platform: 75 per-province commune boundary files; bilingual indicator menu (chart 667) and concept definitions | https://resultats2024.rgphapps.ma |
+| Boundaries and 2024 labels | HCP, RGPH 2024 results platform: 75 per-province commune boundary files (2014 census cartography); bilingual indicator menu (chart 667) and concept definitions | https://resultats2024.rgphapps.ma |
 | 2004 on 2014 boundaries | HCP regional monographs and notes (Berrechid, Grand Casablanca, Settat, Rabat-Salé-Kénitra, Salé, M'Diq-Fnideq), each cited in `catalog/hcp_2004_on_2014.csv` | hcp.ma regional sites |
 | Commune decrees | Décret n° 2-08-520 (BO 5684, 2008) and n° 2-09-320 (BO 5744, 2009): lists of communes, consulted for the 2009 reorganisation | sgg.gov.ma (via the Internet Archive) |
 | Seed points | GeoNames MA + EH (CC BY 4.0); Wikidata rural and urban communes of Morocco, SPARQL query in `fetch.py` (CC0) | geonames.org; query.wikidata.org |
@@ -95,7 +95,7 @@ municipalities, 41 arrondissements).
   Tahannaout → Aghouatim, Sidi Bou Othmane → Jbilate, Sidi Bouknadel → Ameur) and absorptions (Amalou Ighriben into
   Khenifra), and Soualem, whose rural remainder kept its commune number as Soualem Trifiya while its centre became Had
   Soualem. Each is decided on 2004-2014 population and on where the GeoNames point of the 2004 unit falls in HCP's
-  2024 polygons, and states its evidence.
+  commune polygons, and states its evidence.
 - Splits: an app unit listed more than once in the review was divided after 2004. Each part carries the unit's 2004
   rates; its counts are shared by `weight`, taken from HCP's 2004 populations on 2014 boundaries where a regional
   publication gives them (`catalog/hcp_2004_on_2014.csv`, 35 communes: Berrechid, Nouaceur, Settat, Kénitra, Sidi
@@ -134,7 +134,7 @@ Robustness checks should drop imputed rows; the flags make that a one-line filte
   exact name, 17 by fuzzy name), 54 from Wikidata (49 exact, 5 fuzzy), 1 without a point
   (`points_unmatched.csv`: Sidi Mohamed Ben Mansour, which neither gazetteer has as a commune). Five communes are
   matched under a gazetteer spelling recorded in `catalog/seed_names.csv` (Mtalssa as Metalsa, Rmilat as Ermilate...),
-  each checked to fall inside the commune's HCP 2024 polygon. Every point, its source identifier (geonameid or QID), feature class and match
+  each checked to fall inside the commune's HCP polygon. Every point, its source identifier (geonameid or QID), feature class and match
   type is in `points_seeds.csv`.
 - GeoNames matching: commune-level admin features (ADM3/ADM4) before populated places, primary names before
   alternate names; cercles and higher units are excluded. Candidates must lie within a province radius of
@@ -198,13 +198,13 @@ byte-for-byte and its tessellation to within 2e-5 m² per cell. Deliberate chang
 9. Seed points: five communes placed under gazetteer spellings (`catalog/seed_names.csv`); 1,502 units.
 10. French and Arabic (2026.9.3): the AI-assisted translations of definitions, notes, descriptions and pages are
     removed; French and Arabic labels are HCP's own wording, for the map's indicators and place names only.
-11. HCP's 2024 boundaries are redistributed and are the map's default layer, with their own weights (2026.9.4).
+11. HCP's commune boundaries are redistributed and are the map's default layer, with their own weights (2026.9.4).
 12. Urban/rural and male/female tables added for all three censuses; `communes_2004` gains `milieu04`,
     `communes_2024` gains HCP's Arabic commune names and province names (2026.9.3 to 2026.9.4).
 13. The map shows only indicators observed in all three censuses (50), with class breaks chosen per indicator and
     pooled over the censuses; its data is split into an index and one file per theme and breakdown.
 
-## HCP 2024 boundaries (the map's default layer)
+## HCP commune boundaries (the map's default layer)
 
 HCP's RGPH 2024 results platform (https://resultats2024.rgphapps.ma, Apache Superset) draws commune boundaries from 75
 per-province GeoJSON files served as static assets. `mc fetch` finds their current hashed names in the platform's
@@ -212,7 +212,10 @@ country-map bundle and records each file in the manifest. The files declare CRS8
 
 - Features carry an ISO-style code `MA-RR-PPP-CCccM` that is the **2014** commune code (region, province, cercle,
   commune) plus a milieu digit (1 municipality or arrondissement, 2 rural commune, 3-5 urban centre inside a rural
-  commune). All 1,538 communes of the 2014 spine match; Sebta and Melilla features have no census data and are dropped.
+  commune). The urban centres are drawn as the 2014 census delimited them. So although the 2024 platform serves them,
+  these look like HCP's 2014 census cartography; HCP does not say whether lines were redrawn for 2024. The commune
+  set is the same in both censuses (1,497 communes and municipalities one to one, 2014's 41 arrondissements being
+  2024's 6 city communes), so the layer serves both; the files keep the name `hcp_communes_2024` for stability. All 1,538 communes of the 2014 spine match; Sebta and Melilla features have no census data and are dropped.
 - `geometry.hcp_boundaries()` dissolves centres into their rural commune and arrondissements into their city, giving
   1,503 map units (the 1,502 Thiessen units plus 1 commune with no seed point), coverage-simplified at 100 m, in
   `geometry/hcp_communes_2024.gpkg`.

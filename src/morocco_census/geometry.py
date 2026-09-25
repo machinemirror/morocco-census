@@ -349,7 +349,7 @@ def main(outline_path=None) -> gpd.GeoDataFrame:
 
 
 def hcp_boundaries() -> gpd.GeoDataFrame:
-    """HCP's 2024 commune polygons, dissolved to the map units (urban centres into their rural commune,
+    """HCP's commune polygons (RGPH 2024 platform, 2014 codes), dissolved to the map units (urban centres into their rural commune,
     arrondissements into their city). Sebta and Melilla have no census data and are dropped."""
     frames = [gpd.read_file(f) for f in sorted(R_HCP_BOUNDARIES.glob("*.geojson"))]
     # the files declare CRS84 but carry Web Mercator metres
@@ -375,7 +375,7 @@ def hcp_boundaries() -> gpd.GeoDataFrame:
     f.write(w)
     f.close()
     print(
-        f"HCP 2024 boundaries: {len(frames)} provinces, {len(g)} polygons -> {len(out)} map units; "
+        f"HCP boundaries: {len(frames)} provinces, {len(g)} polygons -> {len(out)} map units; "
         f"weights mean {pd.Series(w.cardinalities).mean():.2f} neighbours, {len(w.islands)} islands"
     )
     return out

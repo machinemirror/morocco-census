@@ -37,7 +37,7 @@ Everything published is in [`data/processed/`](data/processed) and described col
 | `panel_commune.csv` | 1,544 | `code14` | three-census poverty/development panel, with provenance flags |
 | `crosswalk_communes.csv` | 1,538 | `code14` | 2014 ↔ 2004 annex ↔ poverty map ↔ 2024 codes |
 | `crosswalk_app2004.csv` | 1,696 | `app_code`, `code14` | 2004 profile codes → 2014 communes (1,537), with link type and split weight |
-| `geometry/hcp_communes_2024.gpkg` | 1,503 | `unit` | HCP's own 2024 commune boundaries (the map's default layer) |
+| `geometry/hcp_communes_2024.gpkg` | 1,503 | `unit` | HCP's commune boundaries, the communes of 2014 and 2024 (the map's default layer) |
 | `geometry/hcp_communes_2024_queen.gal` | 1,503 | | queen-contiguity weights on HCP's boundaries |
 | `geometry/communes.gpkg` | 1,502 | `unit` | Thiessen cells + seed points (approximate, openly licensed inputs only) |
 | `geometry/communes_queen.gal` | 1,502 | | queen-contiguity weights on the cells |
@@ -53,8 +53,9 @@ panel = pd.read_csv(base + "panel_commune.csv", dtype={"code14": str})
 
 ### Commune shapes
 
-The boundaries are HCP's own, from its RGPH 2024 results platform, redistributed with attribution to HCP; they are
-keyed by the 2014 commune code, so every commune of every census has a polygon. The Thiessen cells are an
+The boundaries are HCP's own, redistributed with attribution to HCP. Its RGPH 2024 results platform serves them, but
+they are keyed by the 2014 commune code and drawn on the 2014 census base; the communes are the same in 2014 and 2024
+(2014's 41 arrondissements are 2024's 6 city communes), and 2004 values reach them through the crosswalk. The Thiessen cells are an
 alternative built only from openly licensed gazetteers (one seed point per commune, GeoNames else Wikidata): they
 show where a commune is, not its extent, so do not compute areas or densities from them.
 
@@ -77,7 +78,7 @@ Open work is listed in [`docs/ROADMAP.md`](docs/ROADMAP.md).
 ## Licence and citation
 
 Code: [MIT](LICENSE). Derived data, catalogue and geometry: [CC BY 4.0](LICENSE-DATA). The statistics
-are the Haut-Commissariat au Plan's; raw HCP files are not redistributed, except HCP's 2024 commune boundaries
+are the Haut-Commissariat au Plan's; raw HCP files are not redistributed, except HCP's commune boundaries
 (processed, with attribution to HCP).
 
 > Lehnert, M. R. (2026). *morocco-census: commune-level RGPH 2004, 2014 and 2024.*

@@ -5,8 +5,8 @@ const L = {
     find: "Find a commune",
     nodata: "No data", decrease: "decrease", increase: "increase", rural: "Rural", urban: "Urban",
     caveat: "Commune shapes are approximate Thiessen cells built from one point per commune, not administrative boundaries. They show roughly where a commune is, not its true extent.",
-    caveatHcp: "Commune boundaries as drawn in HCP's RGPH 2024 results platform. 2004 and 2014 values are shown on 2024 boundaries; where communes were reorganised after 2004, a 2004 value may cover a different territory.",
-    shapes: "Shapes", gThiessen: "Approximate", gHcp: "HCP 2024 boundaries",
+    caveatHcp: "HCP's commune boundaries, from its census cartography: coded by 2014 commune and served by its RGPH 2024 results platform. The communes are the same in 2014 and 2024. 2004 values are shown on these boundaries; where communes were reorganised in 2008-2009, a 2004 value may cover a different territory.",
+    shapes: "Shapes", gThiessen: "Approximate", gHcp: "HCP boundaries (2014-2024)",
     noncomp: "Definitions differ between censuses; read the change with care.",
     point: "seed point", allind: "All indicators",
     city: "city (arrondissements combined)", communes: "communes",
@@ -17,7 +17,7 @@ const L = {
     s_all: "Ensemble", s_urban: "Urbain", s_rural: "Rural", s_male: "Masculin", s_female: "Féminin",
     find: "Trouver une commune",
     nodata: "Pas de donnée", decrease: "baisse", increase: "hausse", rural: "Rurale", urban: "Urbaine",
-    shapes: "Contours", gThiessen: "Approximatifs", gHcp: "Limites HCP 2024",
+    shapes: "Contours", gThiessen: "Approximatifs", gHcp: "Limites HCP (2014-2024)",
     point: "point d'ancrage", allind: "Tous les indicateurs", communes: "communes",
   },
   ar: {
@@ -25,7 +25,7 @@ const L = {
     s_all: "المجموع", s_urban: "الوسط الحضري", s_rural: "الوسط القروي", s_male: "الذكور", s_female: "الإناث",
     find: "البحث عن جماعة",
     nodata: "لا توجد معطيات", decrease: "انخفاض", increase: "ارتفاع", rural: "قروية", urban: "حضرية",
-    shapes: "الأشكال", gThiessen: "تقريبية", gHcp: "حدود المندوبية 2024",
+    shapes: "الأشكال", gThiessen: "تقريبية", gHcp: "حدود المندوبية (2014-2024)",
     point: "نقطة الارتكاز", allind: "جميع المؤشرات", communes: "جماعة",
   },
 };

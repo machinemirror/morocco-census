@@ -34,7 +34,7 @@ P_CROSSWALK = PROCESSED / "crosswalk_communes.csv"
 P_CROSSWALK_APP = PROCESSED / "crosswalk_app2004.csv"
 P_PANEL = PROCESSED / "panel_commune.csv"
 P_GPKG = GEOMETRY / "communes.gpkg"
-# HCP's own 2024 boundaries, from its RGPH 2024 results platform: the default map layer
+# HCP's commune boundaries, served by its RGPH 2024 platform on 2014 codes (same communes in 2014 and 2024)
 P_HCP_GPKG = GEOMETRY / "hcp_communes_2024.gpkg"
 P_HCP_GAL = GEOMETRY / "hcp_communes_2024_queen.gal"
 R_HCP_BOUNDARIES = RAW / "hcp_boundaries_2024"

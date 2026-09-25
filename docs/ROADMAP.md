@@ -28,5 +28,5 @@ cites the one used.
 
 ## Site
 
-- The HCP 2024 boundary layer (2.9 MB) is the largest remaining file; simplifying it further or tiling it would help
+- The HCP boundary layer (2.9 MB) is the largest remaining file; simplifying it further or tiling it would help
   on slow connections.
