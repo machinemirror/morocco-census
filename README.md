@@ -65,7 +65,7 @@ Requires [uv](https://docs.astral.sh/uv/) and Python ≥ 3.12.
 ```sh
 uv run mc fetch        # download raw files into data/raw, check sha256 against the manifest
 uv run mc crawl-2004   # 2004 commune profiles from HCP's app (several hours, resumable)
-uv run mc all          # tables -> geometry -> site/data
+uv run mc all          # tables -> geometry -> validation.json -> site/data
 python -m http.server -d site
 ```
 
@@ -77,7 +77,8 @@ Open work is listed in [`docs/ROADMAP.md`](docs/ROADMAP.md).
 ## Licence and citation
 
 Code: [MIT](LICENSE). Derived data, catalogue and geometry: [CC BY 4.0](LICENSE-DATA). The statistics
-are the Haut-Commissariat au Plan's; raw HCP files are not redistributed.
+are the Haut-Commissariat au Plan's; raw HCP files are not redistributed, except HCP's 2024 commune boundaries
+(processed, with attribution to HCP).
 
 > Lehnert, M. R. (2026). *morocco-census: commune-level RGPH 2004, 2014 and 2024.*
 > https://github.com/machinemirror/morocco-census

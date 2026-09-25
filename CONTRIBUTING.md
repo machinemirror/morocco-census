@@ -23,10 +23,20 @@ more than 25 km, `catalog/seed_review.csv` records which one is used and why. To
 Communes without a point are listed in `data/processed/geometry/points_unmatched.csv`; adding their
 coordinates to Wikidata is the quickest way to put them on the map.
 
+## Correct a link between censuses
+
+A 2004 commune profile is linked to its 2014 commune by name, then corrected in `catalog/link_review.csv` for
+merges, renames, absorptions and splits after 2004. Each row gives `app_code`, `app_name`, `code14`, `name14`, an
+optional `weight` (the share of the 2004 unit's counts going to that 2014 commune) and the `evidence`. An empty
+`code14` unlinks the unit. The best evidence is HCP's own 2004 population on 2014 boundaries, which some regional
+monographs publish: add such figures to `catalog/hcp_2004_on_2014.csv` with their source, and `validation.json`
+will check every link against them. A commune a gazetteer spells differently from HCP can be given its gazetteer
+name in `catalog/seed_names.csv`.
+
 ## Add or correct a variable
 
 Extraction is declared in `src/morocco_census/extract.py` (`SPEC_2014`, `SPEC_2024`: the exact source
-column of every variable). Every published column must also appear in `catalog/variables.yaml` with its
+column of every variable; the urban/rural and male/female tables reuse them). Every published column must also appear in `catalog/variables.yaml` with its
 English label, unit, definition and source; the tests fail otherwise. Keep the French source header in the
 catalogue so users can trace the column back to HCP's workbook. French and Arabic labels (`fr`, `ar`) are only
 HCP's own wording, cited in `label_source`, never a translation of ours.

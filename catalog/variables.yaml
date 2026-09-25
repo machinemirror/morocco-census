@@ -2473,7 +2473,7 @@ datasets:
     file: crosswalk_communes.csv
     key: code14
     en: Commune crosswalk 2004-2014-2024
-    description: The 2014 commune list linked to the 2004 annex labels, the poverty-map names and the 2024 codes. Full three-census match for 1,466 of 1,538 communes (95.3%); the rest are post-2004 reorganisations.
+    description: The 2014 commune list linked to the 2004 annex labels, the poverty-map names and the 2024 codes. Full three-census match (2004 annex and 2024) for 1,473 of 1,538 communes (95.8%); the rest are post-2004 reorganisations. The 2004 commune profiles link through crosswalk_app2004 (1,537).
     columns:
       code14: {en: Commune code (2014), unit: code, definition: Spine key.}
       name14: {en: Commune name (2014), unit: text, definition: HCP 2014 label.}

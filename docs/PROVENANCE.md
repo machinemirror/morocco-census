@@ -10,18 +10,19 @@ changes daily).
 
 | Step | Command / module | Inputs | Output |
 |---|---|---|---|
-| Fetch | `mc fetch` · `fetch.py` | 20 files (HCP, GeoNames, Wikidata, Natural Earth) | `data/raw/` |
+| Fetch | `mc fetch` · `fetch.py` | 95 files (HCP workbooks and PDF, 75 HCP boundary files, GeoNames, Wikidata, Natural Earth) | `data/raw/` |
 | 2004 profiles | `mc crawl-2004` · `hcp_app.py` | HCP Maroc en Chiffres app (4 profile pages × 1,689 communes) | `data/raw/2004_app/` |
 | 2004 indices | `parse_2004.annex` | HCP 2004 poverty volume, Annexe 2 (PDF) | `commune_indices_2004.csv` |
-| 2004 table | `parse_2004.app` | crawled profile pages | `communes_2004.csv` |
+| 2004 table | `parse_2004.app` | crawled profile pages | `communes_2004.csv`, `communes_2004_sex.csv` |
 | Crosswalk | `crosswalk.communes` | 2014 commune list, 2004 annex, 2004–2014 poverty map, 2025 MPI database | `crosswalk_communes.csv` |
-| 2014 and 2024 tables | `extract.py` | HCP 2014 commune workbooks; 2024 indicators workbook | `communes_2014.csv`, `communes_2024.csv` |
+| 2014 and 2024 tables | `extract.py` | HCP 2014 commune workbooks; 2024 indicators and other workbooks; 2024 legal population (names) | `communes_2014.csv`, `communes_2024.csv`, `communes_{2014,2024}_{milieu,sex}.csv` |
 | Panel | `panel.py` | crosswalk, annex, poverty map, MPI database, 2014 legal population | `panel_commune.csv` |
-| App crosswalk | `crosswalk.app2004` | app commune index, crosswalk | `crosswalk_app2004.csv` |
-| Geometry | `mc geometry` · `geometry.py` | crosswalk, GeoNames, Wikidata, `catalog/seed_review.csv`, Natural Earth | `geometry/*` |
-| Site | `mc site` · `site.py` | processed tables, catalogue | `site/data/` |
+| App crosswalk | `crosswalk.app2004` | app commune index, crosswalk, `catalog/link_review.csv`, 2014 population | `crosswalk_app2004.csv` |
+| Geometry | `mc geometry` · `geometry.py` | crosswalk, GeoNames, Wikidata, `catalog/seed_review.csv`, `catalog/seed_names.csv`, Natural Earth, HCP 2024 boundary files | `geometry/*` (cells, points, HCP boundaries, both sets of queen weights) |
+| Validate | `mc validate` · `validate.py` | tables, legal population 2014 and 2024, `catalog/hcp_2004_on_2014.csv` | `validation.json` |
+| Site | `mc site` · `site.py` | processed tables, catalogue | `site/data/` (map index and values by theme and breakdown, class breaks, geometry, downloads) |
 
-`mc all` runs build, geometry and site. Only `site` runs in CI; everything before it needs the raw files.
+`mc all` runs build, geometry, validate and site. Only `site` runs in CI; everything before it needs the raw files.
 
 ## Sources
 
@@ -39,6 +40,10 @@ changes daily).
 | 2024 establishments | HCP, RGPH 2024 cartographie des établissements économiques (CEE) | https://www.hcp.ma/file/242672/ |
 | 2024 douars | HCP, RGPH 2024 population et ménages par douars | https://www.hcp.ma/file/245768/ |
 | 2024 migration | HCP, RGPH 2024 base de données de la migration interne | https://www.hcp.ma/file/245650/ |
+| 2024 legal population | HCP, RGPH 2024 population légale (commune and province names in French and Arabic) | https://www.hcp.ma/file/242341/ |
+| 2024 boundaries and labels | HCP, RGPH 2024 results platform: 75 per-province commune boundary files; bilingual indicator menu (chart 667) and concept definitions | https://resultats2024.rgphapps.ma |
+| 2004 on 2014 boundaries | HCP regional monographs and notes (Berrechid, Grand Casablanca, Settat, Rabat-Salé-Kénitra, Salé, M'Diq-Fnideq), each cited in `catalog/hcp_2004_on_2014.csv` | hcp.ma regional sites |
+| Commune decrees | Décret n° 2-08-520 (BO 5684, 2008) and n° 2-09-320 (BO 5744, 2009): lists of communes, consulted for the 2009 reorganisation | sgg.gov.ma (via the Internet Archive) |
 | Seed points | GeoNames MA + EH (CC BY 4.0); Wikidata rural and urban communes of Morocco, SPARQL query in `fetch.py` (CC0) | geonames.org; query.wikidata.org |
 | Outline | Natural Earth 1:10m admin-0, Morocco + W. Sahara (public domain) | naturalearthdata.com |
 
@@ -46,8 +51,8 @@ The 2014 and 2024 tables carry every both-sexes, both-milieux column of these wo
 marital status, fertility, education, diplomas, languages, employment status, occupations, sectors, housing,
 sanitation, cooking fuel, equipment, distance to a paved road). The 2004 profiles are parsed for the concepts that
 also appear in 2014 or 2024; the 2004 year of construction is published for urban households only and is left
-empty for rural communes. Sex and urban/rural breakdowns (the Masculin/Féminin blocks and the 2024 milieu sheets)
-are not yet extracted.
+empty for rural communes. Urban/rural and male/female breakdowns are separate tables (see *Urban/rural and
+male/female breakdowns* below).
 
 The five other 2024 workbooks are joined to `communes_2024.csv` on `code24`:
 
@@ -184,6 +189,20 @@ byte-for-byte and its tessellation to within 2e-5 m² per cell. Deliberate chang
    22 more units get a cell (1,497), and the previous release's point for Lagouira, about 1,700 km from the
    town, is corrected. Against the 1,473 units placed in both releases the median shift is 3.0 km;
    12 move more than 50 km, all Saharan communes, reviewed disagreements or corrected errors.
+7. 2004 profile links rebuilt (2026.9.3 to 2026.9.5): autonomous centres join their rural commune (125
+   communes had carried the rural part's values only); provinces created after 2004 are matched within their 2004
+   provinces; reviewed merges, renames, absorptions and splits, calibrated to HCP's 2004 populations on 2014
+   boundaries where published. Links grow from 1,478 to 1,537 communes; `crosswalk_app2004` gains `link` and
+   `weight` and is keyed by `app_code` and `code14`.
+8. 2024 links: 9 rows linked by identical code (2026.9.3); 1,538 of 1,538.
+9. Seed points: five communes placed under gazetteer spellings (`catalog/seed_names.csv`); 1,502 units.
+10. French and Arabic (2026.9.3): the AI-assisted translations of definitions, notes, descriptions and pages are
+    removed; French and Arabic labels are HCP's own wording, for the map's indicators and place names only.
+11. HCP's 2024 boundaries are redistributed and are the map's default layer, with their own weights (2026.9.4).
+12. Urban/rural and male/female tables added for all three censuses; `communes_2004` gains `milieu04`,
+    `communes_2024` gains HCP's Arabic commune names and province names (2026.9.3 to 2026.9.4).
+13. The map shows only indicators observed in all three censuses (50), with class breaks chosen per indicator and
+    pooled over the censuses; its data is split into an index and one file per theme and breakdown.
 
 ## HCP 2024 boundaries (the map's default layer)
 
