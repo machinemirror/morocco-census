@@ -42,6 +42,12 @@ Everything published is in [`data/processed/`](data/processed) and described col
 | `geometry/communes_points.gpkg` | 1,502 | `unit` | one point per commune from GeoNames or Wikidata (openly licensed) |
 | `validation.json` | | | populations against HCP's legal population, linkage and seed-point checks |
 
+`geometry/` also holds build intermediates, tracked so the checks can be audited: the Natural Earth outline
+(`boundary_mar_esh.gpkg`) and neighbouring countries (`context_countries.gpkg`) the map draws, and the seed-point
+review files: `points_seeds.csv` (each point's gazetteer match), `points_crosscheck.csv` (GeoNames against
+Wikidata), `points_unmatched.csv` (communes without a point) and `points_duplicate.csv` (units dropped for sharing
+coordinates; currently none).
+
 Read codes as text: `app_code` has leading zeros and `code14` ends with a dot.
 
 ```python
