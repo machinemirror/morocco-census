@@ -41,7 +41,7 @@
   <pre id="snippet" dir="ltr"></pre>
 
   <h2 data-t="cite">Cite</h2>
-  <p class="small" id="cite" dir="ltr"></p>
+  <div id="cite" dir="ltr"></div>
 </div>
 <footer class="site">Derived data CC BY 4.0 · source statistics © HCP, Royaume du Maroc ·
   <a href="https://github.com/machinemirror/morocco-census">GitHub</a></footer>
@@ -82,9 +82,13 @@ communes = gpd.read_file("${base}hcp_communes_2024.gpkg")
 # R
 panel <- read.csv("${base}panel_commune.csv", colClasses = c(code14 = "character"))`;
   document.getElementById("cite").innerHTML =
-    `Lehnert, M. R. (2026). <i>morocco-census: commune-level RGPH 2004, 2014 and 2024</i> (v${C.version}) [Data set]. Zenodo. ` +
-    `<a href="https://doi.org/10.5281/zenodo.22953567">doi.org/10.5281/zenodo.22953567</a>. ` +
-    `Source statistics: Haut-Commissariat au Plan, Recensement Général de la Population et de l'Habitat 2004, 2014, 2024.`;
+    `<p class="small ref">Lehnert, M. R. (2026). <i>morocco-census: Commune-level RGPH 2004, 2014 and 2024</i> ` +
+    `(Version ${C.version}) [Data set]. Zenodo. <a href="https://doi.org/10.5281/zenodo.22953567">https://doi.org/10.5281/zenodo.22953567</a></p>` +
+    [2004, 2014, 2024].map(y => {
+      const url = y === 2014 ? "https://rgph2014.hcp.ma" : "https://www.hcp.ma";
+      return `<p class="small ref">Haut-Commissariat au Plan. (${y}). <i>Recensement général de la population et de ` +
+        `l'habitat ${y}</i> [Data set]. <a href="${url}">${url}</a></p>`;
+    }).join("");
 }
 MC.header("downloads");
 fetch("data/catalog.json").then(r => r.json()).then(c => { C = c; render(); });

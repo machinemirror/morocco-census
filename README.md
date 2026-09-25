@@ -101,16 +101,33 @@ Code: [MIT](LICENSE). Derived data, catalogue and geometry: [CC BY 4.0](LICENSE-
 are the Haut-Commissariat au Plan's; raw HCP files are not redistributed, except HCP's commune boundaries
 (processed, with attribution to HCP).
 
-> Lehnert, M. R. (2026). *morocco-census: commune-level RGPH 2004, 2014 and 2024* [Data set]. Zenodo.
+Cite the dataset (APA 7):
+
+> Lehnert, M. R. (2026). *morocco-census: Commune-level RGPH 2004, 2014 and 2024* [Data set]. Zenodo.
 > https://doi.org/10.5281/zenodo.22953567
 
-That DOI always resolves to the latest release; each release also has its own DOI, listed on the
-[Zenodo record](https://doi.org/10.5281/zenodo.22953567), for citing the exact version used.
+That DOI always resolves to the latest release. To cite the exact version used, add it after the title,
+e.g. *(Version 2026.9.8)*, and use that release's own DOI from the [Zenodo record](https://doi.org/10.5281/zenodo.22953567).
 
-Source statistics: Haut-Commissariat au Plan, *Recensement Général de la Population et de l'Habitat*
-2004, 2014, 2024. The harmonization began with Lehnert (2021, Ph.D. dissertation, University of
-Toledo) and Lehnert & Smirnov (2024), *African Geographical Review* 43(1):60–79,
-[doi:10.1080/19376812.2022.2107547](https://doi.org/10.1080/19376812.2022.2107547).
+Cite HCP as the source of the statistics:
+
+> Haut-Commissariat au Plan. (2004). *Recensement général de la population et de l'habitat 2004* [Data set].
+> https://www.hcp.ma
+>
+> Haut-Commissariat au Plan. (2014). *Recensement général de la population et de l'habitat 2014* [Data set].
+> https://rgph2014.hcp.ma
+>
+> Haut-Commissariat au Plan. (2024). *Recensement général de la population et de l'habitat 2024* [Data set].
+> https://www.hcp.ma
+
+The harmonization began with:
+
+> Lehnert, M. R. (2021). *Spatial data science: Theory and methods with applications to human development in
+> Morocco* [Doctoral dissertation, University of Toledo]. OhioLINK Electronic Theses and Dissertations Center.
+> http://rave.ohiolink.edu/etdc/view?acc_num=toledo1620381248329514
+>
+> Lehnert, M. R., & Smirnov, O. (2024). Human development in Morocco: Out-of-sample prediction using spatial
+> econometrics and RandomForest. *African Geographical Review, 43*(1), 60–79. https://doi.org/10.1080/19376812.2022.2107547
 
 Western Sahara communes are included as HCP reports them; this implies no position on the
 territory's status.

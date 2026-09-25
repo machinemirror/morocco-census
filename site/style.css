@@ -98,6 +98,7 @@ p { margin: 0 0 0.9em; }
 .lede { color: var(--text-2); max-width: 70ch; }
 .muted { color: var(--text-3); }
 .small { font-size: 0.85rem; }
+.ref { padding-left: 2em; text-indent: -2em; overflow-wrap: anywhere; }
 
 .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 1rem 1.1rem; }
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0.9rem; }

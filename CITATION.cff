@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use these data, please cite them as below, and cite the Haut-Commissariat au Plan as the source of the statistics."
-title: "morocco-census: commune-level RGPH 2004, 2014 and 2024"
+title: "morocco-census: Commune-level RGPH 2004, 2014 and 2024"
 type: dataset
 authors:
   - family-names: Lehnert
@@ -34,8 +34,18 @@ references:
     authors:
       - name: "Haut-Commissariat au Plan, Royaume du Maroc"
     url: "https://www.hcp.ma"
+  - type: thesis
+    title: "Spatial data science: Theory and methods with applications to human development in Morocco"
+    authors:
+      - family-names: Lehnert
+        given-names: Matthew R.
+    thesis-type: Doctoral dissertation
+    institution:
+      name: University of Toledo
+    year: 2021
+    url: "http://rave.ohiolink.edu/etdc/view?acc_num=toledo1620381248329514"
   - type: article
-    title: "Human development in Morocco: out-of-sample prediction using spatial econometrics and RandomForest"
+    title: "Human development in Morocco: Out-of-sample prediction using spatial econometrics and RandomForest"
     authors:
       - family-names: Lehnert
         given-names: Matthew R.
