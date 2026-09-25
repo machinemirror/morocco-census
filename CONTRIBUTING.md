@@ -66,4 +66,6 @@ under its own DOI (the concept DOI 10.5281/zenodo.22953567 resolves to the lates
 paper describing a named release is in preparation; until then `docs/PROVENANCE.md` documents the methods. Contributors are credited in
 the release notes, and substantial contributors in `CITATION.cff`.
 
+If you use an AI assistant, say so in the commit message with an `Assisted-by:` line naming it.
+
 By contributing you agree that data contributions are published under CC BY 4.0 and code under MIT.

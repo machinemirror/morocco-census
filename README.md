@@ -95,6 +95,14 @@ Corrections and additions are welcome: see [CONTRIBUTING.md](CONTRIBUTING.md).
 [`docs/PROVENANCE.md`](docs/PROVENANCE.md) documents every step, match rate and imputation.
 Open work is listed in [`docs/ROADMAP.md`](docs/ROADMAP.md).
 
+## AI assistance
+
+The pipeline, tests, site and documentation were developed with AI coding assistants (Anthropic's Claude Code
+and OpenAI's Codex) under the author's direction. The statistics are HCP's; each linkage and placement decision is
+recorded with its evidence in `catalog/link_review.csv` and `catalog/seed_review.csv`, and every published number
+is regenerated from HCP's files and checked by the tests and `validation.json`, so the results can be audited
+without relying on how the code was written. Commits made with an assistant name it in an `Assisted-by:` line.
+
 ## Licence and citation
 
 Code: [MIT](LICENSE). Derived data, catalogue and geometry: [CC BY 4.0](LICENSE-DATA). The statistics
