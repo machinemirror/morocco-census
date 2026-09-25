@@ -10,9 +10,9 @@ from morocco_census.config import (
     P_CROSSCHECK,
     P_CROSSWALK,
     P_CROSSWALK_APP,
-    P_GPKG,
     P_INDICES_2004,
     P_PANEL,
+    P_POINTS,
     P_SEEDS,
     P_SLICES,
     SEED_NAMES,
@@ -103,11 +103,8 @@ def test_shares_sum_to_100():
 
 
 def test_geometry():
-    cells = gpd.read_file(P_GPKG, layer="thiessen")
-    pts = gpd.read_file(P_GPKG, layer="points")
-    assert len(cells) == len(pts) == 1502
-    assert cells.unit.is_unique and set(cells.unit) == set(pts.unit)
-    assert cells.geometry.is_valid.all()
+    pts = gpd.read_file(P_POINTS, layer="points")
+    assert len(pts) == 1502 and pts.unit.is_unique
     assert set(pts.pt_src) == {"geonames", "wikidata"}  # openly licensed gazetteers only
 
 
@@ -190,7 +187,7 @@ def test_validation_report_matches_tables():
     assert v["linkage"]["unlinked_2024"] == []
     b = v["backcast_2004"]  # our linked 2004 population against HCP's figures on 2014 boundaries
     assert b["communes"] >= 35 and b["within_2pct"] >= 27
-    assert v["seeds"]["placed"] == len(gpd.read_file(P_GPKG, layer="points"))
+    assert v["seeds"]["placed"] == len(gpd.read_file(P_POINTS, layer="points"))
     for y, n in (("2014", 1538), ("2024", 1503)):
         p = v["population"][y]
         assert p["communes"] == p["in_legal_list"] == n

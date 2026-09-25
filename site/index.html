@@ -105,13 +105,6 @@
       <div class="note" id="ind-note" lang="en" dir="ltr" hidden></div>
     </div>
     <div>
-      <label class="h" data-t="shapes">Shapes</label>
-      <div class="seg" id="geom">
-        <button data-g="hcp" aria-pressed="true" data-t="gHcp">HCP boundaries (2014-2024)</button>
-        <button data-g="thiessen" aria-pressed="false" data-t="gThiessen">Approximate</button>
-      </div>
-    </div>
-    <div>
       <label class="h" for="q" data-t="find">Find a commune</label>
       <input id="q" type="search" list="communes" autocomplete="off" placeholder="Taroudant, Anfa, Dakhla…">
       <datalist id="communes"></datalist>
@@ -120,7 +113,7 @@
     <div class="i18n small" id="i18n"></div>
   </aside>
   <main id="map">
-    <div class="caveat" data-t="caveatHcp"></div>
+    <div class="caveat" data-t="caveat"></div>
   </main>
 </div>
 <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>

@@ -1,5 +1,5 @@
 """Export the static site's data: map/index.json (units, HCP names, the three-census indicators) with one
-values file per theme, communes.geojson (simplified cells), catalog.json, and the downloads folder (tables as
+values file per theme, communes_hcp2024.geojson (HCP's boundaries, simplified), catalog.json, and the downloads folder (tables as
 CSV + Parquet, geometry, dictionary, zip)."""
 
 import json
@@ -19,11 +19,10 @@ from .config import (
     P_CONTEXT,
     P_CROSSWALK,
     P_CROSSWALK_APP,
-    P_GAL,
-    P_GPKG,
     P_HCP_GAL,
     P_HCP_GPKG,
     P_PANEL,
+    P_POINTS,
     P_SLICES,
     PROCESSED,
     SITE,
@@ -183,25 +182,20 @@ def rounded(s: pd.Series, spec: dict) -> list:
     return [None if pd.isna(v) else float(f"{v:.4g}") for v in s]
 
 
-def unit_frame(cells: gpd.GeoDataFrame, hcp: gpd.GeoDataFrame) -> pd.DataFrame:
-    """Map units: the Thiessen cells in order, then units only HCP's boundaries draw (no seed point)."""
-    pts = gpd.read_file(P_GPKG, layer="points").set_index("unit")
+def unit_frame(hcp: gpd.GeoDataFrame) -> pd.DataFrame:
+    """Map units in the order of HCP's boundaries, located by their gazetteer point (else a point inside the polygon)."""
+    pts = gpd.read_file(P_POINTS, layer="points").set_index("unit")
     cw = pd.read_csv(P_CROSSWALK, dtype=str).set_index("code14")
-    extra = hcp[~hcp.unit.isin(cells.unit)]
-    f = pd.concat(
-        [
-            cells[["unit", "name14", "prov14"]],
-            pd.DataFrame(
-                {"unit": extra.unit, "name14": extra.unit.map(cw.name14), "prov14": extra.unit.map(cw.prov14)}
-            ),
-        ],
-        ignore_index=True,
-    )
+    f = pd.DataFrame({"unit": hcp.unit, "name14": hcp.unit.map(cw.name14), "prov14": hcp.unit.map(cw.prov14)})
+    # a city unit (arrondissements merged) is named after its first arrondissement's province
+    city = f.name14.isna()
+    first = cw.reset_index().assign(unit=lambda d: d.code14.str.extract(r"^(\d+\.\d+\.\d+\.)")[0]).drop_duplicates("unit")
+    f.loc[city, "prov14"] = f.unit[city].map(first.set_index("unit").prov14)
     rp = hcp.set_index("unit").representative_point()
     f["lon"] = pts.geometry.x.reindex(f.unit).fillna(rp.x.reindex(f.unit)).values
     f["lat"] = pts.geometry.y.reindex(f.unit).fillna(rp.y.reindex(f.unit)).values
-    f["pt_src"] = pts.pt_src.reindex(f.unit).fillna("hcp2024").values
-    return f
+    f["pt_src"] = pts.pt_src.reindex(f.unit).fillna("hcp polygon").values
+    return f.reset_index(drop=True)
 
 
 def hcp_names(units: list[str]) -> pd.DataFrame:
@@ -304,21 +298,19 @@ def map_data(cat: dict, uf: pd.DataFrame) -> dict:
     return {"index": index, "values": values}
 
 
-def simplified(cells: gpd.GeoDataFrame, ids=None) -> gpd.GeoDataFrame:
-    utm = cells.to_crs(32629)
-    if ids is not None:
-        utm["geometry"] = utm.geometry.buffer(0)  # HCP polygons: reprojection can leave degenerate slivers
+def simplified(polys: gpd.GeoDataFrame, ids) -> gpd.GeoDataFrame:
+    utm = polys.to_crs(32629)
+    utm["geometry"] = utm.geometry.buffer(0)  # reprojection can leave degenerate slivers
     # coverage simplification keeps shared edges shared (no slivers between neighbours)
     geom = shapely.coverage_simplify(np.asarray(utm.geometry.values), SIMPLIFY_M)
-    ids = range(len(cells)) if ids is None else list(ids)
-    return gpd.GeoDataFrame({"i": ids}, geometry=geom, crs=32629).to_crs(4326)
+    return gpd.GeoDataFrame({"i": list(ids)}, geometry=geom, crs=32629).to_crs(4326)
 
 
 def write_geojson(gdf: gpd.GeoDataFrame, path, precision: int = 4) -> None:
     gdf.to_file(path, driver="GeoJSON", COORDINATE_PRECISION=precision, RFC7946="YES")
 
 
-def downloads(cat: dict, cells: gpd.GeoDataFrame, dest) -> list[dict]:
+def downloads(cat: dict, dest) -> list[dict]:
     dest.mkdir(parents=True, exist_ok=True)
     files = []
     for ds in cat["datasets"]:
@@ -343,11 +335,8 @@ def downloads(cat: dict, cells: gpd.GeoDataFrame, dest) -> list[dict]:
     shutil.copy(P_HCP_GPKG, dest / "hcp_communes_2024.gpkg")
     shutil.copy(P_HCP_GAL, dest / "hcp_communes_2024_queen.gal")
     write_geojson(gpd.read_file(P_HCP_GPKG), dest / "hcp_communes_2024.geojson", 5)
-    shutil.copy(P_GPKG, dest / "communes.gpkg")
-    shutil.copy(P_GAL, dest / "communes_queen.gal")
-    shutil.copy(P_BOUNDARY, dest / "boundary_mar_esh.gpkg")
-    write_geojson(cells, dest / "communes_thiessen.geojson", 6)
-    gpd.read_file(P_GPKG, layer="points").pipe(write_geojson, dest / "communes_points.geojson", 6)
+    shutil.copy(P_POINTS, dest / "communes_points.gpkg")
+    gpd.read_file(P_POINTS, layer="points").pipe(write_geojson, dest / "communes_points.geojson", 6)
     catalog.columns(cat).to_csv(dest / "data_dictionary.csv", index=False)
     bundle = dest / f"morocco-census-data-{version('morocco-census')}.zip"
     with zipfile.ZipFile(bundle, "w", zipfile.ZIP_DEFLATED) as z:
@@ -366,23 +355,18 @@ def main() -> None:
     out = SITE / "data"
     shutil.rmtree(out, ignore_errors=True)
     out.mkdir(parents=True)
-    cells = gpd.read_file(P_GPKG, layer="thiessen")
-
     hcp = gpd.read_file(P_HCP_GPKG)
-    uf = unit_frame(cells, hcp)
+    uf = unit_frame(hcp)
     data = map_data(cat, uf)
     (out / "map").mkdir()
     (out / "map" / "index.json").write_text(json.dumps(data["index"], ensure_ascii=False, separators=(",", ":")))
     for theme, vals in data["values"].items():
         (out / "map" / f"{theme}.json").write_text(json.dumps(vals, separators=(",", ":")))
-    write_geojson(simplified(cells), out / "communes.geojson")
-    hcp = hcp.set_index("unit").loc[[u for u in uf.unit if u in set(hcp.unit)]].reset_index()
-    hcp["i"] = hcp.unit.map({u: i for i, u in enumerate(uf.unit)})
-    write_geojson(simplified(hcp, hcp.i), out / "communes_hcp2024.geojson")
+    write_geojson(simplified(hcp, range(len(hcp))), out / "communes_hcp2024.geojson")
     write_geojson(gpd.read_file(P_BOUNDARY), out / "outline.geojson")
     write_geojson(gpd.read_file(P_CONTEXT)[["NAME", "geometry"]], out / "context.geojson", 3)
 
-    files = downloads(cat, cells, out / "downloads")
+    files = downloads(cat, out / "downloads")
     dictionary = catalog.columns(cat).fillna("")
     (out / "catalog.json").write_text(
         json.dumps(

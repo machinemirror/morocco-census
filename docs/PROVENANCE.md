@@ -18,7 +18,7 @@ changes daily).
 | 2014 and 2024 tables | `extract.py` | HCP 2014 commune workbooks; 2024 indicators and other workbooks; 2024 legal population (names) | `communes_2014.csv`, `communes_2024.csv`, `communes_{2014,2024}_{milieu,sex}.csv` |
 | Panel | `panel.py` | crosswalk, annex, poverty map, MPI database, 2014 legal population | `panel_commune.csv` |
 | App crosswalk | `crosswalk.app2004` | app commune index, crosswalk, `catalog/link_review.csv`, 2014 population | `crosswalk_app2004.csv` |
-| Geometry | `mc geometry` · `geometry.py` | crosswalk, GeoNames, Wikidata, `catalog/seed_review.csv`, `catalog/seed_names.csv`, Natural Earth, HCP boundary files | `geometry/*` (cells, points, HCP boundaries, both sets of queen weights) |
+| Geometry | `mc geometry` · `geometry.py` | crosswalk, GeoNames, Wikidata, `catalog/seed_review.csv`, `catalog/seed_names.csv`, Natural Earth, HCP boundary files | `geometry/*` (commune points, HCP boundaries and their queen weights) |
 | Validate | `mc validate` · `validate.py` | tables, legal population 2014 and 2024, `catalog/hcp_2004_on_2014.csv` | `validation.json` |
 | Site | `mc site` · `site.py` | processed tables, catalogue | `site/data/` (map index and values by theme and breakdown, class breaks, geometry, downloads) |
 
@@ -148,9 +148,10 @@ Robustness checks should drop imputed rows; the flags make that a one-line filte
   by comparison with an OpenStreetMap Nominatim lookup (used for review only; no OSM data is published),
   2 without an OSM result by distance to the province anchor. The pattern: GeoNames admin points for
   municipalities and for Saharan communes are often off; for rural northern communes Wikidata is.
-- Cells: Voronoi in EPSG:32629, clipped to the Natural Earth outline. Seeds for Figuig, Bab Lamrissa and
-  Harhoura fall just outside that coarse outline; it is extended by 1 km around them.
-- Weights: queen contiguity on the cells, 1,502 units, mean 5.76 neighbours, no islands.
+- Output: `geometry/communes_points.gpkg` (layer `points`). The Natural Earth outline bounds the gazetteer search and
+  draws the map's coast and neighbouring countries.
+- Thiessen cells around these points, clipped to Natural Earth, were the map's alternative layer and a download
+  (with queen weights) until release 2026.9.6; with HCP's boundaries published they were retired.
 
 ## Validation
 
@@ -203,8 +204,11 @@ byte-for-byte and its tessellation to within 2e-5 m² per cell. Deliberate chang
     `communes_2024` gains HCP's Arabic commune names and province names (2026.9.3 to 2026.9.4).
 13. The map shows only indicators observed in all three censuses (50), with class breaks chosen per indicator and
     pooled over the censuses; its data is split into an index and one file per theme and breakdown.
+14. Thiessen cells and their weights are retired (2026.9.6): the map draws HCP's boundaries only, and the download
+    bundle carries the commune points (`communes_points.gpkg`, `.geojson`) instead of `communes.gpkg`,
+    `communes_queen.gal`, `communes_thiessen.geojson` and `boundary_mar_esh.gpkg`.
 
-## HCP commune boundaries (the map's default layer)
+## HCP commune boundaries (the map's layer)
 
 HCP's RGPH 2024 results platform (https://resultats2024.rgphapps.ma, Apache Superset) draws commune boundaries from 75
 per-province GeoJSON files served as static assets. `mc fetch` finds their current hashed names in the platform's
@@ -217,7 +221,7 @@ country-map bundle and records each file in the manifest. The files declare CRS8
   set is the same in both censuses (1,497 communes and municipalities one to one, 2014's 41 arrondissements being
   2024's 6 city communes), so the layer serves both; the files keep the name `hcp_communes_2024` for stability. All 1,538 communes of the 2014 spine match; Sebta and Melilla features have no census data and are dropped.
 - `geometry.hcp_boundaries()` dissolves centres into their rural commune and arrondissements into their city, giving
-  1,503 map units (the 1,502 Thiessen units plus 1 commune with no seed point), coverage-simplified at 100 m, in
+  1,503 map units, coverage-simplified at 100 m, in
   `geometry/hcp_communes_2024.gpkg`.
 - Redistributed in the download bundle (GeoPackage, GeoJSON) with attribution to HCP, whose terms allow reuse with
   attribution.

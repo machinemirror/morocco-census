@@ -1,7 +1,7 @@
-"""Approximate commune geometry -> communes.gpkg (layers thiessen, points) + queen weights.
+"""Commune geometry: one point per commune from open gazetteers -> communes_points.gpkg; HCP's commune boundaries,
+dissolved to the map units -> hcp_communes_2024.gpkg + queen weights.
 
-HCP does not distribute commune boundaries as a dataset, so each commune gets a seed point and a Thiessen (Voronoi)
-cell clipped to the national outline. Every input is openly licensed:
+Points come only from openly licensed gazetteers:
   1. GeoNames (CC BY 4.0), matched by normalized name. Commune-level admin features (ADM3/ADM4)
      rank before populated places, primary names before alternate names, and candidates must lie
      near their province's anchor: the median of units with a single unambiguous candidate. A
@@ -11,7 +11,8 @@ cell clipped to the national outline. Every input is openly licensed:
 Where both gazetteers place a unit, their distance is written to points_crosscheck.csv. When they
 disagree by more than CROSSCHECK_FLAG_KM, catalog/seed_review.csv records a reviewed choice of
 source; without a review, the point nearer the province anchor is used. catalog/seed_names.csv gives the
-gazetteer spelling of communes whose census name matches nothing (Mtalssa is Metalsa). Arrondissements collapse to one unit per city. The outline is Natural Earth.
+gazetteer spelling of communes whose census name matches nothing (Mtalssa is Metalsa). Arrondissements collapse to
+one unit per city. The Natural Earth outline bounds the gazetteer search and draws the map's coast and neighbours.
 """
 
 import re
@@ -32,10 +33,9 @@ from .config import (
     P_CROSSCHECK,
     P_CROSSWALK,
     P_DUP_POINTS,
-    P_GAL,
-    P_GPKG,
     P_HCP_GAL,
     P_HCP_GPKG,
+    P_POINTS,
     P_SEEDS,
     P_UNMATCHED,
     R_GEONAMES,
@@ -279,20 +279,6 @@ def place(seeds: pd.DataFrame) -> tuple[gpd.GeoDataFrame, pd.DataFrame]:
     return pts, seeds.loc[dup, ["unit", "name14", "prov14"]]
 
 
-def tessellate(pts: gpd.GeoDataFrame, outline) -> gpd.GeoDataFrame:
-    p = pts.to_crs(UTM)
-    coords = np.round(np.column_stack([p.geometry.x, p.geometry.y]), 1)
-    cells = gpd.GeoDataFrame(geometry=list(shapely.voronoi_polygons(shapely.multipoints(coords)).geoms), crs=UTM)
-    cells = gpd.clip(cells, gpd.GeoSeries([outline], crs=4326).to_crs(UTM).iloc[0])
-    # voronoi_polygons does not preserve input order: assign cells to points spatially
-    joined = gpd.sjoin(cells, p[["geometry"]], predicate="contains", how="inner")
-    cell_for_point = joined.reset_index().drop_duplicates("index_right").set_index("index_right")["geometry"]
-    t = p.copy()
-    t["geometry"] = t.index.map(cell_for_point)
-    t = gpd.GeoDataFrame(t[t.geometry.notna()], geometry="geometry", crs=UTM)
-    return t[~t.geometry.is_empty]
-
-
 def main(outline_path=None) -> gpd.GeoDataFrame:
     GEOMETRY.mkdir(parents=True, exist_ok=True)
     outline = (gpd.read_file(outline_path) if outline_path else boundary()).to_crs(4326).geometry.iloc[0]
@@ -329,23 +315,10 @@ def main(outline_path=None) -> gpd.GeoDataFrame:
 
     pts, dups = place(seeds)
     dups.to_csv(P_DUP_POINTS, index=False)
-    # a coarse coastline can leave a coastal seed just offshore (Harhoura with Natural Earth): keep its cell
-    offshore = pts[~pts.within(outline)]
-    if len(offshore):
-        outline = outline.union(offshore.to_crs(UTM).buffer(1000).to_crs(4326).union_all())
-        print(f"outline extended around {len(offshore)} offshore seed point(s): {', '.join(offshore.name14)}")
-    thiessen = tessellate(pts, outline)
-    print(f"cells: {len(thiessen)} ({len(dups)} duplicate-coordinate units dropped)")
-
-    P_GPKG.unlink(missing_ok=True)
-    thiessen.to_crs(4326).to_file(P_GPKG, layer="thiessen", driver="GPKG")
-    pts.to_file(P_GPKG, layer="points", driver="GPKG")
-    w = psw.Queen.from_dataframe(thiessen, use_index=False)
-    f = psopen(str(P_GAL), "w")
-    f.write(w)
-    f.close()
-    print(f"queen weights: n={w.n}, mean neighbours={pd.Series(w.cardinalities).mean():.2f}, islands={len(w.islands)}")
-    return thiessen.to_crs(4326)
+    P_POINTS.unlink(missing_ok=True)
+    pts.to_file(P_POINTS, layer="points", driver="GPKG")
+    print(f"points: {len(pts)} ({len(dups)} duplicate-coordinate units dropped)")
+    return pts
 
 
 def hcp_boundaries() -> gpd.GeoDataFrame:

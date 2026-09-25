@@ -23,4 +23,5 @@ attribution to HCP.
 Third-party inputs:
 - Commune seed points come from GeoNames (https://www.geonames.org), CC BY 4.0, and, for
   communes GeoNames lacks or misplaces, from Wikidata (https://www.wikidata.org), CC0.
-- The national outline is Natural Earth (https://www.naturalearthdata.com), public domain.
+- The national outline and neighbouring countries on the map are Natural Earth
+  (https://www.naturalearthdata.com), public domain.

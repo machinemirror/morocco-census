@@ -33,12 +33,12 @@ P_SLICES = {(y, k): PROCESSED / f"communes_{y}_{k}.csv" for y in (2004, 2014, 20
 P_CROSSWALK = PROCESSED / "crosswalk_communes.csv"
 P_CROSSWALK_APP = PROCESSED / "crosswalk_app2004.csv"
 P_PANEL = PROCESSED / "panel_commune.csv"
-P_GPKG = GEOMETRY / "communes.gpkg"
+# one point per commune from openly licensed gazetteers (GeoNames, Wikidata)
+P_POINTS = GEOMETRY / "communes_points.gpkg"
 # HCP's commune boundaries, served by its RGPH 2024 platform on 2014 codes (same communes in 2014 and 2024)
 P_HCP_GPKG = GEOMETRY / "hcp_communes_2024.gpkg"
 P_HCP_GAL = GEOMETRY / "hcp_communes_2024_queen.gal"
 R_HCP_BOUNDARIES = RAW / "hcp_boundaries_2024"
-P_GAL = GEOMETRY / "communes_queen.gal"
 P_UNMATCHED = GEOMETRY / "points_unmatched.csv"
 P_DUP_POINTS = GEOMETRY / "points_duplicate.csv"
 P_SEEDS = GEOMETRY / "points_seeds.csv"

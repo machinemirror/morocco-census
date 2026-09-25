@@ -32,7 +32,7 @@
     <li><b>A three-census panel</b> of HCP's poverty and development indices (2004 IDH, IDS and monetary poverty;
       multidimensional poverty for 2004, 2014 and 2024). Where a commune did not exist in an earlier census, its value
       is imputed from the same cercle (population-weighted) and <b>flagged</b> in <code>src04</code>/<code>src14</code>/<code>src24</code>.</li>
-    <li><b>Geometry</b>: HCP's commune boundaries (the communes of 2014 and 2024), and approximate Thiessen cells built from openly licensed
+    <li><b>Geometry</b>: HCP's commune boundaries (the communes of 2014 and 2024), and one point per commune from openly licensed
       gazetteers, each with queen-contiguity weights.</li>
   </ul>
 
@@ -77,14 +77,12 @@
     2024. The communes themselves are the same in both censuses: the 1,497 communes and municipalities of 2014 match
     those of 2024 one to one, and the 41 arrondissements of 2014 are the 6 city communes of 2024. The boundaries are in
     the downloads with queen-contiguity weights, and should be credited to HCP. HCP publishes them per province, and
-    their edges leave hairline gaps along province borders, so the weights allow 50 m of tolerance</p>
-  <p>An alternative layer, <i>Approximate</i>, is built only from openly licensed inputs. Each commune gets one seed
-    point from the GeoNames gazetteer, or from Wikidata where GeoNames lacks the commune, and the country is divided
-    into the cells nearest each point. Where both place a commune more than 25 km apart, the choice between them is
-    recorded in <code>catalog/seed_review.csv</code>. The cells show roughly where a commune is, not its true
-    extent or area; do not compute densities from them. The outline is Natural Earth. Every geometry input is openly
-    licensed.</p>
-  <p>HCP's 2024 layer is keyed by 2014 commune codes, so every 2014 commune has its polygon and 2024 values follow
+    their edges leave hairline gaps along province borders, so the weights allow 50 m of tolerance.</p>
+  <p>Each commune also has one point, from the GeoNames gazetteer or from Wikidata where GeoNames lacks it, published
+    for uses that need locations rather than polygons. Where the two place a commune more than 25 km apart, the choice
+    between them is recorded in <code>catalog/seed_review.csv</code>. Until release 2026.9.6 the map's alternative
+    layer was a set of Thiessen cells built around these points; HCP's boundaries replace it.</p>
+  <p>HCP's layer is keyed by 2014 commune codes, so every 2014 commune has its polygon and 2024 values follow
     through the crosswalk. 2004 values are drawn on these later boundaries too. The 2004 profiles report a rural
     commune apart from its autonomous centres (its small towns); since 2014 HCP counts them together, so a 2014
     commune's 2004 value combines them, population-weighted. Communes merged after 2004 are combined the same way,
@@ -97,10 +95,10 @@
 
   <h2>Known gaps</h2>
   <ul>
-    <li>One commune (Sidi Mohamed Ben Mansour, Kénitra) has no seed point and so no Thiessen cell
+    <li>One commune (Sidi Mohamed Ben Mansour, Kénitra) has no gazetteer point
       (<code>points_unmatched.csv</code>); it has its HCP boundary. Five others are placed from gazetteer spellings recorded in <code>catalog/seed_names.csv</code>.</li>
     <li>In 2014 the six largest cities are split into 41 arrondissements; in 2024 they are single communes. The map
-      merges the arrondissements into one city cell (sums for counts, population-weighted means for rates); the
+      merges the arrondissements into one city (sums for counts, population-weighted means for rates); the
       tables keep them separate.</li>
     <li>Ait Ali ou Lahcen (Khémisset), created after 2004, has no 2004 value: nothing published shows which commune it
       came from. In Berrechid, HCP's figures show Had Soualem, Soualem Trifiya and Sahel Oulad H'Riz gained territory

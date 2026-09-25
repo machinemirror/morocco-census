@@ -4,9 +4,7 @@ const L = {
     s_all: "All", s_urban: "Urban", s_rural: "Rural", s_male: "Men", s_female: "Women",
     find: "Find a commune",
     nodata: "No data", decrease: "decrease", increase: "increase", rural: "Rural", urban: "Urban",
-    caveat: "Commune shapes are approximate Thiessen cells built from one point per commune, not administrative boundaries. They show roughly where a commune is, not its true extent.",
-    caveatHcp: "HCP's commune boundaries, from its census cartography: coded by 2014 commune and served by its RGPH 2024 results platform. The communes are the same in 2014 and 2024. 2004 values are shown on these boundaries; where communes were reorganised in 2008-2009, a 2004 value may cover a different territory.",
-    shapes: "Shapes", gThiessen: "Approximate", gHcp: "HCP boundaries (2014-2024)",
+    caveat: "HCP's commune boundaries, from its census cartography: coded by 2014 commune and served by its RGPH 2024 results platform. The communes are the same in 2014 and 2024. 2004 values are shown on these boundaries; where communes were reorganised in 2008-2009, a 2004 value may cover a different territory.",
     noncomp: "Definitions differ between censuses; read the change with care.",
     point: "seed point", allind: "All indicators",
     city: "city (arrondissements combined)", communes: "communes",
@@ -17,7 +15,6 @@ const L = {
     s_all: "Ensemble", s_urban: "Urbain", s_rural: "Rural", s_male: "Masculin", s_female: "Féminin",
     find: "Trouver une commune",
     nodata: "Pas de donnée", decrease: "baisse", increase: "hausse", rural: "Rurale", urban: "Urbaine",
-    shapes: "Contours", gThiessen: "Approximatifs", gHcp: "Limites HCP (2014-2024)",
     point: "point d'ancrage", allind: "Tous les indicateurs", communes: "communes",
   },
   ar: {
@@ -25,7 +22,6 @@ const L = {
     s_all: "المجموع", s_urban: "الوسط الحضري", s_rural: "الوسط القروي", s_male: "الذكور", s_female: "الإناث",
     find: "البحث عن جماعة",
     nodata: "لا توجد معطيات", decrease: "انخفاض", increase: "ارتفاع", rural: "قروية", urban: "حضرية",
-    shapes: "الأشكال", gThiessen: "تقريبية", gHcp: "حدود المندوبية (2014-2024)",
     point: "نقطة الارتكاز", allind: "جميع المؤشرات", communes: "جماعة",
   },
 };
@@ -80,7 +76,7 @@ const YEARS = [2004, 2014, 2024];
 const CITY = /^\d+\.\d+\.\d+\.$/;
 
 const openGroups = new Set();
-let D, map, byId = {}, loaded = {}, state = { geom: "hcp", slice: "all", ind: "pct_electricity", y: 2024, mode: "level", pair: [2014, 2024],
+let D, map, byId = {}, loaded = {}, state = { slice: "all", ind: "pct_electricity", y: 2024, mode: "level", pair: [2014, 2024],
   sel: null, base: true };
 // English wherever a string has no French or Arabic (definitions, notes and caveats are English only)
 const t = (k) => L[MC.lang][k] || L.en[k] || k;
@@ -99,14 +95,12 @@ function readHash() {
   if (h.get("m")) state.mode = h.get("m");
   if (h.get("p")) state.pair = h.get("p").split("-").map(Number);
   if (h.get("c")) state.sel = h.get("c");
-  if (h.get("g") === "thiessen") state.geom = "thiessen";
   if (SLICES.includes(h.get("s"))) state.slice = h.get("s");
 }
 function writeHash() {
   const h = new URLSearchParams({ i: state.ind, m: state.mode });
   if (state.mode === "level") h.set("y", state.y); else h.set("p", state.pair.join("-"));
   if (state.sel) h.set("c", state.sel);
-  if (state.geom === "thiessen") h.set("g", "thiessen");
   if (state.slice !== "all") h.set("s", state.slice);
   history.replaceState(null, "", "#" + h.toString());
 }
@@ -258,22 +252,11 @@ function controls() {
   if (state.mode === "change" && ind.comparable === false) warn.unshift(`<b>${t("noncomp")}</b>`);
   note.innerHTML = warn.join("<br>");
   note.hidden = !warn.length;
-  document.querySelectorAll("#geom button").forEach(b => b.setAttribute("aria-pressed", b.dataset.g === state.geom));
-  document.querySelector(".caveat").dataset.t = state.geom === "hcp" ? "caveatHcp" : "caveat";
   document.querySelectorAll("[data-t]").forEach(el => {
     el.textContent = t(el.dataset.t);
     if (isEn(el.dataset.t)) { el.lang = "en"; el.dir = "ltr"; } else { el.removeAttribute("lang"); el.removeAttribute("dir"); }
   });
   document.getElementById("i18n").innerHTML = MC.translateNote();
-}
-
-let shapes = {};
-async function setGeom(g) {
-  state.geom = g;
-  shapes[g] ||= await fetch(g === "hcp" ? "data/communes_hcp2024.geojson" : "data/communes.geojson").then(r => r.json());
-  map.getSource("cells").setData(shapes[g]);
-  map.once("idle", () => { paint(); if (state.sel) select(state.sel, false); });
-  controls(); writeHash();
 }
 
 // a breakdown the current indicator lacks falls back to the first indicator that has it
@@ -362,7 +345,6 @@ async function main() {
     .map(u => fetch(u).then(r => r.json())));
   const cols = d.units;
   D = { ...d, values: {}, units: cols.id.map((_, i) => Object.fromEntries(Object.keys(cols).map(k => [k, cols[k][i]]))) };
-  shapes.hcp = cells;
   D.units.forEach((u, i) => (byId[u.id] = i));
   readHash();
   if (!has(state.ind)) state.slice = "all";
@@ -425,7 +407,6 @@ async function main() {
 
   map.on("load", () => {
     cityZoom(); controls(); paint(); if (state.sel) select(state.sel, true);
-    if (state.geom === "thiessen") setGeom("thiessen");
     let hover = null;
     map.on("mousemove", "cells-fill", (e) => {
       map.getCanvas().style.cursor = "pointer";
@@ -452,7 +433,6 @@ async function main() {
   document.querySelectorAll("#mode button").forEach(b => b.onclick = () => {
     if (b.disabled) return; state.mode = b.dataset.m; controls(); paint(); detail();
   });
-  document.querySelectorAll("#geom button").forEach(b => b.onclick = () => b.dataset.g !== state.geom && setGeom(b.dataset.g));
   document.getElementById("q").onchange = (e) => {
     const name = e.target.value.split(" — ")[0].trim().toLowerCase();
     const prov = (e.target.value.split(" — ")[1] || "").trim().toLowerCase();

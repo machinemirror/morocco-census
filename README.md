@@ -39,8 +39,7 @@ Everything published is in [`data/processed/`](data/processed) and described col
 | `crosswalk_app2004.csv` | 1,696 | `app_code`, `code14` | 2004 profile codes → 2014 communes (1,537), with link type and split weight |
 | `geometry/hcp_communes_2024.gpkg` | 1,503 | `unit` | HCP's commune boundaries, the communes of 2014 and 2024 (the map's default layer) |
 | `geometry/hcp_communes_2024_queen.gal` | 1,503 | | queen-contiguity weights on HCP's boundaries |
-| `geometry/communes.gpkg` | 1,502 | `unit` | Thiessen cells + seed points (approximate, openly licensed inputs only) |
-| `geometry/communes_queen.gal` | 1,502 | | queen-contiguity weights on the cells |
+| `geometry/communes_points.gpkg` | 1,502 | `unit` | one point per commune from GeoNames or Wikidata (openly licensed) |
 | `validation.json` | | | populations against HCP's legal population, linkage and seed-point checks |
 
 Read codes as text: `app_code` has leading zeros and `code14` ends with a dot.
@@ -55,9 +54,8 @@ panel = pd.read_csv(base + "panel_commune.csv", dtype={"code14": str})
 
 The boundaries are HCP's own, redistributed with attribution to HCP. Its RGPH 2024 results platform serves them, but
 they are keyed by the 2014 commune code and drawn on the 2014 census base; the communes are the same in 2014 and 2024
-(2014's 41 arrondissements are 2024's 6 city communes), and 2004 values reach them through the crosswalk. The Thiessen cells are an
-alternative built only from openly licensed gazetteers (one seed point per commune, GeoNames else Wikidata): they
-show where a commune is, not its extent, so do not compute areas or densities from them.
+(2014's 41 arrondissements are 2024's 6 city communes), and 2004 values reach them through the crosswalk. A point per commune from the
+GeoNames and Wikidata gazetteers is published alongside, for uses that need locations rather than polygons.
 
 ## Rebuild
 

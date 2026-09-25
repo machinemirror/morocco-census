@@ -75,9 +75,9 @@ def test_level_breaks():
     assert np.allclose(site.fisher_jenks(np.array([1, 1, 2, 2, 10, 11, 12, 50, 51.0]), 3), [2, 12])
 
 
-def test_geojson_aligns_with_units(exported):
-    g = json.loads((exported / "communes.geojson").read_text())
-    assert sorted(f["properties"]["i"] for f in g["features"]) == list(range(1502))
+def test_boundaries_align_with_units(exported):
+    g = json.loads((exported / "communes_hcp2024.geojson").read_text())
+    assert sorted(f["properties"]["i"] for f in g["features"]) == list(range(1503))
 
 
 def test_downloads(exported):
@@ -86,11 +86,6 @@ def test_downloads(exported):
     assert any(n.endswith(".zip") for n in names)
     for f in c["files"]:
         assert {f"{f['stem']}.csv", f"{f['stem']}.parquet"} <= names
-    assert {"communes.gpkg", "communes_queen.gal", "data_dictionary.csv"} <= names
+    assert {"communes_points.gpkg", "communes_points.geojson", "data_dictionary.csv"} <= names
+    assert not {"communes.gpkg", "communes_queen.gal", "communes_thiessen.geojson"} & names
     assert {"hcp_communes_2024.gpkg", "hcp_communes_2024.geojson", "hcp_communes_2024_queen.gal"} <= names
-
-
-def test_hcp_boundary_layer(exported):
-    g = json.loads((exported / "communes_hcp2024.geojson").read_text())
-    ids = sorted(f["properties"]["i"] for f in g["features"])
-    assert ids == list(range(1503))  # every map unit, including those without a Thiessen cell
