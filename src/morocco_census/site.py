@@ -103,6 +103,80 @@ def aggregate(df: pd.DataFrame, col: str, weight: str, spec: dict) -> pd.Series:
     return (num / den.replace(0, np.nan)).fillna(plain)
 
 
+N_CLASSES = 7
+MIN_CLASS = 0.005  # every class holds at least this share of the values
+MAX_BINS = 600  # Fisher-Jenks runs on at most this many weighted bins
+
+
+def fisher_jenks(x: np.ndarray, k: int) -> np.ndarray:
+    """Upper bounds of the first k-1 classes minimising within-class squared deviation (exact, on weighted bins)."""
+    v, w = np.unique(x, return_counts=True)
+    if len(v) > MAX_BINS:  # merge neighbouring values into bins of about equal weight
+        g = np.minimum((np.cumsum(w) - 1) * MAX_BINS // w.sum(), MAX_BINS - 1)
+        w_b = np.bincount(g, weights=w)
+        keep = w_b > 0
+        v, w = (np.bincount(g, weights=v * w)[keep] / w_b[keep]), w_b[keep]
+    n = len(v)
+    k = min(k, n)
+    cw, cx, cxx = (np.concatenate([[0], np.cumsum(a)]) for a in (w, w * v, w * v * v))
+
+    def ssd(i, j):  # bins i..j-1
+        ww = cw[j] - cw[i]
+        return cxx[j] - cxx[i] - (cx[j] - cx[i]) ** 2 / ww
+
+    cost = np.array([ssd(0, j) for j in range(1, n + 1)])
+    back = []
+    for _ in range(1, k):
+        new, arg = np.full(n, np.inf), np.zeros(n, dtype=int)
+        for j in range(1, n):
+            i = np.arange(1, j + 1)
+            c = cost[i - 1] + ssd(i, j + 1)
+            arg[j], new[j] = i[c.argmin()], c.min()
+        cost, back = new, back + [arg]
+    cuts, j = [], n
+    for arg in reversed(back):
+        j = arg[j - 1]
+        cuts.append(j)
+    return np.array([v[c - 1] for c in sorted(cuts)])
+
+
+def nice(edges: np.ndarray) -> list[float]:
+    """Breaks rounded to two significant figures, or three where two would merge neighbours."""
+    for digits in (2, 3, 4):
+        r = [float(f"{e:.{digits}g}") for e in edges]
+        if len(set(r)) == len(r):
+            return r
+    return [float(e) for e in edges]
+
+
+def level_breaks(x: np.ndarray) -> tuple[list[float], str]:
+    """Class breaks for one indicator, from its values in all three censuses. Where a tenth or more are exactly 0,
+    0 is a class of its own. Among quantiles, Fisher-Jenks and Fisher-Jenks on log(1 + x), the best fit (goodness of
+    absolute deviation fit) whose every class holds at least MIN_CLASS of the values."""
+    x = np.sort(x[~np.isnan(x)])
+    zeros = (x == 0).mean() >= 0.1
+    base = x[x > 0] if zeros else x
+    k = N_CLASSES - 1 if zeros else N_CLASSES
+    cands = {"quantile": np.unique(np.quantile(base, np.arange(1, k) / k, method="lower"))}
+    if len(np.unique(base)) > k:
+        cands["jenks"] = fisher_jenks(base, k)
+        if base.min() >= 0:
+            cands["jenks_log"] = np.expm1(fisher_jenks(np.log1p(base), k))
+    dev = np.abs(x - np.median(x)).sum() or 1
+    best = None
+    for name, e in cands.items():
+        e = np.array(nice(np.unique(e[e > 0]) if zeros else np.unique(e)))
+        e = np.concatenate([[0.0], e]) if zeros else e
+        cls = np.searchsorted(e, x, side="left")
+        sizes = np.bincount(cls, minlength=len(e) + 1) / len(x)
+        fit = 1 - sum(np.abs(x[cls == j] - np.median(x[cls == j])).sum() for j in np.unique(cls)) / dev
+        if sizes.min() >= MIN_CLASS and (best is None or fit > best[0] + 1e-9):
+            best = (fit, name, e)
+    if best is None:
+        return [float(v) for v in cands["quantile"]], "quantile"
+    return [float(v) for v in best[2]], best[1] + ("+zero" if zeros else "")
+
+
 def rounded(s: pd.Series, spec: dict) -> list:
     if spec.get("agg") == "sum" and spec["unit"] != "%":
         return [None if pd.isna(v) else round(v) for v in s]
@@ -196,6 +270,16 @@ def map_data(cat: dict, uf: pd.DataFrame) -> dict:
         else:
             values.setdefault(f"{spec['theme']}.{sl}", {}).update(got)
             indicators[ind]["slices"].append(sl)
+
+    # level classes from all three censuses of each view, so a colour means the same value in every census
+    for ind, entry in indicators.items():
+        th = entry["theme"]
+        entry["breaks"] = {}
+        for sl in ["all", *entry["slices"]]:
+            vals = values[th if sl == "all" else f"{th}.{sl}"]
+            x = np.array([v for y in (2004, 2014, 2024) for v in vals[f"{ind}|{y}"] if v is not None], dtype=float)
+            edges, method = level_breaks(x)
+            entry["breaks"][sl] = {"edges": edges, "method": method}
 
     names = hcp_names(units)
     provs = pd.DataFrame({"en": uf.prov14.values, "fr": names.prov_fr.values, "ar": names.prov_ar.values})

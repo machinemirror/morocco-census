@@ -1,5 +1,6 @@
 import json
 
+import numpy as np
 import pytest
 
 from morocco_census import catalog, site
@@ -49,6 +50,10 @@ def test_map_data(exported):
     assert all(d["units"]["name_fr"]) and all(d["units"]["name_ar"])
     hh = values["hh_size_avg|2014"][i]
     assert 3 < hh < 6  # a mean, not a sum over arrondissements
+    for ind in d["indicators"].values():
+        for b in ind["breaks"].values():
+            assert b["edges"] == sorted(set(b["edges"])) and 1 <= len(b["edges"]) <= 6
+    assert d["indicators"]["lang_hassania"]["breaks"]["all"]["method"].endswith("+zero")
     slices = {ind: set(x["slices"]) for ind, x in d["indicators"].items()}
     assert slices["pct_electricity"] == {"urban", "rural"}
     assert slices["pct_married"] == {"urban", "rural", "male", "female"}
@@ -56,6 +61,18 @@ def test_map_data(exported):
         for sl in sls:
             v = json.loads((exported / "map" / f"{d['indicators'][ind]['theme']}.{sl}.json").read_text())
             assert all(len(v[f"{ind}|{y}"]) == n for y in (2004, 2014, 2024))
+
+
+def test_level_breaks():
+    rng = np.random.default_rng(0)
+    skewed = rng.lognormal(8, 1.5, 3000)  # like population: Jenks on logs, not a class for the three largest
+    edges, method = site.level_breaks(skewed)
+    classes = np.searchsorted(edges, skewed, side="left")
+    assert np.bincount(classes).min() / len(skewed) >= site.MIN_CLASS
+    zeros = np.concatenate([np.zeros(2000), rng.uniform(0, 100, 1000)])  # like a regional language
+    edges, method = site.level_breaks(zeros)
+    assert edges[0] == 0 and method.endswith("+zero")
+    assert np.allclose(site.fisher_jenks(np.array([1, 1, 2, 2, 10, 11, 12, 50, 51.0]), 3), [2, 12])
 
 
 def test_geojson_aligns_with_units(exported):

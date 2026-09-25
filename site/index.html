@@ -18,13 +18,13 @@
   .side label.h { display: block; font-size: 0.78rem; font-weight: 600; color: var(--text-2); margin-bottom: 0.3rem;
                   text-transform: uppercase; letter-spacing: 0.04em; }
   #map { position: relative; min-height: 0; background: var(--sea); }
-  .legend { display: flex; flex-direction: column; gap: 0.3rem; }
-  .legend .bar { display: flex; gap: 2px; }
-  .legend .bar span { flex: 1; height: 12px; border-radius: 2px; }
-  .legend .ticks { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-2);
-                   font-variant-numeric: tabular-nums; }
-  .legend .nd { display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; color: var(--text-3); }
-  .legend .nd i { width: 14px; height: 10px; border-radius: 2px; background: var(--nodata); display: inline-block; }
+  .legend { display: flex; flex-direction: column; gap: 0.15rem; font-size: 0.8rem; color: var(--text-2);
+            font-variant-numeric: tabular-nums; }
+  .legend .row { display: flex; align-items: center; gap: 0.45rem; }
+  .legend .row i { width: 22px; height: 12px; border-radius: 2px; flex: none; }
+  .legend .nd { color: var(--text-3); }
+  .legend .nd i { background: var(--nodata); }
+  .legend .u { color: var(--text-3); font-size: 0.75rem; }
   .ind-title { font-weight: 620; font-size: 1.02rem; }
   .def { font-size: 0.85rem; color: var(--text-2); }
   .tip {

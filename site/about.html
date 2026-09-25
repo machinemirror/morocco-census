@@ -41,6 +41,11 @@
     <i>Population</i> switches the map to the urban or rural part of each commune (49 indicators) or to men or women
     (25: age, marital status, education, youth illiteracy, status in employment); a breakdown is offered only where
     all three censuses have it. Households have no sex breakdown.</p>
+  <p>Colours: each indicator's classes are set from its values in all three censuses together, so a colour means the
+    same value in 2004 and 2024. The breaks are whichever of quantiles, natural breaks (Fisher-Jenks) or natural breaks
+    on a log scale fit the indicator's distribution best, with no class holding under 0.5% of values; where a tenth of
+    values or more are 0 (a language not spoken, no apartments), 0 has a class of its own. Change maps are symmetric
+    around 0, with breaks at the 20th, 50th and 80th percentiles of the size of the change.</p>
   <p>2004 urban and rural values come from the 2004 profiles themselves, which report each rural commune apart from
     its autonomous centres: municipalities, arrondissements and centres count as urban. They hold 16.3 million people,
     99.2% of HCP's 2004 urban total. 2004 male and female rates are computed from the female counts the profiles give

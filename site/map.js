@@ -29,9 +29,9 @@ const L = {
     point: "نقطة الارتكاز", allind: "جميع المؤشرات", communes: "جماعة",
   },
 };
-// Colour-blind-safe ramps: viridis (reversed, so more = darker) and ColorBrewer PuOr.
-const SEQ = ["#fde725", "#90d743", "#35b779", "#21918c", "#31688e", "#443983", "#440154"];
-const DIV = ["#b35806", "#f1a340", "#fee0b6", "#f7f7f7", "#d8daeb", "#998ec3", "#542788"];
+// Colour-blind-safe ramps: viridis (more = lighter) and ColorBrewer PuOr (decrease purple, increase orange).
+const SEQ = ["#440154", "#443983", "#31688e", "#21918c", "#35b779", "#90d743", "#fde725"];
+const DIV = ["#542788", "#998ec3", "#d8daeb", "#f7f7f7", "#fee0b6", "#f1a340", "#b35806"];
 const FLAG = ["#90d743", "#31688e"];
 // Orientation labels: [English name, map unit (French and Arabic names come from HCP), lon, lat, tier (1 always, 2 from zoom 6,
 // 3 from zoom 7.5), label side]. Coastal labels sit over the sea.
@@ -138,12 +138,34 @@ function current() {
   return va.map((x, i) => (x == null || vb[i] == null ? null : vb[i] - x));
 }
 
-function quantileBreaks(vals, k) {
-  const s = vals.filter(v => v != null).sort((a, b) => a - b);
-  if (!s.length) return [];
-  const br = [];
-  for (let j = 1; j < k; j++) br.push(s[Math.floor((j / k) * (s.length - 1))]);
-  return br;
+const at = (sorted, p) => sorted[Math.floor(p * (sorted.length - 1))];
+const uniq = (xs) => xs.filter((x, i) => i === 0 || x > xs[i - 1]);
+// n colours spread over a ramp, for when tied breaks leave fewer classes
+const spread = (ramp, n) => Array.from({ length: n }, (_, i) => ramp[n === 1 ? 0 : Math.round((i * (ramp.length - 1)) / (n - 1))]);
+
+// Levels: breaks computed at export for each indicator and view, from all three censuses together (so a colour
+// means the same value in every census), by whichever of quantiles, Fisher-Jenks or Fisher-Jenks on log(1 + x)
+// fits best with no class under 0.5% of values; 0 is a class of its own where a tenth or more of values are 0
+function levelBreaks() {
+  const all = vintages(state.ind).flatMap(y => series(state.ind, y)).filter(v => v != null);
+  const b = D.indicators[state.ind].breaks[state.slice];
+  return { edges: b.edges, zeros: b.method.endsWith("+zero"), min: Math.min(...all), max: Math.max(...all) };
+}
+// two significant figures, or three where two would merge neighbouring breaks
+function nice(edges) {
+  for (const d of [2, 3, 4]) {
+    const r = edges.map(e => +e.toPrecision(d));
+    if (new Set(r).size === r.length) return r;
+  }
+  return edges;
+}
+// Change: symmetric classes around 0 at the 20th, 50th and 80th percentiles of the absolute change, so the palest
+// class holds the smallest fifth of changes and equal colours mean equal magnitudes either way
+function changeBreaks(vals) {
+  const abs = vals.filter(v => v != null).map(Math.abs).sort((a, b) => a - b);
+  if (!abs.length) return [];
+  const e = nice(uniq([0.2, 0.5, 0.8].map(p => at(abs, p))));
+  return [...e.map(x => -x).reverse(), ...e];
 }
 function classify(vals) {
   const unit = D.indicators[state.ind].unit;
@@ -151,16 +173,14 @@ function classify(vals) {
     return { cls: vals.map(v => (v == null ? -1 : v ? 1 : 0)), colors: FLAG, ticks: [t("rural"), t("urban")], kind: "flag" };
   }
   if (state.mode === "change") {
-    const abs = vals.filter(v => v != null).map(Math.abs).sort((a, b) => a - b);
-    const m = abs[Math.floor(0.95 * (abs.length - 1))] || 1;
-    const edges = [-5, -3, -1, 1, 3, 5].map(x => (x / 7) * m);
+    const edges = changeBreaks(vals);
     const cls = vals.map(v => (v == null ? -1 : edges.filter(e => v > e).length));
-    return { cls, colors: DIV, edges, kind: "div" };
+    const s = vals.filter(v => v != null);
+    return { cls, colors: spread(DIV, edges.length + 1), edges, kind: "div", min: Math.min(...s), max: Math.max(...s) };
   }
-  const br = quantileBreaks(vals, 7);
-  const cls = vals.map(v => (v == null ? -1 : br.filter(e => v > e).length));
-  const s = vals.filter(v => v != null);
-  return { cls, colors: SEQ, edges: br, kind: "seq", min: Math.min(...s), max: Math.max(...s) };
+  const b = levelBreaks();
+  const cls = vals.map(v => (v == null ? -1 : b.edges.filter(e => v > e).length));
+  return { cls, colors: spread(SEQ, b.edges.length + 1), edges: b.edges, zeros: b.zeros, kind: "seq", min: b.min, max: b.max };
 }
 
 function paint() {
@@ -175,22 +195,24 @@ function paint() {
   writeHash();
 }
 
+// one row per class: its colour and value range
 function legend(c) {
   const unit = D.indicators[state.ind].unit, f = v => F(v);
+  const sign = (v) => (c.kind === "div" && v > 0 ? "+" : "") + f(v);
   const el = document.getElementById("legend");
-  let ticks;
-  if (c.kind === "flag") ticks = `<span>${c.ticks[0]}</span><span>${c.ticks[1]}</span>`;
-  else if (c.kind === "div") ticks = `<span>≤ −${f(-c.edges[0])} ${t("decrease")}</span><span>0</span><span>${t("increase")} ≥ +${f(c.edges[5])}</span>`;
-  else ticks = `<span>${f(c.min)}</span><span>${f(c.edges[3])}</span><span>${f(c.max)}</span>`;
+  let rows;
+  if (c.kind === "flag") rows = c.colors.map((col, j) => [col, c.ticks[j]]);
+  else rows = c.colors.map((col, j) => {
+    const lo = j === 0 ? c.min : c.edges[j - 1], hi = j === c.edges.length ? c.max : c.edges[j];
+    if (c.zeros && j === 0) return [col, f(0)];
+    if (c.zeros && j === 1) return [col, `> ${f(0)} – ${sign(hi)}`];
+    return [col, lo === hi ? sign(lo) : `${sign(lo)} – ${sign(hi)}`];
+  });
   const unitLabel = c.kind === "flag" ? "" : c.kind === "div" && unit === "%" ? MC.unitName("pts") : MC.unitName(unit);
   el.innerHTML = `
-    <div class="bar">${c.colors.map((col, j) => {
-      const lo = j === 0 ? (c.min ?? null) : c.edges?.[j - 1], hi = c.edges?.[j] ?? c.max;
-      const title = c.kind === "seq" ? `${f(lo)} – ${f(hi)}` : c.kind === "div" ? "" : c.ticks[j];
-      return `<span style="background:${col}" title="${MC.esc(title)}"></span>`;
-    }).join("")}</div>
-    <div class="ticks">${ticks}</div>
-    <div class="nd"><i></i>${t("nodata")}${unitLabel ? " · " + MC.esc(unitLabel) : ""}</div>`;
+    ${rows.map(([col, txt]) => `<div class="row"><i style="background:${col}"></i><bdi>${MC.esc(txt)}</bdi></div>`).join("")}
+    <div class="row nd"><i></i>${t("nodata")}</div>
+    ${unitLabel ? `<div class="u">${MC.esc(unitLabel)}</div>` : ""}`;
 }
 
 function controls() {
