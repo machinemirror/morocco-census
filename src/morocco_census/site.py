@@ -14,6 +14,7 @@ import shapely
 
 from . import catalog
 from .config import (
+    CITIES,
     P_BOUNDARY,
     P_COMMUNES,
     P_CONTEXT,
@@ -28,28 +29,12 @@ from .config import (
     SITE,
 )
 
-# the six arrondissement cities: one map unit each (the 2014 cercle code), one commune each in 2024
-CITIES = {
-    "01.511.01.": ("Tanger", 1511010),
-    "03.231.01.": ("Fès", 3231010),
-    "04.421.01.": ("Rabat", 4421010),
-    "04.441.01.": ("Salé", 4441010),
-    "06.141.01.": ("Casablanca", 6141010),
-    "07.351.01.": ("Marrakech", 7351010),
-}
 SIMPLIFY_M = 250
-
-
-def unit_of(cw: pd.DataFrame) -> pd.Series:
-    arr = cw.name14.str.contains(r"\(Arrond", na=False)
-    return cw.code14.where(~arr, cw.code14.str.extract(r"^(\d+\.\d+\.\d+\.)")[0])
 
 
 def keyed_tables() -> dict[str, tuple[pd.DataFrame, str]]:
     """dataset id -> (table with a `unit` column, weight column)."""
     cw = pd.read_csv(P_CROSSWALK, dtype={"code14": str})
-    cw["unit"] = unit_of(cw)
-    cw["code24"] = pd.to_numeric(cw.code24).astype("Int64")
     by14 = cw.set_index("code14").unit
 
     t14 = pd.read_csv(P_COMMUNES[2014], dtype={"code14": str}).copy()  # consolidate blocks before adding columns
@@ -61,8 +46,7 @@ def keyed_tables() -> dict[str, tuple[pd.DataFrame, str]]:
     t04 = t04.rename(columns={"weight": "link_weight"})
     t04["unit"] = t04.code14.map(by14)
 
-    by24 = cw.dropna(subset=["code24"]).drop_duplicates("code24").set_index("code24").unit
-    by24 = pd.concat([by24, pd.Series({c24: u for u, (_, c24) in CITIES.items()})])
+    by24 = cw.drop_duplicates("code24_commune").set_index("code24_commune").unit
     t24 = pd.read_csv(P_COMMUNES[2024]).copy()
     t24["unit"] = t24.code24.map(by24)
 
@@ -84,7 +68,7 @@ def keyed_tables() -> dict[str, tuple[pd.DataFrame, str]]:
         "communes_2004": (t04, "population04"),
         "communes_2014": (t14, "population14"),
         "communes_2024": (t24, "population24"),
-        "panel_commune": (panel, "population14"),
+        "panel_commune": (panel, "pop_legal14"),
     } | slices
 
 
@@ -201,9 +185,7 @@ def unit_frame(hcp: gpd.GeoDataFrame) -> pd.DataFrame:
 def hcp_names(units: list[str]) -> pd.DataFrame:
     """French and Arabic commune and province names as HCP writes them, per map unit."""
     cw = pd.read_csv(P_CROSSWALK, dtype={"code14": str})
-    cw["unit"] = unit_of(cw)
-    code = cw.dropna(subset=["code24"]).drop_duplicates("unit").set_index("unit").code24.astype("int64")
-    code = pd.concat([code[~code.index.isin(CITIES)], pd.Series({u: c for u, (_, c) in CITIES.items()})])
+    code = cw.drop_duplicates("unit").set_index("unit").code24_commune
     t24 = pd.read_csv(P_COMMUNES[2024]).set_index("code24")
     n = t24.reindex(code.reindex(units).values).set_axis(units)
     return pd.DataFrame(

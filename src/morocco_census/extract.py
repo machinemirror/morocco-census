@@ -185,6 +185,11 @@ def extract_2014() -> tuple[pd.DataFrame, dict]:
         }
     )
     column_map["population14"] = f"menages_2014.xlsx col{POP_COL_2014}: {header_label(base, POP_COL_2014)}"
+    # "pm" (pour mémoire) in the legal list: no figure for four Saharan communes
+    legal = pd.read_excel(RAW / "poplegale_2014_12reg.xlsx", sheet_name=0, header=None, skiprows=5)
+    legal = legal[legal[0].astype(str).str.count(r"\.") == 4].drop_duplicates(0).set_index(0)[3]
+    out["pop_legal14"] = pd.to_numeric(out.code14.map(legal), errors="coerce")
+    column_map["pop_legal14"] = "poplegale_2014_12reg.xlsx col 3: Population légale"
 
     for out_name, (fname, col) in SPEC_2014.items():
         df = raws[fname]
@@ -369,6 +374,8 @@ def extract_2024() -> tuple[pd.DataFrame, dict]:
     out.insert(3, "province24", prov_code.map(prov.fr).str.strip())
     out.insert(4, "province24_ar", prov_code.map(prov.ar).str.strip())
     assert out[["name24_ar", "province24", "province24_ar"]].notna().all().all()
+    out.insert(6, "pop_legal24", pd.to_numeric(out.code24.map(legal[3]), errors="coerce"))
+    column_map["pop_legal24"] = "poplegale_2024.xlsx col 3: Population légale"
 
     for sheet, spec in SPEC_2024.items():
         df = sheets[sheet]
@@ -562,7 +569,11 @@ def extras_2024(out: pd.DataFrame, column_map: dict) -> pd.DataFrame:
 # workbooks of 2014 repeat their columns in a male then a female block at a fixed offset.
 MILIEU_SHEETS_2014 = {"urban": "Indic.Urbain", "rural": "Indic.Rural"}
 SEX_OFFSET_2014 = {"individus_2014.xlsx": 54, "activite_2014.xlsx": 20, "diplome_2014.xlsx": 15}
-BOTH_SEXES_2014 = {"individus_2014.xlsx": range(9, 63), "activite_2014.xlsx": range(8, 28), "diplome_2014.xlsx": range(8, 23)}
+BOTH_SEXES_2014 = {
+    "individus_2014.xlsx": range(9, 63),
+    "activite_2014.xlsx": range(8, 28),
+    "diplome_2014.xlsx": range(8, 23),
+}
 MILIEU_SHEETS_2024 = {
     "urban": {"Population": "Population_Urbaine", "Ménages": "Ménages_Urbains"},
     "rural": {"Population": "Population_Rurale", "Ménages": "Ménages_Ruraux"},

@@ -62,7 +62,7 @@ the pull request. Describe any change to published values in `docs/PROVENANCE.md
 ## Releases and citation
 
 Releases are tagged `vYYYY.M.N`; each tag publishes a GitHub release with the data bundle. A white
-paper describing a named release is planned; until then `docs/PROVENANCE.md` documents the methods. Contributors are credited in
+paper describing a named release is in preparation; until then `docs/PROVENANCE.md` documents the methods. Contributors are credited in
 the release notes, and substantial contributors in `CITATION.cff`.
 
 By contributing you agree that data contributions are published under CC BY 4.0 and code under MIT.

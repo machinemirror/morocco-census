@@ -90,8 +90,6 @@ def boundary() -> gpd.GeoDataFrame:
 
 def units() -> pd.DataFrame:
     cw = pd.read_csv(P_CROSSWALK)
-    cw["is_arr"] = cw.name14.str.contains(r"\(Arrond", na=False)
-    cw["unit"] = np.where(cw.is_arr, cw.code14.str.extract(r"^(\d+\.\d+\.\d+\.)")[0], cw.code14)
     u = cw.drop_duplicates("unit").copy()
     alias = pd.read_csv(SEED_NAMES).set_index("unit").gazetteer_name
     u["match_name"] = u.unit.map(alias).fillna(u.name14)
@@ -330,8 +328,6 @@ def hcp_boundaries() -> gpd.GeoDataFrame:
     iso = g.ISO.str.removeprefix("MA-").str.split("-", expand=True)
     g["code14"] = iso[0] + "." + iso[1] + "." + iso[2].str[:2] + "." + iso[2].str[2:4] + "."
     cw = pd.read_csv(P_CROSSWALK)
-    arr = cw.name14.str.contains(r"\(Arrond", na=False)
-    cw["unit"] = np.where(arr, cw.code14.str.extract(r"^(\d+\.\d+\.\d+\.)")[0], cw.code14)
     g = g.merge(cw[["code14", "unit"]], on="code14", how="inner")
     g["geometry"] = g.geometry.make_valid().buffer(0)  # buffer(0) drops the stray lines make_valid can leave
     out = g.dissolve("unit", as_index=False)[["unit", "geometry"]].to_crs(UTM)

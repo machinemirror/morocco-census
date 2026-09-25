@@ -26,6 +26,8 @@ SKIP = re.compile(
     r"Indices|développement|Pauvreté|Vulnéra|bilité|Sévérité|pauvreté|Inégalité|Humain|Social|Commune|Province"
     r"|R[ée]gion|Taux|Indice|^\d{1,3}\s*$|^\s*$"
 )
+# column-header words and the table's footnote that pypdf interleaves with the first label of a page
+HEADER_SPILL = re.compile(r"^(?:(?:Notation :.*?rural\.|Vulné-|bilité|communaux|de|la|développement|Indices|d)\s+)+")
 
 
 def annex(src: Path = R_ANNEX_2004, out: Path = P_INDICES_2004) -> pd.DataFrame:
@@ -45,9 +47,7 @@ def annex(src: Path = R_ANNEX_2004, out: Path = P_INDICES_2004) -> pd.DataFrame:
                     pending = (pending + " " + line).strip()  # wrapped label fragment
                 continue
             label = (pending + " " + mm.group("label")).strip()
-            label = re.sub(
-                r"^(communaux|de|la|développement|Indices|d)(\s+(de|la|développement|communaux|d))*\s+", "", label
-            )
+            label = HEADER_SPILL.sub("", label)
             label = re.sub(r"\s{2,}", " ", label)
             pending = ""
             nums = [None if x == "-" else float(x.replace(",", ".")) for x in mm.group("n").split()]
@@ -217,19 +217,41 @@ def parse_commune(code: str, html: Path = R_APP_HTML) -> dict | None:
 # Male and female rates, from the female counts ('Féminin' rows) the pages give under each category.
 # {variable: (page, section, categories summed)}; each section's base is the sum of its categories.
 SEX_SECTIONS_2004 = {
-    "ETAT MATRIMONIAL": ("s", {"pct_single": ["Célibataire"], "pct_married": ["Marié"], "pct_widowed": ["Veuf"],
-                               "pct_divorced": ["Divorcé"]}),
-    "NIVEAU": ("s", {"pct_no_education": ["Néant"], "edu_primary": ["Primaire"], "edu_lower_secondary": ["Collégial"],
-                     "edu_upper_secondary": ["Secondaire"], "edu_higher": ["Universitaire"]}),
-    "SITUATION DANS LA PROFESSION": ("e", {"pct_employer": ["Employeur"], "pct_self_employed": ["Indépendant"],
-                                           "pct_public_employee": ["Salariés publiques"],
-                                           "pct_private_employee": ["Salariés privés"],
-                                           "pct_family_worker": ["Aide familiale"], "pct_apprentice": ["Apprentie"]}),
+    "ETAT MATRIMONIAL": (
+        "s",
+        {"pct_single": ["Célibataire"], "pct_married": ["Marié"], "pct_widowed": ["Veuf"], "pct_divorced": ["Divorcé"]},
+    ),
+    "NIVEAU": (
+        "s",
+        {
+            "pct_no_education": ["Néant"],
+            "edu_primary": ["Primaire"],
+            "edu_lower_secondary": ["Collégial"],
+            "edu_upper_secondary": ["Secondaire"],
+            "edu_higher": ["Universitaire"],
+        },
+    ),
+    "SITUATION DANS LA PROFESSION": (
+        "e",
+        {
+            "pct_employer": ["Employeur"],
+            "pct_self_employed": ["Indépendant"],
+            "pct_public_employee": ["Salariés publiques"],
+            "pct_private_employee": ["Salariés privés"],
+            "pct_family_worker": ["Aide familiale"],
+            "pct_apprentice": ["Apprentie"],
+        },
+    ),
 }
 AGES_2004 = {
-    "age_0_4": ["Moins de 5 ans"], "age_5_9": ["5 à 9 ans"], "age_10_14": ["10 à 14 ans"], "age_15_19": ["15 à 19 ans"],
-    "age_20_24": ["20 à 24 ans"], "age_60plus": ["60 ans et plus"],
-    "age_65plus": ["65 à 74 ans", "75 à 84 ans", "85 ans et plus"], "age_75plus": ["75 à 84 ans", "85 ans et plus"],
+    "age_0_4": ["Moins de 5 ans"],
+    "age_5_9": ["5 à 9 ans"],
+    "age_10_14": ["10 à 14 ans"],
+    "age_15_19": ["15 à 19 ans"],
+    "age_20_24": ["20 à 24 ans"],
+    "age_60plus": ["60 ans et plus"],
+    "age_65plus": ["65 à 74 ans", "75 à 84 ans", "85 ans et plus"],
+    "age_75plus": ["75 à 84 ans", "85 ans et plus"],
 }
 
 
@@ -249,8 +271,12 @@ def parse_commune_sex(code: str, html: Path = R_APP_HTML) -> list[dict]:
     for after, (page, cats) in SEX_SECTIONS_2004.items():
         section(pages[page], after, cats)
     for k, v in AGES_2004.items():
-        counts[k] = (total(*[grab(d, x, 1, after="AGE") for x in v]), total(*[fem(d, x, "AGE") for x in v]),
-                     pop["all"], pop["female"])
+        counts[k] = (
+            total(*[grab(d, x, 1, after="AGE") for x in v]),
+            total(*[fem(d, x, "AGE") for x in v]),
+            pop["all"],
+            pop["female"],
+        )
     rows = []
     for sex in ("male", "female"):
         r = {"app_code": code, "sex": sex}
@@ -266,7 +292,9 @@ def parse_commune_sex(code: str, html: Path = R_APP_HTML) -> list[dict]:
         # 15-24 population by sex
         s_rows = pages["s"]
         i = next((j for j, x in enumerate(s_rows) if x[0].startswith("Taux d'analphabétisme")), None)
-        rate, frate = (num(s_rows[i][1]), num(s_rows[i + 1][1])) if i is not None and i + 1 < len(s_rows) else (None, None)
+        rate, frate = (
+            (num(s_rows[i][1]), num(s_rows[i + 1][1])) if i is not None and i + 1 < len(s_rows) else (None, None)
+        )
         y_all, y_f = counts["age_15_19"][0] + counts["age_20_24"][0], counts["age_15_19"][1] + counts["age_20_24"][1]
         if sex == "female":
             r["pct_illiterate"] = frate

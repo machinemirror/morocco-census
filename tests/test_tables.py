@@ -86,8 +86,41 @@ def test_panel(panel):
 def test_city_rows_sum_population(panel):
     city = panel[panel.level == "city"].set_index("code14")
     arr = panel[(panel.level == "commune") & panel.name14.str.contains(r"\(Arrond", na=False)]
-    sums = arr.groupby(arr.code14.str[:10]).population14.sum()
-    pd.testing.assert_series_equal(city.population14.sort_index(), sums.sort_index(), check_names=False)
+    sums = arr.groupby(arr.code14.str[:10]).pop_legal14.sum()
+    pd.testing.assert_series_equal(city.pop_legal14.sort_index(), sums.sort_index(), check_names=False)
+
+
+def test_2024_join_keeps_every_commune():
+    cw = pd.read_csv(P_CROSSWALK, dtype=str)
+    t24 = pd.read_csv(P_COMMUNES[2024], dtype=str)
+    assert set(cw.code24_commune) == set(t24.code24)
+    joined = cw.drop_duplicates("code24_commune").merge(t24, left_on="code24_commune", right_on="code24")
+    assert len(joined) == 1503
+    assert pd.to_numeric(joined.population24).sum() == pd.to_numeric(t24.population24).sum()
+
+
+def test_panel_keys_are_text_and_unshared():
+    p = pd.read_csv(P_PANEL, dtype=str)
+    t24 = pd.read_csv(P_COMMUNES[2024], dtype=str)
+    assert not p.code24.str.endswith(".0").any()
+    city = p[p.level == "city"]
+    assert city.code24_commune.isin(t24.code24).all() and city.code24.notna().all()
+    # a column shared with the 2014 table must mean the same thing there
+    t14 = pd.read_csv(P_COMMUNES[2014], nrows=0)
+    assert "population14" not in p.columns and "pop_legal14" in t14.columns
+
+
+def test_annex_links_are_clean():
+    cw = pd.read_csv(P_CROSSWALK, dtype=str)
+    labels = pd.read_csv(P_INDICES_2004, dtype=str).label
+    assert not labels.str.match(r"(Notation|Vulné|bilité|communaux |de |la )").any()
+    assert cw.label04.dropna().isin(labels).all() and cw.label04.dropna().is_unique
+    # communes carved out in 2008 have no 2004 annex row of their own
+    assert cw.set_index("code14").loc[["04.441.03.05.", "06.385.03.03."], "label04"].isna().all()
+    # every annex-linked commune carries its own 2004 values, not an imputation
+    p = pd.read_csv(P_PANEL, dtype=str)
+    linked = p.code14.isin(cw.code14[cw.label04.notna()])
+    assert p.loc[linked, "src04"].isin(["direct", "fuzzy"]).all()
 
 
 def test_is_urban():
@@ -186,7 +219,10 @@ def test_validation_report_matches_tables():
     assert v["linkage"]["linked_2004_profiles"] == pd.read_csv(P_CROSSWALK_APP, dtype=str).code14.nunique()
     assert v["linkage"]["unlinked_2024"] == []
     b = v["backcast_2004"]  # our linked 2004 population against HCP's figures on 2014 boundaries
-    assert b["communes"] >= 35 and b["within_2pct"] >= 27
+    parts = [b[k] for k in ("calibrated", "one_to_one", "other_links")]
+    assert sum(x["communes"] for x in parts) == b["communes"] == 35
+    assert sum(x["within_2pct"] for x in parts) == b["within_2pct"]
+    assert len(b["largest_gaps"]) == b["communes"] - b["within_2pct"]
     assert v["seeds"]["placed"] == len(gpd.read_file(P_POINTS, layer="points"))
     for y, n in (("2014", 1538), ("2024", 1503)):
         p = v["population"][y]

@@ -2,16 +2,17 @@
 
 How every published file is produced, from which HCP source, and what was matched, imputed or
 left out. Raw files, with URLs, sizes, sha256 and fetch dates, are listed in
-[`data/raw/manifest.json`](../data/raw/manifest.json). `uv run mc fetch` downloads them and
-reports any file whose checksum no longer matches (HCP occasionally re-issues files; GeoNames
-changes daily).
+[`data/raw/manifest.json`](../data/raw/manifest.json), with the 2004 crawl as one digest over its per-page
+checksums (`data/raw/2004_app_pages.sha256`). `uv run mc fetch` downloads the files and checks every one against
+the manifest; it exits non-zero if any differs (HCP occasionally re-issues files; GeoNames and Wikidata change
+daily) unless given `--accept-changes`, which records the new checksums.
 
 ## Pipeline
 
 | Step | Command / module | Inputs | Output |
 |---|---|---|---|
 | Fetch | `mc fetch` · `fetch.py` | 95 files (HCP workbooks and PDF, 75 HCP boundary files, GeoNames, Wikidata, Natural Earth) | `data/raw/` |
-| 2004 profiles | `mc crawl-2004` · `hcp_app.py` | HCP Maroc en Chiffres app (4 profile pages × 1,689 communes) | `data/raw/2004_app/` |
+| 2004 profiles | `mc crawl-2004` · `hcp_app.py` | HCP Maroc en Chiffres app (4 profile pages × 1,689 communes) | `data/raw/2004_app/`, checksums in the manifest |
 | 2004 indices | `parse_2004.annex` | HCP 2004 poverty volume, Annexe 2 (PDF) | `commune_indices_2004.csv` |
 | 2004 table | `parse_2004.app` | crawled profile pages | `communes_2004.csv`, `communes_2004_sex.csv` |
 | Crosswalk | `crosswalk.communes` | 2014 commune list, 2004 annex, 2004–2014 poverty map, 2025 MPI database | `crosswalk_communes.csv` |
@@ -22,7 +23,8 @@ changes daily).
 | Validate | `mc validate` · `validate.py` | tables, legal population 2014 and 2024, `catalog/hcp_2004_on_2014.csv` | `validation.json` |
 | Site | `mc site` · `site.py` | processed tables, catalogue | `site/data/` (map index and values by theme and breakdown, class breaks, geometry, downloads) |
 
-`mc all` runs build, geometry, validate and site. Only `site` runs in CI; everything before it needs the raw files.
+`mc all` runs build, geometry, validate and site. Of these, only `site` runs in GitHub Actions (to deploy the site and
+the release bundle); the others need the raw files. CI also runs ruff and the tests, which read the tracked outputs.
 
 ## Sources
 
@@ -77,20 +79,27 @@ municipalities, 41 arrondissements).
 |---|---|---|
 | 2004–2014 poverty map | 1,455 | exact name + province |
 | 2025 MPI database (2024 codes) | 1,538 | 36 by fuzzy name with a same-province bonus, 9 by identical code (a 2024 code is usually the 2014 code without dots) |
-| 2004 annex | 1,473 | 1,405 direct, 68 mutual-best fuzzy (rapidfuzz ≥ 82) |
-| All three censuses | 1,473 (95.8%) | the rest are communes created or merged after 2004 |
+| 2004 annex | 1,476 | 1,412 direct, 64 mutual-best fuzzy (rapidfuzz ≥ 82); rules below |
+| All three censuses | 1,476 (96.0%) | the rest are communes created or merged after 2004 |
+
+The annex is matched by its own rules, not the name + province rule above, because its labels are 'Province
+Commune' strings, sometimes truncated, on the pre-2009 provinces: first the last 18 characters of province + name;
+then a label ending with the commune's name (at least 5 letters), unambiguously and among labels no commune has
+claimed, so that a commune carved out after 2004 does not take its namesake's row in another province; then
+mutual-best fuzzy on province + name. The 2024 fuzzy step instead takes each unmatched commune's best `fuzz.ratio`
+plus 20 points for the same province, at 105 or more (in effect the same province and a ratio of 85).
 
 **2004 app codes** (`crosswalk_app2004.csv`): 1,537 of 1,538 communes, one row per app unit and 2014 commune, with its
 `link` type and `weight`.
 
 - The app reports a rural commune (code ending 2) apart from its autonomous centres (3-5, same first 9 digits): disjoint
   populations (all app units sum to the 2004 national total) that HCP's 2014 commune covers together. A centre named
-  like its commune is not matched on its own; every centre left unmatched is linked with its commune (147,
+  like its commune is not matched on its own; every centre left unmatched is linked with its commune (146,
   `centre`). Before this, 125 linked communes carried the rural part's values only.
-- Matching: exact space-insensitive name + province, then unique name (1,467 `exact`); province-constrained
+- Matching: exact space-insensitive name + province, then unique name (1,457 `exact`); province-constrained
   mutual-best fuzzy ≥ 85 (31 `fuzzy`); for provinces created after 2004 (Driouch, Fquih Ben Salah, Sidi Slimane...),
   mutual-best fuzzy within the 2004 provinces their linked communes came from (13 `province_split`).
-- `catalog/link_review.csv` (29 `review`, 8 `split`): merges (Ain Johra + Sidi Boukhalkhal, Ain Nzagh + Tamadroust), renames
+- `catalog/link_review.csv` (50 rows, giving 28 `review` and 21 `split` rows of `crosswalk_app2004`): merges (Ain Johra + Sidi Boukhalkhal, Ain Nzagh + Tamadroust), renames
   (Lkhaloua → Had Al Gharbia), rural remainders renamed when their centre became a municipality (Driouch → Mtalssa,
   Tahannaout → Aghouatim, Sidi Bou Othmane → Jbilate, Sidi Bouknadel → Ameur) and absorptions (Amalou Ighriben into
   Khenifra), and Soualem, whose rural remainder kept its commune number as Soualem Trifiya while its centre became Had
@@ -108,23 +117,32 @@ municipalities, 41 arrondissements).
   but not what each was carved from; boundaries were set by ministerial arrêtés that are not published online. HCP
   says it computed 2004-2014 growth for every commune but has published it only in some regional documents.
 - `validation.json` (`backcast_2004`) compares each 2014 commune's linked 2004 population with HCP's figure: 27 of 35
-  within 2%. The gaps are in Berrechid, where Had Soualem, Soualem Trifiya and Sahel Oulad H'Riz gained from
-  Lakhiaita and the unplaced parts of Sidi Rahal Chatai and Sidi El Mekki in proportions HCP does not publish.
+  within 2%, but that count is not independent. The split weights of 16 of the 35 were transcribed from the same HCP
+  tables (15 within 2%); 15 more are one-to-one `exact` links, which check only that the app and HCP agree on an
+  unchanged commune (12 within 2%). The 4 communes whose links the check really tests (Had Soualem, Soualem Trifiya,
+  Sahel Oulad H'Riz, Bouskoura) all miss: the first three gained, in proportions HCP does not publish, from Lakhiaita
+  and the unplaced parts of Sidi Rahal Chatai and Sidi El Mekki (Berrechid); Bouskoura (Nouaceur) lacks Lamkansa.
+  Berrechid (Mun.), El Gara and Jaqma miss by 2-5% on one-to-one links, so boundaries moved there too.
+- 2004 population placed on no 2014 commune (`linkage.unplaced_2004`): 93,175, from the 2 unlinked units and the
+  unplaced shares of 5 splits.
 - Several app units sharing a 2014 commune are combined like arrondissements into cities: sums for counts,
   population- or household-weighted means for rates.
 - Not linked: Ait Ali ou Lahcen (Khémisset), with no published parent; the app units Lakhiaita and Lamkansa.
 
 ## Imputation (panel only)
 
-Where a 2014 commune has no 2004, 2014 or 2024 poverty value (it did not exist, or was split), the
-value is the population-weighted mean of the other communes in the same cercle (fallback: province),
-and the row is flagged:
+Where a 2014 commune has no 2004, 2014 or 2024 poverty value (it did not exist in 2004, was split, or its
+annex row is not identified), the value is the mean of the other communes in the same cercle (fallback:
+province), weighted by 2014 legal population, and the row is flagged:
 
 | Flag | direct | fuzzy | imputed_cercle | imputed_province |
 |---|---|---|---|---|
-| `src04` | 1,398 | 67 | 72 | 1 |
-| `src14` | 1,527 | – | 11 | – |
-| `src24` | 1,527 | – | 11 | – |
+| `src04` | 1,412 | 64 | 61 | 1 |
+| `src14` | 1,536 | – | 2 | – |
+| `src24` | 1,536 | – | 2 | – |
+
+The counts are `validation.json`'s `linkage.imputation`; city rows (`level = city`) carry no flags. Cercle means
+shrink the variance of imputed values toward their neighbours'.
 
 Robustness checks should drop imputed rows; the flags make that a one-line filter.
 
@@ -207,6 +225,24 @@ byte-for-byte and its tessellation to within 2e-5 m² per cell. Deliberate chang
 14. Thiessen cells and their weights are retired (2026.9.6): the map draws HCP's boundaries only, and the download
     bundle carries the commune points (`communes_points.gpkg`, `.geojson`) instead of `communes.gpkg`,
     `communes_queen.gal`, `communes_thiessen.geojson` and `boundary_mar_esh.gpkg`.
+15. Review of the white paper (2026.9.8):
+    - 2004 annex: nine labels carried a header fragment from the PDF ('Vulné- de la ...', and one footnote), so
+      eight linked communes got cercle means instead of their own 2004 values and Zouagha was unlinked. The
+      name-ending fallback matched two communes created in 2008 to namesakes in other provinces: Ameur (Salé) had
+      Foqra Oulad Aameur's values (Settat) and Oulad Azzouz (Nouaceur) those of Oulad Azzouz (Khouribga); both are
+      now imputed. Laamria, Lgharbia, Sidi Ghanem and Jdour, which that fallback had found ambiguous, are linked.
+      Annex links 1,473 → 1,476; panel `src04` imputations 73 → 62.
+    - `crosswalk_communes` and `panel_commune` gain `unit` (the boundaries' key) and `code24_commune`, the
+      `communes_2024` row of each 2014 commune; joining on `code24` had dropped the six arrondissement cities.
+    - `panel_commune`: `code24` is written as text (it was a float, so no text join matched), city rows carry their
+      2024 codes, and the legal population and households are renamed `pop_legal14` and `households_legal14`
+      (`population14` there was the legal figure, under the name of the municipal one in `communes_2014`).
+    - `communes_2014` and `communes_2024` gain HCP's legal population (`pop_legal14`, `pop_legal24`).
+    - `backcast_2004` separates calibrated, one-to-one and other links and lists every gap; `linkage` reports
+      the unplaced 2004 population.
+    - `mc fetch` compares every file with the manifest before recording it, the HCP boundary files included, and
+      exits non-zero on a change unless given `--accept-changes`. The 2004 crawl is in the manifest: its
+      `communes_index.csv` and a digest of `data/raw/2004_app_pages.sha256`, the tracked per-page checksums.
 
 ## HCP commune boundaries (the map's layer)
 

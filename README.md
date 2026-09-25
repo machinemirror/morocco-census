@@ -2,7 +2,7 @@
 
 Commune-level data from Morocco's three most recent censuses (RGPH 2004, 2014 and 2024),
 harmonized on one commune key, with HCP's commune boundaries, urban/rural and male/female breakdowns, a catalogue
-of every variable, and an interactive map (226 indicators, 385 indicator-census series; the map shows the 50
+of every variable, and an interactive map (227 indicators, 387 indicator-census series; the map shows the 50
 observed in all three censuses, by urban/rural for 49 and by sex for 25, readable in English, French or Arabic with
 HCP's own place names and labels).
 
@@ -11,13 +11,14 @@ HCP's own place names and labels).
 | | 2004 | 2014 | 2024 |
 |---|---|---|---|
 | Communes in HCP's tables | 1,689 | 1,538 | 1,503 |
-| Commune variables | 69 | 132 | 163 |
+| Commune variables | 69 | 133 | 164 |
 | Poverty / development indices | IDH, IDS, poverty, MPI (poverty map) | MPI (both series) | MPI |
-| Linked to the 2014 list | 1,473 (annex) · 1,537 (profiles) | spine | 1,538 |
+| Linked to the 2014 list | 1,476 (annex) · 1,537 (profiles) | spine | 1,538 |
 
-1,537 of the 1,538 2014 communes have 2004 profile values and all have 2024 values. Where HCP publishes 2004
-populations on the 2014 boundaries (35 communes in 7 provinces), the links reproduce them within 2% for 27. 1,473
-(95.8%) are also matched to the 2004 poverty annex. Imputed values are flagged, never silent.
+1,537 of the 1,538 2014 communes have 2004 profile values and all have 2024 values; 1,476 (96.0%) are also matched
+to the 2004 poverty annex. Imputed values are flagged, never silent. HCP publishes 2004 populations on the 2014
+boundaries for 35 communes in 7 provinces; 16 of them set the split weights, and the 4 whose links the comparison
+tests independently all miss by more than 2% (see [PROVENANCE](docs/PROVENANCE.md#matching)).
 
 ## Data
 
@@ -34,8 +35,8 @@ Everything published is in [`data/processed/`](data/processed) and described col
 | `communes_2014_milieu.csv`, `communes_2024_milieu.csv` | 1,680 · 1,663 | code, `milieu` | urban and rural parts of each commune (HCP's milieu sheets) |
 | `communes_2014_sex.csv`, `communes_2024_sex.csv` | 3,066 · 2,997 | code, `sex` | individual-level indicators by sex |
 | `commune_indices_2004.csv` | 1,677 | `label` | 2004 poverty, vulnerability, IDH, IDS |
-| `panel_commune.csv` | 1,544 | `code14` | three-census poverty/development panel, with provenance flags |
-| `crosswalk_communes.csv` | 1,538 | `code14` | 2014 ↔ 2004 annex ↔ poverty map ↔ 2024 codes |
+| `panel_commune.csv` | 1,544 | `code14` | three-census poverty/development panel, with provenance flags; 6 city rows (`level = city`) to drop before summing |
+| `crosswalk_communes.csv` | 1,538 | `code14` | 2014 ↔ 2004 annex ↔ poverty map ↔ 2024 commune (`code24_commune`) ↔ map unit (`unit`) |
 | `crosswalk_app2004.csv` | 1,696 | `app_code`, `code14` | 2004 profile codes → 2014 communes (1,537), with link type and split weight |
 | `geometry/hcp_communes_2024.gpkg` | 1,503 | `unit` | HCP's commune boundaries, the communes of 2014 and 2024 (the map's default layer) |
 | `geometry/hcp_communes_2024_queen.gal` | 1,503 | | queen-contiguity weights on HCP's boundaries |
@@ -48,12 +49,23 @@ review files: `points_seeds.csv` (each point's gazetteer match), `points_crossch
 Wikidata), `points_unmatched.csv` (communes without a point) and `points_duplicate.csv` (units dropped for sharing
 coordinates; currently none).
 
-Read codes as text: `app_code` has leading zeros and `code14` ends with a dot.
+Read codes as text: `app_code` has leading zeros and `code14` ends with a dot. Join 2024 tables through the
+crosswalk's `code24_commune`, not `code24`: the 41 arrondissements of 2014 are the six city communes of 2024. The
+boundaries and points are keyed by `unit` (the commune, or the city for an arrondissement). `population14` and
+`population24` are HCP's municipal population, the base of the rates; `pop_legal14` and `pop_legal24` add the
+population living collectively (barracks, prisons, boarding schools) and are the resident count for per-capita
+totals, notably in garrison and Saharan communes.
 
 ```python
 import pandas as pd
 base = "https://raw.githubusercontent.com/machinemirror/morocco-census/main/data/processed/"
-panel = pd.read_csv(base + "panel_commune.csv", dtype={"code14": str})
+cw = pd.read_csv(base + "crosswalk_communes.csv", dtype=str)
+c14 = pd.read_csv(base + "communes_2014.csv", dtype={"code14": str})
+c24 = pd.read_csv(base + "communes_2024.csv", dtype={"code24": str})
+
+# 2014 and 2024 on the 1,503 communes of 2024 (arrondissements summed into their city)
+pop14 = c14.merge(cw[["code14", "code24_commune"]], on="code14").groupby("code24_commune").population14.sum()
+both = c24.set_index("code24")[["name24", "population24"]].join(pop14)
 ```
 
 ### Commune shapes
@@ -68,12 +80,14 @@ GeoNames and Wikidata gazetteers is published alongside, for uses that need loca
 Requires [uv](https://docs.astral.sh/uv/) and Python ≥ 3.12.
 
 ```sh
-uv run mc fetch        # download raw files into data/raw, check sha256 against the manifest
+uv run mc fetch        # download raw files into data/raw; exits non-zero if one differs from the manifest
 uv run mc crawl-2004   # 2004 commune profiles from HCP's app (several hours, resumable)
 uv run mc all          # tables -> geometry -> validation.json -> site/data
 python -m http.server -d site
 ```
 
+GeoNames and Wikidata change daily, so a fresh `mc fetch` reports them as changed; `mc fetch --accept-changes`
+records the new checksums, and the rebuilt points may then differ slightly from the release.
 `uv run pytest` checks the published tables, the catalogue and the site export; it needs no raw data.
 Corrections and additions are welcome: see [CONTRIBUTING.md](CONTRIBUTING.md).
 [`docs/PROVENANCE.md`](docs/PROVENANCE.md) documents every step, match rate and imputation.

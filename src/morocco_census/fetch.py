@@ -13,9 +13,11 @@ import urllib.parse
 import zipfile
 from pathlib import Path
 
-from .config import RAW
+from .config import R_APP_HTML, R_APP_INDEX, RAW
 
 MANIFEST_PATH = RAW / "manifest.json"
+# per-page sha256 of the 2004 crawl (tracked); the manifest holds one digest over this list
+APP_PAGES_PATH = RAW / "2004_app_pages.sha256"
 
 USER_AGENT = (
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
@@ -190,7 +192,16 @@ HCP_PLATFORM = "https://resultats2024.rgphapps.ma"
 HCP_BOUNDARIES = "hcp_boundaries_2024"
 
 
-def fetch_hcp_boundaries(manifest: dict) -> list:
+def changed(manifest: dict, rel: str, digest: str, accept: bool) -> bool:
+    """True when rel's digest differs from the manifest and the change is not accepted."""
+    known = manifest.get(rel, {}).get("sha256")
+    if known in (None, digest):
+        return False
+    print(f"  CHANGED: {rel} sha256 {digest[:12]}, manifest {known[:12]}" + ("" if accept else " (--accept-changes to record)"))
+    return not accept
+
+
+def fetch_hcp_boundaries(manifest: dict, accept: bool) -> tuple[list, list]:
     import re
     import urllib.request
 
@@ -213,8 +224,8 @@ def fetch_hcp_boundaries(manifest: dict) -> list:
             h = re.search(r"([0-9a-f]{20})\.geojson", ref)
             files[key] = h.group(1) if h else assigned.get(ref.strip())
     if len(files) != 75 or None in files.values():
-        return [(HCP_BOUNDARIES, HCP_PLATFORM, f"expected 75 province files, found {len(files)}")]
-    failures = []
+        return [(HCP_BOUNDARIES, HCP_PLATFORM, f"expected 75 province files, found {len(files)}")], []
+    failures, mismatches = [], []
     for key, h in sorted(files.items()):
         rel, url = f"{HCP_BOUNDARIES}/{key}.geojson", f"{HCP_PLATFORM}/static/assets/{h}.geojson"
         out = RAW / rel
@@ -223,30 +234,66 @@ def fetch_hcp_boundaries(manifest: dict) -> list:
             if not ok:
                 failures.append((rel, url, err))
                 continue
+        digest = sha256_of(out)
+        if changed(manifest, rel, digest, accept):
+            mismatches.append(rel)
+            continue
         manifest[rel] = {
             "url": url,
             "description": f"HCP RGPH 2024 results platform, commune boundaries of province {key[-6:]}",
             "size_bytes": out.stat().st_size,
-            "sha256": sha256_of(out),
+            "sha256": digest,
             "fetch_date": manifest.get(rel, {}).get("fetch_date") or time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         }
     print(f"HCP boundaries: {len(files) - len(failures)}/75 province files")
-    return failures
+    return failures, mismatches
 
 
-def main() -> int:
+def record_2004_app(manifest: dict, accept: bool) -> list:
+    """Check the 2004 crawl (communes_index.csv and the cached pages) against the manifest, or record it."""
+    if not R_APP_INDEX.exists():
+        print("[skip] 2004_app: not crawled (mc crawl-2004)")
+        return []
+    pages = "".join(f"{sha256_of(f)}  {f.name}\n" for f in sorted(R_APP_HTML.glob("*.html")))
+    mismatches = []
+    for rel, digest, desc, size in (
+        ("2004_app/communes_index.csv", sha256_of(R_APP_INDEX), "communes listed by the 2004 app crawl", R_APP_INDEX.stat().st_size),
+        (
+            "2004_app/html",
+            hashlib.sha256(pages.encode()).hexdigest(),
+            f"the crawl's {pages.count(chr(10))} profile pages; digest of {APP_PAGES_PATH.name}",
+            None,
+        ),
+    ):
+        if changed(manifest, rel, digest, accept):
+            mismatches.append(rel)
+            continue
+        manifest[rel] = manifest.get(rel, {}) | {
+            "url": "https://applications-web.hcp.ma/hpmc/frmmarocenchiffres.aspx",
+            "description": desc,
+            "sha256": digest,
+        } | ({"size_bytes": size} if size else {})
+    if not mismatches:
+        APP_PAGES_PATH.write_text(pages)
+    print(f"2004_app: {pages.count(chr(10))} pages" + (f", {len(mismatches)} changed" if mismatches else ""))
+    return mismatches
+
+
+def main(accept: bool = False) -> int:
     RAW.mkdir(parents=True, exist_ok=True)
     manifest = load_manifest()
-    failures = []
+    failures, mismatches = [], []
 
     for rel, url, desc in FILES:
         dest = RAW / rel
         dest.parent.mkdir(parents=True, exist_ok=True)
         if dest.exists() and dest.stat().st_size > 0:
             digest = sha256_of(dest)
-            known = manifest.get(rel, {}).get("sha256")
-            flag = "" if known in (None, digest) else "  (sha256 differs from manifest)"
-            print(f"[skip] {rel}{flag}")
+            print(f"[skip] {rel}")
+            if changed(manifest, rel, digest, accept):
+                mismatches.append(rel)
+            elif accept:
+                manifest.get(rel, {})["sha256"] = digest
             manifest.setdefault(
                 rel,
                 {
@@ -270,9 +317,9 @@ def main() -> int:
                 continue
             tmp.rename(dest)
             digest = sha256_of(dest)
-            known = manifest.get(rel, {}).get("sha256")
-            if known and known != digest:
-                print(f"  NOTE: sha256 {digest[:12]} differs from manifest {known[:12]} (upstream changed)")
+            if changed(manifest, rel, digest, accept):
+                mismatches.append(rel)
+                continue
             manifest[rel] = {
                 "url": url,
                 "description": desc,
@@ -286,9 +333,13 @@ def main() -> int:
                 z.extractall(RAW / UNZIP[rel])
         save_manifest(manifest)
 
-    failures += fetch_hcp_boundaries(manifest)
+    f, m = fetch_hcp_boundaries(manifest, accept)
+    failures += f
+    mismatches += m + record_2004_app(manifest, accept)
     save_manifest(manifest)
     print(f"\n{len(FILES) - len(failures)}/{len(FILES)} files present.")
     for rel, url, err in failures:
         print(f"  FAILED {rel} <- {url}: {err}")
-    return 1 if failures else 0
+    for rel in mismatches:
+        print(f"  CHANGED {rel}: differs from the manifest; rerun with --accept-changes to record it")
+    return 1 if failures or mismatches else 0

@@ -109,8 +109,13 @@
   },
   "linkage": {
     "spine_2014": 1538,
-    "linked_2004_annex": 1473,
+    "linked_2004_annex": 1476,
     "linked_2004_profiles": 1537,
+    "unplaced_2004": {
+      "unlinked_units": 2,
+      "partial_units": 5,
+      "population": 93175
+    },
     "profile_links": {
       "exact": 1457,
       "centre": 146,
@@ -120,13 +125,13 @@
       "province_split": 13
     },
     "linked_2024": 1538,
-    "linked_all_three": 1473,
+    "linked_all_three": 1476,
     "unlinked_2024": [],
     "imputation": {
       "src04": {
-        "direct": 1398,
-        "imputed_cercle": 72,
-        "fuzzy": 67,
+        "direct": 1412,
+        "fuzzy": 64,
+        "imputed_cercle": 61,
         "imputed_province": 1
       },
       "src14": {
@@ -192,46 +197,66 @@
   "backcast_2004": {
     "communes": 35,
     "within_2pct": 27,
+    "calibrated": {
+      "communes": 16,
+      "within_2pct": 15
+    },
+    "one_to_one": {
+      "communes": 15,
+      "within_2pct": 12
+    },
+    "other_links": {
+      "communes": 4,
+      "within_2pct": 0
+    },
     "largest_gaps": [
       {
         "name": "Had Soualem (Mun.)",
         "linked": 3243,
-        "hcp": 18626
+        "hcp": 18626,
+        "pct": -82.6
       },
       {
         "name": "Soualem Trifiya",
         "linked": 15973,
-        "hcp": 20598
+        "hcp": 20598,
+        "pct": -22.5
       },
       {
         "name": "Sahel Oulad H'Riz",
         "linked": 26435,
-        "hcp": 32769
+        "hcp": 32769,
+        "pct": -19.3
       },
       {
         "name": "El Gara (Mun.)",
         "linked": 18070,
-        "hcp": 19099
+        "hcp": 19099,
+        "pct": -5.4
       },
       {
         "name": "Bouskoura (Mun.)",
         "linked": 58312,
-        "hcp": 60483
+        "hcp": 60483,
+        "pct": -3.6
       },
       {
         "name": "Berrechid (Mun.)",
         "linked": 89551,
-        "hcp": 92822
+        "hcp": 92822,
+        "pct": -3.5
       },
       {
         "name": "Oulad Ziyane",
         "linked": 13818,
-        "hcp": 14151
+        "hcp": 14151,
+        "pct": -2.4
       },
       {
         "name": "Jaqma",
         "linked": 10799,
-        "hcp": 10582
+        "hcp": 10582,
+        "pct": 2.1
       }
     ]
   }
