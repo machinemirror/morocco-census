@@ -7,8 +7,8 @@ authors:
     given-names: Matthew R.
     orcid: "https://orcid.org/0009-0001-0473-7240"
     affiliation: Machine Mirror
-version: 2026.9.6
-date-released: 2026-09-24
+version: 2026.9.7
+date-released: 2026-09-25
 license: CC-BY-4.0
 repository-code: "https://github.com/machinemirror/morocco-census"
 url: "https://machinemirror.github.io/morocco-census/"
