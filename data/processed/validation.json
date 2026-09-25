@@ -110,14 +110,14 @@
   "linkage": {
     "spine_2014": 1538,
     "linked_2004_annex": 1473,
-    "linked_2004_profiles": 1534,
+    "linked_2004_profiles": 1537,
     "profile_links": {
-      "exact": 1463,
-      "centre": 147,
+      "exact": 1457,
+      "centre": 146,
       "fuzzy": 31,
-      "review": 29,
-      "province_split": 13,
-      "split": 8
+      "review": 28,
+      "split": 21,
+      "province_split": 13
     },
     "linked_2024": 1538,
     "linked_all_three": 1473,
@@ -188,5 +188,51 @@
         "sum_equals_total": 1689
       }
     }
+  },
+  "backcast_2004": {
+    "communes": 35,
+    "within_2pct": 27,
+    "largest_gaps": [
+      {
+        "name": "Had Soualem (Mun.)",
+        "linked": 3243,
+        "hcp": 18626
+      },
+      {
+        "name": "Soualem Trifiya",
+        "linked": 15973,
+        "hcp": 20598
+      },
+      {
+        "name": "Sahel Oulad H'Riz",
+        "linked": 26435,
+        "hcp": 32769
+      },
+      {
+        "name": "El Gara (Mun.)",
+        "linked": 18070,
+        "hcp": 19099
+      },
+      {
+        "name": "Bouskoura (Mun.)",
+        "linked": 58312,
+        "hcp": 60483
+      },
+      {
+        "name": "Berrechid (Mun.)",
+        "linked": 89551,
+        "hcp": 92822
+      },
+      {
+        "name": "Oulad Ziyane",
+        "linked": 13818,
+        "hcp": 14151
+      },
+      {
+        "name": "Jaqma",
+        "linked": 10799,
+        "hcp": 10582
+      }
+    ]
   }
 }

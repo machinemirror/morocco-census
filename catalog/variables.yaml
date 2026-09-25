@@ -2489,7 +2489,7 @@ datasets:
     file: crosswalk_app2004.csv
     key: app_code, code14
     en: 2004 app code crosswalk
-    description: Links the Maroc en Chiffres app codes (communes_2004) to the 2014 spine, 1,534 of 1,538 communes. Several app units can share a 2014 commune (a rural commune and its autonomous centres, or communes merged after 2004), and an app unit split after 2004 appears once per part; values are combined population-weighted, counts shared by `weight`.
+    description: Links the Maroc en Chiffres app codes (communes_2004) to the 2014 spine, 1,537 of 1,538 communes. Several app units can share a 2014 commune (a rural commune and its autonomous centres, or communes merged after 2004), and an app unit split after 2004 appears once per part; values are combined population-weighted, counts shared by `weight`.
     columns:
       code14: {en: Commune code (2014), unit: code, definition: Spine key; repeats where several 2004 units form one 2014 commune.}
       app_code: {en: App commune code (2004), unit: code, definition: Key of communes_2004; repeats where a 2004 unit was split after 2004.}

@@ -75,7 +75,7 @@ municipalities, 41 arrondissements).
 | 2004 annex | 1,473 | 1,405 direct, 68 mutual-best fuzzy (rapidfuzz ≥ 82) |
 | All three censuses | 1,473 (95.8%) | the rest are communes created or merged after 2004 |
 
-**2004 app codes** (`crosswalk_app2004.csv`): 1,534 of 1,538 communes, one row per app unit and 2014 commune, with its
+**2004 app codes** (`crosswalk_app2004.csv`): 1,537 of 1,538 communes, one row per app unit and 2014 commune, with its
 `link` type and `weight`.
 
 - The app reports a rural commune (code ending 2) apart from its autonomous centres (3-5, same first 9 digits): disjoint
@@ -91,16 +91,23 @@ municipalities, 41 arrondissements).
   Khenifra), and Soualem, whose rural remainder kept its commune number as Soualem Trifiya while its centre became Had
   Soualem. Each is decided on 2004-2014 population and on where the GeoNames point of the 2004 unit falls in HCP's
   2024 polygons, and states its evidence.
-- Splits: an app unit listed twice in the review was divided after 2004 (Taghramt → + Belyounech, Ben Mansour → + Sidi
-  Mohamed Ben Mansour, Ameur Seflia → + Ameur Chamalia, Bouguedra → + Chahda). The parent is the neighbour, in HCP's
-  polygons, whose 2004-2014 population fell while the child appeared, and with the child added its ratio returns to
-  the provincial norm. Each part carries the unit's 2004 rates; its counts are shared by the parts' 2014 population
-  (`weight`).
+- Splits: an app unit listed more than once in the review was divided after 2004. Each part carries the unit's 2004
+  rates; its counts are shared by `weight`, taken from HCP's 2004 populations on 2014 boundaries where a regional
+  publication gives them (`catalog/hcp_2004_on_2014.csv`, 35 communes: Berrechid, Nouaceur, Settat, Kénitra, Sidi
+  Slimane, Salé, M'Diq-Fnideq), else from the parts' 2014 population. Examples: rural Deroua (25,239) gave 11,421 to
+  Deroua (Mun.) and the rest to Oulad Ziyane (HCP: 14,151); Ain Dorbane, abolished in 2008, went mostly to Ben Ahmed
+  (7,132) and Ain Dorbane-Lahlaf (878); Oulad Azzouz (26,103) was carved from Dar Bouazza. Where HCP accounts for only
+  part of a unit, its weights sum below 1 and the rest is left unplaced (Sidi Rahal Chatai, Sidi El Mekki, Dar
+  Bouazza, Oulad Salah, Ain Dorbane). Lamkansa, which HCP leaves out of Bouskoura, is unlinked.
+- The 2008-2009 decrees (n° 2-08-520, BO 5684; n° 2-09-320, BO 5744) list communes by province, cercle and caïdat
+  but not what each was carved from; boundaries were set by ministerial arrêtés that are not published online. HCP
+  says it computed 2004-2014 growth for every commune but has published it only in some regional documents.
+- `validation.json` (`backcast_2004`) compares each 2014 commune's linked 2004 population with HCP's figure: 27 of 35
+  within 2%. The gaps are in Berrechid, where Had Soualem, Soualem Trifiya and Sahel Oulad H'Riz gained from
+  Lakhiaita and the unplaced parts of Sidi Rahal Chatai and Sidi El Mekki in proportions HCP does not publish.
 - Several app units sharing a 2014 commune are combined like arrondissements into cities: sums for counts,
   population- or household-weighted means for rates.
-- Not linked: Ain Chair, Ait Ali ou Lahcen, Oulad Ziyane and Oulad Azzouz (Nouaceur), created after 2004 with no
-  neighbour whose population shows a loss; and the app units Ain Dorbane (population says Ben Ahmed, the 2014 name says
-  Ain Dorbane-Lahlaf) and Lakhiaita (Oulad Ziyane by population, Sahel Oulad H'Riz by location).
+- Not linked: Ait Ali ou Lahcen (Khémisset), with no published parent; the app units Lakhiaita and Lamkansa.
 
 ## Imputation (panel only)
 
@@ -196,7 +203,7 @@ country-map bundle and records each file in the manifest. The files declare CRS8
   files leave hairline gaps along province borders (strict queen isolates 12 communes); 1,503 units, mean 5.63
   neighbours, no islands.
 - Reliability by census on these boundaries: 2014 exact (same codes); 2024 through the crosswalk (every commune,
-  cities from their arrondissements); 2004 through the app crosswalk (1,534 communes; rural communes with their
+  cities from their arrondissements); 2004 through the app crosswalk (1,537 communes; rural communes with their
   centres, reviewed merges, renames and splits as above). 2004-2014 population growth across linked communes has a median
   ratio of 1.02; the largest drops are Saharan communes, whose census coverage differs between rounds.
 

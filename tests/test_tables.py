@@ -54,13 +54,14 @@ def test_crosswalk_coverage(cw):
 def test_app_crosswalk(cw):
     app = pd.read_csv(P_CROSSWALK_APP, dtype={"app_code": str, "code14": str})
     assert set(app.code14) <= set(cw.code14) and not app.duplicated(["app_code", "code14"]).any()
-    assert app.groupby("app_code").weight.sum().round(3).eq(1).all()  # a split unit's parts share its counts
+    # a split unit's parts share its counts; below 1 where HCP does not say where the rest went
+    assert app.groupby("app_code").weight.sum().le(1.0005).all()
     assert set(app.app_code[app.weight < 1]) == set(app.app_code[app.link == "split"])
-    assert app.code14.nunique() >= 1534
+    assert app.code14.nunique() >= 1537
     assert set(app.link) == {"exact", "fuzzy", "province_split", "centre", "review", "split"}
     # a centre (milieu digit 3-5) shares its rural commune's link, unless a review moved that commune (the rural
     # remainder renamed when the centre became a municipality)
-    review = pd.read_csv(LINK_REVIEW, dtype=str)
+    review = pd.read_csv(LINK_REVIEW, dtype=str, keep_default_na=False)
     by_code = app[app.link != "split"].set_index("app_code").code14
     centres = app[app.link == "centre"]
     parent = centres.app_code.str[:9] + "2"
@@ -68,7 +69,9 @@ def test_app_crosswalk(cw):
     assert (centres.code14[kept].to_numpy() == parent[kept].map(by_code).to_numpy()).all()
     assert review.evidence.notna().all() and not review.duplicated(["app_code", "code14"]).any()
     linked = set(zip(app.app_code, app.code14))
-    assert all(pair in linked for pair in zip(review.app_code, review.code14))
+    placed = review[review.code14 != ""]
+    assert all(pair in linked for pair in zip(placed.app_code, placed.code14))
+    assert not app.app_code.isin(review.app_code[review.code14 == ""]).any()  # reviewed as unlinked
 
 
 def test_panel(panel):
@@ -185,6 +188,8 @@ def test_validation_report_matches_tables():
     assert v["linkage"]["linked_all_three"] == (cw.code24.notna() & cw.label04.notna()).sum()
     assert v["linkage"]["linked_2004_profiles"] == pd.read_csv(P_CROSSWALK_APP, dtype=str).code14.nunique()
     assert v["linkage"]["unlinked_2024"] == []
+    b = v["backcast_2004"]  # our linked 2004 population against HCP's figures on 2014 boundaries
+    assert b["communes"] >= 35 and b["within_2pct"] >= 27
     assert v["seeds"]["placed"] == len(gpd.read_file(P_GPKG, layer="points"))
     for y, n in (("2014", 1538), ("2024", 1503)):
         p = v["population"][y]

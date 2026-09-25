@@ -11,6 +11,7 @@ import json
 import pandas as pd
 
 from .config import (
+    HCP_2004_ON_2014,
     P_COMMUNES,
     P_CROSSCHECK,
     P_CROSSWALK,
@@ -90,6 +91,25 @@ def slices() -> dict:
     return out
 
 
+def backcast() -> dict:
+    """The 2004 population our links give each 2014 commune, against HCP's own figure on 2014 boundaries."""
+    ref = pd.read_csv(HCP_2004_ON_2014, dtype={"code14": str})
+    app = pd.read_csv(P_CROSSWALK_APP, dtype={"app_code": str, "code14": str})
+    pop = pd.read_csv(P_COMMUNES[2004], dtype={"app_code": str}).set_index("app_code").population04
+    ours = (app.app_code.map(pop) * app.weight).groupby(app.code14).sum()
+    ref["linked"] = ref.code14.map(ours).fillna(0).round().astype(int)
+    ref["pct"] = (ref.linked / ref.population04_hcp * 100 - 100).round(1)
+    return {
+        "communes": len(ref),
+        "within_2pct": int((ref.pct.abs() <= 2).sum()),
+        "largest_gaps": [
+            {"name": r.name14, "linked": int(r.linked), "hcp": int(r.population04_hcp)}
+            for _, r in ref.loc[ref.pct.abs().sort_values(ascending=False).index].head(8).iterrows()
+            if abs(r.pct) > 2
+        ],
+    }
+
+
 def main() -> dict:
     cw = pd.read_csv(P_CROSSWALK, dtype=str)
     app = pd.read_csv(P_CROSSWALK_APP, dtype=str)
@@ -133,6 +153,7 @@ def main() -> dict:
         },
     }
     out["slices"] = slices()
+    out["backcast_2004"] = backcast()
     P_VALIDATION.write_text(json.dumps(out, indent=2, ensure_ascii=False) + "\n")
     p = out["population"]
     for y in p:

@@ -304,25 +304,29 @@ def app2004(threshold: int = 85, out_path=P_CROSSWALK_APP) -> pd.DataFrame:
         [out, pd.DataFrame({"code14": extra.parent.map(by_parent), "app_code": extra.commune_code, "link": "centre"})],
         ignore_index=True,
     )
-    # merges, renames and absorptions after 2004, decided on population and GeoNames location
-    # an app unit listed more than once was split after 2004: its counts are shared by 2014 population, its rates
-    # are carried to every part
-    review = pd.read_csv(LINK_REVIEW, dtype=str)
+    # Merges, renames, absorptions and splits after 2004, decided on HCP's 2004 populations on 2014 boundaries where
+    # published, else on population and GeoNames location. A row without code14 unlinks the unit. An app unit listed
+    # more than once was split: its rates carry to every part, its counts are shared by `weight` (HCP's figures, else
+    # the parts' 2014 population). Weights summing below 1 leave the rest of the unit unplaced.
+    review = pd.read_csv(LINK_REVIEW, dtype=str, keep_default_na=False)
     pop14 = pd.read_csv(P_COMMUNES[2014], dtype={"code14": str}).set_index("code14").population14
-    review["weight"] = review.code14.map(pop14) / review.groupby("app_code").code14.transform(lambda c: pop14[c].sum())
-    split = review.app_code.duplicated(keep=False)
+    linked = review[review.code14 != ""].copy()
+    by_pop = linked.code14.map(pop14) / linked.groupby("app_code").code14.transform(lambda c: pop14[c].sum())
+    linked["weight"] = pd.to_numeric(linked.weight, errors="coerce").fillna(by_pop)
+    split = linked.app_code.duplicated(keep=False) | (linked.weight < 1)
     out = pd.concat(
         [
             out[~out.app_code.isin(review.app_code)].assign(weight=1.0),
-            review[["code14", "app_code", "weight"]].assign(link=split.map({True: "split", False: "review"})),
+            linked[["code14", "app_code", "weight"]].assign(link=split.map({True: "split", False: "review"})),
         ],
         ignore_index=True,
     )
     out["weight"] = out.weight.round(4)
-    assert out.groupby("app_code").weight.sum().round(3).eq(1).all() and out.code14.isin(spine.code14).all()
+    assert out.groupby("app_code").weight.sum().le(1.0005).all() and out.code14.isin(spine.code14).all()
     out.to_csv(out_path, index=False)
     print(
         f"app2004: exact {n_exact} + fuzzy {n_fuzzy} + province split {n_split} + centres {len(extra)}, "
-        f"{(~split).sum()} reviewed, {split.sum()} split rows; {out.code14.nunique()}/{len(spine)} communes linked"
+        f"{(~split).sum()} reviewed, {split.sum()} split rows, {(review.code14 == '').sum()} unlinked; "
+        f"{out.code14.nunique()}/{len(spine)} communes linked"
     )
     return out

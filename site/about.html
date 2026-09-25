@@ -25,7 +25,7 @@
   <ul>
     <li><b>Per-census tables</b> in HCP's own units: 1,689 communes in 2004 (16-region map), 1,538 in 2014, 1,503 in 2024.</li>
     <li><b>A crosswalk</b> linking the 2014 commune list to the 2004 and 2024 lists. All 1,538 communes are linked to
-      2024, and 1,534 to the 2004 commune profiles.</li>
+      2024, and 1,537 to the 2004 commune profiles.</li>
     <li><b>Urban/rural and male/female breakdowns</b> of the commune tables: HCP's milieu sheets and sex blocks for 2014
       and 2024; for 2004, the profiles' female counts, and the profiles' own split of each rural commune from its
       urban centres.</li>
@@ -83,8 +83,10 @@
     commune's 2004 value combines them, population-weighted. Communes merged after 2004 are combined the same way,
     and renames are followed; each such decision is recorded, with its population and location evidence, in
     <code>catalog/link_review.csv</code>. Where a commune was split after 2004, each part carries the 2004 rates of the
-    commune it came from, and 2004 counts are shared by the parts' 2014 population (Taghramt and Belyounech, Ben
-    Mansour and Sidi Mohamed Ben Mansour, Ameur Seflia and Ameur Chamalia, Bouguedra and Chahda).</p>
+    commune it came from, and 2004 counts are shared between the parts. The shares come from HCP's own 2004
+    populations on the 2014 boundaries, which its regional offices publish for some provinces (Berrechid, Nouaceur,
+    Settat, Kénitra, Sidi Slimane, Salé, M'Diq-Fnideq); elsewhere from the parts' 2014 population. The decrees that
+    created the communes in 2008-2009 list them but do not say what they were carved from.</p>
 
   <h2>Known gaps</h2>
   <ul>
@@ -93,9 +95,10 @@
     <li>In 2014 the six largest cities are split into 41 arrondissements; in 2024 they are single communes. The map
       merges the arrondissements into one city cell (sums for counts, population-weighted means for rates); the
       tables keep them separate.</li>
-    <li>Four communes created after 2004 (Ain Chair, Ait Ali ou Lahcen, Oulad Ziyane, Oulad Azzouz in Nouaceur) have no
-      2004 value: no neighbour's population shows which commune they came from. Two 2004 communes (Ain Dorbane,
-      Lakhiaita) are not linked, their population and location pointing to different 2014 communes.</li>
+    <li>Ait Ali ou Lahcen (Khémisset), created after 2004, has no 2004 value: nothing published shows which commune it
+      came from. In Berrechid, HCP's figures show Had Soualem, Soualem Trifiya and Sahel Oulad H'Riz gained territory
+      from Lakhiaita and parts of Sidi Rahal Chatai and Sidi El Mekki, but not which piece went where; their 2004
+      values cover only the part that is known, and <code>validation.json</code> lists the gaps.</li>
     <li>The breakdowns cover the indicators workbooks; the other 2024 workbooks (commuting, migration, urban housing,
       establishments, douars) and the poverty indices are published for the whole commune only.</li>
     <li>Some indicators change definition between censuses (activity rate, urban status); the catalogue flags them.

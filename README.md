@@ -13,11 +13,11 @@ HCP's own place names and labels).
 | Communes in HCP's tables | 1,689 | 1,538 | 1,503 |
 | Commune variables | 69 | 132 | 166 |
 | Poverty / development indices | IDH, IDS, poverty, MPI (poverty map) | MPI (both series) | MPI |
-| Linked to the 2014 list | 1,473 (annex) · 1,534 (profiles) | spine | 1,538 |
+| Linked to the 2014 list | 1,473 (annex) · 1,537 (profiles) | spine | 1,538 |
 
-1,534 of the 1,538 2014 communes have 2004 profile values and all have 2024 values; four created after 2004 have no
-clear parent commune. 1,473 (95.8%) are also matched to the 2004 poverty annex. Imputed values are flagged, never
-silent.
+1,537 of the 1,538 2014 communes have 2004 profile values and all have 2024 values. Where HCP publishes 2004
+populations on the 2014 boundaries (35 communes in 7 provinces), the links reproduce them within 2% for 27. 1,473
+(95.8%) are also matched to the 2004 poverty annex. Imputed values are flagged, never silent.
 
 ## Data
 
@@ -36,7 +36,7 @@ Everything published is in [`data/processed/`](data/processed) and described col
 | `commune_indices_2004.csv` | 1,677 | `label` | 2004 poverty, vulnerability, IDH, IDS |
 | `panel_commune.csv` | 1,544 | `code14` | three-census poverty/development panel, with provenance flags |
 | `crosswalk_communes.csv` | 1,538 | `code14` | 2014 ↔ 2004 annex ↔ poverty map ↔ 2024 codes |
-| `crosswalk_app2004.csv` | 1,691 | `app_code`, `code14` | 2004 profile codes → 2014 communes (1,534), with link type and split weight |
+| `crosswalk_app2004.csv` | 1,696 | `app_code`, `code14` | 2004 profile codes → 2014 communes (1,537), with link type and split weight |
 | `geometry/hcp_communes_2024.gpkg` | 1,503 | `unit` | HCP's own 2024 commune boundaries (the map's default layer) |
 | `geometry/hcp_communes_2024_queen.gal` | 1,503 | | queen-contiguity weights on HCP's boundaries |
 | `geometry/communes.gpkg` | 1,502 | `unit` | Thiessen cells + seed points (approximate, openly licensed inputs only) |

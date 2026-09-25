@@ -11,6 +11,8 @@ SITE = ROOT / "site"
 CATALOG = ROOT / "catalog" / "variables.yaml"
 SEED_REVIEW = ROOT / "catalog" / "seed_review.csv"
 LINK_REVIEW = ROOT / "catalog" / "link_review.csv"
+# HCP's 2004 populations on 2014 commune boundaries, where its regional publications give them
+HCP_2004_ON_2014 = ROOT / "catalog" / "hcp_2004_on_2014.csv"
 SEED_NAMES = ROOT / "catalog" / "seed_names.csv"
 
 # raw inputs, relative to RAW (names chosen by fetch.py)

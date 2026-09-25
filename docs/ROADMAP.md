@@ -19,8 +19,10 @@ cites the one used.
 
 - **More breakdowns.** Urban/rural and male/female cover the indicators workbooks. The commuting workbook has milieu
   and sex blocks, the other 2024 workbooks milieu sheets; sex × milieu is not extracted.
-- **Linkage gaps.** Ain Chair, Ait Ali ou Lahcen, Oulad Ziyane and Oulad Azzouz (Nouaceur) have no identified parent;
-  Ain Dorbane and Lakhiaita have conflicting evidence. HCP's decrees creating the 2009 communes would settle them.
+- **Linkage gaps.** Ait Ali ou Lahcen has no identified parent. In Berrechid, Lakhiaita and parts of Sidi Rahal
+  Chatai and Sidi El Mekki went to Had Soualem, Soualem Trifiya and Sahel Oulad H'Riz in unpublished proportions.
+  HCP's full 2004-2014 commune table (it computed one) or the ministerial boundary arrêtés would settle these, and
+  HCP's regional monographs for other provinces may give more 2004 figures on 2014 boundaries.
   Sidi Mohamed Ben Mansour has no seed point (it has its HCP boundary).
 - **White paper.** CONTRIBUTING refers to one in `docs/`; it does not exist yet.
 
