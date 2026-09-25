@@ -10,6 +10,14 @@ authors:
 version: 2026.9.8
 date-released: 2026-09-25
 license: CC-BY-4.0
+doi: 10.5281/zenodo.22953567
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.22953567
+    description: Concept DOI, resolving to the latest release
+  - type: doi
+    value: 10.5281/zenodo.22953568
+    description: Release 2026.9.7
 repository-code: "https://github.com/machinemirror/morocco-census"
 url: "https://machinemirror.github.io/morocco-census/"
 keywords:

@@ -32,7 +32,7 @@ cites the one used.
   value, imputed`).
 - **Stricter checks.** Recompute `validation.json` from the tables in a test; assert each extracted column's
   French header against the extraction spec, so a re-issued workbook with shifted columns fails the build.
-- **White paper.** Drafted and under review (round 1); to cite the dataset's Zenodo DOI once minted, and could go
+- **White paper.** Drafted and under review (round 1); to cite the dataset's concept DOI (10.5281/zenodo.22953567), and could go
   to a data journal as a data note.
 
 ## Site

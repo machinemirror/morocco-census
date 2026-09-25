@@ -1,5 +1,7 @@
 # morocco-census
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22953567.svg)](https://doi.org/10.5281/zenodo.22953567)
+
 Commune-level data from Morocco's three most recent censuses (RGPH 2004, 2014 and 2024),
 harmonized on one commune key, with HCP's commune boundaries, urban/rural and male/female breakdowns, a catalogue
 of every variable, and an interactive map (227 indicators, 387 indicator-census series; the map shows the 50
@@ -99,8 +101,11 @@ Code: [MIT](LICENSE). Derived data, catalogue and geometry: [CC BY 4.0](LICENSE-
 are the Haut-Commissariat au Plan's; raw HCP files are not redistributed, except HCP's commune boundaries
 (processed, with attribution to HCP).
 
-> Lehnert, M. R. (2026). *morocco-census: commune-level RGPH 2004, 2014 and 2024.*
-> https://github.com/machinemirror/morocco-census
+> Lehnert, M. R. (2026). *morocco-census: commune-level RGPH 2004, 2014 and 2024* [Data set]. Zenodo.
+> https://doi.org/10.5281/zenodo.22953567
+
+That DOI always resolves to the latest release; each release also has its own DOI, listed on the
+[Zenodo record](https://doi.org/10.5281/zenodo.22953567), for citing the exact version used.
 
 Source statistics: Haut-Commissariat au Plan, *Recensement Général de la Population et de l'Habitat*
 2004, 2014, 2024. The harmonization began with Lehnert (2021, Ph.D. dissertation, University of
