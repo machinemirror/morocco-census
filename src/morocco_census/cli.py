@@ -17,8 +17,8 @@ def build() -> None:
     parse_2004.app()
     crosswalk.communes()
     extract.main()
-    panel.main()
     crosswalk.app2004()
+    panel.main()
     crosswalk.pop04_flags()
 
 

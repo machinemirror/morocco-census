@@ -338,6 +338,9 @@ POP_COL_2024 = 3  # Population sheet: 'Population municipale'
 COMMUNE_LABEL_RE = re.compile(r"^Commune (de |d')")
 
 
+ADMIN_FOOTNOTE = "* Données recueillies auprès de l'Administration locale"
+
+
 def extract_2024() -> tuple[pd.DataFrame, dict]:
     sheets = {
         s: pd.read_excel(RAW / "indicateurs_demo_socioeco_2024.xlsx", sheet_name=s, header=None)
@@ -375,6 +378,10 @@ def extract_2024() -> tuple[pd.DataFrame, dict]:
     out.insert(4, "province24_ar", prov_code.map(prov.ar).str.strip())
     assert out[["name24_ar", "province24", "province24_ar"]].notna().all().all()
     out.insert(6, "pop_legal24", pd.to_numeric(out.code24.map(legal[3]), errors="coerce"))
+    # HCP stars four Saharan communes whose figures came from the local administration, not the enumeration
+    notes = pd.read_excel(RAW / "poplegale_2024.xlsx", header=None)[0].astype(str)
+    assert notes.str.startswith(ADMIN_FOOTNOTE).any(), "footnote on administrative figures not found"
+    out.insert(7, "pop24_source", out.code24.map(legal.fr.str.strip().str.endswith("*").map({True: "admin", False: "census"})))
     column_map["pop_legal24"] = "poplegale_2024.xlsx col 3: Population légale"
 
     for sheet, spec in SPEC_2024.items():
@@ -410,6 +417,8 @@ def extract_2024() -> tuple[pd.DataFrame, dict]:
     column_map["pop_share"] = "population24 / sum(population24 over commune rows) * 100"
 
     out = extras_2024(out.drop_duplicates("code24").reset_index(drop=True), column_map)
+    # HCP gave the detailed questionnaire to every household of communes under 2,000 households, to 20% elsewhere
+    out.insert(out.columns.get_loc("n_households") + 1, "sampled24", out.n_households >= 2000)
     return out, column_map
 
 

@@ -1,6 +1,6 @@
 # Roadmap
 
-Open work as of release 2026.9.9, roughly in priority order.
+Open work as of release 2026.9.10, roughly in priority order.
 
 ## Decisions for the maintainer
 
@@ -23,8 +23,8 @@ cites the one used.
   Chatai and Sidi El Mekki went to Had Soualem, Soualem Trifiya and Sahel Oulad H'Riz in unpublished proportions;
   the remainders of Dar Bouazza, Oulad Salah, Ain Dorbane and Lamkansa are also unplaced (65,599 in all).
   HCP's full 2004-2014 commune table (it computed one) or the ministerial boundary arrêtés would settle these.
-  Sidi Mohamed Ben Mansour has no seed point (it has its HCP boundary). Tah (Tarfaya) has a clean annex label
-  ("Laayoune Tah") but its three-letter name is below the matching rules' minimum.
+  Sidi Mohamed Ben Mansour has no seed point (it has its HCP boundary). 24 of the 1,689 2004 profile units have no identified annex row (spelling variants such as "Kahf nsour" /
+  "Kahf Nssar"); Ait Sedrate Sahl El Gharbia's 2004 annex values are imputed for that reason.
 - **Boundary changes the test set shows.** Of the 87 out-of-sample communes, 23 miss by more than 2%, most on
   one-to-one links: Sidi Abdelkrim, Ain Tizgha, Ziaida (Settat), and Lahraouyine against Sidi Othmane, Tit Mellil
   and Nouaceur (Grand Casablanca). HCP's figures could calibrate these, at the cost of the test; other regional
@@ -36,7 +36,7 @@ cites the one used.
   value, imputed`).
 - **Stricter checks.** Recompute `validation.json` from the tables in a test; assert each extracted column's
   French header against the extraction spec, so a re-issued workbook with shifted columns fails the build.
-- **White paper.** Drafted and under review (round 2); to cite the dataset's concept DOI (10.5281/zenodo.22953567), and could go
+- **White paper.** Under review (round 3 done); to cite the dataset's concept DOI (10.5281/zenodo.22953567), and could go
   to a data journal as a data note.
 
 ## Site

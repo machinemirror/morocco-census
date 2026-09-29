@@ -12,6 +12,7 @@ app2004(): Maroc-en-Chiffres app codes (2004 profiles) <-> 2014 spine -> crosswa
 import re
 import unicodedata
 
+import numpy as np
 import pandas as pd
 from rapidfuzz import fuzz, process
 
@@ -383,15 +384,73 @@ def pop04_flags() -> pd.DataFrame:
     near = review.near[review.near != ""].map(unit_of)
     flagged = set(near) | {n for u in set(parts) | set(near) for n in neighbours[u]}
 
+    # the panel settles each commune's annex row (profile links first, else the 2014 name); the crosswalk follows it
+    panel = pd.read_csv(P_PANEL, dtype=str, keep_default_na=False)
+    own = panel[(panel.level == "commune") & ~panel.src04.str.startswith("imputed")].set_index("code14")
+    for c in ("label04", "src04", "idh04"):
+        cw[c] = cw.code14.map(own[c]).replace("", pd.NA)
     cw["pop04_basis"] = cw.code14.map(basis)
+    cw["in_western_sahara"] = cw.unit.map(western_sahara())
     # contiguity is between map units, so an arrondissement is flagged only as a placed part itself
     arr = cw.name14.str.contains(r"\(Arrond", na=False)
     cw["unplaced04_nearby"] = cw.unit.isin(flagged) & (~arr | cw.code14.isin(part14))
     cw.to_csv(P_CROSSWALK, index=False)
-    panel = pd.read_csv(P_PANEL, dtype=str, keep_default_na=False)
     flags = cw.set_index("code14")[["pop04_basis", "unplaced04_nearby"]]
     for c in flags:
         panel[c] = panel.code14.map(flags[c]).fillna("")
     panel.to_csv(P_PANEL, index=False)
     print(f"pop04 flags: {cw.pop04_basis.value_counts().to_dict()}; {cw.unplaced04_nearby.sum()} near unplaced 2004 population")
     return cw
+
+
+def annex_units() -> pd.Series:
+    """2004 profile unit (app_code) -> its row label in the 2004 annex, both being 2004 communes: same kind
+    (commune, municipality, centre, arrondissement), the label ending with the unit's name, and the rest of the label
+    close to the unit's 2004 province. Unambiguous matches only."""
+    idx = pd.read_csv(R_APP_INDEX, dtype=str)
+    ann = load_2004()
+    ann["kind"] = np.select(
+        [ann.label.str.contains(r"\(AC\)"), ann.label.str.contains(r"\((?:M|Mun\.?)\)"), ann.label.str.contains(r"\(AR\)")],
+        ["AC", "MU", "AR"],
+        "CR",
+    )
+    idx["kind"] = idx.commune.str.extract(r"^(CR|AC|MU|AR)")[0]
+    idx["kn"] = idx.commune.str.replace(APP_PREFIX, "", regex=True).map(norm)
+    idx["kp"] = idx.province.map(norm)
+
+    def near(province: str, prefix: str) -> bool:
+        # the app and the annex spell some provinces differently ('El Kelaa Sraghna', 'El Kelaa Des Sraghna')
+        return max(fuzz.partial_ratio(province, prefix), fuzz.ratio(province, prefix)) >= 80
+
+    def one(r):
+        same = ann[ann.kind == r.kind]
+        c = same[[k.endswith(r.kn) and near(r.kp, k[: len(k) - len(r.kn)]) for k in same.k_label]]
+        if c.empty:  # the annex cuts long labels short ('Ait Sedrate Jbel EL Soufl')
+            cut = [
+                next((n for n in range(len(r.kn) - 1, len(r.kn) - 4, -1) if k.endswith(r.kn[:n])), 0)
+                for k in same.k_label
+            ]
+            c = same[[n > 0 and len(lab) >= 34 and near(r.kp, k[: len(k) - n]) for n, k, lab in zip(cut, same.k_label, same.label)]]
+        return c.label.iloc[0] if len(c) == 1 and len(r.kn) >= 3 else None
+
+    out = idx.set_index("commune_code").apply(one, axis=1).dropna()
+    return out[~out.duplicated(keep=False)]
+
+
+WS_NORTH, WS_EAST = 27 + 40 / 60, -(8 + 40 / 60)
+WS_TOLERANCE = 0.05
+
+
+def western_sahara() -> pd.Series:
+    """Map unit -> yes / partly / no: the share of HCP's polygon inside the territory's 1958 limits, south of
+    27°40'N and west of 8°40'W, measured in an equal-area projection. Within 5% of all or none counts as all or none,
+    so that polygon imprecision along the lines (Haouza reaches 2% past 8°40'W) does not make a commune 'partly'."""
+    import geopandas as gpd
+    from shapely.geometry import box
+
+    g = gpd.read_file(P_HCP_GPKG).to_crs(6933)
+    territory = gpd.GeoSeries([box(-20, 20, WS_EAST, WS_NORTH)], crs=4326).to_crs(6933).iloc[0]
+    share = pd.Series((g.intersection(territory).area / g.area).values, index=g.unit)
+    return pd.Series(
+        np.select([share >= 1 - WS_TOLERANCE, share > WS_TOLERANCE], ["yes", "partly"], "no"), index=share.index
+    )

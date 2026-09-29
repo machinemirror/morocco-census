@@ -6,7 +6,7 @@ from morocco_census import cli, fetch
 from morocco_census.crosswalk import norm, norm_app
 from morocco_census.extract import to_num
 from morocco_census.fetch import changed
-from morocco_census.parse_2004 import HEADER_SPILL, ROW, grab, num
+from morocco_census.parse_2004 import HEADER_SPILL, ROW, grab, num, youth_illiteracy_row
 
 
 def test_num_handles_french_formatting():
@@ -75,3 +75,13 @@ def test_build_refuses_changed_raw_files(monkeypatch):
     monkeypatch.setattr(fetch, "verify", lambda: ["a.xlsx: sha256 1, manifest 0"])
     with pytest.raises(SystemExit, match="differ from data/raw/manifest.json"):
         cli.build()
+
+
+def test_youth_illiteracy_row_matches_whole_label():
+    rows = [
+        ["Aucune", "1 389", "51,1"],
+        ["Taux d'analphabétisme chez les\n        jeunes 15 ans à 24", "39", "(X)"],
+    ]
+    assert youth_illiteracy_row(rows) == 1
+    with pytest.raises(AssertionError):
+        youth_illiteracy_row([["Taux d'analphabétisme", "39", ""]])  # a prefix alone does not match

@@ -15,10 +15,12 @@ HCP's own place names and labels).
 | Communes in HCP's tables | 1,689 | 1,538 | 1,503 |
 | Commune variables | 69 | 133 | 164 |
 | Poverty / development indices | IDH, IDS, poverty, MPI (poverty map) | MPI (both series) | MPI |
-| Linked to the 2014 list | 1,492 (annex) · 1,537 (profiles) | spine | 1,538 |
+| Linked to the 2014 list | 1,536 (annex) · 1,537 (profiles) | spine | 1,538 |
 
-1,537 of the 1,538 2014 communes have 2004 profile values and all have 2024 values; 1,492 (97.0%) are also matched
-to the 2004 poverty annex. Imputed values are flagged, never silent. Against HCP's own 2004 populations on 2014
+1,537 of the 1,538 2014 communes have 2004 profile values and all have 2024 values; 1,536 (99.9%) have 2004
+poverty-annex values, 14 of them their parent unit's. Imputed values are flagged, never silent. Every indicator's
+national mean agrees with HCP's published national figure within a point, except where the catalogue flags a change of
+definition. Against HCP's own 2004 populations on 2014
 boundaries for 87 communes that set no weight (Settat, Benslimane, Grand Casablanca), the links are within 2% for 64;
 the misses are boundary changes and 65,599 people of 2004 left unplaced, which `pop04_basis` and `unplaced04_nearby`
 flag per commune (see [PROVENANCE](docs/PROVENANCE.md#matching)).
@@ -115,8 +117,8 @@ Cite the dataset (APA 7):
 > Lehnert, M. R. (2026). *morocco-census: Commune-level RGPH 2004, 2014 and 2024* [Data set]. Zenodo.
 > https://doi.org/10.5281/zenodo.22953567
 
-That DOI always resolves to the latest release. To cite the exact version used, add it after the title,
-e.g. *(Version 2026.9.8)*, and use that release's own DOI from the [Zenodo record](https://doi.org/10.5281/zenodo.22953567).
+That DOI always resolves to the latest release. To cite the exact version you used, add it after the title as
+*(Version YYYY.M.N)*, the release's tag without the `v`, and use that release's own DOI from the [Zenodo record](https://doi.org/10.5281/zenodo.22953567).
 
 Cite HCP as the source of the statistics:
 

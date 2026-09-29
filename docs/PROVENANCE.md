@@ -83,15 +83,21 @@ municipalities, 41 arrondissements).
 |---|---|---|
 | 2004–2014 poverty map | 1,496 | exact name + province, then unambiguous name |
 | 2025 MPI database (2024 codes) | 1,538 | 36 by fuzzy name with a same-province bonus, 9 by identical code (a 2024 code is usually the 2014 code without dots) |
-| 2004 annex | 1,492 | 1,453 direct, 39 mutual-best fuzzy (rapidfuzz ≥ 82); rules below |
-| All three censuses | 1,492 (97.0%) | the rest are communes created or merged after 2004 |
+| 2004 annex | 1,536 | through the profile links where every 2004 unit of the commune has its annex row, else by 2014 name; rules below |
+| All three censuses | 1,536 (99.9%) | Ait Ali ou Lahcen (no 2004 parent) and Ait Sedrate Sahl El Gharbia (its annex label, 'Sahl El Gharbi', is cut short and spelled differently) are imputed |
 
 The annex is matched by its own rules, not the name + province rule above, because its labels are 'Province
 Commune' strings, sometimes truncated, on the pre-2009 provinces, with an arrondissement under its city ('Casablanca Anfa (AR)'): first the last 18
 characters of province (the city, for an arrondissement) + name;
 then a label ending with the commune's name (at least 5 letters), unambiguously and among labels no commune has
 claimed, so that a commune carved out after 2004 does not take its namesake's row in another province; then
-mutual-best fuzzy on province + name. The 2024 fuzzy step instead takes each unmatched commune's best `fuzz.ratio`
+mutual-best fuzzy on province + name. The panel then prefers the profile links: each 2004 profile unit is matched to its
+annex row (both are 2004 communes: same kind — commune, municipality, centre, arrondissement —, the label ending with
+the unit's name or its first letters where the annex cuts the label short, and the rest of the label close to the
+unit's 2004 province; 1,665 of 1,689 units). Where every unit of a 2014 commune has its row, the commune's values are
+those rows combined by 2004 population (times the split weight); a commune made only of parts of split units carries
+their rates (`copied_parent`). This corrects the 2014-name match where it took a rural commune's row for the
+municipality its centre became (Tahannaout, Driouch) or one row for a rural commune and its centres. The 2024 fuzzy step instead takes each unmatched commune's best `fuzz.ratio`
 plus 20 points for the same province, at 105 or more (in effect the same province and a ratio of 85).
 
 **2004 app codes** (`crosswalk_app2004.csv`): 1,537 of 1,538 communes, one row per app unit and 2014 commune, with its
@@ -151,17 +157,17 @@ plus 20 points for the same province, at 105 or more (in effect the same provinc
 
 ## Imputation (panel only)
 
-Where a 2014 commune has no 2004 annex or 2014/2024 MPI-database value (it did not exist in 2004, was split, or
-its annex row is not identified), the value is the mean of the other communes in the same cercle, weighted by
+Where a 2014 commune has no 2004 annex value (no 2004 unit, or its annex row not identified) or no 2014/2024
+MPI-database value, the value is the mean of the other communes in the same cercle, weighted by
 2014 legal population, when the cercle has at least two; otherwise of the province. Municipalities sit in HCP's
 pseudo-cercle 01, so for them the donors are the province's other municipalities. `n_donors04/14/24` give the
 number averaged, and the row is flagged:
 
-| Flag | direct | fuzzy | imputed_cercle | imputed_province |
-|---|---|---|---|---|
-| `src04` | 1,453 | 39 | 37 | 9 |
-| `src14` | 1,536 | – | 2 | – |
-| `src24` | 1,536 | – | 2 | – |
+| Flag | direct | fuzzy | copied_parent | imputed_cercle | imputed_province |
+|---|---|---|---|---|---|
+| `src04` | 1,517 | 5 | 14 | 2 | – |
+| `src14` | 1,536 | – | – | 2 | – |
+| `src24` | 1,536 | – | – | 2 | – |
 
 The counts are `validation.json`'s `linkage.imputation`; city rows (`level = city`) carry no flags and are not
 donors. Cercle means shrink the variance of imputed values toward their neighbours'. The 2004–2014 poverty-map
@@ -210,6 +216,13 @@ published tables.
   The largest shortfalls are consistent with that: Saharan communes (Al Mahbass 582 against 19,139 in
   2024) and large cities. Use the legal population, not `population14`/`population24`, as a denominator
   where institutional population matters.
+- **National figures** (`national`): each indicator observed in all three censuses, averaged over the communes
+  (by households where the catalogue weights by households, else by population; counts summed), against HCP's own
+  national figure: the national row of each 2014 and 2024 workbook, read through the extraction spec, and for 2004
+  `catalog/hcp_national_2004.csv`, 22 values from HCP's 2004 national report with table and page. 118 of 119 agree
+  within 1 point (2% for non-percentages). The exception is the 2004 activity rate, whose base is the population
+  aged 7 and over, not HCP's whole population (`comparable: false`). Dwelling types in 2004 agree with HCP's urban
+  and rural figures, so the drop in `dwell_other` and the swings in `dwell_villa` between censuses are HCP's own.
 - **Linkage and imputation**: the counts in *Matching* and *Imputation* above, recomputed.
 - **Seed points**: the gazetteer cross-check in *Geometry* above.
 
@@ -282,6 +295,22 @@ byte-for-byte and its tessellation to within 2e-5 m² per cell. Deliberate chang
       calibrated communes are those with an HCP-based weight; `unplaced_2004.by_province_2004`.
     - `mc build` refuses changed raw inputs; `crawl-2004` honours `--accept-changes`. Every catalogue column needs a
       source (`morocco-census` for what this project derives). `geometry` asserts every 2014 commune has a polygon.
+17. Review of the white paper, round 3 (2026.9.10):
+    - 2004 illiteracy: the profiles' 'Taux d'analphabétisme' row, taken by its first words, is the 15-24 youth rate
+      (28.9 nationally against HCP's 43.0). It is now `pct_illiterate_15_24` (2004 only, `comparable: false`), found
+      by its full label with an assertion; `pct_illiterate` for 2004 is the 10+ 'Aucune' share (43.5), the same row
+      as `pct_no_lang_written`, in both the commune and the by-sex tables.
+    - 2004 annex: rows whose IDS is printed to six decimals, or whose label and numbers wrap over lines, were glued
+      to the next row; the parser now reads each page as one stream (1,677 → 1,689 rows, no value changed), and
+      drops a third header fragment ('Inégalit é'). The panel takes annex values through the profile links (see
+      *Matching*): 138 communes change value, mostly a rural commune now combined with its centres; annex values
+      1,492 → 1,536 communes, imputed 46 → 2, plus 14 `copied_parent`.
+    - `validation.json` gains `national`, against HCP's national figures. The dwelling types, slums and cooking
+      fuels are weighted by households (`weight: households`), as shares of households.
+    - `crosswalk_communes.in_western_sahara` (yes / partly / no; 30 / 4 / 1,504 communes); `communes_2024` gains
+      `pop24_source` (admin for the four communes HCP stars: « Données recueillies auprès de l'Administration locale
+      en raison de la mobilité saisonnière de la population ») and `sampled24`; indicators gain `questionnaire_2024`.
+    - The Lakhiaita review row cites what the Berrechid monograph gives and marks the comparison as the pipeline's.
 
 ## HCP commune boundaries (the map's layer)
 
@@ -323,8 +352,8 @@ country-map bundle and records each file in the manifest. The files declare CRS8
   municipalities, arrondissements and autonomous centres are urban, 16,339,561 people against HCP's 2004 urban total of
   16,463,634 (99.2%). Male/female (`communes_2004_sex.csv`) from the female counts under each category: each section's
   base is the sum of its categories by sex (marital status 15+, education 25+, status in employment), ages are shares
-  of each sex's population, and male youth illiteracy (15-24) follows from HCP's total and female rates and the 15-24
-  population by sex. Spoken languages and activity have no female counts in a usable base.
+  of each sex's population, illiteracy is the 'Aucune' share of each sex's 10+ population, and male youth illiteracy
+  (15-24) follows from HCP's total and female rates and the 15-24 population by sex. Spoken languages and activity have no female counts in a usable base.
 - Checks (`validation.json`, `slices`): urban + rural and male + female populations equal each commune's population
   in every commune with data.
 - The map offers a breakdown for an indicator only where all three censuses have it: urban/rural for 49 of the 50

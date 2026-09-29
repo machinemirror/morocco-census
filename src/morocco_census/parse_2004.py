@@ -19,15 +19,18 @@ from pypdf import PdfReader
 
 from .config import P_COMMUNES, P_INDICES_2004, P_SLICES, R_ANNEX_2004, R_APP_HTML
 
-NUM = r"\d{1,3},\d{1,3}"
+NUM = r"\d{1,3},\d{1,6}"  # IDS is sometimes printed to six decimals
 # four numeric columns, then IDH and IDS which may be missing ("-")
 ROW = re.compile(rf"^(?P<label>.*?)\s*(?P<n>({NUM}\s+){{4}}(?:{NUM}|-)\s+(?:{NUM}|-))\s*$")
+NUMBERS = re.compile(rf"(?P<n>(?:{NUM}\s+){{4}}(?:{NUM}|-)\s+(?:{NUM}|-))(?=\s|$)")
 SKIP = re.compile(
     r"Indices|développement|Pauvreté|Vulnéra|bilité|Sévérité|pauvreté|Inégalité|Humain|Social|Commune|Province"
     r"|R[ée]gion|Taux|Indice|^\d{1,3}\s*$|^\s*$"
 )
 # column-header words and the table's footnote that pypdf interleaves with the first label of a page
-HEADER_SPILL = re.compile(r"^(?:(?:Notation :.*?rural\.|Vulné-|bilité|communaux|de|la|développement|Indices|d)\s+)+")
+HEADER_SPILL = re.compile(
+    r"^(?:(?:Notation :.*?rural\.|Vulné-|bilité|Inégalit é|communaux|de|la|développement|Indices|d)\s+)+"
+)
 
 
 def annex(src: Path = R_ANNEX_2004, out: Path = P_INDICES_2004) -> pd.DataFrame:
@@ -38,18 +41,13 @@ def annex(src: Path = R_ANNEX_2004, out: Path = P_INDICES_2004) -> pd.DataFrame:
             continue
         m = re.search(r"R[ée]gion\s*:?\s*([A-ZÉÈÀ' \-–]+)", text)
         region = m.group(1).strip() if m else ""
-        pending = ""
-        for line in text.split("\n"):
-            line = line.strip()
-            mm = ROW.match(line)
-            if not mm:
-                if line and not SKIP.search(line):
-                    pending = (pending + " " + line).strip()  # wrapped label fragment
-                continue
-            label = (pending + " " + mm.group("label")).strip()
-            label = HEADER_SPILL.sub("", label)
+        # a row's label and its six numbers can each wrap over several lines, so read the page as one stream
+        body = " ".join(x.strip() for x in text.split("\n") if x.strip() and not SKIP.search(x.strip()))
+        start = 0
+        for mm in NUMBERS.finditer(body):
+            label = HEADER_SPILL.sub("", body[start : mm.start()].strip())
             label = re.sub(r"\s{2,}", " ", label)
-            pending = ""
+            start = mm.end()
             nums = [None if x == "-" else float(x.replace(",", ".")) for x in mm.group("n").split()]
             rows.append(
                 {
@@ -125,6 +123,16 @@ def fem(rows, label, after):
     return None
 
 
+YOUTH_ILLITERACY = "Taux d'analphabétisme chez les jeunes 15 ans à 24"
+
+
+def youth_illiteracy_row(rows) -> int:
+    """Index of the 15-24 illiteracy row, matched on its whole label (the page wraps it over two lines)."""
+    hits = [i for i, r in enumerate(rows) if " ".join(r[0].split()) == YOUTH_ILLITERACY]
+    assert len(hits) == 1, f"expected one '{YOUTH_ILLITERACY}' row, found {len(hits)}"
+    return hits[0]
+
+
 def share(part, *whole):
     tot = total(*whole)
     return None if part is None or not tot else 100 * part / tot
@@ -148,8 +156,11 @@ def parse_commune(code: str, html: Path = R_APP_HTML) -> dict | None:
     out["hh_size_avg"] = grab(d, "Taille moyenne du ménage", 1)
     out["n_households"] = grab(d, "Ménages total", 1)
     out["pct_no_education"] = grab(s, "Néant", 2, after="NIVEAU")
-    out["pct_illiterate"] = grab(s, "Taux d'analphabétisme", 1, startswith=True)
+    # HCP's illiteracy rate is the share of the 10+ population reading and writing no language ('Aucune'); the
+    # page's 'Taux d'analphabétisme' row is the 15-24 youth rate
     out["pct_no_lang_written"] = grab(s, "Aucune", 2, after="LANGUES PARLEES ET ECRITES")
+    out["pct_illiterate"] = out["pct_no_lang_written"]
+    out["pct_illiterate_15_24"] = num(s[youth_illiteracy_row(s)][1])
     out["pct_women_divorced"] = share(
         fem(s, "Divorcé", "ETAT MATRIMONIAL"),
         *[fem(s, x, "ETAT MATRIMONIAL") for x in ("Célibataire", "Marié", "Veuf", "Divorcé")],
@@ -221,6 +232,20 @@ SEX_SECTIONS_2004 = {
         "s",
         {"pct_single": ["Célibataire"], "pct_married": ["Marié"], "pct_widowed": ["Veuf"], "pct_divorced": ["Divorcé"]},
     ),
+    # 'Aucune' (reads and writes no language) over the 10+ population: HCP's illiteracy rate
+    "LANGUES PARLEES ET ECRITES": (
+        "s",
+        {
+            "pct_illiterate": ["Aucune"],
+            "_literate": [
+                "Arabe seul",
+                "Arabe et Français seuls",
+                "Arabe, Français et Autres",
+                "Arabe et Autres, sauf Français",
+                "Autres",
+            ],
+        },
+    ),
     "NIVEAU": (
         "s",
         {
@@ -283,6 +308,8 @@ def parse_commune_sex(code: str, html: Path = R_APP_HTML) -> list[dict]:
         n = pop["female"] if sex == "female" else total(pop["all"], -(pop["female"] or 0))
         r["population04"] = n
         for k, (a, f, ba, bf) in counts.items():
+            if k.startswith("_"):  # categories kept only to complete a section's base
+                continue
             if None in (a, ba) or f is None or bf is None:
                 r[k] = None
                 continue
@@ -291,17 +318,15 @@ def parse_commune_sex(code: str, html: Path = R_APP_HTML) -> list[dict]:
         # youth illiteracy (15-24) is given as a rate with a female rate below it; the male rate follows from the
         # 15-24 population by sex
         s_rows = pages["s"]
-        i = next((j for j, x in enumerate(s_rows) if x[0].startswith("Taux d'analphabétisme")), None)
-        rate, frate = (
-            (num(s_rows[i][1]), num(s_rows[i + 1][1])) if i is not None and i + 1 < len(s_rows) else (None, None)
-        )
+        i = youth_illiteracy_row(s_rows)
+        rate, frate = (num(s_rows[i][1]), num(s_rows[i + 1][1])) if i + 1 < len(s_rows) else (None, None)
         y_all, y_f = counts["age_15_19"][0] + counts["age_20_24"][0], counts["age_15_19"][1] + counts["age_20_24"][1]
         if sex == "female":
-            r["pct_illiterate"] = frate
+            r["pct_illiterate_15_24"] = frate
         elif None not in (rate, frate) and y_all - y_f > 0:
-            r["pct_illiterate"] = (rate * y_all - frate * y_f) / (y_all - y_f)
+            r["pct_illiterate_15_24"] = (rate * y_all - frate * y_f) / (y_all - y_f)
         else:
-            r["pct_illiterate"] = None
+            r["pct_illiterate_15_24"] = None
         rows.append(r)
     return rows
 
