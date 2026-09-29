@@ -109,7 +109,7 @@
   },
   "linkage": {
     "spine_2014": 1538,
-    "linked_2004_annex": 1492,
+    "linked_2004_annex": 1536,
     "linked_2004_profiles": 1537,
     "unplaced_2004": {
       "unlinked_units": 1,
@@ -129,14 +129,14 @@
       "province_split": 13
     },
     "linked_2024": 1538,
-    "linked_all_three": 1492,
+    "linked_all_three": 1536,
     "unlinked_2024": [],
     "imputation": {
       "src04": {
-        "direct": 1453,
-        "fuzzy": 39,
-        "imputed_cercle": 37,
-        "imputed_province": 9
+        "direct": 1517,
+        "copied_parent": 14,
+        "fuzzy": 5,
+        "imputed_cercle": 2
       },
       "src14": {
         "direct": 1536,
@@ -419,5 +419,1202 @@
         "HCP Grand Casablanca, note premiers résultats RGPH 2014": 28
       }
     }
+  },
+  "national": {
+    "compared": 119,
+    "agree": 118,
+    "rule": "within 1 point for percentages, within 2% otherwise",
+    "rows": [
+      {
+        "indicator": "activity_rate",
+        "vintage": 2004,
+        "milieu": "all",
+        "ours": 41.73,
+        "hcp": 35.9,
+        "diff": 5.83,
+        "agrees": false,
+        "comparable": false
+      },
+      {
+        "indicator": "dwell_apartment",
+        "vintage": 2004,
+        "milieu": "urban",
+        "ours": 12.42,
+        "hcp": 12.4,
+        "diff": 0.02,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "dwell_apartment",
+        "vintage": 2004,
+        "milieu": "rural",
+        "ours": 0.08,
+        "hcp": 0.1,
+        "diff": -0.02,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "dwell_other",
+        "vintage": 2004,
+        "milieu": "urban",
+        "ours": 4.32,
+        "hcp": 4.3,
+        "diff": 0.02,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "dwell_other",
+        "vintage": 2004,
+        "milieu": "rural",
+        "ours": 2.84,
+        "hcp": 3.4,
+        "diff": -0.56,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "dwell_rural",
+        "vintage": 2004,
+        "milieu": "urban",
+        "ours": 1.06,
+        "hcp": 1.1,
+        "diff": -0.04,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "dwell_rural",
+        "vintage": 2004,
+        "milieu": "rural",
+        "ours": 72.23,
+        "hcp": 72.2,
+        "diff": 0.03,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "dwell_villa",
+        "vintage": 2004,
+        "milieu": "urban",
+        "ours": 3.34,
+        "hcp": 3.3,
+        "diff": 0.04,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "dwell_villa",
+        "vintage": 2004,
+        "milieu": "rural",
+        "ours": 0.33,
+        "hcp": 0.3,
+        "diff": 0.03,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "hh_size_avg",
+        "vintage": 2004,
+        "milieu": "all",
+        "ours": 5.32,
+        "hcp": 5.24,
+        "diff": 0.08,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "isf",
+        "vintage": 2004,
+        "milieu": "all",
+        "ours": 2.54,
+        "hcp": 2.5,
+        "diff": 0.04,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "pct_divorced",
+        "vintage": 2004,
+        "milieu": "all",
+        "ours": 1.91,
+        "hcp": 2.0,
+        "diff": -0.09,
+        "agrees": true,
+        "comparable": false
+      },
+      {
+        "indicator": "pct_electricity",
+        "vintage": 2004,
+        "milieu": "all",
+        "ours": 71.57,
+        "hcp": 71.6,
+        "diff": -0.03,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "pct_illiterate",
+        "vintage": 2004,
+        "milieu": "all",
+        "ours": 43.52,
+        "hcp": 43.0,
+        "diff": 0.52,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "pct_kitchen",
+        "vintage": 2004,
+        "milieu": "all",
+        "ours": 84.29,
+        "hcp": 84.3,
+        "diff": -0.01,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "pct_married",
+        "vintage": 2004,
+        "milieu": "all",
+        "ours": 52.95,
+        "hcp": 52.7,
+        "diff": 0.25,
+        "agrees": true,
+        "comparable": false
+      },
+      {
+        "indicator": "pct_single",
+        "vintage": 2004,
+        "milieu": "all",
+        "ours": 39.55,
+        "hcp": 39.7,
+        "diff": -0.15,
+        "agrees": true,
+        "comparable": false
+      },
+      {
+        "indicator": "pct_slum",
+        "vintage": 2004,
+        "milieu": "urban",
+        "ours": 8.23,
+        "hcp": 8.2,
+        "diff": 0.03,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "pct_slum",
+        "vintage": 2004,
+        "milieu": "rural",
+        "ours": 5.65,
+        "hcp": 5.6,
+        "diff": 0.05,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "pct_toilet",
+        "vintage": 2004,
+        "milieu": "all",
+        "ours": 81.46,
+        "hcp": 81.5,
+        "diff": -0.04,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "pct_water",
+        "vintage": 2004,
+        "milieu": "all",
+        "ours": 57.54,
+        "hcp": 57.5,
+        "diff": 0.04,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "pct_widowed",
+        "vintage": 2004,
+        "milieu": "all",
+        "ours": 5.57,
+        "hcp": 5.6,
+        "diff": -0.03,
+        "agrees": true,
+        "comparable": false
+      },
+      {
+        "indicator": "activity_rate",
+        "vintage": 2014,
+        "milieu": "all",
+        "ours": 47.5,
+        "hcp": 47.5763114928363,
+        "diff": -0.07,
+        "agrees": true,
+        "comparable": false
+      },
+      {
+        "indicator": "age_0_4",
+        "vintage": 2014,
+        "milieu": "all",
+        "ours": 10.16,
+        "hcp": 10.1556965245795,
+        "diff": 0.0,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "age_10_14",
+        "vintage": 2014,
+        "milieu": "all",
+        "ours": 9.03,
+        "hcp": 9.02687983655371,
+        "diff": 0.0,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "age_15_19",
+        "vintage": 2014,
+        "milieu": "all",
+        "ours": 8.88,
+        "hcp": 8.87596670080624,
+        "diff": 0.0,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "age_20_24",
+        "vintage": 2014,
+        "milieu": "all",
+        "ours": 9.08,
+        "hcp": 9.07502315601134,
+        "diff": 0.0,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "age_5_9",
+        "vintage": 2014,
+        "milieu": "all",
+        "ours": 9.0,
+        "hcp": 8.99718337332482,
+        "diff": 0.0,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "age_60plus",
+        "vintage": 2014,
+        "milieu": "all",
+        "ours": 9.42,
+        "hcp": 9.424602982743579,
+        "diff": -0.0,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "age_65plus",
+        "vintage": 2014,
+        "milieu": "all",
+        "ours": 6.07,
+        "hcp": 6.07108055703436,
+        "diff": -0.0,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "age_75plus",
+        "vintage": 2014,
+        "milieu": "all",
+        "ours": 2.48,
+        "hcp": 2.47578827805232,
+        "diff": -0.0,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "dwell_age_lt10",
+        "vintage": 2014,
+        "milieu": "all",
+        "ours": 20.13,
+        "hcp": 20.1282661495925,
+        "diff": 0.0,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "dwell_apartment",
+        "vintage": 2014,
+        "milieu": "all",
+        "ours": 11.59,
+        "hcp": 11.5969853028795,
+        "diff": -0.0,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "dwell_moroccan",
+        "vintage": 2014,
+        "milieu": "all",
+        "ours": 56.8,
+        "hcp": 56.8121338699763,
+        "diff": -0.01,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "dwell_other",
+        "vintage": 2014,
+        "milieu": "all",
+        "ours": 1.04,
+        "hcp": 1.03568135840591,
+        "diff": 0.0,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "dwell_rural",
+        "vintage": 2014,
+        "milieu": "all",
+        "ours": 22.82,
+        "hcp": 22.80541566322,
+        "diff": 0.01,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "dwell_villa",
+        "vintage": 2014,
+        "milieu": "all",
+        "ours": 3.24,
+        "hcp": 3.24515407644768,
+        "diff": -0.0,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "edu_higher",
+        "vintage": 2014,
+        "milieu": "all",
+        "ours": 6.11,
+        "hcp": 6.11160924203581,
+        "diff": -0.0,
+        "agrees": true,
+        "comparable": false
+      },
+      {
+        "indicator": "edu_lower_secondary",
+        "vintage": 2014,
+        "milieu": "all",
+        "ours": 14.33,
+        "hcp": 14.328190908419,
+        "diff": -0.0,
+        "agrees": true,
+        "comparable": false
+      },
+      {
+        "indicator": "edu_primary",
+        "vintage": 2014,
+        "milieu": "all",
+        "ours": 28.0,
+        "hcp": 28.0037770807118,
+        "diff": 0.0,
+        "agrees": true,
+        "comparable": false
+      },
+      {
+        "indicator": "edu_upper_secondary",
+        "vintage": 2014,
+        "milieu": "all",
+        "ours": 9.98,
+        "hcp": 9.98446478146261,
+        "diff": -0.0,
+        "agrees": true,
+        "comparable": false
+      },
+      {
+        "indicator": "hh_size_avg",
+        "vintage": 2014,
+        "milieu": "all",
+        "ours": 4.6,
+        "hcp": 4.59543006746419,
+        "diff": -0.0,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "isf",
+        "vintage": 2014,
+        "milieu": "all",
+        "ours": 2.23,
+        "hcp": 2.22389736466284,
+        "diff": 0.01,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "lang_darija",
+        "vintage": 2014,
+        "milieu": "all",
+        "ours": 90.91,
+        "hcp": 90.9137439672453,
+        "diff": -0.0,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "lang_hassania",
+        "vintage": 2014,
+        "milieu": "all",
+        "ours": 0.82,
+        "hcp": 0.822715703189944,
+        "diff": -0.0,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "lang_tachelhit",
+        "vintage": 2014,
+        "milieu": "all",
+        "ours": 14.13,
+        "hcp": 14.1374009060754,
+        "diff": -0.01,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "lang_tamazight",
+        "vintage": 2014,
+        "milieu": "all",
+        "ours": 7.95,
+        "hcp": 7.94686409751961,
+        "diff": 0.01,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "lang_tarifit",
+        "vintage": 2014,
+        "milieu": "all",
+        "ours": 4.03,
+        "hcp": 4.02412134200906,
+        "diff": 0.01,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "n_households",
+        "vintage": 2014,
+        "milieu": "all",
+        "ours": 7313806.0,
+        "hcp": 7313806.0,
+        "diff": 0.0,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "pct_apprentice",
+        "vintage": 2014,
+        "milieu": "all",
+        "ours": 0.86,
+        "hcp": 0.851611599462786,
+        "diff": 0.01,
+        "agrees": true,
+        "comparable": false
+      },
+      {
+        "indicator": "pct_divorced",
+        "vintage": 2014,
+        "milieu": "all",
+        "ours": 1.55,
+        "hcp": 1.55030258180848,
+        "diff": 0.0,
+        "agrees": true,
+        "comparable": false
+      },
+      {
+        "indicator": "pct_electricity",
+        "vintage": 2014,
+        "milieu": "all",
+        "ours": 91.58,
+        "hcp": 91.5824572185175,
+        "diff": -0.01,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "pct_employer",
+        "vintage": 2014,
+        "milieu": "all",
+        "ours": 2.79,
+        "hcp": 2.86524092832536,
+        "diff": -0.08,
+        "agrees": true,
+        "comparable": false
+      },
+      {
+        "indicator": "pct_family_worker",
+        "vintage": 2014,
+        "milieu": "all",
+        "ours": 6.44,
+        "hcp": 6.4878560707673,
+        "diff": -0.05,
+        "agrees": true,
+        "comparable": false
+      },
+      {
+        "indicator": "pct_illiterate",
+        "vintage": 2014,
+        "milieu": "all",
+        "ours": 32.55,
+        "hcp": 32.2290329163922,
+        "diff": 0.33,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "pct_kitchen",
+        "vintage": 2014,
+        "milieu": "all",
+        "ours": 93.47,
+        "hcp": 93.4693562606609,
+        "diff": -0.0,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "pct_married",
+        "vintage": 2014,
+        "milieu": "all",
+        "ours": 41.43,
+        "hcp": 41.4259690633323,
+        "diff": -0.0,
+        "agrees": true,
+        "comparable": false
+      },
+      {
+        "indicator": "pct_no_education",
+        "vintage": 2014,
+        "milieu": "all",
+        "ours": 36.89,
+        "hcp": 36.8884112280112,
+        "diff": -0.0,
+        "agrees": true,
+        "comparable": false
+      },
+      {
+        "indicator": "pct_owner",
+        "vintage": 2014,
+        "milieu": "all",
+        "ours": 71.92,
+        "hcp": 71.9261350968725,
+        "diff": -0.01,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "pct_private_employee",
+        "vintage": 2014,
+        "milieu": "all",
+        "ours": 46.92,
+        "hcp": 47.5711022094534,
+        "diff": -0.65,
+        "agrees": true,
+        "comparable": false
+      },
+      {
+        "indicator": "pct_public_employee",
+        "vintage": 2014,
+        "milieu": "all",
+        "ours": 10.31,
+        "hcp": 10.215484426009,
+        "diff": 0.09,
+        "agrees": true,
+        "comparable": false
+      },
+      {
+        "indicator": "pct_renter",
+        "vintage": 2014,
+        "milieu": "all",
+        "ours": 18.84,
+        "hcp": 18.8351262898458,
+        "diff": 0.0,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "pct_self_employed",
+        "vintage": 2014,
+        "milieu": "all",
+        "ours": 30.46,
+        "hcp": 29.7958443074963,
+        "diff": 0.66,
+        "agrees": true,
+        "comparable": false
+      },
+      {
+        "indicator": "pct_single",
+        "vintage": 2014,
+        "milieu": "all",
+        "ours": 53.16,
+        "hcp": 53.159471425302,
+        "diff": -0.0,
+        "agrees": true,
+        "comparable": false
+      },
+      {
+        "indicator": "pct_slum",
+        "vintage": 2014,
+        "milieu": "all",
+        "ours": 4.5,
+        "hcp": 4.50462972907045,
+        "diff": 0.0,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "pct_toilet",
+        "vintage": 2014,
+        "milieu": "all",
+        "ours": 93.64,
+        "hcp": 93.6508898527982,
+        "diff": -0.01,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "pct_water",
+        "vintage": 2014,
+        "milieu": "all",
+        "ours": 72.98,
+        "hcp": 72.9845445964916,
+        "diff": -0.0,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "pct_widowed",
+        "vintage": 2014,
+        "milieu": "all",
+        "ours": 3.86,
+        "hcp": 3.86425692955721,
+        "diff": -0.0,
+        "agrees": true,
+        "comparable": false
+      },
+      {
+        "indicator": "pct_women_divorced",
+        "vintage": 2014,
+        "milieu": "all",
+        "ours": 2.41,
+        "hcp": 2.42405039044482,
+        "diff": -0.01,
+        "agrees": true,
+        "comparable": false
+      },
+      {
+        "indicator": "road_distance",
+        "vintage": 2014,
+        "milieu": "all",
+        "ours": 3.0,
+        "hcp": 3.04964689452437,
+        "diff": -0.05,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "activity_rate",
+        "vintage": 2024,
+        "milieu": "all",
+        "ours": 41.48,
+        "hcp": 41.6,
+        "diff": -0.12,
+        "agrees": true,
+        "comparable": false
+      },
+      {
+        "indicator": "age_0_4",
+        "vintage": 2024,
+        "milieu": "all",
+        "ours": 7.64,
+        "hcp": 7.6,
+        "diff": 0.04,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "age_10_14",
+        "vintage": 2024,
+        "milieu": "all",
+        "ours": 9.63,
+        "hcp": 9.6,
+        "diff": 0.03,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "age_15_19",
+        "vintage": 2024,
+        "milieu": "all",
+        "ours": 8.16,
+        "hcp": 8.2,
+        "diff": -0.04,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "age_20_24",
+        "vintage": 2024,
+        "milieu": "all",
+        "ours": 7.26,
+        "hcp": 7.3,
+        "diff": -0.04,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "age_5_9",
+        "vintage": 2024,
+        "milieu": "all",
+        "ours": 9.25,
+        "hcp": 9.3,
+        "diff": -0.05,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "age_60plus",
+        "vintage": 2024,
+        "milieu": "all",
+        "ours": 13.79,
+        "hcp": 13.799999999999999,
+        "diff": -0.01,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "age_65plus",
+        "vintage": 2024,
+        "milieu": "all",
+        "ours": 9.11,
+        "hcp": 9.1,
+        "diff": 0.01,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "age_75plus",
+        "vintage": 2024,
+        "milieu": "all",
+        "ours": 3.1,
+        "hcp": 3.1,
+        "diff": -0.0,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "dwell_age_lt10",
+        "vintage": 2024,
+        "milieu": "all",
+        "ours": 21.97,
+        "hcp": 22.0,
+        "diff": -0.03,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "dwell_apartment",
+        "vintage": 2024,
+        "milieu": "all",
+        "ours": 16.63,
+        "hcp": 16.6,
+        "diff": 0.03,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "dwell_moroccan",
+        "vintage": 2024,
+        "milieu": "all",
+        "ours": 58.82,
+        "hcp": 58.8,
+        "diff": 0.02,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "dwell_other",
+        "vintage": 2024,
+        "milieu": "all",
+        "ours": 1.19,
+        "hcp": 1.2,
+        "diff": -0.01,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "dwell_rural",
+        "vintage": 2024,
+        "milieu": "all",
+        "ours": 18.39,
+        "hcp": 18.4,
+        "diff": -0.01,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "dwell_villa",
+        "vintage": 2024,
+        "milieu": "all",
+        "ours": 1.94,
+        "hcp": 1.9,
+        "diff": 0.04,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "edu_higher",
+        "vintage": 2024,
+        "milieu": "all",
+        "ours": 10.25,
+        "hcp": 10.2,
+        "diff": 0.05,
+        "agrees": true,
+        "comparable": false
+      },
+      {
+        "indicator": "edu_lower_secondary",
+        "vintage": 2024,
+        "milieu": "all",
+        "ours": 17.09,
+        "hcp": 17.1,
+        "diff": -0.01,
+        "agrees": true,
+        "comparable": false
+      },
+      {
+        "indicator": "edu_primary",
+        "vintage": 2024,
+        "milieu": "all",
+        "ours": 26.84,
+        "hcp": 26.8,
+        "diff": 0.04,
+        "agrees": true,
+        "comparable": false
+      },
+      {
+        "indicator": "edu_upper_secondary",
+        "vintage": 2024,
+        "milieu": "all",
+        "ours": 12.31,
+        "hcp": 12.3,
+        "diff": 0.01,
+        "agrees": true,
+        "comparable": false
+      },
+      {
+        "indicator": "hh_size_avg",
+        "vintage": 2024,
+        "milieu": "all",
+        "ours": 3.93,
+        "hcp": 3.9,
+        "diff": 0.03,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "isf",
+        "vintage": 2024,
+        "milieu": "all",
+        "ours": 1.99,
+        "hcp": 1.97,
+        "diff": 0.02,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "lang_darija",
+        "vintage": 2024,
+        "milieu": "all",
+        "ours": 91.89,
+        "hcp": 91.9,
+        "diff": -0.01,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "lang_hassania",
+        "vintage": 2024,
+        "milieu": "all",
+        "ours": 0.79,
+        "hcp": 0.8,
+        "diff": -0.01,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "lang_tachelhit",
+        "vintage": 2024,
+        "milieu": "all",
+        "ours": 14.22,
+        "hcp": 14.2,
+        "diff": 0.02,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "lang_tamazight",
+        "vintage": 2024,
+        "milieu": "all",
+        "ours": 7.45,
+        "hcp": 7.4,
+        "diff": 0.05,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "lang_tarifit",
+        "vintage": 2024,
+        "milieu": "all",
+        "ours": 3.18,
+        "hcp": 3.2,
+        "diff": -0.02,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "n_households",
+        "vintage": 2024,
+        "milieu": "all",
+        "ours": 9275038.0,
+        "hcp": 9275038.0,
+        "diff": 0.0,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "pct_apprentice",
+        "vintage": 2024,
+        "milieu": "all",
+        "ours": 1.02,
+        "hcp": 1.0,
+        "diff": 0.02,
+        "agrees": true,
+        "comparable": false
+      },
+      {
+        "indicator": "pct_divorced",
+        "vintage": 2024,
+        "milieu": "all",
+        "ours": 3.28,
+        "hcp": 3.3,
+        "diff": -0.02,
+        "agrees": true,
+        "comparable": false
+      },
+      {
+        "indicator": "pct_electricity",
+        "vintage": 2024,
+        "milieu": "all",
+        "ours": 97.09,
+        "hcp": 97.1,
+        "diff": -0.01,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "pct_employer",
+        "vintage": 2024,
+        "milieu": "all",
+        "ours": 2.48,
+        "hcp": 2.6,
+        "diff": -0.12,
+        "agrees": true,
+        "comparable": false
+      },
+      {
+        "indicator": "pct_family_worker",
+        "vintage": 2024,
+        "milieu": "all",
+        "ours": 1.96,
+        "hcp": 1.9,
+        "diff": 0.06,
+        "agrees": true,
+        "comparable": false
+      },
+      {
+        "indicator": "pct_female",
+        "vintage": 2024,
+        "milieu": "all",
+        "ours": 50.14,
+        "hcp": 50.1,
+        "diff": 0.04,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "pct_illiterate",
+        "vintage": 2024,
+        "milieu": "all",
+        "ours": 25.04,
+        "hcp": 24.8,
+        "diff": 0.24,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "pct_kitchen",
+        "vintage": 2024,
+        "milieu": "all",
+        "ours": 96.34,
+        "hcp": 96.3,
+        "diff": 0.04,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "pct_married",
+        "vintage": 2024,
+        "milieu": "all",
+        "ours": 58.47,
+        "hcp": 58.3,
+        "diff": 0.17,
+        "agrees": true,
+        "comparable": false
+      },
+      {
+        "indicator": "pct_no_education",
+        "vintage": 2024,
+        "milieu": "all",
+        "ours": 31.75,
+        "hcp": 31.8,
+        "diff": -0.05,
+        "agrees": true,
+        "comparable": false
+      },
+      {
+        "indicator": "pct_owner",
+        "vintage": 2024,
+        "milieu": "all",
+        "ours": 69.44,
+        "hcp": 69.4,
+        "diff": 0.04,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "pct_private_employee",
+        "vintage": 2024,
+        "milieu": "all",
+        "ours": 48.24,
+        "hcp": 49.2,
+        "diff": -0.96,
+        "agrees": true,
+        "comparable": false
+      },
+      {
+        "indicator": "pct_public_employee",
+        "vintage": 2024,
+        "milieu": "all",
+        "ours": 14.45,
+        "hcp": 14.3,
+        "diff": 0.15,
+        "agrees": true,
+        "comparable": false
+      },
+      {
+        "indicator": "pct_renter",
+        "vintage": 2024,
+        "milieu": "all",
+        "ours": 19.72,
+        "hcp": 19.7,
+        "diff": 0.02,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "pct_self_employed",
+        "vintage": 2024,
+        "milieu": "all",
+        "ours": 25.56,
+        "hcp": 24.9,
+        "diff": 0.66,
+        "agrees": true,
+        "comparable": false
+      },
+      {
+        "indicator": "pct_single",
+        "vintage": 2024,
+        "milieu": "all",
+        "ours": 33.08,
+        "hcp": 33.2,
+        "diff": -0.12,
+        "agrees": true,
+        "comparable": false
+      },
+      {
+        "indicator": "pct_slum",
+        "vintage": 2024,
+        "milieu": "all",
+        "ours": 3.04,
+        "hcp": 3.0,
+        "diff": 0.04,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "pct_toilet",
+        "vintage": 2024,
+        "milieu": "all",
+        "ours": 97.29,
+        "hcp": 97.3,
+        "diff": -0.01,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "pct_water",
+        "vintage": 2024,
+        "milieu": "all",
+        "ours": 82.87,
+        "hcp": 82.9,
+        "diff": -0.03,
+        "agrees": true,
+        "comparable": true
+      },
+      {
+        "indicator": "pct_widowed",
+        "vintage": 2024,
+        "milieu": "all",
+        "ours": 5.17,
+        "hcp": 5.2,
+        "diff": -0.03,
+        "agrees": true,
+        "comparable": false
+      },
+      {
+        "indicator": "pct_women_divorced",
+        "vintage": 2024,
+        "milieu": "all",
+        "ours": 4.57,
+        "hcp": 4.6,
+        "diff": -0.03,
+        "agrees": true,
+        "comparable": false
+      },
+      {
+        "indicator": "road_distance",
+        "vintage": 2024,
+        "milieu": "all",
+        "ours": 1.49,
+        "hcp": 1.5,
+        "diff": -0.01,
+        "agrees": true,
+        "comparable": true
+      }
+    ]
   }
 }

@@ -233,6 +233,76 @@ def unplaced_2004() -> dict:
     }
 
 
+HCP_NATIONAL_2004 = PROCESSED.parents[1] / "catalog" / "hcp_national_2004.csv"
+
+
+def hcp_national() -> dict[tuple[str, int, str], float]:
+    """HCP's own national figures: the national row of each 2014 and 2024 workbook, read through the extraction
+    spec, and a sourced table from the 2004 national report (catalog/hcp_national_2004.csv)."""
+    from . import extract as ex
+
+    out = {}
+    raw14 = {}
+    for column, (fname, cols) in [*ex.SPEC_2014.items(), *ex.SUMS_2014.items()]:
+        df = raw14.setdefault(fname, pd.read_excel(RAW / fname, sheet_name="Indic.Ensemble", header=None))
+        row = df[df.apply(lambda r: r.astype(str).str.startswith("Total Royaume").any(), axis=1)].iloc[0]
+        cols = cols if isinstance(cols, list) else [cols]
+        out[(column, 2014, "all")] = float(ex.to_num(row[cols]).sum())
+    raw24 = pd.ExcelFile(RAW / "indicateurs_demo_socioeco_2024.xlsx")
+    for sheet in {*ex.SPEC_2024, *ex.SUMS_2024}:
+        df = raw24.parse(sheet, header=None)
+        row = df[df[ex.LABEL_COL_2024].astype(str).str.startswith("Ensemble du terr")].iloc[0]
+        for column, col in ex.SPEC_2024.get(sheet, {}).items():
+            out[(column, 2024, "all")] = float(ex.to_num(row[[col]]).iloc[0])
+        for column, cols in ex.SUMS_2024.get(sheet, {}).items():
+            out[(column, 2024, "all")] = float(ex.to_num(row[cols]).sum())
+    for r in pd.read_csv(HCP_NATIONAL_2004).itertuples():
+        out[(r.indicator, 2004, r.milieu)] = float(r.value)
+    return out
+
+
+def national() -> dict:
+    """Each three-census indicator's national mean from the commune tables (weighted by population, or by
+    households where the catalogue says so; counts summed) against HCP's national figure where one exists."""
+    from . import catalog
+
+    cat = catalog.load()
+    tables = {2004: ("communes_2004", "population04"), 2014: ("communes_2014", "population14"),
+              2024: ("communes_2024", "population24")}
+    columns = {
+        y: {s["indicator"]: c for c, s in next(d for d in cat["datasets"] if d["id"] == ds)["columns"].items() if "indicator" in s}
+        for y, (ds, _) in tables.items()
+    }
+    three = sorted(set.intersection(*(set(c) for c in columns.values())))
+    hcp = hcp_national()
+    rows = []
+    for y, (ds, pop) in tables.items():
+        t = pd.read_csv(P_COMMUNES[y])
+        milieux = {"all": t.index == t.index}
+        if y == 2004:
+            milieux |= {m: (t.milieu04 == m).values for m in ("urban", "rural")}
+        for ind in three:
+            spec, col = cat["indicators"][ind], columns[y][ind]
+            for m, mask in milieux.items():
+                if (key := (col if y != 2004 else ind, y, m)) not in hcp and (ind, y, m) not in hcp:
+                    continue
+                ref = hcp.get(key, hcp.get((ind, y, m)))
+                v, w = t.loc[mask, col], t.loc[mask, "n_households" if spec.get("weight") == "households" else pop]
+                ok = v.notna() & w.notna()
+                ours = float(v[ok].sum()) if spec.get("agg") == "sum" else float((v[ok] * w[ok]).sum() / w[ok].sum())
+                diff = ours - ref
+                agrees = abs(diff) <= 1 if spec.get("unit") == "%" else abs(diff) <= 0.02 * abs(ref)
+                rows.append({"indicator": ind, "vintage": y, "milieu": m, "ours": round(ours, 2), "hcp": ref,
+                             "diff": round(diff, 2), "agrees": bool(agrees),
+                             "comparable": spec.get("comparable", True)})
+    return {
+        "compared": len(rows),
+        "agree": sum(r["agrees"] for r in rows),
+        "rule": "within 1 point for percentages, within 2% otherwise",
+        "rows": rows,
+    }
+
+
 def main() -> dict:
     cw = pd.read_csv(P_CROSSWALK, dtype=str)
     app = pd.read_csv(P_CROSSWALK_APP, dtype=str)
@@ -275,6 +345,7 @@ def main() -> dict:
     }
     out["slices"] = slices()
     out["backcast_2004"] = backcast()
+    out["national"] = national()
     P_VALIDATION.write_text(json.dumps(out, indent=2, ensure_ascii=False) + "\n")
     p = out["population"]
     for y in p:

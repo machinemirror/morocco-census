@@ -41,14 +41,14 @@ def test_row_counts_and_keys():
     assert t04.app_code.is_unique and t04.app_code.str.len().eq(10).all()
     assert t14.code14.is_unique and t14.code14.str.fullmatch(r"\d{2}\.\d{3}\.\d{2}\.\d{2}\.").all()
     assert t24.code24.is_unique
-    assert len(pd.read_csv(P_INDICES_2004)) == 1677
+    assert len(pd.read_csv(P_INDICES_2004)) == 1689
 
 
 def test_crosswalk_coverage(cw):
     assert len(cw) == 1538 and cw.code14.is_unique
     full = cw.dropna(subset=["code24", "label04"])
     assert len(full) / len(cw) >= 0.953
-    assert set(cw.src04.dropna()) <= {"direct", "fuzzy"}
+    assert set(cw.src04.dropna()) <= {"direct", "fuzzy", "copied_parent"}
     t14 = pd.read_csv(P_COMMUNES[2014], dtype={"code14": str})
     assert set(t14.code14) == set(cw.code14)
 
@@ -79,7 +79,7 @@ def test_app_crosswalk(cw):
 def test_panel(panel):
     core = panel[panel.level == "commune"]
     assert len(core) == 1538 and (panel.level == "city").sum() == 6
-    assert set(panel.src04.dropna()) <= {"direct", "fuzzy", "imputed_cercle", "imputed_province"}
+    assert set(panel.src04.dropna()) <= {"direct", "fuzzy", "copied_parent", "imputed_cercle", "imputed_province"}
     assert set(panel.src14.dropna()) | set(panel.src24.dropna()) <= {"imputed_cercle", "imputed_province"}
     assert core.idh04.notna().all() and core.mpi2014.notna().all() and core.mpi2024.notna().all()
     assert core.idh04.between(0, 1).all()
@@ -115,14 +115,20 @@ def test_panel_keys_are_text_and_unshared():
 def test_annex_links_are_clean():
     cw = pd.read_csv(P_CROSSWALK, dtype=str)
     labels = pd.read_csv(P_INDICES_2004, dtype=str).label
-    assert not labels.str.match(r"(Notation|Vulné|bilité|communaux |de |la )").any()
-    assert cw.label04.dropna().isin(labels).all() and cw.label04.dropna().is_unique
-    # communes carved out in 2008 have no 2004 annex row of their own
-    assert cw.set_index("code14").loc[["04.441.03.05.", "06.385.03.03."], "label04"].isna().all()
-    # every annex-linked commune carries its own 2004 values, not an imputation
-    p = pd.read_csv(P_PANEL, dtype=str)
-    linked = p.code14.isin(cw.code14[cw.label04.notna()])
-    assert p.loc[linked, "src04"].isin(["direct", "fuzzy"]).all()
+    assert not labels.str.match(r"(Notation|Vulné|bilité|Inégalit|communaux |de |la )").any()
+    assert not labels.str.contains(r"\d").any() and labels.is_unique  # no row glued to the next
+    used = cw.label04.dropna().str.split(" + ", regex=False).explode()
+    assert used.isin(labels).all()
+    # communes carved out in 2008 carry their parent unit's rates, not a namesake's in another province
+    parent = cw.set_index("code14").loc[["04.441.03.05.", "06.385.03.03."]]
+    assert list(parent.label04) == ["Salé Sidi Bouknadel", "Nouaceur Dar Bouazza"]
+    assert (parent.src04 == "copied_parent").all()
+    # municipalities built from an autonomous centre take the centre's row, not the rural commune's
+    assert cw.set_index("code14").loc["07.041.01.09.", "label04"] == "AL haouz Tahannaout (AC)"
+    # a whole 2004 unit is imputed only where its annex row cannot be identified
+    p = pd.read_csv(P_PANEL, dtype=str, keep_default_na=False)
+    imputed = p[p.src04.str.startswith("imputed")]
+    assert set(imputed.name14) == {"Ait Ali ou Lahcen", "Ait Sedrate Sahl El Gharbia"}
 
 
 def test_is_urban():
@@ -272,3 +278,50 @@ def test_out_of_sample_backcast():
     gaps = {g["name"]: g["pct"] for g in o["largest_gaps"]}
     assert gaps["Sidi Abdelkrim"] == -36.0 and gaps["Ain Tizgha"] == -32.7
     assert len(gaps) == o["communes"] - o["within_2pct"]
+
+
+def test_2004_illiteracy_is_the_10plus_rate():
+    v = json.loads(P_VALIDATION.read_text())["national"]
+    row = next(r for r in v["rows"] if (r["indicator"], r["vintage"], r["milieu"]) == ("pct_illiterate", 2004, "all"))
+    assert abs(row["ours"] - 43.0) <= 1 and row["hcp"] == 43.0
+    t04 = pd.read_csv(P_COMMUNES[2004])
+    assert (t04.pct_illiterate == t04.pct_no_lang_written).all()
+    assert (t04.pct_illiterate_15_24 <= t04.pct_illiterate + 1e-9).mean() > 0.99  # the youth rate sits below it
+    assert "pct_illiterate_15_24" in pd.read_csv(P_SLICES[2004, "sex"], nrows=0).columns
+
+
+def test_national_figures_agree_where_comparable():
+    v = json.loads(P_VALIDATION.read_text())["national"]
+    assert v["compared"] >= 100 and {r["vintage"] for r in v["rows"]} == {2004, 2014, 2024}
+    assert all(not r["comparable"] for r in v["rows"] if not r["agrees"])
+
+
+def test_western_sahara_flag():
+    cw = pd.read_csv(P_CROSSWALK, dtype=str).set_index("name14").in_western_sahara
+    assert (cw["Daoura"], cw["El Hagounia"], cw["Tah"], cw["Al Mahbass"], cw["Akhfennir"]) == (
+        "yes", "yes", "partly", "partly", "no"
+    )
+    assert cw["Haouza"] == "yes"  # its polygon reaches 2% past 8°40'W, inside the tolerance
+    assert set(cw) == {"yes", "partly", "no"}
+
+
+def test_admin_figures_are_starred_in_hcp_list():
+    t24 = pd.read_csv(P_COMMUNES[2024], dtype=str)
+    admin = t24[t24.pop24_source == "admin"]
+    # HCP's star is kept in the published names; the build reads it from the legal list and asserts its footnote
+    assert set(admin.name24) == {"Commune de Mijik*", "Commune de Lagouira*", "Commune d'Aghouinite*", "Commune de Zoug*"}
+    assert (t24.pop24_source == "census").sum() == len(t24) - 4
+    assert (admin.population24.astype(float) == admin.pop_legal24.astype(float)).all()
+
+
+def test_2024_questionnaire_marks():
+    import yaml
+
+    from morocco_census.config import CATALOG
+
+    cat = yaml.safe_load(CATALOG.read_text())
+    q = {k: v.get("questionnaire_2024") for k, v in cat["indicators"].items()}
+    assert q["isf"] == q["pct_illiterate"] == q["activity_rate"] == q["pct_electricity"] == "detailed"
+    assert q["population"] == q["age_0_4"] == q["pct_married"] == q["dwell_villa"] == "short"
+    t24 = pd.read_csv(P_COMMUNES[2024])
+    assert (t24.sampled24 == (t24.n_households >= 2000)).all()

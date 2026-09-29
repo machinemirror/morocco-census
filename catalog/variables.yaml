@@ -6,6 +6,11 @@
 #   an indicator (and gives its vintage and exact source), or describes itself (identifiers).
 #   Every column has a source, its own or its dataset's; morocco-census marks what this project derives.
 # `comparable: false` or a `note` flags a definitional break between vintages.
+# `questionnaire_2024`: the RGPH 2024 questionnaire an indicator's 2024 values come from, per HCP's lists of topics
+#   (hcp.ma, "Informations essentielles sur le RGPH 2024", a3933; "Nouveautés méthodologiques", a3937): short (the
+#   whole population) or detailed (all households of communes with fewer than 2,000 households, a 20% sample
+#   elsewhere, so a weighted estimate there; see communes_2024.sampled24). Untagged: not from either questionnaire
+#   or not stated.
 # `agg: sum` marks counts, summed when communes are merged into a map unit; everything else is a
 #   population-weighted mean (flags: max), or household-weighted with `weight: households`.
 
@@ -38,6 +43,7 @@ map_groups:
 
 indicators:
   population:
+    questionnaire_2024: short
     agg: sum
     theme: population
     en: Population
@@ -48,6 +54,7 @@ indicators:
     definition: Resident population of the commune.
     note: 2004 is the app's 'Population totale'; 2014 and 2024 are 'population municipale' (excludes the population comptée à part, e.g. barracks and boarding schools).
   population_legal:
+    questionnaire_2024: short
     agg: sum
     theme: population
     en: Legal population
@@ -55,18 +62,21 @@ indicators:
     definition: HCP's legal population of the commune, the municipal population plus the population comptée à part (people living collectively, e.g. in barracks, prisons and boarding schools).
     note: The indicator tables' rates are on the municipal population ('population'); use the legal population as a denominator where institutional residents matter (garrison and Saharan communes, large cities). HCP gives no 2014 figure ('pm') for Lagouira, Aghouinite, Zoug (Aousserd) and Mijik (Oued Ed-Dahab).
   pop_share:
+    questionnaire_2024: short
     agg: sum
     theme: population
     en: Share of national population
     unit: "%"
     definition: Commune population divided by the sum over all commune rows, times 100.
   is_urban:
+    questionnaire_2024: short
     theme: population
     en: Urban commune
     unit: flag
     definition: 1 for municipalities and arrondissements, 0 for rural communes.
     note: 2014 uses the '(Mun.)'/'(Arrond.)' suffix of HCP's commune name; 2024 flags communes with no rural population. The two agree for every commune matched across both censuses; 2024 has fewer urban units because the six arrondissement cities are single communes there.
   n_households:
+    questionnaire_2024: short
     agg: sum
     theme: population
     en: Households
@@ -76,6 +86,7 @@ indicators:
     unit: households
     definition: Number of ordinary households.
   hh_size_avg:
+    questionnaire_2024: short
     weight: households
     theme: population
     en: Average household size
@@ -85,6 +96,7 @@ indicators:
     unit: persons
     definition: Persons per ordinary household.
   pct_female:
+    questionnaire_2024: short
     theme: population
     en: Female share
     fr: 'Sexe : Féminin'
@@ -94,6 +106,7 @@ indicators:
     definition: Women as a share of the population.
     note: "2014 is computed from HCP's female and total population municipale."
   age_0_4:
+    questionnaire_2024: short
     theme: age
     en: Aged 0-4
     fr: "Groupes d'âge : 0-4 ans"
@@ -102,6 +115,7 @@ indicators:
     unit: "%"
     definition: Share of the population aged 0 to 4.
   age_5_9:
+    questionnaire_2024: short
     theme: age
     en: Aged 5-9
     fr: "Groupes d'âge : 5-9 ans"
@@ -110,6 +124,7 @@ indicators:
     unit: "%"
     definition: Share of the population aged 5 to 9.
   age_10_14:
+    questionnaire_2024: short
     theme: age
     en: Aged 10-14
     fr: "Groupes d'âge : 10-14 ans"
@@ -118,6 +133,7 @@ indicators:
     unit: "%"
     definition: Share of the population aged 10 to 14.
   isf:
+    questionnaire_2024: detailed
     theme: fertility
     en: Total fertility rate
     fr: Indice synthétique de fécondité
@@ -137,6 +153,7 @@ indicators:
     unit: per 1,000 births
     definition: Deaths under age one per 1,000 live births.
   pct_illiterate:
+    questionnaire_2024: detailed
     theme: education
     en: Illiteracy rate
     fr: Taux d'analphabétisme
@@ -144,12 +161,21 @@ indicators:
     label_source: RGPH 2024 results platform, Concepts et définitions (FR/AR)
     unit: "%"
     definition: Share of the population aged 10 and over who cannot read and write.
+    note: "2004 is the share of the 10+ population reading and writing no language ('Aucune'), the same source row as pct_no_lang_written; the 2004 profiles' 'Taux d'analphabétisme' row is the 15-24 youth rate, published as pct_illiterate_15_24 (before release 2026.9.10 it was published here)."
+  pct_illiterate_15_24:
+    theme: education
+    en: Illiteracy rate, ages 15-24
+    unit: "%"
+    definition: Share of the population aged 15 to 24 who cannot read and write, as the 2004 profiles give it ('Taux d'analphabétisme chez les jeunes 15 ans à 24').
+    comparable: false
+    note: 2004 only; not comparable with pct_illiterate (10 and over).
   pct_no_lang_written:
     theme: "languages"
     en: Reads and writes no language
     unit: "%"
-    definition: Share answering 'Aucune' to languages read and written. This is the 'illiterate' variable of Lehnert (2021) and Lehnert & Smirnov (2024), distinct from the illiteracy rate.
+    definition: Share answering 'Aucune' to languages read and written. This is the 'illiterate' variable of Lehnert (2021) and Lehnert & Smirnov (2024). In 2004 it is the same source row as pct_illiterate; in 2014 and 2024 HCP publishes its own illiteracy rate beside it.
   pct_no_education:
+    questionnaire_2024: detailed
     theme: education
     en: No schooling
     fr: "Population selon le niveau d'études : Néant"
@@ -170,6 +196,7 @@ indicators:
     unit: "%"
     definition: "Share of the population aged 10 and over whose highest diploma is a DEUG, licence, master, doctorate or equivalent (sum of the two diploma indicators)."
   activity_rate:
+    questionnaire_2024: detailed
     theme: employment
     en: Activity rate
     fr: Taux d'activité
@@ -177,14 +204,16 @@ indicators:
     label_source: 'RGPH 2024 Indicateurs démographiques et socio-économiques, headers; Arabic: HCP Marrakech-Safi, note RGPH 2024 province de Chichaoua (hcp.ma/region-marrakech/attachment/2801766/), p.8'
     unit: "%"
     definition: Economically active population as a share of the working-age population.
-    note: 2004 is the share 'Actifs' in the app's activity table; 2014 is the 'taux net d'activité'; 2024 is the activity rate of those aged 15 and over. Bases differ, so compare levels with care.
+    note: "2004 is the share 'Actifs' of the population aged 7 and over in the app's activity table (41.7 nationally, against HCP's 35.9 over the whole population in its 2004 national report); 2014 is the 'taux net d'activité'; 2024 is the activity rate of those aged 15 and over. Bases differ, so compare levels with care."
     comparable: false
   unemployment_rate:
+    questionnaire_2024: detailed
     theme: employment
     en: Unemployment rate
     unit: "%"
     definition: "Unemployed persons as a share of the active population aged 15 and over."
   pop_active_occupee:
+    questionnaire_2024: detailed
     agg: sum
     theme: employment
     en: Employed population (15+)
@@ -198,6 +227,7 @@ indicators:
     note: "2004 is a share of employed persons plus unemployed persons who have worked before; 2014 is a share of employed persons aged 15 and over."
     comparable: false
   pct_women_divorced:
+    questionnaire_2024: short
     theme: family
     en: "Divorced women"
     unit: "%"
@@ -210,6 +240,7 @@ indicators:
     unit: "%"
     definition: Share whose 1999 residence was a different commune.
   pct_owner:
+    questionnaire_2024: detailed
     weight: households
     theme: housing
     en: Owner-occupied households
@@ -219,6 +250,7 @@ indicators:
     unit: "%"
     definition: Share of households owning their dwelling.
   pct_renter:
+    questionnaire_2024: detailed
     weight: households
     theme: housing
     en: Renting households
@@ -228,6 +260,7 @@ indicators:
     unit: "%"
     definition: Share of households renting their dwelling.
   pct_electricity:
+    questionnaire_2024: detailed
     weight: households
     theme: housing
     en: Electricity
@@ -238,6 +271,7 @@ indicators:
     definition: Share of households with electricity.
     note: "2024 counts households connected to the public grid or lit by solar power or a generator."
   pct_water:
+    questionnaire_2024: detailed
     weight: households
     theme: housing
     en: Piped water
@@ -268,6 +302,8 @@ indicators:
     definition: "Share of households with a television."
     note: "Household equipment is not published at commune level for 2024."
   pct_slum:
+    questionnaire_2024: short
+    weight: households
     theme: housing
     en: Makeshift housing or slum
     fr: 'Type de logement : Maison sommaire ou bidonville'
@@ -349,6 +385,7 @@ indicators:
     definition: Share of the population vulnerable to multidimensional poverty.
 
   age_15_19:
+    questionnaire_2024: short
     theme: "age"
     en: "Aged 15-19"
     fr: "Groupes d'âge : 15-19 ans"
@@ -357,6 +394,7 @@ indicators:
     unit: "%"
     definition: "Share of the population aged 15 to 19."
   age_20_24:
+    questionnaire_2024: short
     theme: "age"
     en: "Aged 20-24"
     fr: "Groupes d'âge : 20-24 ans"
@@ -365,56 +403,67 @@ indicators:
     unit: "%"
     definition: "Share of the population aged 20 to 24."
   age_25_29:
+    questionnaire_2024: short
     theme: "age"
     en: "Aged 25-29"
     unit: "%"
     definition: "Share of the population aged 25 to 29."
   age_30_34:
+    questionnaire_2024: short
     theme: "age"
     en: "Aged 30-34"
     unit: "%"
     definition: "Share of the population aged 30 to 34."
   age_35_39:
+    questionnaire_2024: short
     theme: "age"
     en: "Aged 35-39"
     unit: "%"
     definition: "Share of the population aged 35 to 39."
   age_40_44:
+    questionnaire_2024: short
     theme: "age"
     en: "Aged 40-44"
     unit: "%"
     definition: "Share of the population aged 40 to 44."
   age_45_49:
+    questionnaire_2024: short
     theme: "age"
     en: "Aged 45-49"
     unit: "%"
     definition: "Share of the population aged 45 to 49."
   age_50_54:
+    questionnaire_2024: short
     theme: "age"
     en: "Aged 50-54"
     unit: "%"
     definition: "Share of the population aged 50 to 54."
   age_55_59:
+    questionnaire_2024: short
     theme: "age"
     en: "Aged 55-59"
     unit: "%"
     definition: "Share of the population aged 55 to 59."
   age_60_64:
+    questionnaire_2024: short
     theme: "age"
     en: "Aged 60-64"
     unit: "%"
     definition: "Share of the population aged 60 to 64."
   age_65_69:
+    questionnaire_2024: short
     theme: "age"
     en: "Aged 65-69"
     unit: "%"
     definition: "Share of the population aged 65 to 69."
   age_70_74:
+    questionnaire_2024: short
     theme: "age"
     en: "Aged 70-74"
     unit: "%"
     definition: "Share of the population aged 70 to 74."
   age_75plus:
+    questionnaire_2024: short
     theme: "age"
     en: "Aged 75 and over"
     fr: "Groupes d'âge : 75 ans ou plus"
@@ -423,6 +472,7 @@ indicators:
     unit: "%"
     definition: "Share of the population aged 75 and over."
   age_60plus:
+    questionnaire_2024: short
     theme: "age"
     en: "Aged 60 and over"
     fr: Proportion de la population âgée de 60 ans et plus
@@ -431,16 +481,19 @@ indicators:
     unit: "%"
     definition: "Share of the population aged 60 and over."
   age_65plus:
+    questionnaire_2024: short
     theme: "age"
     en: "Aged 65 and over"
     unit: "%"
     definition: "Share of the population aged 65 and over."
   pct_disability:
+    questionnaire_2024: detailed
     theme: "population"
     en: "Disability prevalence"
     unit: "%"
     definition: "Share of the population with a total incapacity or much difficulty in at least one of six functional domains (sight, hearing, mobility, communication, memory, self-care)."
   pct_single:
+    questionnaire_2024: short
     theme: "family"
     en: "Never married"
     fr: 'État matrimonial : Célibataire'
@@ -451,6 +504,7 @@ indicators:
     note: "2004 and 2024 are shares of the population aged 15 and over. HCP's 2014 commune table uses a wider base (never-married is about 53% at the median commune, against 31% in 2024), so 2014 levels are not comparable."
     comparable: false
   pct_married:
+    questionnaire_2024: short
     theme: "family"
     en: "Married"
     fr: 'État matrimonial : Marié'
@@ -461,6 +515,7 @@ indicators:
     note: "2004 and 2024 are shares of the population aged 15 and over. HCP's 2014 commune table uses a wider base (never-married is about 53% at the median commune, against 31% in 2024), so 2014 levels are not comparable."
     comparable: false
   pct_divorced:
+    questionnaire_2024: short
     theme: "family"
     en: "Divorced"
     fr: 'État matrimonial : Divorcé'
@@ -471,6 +526,7 @@ indicators:
     note: "2004 and 2024 are shares of the population aged 15 and over. HCP's 2014 commune table uses a wider base (never-married is about 53% at the median commune, against 31% in 2024), so 2014 levels are not comparable."
     comparable: false
   pct_widowed:
+    questionnaire_2024: short
     theme: "family"
     en: "Widowed"
     fr: 'État matrimonial : Veuf'
@@ -481,34 +537,40 @@ indicators:
     note: "2004 and 2024 are shares of the population aged 15 and over. HCP's 2014 commune table uses a wider base (never-married is about 53% at the median commune, against 31% in 2024), so 2014 levels are not comparable."
     comparable: false
   age_first_marriage:
+    questionnaire_2024: short
     theme: "family"
     en: "Mean age at first marriage"
     unit: "years"
     definition: "Mean age at first marriage, both sexes."
     note: "2024 is HCP's singulate mean age at marriage (âge moyen singulier au mariage): the mean years spent single by people who married before 55."
   completed_fertility:
+    questionnaire_2024: detailed
     theme: "fertility"
     en: "Completed fertility"
     unit: "children per woman"
     definition: "Mean number of live births to women aged 45-49, at the end of their reproductive years."
     note: "2014 is HCP's mean parity at 45-49 (parité moyenne à 45-49 ans); 2024 is its descendance finale, computed for the same age group."
   school_enrolment:
+    questionnaire_2024: detailed
     theme: "education"
     en: "School enrolment of young children"
     unit: "%"
     definition: "Share of children aged 7-12 at the census date who were enrolled in school."
     note: "HCP labels the 2024 group by age during the 2023/24 school year (6-11), which is the 7-12 group at the census date."
   pct_illiterate_15plus:
+    questionnaire_2024: detailed
     theme: "education"
     en: "Illiteracy rate (15+)"
     unit: "%"
     definition: "Share of the population aged 15 and over who cannot read and write."
   edu_preschool:
+    questionnaire_2024: detailed
     theme: "education"
     en: "Preschool level"
     unit: "%"
     definition: "Share of the population whose highest level of general education is preschool."
   edu_primary:
+    questionnaire_2024: detailed
     theme: "education"
     en: "Primary level"
     fr: "Population selon le niveau d'études : Primaire"
@@ -519,6 +581,7 @@ indicators:
     note: "2004 is a share of the population aged 25 and over, and HCP's 2004 levels sum to about 96% (a category is not published); 2014 and 2024 are HCP's commune shares on a wider base, so 2004 levels are not comparable."
     comparable: false
   edu_lower_secondary:
+    questionnaire_2024: detailed
     theme: "education"
     en: "Lower-secondary level"
     fr: "Population selon le niveau d'études : Secondaire collégial"
@@ -529,6 +592,7 @@ indicators:
     note: "2004 is a share of the population aged 25 and over, and HCP's 2004 levels sum to about 96% (a category is not published); 2014 and 2024 are HCP's commune shares on a wider base, so 2004 levels are not comparable."
     comparable: false
   edu_upper_secondary:
+    questionnaire_2024: detailed
     theme: "education"
     en: "Upper-secondary level"
     fr: "Population selon le niveau d'études : Secondaire qualifiant"
@@ -539,6 +603,7 @@ indicators:
     note: "2004 is a share of the population aged 25 and over, and HCP's 2004 levels sum to about 96% (a category is not published); 2014 and 2024 are HCP's commune shares on a wider base, so 2004 levels are not comparable."
     comparable: false
   edu_higher:
+    questionnaire_2024: detailed
     theme: "education"
     en: "Higher-education level"
     fr: "Population selon le niveau d'études : Supérieur"
@@ -604,6 +669,7 @@ indicators:
     unit: "%"
     definition: "Share of the population aged 10 and over with no vocational-training diploma."
   lang_darija:
+    questionnaire_2024: detailed
     theme: "languages"
     en: "Speaks Darija"
     fr: 'Langues locales utilisées : Darija'
@@ -613,6 +679,7 @@ indicators:
     definition: "Share of the population who speak Darija (Moroccan Arabic)."
     note: "2004 counts languages spoken by the population aged 5 and over; 2014 and 2024 count local languages used. A person can use several languages."
   lang_tachelhit:
+    questionnaire_2024: detailed
     theme: "languages"
     en: "Speaks Tachelhit"
     fr: 'Langues locales utilisées : Tachelhit'
@@ -622,6 +689,7 @@ indicators:
     definition: "Share of the population who speak Tachelhit."
     note: "2004 counts languages spoken by the population aged 5 and over; 2014 and 2024 count local languages used. A person can use several languages."
   lang_tamazight:
+    questionnaire_2024: detailed
     theme: "languages"
     en: "Speaks Tamazight"
     fr: 'Langues locales utilisées : Tamazight'
@@ -631,6 +699,7 @@ indicators:
     definition: "Share of the population who speak Tamazight."
     note: "2004 counts languages spoken by the population aged 5 and over; 2014 and 2024 count local languages used. A person can use several languages."
   lang_tarifit:
+    questionnaire_2024: detailed
     theme: "languages"
     en: "Speaks Tarifit"
     fr: 'Langues locales utilisées : Tarifit'
@@ -640,6 +709,7 @@ indicators:
     definition: "Share of the population who speak Tarifit."
     note: "2004 counts languages spoken by the population aged 5 and over; 2014 and 2024 count local languages used. A person can use several languages."
   lang_hassania:
+    questionnaire_2024: detailed
     theme: "languages"
     en: "Speaks Hassania"
     fr: 'Langues locales utilisées : Hassania'
@@ -673,26 +743,31 @@ indicators:
     unit: "%"
     definition: "Share of literate persons aged 10 and over who read and write any other combination of languages."
   read_arabic:
+    questionnaire_2024: detailed
     theme: "languages"
     en: "Literate in Arabic"
     unit: "%"
     definition: "Share of literate persons aged 10 and over who read and write Arabic (non-exclusive)."
   read_tifinagh:
+    questionnaire_2024: detailed
     theme: "languages"
     en: "Literate in Amazigh (Tifinagh)"
     unit: "%"
     definition: "Share of literate persons aged 10 and over who read and write Amazigh (Tifinagh) (non-exclusive)."
   read_english:
+    questionnaire_2024: detailed
     theme: "languages"
     en: "Literate in English"
     unit: "%"
     definition: "Share of literate persons aged 10 and over who read and write English (non-exclusive)."
   read_french:
+    questionnaire_2024: detailed
     theme: "languages"
     en: "Literate in French"
     unit: "%"
     definition: "Share of literate persons aged 10 and over who read and write French (non-exclusive)."
   pct_employer:
+    questionnaire_2024: detailed
     theme: "employment"
     en: "Employers"
     fr: 'Situation dans la profession : Employeur'
@@ -703,6 +778,7 @@ indicators:
     note: "2004 and 2014 are shares of employed persons plus unemployed persons who have worked before; 2024 is a share of employed persons aged 15 and over."
     comparable: false
   pct_self_employed:
+    questionnaire_2024: detailed
     theme: "employment"
     en: "Self-employed"
     fr: 'Situation dans la profession : Indépendant'
@@ -713,6 +789,7 @@ indicators:
     note: "2004 and 2014 are shares of employed persons plus unemployed persons who have worked before; 2024 is a share of employed persons aged 15 and over."
     comparable: false
   pct_public_employee:
+    questionnaire_2024: detailed
     theme: "employment"
     en: "Public-sector employees"
     fr: 'Situation dans la profession : Salarié du secteur public'
@@ -723,6 +800,7 @@ indicators:
     note: "2004 and 2014 are shares of employed persons plus unemployed persons who have worked before; 2024 is a share of employed persons aged 15 and over."
     comparable: false
   pct_private_employee:
+    questionnaire_2024: detailed
     theme: "employment"
     en: "Private-sector employees"
     fr: 'Situation dans la profession : Salarié du secteur privé'
@@ -733,6 +811,7 @@ indicators:
     note: "2004 and 2014 are shares of employed persons plus unemployed persons who have worked before; 2024 is a share of employed persons aged 15 and over."
     comparable: false
   pct_family_worker:
+    questionnaire_2024: detailed
     theme: "employment"
     en: "Unpaid family workers"
     fr: 'Situation dans la profession : Aide familiale'
@@ -743,6 +822,7 @@ indicators:
     note: "2004 and 2014 are shares of employed persons plus unemployed persons who have worked before; 2024 is a share of employed persons aged 15 and over."
     comparable: false
   pct_apprentice:
+    questionnaire_2024: detailed
     theme: "employment"
     en: "Apprentices"
     fr: 'Situation dans la profession : Apprenti'
@@ -753,6 +833,7 @@ indicators:
     note: "2004 and 2014 are shares of employed persons plus unemployed persons who have worked before; 2024 is a share of employed persons aged 15 and over."
     comparable: false
   pct_partner:
+    questionnaire_2024: detailed
     theme: "employment"
     en: "Partners or cooperative members"
     unit: "%"
@@ -760,6 +841,7 @@ indicators:
     note: "2014 is a share of employed persons plus unemployed persons who have worked before; 2024 is a share of employed persons aged 15 and over."
     comparable: false
   pct_status_other:
+    questionnaire_2024: detailed
     theme: "employment"
     en: "Other employment status"
     unit: "%"
@@ -873,6 +955,8 @@ indicators:
     note: "2004 is a share of employed persons plus unemployed persons who have worked before; 2014 is a share of employed persons aged 15 and over."
     comparable: false
   dwell_villa:
+    questionnaire_2024: short
+    weight: households
     theme: "housing"
     en: "Villa"
     fr: 'Type de logement : Villa'
@@ -882,6 +966,8 @@ indicators:
     definition: "Share of households living in a villa or villa floor."
     note: "In 89 communes HCP's 2004 dwelling-type shares sum to less than 100% as published."
   dwell_apartment:
+    questionnaire_2024: short
+    weight: households
     theme: "housing"
     en: "Apartment"
     fr: 'Type de logement : Appartement'
@@ -891,6 +977,8 @@ indicators:
     definition: "Share of households living in an apartment."
     note: "In 89 communes HCP's 2004 dwelling-type shares sum to less than 100% as published."
   dwell_moroccan:
+    questionnaire_2024: short
+    weight: households
     theme: "housing"
     en: "Moroccan house"
     fr: 'Type de logement : Maison marocaine'
@@ -900,6 +988,8 @@ indicators:
     definition: "Share of households living in a Moroccan house (maison marocaine)."
     note: "2004 sums traditional and modern Moroccan houses. In 89 communes HCP's 2004 dwelling-type shares sum to less than 100% as published."
   dwell_rural:
+    questionnaire_2024: short
+    weight: households
     theme: "housing"
     en: "Rural-type dwelling"
     fr: 'Type de logement : Logement de type rural'
@@ -909,6 +999,8 @@ indicators:
     definition: "Share of households living in a rural-type dwelling, which usually includes farm buildings."
     note: "In 89 communes HCP's 2004 dwelling-type shares sum to less than 100% as published."
   dwell_other:
+    questionnaire_2024: short
+    weight: households
     theme: "housing"
     en: "Other dwelling type"
     fr: 'Type de logement : Autre'
@@ -918,17 +1010,20 @@ indicators:
     definition: "Share of households living in another type of dwelling."
     note: "In 89 communes HCP's 2004 dwelling-type shares sum to less than 100% as published."
   persons_per_room:
+    questionnaire_2024: detailed
     theme: "housing"
     en: "Persons per room"
     unit: "persons per room"
     definition: "Persons per habitable room (bedrooms and living rooms; kitchens and bathrooms excluded)."
   tenure_other:
+    questionnaire_2024: detailed
     weight: households
     theme: "housing"
     en: "Other tenure"
     unit: "%"
     definition: "Share of households that neither own nor rent their dwelling (for example free or employer-provided housing)."
   dwell_age_lt10:
+    questionnaire_2024: detailed
     weight: households
     theme: "housing"
     en: "Dwelling under 10 years old"
@@ -939,24 +1034,28 @@ indicators:
     definition: "Share of households living in a dwelling under 10 years old."
     note: "2004 is the share of dwellings built between 1995 and September 2004, published for urban households only."
   dwell_age_10_19:
+    questionnaire_2024: detailed
     weight: households
     theme: "housing"
     en: "Dwelling 10-19 years old"
     unit: "%"
     definition: "Share of households living in a dwelling 10-19 years old."
   dwell_age_20_49:
+    questionnaire_2024: detailed
     weight: households
     theme: "housing"
     en: "Dwelling 20-49 years old"
     unit: "%"
     definition: "Share of households living in a dwelling 20-49 years old."
   dwell_age_50plus:
+    questionnaire_2024: detailed
     weight: households
     theme: "housing"
     en: "Dwelling 50 years or older"
     unit: "%"
     definition: "Share of households living in a dwelling 50 years or older."
   pct_kitchen:
+    questionnaire_2024: detailed
     weight: households
     theme: "housing"
     en: "Kitchen"
@@ -966,6 +1065,7 @@ indicators:
     unit: "%"
     definition: "Share of households whose dwelling has a kitchen."
   pct_toilet:
+    questionnaire_2024: detailed
     weight: households
     theme: "housing"
     en: "Toilet"
@@ -975,6 +1075,7 @@ indicators:
     unit: "%"
     definition: "Share of households whose dwelling has a toilet."
   pct_bathroom:
+    questionnaire_2024: detailed
     weight: households
     theme: "housing"
     en: "Bath or washroom"
@@ -983,36 +1084,42 @@ indicators:
     note: "2014 counts a bath ('Bain'); 2024 a washroom ('Pièce d'eau')."
     comparable: false
   sewer_public:
+    questionnaire_2024: detailed
     weight: households
     theme: "sanitation"
     en: "Public sewer"
     unit: "%"
     definition: "Share of households whose dwelling is connected to the public sewer."
   sewer_septic:
+    questionnaire_2024: detailed
     weight: households
     theme: "sanitation"
     en: "Septic tank"
     unit: "%"
     definition: "Share of households whose dwelling uses a septic tank."
   sewer_other:
+    questionnaire_2024: detailed
     weight: households
     theme: "sanitation"
     en: "Other waste-water disposal"
     unit: "%"
     definition: "Share of households whose dwelling disposes of waste water by other means."
   waste_bin:
+    questionnaire_2024: detailed
     weight: households
     theme: "sanitation"
     en: "Municipal waste bin"
     unit: "%"
     definition: "Share of households that put household waste in the commune's bins."
   waste_truck:
+    questionnaire_2024: detailed
     weight: households
     theme: "sanitation"
     en: "Municipal or private collection truck"
     unit: "%"
     definition: "Share of households whose waste is collected by a municipal or private truck."
   waste_other:
+    questionnaire_2024: detailed
     weight: households
     theme: "sanitation"
     en: "Other waste disposal (incl. dumping)"
@@ -1020,6 +1127,8 @@ indicators:
     definition: "Share of households disposing of household waste in another way, including dumping it outdoors."
     note: "2024 sums 'Dans la nature' and 'Autre'."
   cook_gas:
+    questionnaire_2024: detailed
+    weight: households
     theme: "sanitation"
     en: "Cooks with gas"
     unit: "%"
@@ -1027,6 +1136,8 @@ indicators:
     note: "2014 counts the fuels a household frequently uses, several per household; 2024 counts the fuel used. The drop in wood, charcoal and electricity between the two partly reflects the change of question."
     comparable: false
   cook_electricity:
+    questionnaire_2024: detailed
+    weight: households
     theme: "sanitation"
     en: "Cooks with electricity"
     unit: "%"
@@ -1034,6 +1145,8 @@ indicators:
     note: "2014 counts the fuels a household frequently uses, several per household; 2024 counts the fuel used. The drop in wood, charcoal and electricity between the two partly reflects the change of question."
     comparable: false
   cook_charcoal:
+    questionnaire_2024: detailed
+    weight: households
     theme: "sanitation"
     en: "Cooks with charcoal"
     unit: "%"
@@ -1041,6 +1154,8 @@ indicators:
     note: "2014 counts the fuels a household frequently uses, several per household; 2024 counts the fuel used. The drop in wood, charcoal and electricity between the two partly reflects the change of question."
     comparable: false
   cook_wood:
+    questionnaire_2024: detailed
+    weight: households
     theme: "sanitation"
     en: "Cooks with wood"
     unit: "%"
@@ -1048,18 +1163,22 @@ indicators:
     note: "2014 counts the fuels a household frequently uses, several per household; 2024 counts the fuel used. The drop in wood, charcoal and electricity between the two partly reflects the change of question."
     comparable: false
   cook_dung:
+    weight: households
     theme: "sanitation"
     en: "Cooks with animal dung"
     unit: "%"
     definition: "Share of households cooking with animal dung."
     note: "2014 counts the fuels a household frequently uses, several per household."
   cook_other:
+    questionnaire_2024: detailed
+    weight: households
     theme: "sanitation"
     en: "Cooks with another fuel"
     unit: "%"
     definition: "Share of households cooking with another fuel."
     note: "2024 category 'Autre' of the fuel used for cooking."
   road_distance:
+    questionnaire_2024: short
     weight: households
     theme: "sanitation"
     en: "Distance to a paved road"
@@ -1105,120 +1224,140 @@ indicators:
     definition: "Share of households with a refrigerator."
     note: "Household equipment is not published at commune level for 2024."
   commute_walk:
+    questionnaire_2024: detailed
     theme: "commuting"
     en: "Commutes on foot"
     unit: "%"
     definition: "Share of employed persons aged 15 and over whose main way of getting to work is: on foot."
     note: "Employed persons aged 15 and over living in ordinary dwellings (population sédentaire active occupée)."
   commute_two_wheeler:
+    questionnaire_2024: detailed
     theme: "commuting"
     en: "Commutes by motorcycle or bicycle"
     unit: "%"
     definition: "Share of employed persons aged 15 and over whose main way of getting to work is: by motorcycle or bicycle."
     note: "Employed persons aged 15 and over living in ordinary dwellings (population sédentaire active occupée)."
   commute_car:
+    questionnaire_2024: detailed
     theme: "commuting"
     en: "Commutes by private car"
     unit: "%"
     definition: "Share of employed persons aged 15 and over whose main way of getting to work is: by private car."
     note: "Employed persons aged 15 and over living in ordinary dwellings (population sédentaire active occupée)."
   commute_bus:
+    questionnaire_2024: detailed
     theme: "commuting"
     en: "Commutes by bus"
     unit: "%"
     definition: "Share of employed persons aged 15 and over whose main way of getting to work is: by bus."
     note: "Employed persons aged 15 and over living in ordinary dwellings (population sédentaire active occupée)."
   commute_taxi:
+    questionnaire_2024: detailed
     theme: "commuting"
     en: "Commutes by taxi"
     unit: "%"
     definition: "Share of employed persons aged 15 and over whose main way of getting to work is: by taxi."
     note: "Employed persons aged 15 and over living in ordinary dwellings (population sédentaire active occupée)."
   commute_employer:
+    questionnaire_2024: detailed
     theme: "commuting"
     en: "Commutes by employer or staff transport"
     unit: "%"
     definition: "Share of employed persons aged 15 and over whose main way of getting to work is: by employer or staff transport."
     note: "Employed persons aged 15 and over living in ordinary dwellings (population sédentaire active occupée)."
   commute_train:
+    questionnaire_2024: detailed
     theme: "commuting"
     en: "Commutes by train"
     unit: "%"
     definition: "Share of employed persons aged 15 and over whose main way of getting to work is: by train."
     note: "Employed persons aged 15 and over living in ordinary dwellings (population sédentaire active occupée)."
   commute_tram:
+    questionnaire_2024: detailed
     theme: "commuting"
     en: "Commutes by tram"
     unit: "%"
     definition: "Share of employed persons aged 15 and over whose main way of getting to work is: by tram."
     note: "Employed persons aged 15 and over living in ordinary dwellings (population sédentaire active occupée)."
   commute_informal:
+    questionnaire_2024: detailed
     theme: "commuting"
     en: "Commutes by informal transport"
     unit: "%"
     definition: "Share of employed persons aged 15 and over whose main way of getting to work is: by informal transport."
     note: "Employed persons aged 15 and over living in ordinary dwellings (population sédentaire active occupée)."
   commute_animal:
+    questionnaire_2024: detailed
     theme: "commuting"
     en: "Commutes by animal"
     unit: "%"
     definition: "Share of employed persons aged 15 and over whose main way of getting to work is: by animal."
     note: "Employed persons aged 15 and over living in ordinary dwellings (population sédentaire active occupée)."
   commute_other:
+    questionnaire_2024: detailed
     theme: "commuting"
     en: "Commutes by other means"
     unit: "%"
     definition: "Share of employed persons aged 15 and over whose main way of getting to work is: by other means."
     note: "Employed persons aged 15 and over living in ordinary dwellings (population sédentaire active occupée)."
   commute_none:
+    questionnaire_2024: detailed
     theme: "commuting"
     en: "Does not travel to work"
     unit: "%"
     definition: "Share of employed persons aged 15 and over who work where they live and do not travel to work."
     note: "Employed persons aged 15 and over living in ordinary dwellings (population sédentaire active occupée)."
   mig_in_lifetime:
+    questionnaire_2024: short
     theme: "migration"
     en: "Born elsewhere in Morocco (lifetime in-migration)"
     unit: "%"
     definition: "Residents born in another Moroccan commune, as a share of the commune's population."
     note: "Sedentary population (nomadic households and homeless people excluded). Moves between communes; international moves count as exits."
   mig_out_lifetime:
+    questionnaire_2024: short
     theme: "migration"
     en: "Natives living elsewhere (lifetime out-migration)"
     unit: "%"
     definition: "People born in the commune who live elsewhere in Morocco or abroad, as a share of all people born there."
     note: "Sedentary population (nomadic households and homeless people excluded). Moves between communes; international moves count as exits."
   mig_in_10y:
+    questionnaire_2024: detailed
     theme: "migration"
     en: "Arrived in the last 10 years"
     unit: "%"
     definition: "Residents who lived in another commune or abroad 10 years before the census, as a share of the resident population."
     note: "Sedentary population (nomadic households and homeless people excluded). Moves between communes; international moves count as exits."
   mig_out_10y:
+    questionnaire_2024: detailed
     theme: "migration"
     en: "Left in the last 10 years"
     unit: "%"
     definition: "People who lived in the commune 10 years before the census and now live elsewhere, as a share of those residents."
     note: "Sedentary population (nomadic households and homeless people excluded). Moves between communes; international moves count as exits."
   mig_in_5y:
+    questionnaire_2024: detailed
     theme: "migration"
     en: "Arrived in the last 5 years"
     unit: "%"
     definition: "Residents who lived in another commune or abroad 5 years before the census, as a share of the resident population."
     note: "Sedentary population (nomadic households and homeless people excluded). Moves between communes; international moves count as exits."
   mig_out_5y:
+    questionnaire_2024: detailed
     theme: "migration"
     en: "Left in the last 5 years"
     unit: "%"
     definition: "People who lived in the commune 5 years before the census and now live elsewhere, as a share of those residents."
     note: "Sedentary population (nomadic households and homeless people excluded). Moves between communes; international moves count as exits."
   n_lived_abroad:
+    questionnaire_2024: short
     agg: sum
     theme: "migration"
     en: "Residents who have lived abroad"
     unit: "persons"
     definition: "People living in the commune at the census who have previously lived abroad (international migrants)."
   pct_lived_abroad:
+    questionnaire_2024: short
     theme: "migration"
     en: "Share who have lived abroad"
     unit: "%"
@@ -1478,6 +1617,7 @@ indicators:
     definition: "Share of the rural population living in dispersed douars (over a third of dwellings more than 100 m apart)."
     note: "Rural communes only, aggregated from HCP's douar-level tables: population-weighted for people, household-weighted for dwellings and distances."
   rural_foreign:
+    questionnaire_2024: short
     theme: "rural_settlement"
     en: "Foreign nationals (rural)"
     unit: "%"
@@ -1504,6 +1644,7 @@ indicators:
     definition: "Share of rural households living in a rural house of rammed earth (pisé)."
     note: "Rural communes only, aggregated from HCP's douar-level tables: population-weighted for people, household-weighted for dwellings and distances."
   dist_track:
+    questionnaire_2024: short
     weight: households
     theme: "rural_settlement"
     en: "Distance to a motorable road"
@@ -1511,6 +1652,7 @@ indicators:
     definition: "Mean travel distance from rural dwellings to the nearest road passable by car."
     note: "Rural communes only, aggregated from HCP's douar-level tables: population-weighted for people, household-weighted for dwellings and distances."
   dist_primary_school:
+    questionnaire_2024: short
     weight: households
     theme: "rural_settlement"
     en: "Distance to a primary school"
@@ -1518,6 +1660,7 @@ indicators:
     definition: "Mean travel distance from rural dwellings to the nearest primary school."
     note: "Rural communes only, aggregated from HCP's douar-level tables: population-weighted for people, household-weighted for dwellings and distances."
   dist_lower_secondary:
+    questionnaire_2024: short
     weight: households
     theme: "rural_settlement"
     en: "Distance to a lower-secondary school"
@@ -1525,6 +1668,7 @@ indicators:
     definition: "Mean travel distance from rural dwellings to the nearest lower-secondary school (collège)."
     note: "Rural communes only, aggregated from HCP's douar-level tables: population-weighted for people, household-weighted for dwellings and distances."
   dist_upper_secondary:
+    questionnaire_2024: short
     weight: households
     theme: "rural_settlement"
     en: "Distance to an upper-secondary school"
@@ -1532,6 +1676,7 @@ indicators:
     definition: "Mean travel distance from rural dwellings to the nearest upper-secondary school (lycée)."
     note: "Rural communes only, aggregated from HCP's douar-level tables: population-weighted for people, household-weighted for dwellings and distances."
   dist_health:
+    questionnaire_2024: short
     weight: households
     theme: "rural_settlement"
     en: "Distance to a health centre"
@@ -1604,8 +1749,9 @@ datasets:
       hh_size_avg: {indicator: hh_size_avg, from: "Démographie: Taille moyenne du ménage"}
       n_households: {indicator: n_households, from: "Démographie: Ménages total"}
       pct_no_education: {indicator: pct_no_education, from: "Socio-culturel: NIVEAU D'INSTRUCTION, Néant (%)"}
-      pct_illiterate: {indicator: pct_illiterate, from: "Socio-culturel: Taux d'analphabétisme"}
       pct_no_lang_written: {indicator: pct_no_lang_written, from: "Socio-culturel: LANGUES PARLEES ET ECRITES, Aucune (%)"}
+      pct_illiterate: {indicator: pct_illiterate, from: "Socio-culturel: LANGUES PARLEES ET ECRITES, Aucune (%) (population 10 ans et plus)"}
+      pct_illiterate_15_24: {indicator: pct_illiterate_15_24, from: "Socio-culturel: Taux d'analphabétisme chez les jeunes 15 ans à 24"}
       pct_women_divorced: {indicator: pct_women_divorced, from: "Socio-culturel: ETAT MATRIMONIAL, Divorcé Féminin / sum of the four Féminin rows (effectifs)"}
       pct_migrant_since99: {indicator: pct_migrant_since99, from: "Socio-culturel: RESIDENCE EN 1999, Commune différente (%)"}
       activity_rate: {indicator: activity_rate, from: "Économie: Actifs (%)"}
@@ -1822,6 +1968,8 @@ datasets:
       province24_ar: {en: Province or prefecture in Arabic (2024), unit: text, definition: "HCP's Arabic name of the province or prefecture ('إقليم ...', 'عمالة ...'), from the 2024 legal population list.", source: poplegale2024}
       population24: {indicator: population, from: "Population col 3: Population municipale"}
       pop_legal24: {indicator: population_legal, from: "Population légale 2024: Population", source: poplegale2024}
+      pop24_source: {en: Source of the 2024 population, unit: flag, definition: "census, or admin where HCP's legal list stars the commune: '* Données recueillies auprès de l'Administration locale en raison de la mobilité saisonnière de la population' (Mijik, Lagouira, Aghouinite, Zoug). Their population24 is that administrative figure, equal to pop_legal24; do not compute growth rates from it.", source: poplegale2024}
+      sampled24: {en: Detailed questionnaire sampled (2024), unit: flag, definition: "True where the commune counts 2,000 households or more in the 2024 census (n_households). HCP gave its detailed questionnaire to all households of smaller communes and to a 20% sample elsewhere, so indicators tagged questionnaire_2024 detailed are weighted estimates here. HCP applied the threshold to its pre-census household count, which is not published; this census count approximates it.", source: morocco-census}
       age_0_4: {indicator: age_0_4, from: "Population col 6: Âge quinquennal 0-4 ans"}
       age_5_9: {indicator: age_5_9, from: "Population col 7: 5-9 ans"}
       age_10_14: {indicator: age_10_14, from: "Population col 8: 10-14 ans"}
@@ -1990,7 +2138,7 @@ datasets:
     slice: sex
     key: app_code, sex
     en: RGPH 2004 commune profiles by sex
-    description: Male and female rates of the 2004 profiles, from the female counts the pages give under each category; male = all minus female. Each section's base is the sum of its categories (marital status 15+, education 25+, status in employment); ages are shares of each sex's population; youth illiteracy (15-24) is HCP's female rate, and the male rate follows from the 15-24 population by sex.
+    description: Male and female rates of the 2004 profiles, from the female counts the pages give under each category; male = all minus female. Each section's base is the sum of its categories (marital status 15+, education 25+, status in employment); ages are shares of each sex's population; illiteracy is the 'Aucune' share of each sex's 10+ population; youth illiteracy (15-24) is HCP's female rate, and the male rate follows from the 15-24 population by sex.
     source: app2004
     columns:
       app_code: {en: App commune code, unit: code, definition: 10-digit commune code of the Maroc en Chiffres app; join to code14 via crosswalk_app2004.}
@@ -2020,6 +2168,7 @@ datasets:
       age_65plus: {indicator: age_65plus}
       age_75plus: {indicator: age_75plus}
       pct_illiterate: {indicator: pct_illiterate}
+      pct_illiterate_15_24: {indicator: pct_illiterate_15_24}
   - id: communes_2014_milieu
     file: communes_2014_milieu.csv
     vintage: 2014
@@ -2458,8 +2607,8 @@ datasets:
       code24: {en: Code in the 2025 MPI database, unit: code, definition: "As in crosswalk_communes; for city rows, the city's 2024 commune."}
       code24_commune: {en: Commune code (2024), unit: code, definition: "As in crosswalk_communes: the communes_2024 row the commune falls in."}
       name24: {en: Commune name (2024), unit: text, definition: Matched 2024 label.}
-      label04: {en: 2004 annex label, unit: text, definition: Matched label in commune_indices_2004.}
-      src04: {en: 2004 value provenance, unit: flag, definition: "direct | fuzzy (name match) | imputed_cercle | imputed_province."}
+      label04: {en: 2004 annex labels, unit: text, definition: "The commune_indices_2004 rows its 2004 values come from, joined by ' + ' where several 2004 units form the commune."}
+      src04: {en: 2004 annex value provenance, unit: flag, definition: "direct (the annex rows of the commune's own 2004 units, through crosswalk_app2004, or its 2014 name) | fuzzy (2014 name, fuzzy) | copied_parent (a commune made only of parts of split 2004 units carries their rates) | imputed_cercle | imputed_province. label04 lists the annex rows used, joined by ' + '."}
       src14: {en: 2014 MPI provenance, unit: flag, definition: "empty = direct; imputed_cercle | imputed_province."}
       src24: {en: 2024 MPI provenance, unit: flag, definition: "empty = direct; imputed_cercle | imputed_province."}
       idh04: {indicator: idh, vintage: 2004, source: annex2004, from: "Annexe 2: IDH"}
@@ -2508,11 +2657,12 @@ datasets:
       code24: {en: Code in the 2025 MPI database, unit: code, definition: "Matched code in HCP's May-2025 MPI database, which lists arrondissements; for the 41 arrondissements it is not a row of communes_2024."}
       code24_commune: {en: Commune code (2024), unit: code, definition: "The communes_2024 row the 2014 commune falls in: code24, or for an arrondissement its city's 2024 commune (e.g. 6141010 Casablanca). Covers all 1,503 2024 communes."}
       name24: {en: Commune name (2024), unit: text, definition: Matched 2024 label.}
-      label04: {en: 2004 annex label, unit: text, definition: Matched 2004 label.}
-      idh04: {indicator: idh, vintage: 2004, source: annex2004, from: "Annexe 2: IDH (copied for convenience)"}
-      src04: {en: 2004 match type, unit: flag, definition: "direct | fuzzy | empty (unmatched)."}
+      label04: {en: 2004 annex labels, unit: text, definition: As in panel_commune.}
+      idh04: {indicator: idh, vintage: 2004, source: annex2004, from: "Annexe 2: IDH (the panel's value, copied for convenience)"}
+      src04: {en: 2004 annex value provenance, unit: flag, definition: "As in panel_commune, empty where the panel imputes; label04 and idh04 follow the panel."}
       pop04_basis: {en: Basis of the 2004 population, unit: flag, definition: "How the commune's 2004 counts are built from crosswalk_app2004: direct (whole 2004 units) | calibrated (a split weight set from HCP's 2004 figure) | split_2014pop (a split weight from 2014 population) | centre_only (a municipality built from autonomous centres alone, so its 2004 count omits territory added later and its 2004-2014 growth is overstated) | none (no 2004 unit)."}
       unplaced04_nearby: {en: Near unplaced 2004 population, unit: flag, definition: "True where the commune borders a placed part of a 2004 unit that is only partly placed, or lies at or next to an unplaced unit (catalog/link_review.csv, near): some of its 2004 population may be missing. Arrondissements are flagged only as placed parts."}
+      in_western_sahara: {en: In Western Sahara, unit: flag, definition: "yes / partly / no: the share of HCP's commune polygon south of 27°40'N and west of 8°40'W (the territory's limits since 1958, when the Tarfaya strip north of 27°40'N passed to Morocco), in an equal-area projection; within 5% of all or none counts as all or none. Geometric only, on HCP's polygons; implies no position on the territory's status."}
 
   - id: crosswalk_app2004
     file: crosswalk_app2004.csv

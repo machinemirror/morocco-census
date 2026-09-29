@@ -11,7 +11,36 @@ mean of same-cercle communes (fallback: province) and flagged in src04/src14/src
 
 import pandas as pd
 
-from .config import CITIES, P_CROSSWALK, P_INDICES_2004, P_PANEL, R_CARTO, R_MPI, RAW
+from .config import CITIES, P_COMMUNES, P_CROSSWALK, P_CROSSWALK_APP, P_INDICES_2004, P_PANEL, R_CARTO, R_MPI, RAW
+from .crosswalk import annex_units
+
+ANNEX = ["taux_pauvrete04", "vulnerabilite04", "severite04", "inegalite04", "idh04", "ids04"]
+
+
+def annex_via_profiles(p: pd.DataFrame, d04: pd.DataFrame) -> pd.DataFrame:
+    """Annex values through the reviewed profile links, which pair 2004 units with 2004 annex rows, wherever every
+    2004 unit of a commune has its annex row. The 2014-name match stays for the rest; it can take a rural commune's
+    row for the municipality its centre became (Tahannaout, Driouch). Several units are combined weighted by their
+    2004 population (times the split weight); a commune made only of parts of split units carries their rates (copied_parent)."""
+    app = pd.read_csv(P_CROSSWALK_APP, dtype={"app_code": str, "code14": str})
+    pop = pd.read_csv(P_COMMUNES[2004], dtype={"app_code": str}).set_index("app_code").population04
+    units = annex_units()
+    app["label"] = app.app_code.map(units)
+    app["w"] = app.app_code.map(pop) * app.weight
+    complete = app.groupby("code14").label.agg(lambda s: s.notna().all())
+    use = app[app.code14.isin(complete.index[complete])].merge(d04, on="label")
+    rows = []
+    for code, g in use.groupby("code14"):
+        r = {"code14": code, "label04": " + ".join(g.label), "src04": "copied_parent" if (g.weight < 1).all() else "direct"}
+        for c in ANNEX:
+            v = g[c].notna()
+            r[c] = (g[c][v] * g.w[v]).sum() / g.w[v].sum() if v.any() and g.w[v].sum() > 0 else float("nan")
+        rows.append(r)
+    via = pd.DataFrame(rows).set_index("code14")
+    hit = p.code14.isin(via.index)
+    for c in ["label04", "src04", *ANNEX]:
+        p.loc[hit, c] = p.loc[hit, "code14"].map(via[c]).values
+    return p
 
 
 def main() -> pd.DataFrame:
@@ -29,6 +58,7 @@ def main() -> pd.DataFrame:
         suffixes=("", "_dup"),
     )
     p = p.drop(columns=[c for c in p.columns if c.endswith("_dup")])
+    p = annex_via_profiles(p, d04)
 
     # poverty map 2004-2014 (MPI)
     x = pd.ExcelFile(R_CARTO)
