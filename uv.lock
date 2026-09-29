@@ -446,7 +446,7 @@ wheels = [
 
 [[package]]
 name = "morocco-census"
-version = "2026.9.9"
+version = "2026.9.10"
 source = { editable = "." }
 dependencies = [
     { name = "beautifulsoup4" },
