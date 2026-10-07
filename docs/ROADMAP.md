@@ -36,8 +36,17 @@ cites the one used.
   value, imputed`).
 - **Stricter checks.** Recompute `validation.json` from the tables in a test; assert each extracted column's
   French header against the extraction spec, so a re-issued workbook with shifted columns fails the build.
-- **White paper.** Under review (round 3 done); to cite the dataset's concept DOI (10.5281/zenodo.22953567), and could go
-  to a data journal as a data note.
+- **Catalogue headers.** For some 2014 columns the `from` field records a cell value instead of the column header
+  (`menages_2014.xlsx col 12: 3.24515407644768`): the header row is read at the wrong offset for those workbooks.
+- **National out-of-sample test.** The test set covers Casablanca-Settat only. HCP's other regional directorates may
+  publish 2004 populations on 2014 boundaries (as Settat and Grand Casablanca do); harvesting them would make the
+  linkage test national.
+- **Safer fetches.** Download to `.part` and keep the recorded copy when a checksum differs, rather than replacing it
+  and refusing the build; assert that every map unit has a neighbour in the contiguity file.
+- **White paper.** Revised against 2026.9.10 after three review rounds. To be posted to Zenodo as its own Preprint
+  record, with "Describes" relations to the dataset's concept DOI (10.5281/zenodo.22953567) and the 2026.9.10 version
+  DOI (10.5281/zenodo.23033759); once it has a DOI, link it from the README, the About page and CONTRIBUTING, and add
+  it to CITATION.cff's references. A data-note version for a journal could follow.
 
 ## Site
 

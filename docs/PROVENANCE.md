@@ -18,15 +18,16 @@ with `--accept-changes`.
 | 2004 indices | `parse_2004.annex` | HCP 2004 poverty volume, Annexe 2 (PDF) | `commune_indices_2004.csv` |
 | 2004 table | `parse_2004.app` | crawled profile pages | `communes_2004.csv`, `communes_2004_sex.csv` |
 | Crosswalk | `crosswalk.communes` | 2014 commune list, 2004 annex, 2004–2014 poverty map, 2025 MPI database | `crosswalk_communes.csv` |
-| 2014 and 2024 tables | `extract.py` | HCP 2014 commune workbooks; 2024 indicators and other workbooks; 2024 legal population (names) | `communes_2014.csv`, `communes_2024.csv`, `communes_{2014,2024}_{milieu,sex}.csv` |
-| Panel | `panel.py` | crosswalk, annex, poverty map, MPI database, 2014 legal population | `panel_commune.csv` |
+| 2014 and 2024 tables | `extract.py` | HCP 2014 commune workbooks; 2024 indicators and other workbooks; 2014 and 2024 legal population (names, legal counts, starred administrative figures) | `communes_2014.csv`, `communes_2024.csv`, `communes_{2014,2024}_{milieu,sex}.csv` |
 | App crosswalk | `crosswalk.app2004` | app commune index, crosswalk, `catalog/link_review.csv`, 2014 population | `crosswalk_app2004.csv` |
-| Geometry | `mc geometry` · `geometry.py` | crosswalk, GeoNames, Wikidata, `catalog/seed_review.csv`, `catalog/seed_names.csv`, Natural Earth, HCP boundary files | `geometry/*` (commune points, HCP boundaries and their queen weights) |
-| 2004 flags | `crosswalk.pop04_flags` | both crosswalks, `catalog/link_review.csv`, the boundaries' contiguity | `pop04_basis`, `unplaced04_nearby` in `crosswalk_communes.csv` and `panel_commune.csv` |
-| Validate | `mc validate` · `validate.py` | tables, legal population 2014 and 2024, `catalog/hcp_2004_on_2014.csv`, HCP Settat and Grand Casablanca documents (test set) | `validation.json` |
+| Panel | `panel.py` | crosswalk, app crosswalk (annex rows through the 2004 units), annex, poverty map, MPI database, 2014 legal population | `panel_commune.csv` |
+| Flags | `crosswalk.pop04_flags` | both crosswalks, the panel, `catalog/link_review.csv`, the boundaries and their contiguity (tracked, from the last `mc geometry`) | `pop04_basis`, `unplaced04_nearby`, `in_western_sahara`; the crosswalk's `label04`/`src04`/`idh04` set from the panel |
+| Geometry | `mc geometry` · `geometry.py` | crosswalk, GeoNames, Wikidata, `catalog/seed_review.csv`, `catalog/seed_names.csv`, Natural Earth, HCP boundary files | `geometry/*` (commune points, HCP boundaries and their contiguity weights) |
+| Validate | `mc validate` · `validate.py` | tables, legal population 2014 and 2024, `catalog/hcp_2004_on_2014.csv`, HCP Settat and Grand Casablanca documents (test set), national rows of the 2014 and 2024 workbooks, `catalog/hcp_national_2004.csv` | `validation.json` |
 | Site | `mc site` · `site.py` | processed tables, catalogue | `site/data/` (map index and values by theme and breakdown, class breaks, geometry, downloads) |
 
-`mc all` runs build, geometry, validate and site. Of these, only `site` runs in GitHub Actions (to deploy the site and
+`mc build` runs every step from the 2004 indices to the flags, in the order above; `mc all` runs build, geometry,
+validate and site. Of these, only `site` runs in GitHub Actions (to deploy the site and
 the release bundle); the others need the raw files. CI also runs ruff and the tests, which read the tracked outputs.
 
 ## Sources
@@ -49,6 +50,8 @@ the release bundle); the others need the raw files. CI also runs ruff and the te
 | Boundaries and 2024 labels | HCP, RGPH 2024 results platform: 75 per-province commune boundary files (2014 census cartography); bilingual indicator menu (chart 667) and concept definitions | https://resultats2024.rgphapps.ma |
 | 2004 on 2014 boundaries | HCP regional monographs and notes (Berrechid, Grand Casablanca, Settat, Rabat-Salé-Kénitra, Salé, M'Diq-Fnideq), each cited in `catalog/hcp_2004_on_2014.csv` | hcp.ma regional sites |
 | 2004 test set | HCP Direction provinciale de Settat, *Population légale d'après les résultats du RGPH 2004* (Settat and Benslimane on post-2009 codes; regional totals); HCP Grand Casablanca, *note de présentation des premiers résultats RGPH 2014* (every commune of the region, 2004 on 2014 boundaries) | hcp.ma/reg-chaouia/docs/Publications/Population%20legale_2004.pdf; hcp.ma/reg-casablanca/docs/docs/rgph2014__region_grand_casablanca_note_de_presentation_des_premiers_resultats.pdf |
+| 2004 national figures | HCP, RGPH 2004, *Caractéristiques démographiques et socio-économiques de la population, rapport national*: 22 values in `catalog/hcp_national_2004.csv`, each with table and page | https://www.hcp.ma/region-drda/attachment/396872/ |
+| 2024 questionnaires | HCP, *Informations essentielles sur le RGPH 2024* and *Nouveautés méthodologiques (Questions du Recensement 2024)*: which topics each questionnaire covers (`questionnaire_2024`) | hcp.ma, articles a3933 and a3937 |
 | Commune decrees | Décret n° 2-08-520 (BO 5684, 2008) and n° 2-09-320 (BO 5744, 2009): lists of communes, consulted for the 2009 reorganisation | sgg.gov.ma (via the Internet Archive) |
 | Seed points | GeoNames MA + EH (CC BY 4.0); Wikidata rural and urban communes of Morocco, SPARQL query in `fetch.py` (CC0) | geonames.org; query.wikidata.org |
 | Outline | Natural Earth 1:10m admin-0, Morocco + W. Sahara (public domain) | naturalearthdata.com |

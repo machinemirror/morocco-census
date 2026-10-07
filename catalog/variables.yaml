@@ -2579,7 +2579,7 @@ datasets:
     vintage: 2004
     key: label
     en: 2004 commune poverty and development indices
-    description: Annexe 2 of HCP's 2004 poverty and human-development volume, parsed from the PDF. One row per printed commune (1,677); labels carry a province prefix.
+    description: Annexe 2 of HCP's 2004 poverty and human-development volume, parsed from the PDF. One row per printed 2004 commune or autonomous centre (1,689); labels carry the 2004 province as a prefix and are sometimes cut short. Panel values reach 2014 communes through crosswalk_app2004 (see panel_commune.label04).
     source: annex2004
     columns:
       page: {en: PDF page, unit: page, definition: Page of the source PDF.}

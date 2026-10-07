@@ -4,7 +4,7 @@
 
 Commune-level data from Morocco's three most recent censuses (RGPH 2004, 2014 and 2024),
 harmonized on one commune key, with HCP's commune boundaries, urban/rural and male/female breakdowns, a catalogue
-of every variable, and an interactive map (227 indicators, 387 indicator-census series; the map shows the 50
+of every variable, and an interactive map (228 indicators, 388 indicator-census series; the map shows the 50
 observed in all three censuses, by urban/rural for 49 and by sex for 25, readable in English, French or Arabic with
 HCP's own place names and labels).
 
@@ -13,7 +13,7 @@ HCP's own place names and labels).
 | | 2004 | 2014 | 2024 |
 |---|---|---|---|
 | Communes in HCP's tables | 1,689 | 1,538 | 1,503 |
-| Commune variables | 69 | 133 | 164 |
+| Commune variables | 70 | 133 | 164 |
 | Poverty / development indices | IDH, IDS, poverty, MPI (poverty map) | MPI (both series) | MPI |
 | Linked to the 2014 list | 1,536 (annex) · 1,537 (profiles) | spine | 1,538 |
 
@@ -39,10 +39,10 @@ Everything published is in [`data/processed/`](data/processed) and described col
 | `communes_2004_sex.csv` | 3,378 | `app_code`, `sex` | 2004 profiles by sex, from the pages' female counts |
 | `communes_2014_milieu.csv`, `communes_2024_milieu.csv` | 1,680 · 1,663 | code, `milieu` | urban and rural parts of each commune (HCP's milieu sheets) |
 | `communes_2014_sex.csv`, `communes_2024_sex.csv` | 3,066 · 2,997 | code, `sex` | individual-level indicators by sex |
-| `commune_indices_2004.csv` | 1,677 | `label` | 2004 poverty, vulnerability, IDH, IDS |
+| `commune_indices_2004.csv` | 1,689 | `label` | 2004 poverty, vulnerability, IDH, IDS (HCP's annex, one row per 2004 commune or centre) |
 | `panel_commune.csv` | 1,544 | `code14` | three-census poverty/development panel, with provenance flags; 6 city rows (`level = city`) to drop before summing |
 | `crosswalk_communes.csv` | 1,538 | `code14` | 2014 ↔ 2004 annex ↔ poverty map ↔ 2024 commune (`code24_commune`) ↔ map unit (`unit`) |
-| `crosswalk_app2004.csv` | 1,696 | `app_code`, `code14` | 2004 profile codes → 2014 communes (1,537), with link type and split weight |
+| `crosswalk_app2004.csv` | 1,697 | `app_code`, `code14` | 2004 profile codes → 2014 communes (1,537), with link type, split weight and its basis |
 | `geometry/hcp_communes_2024.gpkg` | 1,503 | `unit` | HCP's commune boundaries, the communes of 2014 and 2024 (the map's default layer) |
 | `geometry/hcp_communes_2024_queen.gal` | 1,503 | | queen-contiguity weights on HCP's boundaries |
 | `geometry/communes_points.gpkg` | 1,502 | `unit` | one point per commune from GeoNames or Wikidata (openly licensed) |
@@ -60,6 +60,18 @@ boundaries and points are keyed by `unit` (the commune, or the city for an arron
 `population24` are HCP's municipal population, the base of the rates; `pop_legal14` and `pop_legal24` add the
 population living collectively (barracks, prisons, boarding schools) and are the resident count for per-capita
 totals, notably in garrison and Saharan communes.
+
+Flags to check before modelling (each defined in the catalogue):
+- `pop04_basis` and `unplaced04_nearby` (crosswalk, panel): how a commune's 2004 counts were built, and whether 2004
+  population left unplaced may belong to it. Six `centre_only` municipalities understate 2004 and overstate growth.
+- `src04/src14/src24` and `n_donors04/14/24` (panel): observed, copied from a split parent, or imputed, and from how
+  many communes.
+- `in_western_sahara` (crosswalk): yes / partly / no, by the share of HCP's polygon south of 27°40′N.
+- `pop24_source` (2024): four Saharan communes whose 2024 figure HCP took from the local administration.
+- `sampled24` (2024) and `questionnaire_2024` (catalogue): where 2024 values from HCP's detailed questionnaire are
+  estimates from a 20% sample.
+- `comparable: false` (catalogue): a definition changes between censuses. An unflagged indicator is one where no
+  break has been found, not one verified as comparable.
 
 ```python
 import pandas as pd
