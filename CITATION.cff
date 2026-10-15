@@ -27,6 +27,9 @@ identifiers:
   - type: doi
     value: 10.5281/zenodo.23033759
     description: Release 2026.9.10
+  - type: doi
+    value: 10.5281/zenodo.23389246
+    description: Release 2026.10.1
 repository-code: "https://github.com/machinemirror/morocco-census"
 url: "https://machinemirror.github.io/morocco-census/"
 keywords:
