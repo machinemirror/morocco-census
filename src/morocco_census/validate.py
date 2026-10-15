@@ -3,7 +3,7 @@
 Tracked, so the numbers a release reports can be read without the raw files:
   - population: each census's commune table against HCP's separately published legal population;
   - linkage: crosswalk match counts and imputation flags;
-  - seeds: agreement between the two gazetteers behind the commune points.
+  - seeds: the commune points' sources and placement rules, their invariant, and the two gazetteers' agreement.
 """
 
 import json
@@ -20,6 +20,7 @@ from .config import (
     P_CROSSWALK,
     P_CROSSWALK_APP,
     P_PANEL,
+    P_POINTS,
     P_SEEDS,
     P_SLICES,
     P_UNMATCHED,
@@ -303,6 +304,15 @@ def national() -> dict:
     }
 
 
+def points_invariant() -> list[str]:
+    import geopandas as gpd
+
+    from . import geometry
+
+    pts = gpd.read_file(P_POINTS, layer="points")
+    return geometry.check_points(pts, geometry.polygons(), geometry.review_table())
+
+
 def main() -> dict:
     cw = pd.read_csv(P_CROSSWALK, dtype=str)
     app = pd.read_csv(P_CROSSWALK_APP, dtype=str)
@@ -332,9 +342,12 @@ def main() -> dict:
             },
         },
         "seeds": {
-            "units": len(seeds) + len(pd.read_csv(P_UNMATCHED)),
+            "units": len(seeds),
             "placed": len(seeds),
+            "no_gazetteer_match": len(pd.read_csv(P_UNMATCHED)),
+            "invariant_violations": len(points_invariant()),
             "by_source": {k: int(v) for k, v in seeds.pt_src.value_counts().items()},
+            "by_rule": {k: int(v) for k, v in seeds.pt_rule.value_counts().items()},
             "fuzzy": int((seeds.match == "fuzzy").sum()),
             "both_gazetteers": len(check),
             "median_km": round(float(check.km.median()), 2),

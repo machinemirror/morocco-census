@@ -84,9 +84,11 @@
     those of 2024 one to one, and the 41 arrondissements of 2014 are the 6 city communes of 2024. The boundaries are in
     the downloads with queen-contiguity weights, and should be credited to HCP. HCP publishes them per province, and
     their edges leave hairline gaps along province borders, so the weights allow 50 m of tolerance.</p>
-  <p>Each commune also has one point, from the GeoNames gazetteer or from Wikidata where GeoNames lacks it, published
-    for uses that need locations rather than polygons. Where the two place a commune more than 25 km apart, the choice
-    between them is recorded in <code>catalog/seed_review.csv</code>. Until release 2026.9.6 the map's alternative
+  <p>Each commune also has one point, published for uses that need locations rather than polygons. It always lies
+    inside the commune's HCP polygon: the GeoNames or Wikidata point for the commune, a municipality's town, or where
+    no gazetteer point falls inside, a point of the polygon; the build fails otherwise. Where the two gazetteers place a
+    commune more than 25 km apart, and wherever a point was decided by hand, the choice is recorded in
+    <code>catalog/seed_review.csv</code>. Until release 2026.9.6 the map's alternative
     layer was a set of Thiessen cells built around these points; HCP's boundaries replace it.</p>
   <p>HCP's layer is keyed by 2014 commune codes, so every 2014 commune has its polygon and 2024 values follow
     through the crosswalk. 2004 values are drawn on these later boundaries too. The 2004 profiles report a rural
@@ -101,8 +103,8 @@
 
   <h2>Known gaps</h2>
   <ul>
-    <li>One commune (Sidi Mohamed Ben Mansour, Kénitra) has no gazetteer point
-      (<code>points_unmatched.csv</code>); it has its HCP boundary. Five others are placed from gazetteer spellings recorded in <code>catalog/seed_names.csv</code>.</li>
+    <li>Four communes have no gazetteer point inside their HCP polygon and are placed at a point of the polygon
+      (<code>pt_src</code> <code>hcp_polygon</code>). Seven are placed from gazetteer spellings recorded in <code>catalog/seed_names.csv</code>.</li>
     <li>In 2014 the six largest cities are split into 41 arrondissements; in 2024 they are single communes. The map
       merges the arrondissements into one city (sums for counts, population-weighted means for rates); the
       tables keep them separate, and the crosswalk's <code>code24_commune</code> and <code>unit</code> give each

@@ -150,18 +150,29 @@
   },
   "seeds": {
     "units": 1503,
-    "placed": 1502,
+    "placed": 1503,
+    "no_gazetteer_match": 0,
+    "invariant_violations": 0,
     "by_source": {
-      "geonames": 1448,
-      "wikidata": 54
+      "geonames": 1406,
+      "wikidata": 93,
+      "hcp_polygon": 4
     },
-    "fuzzy": 22,
-    "both_gazetteers": 1374,
-    "median_km": 3.26,
+    "by_rule": {
+      "match": 1175,
+      "seat": 237,
+      "crosscheck": 40,
+      "review": 37,
+      "snapped": 10,
+      "polygon": 4
+    },
+    "fuzzy": 39,
+    "both_gazetteers": 1376,
+    "median_km": 3.27,
     "p90_km": 9.84,
     "over_25km": 37,
     "decided_by": {
-      "agree": 1337,
+      "agree": 1339,
       "review": 35,
       "anchor": 2
     }

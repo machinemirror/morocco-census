@@ -145,18 +145,21 @@ def test_shares_sum_to_100():
 
 def test_geometry():
     pts = gpd.read_file(P_POINTS, layer="points")
-    assert len(pts) == 1502 and pts.unit.is_unique
-    assert set(pts.pt_src) == {"geonames", "wikidata"}  # openly licensed gazetteers only
+    assert len(pts) == 1503 and pts.unit.is_unique
+    # openly licensed gazetteers, or a point inside HCP's own polygon
+    assert set(pts.pt_src) == {"geonames", "wikidata", "hcp_polygon"}
 
 
 def test_seed_review():
-    review = pd.read_csv(SEED_REVIEW, dtype=str)
+    review = pd.read_csv(SEED_REVIEW, dtype=str, keep_default_na=False)
     check = pd.read_csv(P_CROSSCHECK, dtype={"unit": str})
-    assert review.unit.is_unique and review.source.isin(["geonames", "wikidata"]).all()
-    assert set(review.unit) <= set(check.unit[check.flag])  # a review only settles a disagreement
+    assert review.unit.is_unique and review.source.isin(["geonames", "wikidata", "hcp_polygon"]).all()
+    assert (review.evidence != "").all() and review.reviewed.str.fullmatch(r"\d{4}-\d{2}-\d{2}").all()
     assert check.loc[check.flag, "decided_by"].isin(["review", "anchor"]).all()
-    seeds = pd.read_csv(P_SEEDS, dtype={"unit": str}).set_index("unit")
-    assert (seeds.loc[review.unit, "pt_src"].to_numpy() == review.source.to_numpy()).all()
+    seeds = pd.read_csv(P_SEEDS, dtype={"unit": str, "source_id": str}).set_index("unit").loc[review.unit]
+    assert (seeds.pt_src.to_numpy() == review.source.to_numpy()).all() and (seeds.pt_rule == "review").all()
+    pinned = review.source_id != ""
+    assert (seeds.source_id[pinned.to_numpy()].to_numpy() == review.source_id[pinned].to_numpy()).all()
 
 
 @pytest.mark.parametrize("year,key", [(2014, "code14"), (2024, "code24")])
