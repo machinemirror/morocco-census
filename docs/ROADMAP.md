@@ -23,7 +23,7 @@ cites the one used.
   Chatai and Sidi El Mekki went to Had Soualem, Soualem Trifiya and Sahel Oulad H'Riz in unpublished proportions;
   the remainders of Dar Bouazza, Oulad Salah, Ain Dorbane and Lamkansa are also unplaced (65,599 in all).
   HCP's full 2004-2014 commune table (it computed one) or the ministerial boundary arrêtés would settle these.
-  Sidi Mohamed Ben Mansour has no seed point (it has its HCP boundary). 24 of the 1,689 2004 profile units have no identified annex row (spelling variants such as "Kahf nsour" /
+  24 of the 1,689 2004 profile units have no identified annex row (spelling variants such as "Kahf nsour" /
   "Kahf Nssar"); Ait Sedrate Sahl El Gharbia's 2004 annex values are imputed for that reason.
 - **Boundary changes the test set shows.** Of the 87 out-of-sample communes, 23 miss by more than 2%, most on
   one-to-one links: Sidi Abdelkrim, Ain Tizgha, Ziaida (Settat), and Lahraouyine against Sidi Othmane, Tit Mellil

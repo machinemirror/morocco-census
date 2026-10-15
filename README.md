@@ -45,14 +45,15 @@ Everything published is in [`data/processed/`](data/processed) and described col
 | `crosswalk_app2004.csv` | 1,697 | `app_code`, `code14` | 2004 profile codes → 2014 communes (1,537), with link type, split weight and its basis |
 | `geometry/hcp_communes_2024.gpkg` | 1,503 | `unit` | HCP's commune boundaries, the communes of 2014 and 2024 (the map's default layer) |
 | `geometry/hcp_communes_2024_queen.gal` | 1,503 | | queen-contiguity weights on HCP's boundaries |
-| `geometry/communes_points.gpkg` | 1,502 | `unit` | one point per commune from GeoNames or Wikidata (openly licensed) |
+| `geometry/communes_points.gpkg` | 1,503 | `unit` | one point per commune, inside its HCP polygon: the town or gazetteer point from GeoNames or Wikidata (openly licensed), else a point of the polygon |
 | `validation.json` | | | populations against HCP's legal population, linkage and seed-point checks |
 
 `geometry/` also holds build intermediates, tracked so the checks can be audited: the Natural Earth outline
 (`boundary_mar_esh.gpkg`) and neighbouring countries (`context_countries.gpkg`) the map draws, and the seed-point
-review files: `points_seeds.csv` (each point's gazetteer match), `points_crosscheck.csv` (GeoNames against
-Wikidata), `points_unmatched.csv` (communes without a point) and `points_duplicate.csv` (units dropped for sharing
-coordinates; currently none).
+review files: `points_seeds.csv` (each point's source, placement rule and gazetteer identifier),
+`points_crosscheck.csv` (GeoNames against Wikidata) and `points_unmatched.csv` (communes neither gazetteer matches;
+currently none). Every point lies inside its commune's HCP polygon, and a municipality's point is its town; `mc
+geometry` and the tests fail otherwise (the invariant is in [PROVENANCE](docs/PROVENANCE.md#geometry)).
 
 Read codes as text: `app_code` has leading zeros and `code14` ends with a dot. Join 2024 tables through the
 crosswalk's `code24_commune`, not `code24`: the 41 arrondissements of 2014 are the six city communes of 2024. The

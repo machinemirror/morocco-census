@@ -438,6 +438,7 @@ unit,name14,prov14,geonameid,qid,km,flag,chosen,decided_by
 04.281.05.03.,Ben Mansour,Kénitra,11911430,Q2368983,8.02,False,geonames,agree
 04.281.05.07.,Mnasra,Kénitra,6545590,Q12245176,104.73,True,geonames,review
 04.281.05.09.,Mograne,Kénitra,11911434,Q2369007,4.14,False,geonames,agree
+04.281.05.11.,Sidi Mohamed Ben Mansour,Kénitra,11911430,Q2368983,8.02,False,geonames,agree
 04.281.07.01.,Arbaoua,Kénitra,6545447,Q2859627,0.98,False,geonames,agree
 04.281.07.03.,Beni Malek,Kénitra,6545477,Q4887904,7.48,False,geonames,agree
 04.281.07.05.,Kariat Ben Aouda,Kénitra,11911427,Q2368920,5.32,False,geonames,agree
@@ -484,6 +485,7 @@ unit,name14,prov14,geonameid,qid,km,flag,chosen,decided_by
 04.291.09.13.,Sidi Abderrazak,Khémisset,11911857,Q20389839,8.1,False,geonames,agree
 04.291.09.19.,Ait Ali ou Lahcen,Khémisset,10976661,Q25454400,120.76,True,wikidata,review
 04.421.01.07.,Touarga (Mun.),Rabat,6545486,Q3532767,0.86,False,geonames,agree
+04.441.01.,Bab Lamrissa (Arrond.),Salé,11882978,Q466046,5.71,False,geonames,agree
 04.441.01.08.,Sidi Bouknadel (Mun.),Salé,6545710,Q3483204,6.29,False,geonames,agree
 04.441.03.01.,Shoul,Salé,6545709,Q3482552,6.19,False,geonames,agree
 04.441.03.05.,Ameur,Salé,11911945,Q2843153,3.14,False,geonames,agree

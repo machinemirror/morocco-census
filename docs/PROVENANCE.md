@@ -181,24 +181,48 @@ Robustness checks should drop imputed rows; the flags make that a one-line filte
 
 ## Geometry
 
-- Units: 1,503 (the 41 arrondissements collapse to 6 cities). Seed points: 1,448 from GeoNames (1,431 by
-  exact name, 17 by fuzzy name), 54 from Wikidata (49 exact, 5 fuzzy), 1 without a point
-  (`points_unmatched.csv`: Sidi Mohamed Ben Mansour, which neither gazetteer has as a commune). Five communes are
-  matched under a gazetteer spelling recorded in `catalog/seed_names.csv` (Mtalssa as Metalsa, Rmilat as Ermilate...),
-  each checked to fall inside the commune's HCP polygon. Every point, its source identifier (geonameid or QID), feature class and match
-  type is in `points_seeds.csv`.
-- GeoNames matching: commune-level admin features (ADM3/ADM4) before populated places, primary names before
-  alternate names; cercles and higher units are excluded. Candidates must lie within a province radius of
-  the province anchor, the median of units with a single unambiguous candidate (3 × the 75th-percentile
-  anchor distance, clipped to 0.5°–3°). Fuzzy matches (rapidfuzz ≥ 88, a clear margin, every word agreeing)
-  are tried only within that radius.
-- Wikidata: items with several coordinates are used only if these agree within ~15 km (their median is
-  taken); the item's stated province (P131) must match.
-- Cross-check (`points_crosscheck.csv`): 1,374 units are placed by both gazetteers, median 3.3 km apart,
-  90th percentile 9.8 km. 37 disagree by more than 25 km. 35 are settled in `catalog/seed_review.csv`
-  by comparison with an OpenStreetMap Nominatim lookup (used for review only; no OSM data is published),
-  2 without an OSM result by distance to the province anchor. The pattern: GeoNames admin points for
-  municipalities and for Saharan communes are often off; for rural northern communes Wikidata is.
+- Units: 1,503 (the 41 arrondissements collapse to 6 cities, each matched under the city's name), every one with
+  HCP's polygon (`mc geometry` stops otherwise) and one point. Each polygon is linked to its unit by HCP's 2014 code;
+  the build also checks the name HCP gives the polygon against the commune's (all 1,538 agree, the lowest Oued
+  L'bour / Ouad L'bour) and its milieu digit against municipal or rural status, so a polygon cannot sit under another
+  code unnoticed.
+- Gazetteer matching. GeoNames: commune-level admin features (ADM3/ADM4) before populated places, primary names before
+  alternate names; cercles and higher units are excluded. Candidates must lie within a province radius of the province
+  anchor, the median of units with a single unambiguous candidate (3 × the 75th-percentile anchor distance, clipped to
+  0.5°–3°). Fuzzy matches (rapidfuzz ≥ 88, a clear margin, every word agreeing) are tried only within that radius.
+  Wikidata: commune items whose several coordinates, if any, agree within ~15 km (their median is taken) and whose
+  stated province (P131) matches. Seven communes are matched under a gazetteer spelling recorded in
+  `catalog/seed_names.csv` (Mtalssa as Metalsa, Boukraa as Bu Craa...).
+- Cross-check (`points_crosscheck.csv`): 1,376 units are matched by both gazetteers, median 3.3 km apart, 90th
+  percentile 9.8 km. 37 disagree by more than 25 km; 35 are settled in `catalog/seed_review.csv` by comparison with
+  an OpenStreetMap Nominatim lookup (used for review only; no OSM data is published), 2 by distance to the province
+  anchor.
+- **The invariant** (`geometry.check_points`, enforced by `mc geometry` and by `tests/test_points.py` on the published
+  points; `validation.json` reports `seeds.invariant_violations`):
+  1. every map unit has exactly one point, and it lies inside the unit's HCP polygon. The only exception is a row of
+     `catalog/seed_review.csv` with `max_outside_km` and its evidence (a seat on the boundary); there is none today;
+  2. the point is a GeoNames commune admin feature (ADM3/ADM4) or populated place (PPL*, not abandoned, historical
+     or destroyed), a Wikidata commune item, or the polygon's representative point. A municipality's or city's point
+     is its town, a populated place or the Wikidata settlement, never an admin feature's point;
+  3. no point lies within 0.5 km of its province's or region's centroid (HCP's polygons), the mark of a centroid
+     fallback;
+  4. every point lies within 150 km of another point of its province (the sparsest, Boujdour, has 145 km);
+  5. no two units share coordinates.
+  Reviewed rows are exempt from 2 and 3, since their evidence is the decision.
+- Placement (`geometry.resolve`): each unit takes the first of these that lies inside its polygon: the reviewed
+  choice; the gazetteer match; a GeoNames populated place inside the polygon carrying the unit's name (exact, fuzzy,
+  or the name followed by more words, as "Imouzzer des Ida ou Tanane"), ranked PPLC, PPLA ... PPL, then by
+  population; the other gazetteer's point; the match moved 50 m inside the polygon, if it lies within 1 km of it;
+  the polygon's representative point. `points_seeds.csv` gives each point's source (`pt_src`: geonames, wikidata,
+  hcp_polygon), rule (`pt_rule`: review, match, seat, crosscheck, snapped, polygon), identifier, feature class and
+  match type; the GeoPackage carries the same columns. Of 1,503 points: 1,175 match, 237 seat, 40 crosscheck,
+  37 review, 10 snapped, 4 polygon; 1,406 from GeoNames, 93 from Wikidata, 4 HCP representative points (Aklim,
+  Ain Bni Mathar, Méchouar Fès Jdid, Ain Dorbane-Lahlaf, whose polygons contain no gazetteer point that names them).
+  `points_unmatched.csv` lists units neither gazetteer matches (none since 2026.10.1).
+- Units without a polygon: none exist; every 2014 commune has HCP's polygon and the build stops if one is missing,
+  since a point could then not be checked. 2004 profile units are not map units and have no point: their values reach
+  the map through `crosswalk_app2004`. Western Sahara communes follow the same rule as the others: HCP's polygons
+  cover them, and their points lie inside them.
 - Output: `geometry/communes_points.gpkg` (layer `points`). The Natural Earth outline bounds the gazetteer search and
   draws the map's coast and neighbouring countries.
 - Thiessen cells around these points, clipped to Natural Earth, were the map's alternative layer and a download
@@ -227,7 +251,8 @@ published tables.
   aged 7 and over, not HCP's whole population (`comparable: false`). Dwelling types in 2004 agree with HCP's urban
   and rural figures, so the drop in `dwell_other` and the swings in `dwell_villa` between censuses are HCP's own.
 - **Linkage and imputation**: the counts in *Matching* and *Imputation* above, recomputed.
-- **Seed points**: the gazetteer cross-check in *Geometry* above.
+- **Seed points** (`seeds`): sources and placement rules, the invariant's violations (0), and the gazetteer
+  cross-check in *Geometry* above.
 
 ## Changes from the dissertation-era build
 
@@ -314,6 +339,16 @@ byte-for-byte and its tessellation to within 2e-5 m² per cell. Deliberate chang
       `pop24_source` (admin for the four communes HCP stars: « Données recueillies auprès de l'Administration locale
       en raison de la mobilité saisonnière de la population ») and `sampled24`; indicators gain `questionnaire_2024`.
     - The Lakhiaita review row cites what the Berrechid monograph gives and marks the comparison as the pipeline's.
+18. Seed points placed inside their HCP polygons (2026.10.1). 130 of the previous release's 1,502 points lay outside
+    their own commune's polygon: 100 GeoNames ADM3/ADM4 points away from the commune (41 municipalities, among them
+    Laâyoune, 7 km outside its polygon and 13 km east of the city), 3 Wikidata coordinates likewise, 24 within
+    0.25 km of the boundary, 3 just offshore. None was a match to the wrong place and none a polygon under the wrong
+    code. Municipalities had GeoNames' admin point rather than the town, and the six cities their first
+    arrondissement's point. The invariant and placement above replace that; Sidi Mohamed Ben Mansour gets a point
+    (1,503). 294 points move, 192 by more than 1 km and 33 by more than 10 km, each listed with its old and new
+    coordinates and the reason in `docs/seed_points_2026.10.1_moved.csv`. No table, crosswalk, panel or weights file
+    changes: the points feed only the map's unit locations and the points download. `points_duplicate.csv` is
+    retired, since the invariant forbids shared coordinates.
 
 ## HCP commune boundaries (the map's layer)
 

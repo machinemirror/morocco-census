@@ -11,17 +11,22 @@ entry are all worth reporting.
 
 ## Fix a commune's point on the map
 
-Seed points come from GeoNames, or Wikidata where GeoNames lacks the commune. When the two disagree by
-more than 25 km, `catalog/seed_review.csv` records which one is used and why. To correct a point:
+Every commune's point must lie inside its HCP polygon, and a municipality's must be its town (a populated place or
+the Wikidata settlement); `mc geometry` and the tests fail otherwise. The pipeline takes the gazetteer match, else a
+populated place of the commune's name inside the polygon, else the other gazetteer, else a point of the polygon, and
+records which in `pt_rule` (see *Geometry* in `docs/PROVENANCE.md`). To correct a point:
 
 1. If the right place is in GeoNames or Wikidata, add or edit a row in `catalog/seed_review.csv`
-   (`unit`, `name14`, `prov14`, `source`, `evidence`, `reviewed`) and say what you checked in `evidence`.
-2. If neither gazetteer has it right, fix the gazetteer itself: edit the item on
+   (`unit`, `name14`, `prov14`, `source`, optionally `source_id` to name the exact geonameid or QID, `evidence`,
+   `reviewed`) and say what you checked in `evidence`. A reviewed point must still lie inside the polygon; only a seat
+   documented on the boundary may set `max_outside_km`.
+2. If the gazetteer spells the commune differently, add it to `catalog/seed_names.csv`.
+3. If neither gazetteer has it right, fix the gazetteer itself: edit the item on
    [Wikidata](https://www.wikidata.org) (commune items are instances of Q17318027 or Q3327862) or
    report it to [GeoNames](https://www.geonames.org). The next release picks the fix up.
 
-Communes without a point are listed in `data/processed/geometry/points_unmatched.csv`; adding their
-coordinates to Wikidata is the quickest way to put them on the map.
+Communes placed at a point of their polygon (`pt_src` `hcp_polygon`) have no gazetteer point inside it; adding the
+town's coordinates to Wikidata is the quickest way to place them better.
 
 ## Correct a link between censuses
 

@@ -167,7 +167,7 @@ def rounded(s: pd.Series, spec: dict) -> list:
 
 
 def unit_frame(hcp: gpd.GeoDataFrame) -> pd.DataFrame:
-    """Map units in the order of HCP's boundaries, located by their gazetteer point (else a point inside the polygon)."""
+    """Map units in the order of HCP's boundaries, located by their seed point."""
     pts = gpd.read_file(P_POINTS, layer="points").set_index("unit")
     cw = pd.read_csv(P_CROSSWALK, dtype=str).set_index("code14")
     f = pd.DataFrame({"unit": hcp.unit, "name14": hcp.unit.map(cw.name14), "prov14": hcp.unit.map(cw.prov14)})
@@ -175,10 +175,9 @@ def unit_frame(hcp: gpd.GeoDataFrame) -> pd.DataFrame:
     city = f.name14.isna()
     first = cw.reset_index().assign(unit=lambda d: d.code14.str.extract(r"^(\d+\.\d+\.\d+\.)")[0]).drop_duplicates("unit")
     f.loc[city, "prov14"] = f.unit[city].map(first.set_index("unit").prov14)
-    rp = hcp.set_index("unit").representative_point()
-    f["lon"] = pts.geometry.x.reindex(f.unit).fillna(rp.x.reindex(f.unit)).values
-    f["lat"] = pts.geometry.y.reindex(f.unit).fillna(rp.y.reindex(f.unit)).values
-    f["pt_src"] = pts.pt_src.reindex(f.unit).fillna("hcp polygon").values
+    f["lon"] = pts.geometry.x.reindex(f.unit).values
+    f["lat"] = pts.geometry.y.reindex(f.unit).values
+    f["pt_src"] = pts.pt_src.reindex(f.unit).values
     return f.reset_index(drop=True)
 
 

@@ -1,6 +1,8 @@
 unit,name14,gazetteer_name,evidence
 02.167.03.09.,Mtalssa,Metalsa,"Wikidata Q12205802 (Driouch Province); point inside HCP's polygon for the commune"
 02.533.03.17.,Sidi Ali Bel Quassem,Sidi Ali Belkassem,"GeoNames ADM3 6545919 and Wikidata Q15277627 (Taourirt Province); point inside HCP's polygon"
+04.281.05.11.,Sidi Mohamed Ben Mansour,Ben Mansour,"Wikidata Q2368983, a rural commune of Kénitra Province; point inside HCP's polygon"
 04.481.11.05.,Rmilat,Ermilate,"GeoNames ADM3 6546451 and Wikidata Q5392453 (Sidi Kacem Province); point inside HCP's polygon"
 06.181.05.01.,My Abdellah,Moulay Abdallah,"GeoNames ADM3 6546792 and Wikidata Q3325520 (El Jadida Province); point inside HCP's polygon"
 07.431.03.02.,Chahda,Douar Chehda,"GeoNames PPL 2553438, the only commune-sized match; point inside HCP's polygon"
+11.321.03.01.,Boukraa,Bu Craa,"GeoNames PPL 2463090, the Bou Craa mining town; point inside HCP's polygon (the ADM3 'Boukraa' lies 8.5 km outside it)"

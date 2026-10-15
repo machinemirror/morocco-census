@@ -25,8 +25,8 @@ def build() -> None:
 def geometry(outline: str | None = None) -> None:
     from . import geometry as g
 
+    g.hcp_boundaries()  # the points are checked against these polygons
     g.main(outline)
-    g.hcp_boundaries()
 
 
 def validate() -> None:
